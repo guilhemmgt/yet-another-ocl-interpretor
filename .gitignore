@@ -10,6 +10,9 @@ local.properties
 .loadpath
 .recommenders
 
+# MacOS folder info
+**.DS_Store
+
 # External tool builders
 .externalToolBuilders/
 
