@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="RessourceGraphique" nsURI="http://www.example.org/ressourceGraphique"
+    nsPrefix="ressourceGraphique">
+  <eClassifiers xsi:type="ecore:EClass" name="RessourceGraphique">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bloc" upperBound="-1" eType="#//Bloc"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bloc" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocIntermediaire" abstract="true" interface="true"
+      eSuperTypes="#//Bloc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Resultat" eSuperTypes="#//Bloc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="1"
+        eType="#//Bloc"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idColonne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entree" abstract="true" interface="true"
+      eSuperTypes="#//Bloc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocUnaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocIntermediaire">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="1"
+        eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlocBinaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocIntermediaire">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="2"
+        upperBound="2" eType="#//Bloc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FonctionUnaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sinus" eSuperTypes="#//FonctionUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OperateurBinaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//OperateurBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FichierUnaire" eSuperTypes="#//BlocUnaire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chemin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//OperateurBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FonctionBinaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Minimun" eSuperTypes="#//FonctionBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Maximun" eSuperTypes="#//FonctionBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cosinus" eSuperTypes="#//FonctionUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RacineCarree" eSuperTypes="#//FonctionUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Soustraction" eSuperTypes="#//OperateurBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Division" eSuperTypes="#//OperateurBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OperateurUnaire" abstract="true" interface="true"
+      eSuperTypes="#//BlocUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Negation" eSuperTypes="#//OperateurUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Inverse" eSuperTypes="#//OperateurUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FichierBinaire" eSuperTypes="#//BlocBinaire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chemin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefColonne" eSuperTypes="#//Entree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idColonne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constante" eSuperTypes="#//Entree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

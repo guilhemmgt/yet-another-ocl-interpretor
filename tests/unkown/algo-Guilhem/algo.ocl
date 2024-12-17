@@ -1,0 +1,21 @@
+import 'algo.ecore'
+
+package algo
+
+context Algo
+inv formatNom('Le nom de l\'algorithme "' + self.name + '" n\'est pas de la bonne forme'):
+	self.name.size() > 1 and self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+	
+context Documentation
+inv formatCommentaire('Il manque un commentaire'):
+	self.commentaire.size() > 0
+	
+context Ressource
+inv formatChemin('Le chemin d\'accés à la ressource n\'est pas conforme'):
+	self.path.matches('^(../|./|/)(([A-Za-z0-9_]|-)+/)*([A-Za-z0-9_]|-)+.(py|m)$')
+	
+context Flux
+inv formatValue('Le format de la value "' + self.value + '" n\'est pas correct'):
+	self.value.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+endpackage

@@ -1,0 +1,17 @@
+import '../model/ressourceGraphique.ecore'
+
+package RessourceGraphique
+
+context Resultat
+inv ResultatInputNotResultat:
+	self.entree->forAll(e | not e.oclIsKindOf(Resultat))
+
+context BlocUnaire
+inv BlocInputNotSelf:
+	self.entree->forAll(e | e <> self)
+	
+context BlocBinaire
+inv BlocInputNotSelf:
+	self.entree->forAll(e | e <> self)
+
+endpackage

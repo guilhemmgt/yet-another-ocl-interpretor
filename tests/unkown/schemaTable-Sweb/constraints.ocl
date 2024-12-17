@@ -1,0 +1,13 @@
+import '../model/schemaTable.ecore'
+
+package schemaTable
+
+context Colonne
+inv ColumnShouldHaveUniqueId:
+    not Colonne.allInstances()->exists(c | c <> self and self.id = c.id)
+   
+context SchemaTable
+inv UniqueSpecialColumn:
+    self.table.colonne->select(c | c.oclIsTypeOf(ColonneSpeciale))->size() = 1
+	
+endpackage

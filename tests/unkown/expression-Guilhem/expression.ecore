@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="expression" nsURI="http://www.example.org/expression" nsPrefix="expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" upperBound="-1"
+        eType="#//Entree"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
+        eType="#//Sortie"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ExpressionElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" upperBound="-1"
+        eType="#//ExpressionElement" eOpposite="#//ExpressionElement/sortie"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" eType="#//ExpressionElement"
+        eOpposite="#//ExpressionElement/entree"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flux" abstract="true" eSuperTypes="#//ExpressionElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entree" eSuperTypes="#//Flux"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sortie" eSuperTypes="#//Flux"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationNullaire" abstract="true" eSuperTypes="#//ExpressionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constante" eSuperTypes="#//OperationNullaire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationUnaire" abstract="true" eSuperTypes="#//ExpressionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Oppose" eSuperTypes="#//OperationUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Inverse" eSuperTypes="#//OperationUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sinus" eSuperTypes="#//OperationUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cosinus" eSuperTypes="#//OperationUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Racine_carree" eSuperTypes="#//OperationUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Exponentielle" eSuperTypes="#//OperationUnaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationBinaire" abstract="true" eSuperTypes="#//ExpressionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Soustraction" eSuperTypes="#//OperationBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//OperationBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Division" eSuperTypes="#//OperationBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//OperationBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Minimum" eSuperTypes="#//OperationBinaire"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Maximum" eSuperTypes="#//OperationBinaire"/>
+</ecore:EPackage>

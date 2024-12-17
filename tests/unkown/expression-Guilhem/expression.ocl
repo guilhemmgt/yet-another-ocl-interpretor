@@ -1,0 +1,35 @@
+import 'expression.ecore'
+
+package expression
+
+context Expression
+inv formatNom('Le nom de l\'expression "' + self.nom + '" n\'est pas de la bonne forme'):
+	self.nom.size() > 1 and self.nom.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+context Flux
+inv formatNom('Le nom de "' + self.nom + '" n\'est pas de la bonne forme'):
+	self.nom.size() >= 1 and self.nom.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+context OperationNullaire
+inv nullaire('Une constante ne peut pas avoir d\'entré'):
+	self.entree->size() = 0
+	
+context OperationUnaire
+inv unaire('Nécessite exactement une entré'):
+	self.entree->size() = 1
+	
+context OperationBinaire
+inv binaire('Nécessite exactement deux entrés'):
+	self.entree->size() = 2
+	
+context Sortie
+inv pasDeSortie('Une sortie ne peut pas avoir de sortie'):
+	self.sortie->size() = 0
+inv uniqueEntree('Une sortie ne peut pas avoir plusieurs entrées'):
+	self.entree->size() = 1
+		
+context Entree
+inv pasDEntree('Une entrée ne peut pas avoir d\'entrée'):
+	self.entree->size() = 0
+
+endpackage
