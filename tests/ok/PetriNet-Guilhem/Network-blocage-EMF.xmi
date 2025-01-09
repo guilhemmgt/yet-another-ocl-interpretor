@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petrinet:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"     xmlns:petrinet="http://petrinet" xsi:schemaLocation="http://petrinet PetriNet.ecore" name="blocage">
+  <networkElements xsi:type="petrinet:Place" name="Process_A_idle" linksToNextArcs="//@networkElements.6" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="Process_A_started" linksToPrevArcs="//@networkElements.7"/>
+  <networkElements xsi:type="petrinet:Place" name="Process_A_running" linksToPrevArcs="//@networkElements.8" linksToNextArcs="//@networkElements.9"/>
+  <networkElements xsi:type="petrinet:Place" name="Process_A_finished" linksToPrevArcs="//@networkElements.10" linksToNextArcs="//@networkElements.22"/>
+  <networkElements xsi:type="petrinet:Transition" name="Process_A_start" linksToPrevArcs="//@networkElements.6 //@networkElements.23" linksToNextArcs="//@networkElements.7 //@networkElements.8"/>
+  <networkElements xsi:type="petrinet:Transition" name="Process_A_finish" linksToPrevArcs="//@networkElements.9" linksToNextArcs="//@networkElements.10"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.0" linkToNextCase="//@networkElements.4"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.4" linkToNextCase="//@networkElements.1"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.4" linkToNextCase="//@networkElements.2"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.2" linkToNextCase="//@networkElements.5"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.5" linkToNextCase="//@networkElements.3"/>
+  <networkElements xsi:type="petrinet:Place" name="Process_B_idle" linksToNextArcs="//@networkElements.17" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="Process_B_started" linksToPrevArcs="//@networkElements.18"/>
+  <networkElements xsi:type="petrinet:Place" name="Process_B_running" linksToPrevArcs="//@networkElements.19" linksToNextArcs="//@networkElements.20"/>
+  <networkElements xsi:type="petrinet:Place" name="Process_B_finished" linksToPrevArcs="//@networkElements.21" linksToNextArcs="//@networkElements.23"/>
+  <networkElements xsi:type="petrinet:Transition" name="Process_B_start" linksToPrevArcs="//@networkElements.17 //@networkElements.22" linksToNextArcs="//@networkElements.18 //@networkElements.19"/>
+  <networkElements xsi:type="petrinet:Transition" name="Process_B_finish" linksToPrevArcs="//@networkElements.20" linksToNextArcs="//@networkElements.21"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.11" linkToNextCase="//@networkElements.15"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.15" linkToNextCase="//@networkElements.12"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.15" linkToNextCase="//@networkElements.13"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.13" linkToNextCase="//@networkElements.16"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.16" linkToNextCase="//@networkElements.14"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.3" linkToNextCase="//@networkElements.15"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.14" linkToNextCase="//@networkElements.4"/>
+</petrinet:Network>

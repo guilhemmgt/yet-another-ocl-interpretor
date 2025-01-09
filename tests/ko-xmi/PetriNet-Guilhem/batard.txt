@@ -1,0 +1,17 @@
+Problems on Children
+ Network
+    The required feature 'name' of 'Network' must be set
+    The 'Network::nomPasCourt' constraint result is invalid for 'Network'  - 'String' rather than 'OclVoid' value required
+ Place
+    The 'CaseElement::nomValide' constraint result is invalid for 'Place'  - 'String' rather than 'OclVoid' value required
+ Place @nomIncorrect
+    The 'CaseElement::nomValide' constraint is violated for 'Place @nomIncorrect'
+ Arc -1
+    The 'Arc::casesDifferentes' constraint is violated for 'Arc -1'
+    The 'Arc::poidsPositif' constraint is violated for 'Arc -1'
+ Place A
+    The 'CaseElement::nomPasCourt' constraint is violated for 'Place A'
+ Place tokensNegatifs
+    The 'Place::quantitePositive' constraint is violated for 'Place tokensNegatifs'
+ Arc 0
+    The 'Arc::readArcValide' constraint is violated for 'Arc 0'

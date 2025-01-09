@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore"
+    name="Saisons">
+  <networkElements
+      xsi:type="petrinet:Place"
+      name="ete"
+      linksToNextArcs="//@networkElements.6"
+      linksToPrevArcs="//@networkElements.3"
+      tokens="1"/>
+  <networkElements
+      xsi:type="petrinet:Place"
+      name="hiver"
+      linksToNextArcs="//@networkElements.4"
+      linksToPrevArcs="//@networkElements.5"/>
+  <networkElements
+      xsi:type="petrinet:Transition"
+      name="ete_a_hiver"
+      linksToNextArcs="//@networkElements.5"
+      linksToPrevArcs="//@networkElements.6"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.7"
+      linkToNextCase="//@networkElements.0"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.1"
+      linkToNextCase="//@networkElements.7"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.2"
+      linkToNextCase="//@networkElements.1"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.0"
+      linkToNextCase="//@networkElements.2"/>
+  <networkElements
+      xsi:type="petrinet:Transition"
+      name="hiver_a_ete"
+      linksToNextArcs="//@networkElements.3"
+      linksToPrevArcs="//@networkElements.4"/>
+</petrinet:Network>
