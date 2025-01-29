@@ -170,7 +170,7 @@ Comme **Bag**, il s'agit d'une collection avec possibilité de doublons, mais ce
 - selectByKind(type), selectByType(type)
 - asSet(), asOrderedSet(), asSequence(), asBag()
 
-## Iterators
+## Iterators
 
 Cette section est dédiée aux itérateurs sur les collections qui doivent être ajoutées à cette version d'OCL. Puisque la majorité d'entre elles sont relativement complexes, elles seront ajoutées quand le reste du projet sera fonctionnel. Il est vivement conseillé de faire attention à quelle itération se repose sur une autre, pour ne pas faire de travail inutile. En cas de doute, consulter la page 193 de la spécification officielle de OCL.
 Les arguments seront ignorés car tous de la forme *collection.opération(itérateur | corps)*
