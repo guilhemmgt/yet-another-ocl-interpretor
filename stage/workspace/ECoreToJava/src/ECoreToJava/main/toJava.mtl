@@ -1,0 +1,17 @@
+[comment encoding = UTF-8 /]
+[module toJava('http://www.eclipse.org/emf/2002/Ecore')]
+
+[import ECoreToJava::files::validator/]
+[import ECoreToJava::files::validate/]
+[import ECoreToJava::files::validationResult/]
+[import ECoreToJava::files::utils/]
+
+[template public factoryToJava(anEPackage : EPackage)]
+[comment @main/]
+
+[validator(anEPackage)/]
+[validate(anEPackage)/]
+[validationResult(anEPackage)/]
+[utils(anEPackage)/]
+
+[/template]

@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module oclUniqueCollection('http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public oclUniqueCollection(anEPackage : EPackage)]
+
+[file ('OCLUniqueCollection.java', false, 'UTF-8')]
+package oclCollections;
+
+public interface OCLUniqueCollection<E> extends OCLCollection<E> {
+	
+}
+
+[/file]
+[/template]
