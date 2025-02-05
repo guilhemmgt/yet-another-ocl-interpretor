@@ -40,9 +40,9 @@ public class Activator extends AbstractUIPlugin {
 	 * @generated
 	 */
 	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		plugin = this;
-	}
+    super.start(context);
+    plugin = this;
+  }
 
 	/**{@inheritDoc}
 	 *
@@ -50,9 +50,9 @@ public class Activator extends AbstractUIPlugin {
 	 * @generated
 	 */
 	public void stop(BundleContext context) throws Exception {
-		plugin = null;
-		super.stop(context);
-	}
+    plugin = null;
+    super.stop(context);
+  }
 
 	/**
 	 * Returns the shared instance.

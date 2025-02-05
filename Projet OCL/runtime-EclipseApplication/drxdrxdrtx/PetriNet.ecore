@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="petrinet" nsURI="http://petrinet" nsPrefix="petrinet">
+  <eClassifiers xsi:type="ecore:EClass" name="Net">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="netElements" upperBound="-1"
+        eType="#//NetElement" containment="true" eOpposite="#//NetElement/net"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="net" lowerBound="1" eType="#//Net"
+        eOpposite="#//Net/netElements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="#//NetElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokenConsumed" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" lowerBound="1"
+        eType="#//Bloc" eOpposite="#//Bloc/linksToSuccessor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" lowerBound="1"
+        eType="#//Bloc" eOpposite="#//Bloc/linksToPredecessor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Place" eSuperTypes="#//Bloc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="token" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//Bloc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bloc" eSuperTypes="#//NetElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToPredecessor" upperBound="-1"
+        eType="#//Arc" eOpposite="#//Arc/successor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToSuccessor" upperBound="-1"
+        eType="#//Arc" eOpposite="#//Arc/predecessor"/>
+  </eClassifiers>
+</ecore:EPackage>

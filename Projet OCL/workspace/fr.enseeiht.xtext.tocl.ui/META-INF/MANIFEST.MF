@@ -13,12 +13,12 @@ Require-Bundle: fr.enseeiht.xtext.tocl,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.ui.editors;bundle-version="3.14.300",
  org.eclipse.ui.ide;bundle-version="3.18.500",
- org.eclipse.ui,
+ org.eclipse.xtext.builder,
  org.eclipse.compare,
- org.eclipse.xtext.builder
+ org.eclipse.ui
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-17
-Export-Package: fr.enseeiht.xtext.tocl.ui.quickfix,
- fr.enseeiht.xtext.tocl.ui.internal,
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: fr.enseeiht.xtext.tocl.ui.internal,
+ fr.enseeiht.xtext.tocl.ui.quickfix,
  fr.enseeiht.xtext.tocl.ui.contentassist
 Bundle-Activator: fr.enseeiht.xtext.tocl.ui.internal.ToclActivator
