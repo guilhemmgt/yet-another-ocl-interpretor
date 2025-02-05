@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test:Entreprise
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:test="http://test"
+    nom="IRIT">
+  <emploie manage="//@emploie.1"
+      nom="PANTEL"/>
+  <emploie manage="//@emploie.2 //@emploie.3 //@emploie.4 //@emploie.5"
+      manager="//@emploie.0"
+      nom="DUPONT"/>
+  <emploie manager="//@emploie.1"
+      nom="Antoine"/>
+  <emploie manager="//@emploie.1"
+      nom="Valentin"/>
+  <emploie manager="//@emploie.1"
+      nom="Leopold"/>
+  <emploie manager="//@emploie.1"
+      nom="Olivier"/>
+  <emploie nom="PANTEL"/>
+</test:Entreprise>

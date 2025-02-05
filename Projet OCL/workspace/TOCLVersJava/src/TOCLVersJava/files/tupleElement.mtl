@@ -1,0 +1,26 @@
+[comment encoding = UTF-8 /]
+[module tupleElement('http://www.eclipse.org/emf/2002/Ecore', 'http://www.enseeiht.fr/xtext/tocl/Tocl')]
+
+
+[template public tupleElement(aModule : Module)]
+
+[file ('TupleElement.java', false, 'UTF-8')]
+
+package ocl;
+
+public class TupleElement <T> {
+	
+	private String name;
+	private T exp;
+	private Object type;
+	
+	public TupleElement (String name, T exp) {
+		this.name = name;
+		this.type = name.getClass();
+		this.exp = exp;
+	}
+
+}
+
+[/file]
+[/template]

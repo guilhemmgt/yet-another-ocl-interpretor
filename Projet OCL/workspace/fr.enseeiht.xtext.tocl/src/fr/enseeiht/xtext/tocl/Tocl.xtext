@@ -1,0 +1,384 @@
+grammar fr.enseeiht.xtext.tocl.Tocl with org.eclipse.xtext.common.Terminals
+
+generate tocl "http://www.enseeiht.fr/xtext/tocl/Tocl"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+//Model:
+//	(imports+=Import)*
+//	eventsMappings+=EventsMapping*;
+//
+//
+//
+//EventsMapping:
+//	'events mapping' name = ID ':'
+//		dsmlStream=DSMLStream
+//		'observed as'
+//		formalStream=FormalStream	
+//	'end events mapping'
+//;
+//
+//DSMLStream:
+//		elements += (StreamDSMLElement)+
+//;
+//
+//StreamDSMLElement:
+//'DSMLEvent' DSMLEvent
+//;
+//
+//DSMLEvent:
+//	name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID];
+//
+//FormalStream:
+//		elements += (StreamFormalElement)+
+//;
+//StreamFormalElement:
+//'FormalEvent'	FormalEvent
+//;
+//
+//FormalEvent:
+//	name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID] '('  body=OclExpression ')'//
+//;
+
+Module:
+	'module' name=ID ';' imports+=Import (elements+=ModuleElement)+
+;
+
+
+Import:
+'import' package=[ecore::EPackage|STRING] 'as'name=ID;
+
+ModuleElement:
+	 OclModuleElement
+;
+OclModuleElement:
+	OclFeatureDefinition|OclInvariant
+;
+OclFeatureDefinition:
+	('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'def' ':' feature = (Attribute|Operation)
+;
+Attribute :
+	name=ID ':' type=OclType '=' initExpression=OclExpression ';'
+;
+Operation:
+	name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression ';'
+;
+Parameter:
+	name=ID ':' type=OclType
+;
+OclInvariant:
+	('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'inv' name=ID ':' body=OclExpression //';'
+;
+OclExpression returns OclExpression :
+	//LambdaCallExp|
+	OperatorCallExp|LetExp;
+
+OclModelElementExp :
+	model=[Import]'!'name=ID
+;
+
+//priority_5
+TEMPBIOP  		: 'until'|'release';
+
+OperatorCallExp returns OclExpression :
+
+	BoolOpCallExp ({OperatorCallExp.source = current} operationName=TEMPBIOP argument=BoolOpCallExp)*
+;
+
+BoolOpCallExp returns OperatorCallExp :
+	EqOpCallExp (({BoolOpCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
+;
+
+BOOLOP  		: 'and'|'or'|'xor'|'implies'|'equivalent';
+
+EqOpCallExp returns OperatorCallExp :
+	RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )*
+;
+EQOP  		: '='|'<>';
+
+RelOpCallExp returns OperatorCallExp :
+	AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )*
+;
+
+RELOP  		: '>'|'<'|'>='|'<=' ;
+
+AddOpCallExp returns OperatorCallExp :
+	IntOpCallExp (({AddOpCallExp.source=current} operationName=ADDOP) 	argument=IntOpCallExp )*
+;
+ ADDOP : '-'|'+';
+
+IntOpCallExp returns OperatorCallExp :
+	MulOpCallExp (({IntOpCallExp.source=current} operationName=INTOP) 	argument=MulOpCallExp )*
+;
+INTOP : 'div'|'mod';
+
+MulOpCallExp returns OperatorCallExp :
+	NotOpCallExp (({MulOpCallExp.source=current} operationName=MULOP) 	argument=NotOpCallExp )*
+;
+MULOP: '*'|'/';
+
+NotOpCallExp returns OperatorCallExp :
+	(((operationName=UnaryOP) source=NotOpCallExp) 
+		| 
+		PropertyCallExp)
+;
+UnaryOP: NOTOP|UNARYTEMPOP;
+NOTOP: 'not';
+UNARYTEMPOP: 'always'|'eventually'|'next'|'All'|'Exists';
+//priority_0
+PropertyCallExp  :
+	source = Primary_OclExpression (calls+=PropertyCall)*
+	;
+
+Primary_OclExpression returns OclExpression : 
+	VariableExp
+	|SuperExp
+	|SelfExp
+	|StringExp
+	|BooleanExp
+	|NumericExp
+	|BagExp
+	|OrderedSetExp
+	|SequenceExp
+	|SetExp
+	|TupleExp
+	|MapExp
+	|EnumLiteralExp
+	|OclUndefinedExp
+	|IfExp
+	|BraceExp
+	|OclModelElementExp;
+
+Auxiliary :Iterator|LocalVariable|Parameter;
+VariableExp:
+	//name= ID|
+	referredVariable=[Auxiliary]|
+	VariableDeclaration
+;
+
+VariableDeclaration:
+	varName='thisModule'
+;
+SuperExp :
+	{SuperExp}	'super'
+;
+SelfExp :
+	{SelfExp}	'self'
+;
+StringExp :
+	{StringExp}
+	stringSymbol=STRING
+;
+NumericExp: 
+	RealExp|IntegerExp
+;
+RealExp : realSymbol=DOUBLE;
+
+
+REAL hidden(): INT '.' (EXT_INT | INT);
+terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
+IntegerExp:
+	{IntegerExp}
+	integerSymbol=INT
+;
+BagExp:
+	{BagExp}
+	'Bag' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
+;
+OrderedSetExp:
+	{OrderedSetExp}
+	'OrderedSet' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
+;
+SequenceExp:
+	{SequenceExp}
+	'Sequence' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
+;
+SetExp:
+	{SetExp}
+	'Set' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
+;
+TupleExp:
+	{TupleExp}
+	'Tuple' '{' (tuplePart+=TuplePart ("," tuplePart+=TuplePart)*)? '}'
+;
+TuplePart:
+	varName=STRING (':' type=OclType)? '=' initExpression=OclExpression
+;
+MapExp : 
+	{MapExp}
+	'Map' '{' (elements+=MapElement (',' elements+=MapElement)*)? '}'
+;
+
+MapElement : 
+	'(' key=OclExpression ',' value=OclExpression ')'
+;
+
+EnumLiteralExp : 
+	"#" (name=STRING|name=ID)
+;
+
+OclUndefinedExp :
+	{OclUndefinedExp}
+	'OclUndefined'
+;
+
+LetExp : 
+	'let' variable=LocalVariable 'in' in_=OclExpression
+;
+
+IfExp : 
+	'if' condition=OclExpression 'then' thenExpression=OclExpression 'else' elseExpression=OclExpression 'endif'
+;
+
+BraceExp : 
+	'(' exp=OclExpression ')'
+;
+	
+//CollectionPart:
+//	CollectionRange|CollectionItem
+//	;
+//	
+//CollectionRange:
+//	first=OclExpression '..' last=OclExpression
+//	;
+//	
+//CollectionItem:
+//	item=OclExpression
+//	;
+	
+BooleanExp:
+	booleanSymbol= 'true'|booleanSymbol= 'false'
+	;
+	
+PropertyCall:
+	OperationCall|NavigationOrAttributeCall|IterateExp|IteratorExp|CollectionOperationCall
+	;
+	
+OperationCall:
+	'.' (operationName=STRING|operationName=ID) '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
+	;
+
+NavigationOrAttributeCall : 
+	'.' (name=STRING|name=ID)
+	;
+
+IterateExp:
+	'->' 'iterate' '(' iterators+=Iterator (',' iterators+=Iterator)* ';' result=LocalVariable '|' body=OclExpression ')'
+	;
+	
+Iterator : 
+	name=ID (':' type=OclType)?
+	;
+
+IteratorExp : 
+	'->' name=ID '(' iterators+=Iterator (',' iterators+=Iterator)* '|' body=OclExpression ')'
+	;
+
+CollectionOperationCall : 
+	'->' operationName=ID '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
+	;
+
+LocalVariable : 
+	name=ID (':' type=OclType)? '=' initExpression=OclExpression
+;
+OclType : 
+	//oclModelElement | 
+	//{OclType} name=STRING
+	CollectionType
+	| Primitive 
+	| OclAnyType 
+	| TupleType 
+	| OclModelElement
+	| MapType 
+	// | LambdaType 
+	// | EnvType
+	| OclType_abstractContents
+	;
+
+CollectionType:
+	BagType
+	| OrderedSetType 
+	| SequenceType 
+	| SetType 
+	;
+
+BagType :
+	'Bag' '(' elementType=OclType ')'
+;
+
+OrderedSetType :
+	'OrderedSet' '(' elementType=OclType ')'
+;
+
+SequenceType :
+	'Sequence' '(' elementType=OclType ')'
+;
+
+SetType :
+	'Set' '(' elementType=OclType ')'
+;
+
+Primitive:
+	StringType
+	| BooleanType 
+	| NumericType 
+;
+
+StringType:
+	{StringType}'String'
+;
+
+BooleanType:
+	{BooleanType}'Boolean'
+;
+
+NumericType:
+	IntegerType
+	|RealType
+;
+
+IntegerType:
+	{IntegerType}'Integer'
+;
+
+RealType:
+	{RealType}'Real'
+;
+
+OclAnyType :
+	{OclAnyType}'OclAny'
+;
+
+OclType_abstractContents  returns OclType :
+	{OclType}
+	'OclType'
+;
+	
+TupleType :
+	{TupleType}
+	 ('TupleType' | 'Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
+	 ;
+	 
+TupleTypeAttribute : name=ID ':' type=OclType;
+
+OclModelElement: model=[Import]'!'name=ID; //[ecore::EClass|ID];
+	
+MapType : 
+	'Map' '(' keyType=OclType ',' valueType=OclType ')'
+;
+//LambdaType :
+//	'Lambda' "(" (argumentTypes ("," argumentTypes)*)? ")" ":" returnType
+//;
+//	EnvType ::= name[ENVTYPE];
+
+
+
+
+terminal DOUBLE returns ecore::EDouble :
+('-'|'+')? (INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
+
+QualifiedName: ID ('.' ID)*;
+
+
+
+	

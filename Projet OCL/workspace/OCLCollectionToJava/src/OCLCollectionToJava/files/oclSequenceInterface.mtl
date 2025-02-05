@@ -1,0 +1,20 @@
+[comment encoding = UTF-8 /]
+[module oclSequenceInterface('http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public oclSequenceInterface(anEPackage : EPackage)]
+
+[file ('OCLSequenceInterface.java', false, 'UTF-8')]
+
+package oclCollections;
+
+import org.eclipse.emf.common.util.EList;
+
+public interface OCLSequenceInterface<E> {
+
+	public OCLOrderedSet<E> closure(OneArgExp<E, EList<E>> exp);
+	
+}
+
+[/file]
+[/template]
