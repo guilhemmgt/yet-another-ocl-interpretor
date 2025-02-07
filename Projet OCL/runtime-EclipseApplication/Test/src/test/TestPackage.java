@@ -157,6 +157,7 @@ public interface TestPackage extends EPackage {
 	 */
 	int EMPLOYE_OPERATION_COUNT = 0;
 
+
 	/**
 	 * Returns the meta object for class '{@link test.Entreprise <em>Entreprise</em>}'.
 	 * <!-- begin-user-doc -->

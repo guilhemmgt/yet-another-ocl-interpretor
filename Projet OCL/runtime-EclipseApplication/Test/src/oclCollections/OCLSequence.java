@@ -57,7 +57,6 @@ public class OCLSequence<E> extends ArrayList<E>
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> OCLSequence<T> collect(OneArgExp<E, T> exp) {
-		System.out.println("SEQUENCE");
 		OCLSequence<T> result = new OCLSequence<>();
 		this.forEach(e -> {
 			T appliedResult = exp.apply(e);
@@ -119,9 +118,9 @@ public class OCLSequence<E> extends ArrayList<E>
 	public <T> boolean isUnique(OneArgExp<E, T> exp) {
 		boolean result = true;
 		for (int i = 0; i < this.size(); i++) {
-			E e = this.get(i);
+			T e = exp.apply(this.get(i));
 			for (int j = 0; j < this.size(); j++) {
-				if (e.equals(this.get(j)) && i != j) {
+				if (e.equals(exp.apply(this.get(j))) && i != j) {
 					result = false;
 				}
 			}

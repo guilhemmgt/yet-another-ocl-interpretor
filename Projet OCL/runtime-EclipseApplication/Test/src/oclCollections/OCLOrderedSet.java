@@ -65,7 +65,6 @@ public class OCLOrderedSet<E> extends LinkedHashSet<E> implements OCLOrderedColl
 
 	@Override
 	public <T> OCLSequence<T> collect(OneArgExp<E, T> exp) {
-		System.out.println("ORDEREDSET");
 		OCLSequence<T> resultCollect = new OCLSequence<>();
 		OCLSequence<T> resultCollectFlatten = new OCLSequence<>();
 		this.forEach(e  -> resultCollect.add(exp.apply(e)));

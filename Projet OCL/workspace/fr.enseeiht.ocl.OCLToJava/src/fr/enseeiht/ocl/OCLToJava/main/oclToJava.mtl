@@ -1,0 +1,19 @@
+[comment encoding="UTF-8" /]
+[module oclToJava('http://www.enseeiht.fr/ocl/xtext/Ocl', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import fr::enseeiht::ocl::OCLToJava::files::oclFile /]
+[import fr::enseeiht::ocl::OCLToJava::files::oclClassicOperations /]
+[import fr::enseeiht::ocl::OCLToJava::files::oclOperations /]
+[import fr::enseeiht::ocl::OCLToJava::files::tupleElement /]
+[import fr::enseeiht::ocl::OCLToJava::files::interfaceXTextOperations /]
+
+[template public toclVersJava(aModule : Module)]
+[comment @main/]
+
+[oclFile(aModule)/]
+[oclClassicOperations(aModule)/]
+[oclOperations(aModule)/]
+[tupleElement(aModule)/]
+[interfaceXTextOperations(aModule)/]
+
+[/template]

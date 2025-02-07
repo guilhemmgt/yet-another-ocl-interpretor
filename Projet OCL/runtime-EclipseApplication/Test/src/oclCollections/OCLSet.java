@@ -42,7 +42,6 @@ public class OCLSet<E> extends HashSet<E> implements OCLUniqueCollection<E>, OCL
 	@Override
 	public <T> OCLBag<T> collect(OneArgExp<E, T> exp) {
 		OCLBag<T> result = new OCLBag<>();
-		System.out.println("SET");
 		this.forEach(e -> {
 			T appliedResult = exp.apply(e);
 			if (appliedResult instanceof Collection) {

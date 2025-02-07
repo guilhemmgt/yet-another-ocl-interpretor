@@ -1,0 +1,718 @@
+[comment encoding = UTF-8 /]
+[module oclFile('http://www.eclipse.org/emf/2002/Ecore', 'http://www.enseeiht.fr/ocl/xtext/Ocl')]
+
+
+[template public oclFile(aModule : Module)]
+
+[file ('OCL.java', false, 'UTF-8')]
+
+package ocl;
+
+import org.eclipse.emf.ecore.EObject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import oclCollections.OCLSequence;
+import oclCollections.OCLBag;
+import oclCollections.OCLSet;
+import oclCollections.OCLOrderedSet;
+[for (anImport : Import | aModule.imports)]
+import [getEPackageName(anImport._package)/].*;
+[/for]
+
+public class OCL {
+
+	private ValidationResult result;
+	private OCLOperations oclOperation = new OCLOperations();
+	private OCLClassicOperations oclClassicOperation = new OCLClassicOperations();
+
+
+	public OCL(ValidationResult result, ArrayList<EObject> allObjects) {
+		this.result = result;
+		oclOperation.setAllObjects(allObjects);
+	}
+
+	public void check(EObject object) {}
+	[for (anImport : Import | aModule.imports)]
+	[for (aClass : EClass | getAllOclModuleElement())]
+	public void check([getEPackageName(anImport._package)/].[getEClassName(aClass)/] object) {
+
+		[getVariables(anImport._package, aClass)/]
+
+		[for (aOclModuleElement : OclModuleElement | getOclModuleElement(aModule))]
+
+		[comment] On parcourt tous les OclModuleElement 
+		(OclInvariant et OclFeatureDefinition à condition que 
+		leur classe soit égales) [/comment]
+		[if (getEClassName(aOclModuleElement.class).matches(getEClassName(aClass)))]
+
+		
+		[comment] Cas des invariants [/comment]
+		[for (anOclInvariant : OclInvariant | getOclInvariant(aOclModuleElement))]
+		this.result.recordIfFailed(
+		[getOCLExpression(anOclInvariant._body, anImport._package)/]
+		, object, "[anOclInvariant.name/]");
+		[/for]
+		[/if]
+		[/for]
+		
+	}
+	[/for]
+	
+	[for (oclFeatureDefinition:OclFeatureDefinition | getOclFeatureDefinition(aModule))]
+	[if (oclFeatureDefinition.feature.oclIsTypeOf(Attribute))]
+		[getMethodAttribute(anImport._package, oclFeatureDefinition)/]
+	[else]
+		[getMethodOperation(anImport._package, oclFeatureDefinition)/]
+	[/if]
+	[/for]
+	
+	[/for]
+
+	public int zero() {
+		return 0;
+	}
+
+}
+[/file]
+
+[/template]
+
+[comment]
+	Permet de traduire une expression OCL en code Java.
+
+	in = 
+		expresion : OclExpression, l'OclExpression à traduire
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, la chaine de caractère qui correspond au code JAVA de l'OclExpression.
+[/comment]
+[query public getOCLExpression(expression: OclExpression, anEPackage:EPackage) : EString = 
+	let oclExpression : OclExpression = expression in
+		if oclExpression.oclIsTypeOf(IntOpCallExp) then
+			let opCallExp : IntOpCallExp = oclExpression.oclAsType(IntOpCallExp) in 
+			getOperation(opCallExp.operationName) + '(' +
+			getPrimary_OclExpression(opCallExp.source, anEPackage) + getOCLExpression(opCallExp.source, anEPackage) + ', ' +
+			getPrimary_OclExpression(opCallExp.argument, anEPackage) + getOCLExpression(opCallExp.argument, anEPackage) + ')'
+		else if oclExpression.oclIsTypeOf(RelOpCallExp) then
+			let opCallExp : RelOpCallExp = oclExpression.oclAsType(RelOpCallExp) in
+			getOperation(opCallExp.operationName) + '(' +
+			getPrimary_OclExpression(opCallExp.source, anEPackage) + getOCLExpression(opCallExp.source, anEPackage) + ', ' +
+			getPrimary_OclExpression(opCallExp.argument, anEPackage) + getOCLExpression(opCallExp.argument, anEPackage) + ')'
+		else if oclExpression.oclIsTypeOf(BoolOpCallExp) then
+			let opCallExp : BoolOpCallExp = oclExpression.oclAsType(BoolOpCallExp) in
+			getOperation(opCallExp.operationName) + '(' +
+			getPrimary_OclExpression(opCallExp.source, anEPackage) + getOCLExpression(opCallExp.source, anEPackage) + ', ' +
+			getPrimary_OclExpression(opCallExp.argument, anEPackage) + getOCLExpression(opCallExp.argument, anEPackage) + ')'
+		else if oclExpression.oclIsTypeOf(MulOpCallExp) then
+			let opCallExp : MulOpCallExp = oclExpression.oclAsType(MulOpCallExp) in
+			getOperation(opCallExp.operationName) + '(' +
+			getPrimary_OclExpression(opCallExp.source, anEPackage) + getOCLExpression(opCallExp.source, anEPackage) + ', ' +
+			getPrimary_OclExpression(opCallExp.argument, anEPackage) + getOCLExpression(opCallExp.argument, anEPackage) + ')'
+		else if oclExpression.oclIsTypeOf(AddOpCallExp) then
+			let opCallExp : AddOpCallExp = oclExpression.oclAsType(AddOpCallExp) in
+			getOperation(opCallExp.operationName) + '(' +
+			getPrimary_OclExpression(opCallExp.source, anEPackage) + getOCLExpression(opCallExp.source, anEPackage) + ', ' +
+			getPrimary_OclExpression(opCallExp.argument, anEPackage) + getOCLExpression(opCallExp.argument, anEPackage) + ')'
+		else if oclExpression.oclIsTypeOf(EqOpCallExp) then
+			let opCallExp : EqOpCallExp = oclExpression.oclAsType(EqOpCallExp) in
+			getOperation(opCallExp.operationName) + '(' +
+			getPrimary_OclExpression(opCallExp.source, anEPackage) + getOCLExpression(opCallExp.source, anEPackage) + ', ' +
+			getPrimary_OclExpression(opCallExp.argument, anEPackage) + getOCLExpression(opCallExp.argument, anEPackage) + ')'
+		else if oclExpression.oclIsTypeOf(PropertyCallExp) then
+			generateProperty(oclExpression.oclAsType(PropertyCallExp), anEPackage)
+		else if oclExpression.oclIsTypeOf(LetExp) then
+			getOCLExpression(oclExpression.oclAsType(LetExp).in_, anEPackage)
+		else 
+		'error \n' + oclExpression.toString() + '\n'
+		endif
+		endif
+		endif
+		endif
+		endif
+		endif
+		endif
+		endif
+/]
+
+[comment]
+	Permet de traduire une PropertyCallExp en code Java.
+
+	in = 
+		propertyCall : PropertyCallExp, la PropertyCallExp à traduire
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, la chaine de caractère qui correspond au code JAVA de la PropertyCallExp.
+[/comment]
+[query public generateProperty(propertyCall: PropertyCallExp, anEPackage: EPackage) : EString = 
+let propertyOK: OrderedSet(PropertyCall) = OrderedSet{} in
+	'' + propertyCall.calls->iterate(property : PropertyCall; acc:EString='' | 
+		if property.oclIsTypeOf(IteratorExp) or property.oclIsTypeOf(IterateExp) then
+			'OCLSequence.fromArrayList(' + acc
+		else if property.oclIsTypeOf(OperationCall) then
+			let name:EString = property.oclAsType(OperationCall).operationName in
+			if isInFeatureDefinition(name) then
+				''
+			else
+				'oclOperation.'
+			endif
+			+ name + '(' + acc
+		else if property.oclIsTypeOf(CollectionOperationCall) then
+			let name:EString = property.oclAsType(CollectionOperationCall).operationName in
+			if isInFeatureDefinition(name) then
+				''
+			else
+				'oclOperation.'
+			endif
+			+ name + '(' + acc
+		else
+			'' + acc
+		endif
+		endif
+		endif) +
+	getPrimary_OclExpression(propertyCall.source, anEPackage) + 
+	propertyCall.calls->reverse()->iterate(property : PropertyCall; acc:EString='' |
+			getProperty(property, anEPackage) + acc)
+/]
+
+[comment]
+	Permet de traduire une opération (l'attribut operationName d'OperationCallExp) en code Java.
+
+	in = 
+		operation : EString, l'attribut operationName d'OperationCallExp
+	out =
+		EString, la chaine de caractère qui correspond au code JAVA de l'operation.
+[/comment]
+[query public getOperation(operation: EString) : EString = 
+	'oclClassicOperation.' +
+	if operation.matches('until') then 
+		'operationUntil'
+	else if operation.matches('release') then 
+		'operationRelease'
+	else if operation.matches('and') then 
+		'operationAnd'
+	else if operation.matches('or') then 
+		'operationOr'
+	else if operation.matches('xor') then 
+		'operationXor'
+	else if operation.matches('implies') then 
+		'operationImplies'
+	else if operation.matches('equivalent') then 
+		'operationEquivalent'
+	else if operation.matches('=') then 
+		'operationEquals'
+	else if operation.matches('<>') then 
+		'operationNotEquals'
+	else if operation.matches('>') then 
+		'operationGreater'
+	else if operation.matches('<') then 
+		'operationLower'
+	else if operation.matches('>=') then 
+		'operationGreaterEquals'
+	else if operation.matches('<=') then 
+		'operationLowerEquals'
+	else if operation.matches('\\+') then 
+		'operationAdd'
+	else if operation.matches('-') then 
+		'operationMinus'
+	else if operation.matches('div') then 
+		'operationDivisionInteger'
+	else if operation.matches('mod') then 
+		'operationModulo'
+	else if operation.matches('*') then 
+		'operationTimes'
+	else if operation.matches('/') then 
+		'operationDivision'
+	else if operation.matches('not') then 
+		'operationNot'
+	else if operation.matches('always') then 
+		'operationAlways'
+	else if operation.matches('eventually') then 
+		'operationEventually'
+	else if operation.matches('next') then 
+		'operationNext'
+	else if operation.matches('All') then 
+		'operationAll'
+	else if operation.matches('Exists') then 
+		'operationExists'
+	else
+		'operationERROR'
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+/]
+
+[comment]
+	Permet de traduire une propriété en code Java.
+
+	in = 
+		propertyCall : PropertyCall, la propriété à traduire
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, la chaine de caractère qui correspond au code JAVA de la propriété.
+[/comment]
+[query public getProperty(propertyCall: PropertyCall, anEPackage: EPackage) : EString = 
+	if propertyCall.oclIsTypeOf(NavigationOrAttributeCall) then 
+		if propertyCall.eContainer().oclAsType(PropertyCallExp).source.oclIsTypeOf(EnumLiteralExp) then
+		'.' + propertyCall.oclAsType(NavigationOrAttributeCall).name.toUpperCase()
+		else
+		'.get' + propertyCall.oclAsType(NavigationOrAttributeCall).name.toUpperFirst() + '()'
+		endif
+	else if propertyCall.oclIsTypeOf(OperationCall) then 
+		let operationCall: OperationCall = propertyCall.oclAsType(OperationCall) in
+		'' + operationCall.arguments->iterate(oclExpr : OclExpression; acc:EString='' |
+				', ' + getOCLExpression(oclExpr, anEPackage) + acc) + ')'
+	else if propertyCall.oclIsTypeOf(IterateExp) then 
+		let iterate: IterateExp = propertyCall.oclAsType(IterateExp) in
+		').iterate(' + getOCLExpression(iterate.result.initExpression, anEPackage) + ', (' +
+		iterate.iterators-> iterate(iterator : Iterator; acc:EString='' |
+			if iterate.iterators->indexOf(iterator) < iterate.iterators->size() then
+				iterator.name + acc + ', '
+			else
+				iterator.name + acc 
+			endif) 
+		+ ', '+ iterate.result.name + ') -> ' + getOCLExpression(iterate._body, anEPackage) + ')'
+	else if propertyCall.oclIsTypeOf(IteratorExp) then 
+		let iteratorExp: IteratorExp = propertyCall.oclAsType(IteratorExp) in
+		').' + iteratorExp.name + '((' + 
+		iteratorExp.iterators -> iterate(iterator : Iterator; acc:EString='' |
+			if iteratorExp.iterators->indexOf(iterator) < iteratorExp.iterators->size() then
+				iterator.name + acc + ', '
+			else
+				iterator.name + acc 
+			endif) 
+		+ ') -> ' + getOCLExpression(iteratorExp._body, anEPackage) + ')'
+	else if propertyCall.oclIsTypeOf(CollectionOperationCall) then 
+		let operationCall: CollectionOperationCall = propertyCall.oclAsType(CollectionOperationCall) in
+		'' + operationCall.arguments->iterate(oclExpr : OclExpression; acc:EString='' |
+				', ' + getOCLExpression(oclExpr, anEPackage) + acc) + ')'
+	else
+		'ERROR'
+	endif
+	endif
+	endif
+	endif
+	endif
+/]
+
+[comment]
+	Permet de récuperer le nom d'une propriété.
+
+	in = 
+		propertyCall : PropertyCall, la propriété avec le nom à récupérer
+	out =
+		EString, la chaine de caractère qui correspond au nom de la propriété pour le code Java.
+[/comment]
+[query public getPropertyName(propertyCall: PropertyCall) : EString = 
+	if propertyCall.oclIsTypeOf(NavigationOrAttributeCall) then 
+		'get' + propertyCall.oclAsType(NavigationOrAttributeCall).name.toUpperFirst()
+	else if propertyCall.oclIsTypeOf(OperationCall) then 
+		let operationCall: OperationCall = propertyCall.oclAsType(OperationCall) in
+		operationCall.operationName
+	else if propertyCall.oclIsTypeOf(IterateExp) then 
+		'iterate'
+	else if propertyCall.oclIsTypeOf(IteratorExp) then 
+		propertyCall.oclAsType(IteratorExp).name
+	else if propertyCall.oclIsTypeOf(CollectionOperationCall) then 
+		propertyCall.oclAsType(CollectionOperationCall).operationName
+	else
+		'ERROR'
+	endif
+	endif
+	endif
+	endif
+	endif
+/]
+
+[comment]
+	Permet de traduire une OCL Expression (qui correspond à une Primary_OclExpression) en code Java.
+
+	in = 
+		class : OclExpression, l'OclExpression à traduire en Java
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, la chaine de caractère qui correspond au code JAVA de l'operation.
+[/comment]
+[query public getPrimary_OclExpression(class: OclExpression, anEPackage: EPackage) : EString = 
+	if class.oclIsTypeOf(VariableExp) then 
+		class.oclAsType(VariableExp).referredVariable.name
+	else if class.oclIsTypeOf(SuperExp) then
+		'object.class.getSuperclass()'
+	else if class.oclIsTypeOf(SelfExp) then
+		'object'
+	else if class.oclIsTypeOf(StringExp) then
+		'"' + class.oclAsType(StringExp).stringSymbol + '"'
+	else if class.oclIsTypeOf(BooleanExp) then
+		if class.oclAsType(BooleanExp).booleanSymbol.matches('true') then
+			'true'
+		else if class.oclAsType(BooleanExp).booleanSymbol.matches('false') then
+			'false'
+		else
+			'error'
+		endif
+		endif
+	else if class.oclIsKindOf(NumericExp) then
+		if class.oclIsTypeOf(IntegerExp) then
+			class.oclAsType(IntegerExp).integerSymbol.toString()
+		else if class.oclIsTypeOf(RealExp) then
+			class.oclAsType(RealExp).toString()
+		else
+			'ERROR_NumericExp'
+		endif
+		endif
+	else if class.oclIsTypeOf(BagExp) then
+		'Stream.of( '+ 
+		if class.oclAsType(BagExp).elements -> oclIsUndefined() then
+			''
+		else
+			class.oclAsType(BagExp).elements -> iterate(oclExp:OclExpression; acc:EString='' | 
+				if class.oclAsType(BagExp).elements->indexOf(oclExp) < class.oclAsType(BagExp).elements->size() then
+					getOCLExpression(oclExp, anEPackage) + acc + ', '
+				else
+					getOCLExpression(oclExp, anEPackage) + acc
+				endif)
+		endif
+		+' ).collect(Collectors.toCollection(OCLBag::new))'
+	else if class.oclIsTypeOf(OrderedSetExp) then
+		'Stream.of( '+ 
+		if class.oclAsType(BagExp).elements -> oclIsUndefined() then
+			''
+		else
+			class.oclAsType(BagExp).elements -> iterate(oclExp:OclExpression; acc:EString='' | 
+				if class.oclAsType(BagExp).elements->indexOf(oclExp) < class.oclAsType(BagExp).elements->size() then
+					getOCLExpression(oclExp, anEPackage) + acc + ', '
+				else
+					getOCLExpression(oclExp, anEPackage) + acc
+				endif)
+		endif
+		+' ).collect(Collectors.toCollection(OCLOrderedSet::new))'
+	else if class.oclIsTypeOf(SetExp) then
+		'Stream.of( '+ 
+		if class.oclAsType(BagExp).elements -> oclIsUndefined() then
+			''
+		else
+			class.oclAsType(BagExp).elements -> iterate(oclExp:OclExpression; acc:EString='' | 
+				if class.oclAsType(BagExp).elements->indexOf(oclExp) < class.oclAsType(BagExp).elements->size() then
+					getOCLExpression(oclExp, anEPackage) + acc + ', '
+				else
+					getOCLExpression(oclExp, anEPackage) + acc
+				endif)
+		endif
+		+' ).collect(Collectors.toCollection(OCLSet::new))'
+	else if class.oclIsTypeOf(SequenceExp) then
+		'Stream.of( '+ 
+		if class.oclAsType(BagExp).elements -> oclIsUndefined() then
+			''
+		else
+			class.oclAsType(BagExp).elements -> iterate(oclExp:OclExpression; acc:EString='' | 
+				if class.oclAsType(BagExp).elements->indexOf(oclExp) < class.oclAsType(BagExp).elements->size() then
+					getOCLExpression(oclExp, anEPackage) + acc + ', '
+				else
+					getOCLExpression(oclExp, anEPackage) + acc
+				endif)
+		endif
+		+' ).collect(Collectors.toCollection(OCLSequence::new))'
+	else if class.oclIsTypeOf(MapExp) then
+		'EntryStream.of(Stream.of( '+ 
+		if class.oclAsType(BagExp).elements -> oclIsUndefined() then
+			''
+		else
+			class.oclAsType(MapExp).elements -> iterate(mapElement:MapElement; acc:EString='' | 
+				if class.oclAsType(MapExp).elements->indexOf(mapElement) < class.oclAsType(MapExp).elements->size() then
+					getOCLExpression(mapElement.key, anEPackage) + ', ' + getOCLExpression(mapElement.value, anEPackage) + acc + ', '
+				else
+					getOCLExpression(mapElement.key, anEPackage) + ', ' + getOCLExpression(mapElement.value, anEPackage) + acc
+				endif)
+		endif
+		+' )).mapToEntry(e -> e, e -> stream.iterator().next()).collect(EntryStream.toMap())'
+	else if class.oclIsTypeOf(TupleExp) then
+		'Stream.of( '+ 
+		class.oclAsType(TupleExp).tuplePart -> iterate(tuplePart:TuplePart; acc:EString='' | 
+			if class.oclAsType(TupleExp).tuplePart->indexOf(tuplePart) < class.oclAsType(TupleExp).tuplePart->size() then
+				'new TupleElement<'+ getType(tuplePart.type, anEPackage) +'>("' + tuplePart.varName + '", ' + getOCLExpression(tuplePart.initExpression, anEPackage) + ')' + acc + ', '
+			else
+				getOCLExpression(tuplePart.initExpression, anEPackage) + acc
+			endif)
+		+' ).collect(Collectors.toCollection(ArrayList::new))'
+	else if class.oclIsTypeOf(EnumLiteralExp) then
+		class.oclAsType(EnumLiteralExp).name
+	else if class.oclIsTypeOf(OclUndefinedExp) then
+		'null'
+	else if class.oclIsTypeOf(IfExp) then
+		let ifExp:IfExp = class.oclAsType(IfExp) in
+		'(' + getOCLExpression(ifExp.condition, anEPackage) + ')?\n(' + getOCLExpression(ifExp.thenExpression, anEPackage) + ')\n:\n(' + getOCLExpression(ifExp.elseExpression, anEPackage) + ')'
+	else if class.oclIsTypeOf(BraceExp) then
+		'{' + class.oclAsType(BraceExp).exp + '}'
+	else if class.oclIsTypeOf(OclModelElementExp) then
+		getEPackageName(anEPackage) + '.' + class.oclAsType(OclModelElementExp).name + '.class'
+	else
+		''
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+/]
+
+[comment]
+	Permet de récuperer le nom d'une classe.
+
+	in = 
+		class : EClass, la classe avec le nom à récupérer
+	out =
+		EString, la chaine de caractère qui correspond au nom de la classe.
+[/comment]
+[query public getEClassName(class: EClass) : EString = 
+	if class.toString().matches('.*eProxyURI:.*') then 
+		class.toString().substring(class.toString().indexOf('#//') + '#//'.size(), class.toString().lastIndexOf(')')-1)
+	else 
+		class.name
+	endif
+/]
+
+[comment]
+	Permet de récuperer le nom d'un package.
+
+	in = 
+		aPackage: EPackage, le package avec le nom à récupérer
+	out =
+		EString, la chaine de caractère qui correspond au nom du package.
+[/comment]
+[query public getEPackageName(aPackage: EPackage) : EString =
+	if aPackage.toString().matches('.*eProxyURI:.*') then 
+		aPackage.toString().substring(aPackage.toString().indexOf('eProxyURI: http://') + 'eProxyURI: http://'.size(), aPackage.toString().lastIndexOf('#/)')-1)
+	else 
+		aPackage.name
+	endif
+/]
+
+[comment]
+	Permet de récuperer tous les éléments OclModuleElement
+
+	in = 
+		any: OclAny, pour eviter le warning
+	out =
+		OrderedSet(OclModuleElement), l'ensemble des OclModuleElement présent dans les contraintes.
+[/comment]
+[query public getAllOclModuleElement(any: OclAny) : OrderedSet(EClass) =
+	OclModuleElement.allInstances().class
+	-> asOrderedSet()
+/]
+
+[comment]
+	Permet de récuperer tous les OclInvariant à partir d'un OclModuleElement
+
+	in = 
+		aModule: Module, le module avec les OclModuleElement à récuperer
+	out =
+		OrderedSet(OclModuleElement), l'ensemble des OclModuleElement présent dans les contraintes.
+[/comment]
+[query public getOclInvariant(aOclModuleElement: OclModuleElement) : OrderedSet(OclInvariant) =
+	aOclModuleElement
+	-> select(element | element.oclIsKindOf(OclInvariant) and element.oclIsKindOf(OclInvariant))
+	-> collect(element | element.oclAsType(OclInvariant))
+	-> asOrderedSet()
+/]
+
+[comment]
+	Permet de récuperer les OclModuleElement à partir d'un Module
+
+	in = 
+		aModule: Module, le module avec les OclModuleElement à récuperer
+	out =
+		OrderedSet(OclModuleElement), l'ensemble des OclModuleElement présent depuis le Module.
+[/comment]
+[query public getOclModuleElement(aModule: Module) : OrderedSet(OclModuleElement) =
+	aModule.elements
+	-> select(element | element.oclIsKindOf(OclModuleElement))
+	-> collect(element | element.oclAsType(OclModuleElement))
+	-> asOrderedSet()
+/]
+
+[comment]
+	Permet de récuperer les OclFeatureDefinition à partir d'un Module
+
+	in = 
+		aModule: Module, le module avec les OclModuleElement à récuperer
+	out =
+		OrderedSet(OclFeatureDefinition), l'ensemble des OclFeatureDefinition présent depuis le Module.
+[/comment]
+[query public getOclFeatureDefinition(aModule: Module) : OrderedSet(OclFeatureDefinition) =
+	aModule.elements
+	-> select(element | element.oclIsKindOf(OclFeatureDefinition))
+	-> collect(element | element.oclAsType(OclFeatureDefinition))
+	-> asOrderedSet()
+/]
+
+[comment]
+	Permet de savoir si un EString est un nom utilisé pour une Operation ou un Attribute
+
+	in = 
+		name: EString, le nom à comparer
+	out =
+		Boolean, true si un nom est utilisé pour une Operation ou un Attribute, false sinon.
+[/comment]
+[query public isInFeatureDefinition(name: EString) : Boolean =
+	Operation.allInstances().name -> includes(name) or Attribute.allInstances().name -> includes(name)
+/]
+
+[comment]
+	Permet de récuperer le code Java d'un Attribute
+
+	in = 
+		anOclFeatureDefinition: OclFeatureDefinition, l'oclFeatureDefinition à traduire
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, le code Java.
+[/comment]
+[query public getMethodAttribute(aPackage: EPackage, anOclFeatureDefinition: OclFeatureDefinition) : EString =
+	let anAttribute:Attribute = anOclFeatureDefinition.feature.oclAsType(Attribute) in
+	'public ' + getType(anAttribute.type, aPackage) + ' ' + anAttribute.name + '() {'
+	+ 'return ' + getOCLExpression(anAttribute.initExpression, aPackage) + ';'
+	+ '}'
+/]
+
+[comment]
+	Permet de récuperer le code Java d'une Operation
+
+	in = 
+		anOclFeatureDefinition: OclFeatureDefinition, l'oclFeatureDefinition à traduire
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, le code Java.
+[/comment]
+[query public getMethodOperation(aPackage: EPackage, anOclFeatureDefinition: OclFeatureDefinition) : EString =
+	let anOperation:Operation = anOclFeatureDefinition.feature.oclAsType(Operation) in
+	'public ' + getType(anOperation.returnType, aPackage) + ' ' + anOperation.name + '(' + anOclFeatureDefinition.class.name + ' object)' + ' {'
+	+ 'return ' + getOCLExpression(anOperation._body, aPackage) + ';'
+	+ '}'
+/]
+
+[comment]
+	Permet de récuperer le code Java d'un Type
+
+	in = 
+		aType: OclType, le type à traduire
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, le code Java.
+[/comment]
+[query public getType(aType: OclType, aPackage: EPackage) : EString =
+	if aType.oclIsTypeOf(OclModelElement) then
+		getEPackageName(aPackage) + '.' + aType.oclAsType(OclModelElement).name
+	else if aType.oclIsTypeOf(OclAnyType) then
+		'Object'
+	else if aType.oclIsTypeOf(OrderedSetType) then
+		'OCLOrderedSet<' + getType(aType.oclAsType(OrderedSetType).elementType, aPackage) + '>'
+	else if aType.oclIsTypeOf(BagType) then
+		'OCLBag<' + getType(aType.oclAsType(BagType).elementType, aPackage) + '>'
+	else if aType.oclIsTypeOf(SetType) then
+		'OCLSet<' + getType(aType.oclAsType(SetType).elementType, aPackage) + '>'
+	else if aType.oclIsTypeOf(SequenceType) then
+		'OCLSequence<' + getType(aType.oclAsType(SequenceType).elementType, aPackage) + '>'
+	else if aType.oclIsTypeOf(MapType) then
+		'OCLMap<' + getType(aType.oclAsType(MapType).keyType, aPackage) + ', ' + getType(aType.oclAsType(MapType).valueType, aPackage) + '>'
+	else if aType.oclIsTypeOf(BooleanType) then
+		'boolean'
+	else if aType.oclIsTypeOf(StringType) then
+		'String'
+	else if aType.oclIsTypeOf(IntegerType) then
+		'int'
+	else if aType.oclIsTypeOf(RealType) then
+		'double'
+	else if aType.oclIsTypeOf(TupleType) then
+		'List<TupleElement>'
+	else
+		'error'
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+/]
+
+[comment]
+	Permet de récuperer toutes les variables et de les traduire en code Java pour chaque classe du méta modèle.
+
+	in = 
+		aClass:EClass, la classe où les variables doivent être implémentées
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, le code Java.
+[/comment]
+[query public getVariables(anEPackage: EPackage, aClass:EClass) : EString =
+	OclInvariant.allInstances()
+	-> asOrderedSet()
+	-> select(oclInv | oclInv._body.oclIsTypeOf(LetExp))
+	-> asOrderedSet()
+	-> iterate(oclInv : OclInvariant; acc:EString='' |
+		if getEClassName(oclInv.class).matches(getEClassName(aClass)) then
+			let letExp:LetExp = oclInv._body.oclAsType(LetExp) in
+			getType(letExp.variable.type, anEPackage) + ' ' + letExp.variable.name + ' = ' + getOCLExpression(letExp.variable.initExpression, anEPackage) + ';' + '\n\t\t' + getIsLetExp(letExp.in_, anEPackage) + acc
+		else
+			'' + acc
+		endif)
+/]
+
+[comment]
+	Permet de récuperer toutes les variables qui seraient définie dans le "in" d'une autre variable.
+
+	in = 
+		oclExpression: OclExpression, expression du "in" d'une variable
+		anEPackage:EPackage, permet de spécifier le package des éléments pour aider Java à ne pas confondre les elements avec autre chose
+	out =
+		EString, la définition en code Java de la variable.
+[/comment]
+[query public getIsLetExp(oclExpression: OclExpression, anEPackage: EPackage) : EString =
+	if oclExpression.oclIsTypeOf(LetExp) then
+		let letExp:LetExp = oclExpression.oclAsType(LetExp) in
+		getType(letExp.variable.type, anEPackage) + ' ' + letExp.variable.name + ' = ' + getOCLExpression(letExp.variable.initExpression, anEPackage) + ';' + '\n\t\t' + getIsLetExp(letExp.in_, anEPackage)
+	else
+		''
+	endif
+/]

@@ -59,7 +59,6 @@ public class OCLBag<E> extends LinkedList<E> implements OCLCollection<E>, OCLBag
 	@Override
 	public <T> OCLBag<T> collect(OneArgExp<E, T> exp) {
 		OCLBag<T> result = new OCLBag<>();
-		System.out.println("BAG");
 		for (E e : this) {
 			T appliedResult = exp.apply(e);
 			if (appliedResult instanceof Collection) {

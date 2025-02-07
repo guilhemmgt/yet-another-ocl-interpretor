@@ -28,19 +28,6 @@ public class OCL {
 	}
 
 	public void check(EObject object) {}
-	public void check(test.Employe object) {
-
-		
-
-
-
-		
-		this.result.recordIfFailed(
-		OCLSequence.fromArrayList(OCLSequence.fromArrayList(object.getManage()).closure((e) -> e.getManage())).isUnique((e) -> e.getNom())
-		, object, "closure");
-
-		
-	}
 	public void check(test.Entreprise object) {
 
 		
@@ -52,6 +39,19 @@ public class OCL {
 		this.result.recordIfFailed(
 		OCLSequence.fromArrayList(oclOperation.print(OCLSequence.fromArrayList(oclOperation.print(OCLSequence.fromArrayList(object.getEmploie()).iterate(Stream.of(  ).collect(Collectors.toCollection(OCLBag::new)), (a, acc) -> oclOperation.including(acc, a)))).collect((a) -> oclOperation.oclAsType(a, test.Employe.class)))).isUnique((e) -> e.getNom())
 		, object, "iteratee");
+		
+	}
+	public void check(test.Employe object) {
+
+		
+
+
+
+		
+		this.result.recordIfFailed(
+		OCLSequence.fromArrayList(OCLSequence.fromArrayList(object.getManage()).closure((e) -> e.getManage())).isUnique((e) -> e.getNom())
+		, object, "closure");
+
 		
 	}
 	
