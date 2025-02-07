@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Yaoi
+Bundle-SymbolicName: fr.enseeiht.yaoi;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext
+Automatic-Module-Name: fr.enseeiht.yaoi
+Bundle-RequiredExecutionEnvironment: JavaSE-17
