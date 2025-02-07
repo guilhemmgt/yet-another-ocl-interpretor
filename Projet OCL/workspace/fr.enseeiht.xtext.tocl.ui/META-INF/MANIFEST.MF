@@ -17,7 +17,7 @@ Require-Bundle: fr.enseeiht.xtext.tocl,
  org.eclipse.compare,
  org.eclipse.ui
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: fr.enseeiht.xtext.tocl.ui.internal,
  fr.enseeiht.xtext.tocl.ui.quickfix,
  fr.enseeiht.xtext.tocl.ui.contentassist
