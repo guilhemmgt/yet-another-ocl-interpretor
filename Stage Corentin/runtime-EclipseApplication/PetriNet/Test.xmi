@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:Net
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petrinet="http://petrinet"
+    name="A">
+  <netElements
+      xsi:type="petrinet:Place"
+      name="A"
+      linksToSuccessor="//@netElements.2"
+      token="1"/>
+  <netElements
+      xsi:type="petrinet:Place"
+      name="B"
+      linksToPredecessor="//@netElements.2"/>
+  <netElements
+      xsi:type="petrinet:Arc"
+      predecessor="//@netElements.0"
+      successor="//@netElements.1"/>
+</petrinet:Net>
