@@ -44,20 +44,28 @@ import fr.enseeiht.ocl.OCLToJava.main.OclToJava;
 
 public class Main {
 
+
 	public static void main(String[] args) {
 		
 		Path workspacePath = Paths.get(new File(".").getAbsolutePath()).getParent().getParent();
-		System.out.println(workspacePath);
 		
 		File projectFolder = workspacePath.toFile().listFiles((f, n) -> n.equals("PetrinetTest"))[0];
 		
+		compile(projectFolder, "PetriNet.ecore", "petriNet.mocl");
+		verifiy(projectFolder, "petrinet" /* nom du ePackage!!! */, "Net.xmi");
+		
+	}
+	
+	public static void compile(File projectFolder, String ecoreFileText, String moclFileText) {
+		
+		System.out.println("exécution des tests dans le projet : " + projectFolder.getAbsolutePath());
+		
 		File srcFolder = projectFolder.listFiles((f, n) -> n.equals("src"))[0];
-		File binFolder = projectFolder.listFiles((f, n) -> n.equals("bin"))[0];
 		
-		System.out.println(projectFolder.getAbsolutePath());
-		
-		File ecoreFile = projectFolder.listFiles((f, n) -> n.equals("PetriNet.ecore"))[0];
-        File moclFile = projectFolder.listFiles((f, n) -> n.equals("petriNet.mocl"))[0];
+		File ecoreFile = projectFolder.listFiles((f, n) -> n.equals(ecoreFileText))[0];
+		System.out.println("Ecore utilisé  : " + ecoreFile.getAbsolutePath());
+        File moclFile = projectFolder.listFiles((f, n) -> n.equals(moclFileText))[0];
+		System.out.println("Mocl utilisé  : " + moclFile.getAbsolutePath());
 		
 		URI ecoreURI = URI.createFileURI(ecoreFile.getAbsolutePath());
 		URI moclURI = URI.createFileURI(moclFile.getAbsolutePath());
@@ -70,22 +78,19 @@ public class Main {
         
         
         Resource moclResource = resourceSet.getResource(moclURI, true);
-        try {
-	    	moclResource.save(System.out, null);
-	    } catch (IOException ioe) {
-	      ioe.printStackTrace();
-	    }
         EcoreUtil.resolveAll(moclResource);
         moclResource.getContents().add(EcoreUtil.copy(ecoreResource.getContents().get(0)));
         Module moclObject = (Module) moclResource.getContents().get(0);
         
         EPackage ecorePackage = (EPackage) ecoreResource.getContents().get(0);
+        System.out.println("ecorePackage name : " + ecorePackage.getName());
         
         moclObject.getImports().get(0).setPackage(ecorePackage);
         
         File oclFolder = new File(srcFolder.getAbsolutePath() + "/ocl");
         File oclCollectionsFolder = new File(srcFolder.getAbsolutePath() + "/oclCollections");
         
+        System.out.println("Compilation du mocl...");
         
 		try {
 			EcoreToJava gen0 = new EcoreToJava(ecoreURI, oclFolder, new ArrayList<String>());
@@ -105,14 +110,21 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		System.out.println("\nStart launching program");
+		System.out.println("Mocl compilé");
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		
+
+	}
+	
+	public static boolean verifiy(File projectFolder, String ecoreName, String xmiFileText) {
+		String capitalizedEcoreName = ecoreName.substring(0, 1).toUpperCase() + ecoreName.substring(1);
+		String lowerCasedEcoreName = ecoreName.toLowerCase();
+		
+		
+		File srcFolder = projectFolder.listFiles((f, n) -> n.equals("src"))[0];
+		File binFolder = projectFolder.listFiles((f, n) -> n.equals("bin"))[0];
+
+		System.out.println("Vérification du xmi...");
 		// Lancement du programme de vérification
 		List<File> srcFiles = new ArrayList<File>();
 		
@@ -128,10 +140,6 @@ public class Main {
 		
 		File[] oclFiles = new File[srcFiles.size()];
 		srcFiles.toArray(oclFiles);
-		
-		for (File file : oclFiles) {
-			System.out.println(file.getAbsolutePath());
-		}
 		
 		try {
 			/** Compilation Requirements *********************************************************************************************/
@@ -160,12 +168,11 @@ public class Main {
 	            /** Load and execute *************************************************************************************************/
 	            // Create a new custom class loader, pointing to the directory that contains the compiled
 	            // classes, this should point to the top of the package structure!
-	        	System.out.println(new File("./").toURI().toURL());
-	            try (URLClassLoader classLoader = new URLClassLoader(new URL[]{binFolder.toURI().toURL()})) {
-					String[] args2 = {projectFolder.getAbsolutePath() + "/Net.xmi"};
+	        	try (URLClassLoader classLoader = new URLClassLoader(new URL[]{binFolder.toURI().toURL()})) {
+					String[] args2 = {projectFolder.getAbsolutePath() + "/" + xmiFileText};
 					
 					/** MAIN **/
-					Class<?> petrinetPackage = classLoader.loadClass("petrinet.PetrinetPackage");
+					Class<?> petrinetPackage = classLoader.loadClass(lowerCasedEcoreName + "." + capitalizedEcoreName + "Package");
 					Object packageInstance = petrinetPackage.getDeclaredField("eINSTANCE").get(petrinetPackage);
 					//PetrinetPackage packageInstance = PetrinetPackage.eINSTANCE;
 					
@@ -176,7 +183,7 @@ public class Main {
 					ResourceSet resSet = new ResourceSetImpl();
 
 					//PetrinetValidator validator = new PetrinetValidator();
-					Class<?> validator = classLoader.loadClass("ocl.PetrinetValidator");
+					Class<?> validator = classLoader.loadClass("ocl." + capitalizedEcoreName +"Validator");
 					Object validatorObject = validator.getConstructor(new Class[] {}).newInstance();
 					
 					for (String model : args2) {
@@ -204,8 +211,8 @@ public class Main {
 							}
 						} 
 					}
-					
-					System.out.println("Fini.");
+
+					System.out.println("Xmi vérifié");
 					
 //					Class<?> mainClass = classLoader.loadClass("ocl.ValidatePetrinet");
 //					mainClass.getMethod("main", String[].class).invoke(null, (Object)args2);
@@ -223,8 +230,7 @@ public class Main {
 	        exp.printStackTrace();
 	    }
 
-		System.out.println("End launching program");
-
+		return true;
 	}
 
 }
