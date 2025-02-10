@@ -32,7 +32,7 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "fr.enseeiht.ocl.xtext.Ocl"
-			fileExtensions = "ocl"
+			fileExtensions = "mocl"
 
 			serializer = {
 				generateStub = false

@@ -4,7 +4,7 @@
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
 			uri = "http://www.enseeiht.fr/ocl/xtext/Ocl"
-			class = "fr.enseeiht.ocl.xtext.tocl.ToclPackage"
+			class = "fr.enseeiht.ocl.xtext.ocl.OclPackage"
 			genModel = "model/generated/Ocl.genmodel" />
 	</extension>
 </plugin>

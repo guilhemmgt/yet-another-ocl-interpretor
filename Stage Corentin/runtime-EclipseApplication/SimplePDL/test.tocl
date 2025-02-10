@@ -1,0 +1,65 @@
+module a;
+
+import "http://simplepdl" as pdl
+
+context pdl!simplepdl.ProcessElement
+def: process(): pdl!Process =
+	pdl!Process.allInstances()
+		->select(p | p.processElements->includes(self))
+		->asSequence()->first();
+
+context pdl!simplepdl.WorkSequence
+inv Pasreflexive : self.predecessor <> self.successor
+
+context pdl!simplepdl.Process
+inv uniqueOrderedWorkDefinitionNames: 
+  let workDefinitionNames : OrderedSet(String) = 
+      self.processElements	->select(p | p.oclIsTypeOf(pdl!WorkDefinition))
+      						->collect(p | p.oclAsType(pdl!WorkDefinition).name)
+      						->asOrderedSet()
+  in workDefinitionNames->size() = self.processElements->select(pe | pe.oclIsTypeOf(pdl!WorkDefinition)).size()
+	
+context pdl!simplepdl.WorkSequence
+inv Pasreflexive3 :
+	let pred:pdl!WorkDefinition = self.predecessor in let succ:pdl!WorkDefinition = self.successor in pred <> succ
+
+context pdl!simplepdl.Process
+inv validName:
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]+')
+
+context pdl!simplepdl.WorkDefinition
+inv validName:
+	self.name.matches('[A-Za-z][A-Za-z0-9]+')
+
+context pdl!simplepdl.Process
+inv NomsWDIdentique :  self.processElements
+	-> select(pe| pe.oclIsTypeOf(pdl!WorkDefinition) and  pe.oclIsTypeOf(pdl!WorkDefinition))
+	-> collect(pe| pe.oclAsType(pdl!WorkDefinition))
+	-> isUnique(e | e.name)
+
+context pdl!simplepdl.Resource
+inv RessourceNomValide :
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]+')
+	
+context pdl!simplepdl.Process
+inv NomsRessourcesIdentique :  self.processElements
+			-> select(pe| pe.oclIsTypeOf(pdl!Resource))
+			-> collect(pe| pe.oclAsType(pdl!Resource))
+			-> isUnique(e | e.name)	
+				
+context pdl!simplepdl.Resource
+inv RessourceNonVide :
+	 self.total > 0 
+
+context pdl!simplepdl.ResourceNeeded
+	inv NombreDeRessourceDemandeeNonValide:
+		self.quantity + 1 + 1 + 1 - 1 > 0
+
+context pdl!simplepdl.WorkSequence
+inv successorAndPredecessorInSameProcess:
+	self.process() = self.successor.process()
+	and self.process() = self.predecessor.process()
+	
+context pdl!simplepdl.WorkSequence
+inv test:
+	self.linkType = #WorkSequenceType.START_TO_START
