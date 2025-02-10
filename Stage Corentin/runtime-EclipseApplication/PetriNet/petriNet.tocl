@@ -1,0 +1,7 @@
+module a;
+
+import "http://petrinet" as petriNet
+
+context petriNet!petrinet.Net
+inv nomValide :
+  self.name.matches('[A-Za-z_][A-Za-z0-9_]+')
