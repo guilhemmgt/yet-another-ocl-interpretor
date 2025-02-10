@@ -41,11 +41,10 @@ import fr.enseeiht.ocl.ECoreToJava.main.EcoreToJava;
 import fr.enseeiht.ocl.OCLCollectionToJava.main.OclCollectionToJava;
 import fr.enseeiht.ocl.OCLToJava.main.OclToJava;
 
+
 public class Main {
 
 	public static void main(String[] args) {
-		
-		//System.out.println(ResourcesPlugin.getWorkspace().getRoot().getLocation().toString());
 		
 		Path workspacePath = Paths.get(new File(".").getAbsolutePath()).getParent().getParent();
 		System.out.println(workspacePath);
@@ -225,8 +224,7 @@ public class Main {
 	    }
 
 		System.out.println("End launching program");
-		
-	      
+
 	}
 
 }
