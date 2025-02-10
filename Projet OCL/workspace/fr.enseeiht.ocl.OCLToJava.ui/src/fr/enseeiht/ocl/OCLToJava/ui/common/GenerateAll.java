@@ -18,9 +18,6 @@ import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.ECoreToJava.main.EcoreToJava;
-import fr.enseeiht.ocl.OCLCollectionToJava.main.OclCollectionToJava;
 import fr.enseeiht.ocl.OCLToJava.main.OclToJava;
 
 
@@ -73,37 +70,16 @@ public class GenerateAll {
 	 * @generated
 	 */
 	public void doGenerate(IProgressMonitor monitor) throws IOException {
-    if (!targetFolder.getLocation().toFile().exists()) {
-      targetFolder.getLocation().toFile().mkdirs();
-    }
-    
-    monitor.subTask("Loading...");
-    EcoreToJava gen0 = new EcoreToJava(modelURI, targetFolder.getLocation().toFile(), arguments);
-    monitor.worked(1);
-    String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("ECoreToJava", "ECoreToJava.main.ToJava", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());
-    gen0.setGenerationID(generationID);
-    gen0.doGenerate(BasicMonitor.toMonitor(monitor));
-      
-    EObject model = gen0.getModel();
-    if (model != null) {
-        
-      
-      monitor.subTask("Loading...");
-      OclCollectionToJava gen1 = new OclCollectionToJava(model, targetFolder.getLocation().toFile(), arguments);
-      monitor.worked(1);
-      generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("OCLCollectionToJava", "OCLCollectionToJava.main.OclCollectionToJava", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());
-      gen1.setGenerationID(generationID);
-      gen1.doGenerate(BasicMonitor.toMonitor(monitor));
-      
-      monitor.subTask("Loading...");
-      OclToJava gen2 = new OclToJava(model, targetFolder.getLocation().toFile(), arguments);
-      monitor.worked(1);
-      generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("TOCLVersJava", "TOCLVersJava.main.VersJava", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());
-      gen2.setGenerationID(generationID);
-      gen2.doGenerate(BasicMonitor.toMonitor(monitor));
-    }
-      
-    
+		if (!targetFolder.getLocation().toFile().exists()) {
+			targetFolder.getLocation().toFile().mkdirs();
+		}
+		
+		monitor.subTask("Loading...");
+		OclToJava gen0 = new OclToJava(modelURI, targetFolder.getLocation().toFile(), arguments);
+		monitor.worked(1);
+		String generationID = org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil.computeUIProjectID("TOCLVersJava", "TOCLVersJava.main.VersJava", modelURI.toString(), targetFolder.getFullPath().toString(), new ArrayList<String>());
+		gen0.setGenerationID(generationID);
+		gen0.doGenerate(BasicMonitor.toMonitor(monitor));
   }
 
 }
