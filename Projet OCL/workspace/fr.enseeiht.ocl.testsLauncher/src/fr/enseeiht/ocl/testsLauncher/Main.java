@@ -69,19 +69,19 @@ public class Main {
         Resource ecoreResource = res.getResource(ecoreURI, true);
         
         
-        Resource toclResource = resourceSet.getResource(moclURI, true);
+        Resource moclResource = resourceSet.getResource(moclURI, true);
         try {
-	    	toclResource.save(System.out, null);
+	    	moclResource.save(System.out, null);
 	    } catch (IOException ioe) {
 	      ioe.printStackTrace();
 	    }
-        EcoreUtil.resolveAll(toclResource);
-        toclResource.getContents().add(EcoreUtil.copy(ecoreResource.getContents().get(0)));
-        Module toclObject = (Module) toclResource.getContents().get(0);
+        EcoreUtil.resolveAll(moclResource);
+        moclResource.getContents().add(EcoreUtil.copy(ecoreResource.getContents().get(0)));
+        Module moclObject = (Module) moclResource.getContents().get(0);
         
         EPackage ecorePackage = (EPackage) ecoreResource.getContents().get(0);
         
-        toclObject.getImports().get(0).setPackage(ecorePackage);
+        moclObject.getImports().get(0).setPackage(ecorePackage);
         
         File oclFolder = new File(srcFolder.getAbsolutePath() + "/ocl");
         File oclCollectionsFolder = new File(srcFolder.getAbsolutePath() + "/oclCollections");
@@ -98,7 +98,7 @@ public class Main {
 				gen1.doGenerate(new BasicMonitor());
 			}
 			
-			OclToJava gen2 = new OclToJava(toclObject, oclFolder, new ArrayList<String>());
+			OclToJava gen2 = new OclToJava(moclObject, oclFolder, new ArrayList<String>());
 			gen2.doGenerate(new BasicMonitor());
 			
 		} catch (IOException e) {
