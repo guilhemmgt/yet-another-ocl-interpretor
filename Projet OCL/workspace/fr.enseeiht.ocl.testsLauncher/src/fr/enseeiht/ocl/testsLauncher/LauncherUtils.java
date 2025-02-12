@@ -1,6 +1,7 @@
 package fr.enseeiht.ocl.testsLauncher;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
@@ -10,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -40,52 +42,103 @@ import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.ECoreToJava.main.EcoreToJava;
 import fr.enseeiht.ocl.OCLCollectionToJava.main.OclCollectionToJava;
 import fr.enseeiht.ocl.OCLToJava.main.OclToJava;
+import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
+import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
 
 
-public class Main {
-
-
-	public static void main(String[] args) {
-		
-		Path workspacePath = Paths.get(new File(".").getAbsolutePath()).getParent().getParent();
-		
-		File projectFolder = workspacePath.toFile().listFiles((f, n) -> n.equals("PetrinetTest"))[0];
-		
-		compile(projectFolder, "PetriNet.ecore", "petriNet.mocl");
-		verifiy(projectFolder, "petrinet" /* nom du ePackage!!! */, "Net.xmi");
-		
-	}
+public class LauncherUtils {
 	
-	public static void compile(File projectFolder, String ecoreFileText, String moclFileText) {
+	public static void main(String[] args) {
+		try {
+			Path workspacePath = Paths.get(new File(".").getAbsolutePath()).getParent().getParent();
+			Map<String, Map<String, List<String>>> errorsMaps = run(workspacePath, "PetrinetTest", "petriNet.mocl", "PetriNet.ecore", "Net.xmi");
+			
+			for (String model : errorsMaps.keySet()) {
+				
+				System.out.println("Résultat de validation pour " + model + ":");
+				
+				for (String eClassifierName : errorsMaps.get(model).keySet()) {
+					
+					List<String> errors = errorsMaps.get(model).get(eClassifierName);
+					System.out.print("- " + eClassifierName + ":");
+					if (errors.isEmpty()) {
+						System.out.println(" OK");
+					} else {
+						System.out.println(" " + errors.size() + " erreurs trouvées");
+						for (String error : errors) {
+							System.out.println("=> " + error);
+						}
+					}
+				}
+			}
+			
+		} catch (FileNotFoundException | BadFileExtensionException | BadFileStructureException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	public static Map<String, Map<String, List<String>>> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException {
+		
+		File projectFolder = workspacePath.toFile().listFiles((f, n) -> n.equals(projectName))[0];
 		
 		System.out.println("exécution des tests dans le projet : " + projectFolder.getAbsolutePath());
 		
-		File srcFolder = projectFolder.listFiles((f, n) -> n.equals("src"))[0];
+		//Get Resources
+		Resource moclResource = getMoclResource(projectFolder, moclName);
+		Resource ecoreResource = getEcoreResource(projectFolder, ecoreName);
+		
+		//Add ecore to mocl to make the Eclass visible
+		moclResource.getContents().add(EcoreUtil.copy(ecoreResource.getContents().get(0)));
+		
+		//Get EObjects from ecore and mocl
+		if(!(moclResource.getContents().get(0) instanceof Module))
+			throw new BadFileStructureException(moclName, moclName.split("\\.")[moclName.split("\\.").length-1].equals("mocl")?null : "mocl");
+        Module moclObject = (Module) moclResource.getContents().get(0);
+        if(!(ecoreResource.getContents().get(0) instanceof EPackage))
+			throw new BadFileStructureException(ecoreName, ecoreName.split("\\.")[ecoreName.split("\\.").length-1].equals("ecore")?null : "ecore");
+        EPackage ecorePackage = (EPackage) ecoreResource.getContents().get(0);
+
+        //Update the import of the mocl
+        moclObject.getImports().get(0).setPackage(ecorePackage);
+		
+		compile(projectFolder, ecorePackage, moclObject);
+		return verifiy(projectFolder, ecorePackage.getName(), xmiNames);
+		
+	}
+	
+	private static Resource getEcoreResource(File projectFolder, String ecoreFileText) throws FileNotFoundException, BadFileExtensionException {
+		if(!Arrays.asList(projectFolder.list()).contains(ecoreFileText))
+			throw new FileNotFoundException("Le fichier " + ecoreFileText + " n'existe pas.");
+		if(!ecoreFileText.split("\\.")[ecoreFileText.split("\\.").length-1].equals("ecore"))
+			throw new BadFileExtensionException(ecoreFileText, "ecore");
 		
 		File ecoreFile = projectFolder.listFiles((f, n) -> n.equals(ecoreFileText))[0];
-		System.out.println("Ecore utilisé  : " + ecoreFile.getAbsolutePath());
-        File moclFile = projectFolder.listFiles((f, n) -> n.equals(moclFileText))[0];
-		System.out.println("Mocl utilisé  : " + moclFile.getAbsolutePath());
-		
 		URI ecoreURI = URI.createFileURI(ecoreFile.getAbsolutePath());
+		
+		ResourceSet resourceSet = new ResourceSetImpl();
+        return resourceSet.getResource(ecoreURI, true);
+	}
+	
+	private static Resource getMoclResource(File projectFolder, String moclFileText) throws BadFileExtensionException, FileNotFoundException {
+		if(!Arrays.asList(projectFolder.list()).contains(moclFileText))
+			throw new FileNotFoundException("Le fichier " + moclFileText + " n'existe pas.");
+		if(!moclFileText.split("\\.")[moclFileText.split("\\.").length-1].equals("mocl"))
+			throw new BadFileExtensionException(moclFileText, "mocl");
+		
+		File moclFile = projectFolder.listFiles((f, n) -> n.equals(moclFileText))[0];
 		URI moclURI = URI.createFileURI(moclFile.getAbsolutePath());
-        
-        Injector injector = new OclStandaloneSetup().createInjectorAndDoEMFRegistration();
+		
+		Injector injector = new OclStandaloneSetup().createInjectorAndDoEMFRegistration();
         XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
-
-        ResourceSet res = new ResourceSetImpl();
-        Resource ecoreResource = res.getResource(ecoreURI, true);
-        
-        
         Resource moclResource = resourceSet.getResource(moclURI, true);
         EcoreUtil.resolveAll(moclResource);
-        moclResource.getContents().add(EcoreUtil.copy(ecoreResource.getContents().get(0)));
-        Module moclObject = (Module) moclResource.getContents().get(0);
-        
-        EPackage ecorePackage = (EPackage) ecoreResource.getContents().get(0);
-        System.out.println("ecorePackage name : " + ecorePackage.getName());
-        
-        moclObject.getImports().get(0).setPackage(ecorePackage);
+        return moclResource; //TODO return error if not a mocl
+	}
+	
+	private static void compile(File projectFolder, EPackage ecoreObject, Module moclObject) {
+		
+		File srcFolder = projectFolder.listFiles((f, n) -> n.equals("src"))[0];
         
         File oclFolder = new File(srcFolder.getAbsolutePath() + "/ocl");
         File oclCollectionsFolder = new File(srcFolder.getAbsolutePath() + "/oclCollections");
@@ -93,7 +146,7 @@ public class Main {
         System.out.println("Compilation du mocl...");
         
 		try {
-			EcoreToJava gen0 = new EcoreToJava(ecoreURI, oclFolder, new ArrayList<String>());
+			EcoreToJava gen0 = new EcoreToJava(ecoreObject, oclFolder, new ArrayList<String>());
 			gen0.doGenerate(new BasicMonitor());
 		
 			EObject model = gen0.getModel();
@@ -109,14 +162,10 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println("Mocl compilé");
-		
-		
 
 	}
 	
-	public static boolean verifiy(File projectFolder, String ecoreName, String xmiFileText) {
+	private static Map<String, Map<String, List<String>>> verifiy(File projectFolder, String ecoreName, String... xmiNames) {
 		String capitalizedEcoreName = ecoreName.substring(0, 1).toUpperCase() + ecoreName.substring(1);
 		String lowerCasedEcoreName = ecoreName.toLowerCase();
 		
@@ -169,7 +218,8 @@ public class Main {
 	            // Create a new custom class loader, pointing to the directory that contains the compiled
 	            // classes, this should point to the top of the package structure!
 	        	try (URLClassLoader classLoader = new URLClassLoader(new URL[]{binFolder.toURI().toURL()})) {
-					String[] args2 = {projectFolder.getAbsolutePath() + "/" + xmiFileText};
+	        		
+					Map<String, Map<String, List<String>>> errorsMaps = new HashMap<String, Map<String, List<String>>>();
 					
 					/** MAIN **/
 					Class<?> petrinetPackage = classLoader.loadClass(lowerCasedEcoreName + "." + capitalizedEcoreName + "Package");
@@ -186,51 +236,50 @@ public class Main {
 					Class<?> validator = classLoader.loadClass("ocl." + capitalizedEcoreName +"Validator");
 					Object validatorObject = validator.getConstructor(new Class[] {}).newInstance();
 					
-					for (String model : args2) {
+					for (String xmiName : xmiNames) {
+						String model = projectFolder.getAbsolutePath() + "/" + xmiName;
 						URI modelURI = URI.createURI(model);
 						Resource resource = resSet.getResource(modelURI, true);
 						
 						//ValidationResult resultat = validator.validate(resource);
 						Class<?> validationResult = classLoader.loadClass("ocl.ValidationResult");
 					    Object resultat = validator.getMethod("validate", new Class[] {Resource.class}).invoke(validatorObject, resource);
-
-						System.out.println("Résultat de validation pour " + model + ":");
+						
+						Map<String, List<String>> errorsMap = new HashMap<String, List<String>>();
+						
 						//afficherResultat(resultat);
 						for (EClassifier eClassifier : ((EPackage) packageInstance).getEClassifiers()) {
 							@SuppressWarnings("unchecked")
 							List<Object> errors = (List<Object>) validationResult.getMethod("getRecordedErrorsFor", new Class[] {int.class}).invoke(resultat, eClassifier.getClassifierID());
-							
-							System.out.print("- " + eClassifier.getName() + ":");
-							if (errors.isEmpty()) {
-								System.out.println(" OK");
-							} else {
-								System.out.println(" " + errors.size() + " erreurs trouvées");
-								for (Object error : errors) {
-									System.out.println("=> " + error.toString());
-								}
+							List<String> errorsString = new ArrayList<String>();
+							for (Object error : errors) {
+								errorsString.add(error.toString());
 							}
-						} 
+							
+							errorsMap.put(eClassifier.getName(), errorsString);
+						}
+						errorsMaps.put(xmiName, errorsMap);
 					}
-
-					System.out.println("Xmi vérifié");
 					
 //					Class<?> mainClass = classLoader.loadClass("ocl.ValidatePetrinet");
 //					mainClass.getMethod("main", String[].class).invoke(null, (Object)args2);
+
+			        fileManager.close();
+					return errorsMaps;
 				}
 	            /************************************************************************************************* Load and execute **/
 	        } else {
 	            for (Diagnostic<? extends JavaFileObject> diagnostic : diagnostics.getDiagnostics()) {
-	                System.out.format("Error on line %d in %s%n",
+	                System.err.format("Error on line %d in %s%n",
 	                        diagnostic.getLineNumber(),
 	                        diagnostic.getSource().toUri());
 	            }
+	            throw new RuntimeException("Generated java compiled with error");
 	        }
-	        fileManager.close();
 		} catch (IOException | ClassNotFoundException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | InstantiationException | NoSuchFieldException exp) {
-	        exp.printStackTrace();
+	        throw new RuntimeException("Java compilation and execution exception", exp);
+			//exp.printStackTrace();
 	    }
-
-		return true;
 	}
 
 }
