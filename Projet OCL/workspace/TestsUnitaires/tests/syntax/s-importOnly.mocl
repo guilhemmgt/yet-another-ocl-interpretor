@@ -1,0 +1,6 @@
+module a;a
+
+import "http://empty" as empty
+
+inv t:
+  true

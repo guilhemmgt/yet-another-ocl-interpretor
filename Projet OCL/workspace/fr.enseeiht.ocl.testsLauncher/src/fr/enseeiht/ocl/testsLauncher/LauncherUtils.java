@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import javax.tools.Diagnostic;
 import javax.tools.DiagnosticCollector;
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
@@ -25,6 +24,7 @@ import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
 import org.eclipse.emf.common.util.BasicMonitor;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.resource.XtextSyntaxDiagnostic;
+
 import com.google.inject.Injector;
 
 import fr.enseeiht.ocl.xtext.OclStandaloneSetup;
@@ -44,9 +46,12 @@ import fr.enseeiht.ocl.OCLCollectionToJava.main.OclCollectionToJava;
 import fr.enseeiht.ocl.OCLToJava.main.OclToJava;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
+import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
 
 public class LauncherUtils {
+	
+	//TODO : remplacer tout les listFiles en new File
 	
 	public static void main(String[] args) {
 		try {
@@ -72,13 +77,13 @@ public class LauncherUtils {
 				}
 			}
 			
-		} catch (FileNotFoundException | BadFileExtensionException | BadFileStructureException e) {
+		} catch (FileNotFoundException | BadFileExtensionException | BadFileStructureException | SyntaxException e) {
 			e.printStackTrace();
 		}
 	}
 
 
-	public static Map<String, Map<String, List<String>>> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException {
+	public static Map<String, Map<String, List<String>>> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException {
 		
 		File projectFolder = workspacePath.toFile().listFiles((f, n) -> n.equals(projectName))[0];
 		
@@ -91,6 +96,13 @@ public class LauncherUtils {
 		//Add ecore to mocl to make the Eclass visible
 		moclResource.getContents().add(EcoreUtil.copy(ecoreResource.getContents().get(0)));
 		
+		// Check syntax
+		for (Diagnostic diagnostic : EcoreUtil.computeDiagnostic(moclResource, false).getChildren()) {
+			if(diagnostic.getData().get(0) instanceof XtextSyntaxDiagnostic) {
+				throw new SyntaxException(diagnostic.getMessage());
+			}
+		}
+		
 		//Get EObjects from ecore and mocl
 		if(!(moclResource.getContents().get(0) instanceof Module))
 			throw new BadFileStructureException(moclName, moclName.split("\\.")[moclName.split("\\.").length-1].equals("mocl")?null : "mocl");
@@ -98,7 +110,7 @@ public class LauncherUtils {
         if(!(ecoreResource.getContents().get(0) instanceof EPackage))
 			throw new BadFileStructureException(ecoreName, ecoreName.split("\\.")[ecoreName.split("\\.").length-1].equals("ecore")?null : "ecore");
         EPackage ecorePackage = (EPackage) ecoreResource.getContents().get(0);
-
+        
         //Update the import of the mocl
         moclObject.getImports().get(0).setPackage(ecorePackage);
 		
@@ -121,19 +133,22 @@ public class LauncherUtils {
 	}
 	
 	private static Resource getMoclResource(File projectFolder, String moclFileText) throws BadFileExtensionException, FileNotFoundException {
-		if(!Arrays.asList(projectFolder.list()).contains(moclFileText))
+		File moclFile = new File(projectFolder.getAbsolutePath() + "/" + moclFileText);
+		
+		if(!moclFile.exists())
 			throw new FileNotFoundException("Le fichier " + moclFileText + " n'existe pas.");
+		
 		if(!moclFileText.split("\\.")[moclFileText.split("\\.").length-1].equals("mocl"))
 			throw new BadFileExtensionException(moclFileText, "mocl");
 		
-		File moclFile = projectFolder.listFiles((f, n) -> n.equals(moclFileText))[0];
+		//File moclFile = projectFolder.listFiles((f, n) -> n.equals(moclFileText))[0];
 		URI moclURI = URI.createFileURI(moclFile.getAbsolutePath());
 		
 		Injector injector = new OclStandaloneSetup().createInjectorAndDoEMFRegistration();
         XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
         Resource moclResource = resourceSet.getResource(moclURI, true);
         EcoreUtil.resolveAll(moclResource);
-        return moclResource; //TODO return error if not a mocl
+        return moclResource;
 	}
 	
 	private static void compile(File projectFolder, EPackage ecoreObject, Module moclObject) {
@@ -269,7 +284,7 @@ public class LauncherUtils {
 				}
 	            /************************************************************************************************* Load and execute **/
 	        } else {
-	            for (Diagnostic<? extends JavaFileObject> diagnostic : diagnostics.getDiagnostics()) {
+	            for (javax.tools.Diagnostic<? extends JavaFileObject> diagnostic : diagnostics.getDiagnostics()) {
 	                System.err.format("Error on line %d in %s%n",
 	                        diagnostic.getLineNumber(),
 	                        diagnostic.getSource().toUri());
