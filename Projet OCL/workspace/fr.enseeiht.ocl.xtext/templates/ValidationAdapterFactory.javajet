@@ -6,7 +6,7 @@ List<String> classNames = (List<String>) argument; %>
 package fr.enseeiht.ocl.xtext.ocl.adapter.util;
 
 <%for (String className : classNames) {%>
-import fr.enseeiht.ocl.xtext.ocl.<%=className%>
+import fr.enseeiht.ocl.xtext.ocl.<%=className%>;
 <%}%>
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
