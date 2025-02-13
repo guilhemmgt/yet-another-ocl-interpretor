@@ -54,4 +54,8 @@ Workflow {
 			}
 		}
 	}
+
+	component = JetRunner {
+		ecorePath = "./model/generated/Ocl.ecore"
+	}
 }
