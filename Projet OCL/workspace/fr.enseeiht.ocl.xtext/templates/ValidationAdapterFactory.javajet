@@ -1,19 +1,19 @@
-<%@jet package="fr.ensseiht.ocl.xtext.adapter.templates" class="AdapterFactoryTemplate" 
+<%@jet package="fr.ensseiht.ocl.xtext.adapter.ocl.templates" class="AdapterFactoryTemplate" 
 	imports= "java.util.List"
 %>
 <% @SuppressWarnings("unchecked")
 List<String> classNames = (List<String>) argument; %>
-package fr.enseeiht.ocl.xtext.ocl.util;
+package fr.enseeiht.ocl.xtext.ocl.adapter.util;
 
 <%for (String className : classNames) {%>
 import fr.enseeiht.ocl.xtext.ocl.<%=className%>
 <%}%>
 import org.eclipse.emf.ecore.EObject;
-
+import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
 /**
  * <!-- begin-user-doc -->
- * The <b>Adapter Factory</b> for the model.
- * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * The <b>ValidationAdapter Factory</b> for the model.
+ * It provides an adapter <code>createXXXValidationAdapter</code> method for each class of the model.
  * <!-- end-user-doc -->
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage
  * @generated

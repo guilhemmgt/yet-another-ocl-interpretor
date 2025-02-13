@@ -1,4 +1,4 @@
- <%@jet package="fr.ensseiht.ocl.xtext.adapter.templates" class="AdapterTemplate" %>
+ <%@jet package="fr.ensseiht.ocl.xtext.adapter.ocl.templates" class="AdapterTemplate" %>
 
 
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;

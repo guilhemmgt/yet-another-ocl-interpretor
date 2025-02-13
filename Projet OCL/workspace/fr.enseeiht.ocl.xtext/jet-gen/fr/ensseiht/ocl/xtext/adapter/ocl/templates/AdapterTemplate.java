@@ -1,4 +1,4 @@
-package fr.ensseiht.ocl.xtext.adapter.templates;
+package fr.ensseiht.ocl.xtext.adapter.ocl.templates;
 
 public class AdapterTemplate
 {
