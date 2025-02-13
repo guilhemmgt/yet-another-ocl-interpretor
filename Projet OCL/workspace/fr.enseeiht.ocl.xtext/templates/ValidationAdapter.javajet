@@ -3,6 +3,7 @@
 
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
+import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.<%=argument%>;
@@ -18,12 +19,12 @@ public final class <%=argument%>ValidationAdapter implements OCLAdapter {
 	 * Private constructor.
 	 * @generated
 	 */
-	private <%=argument%>Adapter() {}
+	private <%=argument%>ValidationAdapter() {}
 
 	/**
 	 * @generated
 	 */
-	public <%=argument%>Adapter(<%=argument%> object) {
+	public <%=argument%>ValidationAdapter(<%=argument%> object) {
 		this.target = object;
 	}
 
