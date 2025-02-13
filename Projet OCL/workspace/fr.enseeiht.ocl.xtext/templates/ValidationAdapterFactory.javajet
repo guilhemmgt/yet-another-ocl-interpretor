@@ -1,0 +1,119 @@
+<%@jet package="fr.ensseiht.ocl.xtext.adapter.templates" class="AdapterFactoryTemplate" 
+	imports= "java.util.List"
+%>
+<% @SuppressWarnings("unchecked")
+List<String> classNames = (List<String>) argument; %>
+package fr.enseeiht.ocl.xtext.ocl.util;
+
+<%for (String className : classNames) {%>
+import fr.enseeiht.ocl.xtext.ocl.<%=className%>
+<%}%>
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Adapter Factory</b> for the model.
+ * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * <!-- end-user-doc -->
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage
+ * @generated
+ */
+public class OCLValitionAdapterFactory extends AdapterFactoryImpl
+{
+  /**
+   * The cached model package.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected static OclPackage modelPackage;
+
+  /**
+   * Creates an instance of the adapter factory.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OclAdapterFactory()
+  {
+    if (modelPackage == null)
+    {
+      modelPackage = OclPackage.eINSTANCE;
+    }
+  }
+
+  /**
+   * Returns whether this factory is applicable for the type of the object.
+   * <!-- begin-user-doc -->
+   * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+   * <!-- end-user-doc -->
+   * @return whether this factory is applicable for the type of the object.
+   * @generated
+   */
+  @Override
+  public boolean isFactoryForType(Object object)
+  {
+    if (object == modelPackage)
+    {
+      return true;
+    }
+    if (object instanceof EObject)
+    {
+      return ((EObject)object).eClass().getEPackage() == modelPackage;
+    }
+    return false;
+  }
+
+  /**
+   * The switch that delegates to the <code>createXXX</code> methods.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected OclSwitch<OCLAdapter> modelSwitch =
+    new OclSwitch<OCLAdapter>()
+    {
+<%for (String className : classNames) {%>
+      @Override
+      public Adapter case<%=className%>(<%=className%> object)
+      {
+        return create<%=className%>ValidationAdapter(object);
+      }
+<%}%>
+      @Override
+      public Adapter defaultCase(EObject object)
+      {
+        return createEObjectAdapter();
+      }
+    };
+
+  /**
+   * Creates an adapter for the <code>target</code>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param target the object to adapt.
+   * @return the adapter for the <code>target</code>.
+   * @generated
+   */
+  @Override
+  public Adapter createAdapter(Notifier target)
+  {
+    return modelSwitch.doSwitch((EObject)target);
+  }
+
+<%for (String className : classNames) {%>
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.<%=className%> <em><%=className%></em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.<%=className%>
+   * @generated
+   */
+  public Adapter create<%=className%>ValidationAdapter(<%=className%> target)
+  {
+    return new <%=className%>(target);
+  }
+
+<%}%>
+}

@@ -16,7 +16,7 @@ public class AdapterTemplate
   protected final String TEXT_2 = NL + NL + NL + "package fr.enseeiht.ocl.xtext.ocl.adapter.impl;" + NL + "" + NL + "import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;" + NL + "import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;" + NL + "import fr.enseeiht.ocl.xtext.ocl.";
   protected final String TEXT_3 = ";" + NL + "import fr.enseeiht.ocl.xtext.OCLType;" + NL + "/**" + NL + " * OCLAdapter for ";
   protected final String TEXT_4 = NL + " * @generated" + NL + " */" + NL + "public final class ";
-  protected final String TEXT_5 = "Adapter implements OCLAdapter {" + NL + "" + NL + "\tprivate ";
+  protected final String TEXT_5 = "ValidationAdapter implements OCLAdapter {" + NL + "" + NL + "\tprivate ";
   protected final String TEXT_6 = " target;" + NL + "\t/**" + NL + "\t * Private constructor." + NL + "\t * @generated" + NL + "\t */" + NL + "\tprivate ";
   protected final String TEXT_7 = "Adapter() {}" + NL + "" + NL + "\t/**" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic ";
   protected final String TEXT_8 = "Adapter(";

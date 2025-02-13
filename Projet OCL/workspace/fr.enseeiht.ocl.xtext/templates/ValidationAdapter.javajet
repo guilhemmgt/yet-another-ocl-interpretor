@@ -11,7 +11,7 @@ import fr.enseeiht.ocl.xtext.OCLType;
  * OCLAdapter for <%=argument%>
  * @generated
  */
-public final class <%=argument%>Adapter implements OCLAdapter {
+public final class <%=argument%>ValidationAdapter implements OCLAdapter {
 
 	private <%=argument%> target;
 	/**
