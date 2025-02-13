@@ -18,7 +18,7 @@ import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage
  * @generated
  */
-public class OCLValitionAdapterFactory extends AdapterFactoryImpl
+public class OCLValidationAdapterFactory extends AdapterFactoryImpl
 {
   /**
    * The cached model package.
@@ -34,7 +34,7 @@ public class OCLValitionAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public OclAdapterFactory()
+  public OCLValidationAdapterFactory()
   {
     if (modelPackage == null)
     {

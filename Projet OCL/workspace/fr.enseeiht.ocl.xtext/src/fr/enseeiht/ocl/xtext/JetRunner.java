@@ -72,7 +72,7 @@ public class JetRunner implements IWorkflowComponent {
 				String generationResult = template.generate(className);
 				File classFile = new File(
 						"./jet-gen/fr/enseeiht/ocl/xtext/ocl/adapter/impl/" + className + "ValidationAdapter.java");
-				generateClass(classFile, generationResult);
+				generateClass(classFile, generationResult, true);
 			}
 		}
 
@@ -82,8 +82,8 @@ public class JetRunner implements IWorkflowComponent {
 			AdapterFactoryTemplate template = new AdapterFactoryTemplate();
 			String generationResult = template.generate(ecoreClassesNames);
 			File classFile = new File(
-					"./jet-gen/fr/enseeiht/ocl/xtext/ocl/adapter/util/OCLValitionAdapterFactory.java");
-			generateClass(classFile, generationResult);
+					"./jet-gen/fr/enseeiht/ocl/xtext/ocl/adapter/util/OCLValidationAdapterFactory.java");
+			generateClass(classFile, generationResult, false);
 		}
 	}
 
@@ -91,7 +91,7 @@ public class JetRunner implements IWorkflowComponent {
 	public void postInvoke() {
 	}
 
-	private void generateClass(File classFile, String generationResult) {
+	private void generateClass(File classFile, String generationResult, Boolean merge) {
 		// Récupère le contenu du fichier
 		// (et créé les dossiers et le fichier si nécessaires)
 		String classContent = "";
@@ -104,18 +104,22 @@ public class JetRunner implements IWorkflowComponent {
 			return;
 		}
 
-		// Fusion avec JMerge:
-		// écrase les classes et méthodes annotées avec "@generate"
-		// conserve les classes et méthodes annotées avec "@generated not"
-		jMerger.setTargetCompilationUnit(jMerger.createCompilationUnitForContents(classContent));
-		jMerger.setSourceCompilationUnit(jMerger.createCompilationUnitForContents(generationResult));
-		jMerger.merge();
-		String mergeResult = jMerger.getTargetCompilationUnit().getContents().toString();
+		String newClassContent = generationResult;
+		if (merge) {
+			// Fusion avec JMerge:
+			// écrase les classes et méthodes annotées avec "@generate"
+			// conserve les classes et méthodes annotées avec "@generated not"
+			jMerger.setTargetCompilationUnit(jMerger.createCompilationUnitForContents(classContent));
+			jMerger.setSourceCompilationUnit(jMerger.createCompilationUnitForContents(generationResult));
+			jMerger.merge();
+			String mergeResult = jMerger.getTargetCompilationUnit().getContents().toString();
+			newClassContent = mergeResult;
+		}
 
 		// Écrase le fichier avec le résult de la fusion
 		try {
 			FileWriter writer = new FileWriter(classFile);
-			writer.write(mergeResult);
+			writer.write(newClassContent);
 			writer.close();
 		} catch (Exception e) {
 			e.printStackTrace();
