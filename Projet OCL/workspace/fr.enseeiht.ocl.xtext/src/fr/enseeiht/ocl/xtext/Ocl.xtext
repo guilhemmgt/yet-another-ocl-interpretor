@@ -346,7 +346,7 @@ MapType :
 
 
 terminal DOUBLE returns ecore::EDouble :
-('-'|'+')? (INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
+(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
 
 QualifiedName: ID ('.' ID)*;
 
