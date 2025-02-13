@@ -1,4 +1,4 @@
-package fr.ensseiht.ocl.xtext.ocl.adapter.templates;
+package fr.enseeiht.ocl.xtext.ocl.adapter.templates;
 
 import java.util.List;
 
