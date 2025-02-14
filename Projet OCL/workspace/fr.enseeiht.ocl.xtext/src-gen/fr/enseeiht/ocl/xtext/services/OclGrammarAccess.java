@@ -27,81 +27,38 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class ModuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Module");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cModuleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
-		private final Assignment cElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cElementsModuleElementParserRuleCall_4_0 = (RuleCall)cElementsAssignment_4.eContents().get(0);
+		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cImportsImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsOclFeatureDefinitionParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsOclModuleElementParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
 		
-		////Model:
-		////    (imports+=Import)*
-		////    eventsMappings+=EventsMapping*;
-		////
-		////
-		////
-		////EventsMapping:
-		////    'events mapping' name = ID ':'
-		////        dsmlStream=DSMLStream
-		////        'observed as'
-		////        formalStream=FormalStream
-		////    'end events mapping'
-		////;
-		////
-		////DSMLStream:
-		////        elements += (StreamDSMLElement)+
-		////;
-		////
-		////StreamDSMLElement:
-		////'DSMLEvent' DSMLEvent
-		////;
-		////
-		////DSMLEvent:
-		////    name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID];
-		////
-		////FormalStream:
-		////        elements += (StreamFormalElement)+
-		////;
-		////StreamFormalElement:
-		////'FormalEvent'    FormalEvent
-		////;
-		////
-		////FormalEvent:
-		////    name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID] '('  body=OclExpression ')'//
-		////;
 		//Module:
-		//    'module' name=ID ';' imports+=Import (elements+=ModuleElement)+
+		//    (imports+=Import)+ (elements+=OclFeatureDefinition)* (elements+=OclModuleElement)+
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'module' name=ID ';' imports+=Import (elements+=ModuleElement)+
+		//(imports+=Import)+ (elements+=OclFeatureDefinition)* (elements+=OclModuleElement)+
 		public Group getGroup() { return cGroup; }
 		
-		//'module'
-		public Keyword getModuleKeyword_0() { return cModuleKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
-		
-		//imports+=Import
-		public Assignment getImportsAssignment_3() { return cImportsAssignment_3; }
+		//(imports+=Import)+
+		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
 		
 		//Import
-		public RuleCall getImportsImportParserRuleCall_3_0() { return cImportsImportParserRuleCall_3_0; }
+		public RuleCall getImportsImportParserRuleCall_0_0() { return cImportsImportParserRuleCall_0_0; }
 		
-		//(elements+=ModuleElement)+
-		public Assignment getElementsAssignment_4() { return cElementsAssignment_4; }
+		//(elements+=OclFeatureDefinition)*
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
 		
-		//ModuleElement
-		public RuleCall getElementsModuleElementParserRuleCall_4_0() { return cElementsModuleElementParserRuleCall_4_0; }
+		//OclFeatureDefinition
+		public RuleCall getElementsOclFeatureDefinitionParserRuleCall_1_0() { return cElementsOclFeatureDefinitionParserRuleCall_1_0; }
+		
+		//(elements+=OclModuleElement)+
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
+		
+		//OclModuleElement
+		public RuleCall getElementsOclModuleElementParserRuleCall_2_0() { return cElementsOclModuleElementParserRuleCall_2_0; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Import");
@@ -142,40 +99,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 	}
-	public class ModuleElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.ModuleElement");
-		private final RuleCall cOclModuleElementParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//ModuleElement:
-		//     OclModuleElement
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//OclModuleElement
-		public RuleCall getOclModuleElementParserRuleCall() { return cOclModuleElementParserRuleCall; }
-	}
 	public class OclModuleElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclModuleElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cOclFeatureDefinitionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cOclInvariantParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//OclModuleElement:
-		//    OclFeatureDefinition|OclInvariant
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//OclFeatureDefinition|OclInvariant
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//OclFeatureDefinition
-		public RuleCall getOclFeatureDefinitionParserRuleCall_0() { return cOclFeatureDefinitionParserRuleCall_0; }
-		
-		//OclInvariant
-		public RuleCall getOclInvariantParserRuleCall_1() { return cOclInvariantParserRuleCall_1; }
-	}
-	public class OclFeatureDefinitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclFeatureDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Keyword cContextKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
@@ -186,22 +111,20 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cClassAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
 		private final CrossReference cClassEClassCrossReference_0_3_0 = (CrossReference)cClassAssignment_0_3.eContents().get(0);
 		private final RuleCall cClassEClassQualifiedNameParserRuleCall_0_3_0_1 = (RuleCall)cClassEClassCrossReference_0_3_0.eContents().get(1);
-		private final Keyword cDefKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cFeatureAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Alternatives cFeatureAlternatives_3_0 = (Alternatives)cFeatureAssignment_3.eContents().get(0);
-		private final RuleCall cFeatureAttributeParserRuleCall_3_0_0 = (RuleCall)cFeatureAlternatives_3_0.eContents().get(0);
-		private final RuleCall cFeatureOperationParserRuleCall_3_0_1 = (RuleCall)cFeatureAlternatives_3_0.eContents().get(1);
+		private final Assignment cMembersAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cMembersAlternatives_1_0 = (Alternatives)cMembersAssignment_1.eContents().get(0);
+		private final RuleCall cMembersOclFeatureDefinitionParserRuleCall_1_0_0 = (RuleCall)cMembersAlternatives_1_0.eContents().get(0);
+		private final RuleCall cMembersOclInvariantParserRuleCall_1_0_1 = (RuleCall)cMembersAlternatives_1_0.eContents().get(1);
 		
-		//OclFeatureDefinition:
-		//    ('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'def' ':' feature = (Attribute|Operation)
+		//OclModuleElement:
+		//    ('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName]) (members+=(OclFeatureDefinition|OclInvariant))+
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'def' ':' feature = (Attribute|Operation)
+		//('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName]) (members+=(OclFeatureDefinition|OclInvariant))+
 		public Group getGroup() { return cGroup; }
 		
-		//('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])?
+		//('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'context'
@@ -228,23 +151,53 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//QualifiedName
 		public RuleCall getClassEClassQualifiedNameParserRuleCall_0_3_0_1() { return cClassEClassQualifiedNameParserRuleCall_0_3_0_1; }
 		
+		//(members+=(OclFeatureDefinition|OclInvariant))+
+		public Assignment getMembersAssignment_1() { return cMembersAssignment_1; }
+		
+		//(OclFeatureDefinition|OclInvariant)
+		public Alternatives getMembersAlternatives_1_0() { return cMembersAlternatives_1_0; }
+		
+		//OclFeatureDefinition
+		public RuleCall getMembersOclFeatureDefinitionParserRuleCall_1_0_0() { return cMembersOclFeatureDefinitionParserRuleCall_1_0_0; }
+		
+		//OclInvariant
+		public RuleCall getMembersOclInvariantParserRuleCall_1_0_1() { return cMembersOclInvariantParserRuleCall_1_0_1; }
+	}
+	public class OclFeatureDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclFeatureDefinition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDefKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFeatureAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cFeatureAlternatives_2_0 = (Alternatives)cFeatureAssignment_2.eContents().get(0);
+		private final RuleCall cFeatureAttributeParserRuleCall_2_0_0 = (RuleCall)cFeatureAlternatives_2_0.eContents().get(0);
+		private final RuleCall cFeatureOperationParserRuleCall_2_0_1 = (RuleCall)cFeatureAlternatives_2_0.eContents().get(1);
+		
+		//OclFeatureDefinition:
+		//    'def' ':' feature = (Attribute|Operation)
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'def' ':' feature = (Attribute|Operation)
+		public Group getGroup() { return cGroup; }
+		
 		//'def'
-		public Keyword getDefKeyword_1() { return cDefKeyword_1; }
+		public Keyword getDefKeyword_0() { return cDefKeyword_0; }
 		
 		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
 		//feature = (Attribute|Operation)
-		public Assignment getFeatureAssignment_3() { return cFeatureAssignment_3; }
+		public Assignment getFeatureAssignment_2() { return cFeatureAssignment_2; }
 		
 		//(Attribute|Operation)
-		public Alternatives getFeatureAlternatives_3_0() { return cFeatureAlternatives_3_0; }
+		public Alternatives getFeatureAlternatives_2_0() { return cFeatureAlternatives_2_0; }
 		
 		//Attribute
-		public RuleCall getFeatureAttributeParserRuleCall_3_0_0() { return cFeatureAttributeParserRuleCall_3_0_0; }
+		public RuleCall getFeatureAttributeParserRuleCall_2_0_0() { return cFeatureAttributeParserRuleCall_2_0_0; }
 		
 		//Operation
-		public RuleCall getFeatureOperationParserRuleCall_3_0_1() { return cFeatureOperationParserRuleCall_3_0_1; }
+		public RuleCall getFeatureOperationParserRuleCall_2_0_1() { return cFeatureOperationParserRuleCall_2_0_1; }
 	}
 	public class AttributeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Attribute");
@@ -257,14 +210,13 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cInitExpressionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cInitExpressionOclExpressionParserRuleCall_4_0 = (RuleCall)cInitExpressionAssignment_4.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Attribute :
-		//    name=ID ':' type=OclType '=' initExpression=OclExpression ';'
+		//    name=ID ':' type=OclType '=' initExpression=OclExpression
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=OclType '=' initExpression=OclExpression ';'
+		//name=ID ':' type=OclType '=' initExpression=OclExpression
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -290,9 +242,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//OclExpression
 		public RuleCall getInitExpressionOclExpressionParserRuleCall_4_0() { return cInitExpressionOclExpressionParserRuleCall_4_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 	public class OperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Operation");
@@ -314,14 +263,13 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cEqualsSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cBodyAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cBodyOclExpressionParserRuleCall_7_0 = (RuleCall)cBodyAssignment_7.eContents().get(0);
-		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Operation:
-		//    name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression ';'
+		//    name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression ';'
+		//name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -374,9 +322,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//OclExpression
 		public RuleCall getBodyOclExpressionParserRuleCall_7_0() { return cBodyOclExpressionParserRuleCall_7_0; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
 	}
 	public class ParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Parameter");
@@ -413,74 +358,38 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class OclInvariantElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclInvariant");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
-		private final Keyword cContextKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cEcoreTypesAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final CrossReference cEcoreTypesImportCrossReference_0_1_0 = (CrossReference)cEcoreTypesAssignment_0_1.eContents().get(0);
-		private final RuleCall cEcoreTypesImportIDTerminalRuleCall_0_1_0_1 = (RuleCall)cEcoreTypesImportCrossReference_0_1_0.eContents().get(1);
-		private final Keyword cExclamationMarkKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cClassAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final CrossReference cClassEClassCrossReference_0_3_0 = (CrossReference)cClassAssignment_0_3.eContents().get(0);
-		private final RuleCall cClassEClassQualifiedNameParserRuleCall_0_3_0_1 = (RuleCall)cClassEClassCrossReference_0_3_0.eContents().get(1);
-		private final Keyword cInvKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cBodyAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cBodyOclExpressionParserRuleCall_4_0 = (RuleCall)cBodyAssignment_4.eContents().get(0);
+		private final Keyword cInvKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cBodyAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cBodyOclExpressionParserRuleCall_3_0 = (RuleCall)cBodyAssignment_3.eContents().get(0);
 		
 		//OclInvariant:
-		//    ('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'inv' name=ID ':' body=OclExpression //';'
+		//    'inv' name=ID ':' body=OclExpression
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'inv' name=ID ':' body=OclExpression
+		//'inv' name=ID ':' body=OclExpression
 		public Group getGroup() { return cGroup; }
 		
-		//('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])?
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//'context'
-		public Keyword getContextKeyword_0_0() { return cContextKeyword_0_0; }
-		
-		//ecoreTypes=[Import]
-		public Assignment getEcoreTypesAssignment_0_1() { return cEcoreTypesAssignment_0_1; }
-		
-		//[Import]
-		public CrossReference getEcoreTypesImportCrossReference_0_1_0() { return cEcoreTypesImportCrossReference_0_1_0; }
-		
-		//ID
-		public RuleCall getEcoreTypesImportIDTerminalRuleCall_0_1_0_1() { return cEcoreTypesImportIDTerminalRuleCall_0_1_0_1; }
-		
-		//'!'
-		public Keyword getExclamationMarkKeyword_0_2() { return cExclamationMarkKeyword_0_2; }
-		
-		//class=[ecore::EClass|QualifiedName]
-		public Assignment getClassAssignment_0_3() { return cClassAssignment_0_3; }
-		
-		//[ecore::EClass|QualifiedName]
-		public CrossReference getClassEClassCrossReference_0_3_0() { return cClassEClassCrossReference_0_3_0; }
-		
-		//QualifiedName
-		public RuleCall getClassEClassQualifiedNameParserRuleCall_0_3_0_1() { return cClassEClassQualifiedNameParserRuleCall_0_3_0_1; }
-		
 		//'inv'
-		public Keyword getInvKeyword_1() { return cInvKeyword_1; }
+		public Keyword getInvKeyword_0() { return cInvKeyword_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//':'
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
 		//body=OclExpression
-		public Assignment getBodyAssignment_4() { return cBodyAssignment_4; }
+		public Assignment getBodyAssignment_3() { return cBodyAssignment_3; }
 		
 		//OclExpression
-		public RuleCall getBodyOclExpressionParserRuleCall_4_0() { return cBodyOclExpressionParserRuleCall_4_0; }
+		public RuleCall getBodyOclExpressionParserRuleCall_3_0() { return cBodyOclExpressionParserRuleCall_3_0; }
 	}
 	public class OclExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclExpression");
@@ -489,15 +398,12 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cLetExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//OclExpression returns OclExpression :
-		//    //LambdaCallExp|
 		//    OperatorCallExp|LetExp;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////LambdaCallExp|
 		//OperatorCallExp|LetExp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		////LambdaCallExp|
 		//OperatorCallExp
 		public RuleCall getOperatorCallExpParserRuleCall_0() { return cOperatorCallExpParserRuleCall_0; }
 		
@@ -540,96 +446,38 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 	}
-	public class TEMPBIOPElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.TEMPBIOP");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cUntilKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cReleaseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		////priority_5
-		//TEMPBIOP          : 'until'|'release';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'until'|'release'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'until'
-		public Keyword getUntilKeyword_0() { return cUntilKeyword_0; }
-		
-		//'release'
-		public Keyword getReleaseKeyword_1() { return cReleaseKeyword_1; }
-	}
 	public class OperatorCallExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OperatorCallExp");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cBoolOpCallExpParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cOperatorCallExpSourceAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cOperationNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOperationNameTEMPBIOPParserRuleCall_1_1_0 = (RuleCall)cOperationNameAssignment_1_1.eContents().get(0);
-		private final Assignment cArgumentAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cArgumentBoolOpCallExpParserRuleCall_1_2_0 = (RuleCall)cArgumentAssignment_1_2.eContents().get(0);
-		
-		//OperatorCallExp returns OclExpression :
-		//    BoolOpCallExp ({OperatorCallExp.source = current} operationName=TEMPBIOP argument=BoolOpCallExp)*
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//BoolOpCallExp ({OperatorCallExp.source = current} operationName=TEMPBIOP argument=BoolOpCallExp)*
-		public Group getGroup() { return cGroup; }
-		
-		//BoolOpCallExp
-		public RuleCall getBoolOpCallExpParserRuleCall_0() { return cBoolOpCallExpParserRuleCall_0; }
-		
-		//({OperatorCallExp.source = current} operationName=TEMPBIOP argument=BoolOpCallExp)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{OperatorCallExp.source = current}
-		public Action getOperatorCallExpSourceAction_1_0() { return cOperatorCallExpSourceAction_1_0; }
-		
-		//operationName=TEMPBIOP
-		public Assignment getOperationNameAssignment_1_1() { return cOperationNameAssignment_1_1; }
-		
-		//TEMPBIOP
-		public RuleCall getOperationNameTEMPBIOPParserRuleCall_1_1_0() { return cOperationNameTEMPBIOPParserRuleCall_1_1_0; }
-		
-		//argument=BoolOpCallExp
-		public Assignment getArgumentAssignment_1_2() { return cArgumentAssignment_1_2; }
-		
-		//BoolOpCallExp
-		public RuleCall getArgumentBoolOpCallExpParserRuleCall_1_2_0() { return cArgumentBoolOpCallExpParserRuleCall_1_2_0; }
-	}
-	public class BoolOpCallExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.BoolOpCallExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cEqOpCallExpParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Action cBoolOpCallExpSourceAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Action cOperatorCallExpSourceAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
 		private final Assignment cOperationNameAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cOperationNameBOOLOPParserRuleCall_1_0_1_0 = (RuleCall)cOperationNameAssignment_1_0_1.eContents().get(0);
 		private final Assignment cArgumentAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cArgumentEqOpCallExpParserRuleCall_1_1_0 = (RuleCall)cArgumentAssignment_1_1.eContents().get(0);
 		
-		//BoolOpCallExp returns OperatorCallExp :
-		//    EqOpCallExp (({BoolOpCallExp.source=current} operationName=BOOLOP)     argument=EqOpCallExp )*
+		////priority_5
+		//OperatorCallExp returns OclExpression :
+		//    EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP)     argument=EqOpCallExp )*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//EqOpCallExp (({BoolOpCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
+		//EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
 		public Group getGroup() { return cGroup; }
 		
 		//EqOpCallExp
 		public RuleCall getEqOpCallExpParserRuleCall_0() { return cEqOpCallExpParserRuleCall_0; }
 		
-		//(({BoolOpCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
+		//(({OperatorCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//({BoolOpCallExp.source=current} operationName=BOOLOP)
+		//({OperatorCallExp.source=current} operationName=BOOLOP)
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//{BoolOpCallExp.source=current}
-		public Action getBoolOpCallExpSourceAction_1_0_0() { return cBoolOpCallExpSourceAction_1_0_0; }
+		//{OperatorCallExp.source=current}
+		public Action getOperatorCallExpSourceAction_1_0_0() { return cOperatorCallExpSourceAction_1_0_0; }
 		
 		//operationName=BOOLOP
 		public Assignment getOperationNameAssignment_1_0_1() { return cOperationNameAssignment_1_0_1; }
@@ -686,17 +534,17 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cArgumentRelOpCallExpParserRuleCall_1_1_0 = (RuleCall)cArgumentAssignment_1_1.eContents().get(0);
 		
 		//EqOpCallExp returns OperatorCallExp :
-		//    RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP)     argument=RelOpCallExp )*
+		//    RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP)     argument=RelOpCallExp )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )*
+		//RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )?
 		public Group getGroup() { return cGroup; }
 		
 		//RelOpCallExp
 		public RuleCall getRelOpCallExpParserRuleCall_0() { return cRelOpCallExpParserRuleCall_0; }
 		
-		//(({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )*
+		//(({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//({EqOpCallExp.source=current} operationName=EQOP)
@@ -748,17 +596,17 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cArgumentAddOpCallExpParserRuleCall_1_1_0 = (RuleCall)cArgumentAssignment_1_1.eContents().get(0);
 		
 		//RelOpCallExp returns OperatorCallExp :
-		//    AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP)     argument=AddOpCallExp )*
+		//    AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP)     argument=AddOpCallExp )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )*
+		//AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )?
 		public Group getGroup() { return cGroup; }
 		
 		//AddOpCallExp
 		public RuleCall getAddOpCallExpParserRuleCall_0() { return cAddOpCallExpParserRuleCall_0; }
 		
-		//(({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )*
+		//(({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//({RelOpCallExp.source=current} operationName=RELOP)
@@ -996,31 +844,31 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Assignment cOperationNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cOperationNameUnaryOPParserRuleCall_0_0_0 = (RuleCall)cOperationNameAssignment_0_0.eContents().get(0);
+		private final RuleCall cOperationNameUNARYOPParserRuleCall_0_0_0 = (RuleCall)cOperationNameAssignment_0_0.eContents().get(0);
 		private final Assignment cSourceAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cSourceNotOpCallExpParserRuleCall_0_1_0 = (RuleCall)cSourceAssignment_0_1.eContents().get(0);
 		private final RuleCall cPropertyCallExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//NotOpCallExp returns OperatorCallExp :
-		//    (((operationName=UnaryOP) source=NotOpCallExp)
+		//    ((operationName=UNARYOP source=NotOpCallExp)
 		//        |
 		//        PropertyCallExp)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(((operationName=UnaryOP) source=NotOpCallExp)
+		//((operationName=UNARYOP source=NotOpCallExp)
 		//    |
 		//    PropertyCallExp)
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//((operationName=UnaryOP) source=NotOpCallExp)
+		//(operationName=UNARYOP source=NotOpCallExp)
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//(operationName=UnaryOP)
+		//operationName=UNARYOP
 		public Assignment getOperationNameAssignment_0_0() { return cOperationNameAssignment_0_0; }
 		
-		//UnaryOP
-		public RuleCall getOperationNameUnaryOPParserRuleCall_0_0_0() { return cOperationNameUnaryOPParserRuleCall_0_0_0; }
+		//UNARYOP
+		public RuleCall getOperationNameUNARYOPParserRuleCall_0_0_0() { return cOperationNameUNARYOPParserRuleCall_0_0_0; }
 		
 		//source=NotOpCallExp
 		public Assignment getSourceAssignment_0_1() { return cSourceAssignment_0_1; }
@@ -1031,63 +879,24 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//PropertyCallExp
 		public RuleCall getPropertyCallExpParserRuleCall_1() { return cPropertyCallExpParserRuleCall_1; }
 	}
-	public class UnaryOPElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.UnaryOP");
+	public class UNARYOPElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.UNARYOP");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cNOTOPParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cUNARYTEMPOPParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Keyword cNotKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
-		//UnaryOP: NOTOP|UNARYTEMPOP;
+		//UNARYOP: 'not' | '-'
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//NOTOP|UNARYTEMPOP
+		//'not' | '-'
 		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//NOTOP
-		public RuleCall getNOTOPParserRuleCall_0() { return cNOTOPParserRuleCall_0; }
-		
-		//UNARYTEMPOP
-		public RuleCall getUNARYTEMPOPParserRuleCall_1() { return cUNARYTEMPOPParserRuleCall_1; }
-	}
-	public class NOTOPElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.NOTOP");
-		private final Keyword cNotKeyword = (Keyword)rule.eContents().get(1);
-		
-		//NOTOP: 'not';
-		@Override public ParserRule getRule() { return rule; }
 		
 		//'not'
-		public Keyword getNotKeyword() { return cNotKeyword; }
-	}
-	public class UNARYTEMPOPElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.UNARYTEMPOP");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cAlwaysKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cEventuallyKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cNextKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cAllKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cExistsKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		public Keyword getNotKeyword_0() { return cNotKeyword_0; }
 		
-		//UNARYTEMPOP: 'always'|'eventually'|'next'|'All'|'Exists';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'always'|'eventually'|'next'|'All'|'Exists'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'always'
-		public Keyword getAlwaysKeyword_0() { return cAlwaysKeyword_0; }
-		
-		//'eventually'
-		public Keyword getEventuallyKeyword_1() { return cEventuallyKeyword_1; }
-		
-		//'next'
-		public Keyword getNextKeyword_2() { return cNextKeyword_2; }
-		
-		//'All'
-		public Keyword getAllKeyword_3() { return cAllKeyword_3; }
-		
-		//'Exists'
-		public Keyword getExistsKeyword_4() { return cExistsKeyword_4; }
+		//'-'
+		public Keyword getHyphenMinusKeyword_1() { return cHyphenMinusKeyword_1; }
 	}
 	public class PropertyCallExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.PropertyCallExp");
@@ -1122,26 +931,23 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Primary_OclExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cVariableExpParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSuperExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSelfExpParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cStringExpParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cBooleanExpParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cNumericExpParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cBagExpParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cOrderedSetExpParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cSequenceExpParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cSetExpParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cTupleExpParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cMapExpParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cEnumLiteralExpParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
-		private final RuleCall cOclUndefinedExpParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
-		private final RuleCall cIfExpParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
-		private final RuleCall cBraceExpParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
-		private final RuleCall cOclModelElementExpParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		private final RuleCall cSelfExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cStringExpParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cBooleanExpParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cNumericExpParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cBagExpParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cOrderedSetExpParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cSequenceExpParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cSetExpParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cTupleExpParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cMapExpParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cEnumLiteralExpParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cIfExpParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cBraceExpParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cOclModelElementExpParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
 		
 		//Primary_OclExpression returns OclExpression :
 		//    VariableExp
-		//    |SuperExp
 		//    |SelfExp
 		//    |StringExp
 		//    |BooleanExp
@@ -1153,14 +959,12 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    |TupleExp
 		//    |MapExp
 		//    |EnumLiteralExp
-		//    |OclUndefinedExp
 		//    |IfExp
 		//    |BraceExp
 		//    |OclModelElementExp;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//VariableExp
-		//|SuperExp
 		//|SelfExp
 		//|StringExp
 		//|BooleanExp
@@ -1172,7 +976,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//|TupleExp
 		//|MapExp
 		//|EnumLiteralExp
-		//|OclUndefinedExp
 		//|IfExp
 		//|BraceExp
 		//|OclModelElementExp
@@ -1181,53 +984,47 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//VariableExp
 		public RuleCall getVariableExpParserRuleCall_0() { return cVariableExpParserRuleCall_0; }
 		
-		//SuperExp
-		public RuleCall getSuperExpParserRuleCall_1() { return cSuperExpParserRuleCall_1; }
-		
 		//SelfExp
-		public RuleCall getSelfExpParserRuleCall_2() { return cSelfExpParserRuleCall_2; }
+		public RuleCall getSelfExpParserRuleCall_1() { return cSelfExpParserRuleCall_1; }
 		
 		//StringExp
-		public RuleCall getStringExpParserRuleCall_3() { return cStringExpParserRuleCall_3; }
+		public RuleCall getStringExpParserRuleCall_2() { return cStringExpParserRuleCall_2; }
 		
 		//BooleanExp
-		public RuleCall getBooleanExpParserRuleCall_4() { return cBooleanExpParserRuleCall_4; }
+		public RuleCall getBooleanExpParserRuleCall_3() { return cBooleanExpParserRuleCall_3; }
 		
 		//NumericExp
-		public RuleCall getNumericExpParserRuleCall_5() { return cNumericExpParserRuleCall_5; }
+		public RuleCall getNumericExpParserRuleCall_4() { return cNumericExpParserRuleCall_4; }
 		
 		//BagExp
-		public RuleCall getBagExpParserRuleCall_6() { return cBagExpParserRuleCall_6; }
+		public RuleCall getBagExpParserRuleCall_5() { return cBagExpParserRuleCall_5; }
 		
 		//OrderedSetExp
-		public RuleCall getOrderedSetExpParserRuleCall_7() { return cOrderedSetExpParserRuleCall_7; }
+		public RuleCall getOrderedSetExpParserRuleCall_6() { return cOrderedSetExpParserRuleCall_6; }
 		
 		//SequenceExp
-		public RuleCall getSequenceExpParserRuleCall_8() { return cSequenceExpParserRuleCall_8; }
+		public RuleCall getSequenceExpParserRuleCall_7() { return cSequenceExpParserRuleCall_7; }
 		
 		//SetExp
-		public RuleCall getSetExpParserRuleCall_9() { return cSetExpParserRuleCall_9; }
+		public RuleCall getSetExpParserRuleCall_8() { return cSetExpParserRuleCall_8; }
 		
 		//TupleExp
-		public RuleCall getTupleExpParserRuleCall_10() { return cTupleExpParserRuleCall_10; }
+		public RuleCall getTupleExpParserRuleCall_9() { return cTupleExpParserRuleCall_9; }
 		
 		//MapExp
-		public RuleCall getMapExpParserRuleCall_11() { return cMapExpParserRuleCall_11; }
+		public RuleCall getMapExpParserRuleCall_10() { return cMapExpParserRuleCall_10; }
 		
 		//EnumLiteralExp
-		public RuleCall getEnumLiteralExpParserRuleCall_12() { return cEnumLiteralExpParserRuleCall_12; }
-		
-		//OclUndefinedExp
-		public RuleCall getOclUndefinedExpParserRuleCall_13() { return cOclUndefinedExpParserRuleCall_13; }
+		public RuleCall getEnumLiteralExpParserRuleCall_11() { return cEnumLiteralExpParserRuleCall_11; }
 		
 		//IfExp
-		public RuleCall getIfExpParserRuleCall_14() { return cIfExpParserRuleCall_14; }
+		public RuleCall getIfExpParserRuleCall_12() { return cIfExpParserRuleCall_12; }
 		
 		//BraceExp
-		public RuleCall getBraceExpParserRuleCall_15() { return cBraceExpParserRuleCall_15; }
+		public RuleCall getBraceExpParserRuleCall_13() { return cBraceExpParserRuleCall_13; }
 		
 		//OclModelElementExp
-		public RuleCall getOclModelElementExpParserRuleCall_16() { return cOclModelElementExpParserRuleCall_16; }
+		public RuleCall getOclModelElementExpParserRuleCall_14() { return cOclModelElementExpParserRuleCall_14; }
 	}
 	public class AuxiliaryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Auxiliary");
@@ -1253,72 +1050,23 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	public class VariableExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.VariableExp");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cReferredVariableAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final CrossReference cReferredVariableAuxiliaryCrossReference_0_0 = (CrossReference)cReferredVariableAssignment_0.eContents().get(0);
-		private final RuleCall cReferredVariableAuxiliaryIDTerminalRuleCall_0_0_1 = (RuleCall)cReferredVariableAuxiliaryCrossReference_0_0.eContents().get(1);
-		private final RuleCall cVariableDeclarationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Assignment cReferredVariableAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cReferredVariableAuxiliaryCrossReference_0 = (CrossReference)cReferredVariableAssignment.eContents().get(0);
+		private final RuleCall cReferredVariableAuxiliaryIDTerminalRuleCall_0_1 = (RuleCall)cReferredVariableAuxiliaryCrossReference_0.eContents().get(1);
 		
 		//VariableExp:
-		//    //name= ID|
-		//    referredVariable=[Auxiliary]|
-		//    VariableDeclaration
+		//    referredVariable=[Auxiliary]
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////name= ID|
-		//referredVariable=[Auxiliary]|
-		//VariableDeclaration
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		////name= ID|
 		//referredVariable=[Auxiliary]
-		public Assignment getReferredVariableAssignment_0() { return cReferredVariableAssignment_0; }
+		public Assignment getReferredVariableAssignment() { return cReferredVariableAssignment; }
 		
 		//[Auxiliary]
-		public CrossReference getReferredVariableAuxiliaryCrossReference_0_0() { return cReferredVariableAuxiliaryCrossReference_0_0; }
+		public CrossReference getReferredVariableAuxiliaryCrossReference_0() { return cReferredVariableAuxiliaryCrossReference_0; }
 		
 		//ID
-		public RuleCall getReferredVariableAuxiliaryIDTerminalRuleCall_0_0_1() { return cReferredVariableAuxiliaryIDTerminalRuleCall_0_0_1; }
-		
-		//VariableDeclaration
-		public RuleCall getVariableDeclarationParserRuleCall_1() { return cVariableDeclarationParserRuleCall_1; }
-	}
-	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.VariableDeclaration");
-		private final Assignment cVarNameAssignment = (Assignment)rule.eContents().get(1);
-		private final Keyword cVarNameThisModuleKeyword_0 = (Keyword)cVarNameAssignment.eContents().get(0);
-		
-		//VariableDeclaration:
-		//    varName='thisModule'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//varName='thisModule'
-		public Assignment getVarNameAssignment() { return cVarNameAssignment; }
-		
-		//'thisModule'
-		public Keyword getVarNameThisModuleKeyword_0() { return cVarNameThisModuleKeyword_0; }
-	}
-	public class SuperExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.SuperExp");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSuperExpAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSuperKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//SuperExp :
-		//    {SuperExp}    'super'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{SuperExp}	'super'
-		public Group getGroup() { return cGroup; }
-		
-		//{SuperExp}
-		public Action getSuperExpAction_0() { return cSuperExpAction_0; }
-		
-		//'super'
-		public Keyword getSuperKeyword_1() { return cSuperKeyword_1; }
+		public RuleCall getReferredVariableAuxiliaryIDTerminalRuleCall_0_1() { return cReferredVariableAuxiliaryIDTerminalRuleCall_0_1; }
 	}
 	public class SelfExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.SelfExp");
@@ -1399,36 +1147,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//DOUBLE
 		public RuleCall getRealSymbolDOUBLETerminalRuleCall_0() { return cRealSymbolDOUBLETerminalRuleCall_0; }
-	}
-	public class REALElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.REAL");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final RuleCall cEXT_INTTerminalRuleCall_2_0 = (RuleCall)cAlternatives_2.eContents().get(0);
-		private final RuleCall cINTTerminalRuleCall_2_1 = (RuleCall)cAlternatives_2.eContents().get(1);
-		
-		//REAL hidden(): INT '.' (EXT_INT | INT);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//INT '.' (EXT_INT | INT)
-		public Group getGroup() { return cGroup; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
-		
-		//(EXT_INT | INT)
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//EXT_INT
-		public RuleCall getEXT_INTTerminalRuleCall_2_0() { return cEXT_INTTerminalRuleCall_2_0; }
-		
-		//INT
-		public RuleCall getINTTerminalRuleCall_2_1() { return cINTTerminalRuleCall_2_1; }
 	}
 	public class IntegerExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.IntegerExp");
@@ -1928,28 +1646,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
 	}
-	public class OclUndefinedExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclUndefinedExp");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cOclUndefinedExpAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cOclUndefinedKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//OclUndefinedExp :
-		//    {OclUndefinedExp}
-		//    'OclUndefined'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{OclUndefinedExp}
-		//'OclUndefined'
-		public Group getGroup() { return cGroup; }
-		
-		//{OclUndefinedExp}
-		public Action getOclUndefinedExpAction_0() { return cOclUndefinedExpAction_0; }
-		
-		//'OclUndefined'
-		public Keyword getOclUndefinedKeyword_1() { return cOclUndefinedKeyword_1; }
-	}
 	public class LetExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.LetExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2074,17 +1770,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cBooleanSymbolAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final Keyword cBooleanSymbolFalseKeyword_1_0 = (Keyword)cBooleanSymbolAssignment_1.eContents().get(0);
 		
-		////CollectionPart:
-		////    CollectionRange|CollectionItem
-		////    ;
-		////
-		////CollectionRange:
-		////    first=OclExpression '..' last=OclExpression
-		////    ;
-		////
-		////CollectionItem:
-		////    item=OclExpression
-		////    ;
 		//BooleanExp:
 		//    booleanSymbol= 'true'|booleanSymbol= 'false'
 		//    ;
@@ -2542,38 +2227,25 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cTupleTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cOclModelElementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cMapTypeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cOclType_abstractContentsParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//OclType :
-		//    //oclModelElement |
-		//    //{OclType} name=STRING
 		//    CollectionType
 		//    | Primitive
 		//    | OclAnyType
 		//    | TupleType
 		//    | OclModelElement
 		//    | MapType
-		//    // | LambdaType
-		//    // | EnvType
-		//    | OclType_abstractContents
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////oclModelElement |
-		////{OclType} name=STRING
 		//CollectionType
 		//| Primitive
 		//| OclAnyType
 		//| TupleType
 		//| OclModelElement
 		//| MapType
-		//// | LambdaType
-		//// | EnvType
-		//| OclType_abstractContents
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		////oclModelElement |
-		////{OclType} name=STRING
 		//CollectionType
 		public RuleCall getCollectionTypeParserRuleCall_0() { return cCollectionTypeParserRuleCall_0; }
 		
@@ -2591,9 +2263,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//MapType
 		public RuleCall getMapTypeParserRuleCall_5() { return cMapTypeParserRuleCall_5; }
-		
-		//OclType_abstractContents
-		public RuleCall getOclType_abstractContentsParserRuleCall_6() { return cOclType_abstractContentsParserRuleCall_6; }
 	}
 	public class CollectionTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.CollectionType");
@@ -2907,35 +2576,11 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'OclAny'
 		public Keyword getOclAnyKeyword_1() { return cOclAnyKeyword_1; }
 	}
-	public class OclType_abstractContentsElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclType_abstractContents");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cOclTypeAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cOclTypeKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//OclType_abstractContents  returns OclType :
-		//    {OclType}
-		//    'OclType'
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{OclType}
-		//'OclType'
-		public Group getGroup() { return cGroup; }
-		
-		//{OclType}
-		public Action getOclTypeAction_0() { return cOclTypeAction_0; }
-		
-		//'OclType'
-		public Keyword getOclTypeKeyword_1() { return cOclTypeKeyword_1; }
-	}
 	public class TupleTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.TupleType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTupleTypeAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cTupleTypeKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cTupleKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cTupleKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cAttributesAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
@@ -2948,25 +2593,19 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//TupleType :
 		//    {TupleType}
-		//     ('TupleType' | 'Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
+		//     ('Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
 		//     ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TupleType}
-		// ('TupleType' | 'Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
+		// ('Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//{TupleType}
 		public Action getTupleTypeAction_0() { return cTupleTypeAction_0; }
 		
-		//('TupleType' | 'Tuple')
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//'TupleType'
-		public Keyword getTupleTypeKeyword_1_0() { return cTupleTypeKeyword_1_0; }
-		
-		//'Tuple'
-		public Keyword getTupleKeyword_1_1() { return cTupleKeyword_1_1; }
+		//('Tuple')
+		public Keyword getTupleKeyword_1() { return cTupleKeyword_1; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
@@ -3071,7 +2710,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cValueTypeOclTypeParserRuleCall_4_0 = (RuleCall)cValueTypeAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		// //[ecore::EClass|ID];
 		//MapType :
 		//    'Map' '(' keyType=OclType ',' valueType=OclType ')'
 		//;
@@ -3134,7 +2772,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	private final ModuleElements pModule;
 	private final ImportElements pImport;
-	private final ModuleElementElements pModuleElement;
 	private final OclModuleElementElements pOclModuleElement;
 	private final OclFeatureDefinitionElements pOclFeatureDefinition;
 	private final AttributeElements pAttribute;
@@ -3143,9 +2780,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final OclInvariantElements pOclInvariant;
 	private final OclExpressionElements pOclExpression;
 	private final OclModelElementExpElements pOclModelElementExp;
-	private final TEMPBIOPElements pTEMPBIOP;
 	private final OperatorCallExpElements pOperatorCallExp;
-	private final BoolOpCallExpElements pBoolOpCallExp;
 	private final BOOLOPElements pBOOLOP;
 	private final EqOpCallExpElements pEqOpCallExp;
 	private final EQOPElements pEQOP;
@@ -3158,21 +2793,15 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final MulOpCallExpElements pMulOpCallExp;
 	private final MULOPElements pMULOP;
 	private final NotOpCallExpElements pNotOpCallExp;
-	private final UnaryOPElements pUnaryOP;
-	private final NOTOPElements pNOTOP;
-	private final UNARYTEMPOPElements pUNARYTEMPOP;
+	private final UNARYOPElements pUNARYOP;
 	private final PropertyCallExpElements pPropertyCallExp;
 	private final Primary_OclExpressionElements pPrimary_OclExpression;
 	private final AuxiliaryElements pAuxiliary;
 	private final VariableExpElements pVariableExp;
-	private final VariableDeclarationElements pVariableDeclaration;
-	private final SuperExpElements pSuperExp;
 	private final SelfExpElements pSelfExp;
 	private final StringExpElements pStringExp;
 	private final NumericExpElements pNumericExp;
 	private final RealExpElements pRealExp;
-	private final REALElements pREAL;
-	private final TerminalRule tEXT_INT;
 	private final IntegerExpElements pIntegerExp;
 	private final BagExpElements pBagExp;
 	private final OrderedSetExpElements pOrderedSetExp;
@@ -3183,7 +2812,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final MapExpElements pMapExp;
 	private final MapElementElements pMapElement;
 	private final EnumLiteralExpElements pEnumLiteralExp;
-	private final OclUndefinedExpElements pOclUndefinedExp;
 	private final LetExpElements pLetExp;
 	private final IfExpElements pIfExp;
 	private final BraceExpElements pBraceExp;
@@ -3209,7 +2837,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final IntegerTypeElements pIntegerType;
 	private final RealTypeElements pRealType;
 	private final OclAnyTypeElements pOclAnyType;
-	private final OclType_abstractContentsElements pOclType_abstractContents;
 	private final TupleTypeElements pTupleType;
 	private final TupleTypeAttributeElements pTupleTypeAttribute;
 	private final OclModelElementElements pOclModelElement;
@@ -3228,7 +2855,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.gaTerminals = gaTerminals;
 		this.pModule = new ModuleElements();
 		this.pImport = new ImportElements();
-		this.pModuleElement = new ModuleElementElements();
 		this.pOclModuleElement = new OclModuleElementElements();
 		this.pOclFeatureDefinition = new OclFeatureDefinitionElements();
 		this.pAttribute = new AttributeElements();
@@ -3237,9 +2863,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pOclInvariant = new OclInvariantElements();
 		this.pOclExpression = new OclExpressionElements();
 		this.pOclModelElementExp = new OclModelElementExpElements();
-		this.pTEMPBIOP = new TEMPBIOPElements();
 		this.pOperatorCallExp = new OperatorCallExpElements();
-		this.pBoolOpCallExp = new BoolOpCallExpElements();
 		this.pBOOLOP = new BOOLOPElements();
 		this.pEqOpCallExp = new EqOpCallExpElements();
 		this.pEQOP = new EQOPElements();
@@ -3252,21 +2876,15 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pMulOpCallExp = new MulOpCallExpElements();
 		this.pMULOP = new MULOPElements();
 		this.pNotOpCallExp = new NotOpCallExpElements();
-		this.pUnaryOP = new UnaryOPElements();
-		this.pNOTOP = new NOTOPElements();
-		this.pUNARYTEMPOP = new UNARYTEMPOPElements();
+		this.pUNARYOP = new UNARYOPElements();
 		this.pPropertyCallExp = new PropertyCallExpElements();
 		this.pPrimary_OclExpression = new Primary_OclExpressionElements();
 		this.pAuxiliary = new AuxiliaryElements();
 		this.pVariableExp = new VariableExpElements();
-		this.pVariableDeclaration = new VariableDeclarationElements();
-		this.pSuperExp = new SuperExpElements();
 		this.pSelfExp = new SelfExpElements();
 		this.pStringExp = new StringExpElements();
 		this.pNumericExp = new NumericExpElements();
 		this.pRealExp = new RealExpElements();
-		this.pREAL = new REALElements();
-		this.tEXT_INT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.EXT_INT");
 		this.pIntegerExp = new IntegerExpElements();
 		this.pBagExp = new BagExpElements();
 		this.pOrderedSetExp = new OrderedSetExpElements();
@@ -3277,7 +2895,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pMapExp = new MapExpElements();
 		this.pMapElement = new MapElementElements();
 		this.pEnumLiteralExp = new EnumLiteralExpElements();
-		this.pOclUndefinedExp = new OclUndefinedExpElements();
 		this.pLetExp = new LetExpElements();
 		this.pIfExp = new IfExpElements();
 		this.pBraceExp = new BraceExpElements();
@@ -3303,7 +2920,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pIntegerType = new IntegerTypeElements();
 		this.pRealType = new RealTypeElements();
 		this.pOclAnyType = new OclAnyTypeElements();
-		this.pOclType_abstractContents = new OclType_abstractContentsElements();
 		this.pTupleType = new TupleTypeElements();
 		this.pTupleTypeAttribute = new TupleTypeAttributeElements();
 		this.pOclModelElement = new OclModelElementElements();
@@ -3339,43 +2955,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 
 	
-	////Model:
-	////    (imports+=Import)*
-	////    eventsMappings+=EventsMapping*;
-	////
-	////
-	////
-	////EventsMapping:
-	////    'events mapping' name = ID ':'
-	////        dsmlStream=DSMLStream
-	////        'observed as'
-	////        formalStream=FormalStream
-	////    'end events mapping'
-	////;
-	////
-	////DSMLStream:
-	////        elements += (StreamDSMLElement)+
-	////;
-	////
-	////StreamDSMLElement:
-	////'DSMLEvent' DSMLEvent
-	////;
-	////
-	////DSMLEvent:
-	////    name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID];
-	////
-	////FormalStream:
-	////        elements += (StreamFormalElement)+
-	////;
-	////StreamFormalElement:
-	////'FormalEvent'    FormalEvent
-	////;
-	////
-	////FormalEvent:
-	////    name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID] '('  body=OclExpression ')'//
-	////;
 	//Module:
-	//    'module' name=ID ';' imports+=Import (elements+=ModuleElement)+
+	//    (imports+=Import)+ (elements+=OclFeatureDefinition)* (elements+=OclModuleElement)+
 	//;
 	public ModuleElements getModuleAccess() {
 		return pModule;
@@ -3395,19 +2976,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getImportAccess().getRule();
 	}
 	
-	//ModuleElement:
-	//     OclModuleElement
-	//;
-	public ModuleElementElements getModuleElementAccess() {
-		return pModuleElement;
-	}
-	
-	public ParserRule getModuleElementRule() {
-		return getModuleElementAccess().getRule();
-	}
-	
 	//OclModuleElement:
-	//    OclFeatureDefinition|OclInvariant
+	//    ('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName]) (members+=(OclFeatureDefinition|OclInvariant))+
 	//;
 	public OclModuleElementElements getOclModuleElementAccess() {
 		return pOclModuleElement;
@@ -3418,7 +2988,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OclFeatureDefinition:
-	//    ('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'def' ':' feature = (Attribute|Operation)
+	//    'def' ':' feature = (Attribute|Operation)
 	//;
 	public OclFeatureDefinitionElements getOclFeatureDefinitionAccess() {
 		return pOclFeatureDefinition;
@@ -3429,7 +2999,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Attribute :
-	//    name=ID ':' type=OclType '=' initExpression=OclExpression ';'
+	//    name=ID ':' type=OclType '=' initExpression=OclExpression
 	//;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
@@ -3440,7 +3010,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Operation:
-	//    name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression ';'
+	//    name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression
 	//;
 	public OperationElements getOperationAccess() {
 		return pOperation;
@@ -3462,7 +3032,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OclInvariant:
-	//    ('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'inv' name=ID ':' body=OclExpression //';'
+	//    'inv' name=ID ':' body=OclExpression
 	//;
 	public OclInvariantElements getOclInvariantAccess() {
 		return pOclInvariant;
@@ -3473,7 +3043,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OclExpression returns OclExpression :
-	//    //LambdaCallExp|
 	//    OperatorCallExp|LetExp;
 	public OclExpressionElements getOclExpressionAccess() {
 		return pOclExpression;
@@ -3495,17 +3064,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	////priority_5
-	//TEMPBIOP          : 'until'|'release';
-	public TEMPBIOPElements getTEMPBIOPAccess() {
-		return pTEMPBIOP;
-	}
-	
-	public ParserRule getTEMPBIOPRule() {
-		return getTEMPBIOPAccess().getRule();
-	}
-	
 	//OperatorCallExp returns OclExpression :
-	//    BoolOpCallExp ({OperatorCallExp.source = current} operationName=TEMPBIOP argument=BoolOpCallExp)*
+	//    EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP)     argument=EqOpCallExp )*
 	//;
 	public OperatorCallExpElements getOperatorCallExpAccess() {
 		return pOperatorCallExp;
@@ -3513,17 +3073,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getOperatorCallExpRule() {
 		return getOperatorCallExpAccess().getRule();
-	}
-	
-	//BoolOpCallExp returns OperatorCallExp :
-	//    EqOpCallExp (({BoolOpCallExp.source=current} operationName=BOOLOP)     argument=EqOpCallExp )*
-	//;
-	public BoolOpCallExpElements getBoolOpCallExpAccess() {
-		return pBoolOpCallExp;
-	}
-	
-	public ParserRule getBoolOpCallExpRule() {
-		return getBoolOpCallExpAccess().getRule();
 	}
 	
 	//BOOLOP  		: 'and'|'or'|'xor'|'implies'|'equivalent';
@@ -3536,7 +3085,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//EqOpCallExp returns OperatorCallExp :
-	//    RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP)     argument=RelOpCallExp )*
+	//    RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP)     argument=RelOpCallExp )?
 	//;
 	public EqOpCallExpElements getEqOpCallExpAccess() {
 		return pEqOpCallExp;
@@ -3556,7 +3105,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//RelOpCallExp returns OperatorCallExp :
-	//    AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP)     argument=AddOpCallExp )*
+	//    AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP)     argument=AddOpCallExp )?
 	//;
 	public RelOpCallExpElements getRelOpCallExpAccess() {
 		return pRelOpCallExp;
@@ -3636,7 +3185,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//NotOpCallExp returns OperatorCallExp :
-	//    (((operationName=UnaryOP) source=NotOpCallExp)
+	//    ((operationName=UNARYOP source=NotOpCallExp)
 	//        |
 	//        PropertyCallExp)
 	//;
@@ -3648,31 +3197,14 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getNotOpCallExpAccess().getRule();
 	}
 	
-	//UnaryOP: NOTOP|UNARYTEMPOP;
-	public UnaryOPElements getUnaryOPAccess() {
-		return pUnaryOP;
+	//UNARYOP: 'not' | '-'
+	//;
+	public UNARYOPElements getUNARYOPAccess() {
+		return pUNARYOP;
 	}
 	
-	public ParserRule getUnaryOPRule() {
-		return getUnaryOPAccess().getRule();
-	}
-	
-	//NOTOP: 'not';
-	public NOTOPElements getNOTOPAccess() {
-		return pNOTOP;
-	}
-	
-	public ParserRule getNOTOPRule() {
-		return getNOTOPAccess().getRule();
-	}
-	
-	//UNARYTEMPOP: 'always'|'eventually'|'next'|'All'|'Exists';
-	public UNARYTEMPOPElements getUNARYTEMPOPAccess() {
-		return pUNARYTEMPOP;
-	}
-	
-	public ParserRule getUNARYTEMPOPRule() {
-		return getUNARYTEMPOPAccess().getRule();
+	public ParserRule getUNARYOPRule() {
+		return getUNARYOPAccess().getRule();
 	}
 	
 	////priority_0
@@ -3689,7 +3221,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//Primary_OclExpression returns OclExpression :
 	//    VariableExp
-	//    |SuperExp
 	//    |SelfExp
 	//    |StringExp
 	//    |BooleanExp
@@ -3701,7 +3232,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    |TupleExp
 	//    |MapExp
 	//    |EnumLiteralExp
-	//    |OclUndefinedExp
 	//    |IfExp
 	//    |BraceExp
 	//    |OclModelElementExp;
@@ -3723,9 +3253,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//VariableExp:
-	//    //name= ID|
-	//    referredVariable=[Auxiliary]|
-	//    VariableDeclaration
+	//    referredVariable=[Auxiliary]
 	//;
 	public VariableExpElements getVariableExpAccess() {
 		return pVariableExp;
@@ -3733,28 +3261,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getVariableExpRule() {
 		return getVariableExpAccess().getRule();
-	}
-	
-	//VariableDeclaration:
-	//    varName='thisModule'
-	//;
-	public VariableDeclarationElements getVariableDeclarationAccess() {
-		return pVariableDeclaration;
-	}
-	
-	public ParserRule getVariableDeclarationRule() {
-		return getVariableDeclarationAccess().getRule();
-	}
-	
-	//SuperExp :
-	//    {SuperExp}    'super'
-	//;
-	public SuperExpElements getSuperExpAccess() {
-		return pSuperExp;
-	}
-	
-	public ParserRule getSuperExpRule() {
-		return getSuperExpAccess().getRule();
 	}
 	
 	//SelfExp :
@@ -3798,20 +3304,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getRealExpRule() {
 		return getRealExpAccess().getRule();
-	}
-	
-	//REAL hidden(): INT '.' (EXT_INT | INT);
-	public REALElements getREALAccess() {
-		return pREAL;
-	}
-	
-	public ParserRule getREALRule() {
-		return getREALAccess().getRule();
-	}
-	
-	//terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
-	public TerminalRule getEXT_INTRule() {
-		return tEXT_INT;
 	}
 	
 	//IntegerExp:
@@ -3931,18 +3423,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getEnumLiteralExpAccess().getRule();
 	}
 	
-	//OclUndefinedExp :
-	//    {OclUndefinedExp}
-	//    'OclUndefined'
-	//;
-	public OclUndefinedExpElements getOclUndefinedExpAccess() {
-		return pOclUndefinedExp;
-	}
-	
-	public ParserRule getOclUndefinedExpRule() {
-		return getOclUndefinedExpAccess().getRule();
-	}
-	
 	//LetExp :
 	//    'let' variable=LocalVariable 'in' in_=OclExpression
 	//;
@@ -3976,17 +3456,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getBraceExpAccess().getRule();
 	}
 	
-	////CollectionPart:
-	////    CollectionRange|CollectionItem
-	////    ;
-	////
-	////CollectionRange:
-	////    first=OclExpression '..' last=OclExpression
-	////    ;
-	////
-	////CollectionItem:
-	////    item=OclExpression
-	////    ;
 	//BooleanExp:
 	//    booleanSymbol= 'true'|booleanSymbol= 'false'
 	//    ;
@@ -4087,17 +3556,12 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OclType :
-	//    //oclModelElement |
-	//    //{OclType} name=STRING
 	//    CollectionType
 	//    | Primitive
 	//    | OclAnyType
 	//    | TupleType
 	//    | OclModelElement
 	//    | MapType
-	//    // | LambdaType
-	//    // | EnvType
-	//    | OclType_abstractContents
 	//    ;
 	public OclTypeElements getOclTypeAccess() {
 		return pOclType;
@@ -4245,21 +3709,9 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getOclAnyTypeAccess().getRule();
 	}
 	
-	//OclType_abstractContents  returns OclType :
-	//    {OclType}
-	//    'OclType'
-	//;
-	public OclType_abstractContentsElements getOclType_abstractContentsAccess() {
-		return pOclType_abstractContents;
-	}
-	
-	public ParserRule getOclType_abstractContentsRule() {
-		return getOclType_abstractContentsAccess().getRule();
-	}
-	
 	//TupleType :
 	//    {TupleType}
-	//     ('TupleType' | 'Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
+	//     ('Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
 	//     ;
 	public TupleTypeElements getTupleTypeAccess() {
 		return pTupleType;
@@ -4287,7 +3739,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getOclModelElementAccess().getRule();
 	}
 	
-	// //[ecore::EClass|ID];
 	//MapType :
 	//    'Map' '(' keyType=OclType ',' valueType=OclType ')'
 	//;
@@ -4299,12 +3750,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getMapTypeAccess().getRule();
 	}
 	
-	////LambdaType :
-	////    'Lambda' "(" (argumentTypes ("," argumentTypes)*)? ")" ":" returnType
-	////;
-	////    EnvType ::= name[ENVTYPE];
 	//terminal DOUBLE returns ecore::EDouble :
-	//('-'|'+')? (INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
+	//(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
 	public TerminalRule getDOUBLERule() {
 		return tDOUBLE;
 	}

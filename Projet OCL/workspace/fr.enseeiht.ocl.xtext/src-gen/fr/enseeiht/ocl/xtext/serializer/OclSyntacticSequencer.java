@@ -11,9 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -21,12 +18,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class OclSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected OclGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_TupleType_TupleKeyword_1_1_or_TupleTypeKeyword_1_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (OclGrammarAccess) access;
-		match_TupleType_TupleKeyword_1_1_or_TupleTypeKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTupleTypeAccess().getTupleKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getTupleTypeAccess().getTupleTypeKeyword_1_0()));
 	}
 	
 	@Override
@@ -41,25 +36,8 @@ public class OclSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_TupleType_TupleKeyword_1_1_or_TupleTypeKeyword_1_0.equals(syntax))
-				emit_TupleType_TupleKeyword_1_1_or_TupleTypeKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * <pre>
-	 * Ambiguous syntax:
-	 *     'TupleType' | 'Tuple'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '(' ')' (rule start)
-	 *     (rule start) (ambiguity) '(' attributes+=TupleTypeAttribute
-	 
-	 * </pre>
-	 */
-	protected void emit_TupleType_TupleKeyword_1_1_or_TupleTypeKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

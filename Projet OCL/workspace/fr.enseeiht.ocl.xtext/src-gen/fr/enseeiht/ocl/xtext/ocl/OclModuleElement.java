@@ -3,7 +3,10 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,13 +19,14 @@ import org.eclipse.emf.ecore.EClass;
  * <ul>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getEcoreTypes <em>Ecore Types</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getClass_ <em>Class</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModuleElement()
  * @model
  * @generated
  */
-public interface OclModuleElement extends ModuleElement
+public interface OclModuleElement extends EObject
 {
   /**
    * Returns the value of the '<em><b>Ecore Types</b></em>' reference.
@@ -67,5 +71,17 @@ public interface OclModuleElement extends ModuleElement
    * @generated
    */
   void setClass(EClass value);
+
+  /**
+   * Returns the value of the '<em><b>Members</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Members</em>' containment reference list.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModuleElement_Members()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EObject> getMembers();
 
 } // OclModuleElement

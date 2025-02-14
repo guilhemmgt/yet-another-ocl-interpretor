@@ -3,6 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface OclInvariant extends OclModuleElement
+public interface OclInvariant extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

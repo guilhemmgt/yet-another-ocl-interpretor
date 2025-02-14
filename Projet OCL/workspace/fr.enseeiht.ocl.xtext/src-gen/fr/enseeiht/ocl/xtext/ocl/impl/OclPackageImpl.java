@@ -8,7 +8,6 @@ import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.BagExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
@@ -29,7 +28,6 @@ import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
 import fr.enseeiht.ocl.xtext.ocl.MapExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
-import fr.enseeiht.ocl.xtext.ocl.ModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NumericExp;
@@ -44,7 +42,6 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclType;
-import fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -64,12 +61,10 @@ import fr.enseeiht.ocl.xtext.ocl.SetExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
 import fr.enseeiht.ocl.xtext.ocl.StringExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.SuperExp;
 import fr.enseeiht.ocl.xtext.ocl.TupleExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
-import fr.enseeiht.ocl.xtext.ocl.VariableDeclaration;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -100,13 +95,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass importEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass moduleElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -191,20 +179,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass variableExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass variableDeclarationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass superExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -303,13 +277,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass enumLiteralExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass oclUndefinedExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -519,13 +486,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass boolOpCallExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass eqOpCallExpEClass = null;
 
   /**
@@ -635,20 +595,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getModule_Name()
-  {
-    return (EAttribute)moduleEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getModule_Imports()
   {
-    return (EReference)moduleEClass.getEStructuralFeatures().get(1);
+    return (EReference)moduleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -659,7 +608,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
   @Override
   public EReference getModule_Elements()
   {
-    return (EReference)moduleEClass.getEStructuralFeatures().get(2);
+    return (EReference)moduleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -701,17 +650,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getModuleElement()
-  {
-    return moduleElementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getOclModuleElement()
   {
     return oclModuleElementEClass;
@@ -737,6 +675,17 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
   public EReference getOclModuleElement_Class()
   {
     return (EReference)oclModuleElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOclModuleElement_Members()
+  {
+    return (EReference)oclModuleElementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1075,39 +1024,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getVariableDeclaration()
-  {
-    return variableDeclarationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getVariableDeclaration_VarName()
-  {
-    return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSuperExp()
-  {
-    return superExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getSelfExp()
   {
     return selfExpEClass;
@@ -1419,17 +1335,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
   public EAttribute getEnumLiteralExp_Name()
   {
     return (EAttribute)enumLiteralExpEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getOclUndefinedExp()
-  {
-    return oclUndefinedExpEClass;
   }
 
   /**
@@ -2054,17 +1959,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getBoolOpCallExp()
-  {
-    return boolOpCallExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getEqOpCallExp()
   {
     return eqOpCallExpEClass;
@@ -2146,7 +2040,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     // Create classes and their features
     moduleEClass = createEClass(MODULE);
-    createEAttribute(moduleEClass, MODULE__NAME);
     createEReference(moduleEClass, MODULE__IMPORTS);
     createEReference(moduleEClass, MODULE__ELEMENTS);
 
@@ -2154,11 +2047,10 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     createEReference(importEClass, IMPORT__PACKAGE);
     createEAttribute(importEClass, IMPORT__NAME);
 
-    moduleElementEClass = createEClass(MODULE_ELEMENT);
-
     oclModuleElementEClass = createEClass(OCL_MODULE_ELEMENT);
     createEReference(oclModuleElementEClass, OCL_MODULE_ELEMENT__ECORE_TYPES);
     createEReference(oclModuleElementEClass, OCL_MODULE_ELEMENT__CLASS);
+    createEReference(oclModuleElementEClass, OCL_MODULE_ELEMENT__MEMBERS);
 
     oclFeatureDefinitionEClass = createEClass(OCL_FEATURE_DEFINITION);
     createEReference(oclFeatureDefinitionEClass, OCL_FEATURE_DEFINITION__FEATURE);
@@ -2200,11 +2092,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     variableExpEClass = createEClass(VARIABLE_EXP);
     createEReference(variableExpEClass, VARIABLE_EXP__REFERRED_VARIABLE);
-
-    variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
-    createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__VAR_NAME);
-
-    superExpEClass = createEClass(SUPER_EXP);
 
     selfExpEClass = createEClass(SELF_EXP);
 
@@ -2248,8 +2135,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     enumLiteralExpEClass = createEClass(ENUM_LITERAL_EXP);
     createEAttribute(enumLiteralExpEClass, ENUM_LITERAL_EXP__NAME);
-
-    oclUndefinedExpEClass = createEClass(OCL_UNDEFINED_EXP);
 
     letExpEClass = createEClass(LET_EXP);
     createEReference(letExpEClass, LET_EXP__VARIABLE);
@@ -2336,8 +2221,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     createEReference(mapTypeEClass, MAP_TYPE__KEY_TYPE);
     createEReference(mapTypeEClass, MAP_TYPE__VALUE_TYPE);
 
-    boolOpCallExpEClass = createEClass(BOOL_OP_CALL_EXP);
-
     eqOpCallExpEClass = createEClass(EQ_OP_CALL_EXP);
 
     relOpCallExpEClass = createEClass(REL_OP_CALL_EXP);
@@ -2378,16 +2261,11 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    oclModuleElementEClass.getESuperTypes().add(this.getModuleElement());
-    oclFeatureDefinitionEClass.getESuperTypes().add(this.getOclModuleElement());
     parameterEClass.getESuperTypes().add(this.getAuxiliary());
-    oclInvariantEClass.getESuperTypes().add(this.getOclModuleElement());
     oclModelElementExpEClass.getESuperTypes().add(this.getOclExpression());
     operatorCallExpEClass.getESuperTypes().add(this.getOclExpression());
     propertyCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
     variableExpEClass.getESuperTypes().add(this.getOclExpression());
-    variableDeclarationEClass.getESuperTypes().add(this.getVariableExp());
-    superExpEClass.getESuperTypes().add(this.getOclExpression());
     selfExpEClass.getESuperTypes().add(this.getOclExpression());
     stringExpEClass.getESuperTypes().add(this.getOclExpression());
     numericExpEClass.getESuperTypes().add(this.getOclExpression());
@@ -2400,7 +2278,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     tupleExpEClass.getESuperTypes().add(this.getOclExpression());
     mapExpEClass.getESuperTypes().add(this.getOclExpression());
     enumLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
-    oclUndefinedExpEClass.getESuperTypes().add(this.getOclExpression());
     letExpEClass.getESuperTypes().add(this.getOclExpression());
     ifExpEClass.getESuperTypes().add(this.getOclExpression());
     braceExpEClass.getESuperTypes().add(this.getOclExpression());
@@ -2427,7 +2304,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     tupleTypeEClass.getESuperTypes().add(this.getOclType());
     oclModelElementEClass.getESuperTypes().add(this.getOclType());
     mapTypeEClass.getESuperTypes().add(this.getOclType());
-    boolOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
     eqOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
     relOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
     addOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
@@ -2436,19 +2312,17 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(moduleEClass, fr.enseeiht.ocl.xtext.ocl.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, fr.enseeiht.ocl.xtext.ocl.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_Imports(), this.getImport(), null, "imports", null, 0, -1, fr.enseeiht.ocl.xtext.ocl.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModule_Elements(), this.getModuleElement(), null, "elements", null, 0, -1, fr.enseeiht.ocl.xtext.ocl.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_Elements(), ecorePackage.getEObject(), null, "elements", null, 0, -1, fr.enseeiht.ocl.xtext.ocl.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getImport_Package(), ecorePackage.getEPackage(), null, "package", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getImport_Name(), ecorePackage.getEString(), "name", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(moduleElementEClass, ModuleElement.class, "ModuleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(oclModuleElementEClass, OclModuleElement.class, "OclModuleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOclModuleElement_EcoreTypes(), this.getImport(), null, "ecoreTypes", null, 0, 1, OclModuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOclModuleElement_Class(), ecorePackage.getEClass(), null, "class", null, 0, 1, OclModuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOclModuleElement_Members(), ecorePackage.getEObject(), null, "members", null, 0, -1, OclModuleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(oclFeatureDefinitionEClass, OclFeatureDefinition.class, "OclFeatureDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOclFeatureDefinition_Feature(), ecorePackage.getEObject(), null, "feature", null, 0, 1, OclFeatureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2490,11 +2364,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(variableExpEClass, VariableExp.class, "VariableExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVariableExp_ReferredVariable(), this.getAuxiliary(), null, "referredVariable", null, 0, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableDeclaration_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(superExpEClass, SuperExp.class, "SuperExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(selfExpEClass, SelfExp.class, "SelfExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2538,8 +2407,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(enumLiteralExpEClass, EnumLiteralExp.class, "EnumLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumLiteralExp_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(oclUndefinedExpEClass, OclUndefinedExp.class, "OclUndefinedExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(letExpEClass, LetExp.class, "LetExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLetExp_Variable(), this.getLocalVariable(), null, "variable", null, 0, 1, LetExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2625,8 +2492,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEClass(mapTypeEClass, MapType.class, "MapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMapType_KeyType(), this.getOclType(), null, "keyType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapType_ValueType(), this.getOclType(), null, "valueType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(boolOpCallExpEClass, BoolOpCallExp.class, "BoolOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(eqOpCallExpEClass, EqOpCallExp.class, "EqOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

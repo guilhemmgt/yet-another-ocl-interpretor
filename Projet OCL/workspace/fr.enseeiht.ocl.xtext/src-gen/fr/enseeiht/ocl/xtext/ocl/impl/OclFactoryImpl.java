@@ -8,7 +8,6 @@ import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.BagExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
@@ -29,7 +28,6 @@ import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
 import fr.enseeiht.ocl.xtext.ocl.MapExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
-import fr.enseeiht.ocl.xtext.ocl.ModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NumericExp;
@@ -44,7 +42,6 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclType;
-import fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -64,12 +61,10 @@ import fr.enseeiht.ocl.xtext.ocl.SetExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
 import fr.enseeiht.ocl.xtext.ocl.StringExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.SuperExp;
 import fr.enseeiht.ocl.xtext.ocl.TupleExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
-import fr.enseeiht.ocl.xtext.ocl.VariableDeclaration;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 
 import org.eclipse.emf.ecore.EClass;
@@ -134,7 +129,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
     {
       case OclPackage.MODULE: return createModule();
       case OclPackage.IMPORT: return createImport();
-      case OclPackage.MODULE_ELEMENT: return createModuleElement();
       case OclPackage.OCL_MODULE_ELEMENT: return createOclModuleElement();
       case OclPackage.OCL_FEATURE_DEFINITION: return createOclFeatureDefinition();
       case OclPackage.ATTRIBUTE: return createAttribute();
@@ -147,8 +141,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.PROPERTY_CALL_EXP: return createPropertyCallExp();
       case OclPackage.AUXILIARY: return createAuxiliary();
       case OclPackage.VARIABLE_EXP: return createVariableExp();
-      case OclPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
-      case OclPackage.SUPER_EXP: return createSuperExp();
       case OclPackage.SELF_EXP: return createSelfExp();
       case OclPackage.STRING_EXP: return createStringExp();
       case OclPackage.NUMERIC_EXP: return createNumericExp();
@@ -163,7 +155,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.MAP_EXP: return createMapExp();
       case OclPackage.MAP_ELEMENT: return createMapElement();
       case OclPackage.ENUM_LITERAL_EXP: return createEnumLiteralExp();
-      case OclPackage.OCL_UNDEFINED_EXP: return createOclUndefinedExp();
       case OclPackage.LET_EXP: return createLetExp();
       case OclPackage.IF_EXP: return createIfExp();
       case OclPackage.BRACE_EXP: return createBraceExp();
@@ -193,7 +184,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.TUPLE_TYPE_ATTRIBUTE: return createTupleTypeAttribute();
       case OclPackage.OCL_MODEL_ELEMENT: return createOclModelElement();
       case OclPackage.MAP_TYPE: return createMapType();
-      case OclPackage.BOOL_OP_CALL_EXP: return createBoolOpCallExp();
       case OclPackage.EQ_OP_CALL_EXP: return createEqOpCallExp();
       case OclPackage.REL_OP_CALL_EXP: return createRelOpCallExp();
       case OclPackage.ADD_OP_CALL_EXP: return createAddOpCallExp();
@@ -226,18 +216,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     ImportImpl import_ = new ImportImpl();
     return import_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ModuleElement createModuleElement()
-  {
-    ModuleElementImpl moduleElement = new ModuleElementImpl();
-    return moduleElement;
   }
 
   /**
@@ -382,30 +360,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     VariableExpImpl variableExp = new VariableExpImpl();
     return variableExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public VariableDeclaration createVariableDeclaration()
-  {
-    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
-    return variableDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SuperExp createSuperExp()
-  {
-    SuperExpImpl superExp = new SuperExpImpl();
-    return superExp;
   }
 
   /**
@@ -574,18 +528,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     EnumLiteralExpImpl enumLiteralExp = new EnumLiteralExpImpl();
     return enumLiteralExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public OclUndefinedExp createOclUndefinedExp()
-  {
-    OclUndefinedExpImpl oclUndefinedExp = new OclUndefinedExpImpl();
-    return oclUndefinedExp;
   }
 
   /**
@@ -934,18 +876,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     MapTypeImpl mapType = new MapTypeImpl();
     return mapType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public BoolOpCallExp createBoolOpCallExp()
-  {
-    BoolOpCallExpImpl boolOpCallExp = new BoolOpCallExpImpl();
-    return boolOpCallExp;
   }
 
   /**

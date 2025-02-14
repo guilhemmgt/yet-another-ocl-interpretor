@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
-import fr.enseeiht.ocl.xtext.OCLType;
+import fr.enseeiht.ocl.xtext.OclAny;
 
 /**
  * OCLAdapter for TuplePart
@@ -37,7 +37,7 @@ public final class TuplePartValidationAdapter implements OCLAdapter {
    * @return type of the element
    * @generated
    */
-  public OCLType getType() {
+  public OclAny getType() {
     throw new UnimplementedException("La methode getType de TuplePartAdapter n'as pas encore été implémentée");
   }
 

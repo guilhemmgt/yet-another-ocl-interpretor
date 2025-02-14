@@ -14,8 +14,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.ui.PlatformUI;
 import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.Module;
-import fr.enseeiht.ocl.xtext.ocl.ModuleElement;
-import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
@@ -99,12 +97,15 @@ public class SampleHandler extends AbstractHandler {
 
 		// TODO validation des invariants à l'aide du .mocl et du .xmi
 		System.out.println("\nValidation des invariants :");
-		for (ModuleElement elt : moclModule.getElements()) {
-			if (elt instanceof OclInvariant) {
-				OclInvariant inv = (OclInvariant) elt;
-				System.out.println(inv.getName() + " : ");
-			}
-		}
+		
+		// j'ai commenté pcq on a changé la syntaxe et
+		// flemme de fix pcq on va pas utiliser et zzz zzz zzz zzz ...
+//		for (ModuleElement elt : moclModule.getElements()) { 
+//			if (elt instanceof OclInvariant) {
+//				OclInvariant inv = (OclInvariant) elt;
+//				System.out.println(inv.getName() + " : ");
+//			}
+//		}
 
 		return null;
 	}

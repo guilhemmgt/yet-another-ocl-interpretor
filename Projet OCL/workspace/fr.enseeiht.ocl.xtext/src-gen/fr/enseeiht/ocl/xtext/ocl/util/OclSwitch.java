@@ -8,7 +8,6 @@ import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.BagExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
@@ -29,7 +28,6 @@ import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
 import fr.enseeiht.ocl.xtext.ocl.MapExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
-import fr.enseeiht.ocl.xtext.ocl.ModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NumericExp;
@@ -43,7 +41,6 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclType;
-import fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -63,12 +60,10 @@ import fr.enseeiht.ocl.xtext.ocl.SetExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
 import fr.enseeiht.ocl.xtext.ocl.StringExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.SuperExp;
 import fr.enseeiht.ocl.xtext.ocl.TupleExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
-import fr.enseeiht.ocl.xtext.ocl.VariableDeclaration;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 
 import org.eclipse.emf.ecore.EObject;
@@ -153,18 +148,10 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.MODULE_ELEMENT:
-      {
-        ModuleElement moduleElement = (ModuleElement)theEObject;
-        T result = caseModuleElement(moduleElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OclPackage.OCL_MODULE_ELEMENT:
       {
         OclModuleElement oclModuleElement = (OclModuleElement)theEObject;
         T result = caseOclModuleElement(oclModuleElement);
-        if (result == null) result = caseModuleElement(oclModuleElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,8 +159,6 @@ public class OclSwitch<T> extends Switch<T>
       {
         OclFeatureDefinition oclFeatureDefinition = (OclFeatureDefinition)theEObject;
         T result = caseOclFeatureDefinition(oclFeatureDefinition);
-        if (result == null) result = caseOclModuleElement(oclFeatureDefinition);
-        if (result == null) result = caseModuleElement(oclFeatureDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -203,8 +188,6 @@ public class OclSwitch<T> extends Switch<T>
       {
         OclInvariant oclInvariant = (OclInvariant)theEObject;
         T result = caseOclInvariant(oclInvariant);
-        if (result == null) result = caseOclModuleElement(oclInvariant);
-        if (result == null) result = caseModuleElement(oclInvariant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -252,23 +235,6 @@ public class OclSwitch<T> extends Switch<T>
         VariableExp variableExp = (VariableExp)theEObject;
         T result = caseVariableExp(variableExp);
         if (result == null) result = caseOclExpression(variableExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.VARIABLE_DECLARATION:
-      {
-        VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
-        T result = caseVariableDeclaration(variableDeclaration);
-        if (result == null) result = caseVariableExp(variableDeclaration);
-        if (result == null) result = caseOclExpression(variableDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.SUPER_EXP:
-      {
-        SuperExp superExp = (SuperExp)theEObject;
-        T result = caseSuperExp(superExp);
-        if (result == null) result = caseOclExpression(superExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,14 +347,6 @@ public class OclSwitch<T> extends Switch<T>
         EnumLiteralExp enumLiteralExp = (EnumLiteralExp)theEObject;
         T result = caseEnumLiteralExp(enumLiteralExp);
         if (result == null) result = caseOclExpression(enumLiteralExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.OCL_UNDEFINED_EXP:
-      {
-        OclUndefinedExp oclUndefinedExp = (OclUndefinedExp)theEObject;
-        T result = caseOclUndefinedExp(oclUndefinedExp);
-        if (result == null) result = caseOclExpression(oclUndefinedExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -632,15 +590,6 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.BOOL_OP_CALL_EXP:
-      {
-        BoolOpCallExp boolOpCallExp = (BoolOpCallExp)theEObject;
-        T result = caseBoolOpCallExp(boolOpCallExp);
-        if (result == null) result = caseOperatorCallExp(boolOpCallExp);
-        if (result == null) result = caseOclExpression(boolOpCallExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OclPackage.EQ_OP_CALL_EXP:
       {
         EqOpCallExp eqOpCallExp = (EqOpCallExp)theEObject;
@@ -718,22 +667,6 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseImport(Import object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Module Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Module Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseModuleElement(ModuleElement object)
   {
     return null;
   }
@@ -926,38 +859,6 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseVariableExp(VariableExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableDeclaration(VariableDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Super Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Super Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSuperExp(SuperExp object)
   {
     return null;
   }
@@ -1182,22 +1083,6 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEnumLiteralExp(EnumLiteralExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Undefined Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Undefined Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOclUndefinedExp(OclUndefinedExp object)
   {
     return null;
   }
@@ -1662,22 +1547,6 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMapType(MapType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Bool Op Call Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bool Op Call Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBoolOpCallExp(BoolOpCallExp object)
   {
     return null;
   }

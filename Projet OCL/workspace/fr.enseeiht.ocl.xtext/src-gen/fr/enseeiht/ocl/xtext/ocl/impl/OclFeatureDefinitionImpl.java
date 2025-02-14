@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class OclFeatureDefinitionImpl extends OclModuleElementImpl implements OclFeatureDefinition
+public class OclFeatureDefinitionImpl extends MinimalEObjectImpl.Container implements OclFeatureDefinition
 {
   /**
    * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference.

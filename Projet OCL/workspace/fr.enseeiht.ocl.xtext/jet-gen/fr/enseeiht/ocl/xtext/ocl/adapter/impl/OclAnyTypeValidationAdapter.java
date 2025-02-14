@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
-import fr.enseeiht.ocl.xtext.OCLType;
+import fr.enseeiht.ocl.xtext.OclAny;
 
 /**
  * OCLAdapter for OclAnyType
@@ -37,7 +37,7 @@ public final class OclAnyTypeValidationAdapter implements OCLAdapter {
    * @return type of the element
    * @generated
    */
-  public OCLType getType() {
+  public OclAny getType() {
     throw new UnimplementedException("La methode getType de OclAnyTypeAdapter n'as pas encore été implémentée");
   }
 

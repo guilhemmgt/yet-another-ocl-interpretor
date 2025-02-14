@@ -8,7 +8,6 @@ import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.BagExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
@@ -29,7 +28,6 @@ import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
 import fr.enseeiht.ocl.xtext.ocl.MapExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
-import fr.enseeiht.ocl.xtext.ocl.ModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NumericExp;
@@ -43,7 +41,6 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclType;
-import fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -63,12 +60,10 @@ import fr.enseeiht.ocl.xtext.ocl.SetExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
 import fr.enseeiht.ocl.xtext.ocl.StringExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.SuperExp;
 import fr.enseeiht.ocl.xtext.ocl.TupleExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
-import fr.enseeiht.ocl.xtext.ocl.VariableDeclaration;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -152,11 +147,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createImportAdapter();
       }
       @Override
-      public Adapter caseModuleElement(ModuleElement object)
-      {
-        return createModuleElementAdapter();
-      }
-      @Override
       public Adapter caseOclModuleElement(OclModuleElement object)
       {
         return createOclModuleElementAdapter();
@@ -215,16 +205,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseVariableExp(VariableExp object)
       {
         return createVariableExpAdapter();
-      }
-      @Override
-      public Adapter caseVariableDeclaration(VariableDeclaration object)
-      {
-        return createVariableDeclarationAdapter();
-      }
-      @Override
-      public Adapter caseSuperExp(SuperExp object)
-      {
-        return createSuperExpAdapter();
       }
       @Override
       public Adapter caseSelfExp(SelfExp object)
@@ -295,11 +275,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEnumLiteralExp(EnumLiteralExp object)
       {
         return createEnumLiteralExpAdapter();
-      }
-      @Override
-      public Adapter caseOclUndefinedExp(OclUndefinedExp object)
-      {
-        return createOclUndefinedExpAdapter();
       }
       @Override
       public Adapter caseLetExp(LetExp object)
@@ -447,11 +422,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createMapTypeAdapter();
       }
       @Override
-      public Adapter caseBoolOpCallExp(BoolOpCallExp object)
-      {
-        return createBoolOpCallExpAdapter();
-      }
-      @Override
       public Adapter caseEqOpCallExp(EqOpCallExp object)
       {
         return createEqOpCallExpAdapter();
@@ -524,21 +494,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createImportAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.ModuleElement <em>Module Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.ModuleElement
-   * @generated
-   */
-  public Adapter createModuleElementAdapter()
   {
     return null;
   }
@@ -719,36 +674,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVariableExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.VariableDeclaration <em>Variable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.VariableDeclaration
-   * @generated
-   */
-  public Adapter createVariableDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SuperExp <em>Super Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.SuperExp
-   * @generated
-   */
-  public Adapter createSuperExpAdapter()
   {
     return null;
   }
@@ -959,21 +884,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnumLiteralExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp <em>Undefined Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp
-   * @generated
-   */
-  public Adapter createOclUndefinedExpAdapter()
   {
     return null;
   }
@@ -1409,21 +1319,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMapTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp <em>Bool Op Call Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp
-   * @generated
-   */
-  public Adapter createBoolOpCallExpAdapter()
   {
     return null;
   }

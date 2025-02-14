@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.util;
 
 import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.Import;
-import fr.enseeiht.ocl.xtext.ocl.ModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
@@ -15,8 +14,6 @@ import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
-import fr.enseeiht.ocl.xtext.ocl.VariableDeclaration;
-import fr.enseeiht.ocl.xtext.ocl.SuperExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfExp;
 import fr.enseeiht.ocl.xtext.ocl.StringExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericExp;
@@ -31,7 +28,6 @@ import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.MapExp;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
-import fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
@@ -61,7 +57,6 @@ import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElement;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
-import fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
@@ -69,7 +64,6 @@ import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ModuleValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ImportValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ModuleElementValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModuleElementValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclFeatureDefinitionValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AttributeValidationAdapter;
@@ -82,8 +76,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OperatorCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PropertyCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AuxiliaryValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.VariableExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.VariableDeclarationValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SuperExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SelfExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.StringExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NumericExpValidationAdapter;
@@ -98,7 +90,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TuplePartValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapElementValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EnumLiteralExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclUndefinedExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.LetExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IfExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BraceExpValidationAdapter;
@@ -128,7 +119,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeAttributeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModelElementValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapTypeValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BoolOpCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EqOpCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RelOpCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AddOpCallExpValidationAdapter;
@@ -212,11 +202,6 @@ public class OCLValidationAdapterFactory
         return createImportValidationAdapter(object);
       }
       @Override
-      public OCLAdapter caseModuleElement(ModuleElement object)
-      {
-        return createModuleElementValidationAdapter(object);
-      }
-      @Override
       public OCLAdapter caseOclModuleElement(OclModuleElement object)
       {
         return createOclModuleElementValidationAdapter(object);
@@ -275,16 +260,6 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseVariableExp(VariableExp object)
       {
         return createVariableExpValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseVariableDeclaration(VariableDeclaration object)
-      {
-        return createVariableDeclarationValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseSuperExp(SuperExp object)
-      {
-        return createSuperExpValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseSelfExp(SelfExp object)
@@ -355,11 +330,6 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseEnumLiteralExp(EnumLiteralExp object)
       {
         return createEnumLiteralExpValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseOclUndefinedExp(OclUndefinedExp object)
-      {
-        return createOclUndefinedExpValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseLetExp(LetExp object)
@@ -507,11 +477,6 @@ public class OCLValidationAdapterFactory
         return createMapTypeValidationAdapter(object);
       }
       @Override
-      public OCLAdapter caseBoolOpCallExp(BoolOpCallExp object)
-      {
-        return createBoolOpCallExpValidationAdapter(object);
-      }
-      @Override
       public OCLAdapter caseEqOpCallExp(EqOpCallExp object)
       {
         return createEqOpCallExpValidationAdapter(object);
@@ -580,19 +545,6 @@ public class OCLValidationAdapterFactory
   public OCLAdapter createImportValidationAdapter(Import target)
   {
     return new ImportValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.ModuleElement <em>ModuleElement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.ModuleElement
-   * @generated
-   */
-  public OCLAdapter createModuleElementValidationAdapter(ModuleElement target)
-  {
-    return new ModuleElementValidationAdapter(target);
   }
 
   /**
@@ -749,32 +701,6 @@ public class OCLValidationAdapterFactory
   public OCLAdapter createVariableExpValidationAdapter(VariableExp target)
   {
     return new VariableExpValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.VariableDeclaration <em>VariableDeclaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.VariableDeclaration
-   * @generated
-   */
-  public OCLAdapter createVariableDeclarationValidationAdapter(VariableDeclaration target)
-  {
-    return new VariableDeclarationValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SuperExp <em>SuperExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.SuperExp
-   * @generated
-   */
-  public OCLAdapter createSuperExpValidationAdapter(SuperExp target)
-  {
-    return new SuperExpValidationAdapter(target);
   }
 
   /**
@@ -957,19 +883,6 @@ public class OCLValidationAdapterFactory
   public OCLAdapter createEnumLiteralExpValidationAdapter(EnumLiteralExp target)
   {
     return new EnumLiteralExpValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp <em>OclUndefinedExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp
-   * @generated
-   */
-  public OCLAdapter createOclUndefinedExpValidationAdapter(OclUndefinedExp target)
-  {
-    return new OclUndefinedExpValidationAdapter(target);
   }
 
   /**
@@ -1347,19 +1260,6 @@ public class OCLValidationAdapterFactory
   public OCLAdapter createMapTypeValidationAdapter(MapType target)
   {
     return new MapTypeValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp <em>BoolOpCallExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp
-   * @generated
-   */
-  public OCLAdapter createBoolOpCallExpValidationAdapter(BoolOpCallExp target)
-  {
-    return new BoolOpCallExpValidationAdapter(target);
   }
 
   /**

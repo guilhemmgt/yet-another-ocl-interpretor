@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface OclFeatureDefinition extends OclModuleElement
+public interface OclFeatureDefinition extends EObject
 {
   /**
    * Returns the value of the '<em><b>Feature</b></em>' containment reference.

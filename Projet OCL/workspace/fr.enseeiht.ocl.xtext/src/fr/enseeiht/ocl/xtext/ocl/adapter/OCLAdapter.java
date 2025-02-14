@@ -2,7 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter;
 
 import org.eclipse.emf.ecore.EObject;
 
-import fr.enseeiht.ocl.xtext.OCLType;
+import fr.enseeiht.ocl.xtext.OclAny;
 public interface OCLAdapter {
 
 	/**
@@ -16,7 +16,7 @@ public interface OCLAdapter {
 	 * Get the type of the element
 	 * @return type of the element
 	 */
-	public OCLType getType();
+	public OclAny getType();
 	
 	/**
 	 * Get adapted element
