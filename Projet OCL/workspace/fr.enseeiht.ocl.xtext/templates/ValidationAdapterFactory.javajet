@@ -8,8 +8,14 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.util;
 <%for (String className : classNames) {%>
 import fr.enseeiht.ocl.xtext.ocl.<%=className%>;
 <%}%>
+<%for (String className : classNames) {%>
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.<%=className%>ValidationAdapter;
+<%}%>
+
+import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
+import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 /**
  * <!-- begin-user-doc -->
  * The <b>ValidationAdapter Factory</b> for the model.
@@ -18,7 +24,7 @@ import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage
  * @generated
  */
-public class OCLValidationAdapterFactory extends AdapterFactoryImpl
+public class OCLValidationAdapterFactory
 {
   /**
    * The cached model package.
@@ -50,7 +56,6 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @return whether this factory is applicable for the type of the object.
    * @generated
    */
-  @Override
   public boolean isFactoryForType(Object object)
   {
     if (object == modelPackage)
@@ -75,13 +80,13 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
     {
 <%for (String className : classNames) {%>
       @Override
-      public Adapter case<%=className%>(<%=className%> object)
+      public OCLAdapter case<%=className%>(<%=className%> object)
       {
         return create<%=className%>ValidationAdapter(object);
       }
 <%}%>
       @Override
-      public Adapter defaultCase(EObject object)
+      public OCLAdapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
       }
@@ -95,10 +100,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @return the adapter for the <code>target</code>.
    * @generated
    */
-  @Override
-  public Adapter createAdapter(Notifier target)
+  public OCLAdapter createEObjectAdapter()
   {
-    return modelSwitch.doSwitch((EObject)target);
+    return null;
   }
 
 <%for (String className : classNames) {%>
@@ -110,9 +114,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.<%=className%>
    * @generated
    */
-  public Adapter create<%=className%>ValidationAdapter(<%=className%> target)
+  public OCLAdapter create<%=className%>ValidationAdapter(<%=className%> target)
   {
-    return new <%=className%>(target);
+    return new <%=className%>ValidationAdapter(target);
   }
 
 <%}%>

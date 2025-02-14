@@ -67,8 +67,78 @@ import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ModuleValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ImportValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ModuleElementValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModuleElementValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclFeatureDefinitionValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AttributeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OperationValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ParameterValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclInvariantValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclExpressionValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModelElementExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OperatorCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PropertyCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AuxiliaryValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.VariableExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.VariableDeclarationValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SuperExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SelfExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.StringExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NumericExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RealExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntegerExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BagExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OrderedSetExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SequenceExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SetExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TuplePartValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapElementValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EnumLiteralExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclUndefinedExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.LetExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IfExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BraceExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BooleanExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PropertyCallValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OperationCallValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NavigationOrAttributeCallValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IterateExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IteratorValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IteratorExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.CollectionOperationCallValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.LocalVariableValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.CollectionTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BagTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OrderedSetTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SequenceTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SetTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PrimitiveValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.StringTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BooleanTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NumericTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntegerTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RealTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclAnyTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeAttributeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModelElementValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BoolOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EqOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RelOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AddOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MulOpCallExpValidationAdapter;
+
+import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
+import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 /**
  * <!-- begin-user-doc -->
  * The <b>ValidationAdapter Factory</b> for the model.
@@ -77,7 +147,7 @@ import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage
  * @generated
  */
-public class OCLValidationAdapterFactory extends AdapterFactoryImpl
+public class OCLValidationAdapterFactory
 {
   /**
    * The cached model package.
@@ -109,7 +179,6 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @return whether this factory is applicable for the type of the object.
    * @generated
    */
-  @Override
   public boolean isFactoryForType(Object object)
   {
     if (object == modelPackage)
@@ -133,342 +202,342 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
     new OclSwitch<OCLAdapter>()
     {
       @Override
-      public Adapter caseModule(Module object)
+      public OCLAdapter caseModule(Module object)
       {
         return createModuleValidationAdapter(object);
       }
       @Override
-      public Adapter caseImport(Import object)
+      public OCLAdapter caseImport(Import object)
       {
         return createImportValidationAdapter(object);
       }
       @Override
-      public Adapter caseModuleElement(ModuleElement object)
+      public OCLAdapter caseModuleElement(ModuleElement object)
       {
         return createModuleElementValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclModuleElement(OclModuleElement object)
+      public OCLAdapter caseOclModuleElement(OclModuleElement object)
       {
         return createOclModuleElementValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclFeatureDefinition(OclFeatureDefinition object)
+      public OCLAdapter caseOclFeatureDefinition(OclFeatureDefinition object)
       {
         return createOclFeatureDefinitionValidationAdapter(object);
       }
       @Override
-      public Adapter caseAttribute(Attribute object)
+      public OCLAdapter caseAttribute(Attribute object)
       {
         return createAttributeValidationAdapter(object);
       }
       @Override
-      public Adapter caseOperation(Operation object)
+      public OCLAdapter caseOperation(Operation object)
       {
         return createOperationValidationAdapter(object);
       }
       @Override
-      public Adapter caseParameter(Parameter object)
+      public OCLAdapter caseParameter(Parameter object)
       {
         return createParameterValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclInvariant(OclInvariant object)
+      public OCLAdapter caseOclInvariant(OclInvariant object)
       {
         return createOclInvariantValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclExpression(OclExpression object)
+      public OCLAdapter caseOclExpression(OclExpression object)
       {
         return createOclExpressionValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclModelElementExp(OclModelElementExp object)
+      public OCLAdapter caseOclModelElementExp(OclModelElementExp object)
       {
         return createOclModelElementExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseOperatorCallExp(OperatorCallExp object)
+      public OCLAdapter caseOperatorCallExp(OperatorCallExp object)
       {
         return createOperatorCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter casePropertyCallExp(PropertyCallExp object)
+      public OCLAdapter casePropertyCallExp(PropertyCallExp object)
       {
         return createPropertyCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseAuxiliary(Auxiliary object)
+      public OCLAdapter caseAuxiliary(Auxiliary object)
       {
         return createAuxiliaryValidationAdapter(object);
       }
       @Override
-      public Adapter caseVariableExp(VariableExp object)
+      public OCLAdapter caseVariableExp(VariableExp object)
       {
         return createVariableExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseVariableDeclaration(VariableDeclaration object)
+      public OCLAdapter caseVariableDeclaration(VariableDeclaration object)
       {
         return createVariableDeclarationValidationAdapter(object);
       }
       @Override
-      public Adapter caseSuperExp(SuperExp object)
+      public OCLAdapter caseSuperExp(SuperExp object)
       {
         return createSuperExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseSelfExp(SelfExp object)
+      public OCLAdapter caseSelfExp(SelfExp object)
       {
         return createSelfExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseStringExp(StringExp object)
+      public OCLAdapter caseStringExp(StringExp object)
       {
         return createStringExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseNumericExp(NumericExp object)
+      public OCLAdapter caseNumericExp(NumericExp object)
       {
         return createNumericExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseRealExp(RealExp object)
+      public OCLAdapter caseRealExp(RealExp object)
       {
         return createRealExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseIntegerExp(IntegerExp object)
+      public OCLAdapter caseIntegerExp(IntegerExp object)
       {
         return createIntegerExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseBagExp(BagExp object)
+      public OCLAdapter caseBagExp(BagExp object)
       {
         return createBagExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseOrderedSetExp(OrderedSetExp object)
+      public OCLAdapter caseOrderedSetExp(OrderedSetExp object)
       {
         return createOrderedSetExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseSequenceExp(SequenceExp object)
+      public OCLAdapter caseSequenceExp(SequenceExp object)
       {
         return createSequenceExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseSetExp(SetExp object)
+      public OCLAdapter caseSetExp(SetExp object)
       {
         return createSetExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseTupleExp(TupleExp object)
+      public OCLAdapter caseTupleExp(TupleExp object)
       {
         return createTupleExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseTuplePart(TuplePart object)
+      public OCLAdapter caseTuplePart(TuplePart object)
       {
         return createTuplePartValidationAdapter(object);
       }
       @Override
-      public Adapter caseMapExp(MapExp object)
+      public OCLAdapter caseMapExp(MapExp object)
       {
         return createMapExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseMapElement(MapElement object)
+      public OCLAdapter caseMapElement(MapElement object)
       {
         return createMapElementValidationAdapter(object);
       }
       @Override
-      public Adapter caseEnumLiteralExp(EnumLiteralExp object)
+      public OCLAdapter caseEnumLiteralExp(EnumLiteralExp object)
       {
         return createEnumLiteralExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclUndefinedExp(OclUndefinedExp object)
+      public OCLAdapter caseOclUndefinedExp(OclUndefinedExp object)
       {
         return createOclUndefinedExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseLetExp(LetExp object)
+      public OCLAdapter caseLetExp(LetExp object)
       {
         return createLetExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseIfExp(IfExp object)
+      public OCLAdapter caseIfExp(IfExp object)
       {
         return createIfExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseBraceExp(BraceExp object)
+      public OCLAdapter caseBraceExp(BraceExp object)
       {
         return createBraceExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseBooleanExp(BooleanExp object)
+      public OCLAdapter caseBooleanExp(BooleanExp object)
       {
         return createBooleanExpValidationAdapter(object);
       }
       @Override
-      public Adapter casePropertyCall(PropertyCall object)
+      public OCLAdapter casePropertyCall(PropertyCall object)
       {
         return createPropertyCallValidationAdapter(object);
       }
       @Override
-      public Adapter caseOperationCall(OperationCall object)
+      public OCLAdapter caseOperationCall(OperationCall object)
       {
         return createOperationCallValidationAdapter(object);
       }
       @Override
-      public Adapter caseNavigationOrAttributeCall(NavigationOrAttributeCall object)
+      public OCLAdapter caseNavigationOrAttributeCall(NavigationOrAttributeCall object)
       {
         return createNavigationOrAttributeCallValidationAdapter(object);
       }
       @Override
-      public Adapter caseIterateExp(IterateExp object)
+      public OCLAdapter caseIterateExp(IterateExp object)
       {
         return createIterateExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseIterator(Iterator object)
+      public OCLAdapter caseIterator(Iterator object)
       {
         return createIteratorValidationAdapter(object);
       }
       @Override
-      public Adapter caseIteratorExp(IteratorExp object)
+      public OCLAdapter caseIteratorExp(IteratorExp object)
       {
         return createIteratorExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseCollectionOperationCall(CollectionOperationCall object)
+      public OCLAdapter caseCollectionOperationCall(CollectionOperationCall object)
       {
         return createCollectionOperationCallValidationAdapter(object);
       }
       @Override
-      public Adapter caseLocalVariable(LocalVariable object)
+      public OCLAdapter caseLocalVariable(LocalVariable object)
       {
         return createLocalVariableValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclType(OclType object)
+      public OCLAdapter caseOclType(OclType object)
       {
         return createOclTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseCollectionType(CollectionType object)
+      public OCLAdapter caseCollectionType(CollectionType object)
       {
         return createCollectionTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseBagType(BagType object)
+      public OCLAdapter caseBagType(BagType object)
       {
         return createBagTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseOrderedSetType(OrderedSetType object)
+      public OCLAdapter caseOrderedSetType(OrderedSetType object)
       {
         return createOrderedSetTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseSequenceType(SequenceType object)
+      public OCLAdapter caseSequenceType(SequenceType object)
       {
         return createSequenceTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseSetType(SetType object)
+      public OCLAdapter caseSetType(SetType object)
       {
         return createSetTypeValidationAdapter(object);
       }
       @Override
-      public Adapter casePrimitive(Primitive object)
+      public OCLAdapter casePrimitive(Primitive object)
       {
         return createPrimitiveValidationAdapter(object);
       }
       @Override
-      public Adapter caseStringType(StringType object)
+      public OCLAdapter caseStringType(StringType object)
       {
         return createStringTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseBooleanType(BooleanType object)
+      public OCLAdapter caseBooleanType(BooleanType object)
       {
         return createBooleanTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseNumericType(NumericType object)
+      public OCLAdapter caseNumericType(NumericType object)
       {
         return createNumericTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseIntegerType(IntegerType object)
+      public OCLAdapter caseIntegerType(IntegerType object)
       {
         return createIntegerTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseRealType(RealType object)
+      public OCLAdapter caseRealType(RealType object)
       {
         return createRealTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclAnyType(OclAnyType object)
+      public OCLAdapter caseOclAnyType(OclAnyType object)
       {
         return createOclAnyTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseTupleType(TupleType object)
+      public OCLAdapter caseTupleType(TupleType object)
       {
         return createTupleTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseTupleTypeAttribute(TupleTypeAttribute object)
+      public OCLAdapter caseTupleTypeAttribute(TupleTypeAttribute object)
       {
         return createTupleTypeAttributeValidationAdapter(object);
       }
       @Override
-      public Adapter caseOclModelElement(OclModelElement object)
+      public OCLAdapter caseOclModelElement(OclModelElement object)
       {
         return createOclModelElementValidationAdapter(object);
       }
       @Override
-      public Adapter caseMapType(MapType object)
+      public OCLAdapter caseMapType(MapType object)
       {
         return createMapTypeValidationAdapter(object);
       }
       @Override
-      public Adapter caseBoolOpCallExp(BoolOpCallExp object)
+      public OCLAdapter caseBoolOpCallExp(BoolOpCallExp object)
       {
         return createBoolOpCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseEqOpCallExp(EqOpCallExp object)
+      public OCLAdapter caseEqOpCallExp(EqOpCallExp object)
       {
         return createEqOpCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseRelOpCallExp(RelOpCallExp object)
+      public OCLAdapter caseRelOpCallExp(RelOpCallExp object)
       {
         return createRelOpCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseAddOpCallExp(AddOpCallExp object)
+      public OCLAdapter caseAddOpCallExp(AddOpCallExp object)
       {
         return createAddOpCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseIntOpCallExp(IntOpCallExp object)
+      public OCLAdapter caseIntOpCallExp(IntOpCallExp object)
       {
         return createIntOpCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter caseMulOpCallExp(MulOpCallExp object)
+      public OCLAdapter caseMulOpCallExp(MulOpCallExp object)
       {
         return createMulOpCallExpValidationAdapter(object);
       }
       @Override
-      public Adapter defaultCase(EObject object)
+      public OCLAdapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
       }
@@ -482,10 +551,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @return the adapter for the <code>target</code>.
    * @generated
    */
-  @Override
-  public Adapter createAdapter(Notifier target)
+  public OCLAdapter createEObjectAdapter()
   {
-    return modelSwitch.doSwitch((EObject)target);
+    return null;
   }
 
   /**
@@ -496,9 +564,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Module
    * @generated
    */
-  public Adapter createModuleValidationAdapter(Module target)
+  public OCLAdapter createModuleValidationAdapter(Module target)
   {
-    return new Module(target);
+    return new ModuleValidationAdapter(target);
   }
 
   /**
@@ -509,9 +577,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Import
    * @generated
    */
-  public Adapter createImportValidationAdapter(Import target)
+  public OCLAdapter createImportValidationAdapter(Import target)
   {
-    return new Import(target);
+    return new ImportValidationAdapter(target);
   }
 
   /**
@@ -522,9 +590,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.ModuleElement
    * @generated
    */
-  public Adapter createModuleElementValidationAdapter(ModuleElement target)
+  public OCLAdapter createModuleElementValidationAdapter(ModuleElement target)
   {
-    return new ModuleElement(target);
+    return new ModuleElementValidationAdapter(target);
   }
 
   /**
@@ -535,9 +603,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclModuleElement
    * @generated
    */
-  public Adapter createOclModuleElementValidationAdapter(OclModuleElement target)
+  public OCLAdapter createOclModuleElementValidationAdapter(OclModuleElement target)
   {
-    return new OclModuleElement(target);
+    return new OclModuleElementValidationAdapter(target);
   }
 
   /**
@@ -548,9 +616,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition
    * @generated
    */
-  public Adapter createOclFeatureDefinitionValidationAdapter(OclFeatureDefinition target)
+  public OCLAdapter createOclFeatureDefinitionValidationAdapter(OclFeatureDefinition target)
   {
-    return new OclFeatureDefinition(target);
+    return new OclFeatureDefinitionValidationAdapter(target);
   }
 
   /**
@@ -561,9 +629,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Attribute
    * @generated
    */
-  public Adapter createAttributeValidationAdapter(Attribute target)
+  public OCLAdapter createAttributeValidationAdapter(Attribute target)
   {
-    return new Attribute(target);
+    return new AttributeValidationAdapter(target);
   }
 
   /**
@@ -574,9 +642,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Operation
    * @generated
    */
-  public Adapter createOperationValidationAdapter(Operation target)
+  public OCLAdapter createOperationValidationAdapter(Operation target)
   {
-    return new Operation(target);
+    return new OperationValidationAdapter(target);
   }
 
   /**
@@ -587,9 +655,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Parameter
    * @generated
    */
-  public Adapter createParameterValidationAdapter(Parameter target)
+  public OCLAdapter createParameterValidationAdapter(Parameter target)
   {
-    return new Parameter(target);
+    return new ParameterValidationAdapter(target);
   }
 
   /**
@@ -600,9 +668,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclInvariant
    * @generated
    */
-  public Adapter createOclInvariantValidationAdapter(OclInvariant target)
+  public OCLAdapter createOclInvariantValidationAdapter(OclInvariant target)
   {
-    return new OclInvariant(target);
+    return new OclInvariantValidationAdapter(target);
   }
 
   /**
@@ -613,9 +681,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclExpression
    * @generated
    */
-  public Adapter createOclExpressionValidationAdapter(OclExpression target)
+  public OCLAdapter createOclExpressionValidationAdapter(OclExpression target)
   {
-    return new OclExpression(target);
+    return new OclExpressionValidationAdapter(target);
   }
 
   /**
@@ -626,9 +694,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementExp
    * @generated
    */
-  public Adapter createOclModelElementExpValidationAdapter(OclModelElementExp target)
+  public OCLAdapter createOclModelElementExpValidationAdapter(OclModelElementExp target)
   {
-    return new OclModelElementExp(target);
+    return new OclModelElementExpValidationAdapter(target);
   }
 
   /**
@@ -639,9 +707,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OperatorCallExp
    * @generated
    */
-  public Adapter createOperatorCallExpValidationAdapter(OperatorCallExp target)
+  public OCLAdapter createOperatorCallExpValidationAdapter(OperatorCallExp target)
   {
-    return new OperatorCallExp(target);
+    return new OperatorCallExpValidationAdapter(target);
   }
 
   /**
@@ -652,9 +720,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.PropertyCallExp
    * @generated
    */
-  public Adapter createPropertyCallExpValidationAdapter(PropertyCallExp target)
+  public OCLAdapter createPropertyCallExpValidationAdapter(PropertyCallExp target)
   {
-    return new PropertyCallExp(target);
+    return new PropertyCallExpValidationAdapter(target);
   }
 
   /**
@@ -665,9 +733,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Auxiliary
    * @generated
    */
-  public Adapter createAuxiliaryValidationAdapter(Auxiliary target)
+  public OCLAdapter createAuxiliaryValidationAdapter(Auxiliary target)
   {
-    return new Auxiliary(target);
+    return new AuxiliaryValidationAdapter(target);
   }
 
   /**
@@ -678,9 +746,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.VariableExp
    * @generated
    */
-  public Adapter createVariableExpValidationAdapter(VariableExp target)
+  public OCLAdapter createVariableExpValidationAdapter(VariableExp target)
   {
-    return new VariableExp(target);
+    return new VariableExpValidationAdapter(target);
   }
 
   /**
@@ -691,9 +759,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.VariableDeclaration
    * @generated
    */
-  public Adapter createVariableDeclarationValidationAdapter(VariableDeclaration target)
+  public OCLAdapter createVariableDeclarationValidationAdapter(VariableDeclaration target)
   {
-    return new VariableDeclaration(target);
+    return new VariableDeclarationValidationAdapter(target);
   }
 
   /**
@@ -704,9 +772,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.SuperExp
    * @generated
    */
-  public Adapter createSuperExpValidationAdapter(SuperExp target)
+  public OCLAdapter createSuperExpValidationAdapter(SuperExp target)
   {
-    return new SuperExp(target);
+    return new SuperExpValidationAdapter(target);
   }
 
   /**
@@ -717,9 +785,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.SelfExp
    * @generated
    */
-  public Adapter createSelfExpValidationAdapter(SelfExp target)
+  public OCLAdapter createSelfExpValidationAdapter(SelfExp target)
   {
-    return new SelfExp(target);
+    return new SelfExpValidationAdapter(target);
   }
 
   /**
@@ -730,9 +798,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.StringExp
    * @generated
    */
-  public Adapter createStringExpValidationAdapter(StringExp target)
+  public OCLAdapter createStringExpValidationAdapter(StringExp target)
   {
-    return new StringExp(target);
+    return new StringExpValidationAdapter(target);
   }
 
   /**
@@ -743,9 +811,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.NumericExp
    * @generated
    */
-  public Adapter createNumericExpValidationAdapter(NumericExp target)
+  public OCLAdapter createNumericExpValidationAdapter(NumericExp target)
   {
-    return new NumericExp(target);
+    return new NumericExpValidationAdapter(target);
   }
 
   /**
@@ -756,9 +824,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.RealExp
    * @generated
    */
-  public Adapter createRealExpValidationAdapter(RealExp target)
+  public OCLAdapter createRealExpValidationAdapter(RealExp target)
   {
-    return new RealExp(target);
+    return new RealExpValidationAdapter(target);
   }
 
   /**
@@ -769,9 +837,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.IntegerExp
    * @generated
    */
-  public Adapter createIntegerExpValidationAdapter(IntegerExp target)
+  public OCLAdapter createIntegerExpValidationAdapter(IntegerExp target)
   {
-    return new IntegerExp(target);
+    return new IntegerExpValidationAdapter(target);
   }
 
   /**
@@ -782,9 +850,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.BagExp
    * @generated
    */
-  public Adapter createBagExpValidationAdapter(BagExp target)
+  public OCLAdapter createBagExpValidationAdapter(BagExp target)
   {
-    return new BagExp(target);
+    return new BagExpValidationAdapter(target);
   }
 
   /**
@@ -795,9 +863,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetExp
    * @generated
    */
-  public Adapter createOrderedSetExpValidationAdapter(OrderedSetExp target)
+  public OCLAdapter createOrderedSetExpValidationAdapter(OrderedSetExp target)
   {
-    return new OrderedSetExp(target);
+    return new OrderedSetExpValidationAdapter(target);
   }
 
   /**
@@ -808,9 +876,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.SequenceExp
    * @generated
    */
-  public Adapter createSequenceExpValidationAdapter(SequenceExp target)
+  public OCLAdapter createSequenceExpValidationAdapter(SequenceExp target)
   {
-    return new SequenceExp(target);
+    return new SequenceExpValidationAdapter(target);
   }
 
   /**
@@ -821,9 +889,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.SetExp
    * @generated
    */
-  public Adapter createSetExpValidationAdapter(SetExp target)
+  public OCLAdapter createSetExpValidationAdapter(SetExp target)
   {
-    return new SetExp(target);
+    return new SetExpValidationAdapter(target);
   }
 
   /**
@@ -834,9 +902,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.TupleExp
    * @generated
    */
-  public Adapter createTupleExpValidationAdapter(TupleExp target)
+  public OCLAdapter createTupleExpValidationAdapter(TupleExp target)
   {
-    return new TupleExp(target);
+    return new TupleExpValidationAdapter(target);
   }
 
   /**
@@ -847,9 +915,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.TuplePart
    * @generated
    */
-  public Adapter createTuplePartValidationAdapter(TuplePart target)
+  public OCLAdapter createTuplePartValidationAdapter(TuplePart target)
   {
-    return new TuplePart(target);
+    return new TuplePartValidationAdapter(target);
   }
 
   /**
@@ -860,9 +928,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.MapExp
    * @generated
    */
-  public Adapter createMapExpValidationAdapter(MapExp target)
+  public OCLAdapter createMapExpValidationAdapter(MapExp target)
   {
-    return new MapExp(target);
+    return new MapExpValidationAdapter(target);
   }
 
   /**
@@ -873,9 +941,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.MapElement
    * @generated
    */
-  public Adapter createMapElementValidationAdapter(MapElement target)
+  public OCLAdapter createMapElementValidationAdapter(MapElement target)
   {
-    return new MapElement(target);
+    return new MapElementValidationAdapter(target);
   }
 
   /**
@@ -886,9 +954,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp
    * @generated
    */
-  public Adapter createEnumLiteralExpValidationAdapter(EnumLiteralExp target)
+  public OCLAdapter createEnumLiteralExpValidationAdapter(EnumLiteralExp target)
   {
-    return new EnumLiteralExp(target);
+    return new EnumLiteralExpValidationAdapter(target);
   }
 
   /**
@@ -899,9 +967,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclUndefinedExp
    * @generated
    */
-  public Adapter createOclUndefinedExpValidationAdapter(OclUndefinedExp target)
+  public OCLAdapter createOclUndefinedExpValidationAdapter(OclUndefinedExp target)
   {
-    return new OclUndefinedExp(target);
+    return new OclUndefinedExpValidationAdapter(target);
   }
 
   /**
@@ -912,9 +980,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.LetExp
    * @generated
    */
-  public Adapter createLetExpValidationAdapter(LetExp target)
+  public OCLAdapter createLetExpValidationAdapter(LetExp target)
   {
-    return new LetExp(target);
+    return new LetExpValidationAdapter(target);
   }
 
   /**
@@ -925,9 +993,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.IfExp
    * @generated
    */
-  public Adapter createIfExpValidationAdapter(IfExp target)
+  public OCLAdapter createIfExpValidationAdapter(IfExp target)
   {
-    return new IfExp(target);
+    return new IfExpValidationAdapter(target);
   }
 
   /**
@@ -938,9 +1006,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.BraceExp
    * @generated
    */
-  public Adapter createBraceExpValidationAdapter(BraceExp target)
+  public OCLAdapter createBraceExpValidationAdapter(BraceExp target)
   {
-    return new BraceExp(target);
+    return new BraceExpValidationAdapter(target);
   }
 
   /**
@@ -951,9 +1019,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.BooleanExp
    * @generated
    */
-  public Adapter createBooleanExpValidationAdapter(BooleanExp target)
+  public OCLAdapter createBooleanExpValidationAdapter(BooleanExp target)
   {
-    return new BooleanExp(target);
+    return new BooleanExpValidationAdapter(target);
   }
 
   /**
@@ -964,9 +1032,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.PropertyCall
    * @generated
    */
-  public Adapter createPropertyCallValidationAdapter(PropertyCall target)
+  public OCLAdapter createPropertyCallValidationAdapter(PropertyCall target)
   {
-    return new PropertyCall(target);
+    return new PropertyCallValidationAdapter(target);
   }
 
   /**
@@ -977,9 +1045,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OperationCall
    * @generated
    */
-  public Adapter createOperationCallValidationAdapter(OperationCall target)
+  public OCLAdapter createOperationCallValidationAdapter(OperationCall target)
   {
-    return new OperationCall(target);
+    return new OperationCallValidationAdapter(target);
   }
 
   /**
@@ -990,9 +1058,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall
    * @generated
    */
-  public Adapter createNavigationOrAttributeCallValidationAdapter(NavigationOrAttributeCall target)
+  public OCLAdapter createNavigationOrAttributeCallValidationAdapter(NavigationOrAttributeCall target)
   {
-    return new NavigationOrAttributeCall(target);
+    return new NavigationOrAttributeCallValidationAdapter(target);
   }
 
   /**
@@ -1003,9 +1071,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.IterateExp
    * @generated
    */
-  public Adapter createIterateExpValidationAdapter(IterateExp target)
+  public OCLAdapter createIterateExpValidationAdapter(IterateExp target)
   {
-    return new IterateExp(target);
+    return new IterateExpValidationAdapter(target);
   }
 
   /**
@@ -1016,9 +1084,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Iterator
    * @generated
    */
-  public Adapter createIteratorValidationAdapter(Iterator target)
+  public OCLAdapter createIteratorValidationAdapter(Iterator target)
   {
-    return new Iterator(target);
+    return new IteratorValidationAdapter(target);
   }
 
   /**
@@ -1029,9 +1097,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.IteratorExp
    * @generated
    */
-  public Adapter createIteratorExpValidationAdapter(IteratorExp target)
+  public OCLAdapter createIteratorExpValidationAdapter(IteratorExp target)
   {
-    return new IteratorExp(target);
+    return new IteratorExpValidationAdapter(target);
   }
 
   /**
@@ -1042,9 +1110,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall
    * @generated
    */
-  public Adapter createCollectionOperationCallValidationAdapter(CollectionOperationCall target)
+  public OCLAdapter createCollectionOperationCallValidationAdapter(CollectionOperationCall target)
   {
-    return new CollectionOperationCall(target);
+    return new CollectionOperationCallValidationAdapter(target);
   }
 
   /**
@@ -1055,9 +1123,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.LocalVariable
    * @generated
    */
-  public Adapter createLocalVariableValidationAdapter(LocalVariable target)
+  public OCLAdapter createLocalVariableValidationAdapter(LocalVariable target)
   {
-    return new LocalVariable(target);
+    return new LocalVariableValidationAdapter(target);
   }
 
   /**
@@ -1068,9 +1136,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclType
    * @generated
    */
-  public Adapter createOclTypeValidationAdapter(OclType target)
+  public OCLAdapter createOclTypeValidationAdapter(OclType target)
   {
-    return new OclType(target);
+    return new OclTypeValidationAdapter(target);
   }
 
   /**
@@ -1081,9 +1149,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.CollectionType
    * @generated
    */
-  public Adapter createCollectionTypeValidationAdapter(CollectionType target)
+  public OCLAdapter createCollectionTypeValidationAdapter(CollectionType target)
   {
-    return new CollectionType(target);
+    return new CollectionTypeValidationAdapter(target);
   }
 
   /**
@@ -1094,9 +1162,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.BagType
    * @generated
    */
-  public Adapter createBagTypeValidationAdapter(BagType target)
+  public OCLAdapter createBagTypeValidationAdapter(BagType target)
   {
-    return new BagType(target);
+    return new BagTypeValidationAdapter(target);
   }
 
   /**
@@ -1107,9 +1175,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetType
    * @generated
    */
-  public Adapter createOrderedSetTypeValidationAdapter(OrderedSetType target)
+  public OCLAdapter createOrderedSetTypeValidationAdapter(OrderedSetType target)
   {
-    return new OrderedSetType(target);
+    return new OrderedSetTypeValidationAdapter(target);
   }
 
   /**
@@ -1120,9 +1188,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.SequenceType
    * @generated
    */
-  public Adapter createSequenceTypeValidationAdapter(SequenceType target)
+  public OCLAdapter createSequenceTypeValidationAdapter(SequenceType target)
   {
-    return new SequenceType(target);
+    return new SequenceTypeValidationAdapter(target);
   }
 
   /**
@@ -1133,9 +1201,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.SetType
    * @generated
    */
-  public Adapter createSetTypeValidationAdapter(SetType target)
+  public OCLAdapter createSetTypeValidationAdapter(SetType target)
   {
-    return new SetType(target);
+    return new SetTypeValidationAdapter(target);
   }
 
   /**
@@ -1146,9 +1214,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.Primitive
    * @generated
    */
-  public Adapter createPrimitiveValidationAdapter(Primitive target)
+  public OCLAdapter createPrimitiveValidationAdapter(Primitive target)
   {
-    return new Primitive(target);
+    return new PrimitiveValidationAdapter(target);
   }
 
   /**
@@ -1159,9 +1227,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.StringType
    * @generated
    */
-  public Adapter createStringTypeValidationAdapter(StringType target)
+  public OCLAdapter createStringTypeValidationAdapter(StringType target)
   {
-    return new StringType(target);
+    return new StringTypeValidationAdapter(target);
   }
 
   /**
@@ -1172,9 +1240,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.BooleanType
    * @generated
    */
-  public Adapter createBooleanTypeValidationAdapter(BooleanType target)
+  public OCLAdapter createBooleanTypeValidationAdapter(BooleanType target)
   {
-    return new BooleanType(target);
+    return new BooleanTypeValidationAdapter(target);
   }
 
   /**
@@ -1185,9 +1253,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.NumericType
    * @generated
    */
-  public Adapter createNumericTypeValidationAdapter(NumericType target)
+  public OCLAdapter createNumericTypeValidationAdapter(NumericType target)
   {
-    return new NumericType(target);
+    return new NumericTypeValidationAdapter(target);
   }
 
   /**
@@ -1198,9 +1266,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.IntegerType
    * @generated
    */
-  public Adapter createIntegerTypeValidationAdapter(IntegerType target)
+  public OCLAdapter createIntegerTypeValidationAdapter(IntegerType target)
   {
-    return new IntegerType(target);
+    return new IntegerTypeValidationAdapter(target);
   }
 
   /**
@@ -1211,9 +1279,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.RealType
    * @generated
    */
-  public Adapter createRealTypeValidationAdapter(RealType target)
+  public OCLAdapter createRealTypeValidationAdapter(RealType target)
   {
-    return new RealType(target);
+    return new RealTypeValidationAdapter(target);
   }
 
   /**
@@ -1224,9 +1292,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclAnyType
    * @generated
    */
-  public Adapter createOclAnyTypeValidationAdapter(OclAnyType target)
+  public OCLAdapter createOclAnyTypeValidationAdapter(OclAnyType target)
   {
-    return new OclAnyType(target);
+    return new OclAnyTypeValidationAdapter(target);
   }
 
   /**
@@ -1237,9 +1305,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.TupleType
    * @generated
    */
-  public Adapter createTupleTypeValidationAdapter(TupleType target)
+  public OCLAdapter createTupleTypeValidationAdapter(TupleType target)
   {
-    return new TupleType(target);
+    return new TupleTypeValidationAdapter(target);
   }
 
   /**
@@ -1250,9 +1318,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute
    * @generated
    */
-  public Adapter createTupleTypeAttributeValidationAdapter(TupleTypeAttribute target)
+  public OCLAdapter createTupleTypeAttributeValidationAdapter(TupleTypeAttribute target)
   {
-    return new TupleTypeAttribute(target);
+    return new TupleTypeAttributeValidationAdapter(target);
   }
 
   /**
@@ -1263,9 +1331,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.OclModelElement
    * @generated
    */
-  public Adapter createOclModelElementValidationAdapter(OclModelElement target)
+  public OCLAdapter createOclModelElementValidationAdapter(OclModelElement target)
   {
-    return new OclModelElement(target);
+    return new OclModelElementValidationAdapter(target);
   }
 
   /**
@@ -1276,9 +1344,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.MapType
    * @generated
    */
-  public Adapter createMapTypeValidationAdapter(MapType target)
+  public OCLAdapter createMapTypeValidationAdapter(MapType target)
   {
-    return new MapType(target);
+    return new MapTypeValidationAdapter(target);
   }
 
   /**
@@ -1289,9 +1357,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.BoolOpCallExp
    * @generated
    */
-  public Adapter createBoolOpCallExpValidationAdapter(BoolOpCallExp target)
+  public OCLAdapter createBoolOpCallExpValidationAdapter(BoolOpCallExp target)
   {
-    return new BoolOpCallExp(target);
+    return new BoolOpCallExpValidationAdapter(target);
   }
 
   /**
@@ -1302,9 +1370,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp
    * @generated
    */
-  public Adapter createEqOpCallExpValidationAdapter(EqOpCallExp target)
+  public OCLAdapter createEqOpCallExpValidationAdapter(EqOpCallExp target)
   {
-    return new EqOpCallExp(target);
+    return new EqOpCallExpValidationAdapter(target);
   }
 
   /**
@@ -1315,9 +1383,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp
    * @generated
    */
-  public Adapter createRelOpCallExpValidationAdapter(RelOpCallExp target)
+  public OCLAdapter createRelOpCallExpValidationAdapter(RelOpCallExp target)
   {
-    return new RelOpCallExp(target);
+    return new RelOpCallExpValidationAdapter(target);
   }
 
   /**
@@ -1328,9 +1396,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp
    * @generated
    */
-  public Adapter createAddOpCallExpValidationAdapter(AddOpCallExp target)
+  public OCLAdapter createAddOpCallExpValidationAdapter(AddOpCallExp target)
   {
-    return new AddOpCallExp(target);
+    return new AddOpCallExpValidationAdapter(target);
   }
 
   /**
@@ -1341,9 +1409,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp
    * @generated
    */
-  public Adapter createIntOpCallExpValidationAdapter(IntOpCallExp target)
+  public OCLAdapter createIntOpCallExpValidationAdapter(IntOpCallExp target)
   {
-    return new IntOpCallExp(target);
+    return new IntOpCallExpValidationAdapter(target);
   }
 
   /**
@@ -1354,9 +1422,9 @@ public class OCLValidationAdapterFactory extends AdapterFactoryImpl
    * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp
    * @generated
    */
-  public Adapter createMulOpCallExpValidationAdapter(MulOpCallExp target)
+  public OCLAdapter createMulOpCallExpValidationAdapter(MulOpCallExp target)
   {
-    return new MulOpCallExp(target);
+    return new MulOpCallExpValidationAdapter(target);
   }
 
 }
