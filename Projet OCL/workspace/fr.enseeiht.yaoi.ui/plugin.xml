@@ -17,7 +17,7 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="fr.enseeiht.yaoi.handlers.SampleHandler"
+            class="fr.enseeiht.yaoi.ui.handlers.SampleHandler"
             commandId="fr.enseeiht.yaoi.commands.sampleCommand">
       </handler>
    </extension>

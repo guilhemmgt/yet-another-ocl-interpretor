@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Yaoi
-Bundle-SymbolicName: fr.enseeiht.yaoi;singleton:=true
+Bundle-SymbolicName: fr.enseeiht.yaoi.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Import-Package: fr.enseeiht.ocl.xtext.ocl,
  fr.enseeiht.ocl.xtext.ui.internal,

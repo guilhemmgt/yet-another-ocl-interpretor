@@ -1,4 +1,4 @@
-package fr.enseeiht.yaoi.handlers;
+package fr.enseeiht.yaoi.ui.handlers;
 
 import java.io.File;
 import org.eclipse.core.commands.AbstractHandler;
