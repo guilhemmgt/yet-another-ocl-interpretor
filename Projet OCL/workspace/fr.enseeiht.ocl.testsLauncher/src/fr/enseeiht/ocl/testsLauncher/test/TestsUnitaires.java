@@ -24,11 +24,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import fr.enseeiht.ocl.testsLauncher.LauncherUtils;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.TypeCheckingException;
+import fr.enseeiht.ocl.testsLauncher.util.LauncherUtils;
 
 public class TestsUnitaires {
 

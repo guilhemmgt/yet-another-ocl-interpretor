@@ -19,7 +19,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 
-import fr.enseeiht.ocl.testsLauncher.LauncherUtils;
+import fr.enseeiht.ocl.testsLauncher.util.LauncherUtils;
 
 @DisplayName("Tests Petrinet de Guilhem KO")
 class PetrinetTest {

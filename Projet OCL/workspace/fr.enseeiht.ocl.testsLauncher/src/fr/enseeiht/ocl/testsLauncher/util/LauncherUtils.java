@@ -1,4 +1,4 @@
-package fr.enseeiht.ocl.testsLauncher;
+package fr.enseeiht.ocl.testsLauncher.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
