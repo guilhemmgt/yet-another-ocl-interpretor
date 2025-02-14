@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petrinet:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore" name="developpement">
+  <networkElements xsi:type="petrinet:Place" name="Developpeur" linksToPrevArcs="//@networkElements.14 //@networkElements.38 //@networkElements.51" linksToNextArcs="//@networkElements.13 //@networkElements.37 //@networkElements.50" tokens="4"/>
+  <networkElements xsi:type="petrinet:Place" name="Testeur" linksToPrevArcs="//@networkElements.53" linksToNextArcs="//@networkElements.52" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="Conception_idle" linksToNextArcs="//@networkElements.8" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="Conception_started" linksToPrevArcs="//@networkElements.9" linksToNextArcs="//@networkElements.55"/>
+  <networkElements xsi:type="petrinet:Place" name="Conception_running" linksToPrevArcs="//@networkElements.10" linksToNextArcs="//@networkElements.11"/>
+  <networkElements xsi:type="petrinet:Place" name="Conception_finished" linksToPrevArcs="//@networkElements.12" linksToNextArcs="//@networkElements.54 //@networkElements.56"/>
+  <networkElements xsi:type="petrinet:Transition" name="Conception_start" linksToPrevArcs="//@networkElements.8 //@networkElements.13" linksToNextArcs="//@networkElements.9 //@networkElements.10"/>
+  <networkElements xsi:type="petrinet:Transition" name="Conception_finish" linksToPrevArcs="//@networkElements.11" linksToNextArcs="//@networkElements.12 //@networkElements.14"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.2" linkToNextCase="//@networkElements.6"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.6" linkToNextCase="//@networkElements.3"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.6" linkToNextCase="//@networkElements.4"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.4" linkToNextCase="//@networkElements.7"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.7" linkToNextCase="//@networkElements.5"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.0" linkToNextCase="//@networkElements.6"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.7" linkToNextCase="//@networkElements.0"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionDoc_idle" linksToNextArcs="//@networkElements.21" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionDoc_started" linksToPrevArcs="//@networkElements.22"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionDoc_running" linksToPrevArcs="//@networkElements.23" linksToNextArcs="//@networkElements.24"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionDoc_finished" linksToPrevArcs="//@networkElements.25"/>
+  <networkElements xsi:type="petrinet:Transition" name="RedactionDoc_start" linksToPrevArcs="//@networkElements.21 //@networkElements.58" linksToNextArcs="//@networkElements.22 //@networkElements.23"/>
+  <networkElements xsi:type="petrinet:Transition" name="RedactionDoc_finish" linksToPrevArcs="//@networkElements.24 //@networkElements.59" linksToNextArcs="//@networkElements.25"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.15" linkToNextCase="//@networkElements.19"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.19" linkToNextCase="//@networkElements.16"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.19" linkToNextCase="//@networkElements.17"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.17" linkToNextCase="//@networkElements.20"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.20" linkToNextCase="//@networkElements.18"/>
+  <networkElements xsi:type="petrinet:Place" name="Programmation_idle" linksToNextArcs="//@networkElements.32" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="Programmation_started" linksToPrevArcs="//@networkElements.33" linksToNextArcs="//@networkElements.58"/>
+  <networkElements xsi:type="petrinet:Place" name="Programmation_running" linksToPrevArcs="//@networkElements.34" linksToNextArcs="//@networkElements.35"/>
+  <networkElements xsi:type="petrinet:Place" name="Programmation_finished" linksToPrevArcs="//@networkElements.36" linksToNextArcs="//@networkElements.57 //@networkElements.59"/>
+  <networkElements xsi:type="petrinet:Transition" name="Programmation_start" linksToPrevArcs="//@networkElements.32 //@networkElements.37 //@networkElements.56" linksToNextArcs="//@networkElements.33 //@networkElements.34"/>
+  <networkElements xsi:type="petrinet:Transition" name="Programmation_finish" linksToPrevArcs="//@networkElements.35" linksToNextArcs="//@networkElements.36 //@networkElements.38"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.26" linkToNextCase="//@networkElements.30"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.30" linkToNextCase="//@networkElements.27"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.30" linkToNextCase="//@networkElements.28"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.28" linkToNextCase="//@networkElements.31"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.31" linkToNextCase="//@networkElements.29"/>
+  <networkElements xsi:type="petrinet:Arc" weight="2" linkToPrevCase="//@networkElements.0" linkToNextCase="//@networkElements.30"/>
+  <networkElements xsi:type="petrinet:Arc" weight="2" linkToPrevCase="//@networkElements.31" linkToNextCase="//@networkElements.0"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionTests_idle" linksToNextArcs="//@networkElements.45" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionTests_started" linksToPrevArcs="//@networkElements.46"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionTests_running" linksToPrevArcs="//@networkElements.47" linksToNextArcs="//@networkElements.48"/>
+  <networkElements xsi:type="petrinet:Place" name="RedactionTests_finished" linksToPrevArcs="//@networkElements.49"/>
+  <networkElements xsi:type="petrinet:Transition" name="RedactionTests_start" linksToPrevArcs="//@networkElements.45 //@networkElements.50 //@networkElements.52 //@networkElements.55" linksToNextArcs="//@networkElements.46 //@networkElements.47"/>
+  <networkElements xsi:type="petrinet:Transition" name="RedactionTests_finish" linksToPrevArcs="//@networkElements.48 //@networkElements.54 //@networkElements.57" linksToNextArcs="//@networkElements.49 //@networkElements.51 //@networkElements.53"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.39" linkToNextCase="//@networkElements.43"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.43" linkToNextCase="//@networkElements.40"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.43" linkToNextCase="//@networkElements.41"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.41" linkToNextCase="//@networkElements.44"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.44" linkToNextCase="//@networkElements.42"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.0" linkToNextCase="//@networkElements.43"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.44" linkToNextCase="//@networkElements.0"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.1" linkToNextCase="//@networkElements.43"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.44" linkToNextCase="//@networkElements.1"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.5" linkToNextCase="//@networkElements.44"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.3" linkToNextCase="//@networkElements.43"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.5" linkToNextCase="//@networkElements.30"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.29" linkToNextCase="//@networkElements.44"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.27" linkToNextCase="//@networkElements.19"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.29" linkToNextCase="//@networkElements.20"/>
+</petrinet:Network>

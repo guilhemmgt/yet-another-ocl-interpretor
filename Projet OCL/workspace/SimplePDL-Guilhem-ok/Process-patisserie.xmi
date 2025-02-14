@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl SimplePDL.ecore"
+    name="patisserie">
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToSuccessors="//@processElements.2"
+      name="faireCookie">
+    <linksToNeeds
+        need="1"
+        linkToRessource="//@processElements.3"/>
+    <linksToNeeds
+        need="10"
+        linkToRessource="//@processElements.4"/>
+  </processElements>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      linksToPredecessors="//@processElements.2"
+      name="manger"/>
+  <processElements
+      xsi:type="simplepdl:WorkSequence"
+      linkType="finishToStart"
+      predecessor="//@processElements.0"
+      successor="//@processElements.1"/>
+  <processElements
+      xsi:type="simplepdl:Ressource"
+      name="pateCookie"
+      amount="20"/>
+  <processElements
+      xsi:type="simplepdl:Ressource"
+      name="pepitesChocolat"
+      amount="300"/>
+  <processElements
+      xsi:type="simplepdl:Guidance"
+      elements="//@processElements.0"
+      text="La délicieuse recette marmiton"/>
+</simplepdl:Process>

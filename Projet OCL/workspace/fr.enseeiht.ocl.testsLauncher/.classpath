@@ -157,5 +157,10 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="/mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse/plugins/junit-jupiter-api_5.10.0.jar" sourcepath="/mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse/plugins/junit-jupiter-api.source_5.10.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://junit.org/junit5/docs/current/api/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

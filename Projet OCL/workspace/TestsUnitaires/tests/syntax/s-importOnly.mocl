@@ -1,6 +1,5 @@
-module a;a
+module a;
 
 import "http://empty" as empty
 
-inv t:
-  true
+|required (...)+ loop did not match anything at input '|'|

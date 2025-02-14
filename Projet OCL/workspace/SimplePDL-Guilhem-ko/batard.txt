@@ -1,0 +1,28 @@
+Problems on Children
+ Process
+    The required feature 'name' of 'Process' must be set
+    The 'Process::nomUniqueR' constraint is violated for 'Process'
+    The 'Process::nomValide' constraint result is invalid for 'Process'  - 'String' rather than 'OclVoid' value required
+ Work Sequence startToStart
+    The required feature 'predecessor' of 'Work Sequence startToStart' must be set
+    The required feature 'successor' of 'Work Sequence startToStart' must be set
+    The 'WorkSequence::successeurEtPredecesseurDansMemeProcess' constraint result is invalid for 'Work Sequence startToStart'  - Empty 'Sequence' for 'first'
+ Work Definition
+    The required feature 'name' of 'Work Definition' must be set
+    The 'WorkDefinition::nomPasCourt' constraint result is invalid for 'Work Definition'  - 'String' rather than 'OclVoid' value required
+ Ressource Need 0
+    The required feature 'linkToRessource' of 'Ressource Need 0' must be set
+    The 'RessourceNeed::quantiteStrictPositive' constraint is violated for 'Ressource Need 0'
+ Guidance
+    The required feature 'text' of 'Guidance' must be set
+ Ressource
+    The required feature 'name' of 'Ressource' must be set
+    The 'Ressource::nomPasCourt' constraint result is invalid for 'Ressource'  - 'String' rather than 'OclVoid' value required
+ Work Definition memeNom
+    The 'WorkDefinition::unSeulNeedParRessource' constraint is violated for 'Work Definition memeNom'
+ Work Definition @
+    The 'WorkDefinition::nomPasCourt' constraint is violated for 'Work Definition @'
+    The 'WorkDefinition::nomValide' constraint is violated for 'Work Definition @'
+ Ressource @
+    The 'Ressource::nomPasCourt' constraint is violated for 'Ressource @'
+    The 'Ressource::nomValide' constraint is violated for 'Ressource @'

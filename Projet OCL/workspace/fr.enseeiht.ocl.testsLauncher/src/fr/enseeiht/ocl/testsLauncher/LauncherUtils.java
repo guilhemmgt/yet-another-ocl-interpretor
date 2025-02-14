@@ -51,12 +51,11 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
 public class LauncherUtils {
 	
-	//TODO : remplacer tout les listFiles en new File
-	
 	public static void main(String[] args) {
 		try {
 			Path workspacePath = Paths.get(new File(".").getAbsolutePath()).getParent().getParent();
-			Map<String, Map<String, List<String>>> errorsMaps = run(workspacePath, "PetrinetTest", "petriNet.mocl", "PetriNet.ecore", "Net.xmi");
+			//Map<String, Map<String, List<String>>> errorsMaps = run(workspacePath, "PetrinetTest", "petriNet.mocl", "PetriNet.ecore", "Net.xmi");
+			Map<String, Map<String, List<String>>> errorsMaps = run(workspacePath, "TestsUnitaires", "tests/typeChecking/t-stringVsInt.mocl", "Empty.ecore", "");
 			
 			for (String model : errorsMaps.keySet()) {
 				
@@ -84,10 +83,16 @@ public class LauncherUtils {
 
 
 	public static Map<String, Map<String, List<String>>> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException {
+
+        File projectFolder = new File(workspacePath.toFile().getAbsolutePath() + "/" + projectName);
 		
-		File projectFolder = workspacePath.toFile().listFiles((f, n) -> n.equals(projectName))[0];
-		
-		System.out.println("exécution des tests dans le projet : " + projectFolder.getAbsolutePath());
+		System.out.println("Exécution des tests dans le projet : " + projectFolder.getAbsolutePath());
+		System.out.println(" -> Mocl utilisé : " + moclName);
+		System.out.println(" -> Ecore utilisé : " + ecoreName);
+		System.out.println(" -> Xmi utilisés : ");
+		for (String xmiName: xmiNames) {
+			System.out.println("     - " + xmiName);
+		}
 		
 		//Get Resources
 		Resource moclResource = getMoclResource(projectFolder, moclName);
@@ -114,18 +119,20 @@ public class LauncherUtils {
         //Update the import of the mocl
         moclObject.getImports().get(0).setPackage(ecorePackage);
 		
-		compile(projectFolder, ecorePackage, moclObject);
+		compile(projectFolder, ecorePackage, moclObject); //TODO : reamplacer avec l'interpreteur
 		return verifiy(projectFolder, ecorePackage.getName(), xmiNames);
 		
 	}
 	
 	private static Resource getEcoreResource(File projectFolder, String ecoreFileText) throws FileNotFoundException, BadFileExtensionException {
-		if(!Arrays.asList(projectFolder.list()).contains(ecoreFileText))
+		File ecoreFile = new File(projectFolder.getAbsolutePath() + "/" + ecoreFileText);
+		
+		if(!ecoreFile.exists())
 			throw new FileNotFoundException("Le fichier " + ecoreFileText + " n'existe pas.");
+		
 		if(!ecoreFileText.split("\\.")[ecoreFileText.split("\\.").length-1].equals("ecore"))
 			throw new BadFileExtensionException(ecoreFileText, "ecore");
 		
-		File ecoreFile = projectFolder.listFiles((f, n) -> n.equals(ecoreFileText))[0];
 		URI ecoreURI = URI.createFileURI(ecoreFile.getAbsolutePath());
 		
 		ResourceSet resourceSet = new ResourceSetImpl();
@@ -141,7 +148,6 @@ public class LauncherUtils {
 		if(!moclFileText.split("\\.")[moclFileText.split("\\.").length-1].equals("mocl"))
 			throw new BadFileExtensionException(moclFileText, "mocl");
 		
-		//File moclFile = projectFolder.listFiles((f, n) -> n.equals(moclFileText))[0];
 		URI moclURI = URI.createFileURI(moclFile.getAbsolutePath());
 		
 		Injector injector = new OclStandaloneSetup().createInjectorAndDoEMFRegistration();
@@ -152,8 +158,8 @@ public class LauncherUtils {
 	}
 	
 	private static void compile(File projectFolder, EPackage ecoreObject, Module moclObject) {
-		
-		File srcFolder = projectFolder.listFiles((f, n) -> n.equals("src"))[0];
+
+        File srcFolder = new File(projectFolder.getAbsolutePath() + "/src");
         
         File oclFolder = new File(srcFolder.getAbsolutePath() + "/ocl");
         File oclCollectionsFolder = new File(srcFolder.getAbsolutePath() + "/oclCollections");
@@ -184,9 +190,10 @@ public class LauncherUtils {
 		String capitalizedEcoreName = ecoreName.substring(0, 1).toUpperCase() + ecoreName.substring(1);
 		String lowerCasedEcoreName = ecoreName.toLowerCase();
 		
-		
-		File srcFolder = projectFolder.listFiles((f, n) -> n.equals("src"))[0];
-		File binFolder = projectFolder.listFiles((f, n) -> n.equals("bin"))[0];
+
+        File srcFolder = new File(projectFolder.getAbsolutePath() + "/src");
+        File binFolder = new File(projectFolder.getAbsolutePath() + "/bin");
+        binFolder.mkdirs();
 
 		System.out.println("Vérification du xmi...");
 		// Lancement du programme de vérification

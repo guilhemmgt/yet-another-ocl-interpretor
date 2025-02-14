@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore"
+    name="readarc">
+  <networkElements
+      xsi:type="petrinet:Place"
+      name="Place_A"
+      linksToNextArcs="//@networkElements.6"
+      tokens="3"/>
+  <networkElements
+      xsi:type="petrinet:Place"
+      name="Place_B"
+      linksToNextArcs="//@networkElements.7 //@networkElements.8"
+      tokens="2"/>
+  <networkElements
+      xsi:type="petrinet:Place"
+      name="Place_C"
+      linksToPrevArcs="//@networkElements.9"/>
+  <networkElements
+      xsi:type="petrinet:Place"
+      name="Place_D"
+      linksToPrevArcs="//@networkElements.10"/>
+  <networkElements
+      xsi:type="petrinet:Transition"
+      name="AB_C"
+      linksToNextArcs="//@networkElements.9"
+      linksToPrevArcs="//@networkElements.6 //@networkElements.7"/>
+  <networkElements
+      xsi:type="petrinet:Transition"
+      name="B_D"
+      linksToNextArcs="//@networkElements.10"
+      linksToPrevArcs="//@networkElements.8"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.0"
+      linkToNextCase="//@networkElements.4"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="2"
+      linkToPrevCase="//@networkElements.1"
+      linkToNextCase="//@networkElements.4"
+      readOnly="true"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.1"
+      linkToNextCase="//@networkElements.5"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.4"
+      linkToNextCase="//@networkElements.2"/>
+  <networkElements
+      xsi:type="petrinet:Arc"
+      weight="1"
+      linkToPrevCase="//@networkElements.5"
+      linkToNextCase="//@networkElements.3"/>
+</petrinet:Network>

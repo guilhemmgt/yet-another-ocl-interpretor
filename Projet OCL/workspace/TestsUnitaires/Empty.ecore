@@ -1,3 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="empty"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="empty" nsURI="http://empty" nsPrefix="empty">
+  <eClassifiers xsi:type="ecore:EClass" name="Liar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maybe" upperBound="-1"
+        eType="#//Maybe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subLiar" upperBound="-1"
+        eType="#//SubLiar" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enum" eType="#//Enum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Maybe">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subLiar" eType="#//SubLiar"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Enum">
+    <eLiterals name="enum1"/>
+    <eLiterals name="enum2" value="1"/>
+    <eLiterals name="enum3" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubLiar" eSuperTypes="#//Liar"/>
+</ecore:EPackage>
