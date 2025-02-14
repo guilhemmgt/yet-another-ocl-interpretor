@@ -135,7 +135,7 @@ public class TestsUnitaires {
 					lastLine = lastLine.substring(1, lastLine.length() - 1);
 				else
 					lastLine = null;
-				args.add(Arguments.of(projectName, Named.of(name, relativePath), lastLine));
+				args.add(Arguments.of(Named.of(name, relativePath), lastLine));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
