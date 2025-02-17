@@ -18,7 +18,7 @@ import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.IntegerExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.IntegerType;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
@@ -51,7 +51,7 @@ import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.Primitive;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
-import fr.enseeiht.ocl.xtext.ocl.RealExp;
+import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
@@ -206,14 +206,14 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass realExpEClass = null;
+  private EClass realLiteralExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass integerExpEClass = null;
+  private EClass integerLiteralExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1079,9 +1079,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getRealExp()
+  public EClass getRealLiteralExp()
   {
-    return realExpEClass;
+    return realLiteralExpEClass;
   }
 
   /**
@@ -1090,9 +1090,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getRealExp_RealSymbol()
+  public EAttribute getRealLiteralExp_RealSymbol()
   {
-    return (EAttribute)realExpEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)realLiteralExpEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1101,9 +1101,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getIntegerExp()
+  public EClass getIntegerLiteralExp()
   {
-    return integerExpEClass;
+    return integerLiteralExpEClass;
   }
 
   /**
@@ -1112,9 +1112,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getIntegerExp_IntegerSymbol()
+  public EAttribute getIntegerLiteralExp_IntegerSymbol()
   {
-    return (EAttribute)integerExpEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)integerLiteralExpEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2112,11 +2112,11 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     numericLiteralExpEClass = createEClass(NUMERIC_LITERAL_EXP);
 
-    realExpEClass = createEClass(REAL_EXP);
-    createEAttribute(realExpEClass, REAL_EXP__REAL_SYMBOL);
+    realLiteralExpEClass = createEClass(REAL_LITERAL_EXP);
+    createEAttribute(realLiteralExpEClass, REAL_LITERAL_EXP__REAL_SYMBOL);
 
-    integerExpEClass = createEClass(INTEGER_EXP);
-    createEAttribute(integerExpEClass, INTEGER_EXP__INTEGER_SYMBOL);
+    integerLiteralExpEClass = createEClass(INTEGER_LITERAL_EXP);
+    createEAttribute(integerLiteralExpEClass, INTEGER_LITERAL_EXP__INTEGER_SYMBOL);
 
     bagLiteralExpEClass = createEClass(BAG_LITERAL_EXP);
     createEReference(bagLiteralExpEClass, BAG_LITERAL_EXP__ELEMENTS);
@@ -2281,8 +2281,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     selfLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     stringLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     numericLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
-    realExpEClass.getESuperTypes().add(this.getNumericLiteralExp());
-    integerExpEClass.getESuperTypes().add(this.getNumericLiteralExp());
+    realLiteralExpEClass.getESuperTypes().add(this.getNumericLiteralExp());
+    integerLiteralExpEClass.getESuperTypes().add(this.getNumericLiteralExp());
     bagLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     orderedSetLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     sequenceLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
@@ -2385,11 +2385,11 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(numericLiteralExpEClass, NumericLiteralExp.class, "NumericLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(realExpEClass, RealExp.class, "RealExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRealExp_RealSymbol(), ecorePackage.getEDouble(), "realSymbol", null, 0, 1, RealExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(realLiteralExpEClass, RealLiteralExp.class, "RealLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRealLiteralExp_RealSymbol(), ecorePackage.getEDouble(), "realSymbol", null, 0, 1, RealLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(integerExpEClass, IntegerExp.class, "IntegerExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegerExp_IntegerSymbol(), ecorePackage.getEInt(), "integerSymbol", null, 0, 1, IntegerExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(integerLiteralExpEClass, IntegerLiteralExp.class, "IntegerLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntegerLiteralExp_IntegerSymbol(), ecorePackage.getEInt(), "integerSymbol", null, 0, 1, IntegerLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bagLiteralExpEClass, BagLiteralExp.class, "BagLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBagLiteralExp_Elements(), this.getOclExpression(), null, "elements", null, 0, -1, BagLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

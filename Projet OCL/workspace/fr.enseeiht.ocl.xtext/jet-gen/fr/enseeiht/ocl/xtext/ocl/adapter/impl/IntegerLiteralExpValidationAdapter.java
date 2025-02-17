@@ -4,21 +4,21 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
- * OCLAdapter for PropertyCallExp
+ * OCLAdapter for IntegerLiteralExp
  * @generated
  */
-public final class PropertyCallExpValidationAdapter implements OCLAdapter {
+public final class IntegerLiteralExpValidationAdapter implements OCLAdapter {
 
-  private PropertyCallExp target;
+  private IntegerLiteralExp target;
 
   /**
    * @generated
    */
-  public PropertyCallExpValidationAdapter(PropertyCallExp object) {
+  public IntegerLiteralExpValidationAdapter(IntegerLiteralExp object) {
     this.target = object;
   }
 
@@ -29,7 +29,7 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de PropertyCallExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException("La methode getValue de IntegerLiteralExpAdapter n'as pas encore été implémentée");
   }
 
   /**
@@ -38,7 +38,7 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de PropertyCallExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException("La methode getType de IntegerLiteralExpAdapter n'as pas encore été implémentée");
   }
 
   /**

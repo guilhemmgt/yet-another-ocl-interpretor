@@ -1117,29 +1117,29 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class NumericLiteralExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.NumericLiteralExp");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRealExpParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIntegerExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cRealLiteralExpParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIntegerLiteralExpParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//NumericLiteralExp:
-		//    RealExp|IntegerExp
+		//    RealLiteralExp|IntegerLiteralExp
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//RealExp|IntegerExp
+		//RealLiteralExp|IntegerLiteralExp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//RealExp
-		public RuleCall getRealExpParserRuleCall_0() { return cRealExpParserRuleCall_0; }
+		//RealLiteralExp
+		public RuleCall getRealLiteralExpParserRuleCall_0() { return cRealLiteralExpParserRuleCall_0; }
 		
-		//IntegerExp
-		public RuleCall getIntegerExpParserRuleCall_1() { return cIntegerExpParserRuleCall_1; }
+		//IntegerLiteralExp
+		public RuleCall getIntegerLiteralExpParserRuleCall_1() { return cIntegerLiteralExpParserRuleCall_1; }
 	}
-	public class RealExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.RealExp");
+	public class RealLiteralExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.RealLiteralExp");
 		private final Assignment cRealSymbolAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cRealSymbolDOUBLETerminalRuleCall_0 = (RuleCall)cRealSymbolAssignment.eContents().get(0);
 		
-		//RealExp : realSymbol=DOUBLE;
+		//RealLiteralExp : realSymbol=DOUBLE;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//realSymbol=DOUBLE
@@ -1148,25 +1148,25 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DOUBLE
 		public RuleCall getRealSymbolDOUBLETerminalRuleCall_0() { return cRealSymbolDOUBLETerminalRuleCall_0; }
 	}
-	public class IntegerExpElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.IntegerExp");
+	public class IntegerLiteralExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.IntegerLiteralExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cIntegerExpAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cIntegerLiteralExpAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cIntegerSymbolAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIntegerSymbolINTTerminalRuleCall_1_0 = (RuleCall)cIntegerSymbolAssignment_1.eContents().get(0);
 		
-		//IntegerExp:
-		//    {IntegerExp}
+		//IntegerLiteralExp:
+		//    {IntegerLiteralExp}
 		//    integerSymbol=INT
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IntegerExp}
+		//{IntegerLiteralExp}
 		//integerSymbol=INT
 		public Group getGroup() { return cGroup; }
 		
-		//{IntegerExp}
-		public Action getIntegerExpAction_0() { return cIntegerExpAction_0; }
+		//{IntegerLiteralExp}
+		public Action getIntegerLiteralExpAction_0() { return cIntegerLiteralExpAction_0; }
 		
 		//integerSymbol=INT
 		public Assignment getIntegerSymbolAssignment_1() { return cIntegerSymbolAssignment_1; }
@@ -2801,8 +2801,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final SelfLiteralExpElements pSelfLiteralExp;
 	private final StringLiteralExpElements pStringLiteralExp;
 	private final NumericLiteralExpElements pNumericLiteralExp;
-	private final RealExpElements pRealExp;
-	private final IntegerExpElements pIntegerExp;
+	private final RealLiteralExpElements pRealLiteralExp;
+	private final IntegerLiteralExpElements pIntegerLiteralExp;
 	private final BagLiteralExpElements pBagLiteralExp;
 	private final OrderedSetLiteralExpElements pOrderedSetLiteralExp;
 	private final SequenceLiteralExpElements pSequenceLiteralExp;
@@ -2843,7 +2843,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final MapTypeElements pMapType;
 	private final TerminalRule tDOUBLE;
 	private final QualifiedNameElements pQualifiedName;
-	private final TerminalRule tOCL_COMMENT;
+	private final TerminalRule tSL_COMMENT;
 	
 	private final Grammar grammar;
 	
@@ -2885,8 +2885,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pSelfLiteralExp = new SelfLiteralExpElements();
 		this.pStringLiteralExp = new StringLiteralExpElements();
 		this.pNumericLiteralExp = new NumericLiteralExpElements();
-		this.pRealExp = new RealExpElements();
-		this.pIntegerExp = new IntegerExpElements();
+		this.pRealLiteralExp = new RealLiteralExpElements();
+		this.pIntegerLiteralExp = new IntegerLiteralExpElements();
 		this.pBagLiteralExp = new BagLiteralExpElements();
 		this.pOrderedSetLiteralExp = new OrderedSetLiteralExpElements();
 		this.pSequenceLiteralExp = new SequenceLiteralExpElements();
@@ -2927,7 +2927,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pMapType = new MapTypeElements();
 		this.tDOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.DOUBLE");
 		this.pQualifiedName = new QualifiedNameElements();
-		this.tOCL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OCL_COMMENT");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.SL_COMMENT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -3289,7 +3289,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//NumericLiteralExp:
-	//    RealExp|IntegerExp
+	//    RealLiteralExp|IntegerLiteralExp
 	//;
 	public NumericLiteralExpElements getNumericLiteralExpAccess() {
 		return pNumericLiteralExp;
@@ -3299,25 +3299,25 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getNumericLiteralExpAccess().getRule();
 	}
 	
-	//RealExp : realSymbol=DOUBLE;
-	public RealExpElements getRealExpAccess() {
-		return pRealExp;
+	//RealLiteralExp : realSymbol=DOUBLE;
+	public RealLiteralExpElements getRealLiteralExpAccess() {
+		return pRealLiteralExp;
 	}
 	
-	public ParserRule getRealExpRule() {
-		return getRealExpAccess().getRule();
+	public ParserRule getRealLiteralExpRule() {
+		return getRealLiteralExpAccess().getRule();
 	}
 	
-	//IntegerExp:
-	//    {IntegerExp}
+	//IntegerLiteralExp:
+	//    {IntegerLiteralExp}
 	//    integerSymbol=INT
 	//;
-	public IntegerExpElements getIntegerExpAccess() {
-		return pIntegerExp;
+	public IntegerLiteralExpElements getIntegerLiteralExpAccess() {
+		return pIntegerLiteralExp;
 	}
 	
-	public ParserRule getIntegerExpRule() {
-		return getIntegerExpAccess().getRule();
+	public ParserRule getIntegerLiteralExpRule() {
+		return getIntegerLiteralExpAccess().getRule();
 	}
 	
 	//BagLiteralExp:
@@ -3767,11 +3767,12 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getQualifiedNameAccess().getRule();
 	}
 	
-	//terminal OCL_COMMENT:
-	//    '--' !('\n'|'\r')* ('\r'? '\n')?
+	//@Override
+	//terminal SL_COMMENT:
+	//    '--' .* '\n'
 	//;
-	public TerminalRule getOCL_COMMENTRule() {
-		return tOCL_COMMENT;
+	public TerminalRule getSL_COMMENTRule() {
+		return tSL_COMMENT;
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
@@ -3795,11 +3796,6 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//terminal ML_COMMENT : '/*' -> '*/';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
-	}
-	
-	//terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
-	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
 	}
 	
 	//terminal WS         : (' '|'\t'|'\r'|'\n')+;

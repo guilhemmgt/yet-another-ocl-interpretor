@@ -6,21 +6,21 @@ package fr.enseeiht.ocl.xtext.ocl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Real Exp</b></em>'.
+ * A representation of the model object '<em><b>Real Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.RealExp#getRealSymbol <em>Real Symbol</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.RealLiteralExp#getRealSymbol <em>Real Symbol</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getRealExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getRealLiteralExp()
  * @model
  * @generated
  */
-public interface RealExp extends NumericLiteralExp
+public interface RealLiteralExp extends NumericLiteralExp
 {
   /**
    * Returns the value of the '<em><b>Real Symbol</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface RealExp extends NumericLiteralExp
    * <!-- end-user-doc -->
    * @return the value of the '<em>Real Symbol</em>' attribute.
    * @see #setRealSymbol(double)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getRealExp_RealSymbol()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getRealLiteralExp_RealSymbol()
    * @model
    * @generated
    */
   double getRealSymbol();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.RealExp#getRealSymbol <em>Real Symbol</em>}' attribute.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.RealLiteralExp#getRealSymbol <em>Real Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Real Symbol</em>' attribute.
@@ -44,4 +44,4 @@ public interface RealExp extends NumericLiteralExp
    */
   void setRealSymbol(double value);
 
-} // RealExp
+} // RealLiteralExp

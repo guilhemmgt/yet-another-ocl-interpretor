@@ -18,7 +18,7 @@ import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.IntegerExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.IntegerType;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
@@ -50,7 +50,7 @@ import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.Primitive;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
-import fr.enseeiht.ocl.xtext.ocl.RealExp;
+import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
@@ -262,21 +262,21 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.REAL_EXP:
+      case OclPackage.REAL_LITERAL_EXP:
       {
-        RealExp realExp = (RealExp)theEObject;
-        T result = caseRealExp(realExp);
-        if (result == null) result = caseNumericLiteralExp(realExp);
-        if (result == null) result = caseOclExpression(realExp);
+        RealLiteralExp realLiteralExp = (RealLiteralExp)theEObject;
+        T result = caseRealLiteralExp(realLiteralExp);
+        if (result == null) result = caseNumericLiteralExp(realLiteralExp);
+        if (result == null) result = caseOclExpression(realLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.INTEGER_EXP:
+      case OclPackage.INTEGER_LITERAL_EXP:
       {
-        IntegerExp integerExp = (IntegerExp)theEObject;
-        T result = caseIntegerExp(integerExp);
-        if (result == null) result = caseNumericLiteralExp(integerExp);
-        if (result == null) result = caseOclExpression(integerExp);
+        IntegerLiteralExp integerLiteralExp = (IntegerLiteralExp)theEObject;
+        T result = caseIntegerLiteralExp(integerLiteralExp);
+        if (result == null) result = caseNumericLiteralExp(integerLiteralExp);
+        if (result == null) result = caseOclExpression(integerLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -912,33 +912,33 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Real Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Real Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Real Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Real Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRealExp(RealExp object)
+  public T caseRealLiteralExp(RealLiteralExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Integer Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Integer Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Integer Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Integer Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIntegerExp(IntegerExp object)
+  public T caseIntegerLiteralExp(IntegerLiteralExp object)
   {
     return null;
   }

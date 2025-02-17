@@ -17,8 +17,8 @@ import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.StringLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
-import fr.enseeiht.ocl.xtext.ocl.RealExp;
-import fr.enseeiht.ocl.xtext.ocl.IntegerExp;
+import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BagLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp;
@@ -79,8 +79,8 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.VariableExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SelfLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.StringLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NumericLiteralExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RealExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntegerExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RealLiteralExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntegerLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BagLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OrderedSetLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SequenceLiteralExpValidationAdapter;
@@ -277,14 +277,14 @@ public class OCLValidationAdapterFactory
         return createNumericLiteralExpValidationAdapter(object);
       }
       @Override
-      public OCLAdapter caseRealExp(RealExp object)
+      public OCLAdapter caseRealLiteralExp(RealLiteralExp object)
       {
-        return createRealExpValidationAdapter(object);
+        return createRealLiteralExpValidationAdapter(object);
       }
       @Override
-      public OCLAdapter caseIntegerExp(IntegerExp object)
+      public OCLAdapter caseIntegerLiteralExp(IntegerLiteralExp object)
       {
-        return createIntegerExpValidationAdapter(object);
+        return createIntegerLiteralExpValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseBagLiteralExp(BagLiteralExp object)
@@ -743,29 +743,29 @@ public class OCLValidationAdapterFactory
   }
 
   /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RealExp <em>RealExp</em>}'.
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RealLiteralExp <em>RealLiteralExp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.RealExp
+   * @see fr.enseeiht.ocl.xtext.ocl.RealLiteralExp
    * @generated
    */
-  public OCLAdapter createRealExpValidationAdapter(RealExp target)
+  public OCLAdapter createRealLiteralExpValidationAdapter(RealLiteralExp target)
   {
-    return new RealExpValidationAdapter(target);
+    return new RealLiteralExpValidationAdapter(target);
   }
 
   /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntegerExp <em>IntegerExp</em>}'.
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp <em>IntegerLiteralExp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntegerExp
+   * @see fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp
    * @generated
    */
-  public OCLAdapter createIntegerExpValidationAdapter(IntegerExp target)
+  public OCLAdapter createIntegerLiteralExpValidationAdapter(IntegerLiteralExp target)
   {
-    return new IntegerExpValidationAdapter(target);
+    return new IntegerLiteralExpValidationAdapter(target);
   }
 
   /**
