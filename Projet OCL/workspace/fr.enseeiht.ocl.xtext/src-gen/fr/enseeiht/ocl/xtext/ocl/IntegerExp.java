@@ -20,7 +20,7 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface IntegerExp extends NumericExp
+public interface IntegerExp extends NumericLiteralExp
 {
   /**
    * Returns the value of the '<em><b>Integer Symbol</b></em>' attribute.

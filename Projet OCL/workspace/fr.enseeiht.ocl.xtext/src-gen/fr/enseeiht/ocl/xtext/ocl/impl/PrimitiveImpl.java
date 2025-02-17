@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class PrimitiveImpl extends OclTypeImpl implements Primitive
+public class PrimitiveImpl extends OclTypeLiteralImpl implements Primitive
 {
   /**
    * <!-- begin-user-doc -->

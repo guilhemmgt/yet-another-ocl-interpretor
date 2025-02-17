@@ -6,9 +6,9 @@ package fr.enseeiht.ocl.xtext.ocl.util;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
-import fr.enseeiht.ocl.xtext.ocl.BagExp;
+import fr.enseeiht.ocl.xtext.ocl.BagLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
+import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
@@ -26,25 +26,25 @@ import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
-import fr.enseeiht.ocl.xtext.ocl.MapExp;
+import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
-import fr.enseeiht.ocl.xtext.ocl.NumericExp;
+import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
-import fr.enseeiht.ocl.xtext.ocl.OclModelElement;
+import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
-import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
-import fr.enseeiht.ocl.xtext.ocl.OrderedSetExp;
+import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetType;
 import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.Primitive;
@@ -53,14 +53,14 @@ import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.RealExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.SelfExp;
-import fr.enseeiht.ocl.xtext.ocl.SequenceExp;
+import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SequenceType;
-import fr.enseeiht.ocl.xtext.ocl.SetExp;
+import fr.enseeiht.ocl.xtext.ocl.SetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
-import fr.enseeiht.ocl.xtext.ocl.StringExp;
+import fr.enseeiht.ocl.xtext.ocl.StringLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.TupleExp;
+import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
@@ -148,10 +148,10 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.OCL_MODULE_ELEMENT:
+      case OclPackage.OCL_CONTEXT_BLOCK:
       {
-        OclModuleElement oclModuleElement = (OclModuleElement)theEObject;
-        T result = caseOclModuleElement(oclModuleElement);
+        OclContextBlock oclContextBlock = (OclContextBlock)theEObject;
+        T result = caseOclContextBlock(oclContextBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -238,27 +238,27 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.SELF_EXP:
+      case OclPackage.SELF_LITERAL_EXP:
       {
-        SelfExp selfExp = (SelfExp)theEObject;
-        T result = caseSelfExp(selfExp);
-        if (result == null) result = caseOclExpression(selfExp);
+        SelfLiteralExp selfLiteralExp = (SelfLiteralExp)theEObject;
+        T result = caseSelfLiteralExp(selfLiteralExp);
+        if (result == null) result = caseOclExpression(selfLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.STRING_EXP:
+      case OclPackage.STRING_LITERAL_EXP:
       {
-        StringExp stringExp = (StringExp)theEObject;
-        T result = caseStringExp(stringExp);
-        if (result == null) result = caseOclExpression(stringExp);
+        StringLiteralExp stringLiteralExp = (StringLiteralExp)theEObject;
+        T result = caseStringLiteralExp(stringLiteralExp);
+        if (result == null) result = caseOclExpression(stringLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.NUMERIC_EXP:
+      case OclPackage.NUMERIC_LITERAL_EXP:
       {
-        NumericExp numericExp = (NumericExp)theEObject;
-        T result = caseNumericExp(numericExp);
-        if (result == null) result = caseOclExpression(numericExp);
+        NumericLiteralExp numericLiteralExp = (NumericLiteralExp)theEObject;
+        T result = caseNumericLiteralExp(numericLiteralExp);
+        if (result == null) result = caseOclExpression(numericLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -266,7 +266,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         RealExp realExp = (RealExp)theEObject;
         T result = caseRealExp(realExp);
-        if (result == null) result = caseNumericExp(realExp);
+        if (result == null) result = caseNumericLiteralExp(realExp);
         if (result == null) result = caseOclExpression(realExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -275,48 +275,48 @@ public class OclSwitch<T> extends Switch<T>
       {
         IntegerExp integerExp = (IntegerExp)theEObject;
         T result = caseIntegerExp(integerExp);
-        if (result == null) result = caseNumericExp(integerExp);
+        if (result == null) result = caseNumericLiteralExp(integerExp);
         if (result == null) result = caseOclExpression(integerExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.BAG_EXP:
+      case OclPackage.BAG_LITERAL_EXP:
       {
-        BagExp bagExp = (BagExp)theEObject;
-        T result = caseBagExp(bagExp);
-        if (result == null) result = caseOclExpression(bagExp);
+        BagLiteralExp bagLiteralExp = (BagLiteralExp)theEObject;
+        T result = caseBagLiteralExp(bagLiteralExp);
+        if (result == null) result = caseOclExpression(bagLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.ORDERED_SET_EXP:
+      case OclPackage.ORDERED_SET_LITERAL_EXP:
       {
-        OrderedSetExp orderedSetExp = (OrderedSetExp)theEObject;
-        T result = caseOrderedSetExp(orderedSetExp);
-        if (result == null) result = caseOclExpression(orderedSetExp);
+        OrderedSetLiteralExp orderedSetLiteralExp = (OrderedSetLiteralExp)theEObject;
+        T result = caseOrderedSetLiteralExp(orderedSetLiteralExp);
+        if (result == null) result = caseOclExpression(orderedSetLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.SEQUENCE_EXP:
+      case OclPackage.SEQUENCE_LITERAL_EXP:
       {
-        SequenceExp sequenceExp = (SequenceExp)theEObject;
-        T result = caseSequenceExp(sequenceExp);
-        if (result == null) result = caseOclExpression(sequenceExp);
+        SequenceLiteralExp sequenceLiteralExp = (SequenceLiteralExp)theEObject;
+        T result = caseSequenceLiteralExp(sequenceLiteralExp);
+        if (result == null) result = caseOclExpression(sequenceLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.SET_EXP:
+      case OclPackage.SET_LITERAL_EXP:
       {
-        SetExp setExp = (SetExp)theEObject;
-        T result = caseSetExp(setExp);
-        if (result == null) result = caseOclExpression(setExp);
+        SetLiteralExp setLiteralExp = (SetLiteralExp)theEObject;
+        T result = caseSetLiteralExp(setLiteralExp);
+        if (result == null) result = caseOclExpression(setLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.TUPLE_EXP:
+      case OclPackage.TUPLE_LITERAL_EXP:
       {
-        TupleExp tupleExp = (TupleExp)theEObject;
-        T result = caseTupleExp(tupleExp);
-        if (result == null) result = caseOclExpression(tupleExp);
+        TupleLiteralExp tupleLiteralExp = (TupleLiteralExp)theEObject;
+        T result = caseTupleLiteralExp(tupleLiteralExp);
+        if (result == null) result = caseOclExpression(tupleLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -327,11 +327,11 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.MAP_EXP:
+      case OclPackage.MAP_LITERAL_EXP:
       {
-        MapExp mapExp = (MapExp)theEObject;
-        T result = caseMapExp(mapExp);
-        if (result == null) result = caseOclExpression(mapExp);
+        MapLiteralExp mapLiteralExp = (MapLiteralExp)theEObject;
+        T result = caseMapLiteralExp(mapLiteralExp);
+        if (result == null) result = caseOclExpression(mapLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -374,11 +374,11 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.BOOLEAN_EXP:
+      case OclPackage.BOOLEAN_LITERAL_EXP:
       {
-        BooleanExp booleanExp = (BooleanExp)theEObject;
-        T result = caseBooleanExp(booleanExp);
-        if (result == null) result = caseOclExpression(booleanExp);
+        BooleanLiteralExp booleanLiteralExp = (BooleanLiteralExp)theEObject;
+        T result = caseBooleanLiteralExp(booleanLiteralExp);
+        if (result == null) result = caseOclExpression(booleanLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -445,10 +445,10 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.OCL_TYPE:
+      case OclPackage.OCL_TYPE_LITERAL:
       {
-        OclType oclType = (OclType)theEObject;
-        T result = caseOclType(oclType);
+        OclTypeLiteral oclTypeLiteral = (OclTypeLiteral)theEObject;
+        T result = caseOclTypeLiteral(oclTypeLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -456,7 +456,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         CollectionType collectionType = (CollectionType)theEObject;
         T result = caseCollectionType(collectionType);
-        if (result == null) result = caseOclType(collectionType);
+        if (result == null) result = caseOclTypeLiteral(collectionType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -465,7 +465,7 @@ public class OclSwitch<T> extends Switch<T>
         BagType bagType = (BagType)theEObject;
         T result = caseBagType(bagType);
         if (result == null) result = caseCollectionType(bagType);
-        if (result == null) result = caseOclType(bagType);
+        if (result == null) result = caseOclTypeLiteral(bagType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -474,7 +474,7 @@ public class OclSwitch<T> extends Switch<T>
         OrderedSetType orderedSetType = (OrderedSetType)theEObject;
         T result = caseOrderedSetType(orderedSetType);
         if (result == null) result = caseCollectionType(orderedSetType);
-        if (result == null) result = caseOclType(orderedSetType);
+        if (result == null) result = caseOclTypeLiteral(orderedSetType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -483,7 +483,7 @@ public class OclSwitch<T> extends Switch<T>
         SequenceType sequenceType = (SequenceType)theEObject;
         T result = caseSequenceType(sequenceType);
         if (result == null) result = caseCollectionType(sequenceType);
-        if (result == null) result = caseOclType(sequenceType);
+        if (result == null) result = caseOclTypeLiteral(sequenceType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -492,7 +492,7 @@ public class OclSwitch<T> extends Switch<T>
         SetType setType = (SetType)theEObject;
         T result = caseSetType(setType);
         if (result == null) result = caseCollectionType(setType);
-        if (result == null) result = caseOclType(setType);
+        if (result == null) result = caseOclTypeLiteral(setType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -500,7 +500,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         Primitive primitive = (Primitive)theEObject;
         T result = casePrimitive(primitive);
-        if (result == null) result = caseOclType(primitive);
+        if (result == null) result = caseOclTypeLiteral(primitive);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -509,7 +509,7 @@ public class OclSwitch<T> extends Switch<T>
         StringType stringType = (StringType)theEObject;
         T result = caseStringType(stringType);
         if (result == null) result = casePrimitive(stringType);
-        if (result == null) result = caseOclType(stringType);
+        if (result == null) result = caseOclTypeLiteral(stringType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -518,7 +518,7 @@ public class OclSwitch<T> extends Switch<T>
         BooleanType booleanType = (BooleanType)theEObject;
         T result = caseBooleanType(booleanType);
         if (result == null) result = casePrimitive(booleanType);
-        if (result == null) result = caseOclType(booleanType);
+        if (result == null) result = caseOclTypeLiteral(booleanType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -527,7 +527,7 @@ public class OclSwitch<T> extends Switch<T>
         NumericType numericType = (NumericType)theEObject;
         T result = caseNumericType(numericType);
         if (result == null) result = casePrimitive(numericType);
-        if (result == null) result = caseOclType(numericType);
+        if (result == null) result = caseOclTypeLiteral(numericType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -537,7 +537,7 @@ public class OclSwitch<T> extends Switch<T>
         T result = caseIntegerType(integerType);
         if (result == null) result = caseNumericType(integerType);
         if (result == null) result = casePrimitive(integerType);
-        if (result == null) result = caseOclType(integerType);
+        if (result == null) result = caseOclTypeLiteral(integerType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -547,7 +547,7 @@ public class OclSwitch<T> extends Switch<T>
         T result = caseRealType(realType);
         if (result == null) result = caseNumericType(realType);
         if (result == null) result = casePrimitive(realType);
-        if (result == null) result = caseOclType(realType);
+        if (result == null) result = caseOclTypeLiteral(realType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -555,7 +555,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         OclAnyType oclAnyType = (OclAnyType)theEObject;
         T result = caseOclAnyType(oclAnyType);
-        if (result == null) result = caseOclType(oclAnyType);
+        if (result == null) result = caseOclTypeLiteral(oclAnyType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -563,7 +563,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         TupleType tupleType = (TupleType)theEObject;
         T result = caseTupleType(tupleType);
-        if (result == null) result = caseOclType(tupleType);
+        if (result == null) result = caseOclTypeLiteral(tupleType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -574,11 +574,11 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.OCL_MODEL_ELEMENT:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS:
       {
-        OclModelElement oclModelElement = (OclModelElement)theEObject;
-        T result = caseOclModelElement(oclModelElement);
-        if (result == null) result = caseOclType(oclModelElement);
+        OclModelElementClass oclModelElementClass = (OclModelElementClass)theEObject;
+        T result = caseOclModelElementClass(oclModelElementClass);
+        if (result == null) result = caseOclTypeLiteral(oclModelElementClass);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -586,7 +586,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         MapType mapType = (MapType)theEObject;
         T result = caseMapType(mapType);
-        if (result == null) result = caseOclType(mapType);
+        if (result == null) result = caseOclTypeLiteral(mapType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -672,17 +672,17 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Module Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Context Block</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Module Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Context Block</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOclModuleElement(OclModuleElement object)
+  public T caseOclContextBlock(OclContextBlock object)
   {
     return null;
   }
@@ -864,49 +864,49 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Self Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Self Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Self Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Self Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSelfExp(SelfExp object)
+  public T caseSelfLiteralExp(SelfLiteralExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>String Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>String Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>String Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStringExp(StringExp object)
+  public T caseStringLiteralExp(StringLiteralExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Numeric Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Numeric Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Numeric Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Numeric Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNumericExp(NumericExp object)
+  public T caseNumericLiteralExp(NumericLiteralExp object)
   {
     return null;
   }
@@ -944,81 +944,81 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Bag Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Bag Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bag Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Bag Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBagExp(BagExp object)
+  public T caseBagLiteralExp(BagLiteralExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ordered Set Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ordered Set Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ordered Set Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ordered Set Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOrderedSetExp(OrderedSetExp object)
+  public T caseOrderedSetLiteralExp(OrderedSetLiteralExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sequence Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Sequence Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sequence Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Sequence Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSequenceExp(SequenceExp object)
+  public T caseSequenceLiteralExp(SequenceLiteralExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Set Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Set Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Set Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Set Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSetExp(SetExp object)
+  public T caseSetLiteralExp(SetLiteralExp object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Tuple Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Tuple Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Tuple Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Tuple Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTupleExp(TupleExp object)
+  public T caseTupleLiteralExp(TupleLiteralExp object)
   {
     return null;
   }
@@ -1040,17 +1040,17 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Map Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Map Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Map Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Map Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMapExp(MapExp object)
+  public T caseMapLiteralExp(MapLiteralExp object)
   {
     return null;
   }
@@ -1136,17 +1136,17 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Boolean Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Boolean Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Literal Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBooleanExp(BooleanExp object)
+  public T caseBooleanLiteralExp(BooleanLiteralExp object)
   {
     return null;
   }
@@ -1280,17 +1280,17 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Type Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Type Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOclType(OclType object)
+  public T caseOclTypeLiteral(OclTypeLiteral object)
   {
     return null;
   }
@@ -1520,17 +1520,17 @@ public class OclSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Model Element Class</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Model Element Class</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOclModelElement(OclModelElement object)
+  public T caseOclModelElementClass(OclModelElementClass object)
   {
     return null;
   }

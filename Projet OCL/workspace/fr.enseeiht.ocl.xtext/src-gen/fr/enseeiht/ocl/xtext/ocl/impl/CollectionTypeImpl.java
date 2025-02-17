@@ -5,7 +5,7 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CollectionTypeImpl extends OclTypeImpl implements CollectionType
+public class CollectionTypeImpl extends OclTypeLiteralImpl implements CollectionType
 {
   /**
    * The cached value of the '{@link #getElementType() <em>Element Type</em>}' containment reference.
@@ -38,7 +38,7 @@ public class CollectionTypeImpl extends OclTypeImpl implements CollectionType
    * @generated
    * @ordered
    */
-  protected OclType elementType;
+  protected OclTypeLiteral elementType;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class CollectionTypeImpl extends OclTypeImpl implements CollectionType
    * @generated
    */
   @Override
-  public OclType getElementType()
+  public OclTypeLiteral getElementType()
   {
     return elementType;
   }
@@ -77,9 +77,9 @@ public class CollectionTypeImpl extends OclTypeImpl implements CollectionType
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElementType(OclType newElementType, NotificationChain msgs)
+  public NotificationChain basicSetElementType(OclTypeLiteral newElementType, NotificationChain msgs)
   {
-    OclType oldElementType = elementType;
+    OclTypeLiteral oldElementType = elementType;
     elementType = newElementType;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class CollectionTypeImpl extends OclTypeImpl implements CollectionType
    * @generated
    */
   @Override
-  public void setElementType(OclType newElementType)
+  public void setElementType(OclTypeLiteral newElementType)
   {
     if (newElementType != elementType)
     {
@@ -154,7 +154,7 @@ public class CollectionTypeImpl extends OclTypeImpl implements CollectionType
     switch (featureID)
     {
       case OclPackage.COLLECTION_TYPE__ELEMENT_TYPE:
-        setElementType((OclType)newValue);
+        setElementType((OclTypeLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class CollectionTypeImpl extends OclTypeImpl implements CollectionType
     switch (featureID)
     {
       case OclPackage.COLLECTION_TYPE__ELEMENT_TYPE:
-        setElementType((OclType)null);
+        setElementType((OclTypeLiteral)null);
         return;
     }
     super.eUnset(featureID);

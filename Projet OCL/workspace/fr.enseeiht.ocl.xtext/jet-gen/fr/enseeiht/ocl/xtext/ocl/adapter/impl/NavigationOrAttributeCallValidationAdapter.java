@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
-import fr.enseeiht.ocl.xtext.OclAny;
+import fr.enseeiht.ocl.xtext.OclType;
 
 /**
  * OCLAdapter for NavigationOrAttributeCall
@@ -37,7 +37,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
    * @return type of the element
    * @generated
    */
-  public OclAny getType() {
+  public OclType getType() {
     throw new UnimplementedException("La methode getType de NavigationOrAttributeCallAdapter n'as pas encore été implémentée");
   }
 

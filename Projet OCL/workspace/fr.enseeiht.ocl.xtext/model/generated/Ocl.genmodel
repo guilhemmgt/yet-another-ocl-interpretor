@@ -8,16 +8,17 @@
       fileExtensions="mocl" ecorePackage="Ocl.ecore#/">
     <genClasses ecoreClass="Ocl.ecore#//Module">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Module/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Module/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Module/contextlessFeatures"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Module/contextBlocks"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//Import">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//Import/package"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//Import/name"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//OclModuleElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModuleElement/ecoreTypes"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModuleElement/class"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModuleElement/members"/>
+    <genClasses ecoreClass="Ocl.ecore#//OclContextBlock">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclContextBlock/ecoreTypes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclContextBlock/class"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclContextBlock/members"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OclFeatureDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclFeatureDefinition/feature"/>
@@ -58,39 +59,39 @@
     <genClasses ecoreClass="Ocl.ecore#//VariableExp">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//VariableExp/referredVariable"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//SelfExp"/>
-    <genClasses ecoreClass="Ocl.ecore#//StringExp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//StringExp/stringSymbol"/>
+    <genClasses ecoreClass="Ocl.ecore#//SelfLiteralExp"/>
+    <genClasses ecoreClass="Ocl.ecore#//StringLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//StringLiteralExp/stringSymbol"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//NumericExp"/>
+    <genClasses ecoreClass="Ocl.ecore#//NumericLiteralExp"/>
     <genClasses ecoreClass="Ocl.ecore#//RealExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//RealExp/realSymbol"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//IntegerExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//IntegerExp/integerSymbol"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//BagExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//BagExp/elements"/>
+    <genClasses ecoreClass="Ocl.ecore#//BagLiteralExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//BagLiteralExp/elements"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//OrderedSetExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OrderedSetExp/elements"/>
+    <genClasses ecoreClass="Ocl.ecore#//OrderedSetLiteralExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OrderedSetLiteralExp/elements"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//SequenceExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//SequenceExp/elements"/>
+    <genClasses ecoreClass="Ocl.ecore#//SequenceLiteralExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//SequenceLiteralExp/elements"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//SetExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//SetExp/elements"/>
+    <genClasses ecoreClass="Ocl.ecore#//SetLiteralExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//SetLiteralExp/elements"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//TupleExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//TupleExp/tuplePart"/>
+    <genClasses ecoreClass="Ocl.ecore#//TupleLiteralExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//TupleLiteralExp/tuplePart"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//TuplePart">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//TuplePart/varName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//TuplePart/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//TuplePart/initExpression"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//MapExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapExp/elements"/>
+    <genClasses ecoreClass="Ocl.ecore#//MapLiteralExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapLiteralExp/elements"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//MapElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapElement/key"/>
@@ -111,8 +112,8 @@
     <genClasses ecoreClass="Ocl.ecore#//BraceExp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//BraceExp/exp"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//BooleanExp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//BooleanExp/booleanSymbol"/>
+    <genClasses ecoreClass="Ocl.ecore#//BooleanLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//BooleanLiteralExp/booleanSymbol"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//PropertyCall"/>
     <genClasses ecoreClass="Ocl.ecore#//OperationCall">
@@ -140,7 +141,7 @@
     <genClasses ecoreClass="Ocl.ecore#//LocalVariable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//LocalVariable/initExpression"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//OclType"/>
+    <genClasses ecoreClass="Ocl.ecore#//OclTypeLiteral"/>
     <genClasses ecoreClass="Ocl.ecore#//CollectionType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//CollectionType/elementType"/>
     </genClasses>
@@ -162,9 +163,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//TupleTypeAttribute/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//TupleTypeAttribute/type"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//OclModelElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElement/model"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclModelElement/name"/>
+    <genClasses ecoreClass="Ocl.ecore#//OclModelElementClass">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElementClass/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclModelElementClass/name"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//MapType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapType/keyType"/>

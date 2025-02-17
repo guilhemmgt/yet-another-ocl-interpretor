@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TupleType extends OclType
+public interface TupleType extends OclTypeLiteral
 {
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class OclAnyTypeImpl extends OclTypeImpl implements OclAnyType
+public class OclAnyTypeImpl extends OclTypeLiteralImpl implements OclAnyType
 {
   /**
    * <!-- begin-user-doc -->

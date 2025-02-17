@@ -6,9 +6,9 @@ package fr.enseeiht.ocl.xtext.serializer;
 import com.google.inject.Inject;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
-import fr.enseeiht.ocl.xtext.ocl.BagExp;
+import fr.enseeiht.ocl.xtext.ocl.BagLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
+import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
@@ -25,34 +25,34 @@ import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
-import fr.enseeiht.ocl.xtext.ocl.MapExp;
+import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
-import fr.enseeiht.ocl.xtext.ocl.OclModelElement;
+import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
-import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
-import fr.enseeiht.ocl.xtext.ocl.OrderedSetExp;
+import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetType;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.RealExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.SelfExp;
-import fr.enseeiht.ocl.xtext.ocl.SequenceExp;
+import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SequenceType;
-import fr.enseeiht.ocl.xtext.ocl.SetExp;
+import fr.enseeiht.ocl.xtext.ocl.SetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
-import fr.enseeiht.ocl.xtext.ocl.StringExp;
+import fr.enseeiht.ocl.xtext.ocl.StringLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.TupleExp;
+import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
@@ -89,14 +89,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OclPackage.ATTRIBUTE:
 				sequence_Attribute(context, (Attribute) semanticObject); 
 				return; 
-			case OclPackage.BAG_EXP:
-				sequence_BagExp(context, (BagExp) semanticObject); 
+			case OclPackage.BAG_LITERAL_EXP:
+				sequence_BagLiteralExp(context, (BagLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.BAG_TYPE:
 				sequence_BagType(context, (BagType) semanticObject); 
 				return; 
-			case OclPackage.BOOLEAN_EXP:
-				sequence_BooleanExp(context, (BooleanExp) semanticObject); 
+			case OclPackage.BOOLEAN_LITERAL_EXP:
+				sequence_BooleanLiteralExp(context, (BooleanLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.BOOLEAN_TYPE:
 				sequence_BooleanType(context, (BooleanType) semanticObject); 
@@ -146,8 +146,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OclPackage.MAP_ELEMENT:
 				sequence_MapElement(context, (MapElement) semanticObject); 
 				return; 
-			case OclPackage.MAP_EXP:
-				sequence_MapExp(context, (MapExp) semanticObject); 
+			case OclPackage.MAP_LITERAL_EXP:
+				sequence_MapLiteralExp(context, (MapLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.MAP_TYPE:
 				sequence_MapType(context, (MapType) semanticObject); 
@@ -164,20 +164,20 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OclPackage.OCL_ANY_TYPE:
 				sequence_OclAnyType(context, (OclAnyType) semanticObject); 
 				return; 
+			case OclPackage.OCL_CONTEXT_BLOCK:
+				sequence_OclContextBlock(context, (OclContextBlock) semanticObject); 
+				return; 
 			case OclPackage.OCL_FEATURE_DEFINITION:
 				sequence_OclFeatureDefinition(context, (OclFeatureDefinition) semanticObject); 
 				return; 
 			case OclPackage.OCL_INVARIANT:
 				sequence_OclInvariant(context, (OclInvariant) semanticObject); 
 				return; 
-			case OclPackage.OCL_MODEL_ELEMENT:
-				sequence_OclModelElement(context, (OclModelElement) semanticObject); 
+			case OclPackage.OCL_MODEL_ELEMENT_CLASS:
+				sequence_OclModelElementClass(context, (OclModelElementClass) semanticObject); 
 				return; 
 			case OclPackage.OCL_MODEL_ELEMENT_EXP:
 				sequence_OclModelElementExp(context, (OclModelElementExp) semanticObject); 
-				return; 
-			case OclPackage.OCL_MODULE_ELEMENT:
-				sequence_OclModuleElement(context, (OclModuleElement) semanticObject); 
 				return; 
 			case OclPackage.OPERATION:
 				sequence_Operation(context, (Operation) semanticObject); 
@@ -207,8 +207,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
-			case OclPackage.ORDERED_SET_EXP:
-				sequence_OrderedSetExp(context, (OrderedSetExp) semanticObject); 
+			case OclPackage.ORDERED_SET_LITERAL_EXP:
+				sequence_OrderedSetLiteralExp(context, (OrderedSetLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.ORDERED_SET_TYPE:
 				sequence_OrderedSetType(context, (OrderedSetType) semanticObject); 
@@ -228,29 +228,29 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OclPackage.REL_OP_CALL_EXP:
 				sequence_RelOpCallExp(context, (RelOpCallExp) semanticObject); 
 				return; 
-			case OclPackage.SELF_EXP:
-				sequence_SelfExp(context, (SelfExp) semanticObject); 
+			case OclPackage.SELF_LITERAL_EXP:
+				sequence_SelfLiteralExp(context, (SelfLiteralExp) semanticObject); 
 				return; 
-			case OclPackage.SEQUENCE_EXP:
-				sequence_SequenceExp(context, (SequenceExp) semanticObject); 
+			case OclPackage.SEQUENCE_LITERAL_EXP:
+				sequence_SequenceLiteralExp(context, (SequenceLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.SEQUENCE_TYPE:
 				sequence_SequenceType(context, (SequenceType) semanticObject); 
 				return; 
-			case OclPackage.SET_EXP:
-				sequence_SetExp(context, (SetExp) semanticObject); 
+			case OclPackage.SET_LITERAL_EXP:
+				sequence_SetLiteralExp(context, (SetLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.SET_TYPE:
 				sequence_SetType(context, (SetType) semanticObject); 
 				return; 
-			case OclPackage.STRING_EXP:
-				sequence_StringExp(context, (StringExp) semanticObject); 
+			case OclPackage.STRING_LITERAL_EXP:
+				sequence_StringLiteralExp(context, (StringLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.STRING_TYPE:
 				sequence_StringType(context, (StringType) semanticObject); 
 				return; 
-			case OclPackage.TUPLE_EXP:
-				sequence_TupleExp(context, (TupleExp) semanticObject); 
+			case OclPackage.TUPLE_LITERAL_EXP:
+				sequence_TupleLiteralExp(context, (TupleLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.TUPLE_PART:
 				sequence_TuplePart(context, (TuplePart) semanticObject); 
@@ -309,7 +309,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=OclType initExpression=OclExpression)
+	 *     (name=ID type=OclTypeLiteral initExpression=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
@@ -323,7 +323,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getAttributeAccess().getTypeOclTypeParserRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getAttributeAccess().getTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getAttributeAccess().getInitExpressionOclExpressionParserRuleCall_4_0(), semanticObject.getInitExpression());
 		feeder.finish();
 	}
@@ -332,14 +332,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns BagExp
-	 *     BagExp returns BagExp
+	 *     Primary_OclExpression returns BagLiteralExp
+	 *     BagLiteralExp returns BagLiteralExp
 	 *
 	 * Constraint:
 	 *     (elements+=OclExpression elements+=OclExpression*)?
 	 * </pre>
 	 */
-	protected void sequence_BagExp(ISerializationContext context, BagExp semanticObject) {
+	protected void sequence_BagLiteralExp(ISerializationContext context, BagLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -347,12 +347,12 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns BagType
+	 *     OclTypeLiteral returns BagType
 	 *     CollectionType returns BagType
 	 *     BagType returns BagType
 	 *
 	 * Constraint:
-	 *     elementType=OclType
+	 *     elementType=OclTypeLiteral
 	 * </pre>
 	 */
 	protected void sequence_BagType(ISerializationContext context, BagType semanticObject) {
@@ -361,7 +361,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBagTypeAccess().getElementTypeOclTypeParserRuleCall_2_0(), semanticObject.getElementType());
+		feeder.accept(grammarAccess.getBagTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
 		feeder.finish();
 	}
 	
@@ -369,14 +369,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns BooleanExp
-	 *     BooleanExp returns BooleanExp
+	 *     Primary_OclExpression returns BooleanLiteralExp
+	 *     BooleanLiteralExp returns BooleanLiteralExp
 	 *
 	 * Constraint:
 	 *     (booleanSymbol='true' | booleanSymbol='false')
 	 * </pre>
 	 */
-	protected void sequence_BooleanExp(ISerializationContext context, BooleanExp semanticObject) {
+	protected void sequence_BooleanLiteralExp(ISerializationContext context, BooleanLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -384,7 +384,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns BooleanType
+	 *     OclTypeLiteral returns BooleanType
 	 *     Primitive returns BooleanType
 	 *     BooleanType returns BooleanType
 	 *
@@ -567,7 +567,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Primary_OclExpression returns IntegerExp
-	 *     NumericExp returns IntegerExp
+	 *     NumericLiteralExp returns IntegerExp
 	 *     IntegerExp returns IntegerExp
 	 *
 	 * Constraint:
@@ -588,7 +588,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns IntegerType
+	 *     OclTypeLiteral returns IntegerType
 	 *     Primitive returns IntegerType
 	 *     NumericType returns IntegerType
 	 *     IntegerType returns IntegerType
@@ -639,7 +639,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Iterator returns Iterator
 	 *
 	 * Constraint:
-	 *     (name=ID type=OclType?)
+	 *     (name=ID type=OclTypeLiteral?)
 	 * </pre>
 	 */
 	protected void sequence_Iterator(ISerializationContext context, Iterator semanticObject) {
@@ -678,7 +678,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LocalVariable returns LocalVariable
 	 *
 	 * Constraint:
-	 *     (name=ID type=OclType? initExpression=OclExpression)
+	 *     (name=ID type=OclTypeLiteral? initExpression=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_LocalVariable(ISerializationContext context, LocalVariable semanticObject) {
@@ -712,14 +712,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns MapExp
-	 *     MapExp returns MapExp
+	 *     Primary_OclExpression returns MapLiteralExp
+	 *     MapLiteralExp returns MapLiteralExp
 	 *
 	 * Constraint:
 	 *     (elements+=MapElement elements+=MapElement*)?
 	 * </pre>
 	 */
-	protected void sequence_MapExp(ISerializationContext context, MapExp semanticObject) {
+	protected void sequence_MapLiteralExp(ISerializationContext context, MapLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -727,11 +727,11 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns MapType
+	 *     OclTypeLiteral returns MapType
 	 *     MapType returns MapType
 	 *
 	 * Constraint:
-	 *     (keyType=OclType valueType=OclType)
+	 *     (keyType=OclTypeLiteral valueType=OclTypeLiteral)
 	 * </pre>
 	 */
 	protected void sequence_MapType(ISerializationContext context, MapType semanticObject) {
@@ -742,8 +742,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.MAP_TYPE__VALUE_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMapTypeAccess().getKeyTypeOclTypeParserRuleCall_2_0(), semanticObject.getKeyType());
-		feeder.accept(grammarAccess.getMapTypeAccess().getValueTypeOclTypeParserRuleCall_4_0(), semanticObject.getValueType());
+		feeder.accept(grammarAccess.getMapTypeAccess().getKeyTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getKeyType());
+		feeder.accept(grammarAccess.getMapTypeAccess().getValueTypeOclTypeLiteralParserRuleCall_4_0(), semanticObject.getValueType());
 		feeder.finish();
 	}
 	
@@ -754,7 +754,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Module returns Module
 	 *
 	 * Constraint:
-	 *     (imports+=Import+ elements+=OclFeatureDefinition* elements+=OclModuleElement+)
+	 *     (imports+=Import+ contextlessFeatures+=OclFeatureDefinition* contextBlocks+=OclContextBlock+)
 	 * </pre>
 	 */
 	protected void sequence_Module(ISerializationContext context, fr.enseeiht.ocl.xtext.ocl.Module semanticObject) {
@@ -867,7 +867,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns OclAnyType
+	 *     OclTypeLiteral returns OclAnyType
 	 *     OclAnyType returns OclAnyType
 	 *
 	 * Constraint:
@@ -875,6 +875,20 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_OclAnyType(ISerializationContext context, OclAnyType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     OclContextBlock returns OclContextBlock
+	 *
+	 * Constraint:
+	 *     (ecoreTypes=[Import|ID] class=[EClass|QualifiedName] (members+=OclFeatureDefinition | members+=OclInvariant)+)
+	 * </pre>
+	 */
+	protected void sequence_OclContextBlock(ISerializationContext context, OclContextBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -919,6 +933,30 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     OclTypeLiteral returns OclModelElementClass
+	 *     OclModelElementClass returns OclModelElementClass
+	 *
+	 * Constraint:
+	 *     (model=[Import|ID] name=ID)
+	 * </pre>
+	 */
+	protected void sequence_OclModelElementClass(ISerializationContext context, OclModelElementClass semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__MODEL));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOclModelElementClassAccess().getModelImportIDTerminalRuleCall_0_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__MODEL, false));
+		feeder.accept(grammarAccess.getOclModelElementClassAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     OclModelElementExp returns OclModelElementExp
 	 *     Primary_OclExpression returns OclModelElementExp
 	 *
@@ -943,44 +981,6 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns OclModelElement
-	 *     OclModelElement returns OclModelElement
-	 *
-	 * Constraint:
-	 *     (model=[Import|ID] name=ID)
-	 * </pre>
-	 */
-	protected void sequence_OclModelElement(ISerializationContext context, OclModelElement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT__MODEL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT__MODEL));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOclModelElementAccess().getModelImportIDTerminalRuleCall_0_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT__MODEL, false));
-		feeder.accept(grammarAccess.getOclModelElementAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     OclModuleElement returns OclModuleElement
-	 *
-	 * Constraint:
-	 *     (ecoreTypes=[Import|ID] class=[EClass|QualifiedName] (members+=OclFeatureDefinition | members+=OclInvariant)+)
-	 * </pre>
-	 */
-	protected void sequence_OclModuleElement(ISerializationContext context, OclModuleElement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     PropertyCall returns OperationCall
 	 *     OperationCall returns OperationCall
 	 *
@@ -999,7 +999,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     (name=ID (parameters+=Parameter parameters+=Parameter+)? returnType=OclType body=OclExpression)
+	 *     (name=ID (parameters+=Parameter parameters+=Parameter+)? returnType=OclTypeLiteral body=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
@@ -1010,14 +1010,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns OrderedSetExp
-	 *     OrderedSetExp returns OrderedSetExp
+	 *     Primary_OclExpression returns OrderedSetLiteralExp
+	 *     OrderedSetLiteralExp returns OrderedSetLiteralExp
 	 *
 	 * Constraint:
 	 *     (elements+=OclExpression elements+=OclExpression*)?
 	 * </pre>
 	 */
-	protected void sequence_OrderedSetExp(ISerializationContext context, OrderedSetExp semanticObject) {
+	protected void sequence_OrderedSetLiteralExp(ISerializationContext context, OrderedSetLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1025,12 +1025,12 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns OrderedSetType
+	 *     OclTypeLiteral returns OrderedSetType
 	 *     CollectionType returns OrderedSetType
 	 *     OrderedSetType returns OrderedSetType
 	 *
 	 * Constraint:
-	 *     elementType=OclType
+	 *     elementType=OclTypeLiteral
 	 * </pre>
 	 */
 	protected void sequence_OrderedSetType(ISerializationContext context, OrderedSetType semanticObject) {
@@ -1039,7 +1039,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOrderedSetTypeAccess().getElementTypeOclTypeParserRuleCall_2_0(), semanticObject.getElementType());
+		feeder.accept(grammarAccess.getOrderedSetTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
 		feeder.finish();
 	}
 	
@@ -1051,7 +1051,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Auxiliary returns Parameter
 	 *
 	 * Constraint:
-	 *     (name=ID type=OclType)
+	 *     (name=ID type=OclTypeLiteral)
 	 * </pre>
 	 */
 	protected void sequence_Parameter(ISerializationContext context, fr.enseeiht.ocl.xtext.ocl.Parameter semanticObject) {
@@ -1063,7 +1063,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getParameterAccess().getTypeOclTypeParserRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getParameterAccess().getTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -1100,7 +1100,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Primary_OclExpression returns RealExp
-	 *     NumericExp returns RealExp
+	 *     NumericLiteralExp returns RealExp
 	 *     RealExp returns RealExp
 	 *
 	 * Constraint:
@@ -1121,7 +1121,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns RealType
+	 *     OclTypeLiteral returns RealType
 	 *     Primitive returns RealType
 	 *     NumericType returns RealType
 	 *     RealType returns RealType
@@ -1169,14 +1169,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns SelfExp
-	 *     SelfExp returns SelfExp
+	 *     Primary_OclExpression returns SelfLiteralExp
+	 *     SelfLiteralExp returns SelfLiteralExp
 	 *
 	 * Constraint:
-	 *     {SelfExp}
+	 *     {SelfLiteralExp}
 	 * </pre>
 	 */
-	protected void sequence_SelfExp(ISerializationContext context, SelfExp semanticObject) {
+	protected void sequence_SelfLiteralExp(ISerializationContext context, SelfLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1184,14 +1184,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns SequenceExp
-	 *     SequenceExp returns SequenceExp
+	 *     Primary_OclExpression returns SequenceLiteralExp
+	 *     SequenceLiteralExp returns SequenceLiteralExp
 	 *
 	 * Constraint:
 	 *     (elements+=OclExpression elements+=OclExpression*)?
 	 * </pre>
 	 */
-	protected void sequence_SequenceExp(ISerializationContext context, SequenceExp semanticObject) {
+	protected void sequence_SequenceLiteralExp(ISerializationContext context, SequenceLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1199,12 +1199,12 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns SequenceType
+	 *     OclTypeLiteral returns SequenceType
 	 *     CollectionType returns SequenceType
 	 *     SequenceType returns SequenceType
 	 *
 	 * Constraint:
-	 *     elementType=OclType
+	 *     elementType=OclTypeLiteral
 	 * </pre>
 	 */
 	protected void sequence_SequenceType(ISerializationContext context, SequenceType semanticObject) {
@@ -1213,7 +1213,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSequenceTypeAccess().getElementTypeOclTypeParserRuleCall_2_0(), semanticObject.getElementType());
+		feeder.accept(grammarAccess.getSequenceTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
 		feeder.finish();
 	}
 	
@@ -1221,14 +1221,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns SetExp
-	 *     SetExp returns SetExp
+	 *     Primary_OclExpression returns SetLiteralExp
+	 *     SetLiteralExp returns SetLiteralExp
 	 *
 	 * Constraint:
 	 *     (elements+=OclExpression elements+=OclExpression*)?
 	 * </pre>
 	 */
-	protected void sequence_SetExp(ISerializationContext context, SetExp semanticObject) {
+	protected void sequence_SetLiteralExp(ISerializationContext context, SetLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1236,12 +1236,12 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns SetType
+	 *     OclTypeLiteral returns SetType
 	 *     CollectionType returns SetType
 	 *     SetType returns SetType
 	 *
 	 * Constraint:
-	 *     elementType=OclType
+	 *     elementType=OclTypeLiteral
 	 * </pre>
 	 */
 	protected void sequence_SetType(ISerializationContext context, SetType semanticObject) {
@@ -1250,7 +1250,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSetTypeAccess().getElementTypeOclTypeParserRuleCall_2_0(), semanticObject.getElementType());
+		feeder.accept(grammarAccess.getSetTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
 		feeder.finish();
 	}
 	
@@ -1258,20 +1258,20 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns StringExp
-	 *     StringExp returns StringExp
+	 *     Primary_OclExpression returns StringLiteralExp
+	 *     StringLiteralExp returns StringLiteralExp
 	 *
 	 * Constraint:
 	 *     stringSymbol=STRING
 	 * </pre>
 	 */
-	protected void sequence_StringExp(ISerializationContext context, StringExp semanticObject) {
+	protected void sequence_StringLiteralExp(ISerializationContext context, StringLiteralExp semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.STRING_EXP__STRING_SYMBOL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.STRING_EXP__STRING_SYMBOL));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.STRING_LITERAL_EXP__STRING_SYMBOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.STRING_LITERAL_EXP__STRING_SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStringExpAccess().getStringSymbolSTRINGTerminalRuleCall_1_0(), semanticObject.getStringSymbol());
+		feeder.accept(grammarAccess.getStringLiteralExpAccess().getStringSymbolSTRINGTerminalRuleCall_1_0(), semanticObject.getStringSymbol());
 		feeder.finish();
 	}
 	
@@ -1279,7 +1279,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns StringType
+	 *     OclTypeLiteral returns StringType
 	 *     Primitive returns StringType
 	 *     StringType returns StringType
 	 *
@@ -1295,14 +1295,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns TupleExp
-	 *     TupleExp returns TupleExp
+	 *     Primary_OclExpression returns TupleLiteralExp
+	 *     TupleLiteralExp returns TupleLiteralExp
 	 *
 	 * Constraint:
 	 *     (tuplePart+=TuplePart tuplePart+=TuplePart*)?
 	 * </pre>
 	 */
-	protected void sequence_TupleExp(ISerializationContext context, TupleExp semanticObject) {
+	protected void sequence_TupleLiteralExp(ISerializationContext context, TupleLiteralExp semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1313,7 +1313,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TuplePart returns TuplePart
 	 *
 	 * Constraint:
-	 *     (varName=STRING type=OclType? initExpression=OclExpression)
+	 *     (varName=STRING type=OclTypeLiteral? initExpression=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_TuplePart(ISerializationContext context, TuplePart semanticObject) {
@@ -1327,7 +1327,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TupleTypeAttribute returns TupleTypeAttribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=OclType)
+	 *     (name=ID type=OclTypeLiteral)
 	 * </pre>
 	 */
 	protected void sequence_TupleTypeAttribute(ISerializationContext context, TupleTypeAttribute semanticObject) {
@@ -1339,7 +1339,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTupleTypeAttributeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTupleTypeAttributeAccess().getTypeOclTypeParserRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getTupleTypeAttributeAccess().getTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -1347,7 +1347,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclType returns TupleType
+	 *     OclTypeLiteral returns TupleType
 	 *     TupleType returns TupleType
 	 *
 	 * Constraint:

@@ -6,9 +6,9 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
-import fr.enseeiht.ocl.xtext.ocl.BagExp;
+import fr.enseeiht.ocl.xtext.ocl.BagLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
+import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
@@ -26,26 +26,26 @@ import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
-import fr.enseeiht.ocl.xtext.ocl.MapExp;
+import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
-import fr.enseeiht.ocl.xtext.ocl.NumericExp;
+import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclFactory;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
-import fr.enseeiht.ocl.xtext.ocl.OclModelElement;
+import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
-import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
-import fr.enseeiht.ocl.xtext.ocl.OrderedSetExp;
+import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetType;
 import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.Primitive;
@@ -54,14 +54,14 @@ import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.RealExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.SelfExp;
-import fr.enseeiht.ocl.xtext.ocl.SequenceExp;
+import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SequenceType;
-import fr.enseeiht.ocl.xtext.ocl.SetExp;
+import fr.enseeiht.ocl.xtext.ocl.SetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
-import fr.enseeiht.ocl.xtext.ocl.StringExp;
+import fr.enseeiht.ocl.xtext.ocl.StringLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.TupleExp;
+import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
@@ -129,7 +129,7 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
     {
       case OclPackage.MODULE: return createModule();
       case OclPackage.IMPORT: return createImport();
-      case OclPackage.OCL_MODULE_ELEMENT: return createOclModuleElement();
+      case OclPackage.OCL_CONTEXT_BLOCK: return createOclContextBlock();
       case OclPackage.OCL_FEATURE_DEFINITION: return createOclFeatureDefinition();
       case OclPackage.ATTRIBUTE: return createAttribute();
       case OclPackage.OPERATION: return createOperation();
@@ -141,24 +141,24 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.PROPERTY_CALL_EXP: return createPropertyCallExp();
       case OclPackage.AUXILIARY: return createAuxiliary();
       case OclPackage.VARIABLE_EXP: return createVariableExp();
-      case OclPackage.SELF_EXP: return createSelfExp();
-      case OclPackage.STRING_EXP: return createStringExp();
-      case OclPackage.NUMERIC_EXP: return createNumericExp();
+      case OclPackage.SELF_LITERAL_EXP: return createSelfLiteralExp();
+      case OclPackage.STRING_LITERAL_EXP: return createStringLiteralExp();
+      case OclPackage.NUMERIC_LITERAL_EXP: return createNumericLiteralExp();
       case OclPackage.REAL_EXP: return createRealExp();
       case OclPackage.INTEGER_EXP: return createIntegerExp();
-      case OclPackage.BAG_EXP: return createBagExp();
-      case OclPackage.ORDERED_SET_EXP: return createOrderedSetExp();
-      case OclPackage.SEQUENCE_EXP: return createSequenceExp();
-      case OclPackage.SET_EXP: return createSetExp();
-      case OclPackage.TUPLE_EXP: return createTupleExp();
+      case OclPackage.BAG_LITERAL_EXP: return createBagLiteralExp();
+      case OclPackage.ORDERED_SET_LITERAL_EXP: return createOrderedSetLiteralExp();
+      case OclPackage.SEQUENCE_LITERAL_EXP: return createSequenceLiteralExp();
+      case OclPackage.SET_LITERAL_EXP: return createSetLiteralExp();
+      case OclPackage.TUPLE_LITERAL_EXP: return createTupleLiteralExp();
       case OclPackage.TUPLE_PART: return createTuplePart();
-      case OclPackage.MAP_EXP: return createMapExp();
+      case OclPackage.MAP_LITERAL_EXP: return createMapLiteralExp();
       case OclPackage.MAP_ELEMENT: return createMapElement();
       case OclPackage.ENUM_LITERAL_EXP: return createEnumLiteralExp();
       case OclPackage.LET_EXP: return createLetExp();
       case OclPackage.IF_EXP: return createIfExp();
       case OclPackage.BRACE_EXP: return createBraceExp();
-      case OclPackage.BOOLEAN_EXP: return createBooleanExp();
+      case OclPackage.BOOLEAN_LITERAL_EXP: return createBooleanLiteralExp();
       case OclPackage.PROPERTY_CALL: return createPropertyCall();
       case OclPackage.OPERATION_CALL: return createOperationCall();
       case OclPackage.NAVIGATION_OR_ATTRIBUTE_CALL: return createNavigationOrAttributeCall();
@@ -167,7 +167,7 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.ITERATOR_EXP: return createIteratorExp();
       case OclPackage.COLLECTION_OPERATION_CALL: return createCollectionOperationCall();
       case OclPackage.LOCAL_VARIABLE: return createLocalVariable();
-      case OclPackage.OCL_TYPE: return createOclType();
+      case OclPackage.OCL_TYPE_LITERAL: return createOclTypeLiteral();
       case OclPackage.COLLECTION_TYPE: return createCollectionType();
       case OclPackage.BAG_TYPE: return createBagType();
       case OclPackage.ORDERED_SET_TYPE: return createOrderedSetType();
@@ -182,7 +182,7 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.OCL_ANY_TYPE: return createOclAnyType();
       case OclPackage.TUPLE_TYPE: return createTupleType();
       case OclPackage.TUPLE_TYPE_ATTRIBUTE: return createTupleTypeAttribute();
-      case OclPackage.OCL_MODEL_ELEMENT: return createOclModelElement();
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS: return createOclModelElementClass();
       case OclPackage.MAP_TYPE: return createMapType();
       case OclPackage.EQ_OP_CALL_EXP: return createEqOpCallExp();
       case OclPackage.REL_OP_CALL_EXP: return createRelOpCallExp();
@@ -224,10 +224,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public OclModuleElement createOclModuleElement()
+  public OclContextBlock createOclContextBlock()
   {
-    OclModuleElementImpl oclModuleElement = new OclModuleElementImpl();
-    return oclModuleElement;
+    OclContextBlockImpl oclContextBlock = new OclContextBlockImpl();
+    return oclContextBlock;
   }
 
   /**
@@ -368,10 +368,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public SelfExp createSelfExp()
+  public SelfLiteralExp createSelfLiteralExp()
   {
-    SelfExpImpl selfExp = new SelfExpImpl();
-    return selfExp;
+    SelfLiteralExpImpl selfLiteralExp = new SelfLiteralExpImpl();
+    return selfLiteralExp;
   }
 
   /**
@@ -380,10 +380,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public StringExp createStringExp()
+  public StringLiteralExp createStringLiteralExp()
   {
-    StringExpImpl stringExp = new StringExpImpl();
-    return stringExp;
+    StringLiteralExpImpl stringLiteralExp = new StringLiteralExpImpl();
+    return stringLiteralExp;
   }
 
   /**
@@ -392,10 +392,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public NumericExp createNumericExp()
+  public NumericLiteralExp createNumericLiteralExp()
   {
-    NumericExpImpl numericExp = new NumericExpImpl();
-    return numericExp;
+    NumericLiteralExpImpl numericLiteralExp = new NumericLiteralExpImpl();
+    return numericLiteralExp;
   }
 
   /**
@@ -428,10 +428,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public BagExp createBagExp()
+  public BagLiteralExp createBagLiteralExp()
   {
-    BagExpImpl bagExp = new BagExpImpl();
-    return bagExp;
+    BagLiteralExpImpl bagLiteralExp = new BagLiteralExpImpl();
+    return bagLiteralExp;
   }
 
   /**
@@ -440,10 +440,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public OrderedSetExp createOrderedSetExp()
+  public OrderedSetLiteralExp createOrderedSetLiteralExp()
   {
-    OrderedSetExpImpl orderedSetExp = new OrderedSetExpImpl();
-    return orderedSetExp;
+    OrderedSetLiteralExpImpl orderedSetLiteralExp = new OrderedSetLiteralExpImpl();
+    return orderedSetLiteralExp;
   }
 
   /**
@@ -452,10 +452,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public SequenceExp createSequenceExp()
+  public SequenceLiteralExp createSequenceLiteralExp()
   {
-    SequenceExpImpl sequenceExp = new SequenceExpImpl();
-    return sequenceExp;
+    SequenceLiteralExpImpl sequenceLiteralExp = new SequenceLiteralExpImpl();
+    return sequenceLiteralExp;
   }
 
   /**
@@ -464,10 +464,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public SetExp createSetExp()
+  public SetLiteralExp createSetLiteralExp()
   {
-    SetExpImpl setExp = new SetExpImpl();
-    return setExp;
+    SetLiteralExpImpl setLiteralExp = new SetLiteralExpImpl();
+    return setLiteralExp;
   }
 
   /**
@@ -476,10 +476,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public TupleExp createTupleExp()
+  public TupleLiteralExp createTupleLiteralExp()
   {
-    TupleExpImpl tupleExp = new TupleExpImpl();
-    return tupleExp;
+    TupleLiteralExpImpl tupleLiteralExp = new TupleLiteralExpImpl();
+    return tupleLiteralExp;
   }
 
   /**
@@ -500,10 +500,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public MapExp createMapExp()
+  public MapLiteralExp createMapLiteralExp()
   {
-    MapExpImpl mapExp = new MapExpImpl();
-    return mapExp;
+    MapLiteralExpImpl mapLiteralExp = new MapLiteralExpImpl();
+    return mapLiteralExp;
   }
 
   /**
@@ -572,10 +572,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public BooleanExp createBooleanExp()
+  public BooleanLiteralExp createBooleanLiteralExp()
   {
-    BooleanExpImpl booleanExp = new BooleanExpImpl();
-    return booleanExp;
+    BooleanLiteralExpImpl booleanLiteralExp = new BooleanLiteralExpImpl();
+    return booleanLiteralExp;
   }
 
   /**
@@ -680,10 +680,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public OclType createOclType()
+  public OclTypeLiteral createOclTypeLiteral()
   {
-    OclTypeImpl oclType = new OclTypeImpl();
-    return oclType;
+    OclTypeLiteralImpl oclTypeLiteral = new OclTypeLiteralImpl();
+    return oclTypeLiteral;
   }
 
   /**
@@ -860,10 +860,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public OclModelElement createOclModelElement()
+  public OclModelElementClass createOclModelElementClass()
   {
-    OclModelElementImpl oclModelElement = new OclModelElementImpl();
-    return oclModelElement;
+    OclModelElementClassImpl oclModelElementClass = new OclModelElementClassImpl();
+    return oclModelElementClass;
   }
 
   /**

@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.RealExp;
-import fr.enseeiht.ocl.xtext.OclAny;
+import fr.enseeiht.ocl.xtext.OclType;
 
 /**
  * OCLAdapter for RealExp
@@ -37,7 +37,7 @@ public final class RealExpValidationAdapter implements OCLAdapter {
    * @return type of the element
    * @generated
    */
-  public OclAny getType() {
+  public OclType getType() {
     throw new UnimplementedException("La methode getType de RealExpAdapter n'as pas encore été implémentée");
   }
 

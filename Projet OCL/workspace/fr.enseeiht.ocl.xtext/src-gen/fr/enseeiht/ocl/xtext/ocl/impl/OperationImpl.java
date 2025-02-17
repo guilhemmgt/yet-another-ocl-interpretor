@@ -5,7 +5,7 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.Parameter;
 
@@ -81,7 +81,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @generated
    * @ordered
    */
-  protected OclType returnType;
+  protected OclTypeLiteral returnType;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -160,7 +160,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @generated
    */
   @Override
-  public OclType getReturnType()
+  public OclTypeLiteral getReturnType()
   {
     return returnType;
   }
@@ -170,9 +170,9 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReturnType(OclType newReturnType, NotificationChain msgs)
+  public NotificationChain basicSetReturnType(OclTypeLiteral newReturnType, NotificationChain msgs)
   {
-    OclType oldReturnType = returnType;
+    OclTypeLiteral oldReturnType = returnType;
     returnType = newReturnType;
     if (eNotificationRequired())
     {
@@ -188,7 +188,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
    * @generated
    */
   @Override
-  public void setReturnType(OclType newReturnType)
+  public void setReturnType(OclTypeLiteral newReturnType)
   {
     if (newReturnType != returnType)
     {
@@ -315,7 +315,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
         getParameters().addAll((Collection<? extends Parameter>)newValue);
         return;
       case OclPackage.OPERATION__RETURN_TYPE:
-        setReturnType((OclType)newValue);
+        setReturnType((OclTypeLiteral)newValue);
         return;
       case OclPackage.OPERATION__BODY:
         setBody((OclExpression)newValue);
@@ -341,7 +341,7 @@ public class OperationImpl extends MinimalEObjectImpl.Container implements Opera
         getParameters().clear();
         return;
       case OclPackage.OPERATION__RETURN_TYPE:
-        setReturnType((OclType)null);
+        setReturnType((OclTypeLiteral)null);
         return;
       case OclPackage.OPERATION__BODY:
         setBody((OclExpression)null);
