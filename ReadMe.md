@@ -5,4 +5,4 @@ Ce projet a pour but de proposer un greffon eclipse permettant de verifier des c
 Pour cela un nouvel interpreteur d'OCL est utilisé. 
 
 ## Architecture de Test : 
- - [Comment lancer et créer vos tests](README-TEST.md)
+ - [Comment tester votre code](README-TEST.md)
