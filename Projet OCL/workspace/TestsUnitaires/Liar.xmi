@@ -3,6 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:empty="http://empty"
+    xsi:schemaLocation="http://empty Empty.ecore"
     name="Me"
     enum="enum2">
   <maybe value="6"
