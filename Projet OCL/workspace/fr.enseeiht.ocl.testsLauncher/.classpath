@@ -6,9 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/fr.enseeiht.ocl.ECoreToJava"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/fr.enseeiht.ocl.OCLCollectionToJava"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/fr.enseeiht.ocl.OCLToJava"/>
 	<classpathentry kind="lib" path="/mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse/plugins/org.eclipse.emf.common_2.29.0.v20230810-0713.jar" sourcepath="/mnt/n7fs/ens/tp_dupont/modelling-2023-09/eclipse/plugins/org.eclipse.emf.common.source_2.29.0.v20230810-0713.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/common/*"/>

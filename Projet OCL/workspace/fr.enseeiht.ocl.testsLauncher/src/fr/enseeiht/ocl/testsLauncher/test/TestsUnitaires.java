@@ -29,6 +29,9 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.TypeCheckingException;
 import fr.enseeiht.ocl.testsLauncher.util.LauncherUtils;
+import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
+import fr.enseeiht.yaoi.ValidationError;
+import fr.enseeiht.yaoi.ValidationResult;
 
 public class TestsUnitaires {
 
@@ -148,18 +151,15 @@ public class TestsUnitaires {
 	@MethodSource("provideValidationArguments")
 	@DisplayName("Tests KO sur la validation")
 	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException {
-		Map<String, Map<String, List<String>>> errorsMaps = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
-		Map<String, List<String>> errorsMap = errorsMaps.get(xmi);
+		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
+		ValidationResult result = resultMap.get(xmi);
 		
-		assertEquals(1, errorsMap.size(), "Test malformé"); //TODO : nombre d'invariant et pas d'élément (a check avec les intrepretators) 
+		List<OclInvariant> invs = LauncherUtils.getInvariants(workspacePath, projectName, moclName);
+		assertEquals(1, invs.size(), "Test malformé");
 		
-		List<String> errorsAll = new ArrayList<String>();
+		List<ValidationError> errors = result.getInvariantError(invs.get(0));
 		
-		for (String adapterName : errorsMap.keySet()) {
-			errorsAll.addAll(errorsMap.get(adapterName));
-		}
-		
-		assertTrue(!errorsAll.isEmpty());
+		assertTrue(!errors.isEmpty());
 	}
 
 	private static List<Arguments> provideValidationArguments() {
@@ -196,16 +196,10 @@ public class TestsUnitaires {
 	@MethodSource("provideOkArguments")
 	@DisplayName("Tests OK")
 	void testOk(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException {
-		Map<String, Map<String, List<String>>> errorsMaps = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
-		Map<String, List<String>> errorsMap = errorsMaps.get(xmi);
+		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
+		ValidationResult result = resultMap.get(xmi);
 		
-		List<String> errorsAll = new ArrayList<String>();
-		
-		for (String adapterName : errorsMap.keySet()) {
-			errorsAll.addAll(errorsMap.get(adapterName));
-		}
-		
-		assertTrue(errorsAll.isEmpty());
+		assertTrue(result.hasNoError());
 	}
 
 	private static List<Arguments> provideOkArguments() {
