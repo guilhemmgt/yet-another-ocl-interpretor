@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl SimplePDL.ecore">
+  <processElements
+      xsi:type="simplepdl:WorkSequence"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition">
+    <linksToNeeds/>
+  </processElements>
+  <processElements
+      xsi:type="simplepdl:Guidance"/>
+  <processElements
+      xsi:type="simplepdl:Ressource"
+      amount="-1"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      name="memeNom"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      name="memeNom">
+    <linksToNeeds
+        need="1"
+        linkToRessource="//@processElements.6"/>
+    <linksToNeeds
+        need="1"
+        linkToRessource="//@processElements.6"/>
+  </processElements>
+  <processElements
+      xsi:type="simplepdl:Ressource"
+      name="encoreMemeNom"/>
+  <processElements
+      xsi:type="simplepdl:Ressource"
+      name="encoreMemeNom"/>
+  <processElements
+      xsi:type="simplepdl:WorkDefinition"
+      name="@"/>
+  <processElements
+      xsi:type="simplepdl:Ressource"
+      name="@"/>
+</simplepdl:Process>

@@ -4,7 +4,7 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.RealExp;
+import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,18 +14,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Real Exp</b></em>'.
+ * An implementation of the model object '<em><b>Real Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.RealExpImpl#getRealSymbol <em>Real Symbol</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.RealLiteralExpImpl#getRealSymbol <em>Real Symbol</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
+public class RealLiteralExpImpl extends NumericLiteralExpImpl implements RealLiteralExp
 {
   /**
    * The default value of the '{@link #getRealSymbol() <em>Real Symbol</em>}' attribute.
@@ -52,7 +52,7 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RealExpImpl()
+  protected RealLiteralExpImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.REAL_EXP;
+    return OclPackage.Literals.REAL_LITERAL_EXP;
   }
 
   /**
@@ -90,7 +90,7 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
     double oldRealSymbol = realSymbol;
     realSymbol = newRealSymbol;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.REAL_EXP__REAL_SYMBOL, oldRealSymbol, realSymbol));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.REAL_LITERAL_EXP__REAL_SYMBOL, oldRealSymbol, realSymbol));
   }
 
   /**
@@ -103,7 +103,7 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
   {
     switch (featureID)
     {
-      case OclPackage.REAL_EXP__REAL_SYMBOL:
+      case OclPackage.REAL_LITERAL_EXP__REAL_SYMBOL:
         return getRealSymbol();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
   {
     switch (featureID)
     {
-      case OclPackage.REAL_EXP__REAL_SYMBOL:
+      case OclPackage.REAL_LITERAL_EXP__REAL_SYMBOL:
         setRealSymbol((Double)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
   {
     switch (featureID)
     {
-      case OclPackage.REAL_EXP__REAL_SYMBOL:
+      case OclPackage.REAL_LITERAL_EXP__REAL_SYMBOL:
         setRealSymbol(REAL_SYMBOL_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
   {
     switch (featureID)
     {
-      case OclPackage.REAL_EXP__REAL_SYMBOL:
+      case OclPackage.REAL_LITERAL_EXP__REAL_SYMBOL:
         return realSymbol != REAL_SYMBOL_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -176,4 +176,4 @@ public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
     return result.toString();
   }
 
-} //RealExpImpl
+} //RealLiteralExpImpl

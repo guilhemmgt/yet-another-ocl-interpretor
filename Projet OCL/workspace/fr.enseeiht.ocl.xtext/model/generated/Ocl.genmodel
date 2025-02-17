@@ -64,11 +64,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//StringLiteralExp/stringSymbol"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//NumericLiteralExp"/>
-    <genClasses ecoreClass="Ocl.ecore#//RealExp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//RealExp/realSymbol"/>
+    <genClasses ecoreClass="Ocl.ecore#//RealLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//RealLiteralExp/realSymbol"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//IntegerExp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//IntegerExp/integerSymbol"/>
+    <genClasses ecoreClass="Ocl.ecore#//IntegerLiteralExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//IntegerLiteralExp/integerSymbol"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//BagLiteralExp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//BagLiteralExp/elements"/>

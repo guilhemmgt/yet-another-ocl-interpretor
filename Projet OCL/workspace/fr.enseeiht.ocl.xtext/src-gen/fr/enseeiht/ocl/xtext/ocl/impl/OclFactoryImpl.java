@@ -18,7 +18,7 @@ import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.IntegerExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.IntegerType;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
@@ -51,7 +51,7 @@ import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.Primitive;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
-import fr.enseeiht.ocl.xtext.ocl.RealExp;
+import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
@@ -144,8 +144,8 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.SELF_LITERAL_EXP: return createSelfLiteralExp();
       case OclPackage.STRING_LITERAL_EXP: return createStringLiteralExp();
       case OclPackage.NUMERIC_LITERAL_EXP: return createNumericLiteralExp();
-      case OclPackage.REAL_EXP: return createRealExp();
-      case OclPackage.INTEGER_EXP: return createIntegerExp();
+      case OclPackage.REAL_LITERAL_EXP: return createRealLiteralExp();
+      case OclPackage.INTEGER_LITERAL_EXP: return createIntegerLiteralExp();
       case OclPackage.BAG_LITERAL_EXP: return createBagLiteralExp();
       case OclPackage.ORDERED_SET_LITERAL_EXP: return createOrderedSetLiteralExp();
       case OclPackage.SEQUENCE_LITERAL_EXP: return createSequenceLiteralExp();
@@ -404,10 +404,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public RealExp createRealExp()
+  public RealLiteralExp createRealLiteralExp()
   {
-    RealExpImpl realExp = new RealExpImpl();
-    return realExp;
+    RealLiteralExpImpl realLiteralExp = new RealLiteralExpImpl();
+    return realLiteralExp;
   }
 
   /**
@@ -416,10 +416,10 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
    * @generated
    */
   @Override
-  public IntegerExp createIntegerExp()
+  public IntegerLiteralExp createIntegerLiteralExp()
   {
-    IntegerExpImpl integerExp = new IntegerExpImpl();
-    return integerExp;
+    IntegerLiteralExpImpl integerLiteralExp = new IntegerLiteralExpImpl();
+    return integerLiteralExp;
   }
 
   /**

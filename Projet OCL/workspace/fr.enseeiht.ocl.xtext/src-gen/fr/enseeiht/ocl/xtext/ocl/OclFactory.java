@@ -177,22 +177,22 @@ public interface OclFactory extends EFactory
   NumericLiteralExp createNumericLiteralExp();
 
   /**
-   * Returns a new object of class '<em>Real Exp</em>'.
+   * Returns a new object of class '<em>Real Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Real Exp</em>'.
+   * @return a new object of class '<em>Real Literal Exp</em>'.
    * @generated
    */
-  RealExp createRealExp();
+  RealLiteralExp createRealLiteralExp();
 
   /**
-   * Returns a new object of class '<em>Integer Exp</em>'.
+   * Returns a new object of class '<em>Integer Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integer Exp</em>'.
+   * @return a new object of class '<em>Integer Literal Exp</em>'.
    * @generated
    */
-  IntegerExp createIntegerExp();
+  IntegerLiteralExp createIntegerLiteralExp();
 
   /**
    * Returns a new object of class '<em>Bag Literal Exp</em>'.

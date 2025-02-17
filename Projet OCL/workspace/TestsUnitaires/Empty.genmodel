@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/TestsUnitaires/src" modelPluginID="TestsUnitaires"
+    modelName="Empty" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Empty.ecore</foreignModel>
+  <genPackages prefix="Empty" disposableProviderFactory="true" ecorePackage="Empty.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Empty.ecore#//Enum">
+      <genEnumLiterals ecoreEnumLiteral="Empty.ecore#//Enum/enum1"/>
+      <genEnumLiterals ecoreEnumLiteral="Empty.ecore#//Enum/enum2"/>
+      <genEnumLiterals ecoreEnumLiteral="Empty.ecore#//Enum/enum3"/>
+    </genEnums>
+    <genClasses ecoreClass="Empty.ecore#//Liar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Empty.ecore#//Liar/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Empty.ecore#//Liar/maybe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Empty.ecore#//Liar/subLiar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Empty.ecore#//Liar/enum"/>
+    </genClasses>
+    <genClasses ecoreClass="Empty.ecore#//Maybe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Empty.ecore#//Maybe/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Empty.ecore#//Maybe/subLiar"/>
+    </genClasses>
+    <genClasses ecoreClass="Empty.ecore#//SubLiar"/>
+  </genPackages>
+</genmodel:GenModel>

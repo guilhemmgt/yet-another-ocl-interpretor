@@ -799,50 +799,50 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleRealExp
-entryRuleRealExp
+// Entry rule entryRuleRealLiteralExp
+entryRuleRealLiteralExp
 :
-{ before(grammarAccess.getRealExpRule()); }
-	 ruleRealExp
-{ after(grammarAccess.getRealExpRule()); } 
+{ before(grammarAccess.getRealLiteralExpRule()); }
+	 ruleRealLiteralExp
+{ after(grammarAccess.getRealLiteralExpRule()); } 
 	 EOF 
 ;
 
-// Rule RealExp
-ruleRealExp 
+// Rule RealLiteralExp
+ruleRealLiteralExp 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getRealExpAccess().getRealSymbolAssignment()); }
-		(rule__RealExp__RealSymbolAssignment)
-		{ after(grammarAccess.getRealExpAccess().getRealSymbolAssignment()); }
+		{ before(grammarAccess.getRealLiteralExpAccess().getRealSymbolAssignment()); }
+		(rule__RealLiteralExp__RealSymbolAssignment)
+		{ after(grammarAccess.getRealLiteralExpAccess().getRealSymbolAssignment()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleIntegerExp
-entryRuleIntegerExp
+// Entry rule entryRuleIntegerLiteralExp
+entryRuleIntegerLiteralExp
 :
-{ before(grammarAccess.getIntegerExpRule()); }
-	 ruleIntegerExp
-{ after(grammarAccess.getIntegerExpRule()); } 
+{ before(grammarAccess.getIntegerLiteralExpRule()); }
+	 ruleIntegerLiteralExp
+{ after(grammarAccess.getIntegerLiteralExpRule()); } 
 	 EOF 
 ;
 
-// Rule IntegerExp
-ruleIntegerExp 
+// Rule IntegerLiteralExp
+ruleIntegerLiteralExp 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getIntegerExpAccess().getGroup()); }
-		(rule__IntegerExp__Group__0)
-		{ after(grammarAccess.getIntegerExpAccess().getGroup()); }
+		{ before(grammarAccess.getIntegerLiteralExpAccess().getGroup()); }
+		(rule__IntegerLiteralExp__Group__0)
+		{ after(grammarAccess.getIntegerLiteralExpAccess().getGroup()); }
 	)
 ;
 finally {
@@ -2190,15 +2190,15 @@ rule__NumericLiteralExp__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getNumericLiteralExpAccess().getRealExpParserRuleCall_0()); }
-		ruleRealExp
-		{ after(grammarAccess.getNumericLiteralExpAccess().getRealExpParserRuleCall_0()); }
+		{ before(grammarAccess.getNumericLiteralExpAccess().getRealLiteralExpParserRuleCall_0()); }
+		ruleRealLiteralExp
+		{ after(grammarAccess.getNumericLiteralExpAccess().getRealLiteralExpParserRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getNumericLiteralExpAccess().getIntegerExpParserRuleCall_1()); }
-		ruleIntegerExp
-		{ after(grammarAccess.getNumericLiteralExpAccess().getIntegerExpParserRuleCall_1()); }
+		{ before(grammarAccess.getNumericLiteralExpAccess().getIntegerLiteralExpParserRuleCall_1()); }
+		ruleIntegerLiteralExp
+		{ after(grammarAccess.getNumericLiteralExpAccess().getIntegerLiteralExpParserRuleCall_1()); }
 	)
 ;
 finally {
@@ -4831,53 +4831,53 @@ finally {
 }
 
 
-rule__IntegerExp__Group__0
+rule__IntegerLiteralExp__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__IntegerExp__Group__0__Impl
-	rule__IntegerExp__Group__1
+	rule__IntegerLiteralExp__Group__0__Impl
+	rule__IntegerLiteralExp__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__IntegerExp__Group__0__Impl
+rule__IntegerLiteralExp__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getIntegerExpAccess().getIntegerExpAction_0()); }
+	{ before(grammarAccess.getIntegerLiteralExpAccess().getIntegerLiteralExpAction_0()); }
 	()
-	{ after(grammarAccess.getIntegerExpAccess().getIntegerExpAction_0()); }
+	{ after(grammarAccess.getIntegerLiteralExpAccess().getIntegerLiteralExpAction_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__IntegerExp__Group__1
+rule__IntegerLiteralExp__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__IntegerExp__Group__1__Impl
+	rule__IntegerLiteralExp__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__IntegerExp__Group__1__Impl
+rule__IntegerLiteralExp__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getIntegerExpAccess().getIntegerSymbolAssignment_1()); }
-	(rule__IntegerExp__IntegerSymbolAssignment_1)
-	{ after(grammarAccess.getIntegerExpAccess().getIntegerSymbolAssignment_1()); }
+	{ before(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolAssignment_1()); }
+	(rule__IntegerLiteralExp__IntegerSymbolAssignment_1)
+	{ after(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolAssignment_1()); }
 )
 ;
 finally {
@@ -10488,30 +10488,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__RealExp__RealSymbolAssignment
+rule__RealLiteralExp__RealSymbolAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getRealExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); }
+		{ before(grammarAccess.getRealLiteralExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); }
 		RULE_DOUBLE
-		{ after(grammarAccess.getRealExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); }
+		{ after(grammarAccess.getRealLiteralExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__IntegerExp__IntegerSymbolAssignment_1
+rule__IntegerLiteralExp__IntegerSymbolAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getIntegerExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); }
 		RULE_INT
-		{ after(grammarAccess.getIntegerExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); }
+		{ after(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -11447,7 +11447,7 @@ finally {
 
 RULE_DOUBLE : (RULE_INT '.' RULE_INT|'.' RULE_INT|RULE_INT '.') ('e' ('-'|'+') RULE_INT)?;
 
-RULE_OCL_COMMENT : '--' ~(('\n'|'\r'))* ('\r'? '\n')?;
+RULE_SL_COMMENT : '--' .* '\n';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
@@ -11456,8 +11456,6 @@ RULE_INT : ('0'..'9')+;
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
-
-RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 

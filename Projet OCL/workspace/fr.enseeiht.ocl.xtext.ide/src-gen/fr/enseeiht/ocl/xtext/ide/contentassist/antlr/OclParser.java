@@ -88,7 +88,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPropertyCallExpAccess().getGroup(), "rule__PropertyCallExp__Group__0");
 			builder.put(grammarAccess.getSelfLiteralExpAccess().getGroup(), "rule__SelfLiteralExp__Group__0");
 			builder.put(grammarAccess.getStringLiteralExpAccess().getGroup(), "rule__StringLiteralExp__Group__0");
-			builder.put(grammarAccess.getIntegerExpAccess().getGroup(), "rule__IntegerExp__Group__0");
+			builder.put(grammarAccess.getIntegerLiteralExpAccess().getGroup(), "rule__IntegerLiteralExp__Group__0");
 			builder.put(grammarAccess.getBagLiteralExpAccess().getGroup(), "rule__BagLiteralExp__Group__0");
 			builder.put(grammarAccess.getBagLiteralExpAccess().getGroup_3(), "rule__BagLiteralExp__Group_3__0");
 			builder.put(grammarAccess.getBagLiteralExpAccess().getGroup_3_1(), "rule__BagLiteralExp__Group_3_1__0");
@@ -187,8 +187,8 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPropertyCallExpAccess().getCallsAssignment_1(), "rule__PropertyCallExp__CallsAssignment_1");
 			builder.put(grammarAccess.getVariableExpAccess().getReferredVariableAssignment(), "rule__VariableExp__ReferredVariableAssignment");
 			builder.put(grammarAccess.getStringLiteralExpAccess().getStringSymbolAssignment_1(), "rule__StringLiteralExp__StringSymbolAssignment_1");
-			builder.put(grammarAccess.getRealExpAccess().getRealSymbolAssignment(), "rule__RealExp__RealSymbolAssignment");
-			builder.put(grammarAccess.getIntegerExpAccess().getIntegerSymbolAssignment_1(), "rule__IntegerExp__IntegerSymbolAssignment_1");
+			builder.put(grammarAccess.getRealLiteralExpAccess().getRealSymbolAssignment(), "rule__RealLiteralExp__RealSymbolAssignment");
+			builder.put(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolAssignment_1(), "rule__IntegerLiteralExp__IntegerSymbolAssignment_1");
 			builder.put(grammarAccess.getBagLiteralExpAccess().getElementsAssignment_3_0(), "rule__BagLiteralExp__ElementsAssignment_3_0");
 			builder.put(grammarAccess.getBagLiteralExpAccess().getElementsAssignment_3_1_1(), "rule__BagLiteralExp__ElementsAssignment_3_1_1");
 			builder.put(grammarAccess.getOrderedSetLiteralExpAccess().getElementsAssignment_3_0(), "rule__OrderedSetLiteralExp__ElementsAssignment_3_0");

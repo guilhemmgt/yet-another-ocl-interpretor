@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_DOUBLE", "RULE_INT", "RULE_OCL_COMMENT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'and'", "'or'", "'xor'", "'implies'", "'equivalent'", "'='", "'<>'", "'>'", "'<'", "'>='", "'<='", "'-'", "'+'", "'div'", "'mod'", "'*'", "'/'", "'not'", "'import'", "'as'", "'context'", "'!'", "'def'", "':'", "'('", "')'", "','", "'inv'", "'self'", "'Bag'", "'{'", "'}'", "'OrderedSet'", "'Sequence'", "'Set'", "'Tuple'", "'Map'", "'#'", "'let'", "'in'", "'if'", "'then'", "'else'", "'endif'", "'.'", "'->'", "'iterate'", "';'", "'|'", "'String'", "'Boolean'", "'Integer'", "'Real'", "'OclAny'", "'true'", "'false'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_DOUBLE", "RULE_INT", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'and'", "'or'", "'xor'", "'implies'", "'equivalent'", "'='", "'<>'", "'>'", "'<'", "'>='", "'<='", "'-'", "'+'", "'div'", "'mod'", "'*'", "'/'", "'not'", "'import'", "'as'", "'context'", "'!'", "'def'", "':'", "'('", "')'", "','", "'inv'", "'self'", "'Bag'", "'{'", "'}'", "'OrderedSet'", "'Sequence'", "'Set'", "'Tuple'", "'Map'", "'#'", "'let'", "'in'", "'if'", "'then'", "'else'", "'endif'", "'.'", "'->'", "'iterate'", "';'", "'|'", "'String'", "'Boolean'", "'Integer'", "'Real'", "'OclAny'", "'true'", "'false'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -32,6 +32,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__55=55;
+    public static final int T__12=12;
     public static final int T__56=56;
     public static final int T__13=13;
     public static final int T__57=57;
@@ -55,7 +56,6 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final int T__23=23;
     public static final int T__67=67;
     public static final int T__24=24;
-    public static final int T__68=68;
     public static final int T__25=25;
     public static final int T__62=62;
     public static final int T__63=63;
@@ -64,7 +64,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final int T__21=21;
     public static final int T__65=65;
     public static final int RULE_STRING=5;
-    public static final int RULE_SL_COMMENT=10;
+    public static final int RULE_SL_COMMENT=8;
     public static final int T__37=37;
     public static final int RULE_DOUBLE=6;
     public static final int T__38=38;
@@ -77,9 +77,8 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
-    public static final int RULE_WS=11;
-    public static final int RULE_ANY_OTHER=12;
-    public static final int RULE_OCL_COMMENT=8;
+    public static final int RULE_WS=10;
+    public static final int RULE_ANY_OTHER=11;
     public static final int T__48=48;
     public static final int T__49=49;
     public static final int T__44=44;
@@ -2436,20 +2435,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleNumericLiteralExp"
 
 
-    // $ANTLR start "entryRuleRealExp"
-    // InternalOcl.g:803:1: entryRuleRealExp : ruleRealExp EOF ;
-    public final void entryRuleRealExp() throws RecognitionException {
+    // $ANTLR start "entryRuleRealLiteralExp"
+    // InternalOcl.g:803:1: entryRuleRealLiteralExp : ruleRealLiteralExp EOF ;
+    public final void entryRuleRealLiteralExp() throws RecognitionException {
         try {
-            // InternalOcl.g:804:1: ( ruleRealExp EOF )
-            // InternalOcl.g:805:1: ruleRealExp EOF
+            // InternalOcl.g:804:1: ( ruleRealLiteralExp EOF )
+            // InternalOcl.g:805:1: ruleRealLiteralExp EOF
             {
-             before(grammarAccess.getRealExpRule()); 
+             before(grammarAccess.getRealLiteralExpRule()); 
             pushFollow(FOLLOW_1);
-            ruleRealExp();
+            ruleRealLiteralExp();
 
             state._fsp--;
 
-             after(grammarAccess.getRealExpRule()); 
+             after(grammarAccess.getRealLiteralExpRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -2463,35 +2462,35 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleRealExp"
+    // $ANTLR end "entryRuleRealLiteralExp"
 
 
-    // $ANTLR start "ruleRealExp"
-    // InternalOcl.g:812:1: ruleRealExp : ( ( rule__RealExp__RealSymbolAssignment ) ) ;
-    public final void ruleRealExp() throws RecognitionException {
+    // $ANTLR start "ruleRealLiteralExp"
+    // InternalOcl.g:812:1: ruleRealLiteralExp : ( ( rule__RealLiteralExp__RealSymbolAssignment ) ) ;
+    public final void ruleRealLiteralExp() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:816:2: ( ( ( rule__RealExp__RealSymbolAssignment ) ) )
-            // InternalOcl.g:817:2: ( ( rule__RealExp__RealSymbolAssignment ) )
+            // InternalOcl.g:816:2: ( ( ( rule__RealLiteralExp__RealSymbolAssignment ) ) )
+            // InternalOcl.g:817:2: ( ( rule__RealLiteralExp__RealSymbolAssignment ) )
             {
-            // InternalOcl.g:817:2: ( ( rule__RealExp__RealSymbolAssignment ) )
-            // InternalOcl.g:818:3: ( rule__RealExp__RealSymbolAssignment )
+            // InternalOcl.g:817:2: ( ( rule__RealLiteralExp__RealSymbolAssignment ) )
+            // InternalOcl.g:818:3: ( rule__RealLiteralExp__RealSymbolAssignment )
             {
-             before(grammarAccess.getRealExpAccess().getRealSymbolAssignment()); 
-            // InternalOcl.g:819:3: ( rule__RealExp__RealSymbolAssignment )
-            // InternalOcl.g:819:4: rule__RealExp__RealSymbolAssignment
+             before(grammarAccess.getRealLiteralExpAccess().getRealSymbolAssignment()); 
+            // InternalOcl.g:819:3: ( rule__RealLiteralExp__RealSymbolAssignment )
+            // InternalOcl.g:819:4: rule__RealLiteralExp__RealSymbolAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__RealExp__RealSymbolAssignment();
+            rule__RealLiteralExp__RealSymbolAssignment();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRealExpAccess().getRealSymbolAssignment()); 
+             after(grammarAccess.getRealLiteralExpAccess().getRealSymbolAssignment()); 
 
             }
 
@@ -2510,23 +2509,23 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleRealExp"
+    // $ANTLR end "ruleRealLiteralExp"
 
 
-    // $ANTLR start "entryRuleIntegerExp"
-    // InternalOcl.g:828:1: entryRuleIntegerExp : ruleIntegerExp EOF ;
-    public final void entryRuleIntegerExp() throws RecognitionException {
+    // $ANTLR start "entryRuleIntegerLiteralExp"
+    // InternalOcl.g:828:1: entryRuleIntegerLiteralExp : ruleIntegerLiteralExp EOF ;
+    public final void entryRuleIntegerLiteralExp() throws RecognitionException {
         try {
-            // InternalOcl.g:829:1: ( ruleIntegerExp EOF )
-            // InternalOcl.g:830:1: ruleIntegerExp EOF
+            // InternalOcl.g:829:1: ( ruleIntegerLiteralExp EOF )
+            // InternalOcl.g:830:1: ruleIntegerLiteralExp EOF
             {
-             before(grammarAccess.getIntegerExpRule()); 
+             before(grammarAccess.getIntegerLiteralExpRule()); 
             pushFollow(FOLLOW_1);
-            ruleIntegerExp();
+            ruleIntegerLiteralExp();
 
             state._fsp--;
 
-             after(grammarAccess.getIntegerExpRule()); 
+             after(grammarAccess.getIntegerLiteralExpRule()); 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -2540,35 +2539,35 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "entryRuleIntegerExp"
+    // $ANTLR end "entryRuleIntegerLiteralExp"
 
 
-    // $ANTLR start "ruleIntegerExp"
-    // InternalOcl.g:837:1: ruleIntegerExp : ( ( rule__IntegerExp__Group__0 ) ) ;
-    public final void ruleIntegerExp() throws RecognitionException {
+    // $ANTLR start "ruleIntegerLiteralExp"
+    // InternalOcl.g:837:1: ruleIntegerLiteralExp : ( ( rule__IntegerLiteralExp__Group__0 ) ) ;
+    public final void ruleIntegerLiteralExp() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:841:2: ( ( ( rule__IntegerExp__Group__0 ) ) )
-            // InternalOcl.g:842:2: ( ( rule__IntegerExp__Group__0 ) )
+            // InternalOcl.g:841:2: ( ( ( rule__IntegerLiteralExp__Group__0 ) ) )
+            // InternalOcl.g:842:2: ( ( rule__IntegerLiteralExp__Group__0 ) )
             {
-            // InternalOcl.g:842:2: ( ( rule__IntegerExp__Group__0 ) )
-            // InternalOcl.g:843:3: ( rule__IntegerExp__Group__0 )
+            // InternalOcl.g:842:2: ( ( rule__IntegerLiteralExp__Group__0 ) )
+            // InternalOcl.g:843:3: ( rule__IntegerLiteralExp__Group__0 )
             {
-             before(grammarAccess.getIntegerExpAccess().getGroup()); 
-            // InternalOcl.g:844:3: ( rule__IntegerExp__Group__0 )
-            // InternalOcl.g:844:4: rule__IntegerExp__Group__0
+             before(grammarAccess.getIntegerLiteralExpAccess().getGroup()); 
+            // InternalOcl.g:844:3: ( rule__IntegerLiteralExp__Group__0 )
+            // InternalOcl.g:844:4: rule__IntegerLiteralExp__Group__0
             {
             pushFollow(FOLLOW_2);
-            rule__IntegerExp__Group__0();
+            rule__IntegerLiteralExp__Group__0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getIntegerExpAccess().getGroup()); 
+             after(grammarAccess.getIntegerLiteralExpAccess().getGroup()); 
 
             }
 
@@ -2587,7 +2586,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "ruleIntegerExp"
+    // $ANTLR end "ruleIntegerLiteralExp"
 
 
     // $ANTLR start "entryRuleBagLiteralExp"
@@ -5604,10 +5603,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==35) ) {
+            if ( (LA1_0==34) ) {
                 alt1=1;
             }
-            else if ( (LA1_0==40) ) {
+            else if ( (LA1_0==39) ) {
                 alt1=2;
             }
             else {
@@ -5686,10 +5685,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             if ( (LA2_0==RULE_ID) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==36) ) {
+                if ( (LA2_1==35) ) {
                     alt2=1;
                 }
-                else if ( (LA2_1==37) ) {
+                else if ( (LA2_1==36) ) {
                     alt2=2;
                 }
                 else {
@@ -5772,10 +5771,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>=RULE_ID && LA3_0<=RULE_INT)||LA3_0==24||LA3_0==30||LA3_0==37||(LA3_0>=41 && LA3_0<=42)||(LA3_0>=45 && LA3_0<=50)||LA3_0==53||(LA3_0>=67 && LA3_0<=68)) ) {
+            if ( ((LA3_0>=RULE_ID && LA3_0<=RULE_INT)||LA3_0==23||LA3_0==29||LA3_0==36||(LA3_0>=40 && LA3_0<=41)||(LA3_0>=44 && LA3_0<=49)||LA3_0==52||(LA3_0>=66 && LA3_0<=67)) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==51) ) {
+            else if ( (LA3_0==50) ) {
                 alt3=2;
             }
             else {
@@ -5850,27 +5849,27 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:1894:1: ( ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'implies' ) | ( 'equivalent' ) )
             int alt4=5;
             switch ( input.LA(1) ) {
-            case 13:
+            case 12:
                 {
                 alt4=1;
                 }
                 break;
-            case 14:
+            case 13:
                 {
                 alt4=2;
                 }
                 break;
-            case 15:
+            case 14:
                 {
                 alt4=3;
                 }
                 break;
-            case 16:
+            case 15:
                 {
                 alt4=4;
                 }
                 break;
-            case 17:
+            case 16:
                 {
                 alt4=5;
                 }
@@ -5890,7 +5889,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1896:3: 'and'
                     {
                      before(grammarAccess.getBOOLOPAccess().getAndKeyword_0()); 
-                    match(input,13,FOLLOW_2); 
+                    match(input,12,FOLLOW_2); 
                      after(grammarAccess.getBOOLOPAccess().getAndKeyword_0()); 
 
                     }
@@ -5905,7 +5904,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1902:3: 'or'
                     {
                      before(grammarAccess.getBOOLOPAccess().getOrKeyword_1()); 
-                    match(input,14,FOLLOW_2); 
+                    match(input,13,FOLLOW_2); 
                      after(grammarAccess.getBOOLOPAccess().getOrKeyword_1()); 
 
                     }
@@ -5920,7 +5919,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1908:3: 'xor'
                     {
                      before(grammarAccess.getBOOLOPAccess().getXorKeyword_2()); 
-                    match(input,15,FOLLOW_2); 
+                    match(input,14,FOLLOW_2); 
                      after(grammarAccess.getBOOLOPAccess().getXorKeyword_2()); 
 
                     }
@@ -5935,7 +5934,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1914:3: 'implies'
                     {
                      before(grammarAccess.getBOOLOPAccess().getImpliesKeyword_3()); 
-                    match(input,16,FOLLOW_2); 
+                    match(input,15,FOLLOW_2); 
                      after(grammarAccess.getBOOLOPAccess().getImpliesKeyword_3()); 
 
                     }
@@ -5950,7 +5949,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1920:3: 'equivalent'
                     {
                      before(grammarAccess.getBOOLOPAccess().getEquivalentKeyword_4()); 
-                    match(input,17,FOLLOW_2); 
+                    match(input,16,FOLLOW_2); 
                      after(grammarAccess.getBOOLOPAccess().getEquivalentKeyword_4()); 
 
                     }
@@ -5986,10 +5985,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==18) ) {
+            if ( (LA5_0==17) ) {
                 alt5=1;
             }
-            else if ( (LA5_0==19) ) {
+            else if ( (LA5_0==18) ) {
                 alt5=2;
             }
             else {
@@ -6006,7 +6005,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1935:3: '='
                     {
                      before(grammarAccess.getEQOPAccess().getEqualsSignKeyword_0()); 
-                    match(input,18,FOLLOW_2); 
+                    match(input,17,FOLLOW_2); 
                      after(grammarAccess.getEQOPAccess().getEqualsSignKeyword_0()); 
 
                     }
@@ -6021,7 +6020,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1941:3: '<>'
                     {
                      before(grammarAccess.getEQOPAccess().getLessThanSignGreaterThanSignKeyword_1()); 
-                    match(input,19,FOLLOW_2); 
+                    match(input,18,FOLLOW_2); 
                      after(grammarAccess.getEQOPAccess().getLessThanSignGreaterThanSignKeyword_1()); 
 
                     }
@@ -6056,22 +6055,22 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:1954:1: ( ( '>' ) | ( '<' ) | ( '>=' ) | ( '<=' ) )
             int alt6=4;
             switch ( input.LA(1) ) {
-            case 20:
+            case 19:
                 {
                 alt6=1;
                 }
                 break;
-            case 21:
+            case 20:
                 {
                 alt6=2;
                 }
                 break;
-            case 22:
+            case 21:
                 {
                 alt6=3;
                 }
                 break;
-            case 23:
+            case 22:
                 {
                 alt6=4;
                 }
@@ -6091,7 +6090,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1956:3: '>'
                     {
                      before(grammarAccess.getRELOPAccess().getGreaterThanSignKeyword_0()); 
-                    match(input,20,FOLLOW_2); 
+                    match(input,19,FOLLOW_2); 
                      after(grammarAccess.getRELOPAccess().getGreaterThanSignKeyword_0()); 
 
                     }
@@ -6106,7 +6105,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1962:3: '<'
                     {
                      before(grammarAccess.getRELOPAccess().getLessThanSignKeyword_1()); 
-                    match(input,21,FOLLOW_2); 
+                    match(input,20,FOLLOW_2); 
                      after(grammarAccess.getRELOPAccess().getLessThanSignKeyword_1()); 
 
                     }
@@ -6121,7 +6120,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1968:3: '>='
                     {
                      before(grammarAccess.getRELOPAccess().getGreaterThanSignEqualsSignKeyword_2()); 
-                    match(input,22,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
                      after(grammarAccess.getRELOPAccess().getGreaterThanSignEqualsSignKeyword_2()); 
 
                     }
@@ -6136,7 +6135,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1974:3: '<='
                     {
                      before(grammarAccess.getRELOPAccess().getLessThanSignEqualsSignKeyword_3()); 
-                    match(input,23,FOLLOW_2); 
+                    match(input,22,FOLLOW_2); 
                      after(grammarAccess.getRELOPAccess().getLessThanSignEqualsSignKeyword_3()); 
 
                     }
@@ -6172,10 +6171,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==24) ) {
+            if ( (LA7_0==23) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==25) ) {
+            else if ( (LA7_0==24) ) {
                 alt7=2;
             }
             else {
@@ -6192,7 +6191,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1989:3: '-'
                     {
                      before(grammarAccess.getADDOPAccess().getHyphenMinusKeyword_0()); 
-                    match(input,24,FOLLOW_2); 
+                    match(input,23,FOLLOW_2); 
                      after(grammarAccess.getADDOPAccess().getHyphenMinusKeyword_0()); 
 
                     }
@@ -6207,7 +6206,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:1995:3: '+'
                     {
                      before(grammarAccess.getADDOPAccess().getPlusSignKeyword_1()); 
-                    match(input,25,FOLLOW_2); 
+                    match(input,24,FOLLOW_2); 
                      after(grammarAccess.getADDOPAccess().getPlusSignKeyword_1()); 
 
                     }
@@ -6243,10 +6242,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==26) ) {
+            if ( (LA8_0==25) ) {
                 alt8=1;
             }
-            else if ( (LA8_0==27) ) {
+            else if ( (LA8_0==26) ) {
                 alt8=2;
             }
             else {
@@ -6263,7 +6262,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:2010:3: 'div'
                     {
                      before(grammarAccess.getINTOPAccess().getDivKeyword_0()); 
-                    match(input,26,FOLLOW_2); 
+                    match(input,25,FOLLOW_2); 
                      after(grammarAccess.getINTOPAccess().getDivKeyword_0()); 
 
                     }
@@ -6278,7 +6277,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:2016:3: 'mod'
                     {
                      before(grammarAccess.getINTOPAccess().getModKeyword_1()); 
-                    match(input,27,FOLLOW_2); 
+                    match(input,26,FOLLOW_2); 
                      after(grammarAccess.getINTOPAccess().getModKeyword_1()); 
 
                     }
@@ -6314,10 +6313,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==28) ) {
+            if ( (LA9_0==27) ) {
                 alt9=1;
             }
-            else if ( (LA9_0==29) ) {
+            else if ( (LA9_0==28) ) {
                 alt9=2;
             }
             else {
@@ -6334,7 +6333,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:2031:3: '*'
                     {
                      before(grammarAccess.getMULOPAccess().getAsteriskKeyword_0()); 
-                    match(input,28,FOLLOW_2); 
+                    match(input,27,FOLLOW_2); 
                      after(grammarAccess.getMULOPAccess().getAsteriskKeyword_0()); 
 
                     }
@@ -6349,7 +6348,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:2037:3: '/'
                     {
                      before(grammarAccess.getMULOPAccess().getSolidusKeyword_1()); 
-                    match(input,29,FOLLOW_2); 
+                    match(input,28,FOLLOW_2); 
                      after(grammarAccess.getMULOPAccess().getSolidusKeyword_1()); 
 
                     }
@@ -6385,10 +6384,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==24||LA10_0==30) ) {
+            if ( (LA10_0==23||LA10_0==29) ) {
                 alt10=1;
             }
-            else if ( ((LA10_0>=RULE_ID && LA10_0<=RULE_INT)||LA10_0==37||(LA10_0>=41 && LA10_0<=42)||(LA10_0>=45 && LA10_0<=50)||LA10_0==53||(LA10_0>=67 && LA10_0<=68)) ) {
+            else if ( ((LA10_0>=RULE_ID && LA10_0<=RULE_INT)||LA10_0==36||(LA10_0>=40 && LA10_0<=41)||(LA10_0>=44 && LA10_0<=49)||LA10_0==52||(LA10_0>=66 && LA10_0<=67)) ) {
                 alt10=2;
             }
             else {
@@ -6470,10 +6469,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==30) ) {
+            if ( (LA11_0==29) ) {
                 alt11=1;
             }
-            else if ( (LA11_0==24) ) {
+            else if ( (LA11_0==23) ) {
                 alt11=2;
             }
             else {
@@ -6490,7 +6489,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:2073:3: 'not'
                     {
                      before(grammarAccess.getUNARYOPAccess().getNotKeyword_0()); 
-                    match(input,30,FOLLOW_2); 
+                    match(input,29,FOLLOW_2); 
                      after(grammarAccess.getUNARYOPAccess().getNotKeyword_0()); 
 
                     }
@@ -6505,7 +6504,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     // InternalOcl.g:2079:3: '-'
                     {
                      before(grammarAccess.getUNARYOPAccess().getHyphenMinusKeyword_1()); 
-                    match(input,24,FOLLOW_2); 
+                    match(input,23,FOLLOW_2); 
                      after(grammarAccess.getUNARYOPAccess().getHyphenMinusKeyword_1()); 
 
                     }
@@ -6844,13 +6843,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NumericLiteralExp__Alternatives"
-    // InternalOcl.g:2187:1: rule__NumericLiteralExp__Alternatives : ( ( ruleRealExp ) | ( ruleIntegerExp ) );
+    // InternalOcl.g:2187:1: rule__NumericLiteralExp__Alternatives : ( ( ruleRealLiteralExp ) | ( ruleIntegerLiteralExp ) );
     public final void rule__NumericLiteralExp__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2191:1: ( ( ruleRealExp ) | ( ruleIntegerExp ) )
+            // InternalOcl.g:2191:1: ( ( ruleRealLiteralExp ) | ( ruleIntegerLiteralExp ) )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -6868,18 +6867,18 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalOcl.g:2192:2: ( ruleRealExp )
+                    // InternalOcl.g:2192:2: ( ruleRealLiteralExp )
                     {
-                    // InternalOcl.g:2192:2: ( ruleRealExp )
-                    // InternalOcl.g:2193:3: ruleRealExp
+                    // InternalOcl.g:2192:2: ( ruleRealLiteralExp )
+                    // InternalOcl.g:2193:3: ruleRealLiteralExp
                     {
-                     before(grammarAccess.getNumericLiteralExpAccess().getRealExpParserRuleCall_0()); 
+                     before(grammarAccess.getNumericLiteralExpAccess().getRealLiteralExpParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
-                    ruleRealExp();
+                    ruleRealLiteralExp();
 
                     state._fsp--;
 
-                     after(grammarAccess.getNumericLiteralExpAccess().getRealExpParserRuleCall_0()); 
+                     after(grammarAccess.getNumericLiteralExpAccess().getRealLiteralExpParserRuleCall_0()); 
 
                     }
 
@@ -6887,18 +6886,18 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2198:2: ( ruleIntegerExp )
+                    // InternalOcl.g:2198:2: ( ruleIntegerLiteralExp )
                     {
-                    // InternalOcl.g:2198:2: ( ruleIntegerExp )
-                    // InternalOcl.g:2199:3: ruleIntegerExp
+                    // InternalOcl.g:2198:2: ( ruleIntegerLiteralExp )
+                    // InternalOcl.g:2199:3: ruleIntegerLiteralExp
                     {
-                     before(grammarAccess.getNumericLiteralExpAccess().getIntegerExpParserRuleCall_1()); 
+                     before(grammarAccess.getNumericLiteralExpAccess().getIntegerLiteralExpParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
-                    ruleIntegerExp();
+                    ruleIntegerLiteralExp();
 
                     state._fsp--;
 
-                     after(grammarAccess.getNumericLiteralExpAccess().getIntegerExpParserRuleCall_1()); 
+                     after(grammarAccess.getNumericLiteralExpAccess().getIntegerLiteralExpParserRuleCall_1()); 
 
                     }
 
@@ -7024,10 +7023,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==67) ) {
+            if ( (LA15_0==66) ) {
                 alt15=1;
             }
-            else if ( (LA15_0==68) ) {
+            else if ( (LA15_0==67) ) {
                 alt15=2;
             }
             else {
@@ -7419,28 +7418,28 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2335:1: ( ( ruleCollectionType ) | ( rulePrimitive ) | ( ruleOclAnyType ) | ( ruleTupleType ) | ( ruleOclModelElementClass ) | ( ruleMapType ) )
             int alt19=6;
             switch ( input.LA(1) ) {
-            case 42:
+            case 41:
+            case 44:
             case 45:
             case 46:
-            case 47:
                 {
                 alt19=1;
                 }
                 break;
+            case 61:
             case 62:
             case 63:
             case 64:
-            case 65:
                 {
                 alt19=2;
                 }
                 break;
-            case 66:
+            case 65:
                 {
                 alt19=3;
                 }
                 break;
-            case 48:
+            case 47:
                 {
                 alt19=4;
                 }
@@ -7450,7 +7449,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 alt19=5;
                 }
                 break;
-            case 49:
+            case 48:
                 {
                 alt19=6;
                 }
@@ -7604,22 +7603,22 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2380:1: ( ( ruleBagType ) | ( ruleOrderedSetType ) | ( ruleSequenceType ) | ( ruleSetType ) )
             int alt20=4;
             switch ( input.LA(1) ) {
-            case 42:
+            case 41:
                 {
                 alt20=1;
                 }
                 break;
-            case 45:
+            case 44:
                 {
                 alt20=2;
                 }
                 break;
-            case 46:
+            case 45:
                 {
                 alt20=3;
                 }
                 break;
-            case 47:
+            case 46:
                 {
                 alt20=4;
                 }
@@ -7735,18 +7734,18 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2413:1: ( ( ruleStringType ) | ( ruleBooleanType ) | ( ruleNumericType ) )
             int alt21=3;
             switch ( input.LA(1) ) {
-            case 62:
+            case 61:
                 {
                 alt21=1;
                 }
                 break;
-            case 63:
+            case 62:
                 {
                 alt21=2;
                 }
                 break;
+            case 63:
             case 64:
-            case 65:
                 {
                 alt21=3;
                 }
@@ -7844,10 +7843,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( (LA22_0==64) ) {
+            if ( (LA22_0==63) ) {
                 alt22=1;
             }
-            else if ( (LA22_0==65) ) {
+            else if ( (LA22_0==64) ) {
                 alt22=2;
             }
             else {
@@ -7992,7 +7991,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt23=2;
                 int LA23_0 = input.LA(1);
 
-                if ( (LA23_0==31) ) {
+                if ( (LA23_0==30) ) {
                     alt23=1;
                 }
 
@@ -8098,7 +8097,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt24=2;
                 int LA24_0 = input.LA(1);
 
-                if ( (LA24_0==35) ) {
+                if ( (LA24_0==34) ) {
                     alt24=1;
                 }
 
@@ -8218,7 +8217,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt25=2;
                 int LA25_0 = input.LA(1);
 
-                if ( (LA25_0==33) ) {
+                if ( (LA25_0==32) ) {
                     alt25=1;
                 }
 
@@ -8318,7 +8317,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2570:2: 'import'
             {
              before(grammarAccess.getImportAccess().getImportKeyword_0()); 
-            match(input,31,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getImportAccess().getImportKeyword_0()); 
 
             }
@@ -8478,7 +8477,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2624:2: 'as'
             {
              before(grammarAccess.getImportAccess().getAsKeyword_2()); 
-            match(input,32,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getImportAccess().getAsKeyword_2()); 
 
             }
@@ -8741,7 +8740,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt26=2;
                 int LA26_0 = input.LA(1);
 
-                if ( (LA26_0==35||LA26_0==40) ) {
+                if ( (LA26_0==34||LA26_0==39) ) {
                     alt26=1;
                 }
 
@@ -8841,7 +8840,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2739:2: 'context'
             {
              before(grammarAccess.getOclContextBlockAccess().getContextKeyword_0_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getOclContextBlockAccess().getContextKeyword_0_0()); 
 
             }
@@ -9001,7 +9000,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2793:2: '!'
             {
              before(grammarAccess.getOclContextBlockAccess().getExclamationMarkKeyword_0_2()); 
-            match(input,34,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getOclContextBlockAccess().getExclamationMarkKeyword_0_2()); 
 
             }
@@ -9156,7 +9155,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2847:2: 'def'
             {
              before(grammarAccess.getOclFeatureDefinitionAccess().getDefKeyword_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getOclFeatureDefinitionAccess().getDefKeyword_0()); 
 
             }
@@ -9231,7 +9230,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2874:2: ':'
             {
              before(grammarAccess.getOclFeatureDefinitionAccess().getColonKeyword_1()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getOclFeatureDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -9471,7 +9470,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:2955:2: ':'
             {
              before(grammarAccess.getAttributeAccess().getColonKeyword_1()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getAttributeAccess().getColonKeyword_1()); 
 
             }
@@ -9631,7 +9630,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3009:2: '='
             {
              before(grammarAccess.getAttributeAccess().getEqualsSignKeyword_3()); 
-            match(input,18,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getAttributeAccess().getEqualsSignKeyword_3()); 
 
             }
@@ -9871,7 +9870,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3090:2: '('
             {
              before(grammarAccess.getOperationAccess().getLeftParenthesisKeyword_1()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getOperationAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -10042,7 +10041,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3144:2: ')'
             {
              before(grammarAccess.getOperationAccess().getRightParenthesisKeyword_3()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getOperationAccess().getRightParenthesisKeyword_3()); 
 
             }
@@ -10117,7 +10116,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3171:2: ':'
             {
              before(grammarAccess.getOperationAccess().getColonKeyword_4()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getOperationAccess().getColonKeyword_4()); 
 
             }
@@ -10277,7 +10276,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3225:2: '='
             {
              before(grammarAccess.getOperationAccess().getEqualsSignKeyword_6()); 
-            match(input,18,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getOperationAccess().getEqualsSignKeyword_6()); 
 
             }
@@ -10540,7 +10539,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt28=2;
                 int LA28_0 = input.LA(1);
 
-                if ( (LA28_0==39) ) {
+                if ( (LA28_0==38) ) {
                     alt28=1;
                 }
 
@@ -10640,7 +10639,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3340:2: ','
             {
              before(grammarAccess.getOperationAccess().getCommaKeyword_2_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getOperationAccess().getCommaKeyword_2_1_0()); 
 
             }
@@ -10880,7 +10879,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3421:2: ':'
             {
              before(grammarAccess.getParameterAccess().getColonKeyword_1()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getParameterAccess().getColonKeyword_1()); 
 
             }
@@ -11035,7 +11034,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3475:2: 'inv'
             {
              before(grammarAccess.getOclInvariantAccess().getInvKeyword_0()); 
-            match(input,40,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getOclInvariantAccess().getInvKeyword_0()); 
 
             }
@@ -11195,7 +11194,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3529:2: ':'
             {
              before(grammarAccess.getOclInvariantAccess().getColonKeyword_2()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getOclInvariantAccess().getColonKeyword_2()); 
 
             }
@@ -11435,7 +11434,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:3610:2: '!'
             {
              before(grammarAccess.getOclModelElementExpAccess().getExclamationMarkKeyword_1()); 
-            match(input,34,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getOclModelElementExpAccess().getExclamationMarkKeyword_1()); 
 
             }
@@ -11670,7 +11669,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt29=2;
                 int LA29_0 = input.LA(1);
 
-                if ( ((LA29_0>=13 && LA29_0<=17)) ) {
+                if ( ((LA29_0>=12 && LA29_0<=16)) ) {
                     alt29=1;
                 }
 
@@ -12165,7 +12164,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( ((LA30_0>=18 && LA30_0<=19)) ) {
+            if ( ((LA30_0>=17 && LA30_0<=18)) ) {
                 alt30=1;
             }
             switch (alt30) {
@@ -12655,7 +12654,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( ((LA31_0>=20 && LA31_0<=23)) ) {
+            if ( ((LA31_0>=19 && LA31_0<=22)) ) {
                 alt31=1;
             }
             switch (alt31) {
@@ -13147,7 +13146,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt32=2;
                 int LA32_0 = input.LA(1);
 
-                if ( ((LA32_0>=24 && LA32_0<=25)) ) {
+                if ( ((LA32_0>=23 && LA32_0<=24)) ) {
                     alt32=1;
                 }
 
@@ -13644,7 +13643,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt33=2;
                 int LA33_0 = input.LA(1);
 
-                if ( ((LA33_0>=26 && LA33_0<=27)) ) {
+                if ( ((LA33_0>=25 && LA33_0<=26)) ) {
                     alt33=1;
                 }
 
@@ -14141,7 +14140,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt34=2;
                 int LA34_0 = input.LA(1);
 
-                if ( ((LA34_0>=28 && LA34_0<=29)) ) {
+                if ( ((LA34_0>=27 && LA34_0<=28)) ) {
                     alt34=1;
                 }
 
@@ -14809,7 +14808,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt35=2;
                 int LA35_0 = input.LA(1);
 
-                if ( ((LA35_0>=57 && LA35_0<=58)) ) {
+                if ( ((LA35_0>=56 && LA35_0<=57)) ) {
                     alt35=1;
                 }
 
@@ -14976,7 +14975,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4770:2: 'self'
             {
              before(grammarAccess.getSelfLiteralExpAccess().getSelfKeyword_1()); 
-            match(input,41,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getSelfLiteralExpAccess().getSelfKeyword_1()); 
 
             }
@@ -15154,23 +15153,23 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__StringLiteralExp__Group__1__Impl"
 
 
-    // $ANTLR start "rule__IntegerExp__Group__0"
-    // InternalOcl.g:4834:1: rule__IntegerExp__Group__0 : rule__IntegerExp__Group__0__Impl rule__IntegerExp__Group__1 ;
-    public final void rule__IntegerExp__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__IntegerLiteralExp__Group__0"
+    // InternalOcl.g:4834:1: rule__IntegerLiteralExp__Group__0 : rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1 ;
+    public final void rule__IntegerLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4838:1: ( rule__IntegerExp__Group__0__Impl rule__IntegerExp__Group__1 )
-            // InternalOcl.g:4839:2: rule__IntegerExp__Group__0__Impl rule__IntegerExp__Group__1
+            // InternalOcl.g:4838:1: ( rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1 )
+            // InternalOcl.g:4839:2: rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1
             {
             pushFollow(FOLLOW_35);
-            rule__IntegerExp__Group__0__Impl();
+            rule__IntegerLiteralExp__Group__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__IntegerExp__Group__1();
+            rule__IntegerLiteralExp__Group__1();
 
             state._fsp--;
 
@@ -15189,12 +15188,12 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__IntegerExp__Group__0"
+    // $ANTLR end "rule__IntegerLiteralExp__Group__0"
 
 
-    // $ANTLR start "rule__IntegerExp__Group__0__Impl"
-    // InternalOcl.g:4846:1: rule__IntegerExp__Group__0__Impl : ( () ) ;
-    public final void rule__IntegerExp__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__IntegerLiteralExp__Group__0__Impl"
+    // InternalOcl.g:4846:1: rule__IntegerLiteralExp__Group__0__Impl : ( () ) ;
+    public final void rule__IntegerLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15205,13 +15204,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4851:1: ( () )
             // InternalOcl.g:4852:2: ()
             {
-             before(grammarAccess.getIntegerExpAccess().getIntegerExpAction_0()); 
+             before(grammarAccess.getIntegerLiteralExpAccess().getIntegerLiteralExpAction_0()); 
             // InternalOcl.g:4853:2: ()
             // InternalOcl.g:4853:3: 
             {
             }
 
-             after(grammarAccess.getIntegerExpAccess().getIntegerExpAction_0()); 
+             after(grammarAccess.getIntegerLiteralExpAccess().getIntegerLiteralExpAction_0()); 
 
             }
 
@@ -15226,21 +15225,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__IntegerExp__Group__0__Impl"
+    // $ANTLR end "rule__IntegerLiteralExp__Group__0__Impl"
 
 
-    // $ANTLR start "rule__IntegerExp__Group__1"
-    // InternalOcl.g:4861:1: rule__IntegerExp__Group__1 : rule__IntegerExp__Group__1__Impl ;
-    public final void rule__IntegerExp__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__IntegerLiteralExp__Group__1"
+    // InternalOcl.g:4861:1: rule__IntegerLiteralExp__Group__1 : rule__IntegerLiteralExp__Group__1__Impl ;
+    public final void rule__IntegerLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4865:1: ( rule__IntegerExp__Group__1__Impl )
-            // InternalOcl.g:4866:2: rule__IntegerExp__Group__1__Impl
+            // InternalOcl.g:4865:1: ( rule__IntegerLiteralExp__Group__1__Impl )
+            // InternalOcl.g:4866:2: rule__IntegerLiteralExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__IntegerExp__Group__1__Impl();
+            rule__IntegerLiteralExp__Group__1__Impl();
 
             state._fsp--;
 
@@ -15259,35 +15258,35 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__IntegerExp__Group__1"
+    // $ANTLR end "rule__IntegerLiteralExp__Group__1"
 
 
-    // $ANTLR start "rule__IntegerExp__Group__1__Impl"
-    // InternalOcl.g:4872:1: rule__IntegerExp__Group__1__Impl : ( ( rule__IntegerExp__IntegerSymbolAssignment_1 ) ) ;
-    public final void rule__IntegerExp__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__IntegerLiteralExp__Group__1__Impl"
+    // InternalOcl.g:4872:1: rule__IntegerLiteralExp__Group__1__Impl : ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) ) ;
+    public final void rule__IntegerLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4876:1: ( ( ( rule__IntegerExp__IntegerSymbolAssignment_1 ) ) )
-            // InternalOcl.g:4877:1: ( ( rule__IntegerExp__IntegerSymbolAssignment_1 ) )
+            // InternalOcl.g:4876:1: ( ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) ) )
+            // InternalOcl.g:4877:1: ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) )
             {
-            // InternalOcl.g:4877:1: ( ( rule__IntegerExp__IntegerSymbolAssignment_1 ) )
-            // InternalOcl.g:4878:2: ( rule__IntegerExp__IntegerSymbolAssignment_1 )
+            // InternalOcl.g:4877:1: ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) )
+            // InternalOcl.g:4878:2: ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 )
             {
-             before(grammarAccess.getIntegerExpAccess().getIntegerSymbolAssignment_1()); 
-            // InternalOcl.g:4879:2: ( rule__IntegerExp__IntegerSymbolAssignment_1 )
-            // InternalOcl.g:4879:3: rule__IntegerExp__IntegerSymbolAssignment_1
+             before(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolAssignment_1()); 
+            // InternalOcl.g:4879:2: ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 )
+            // InternalOcl.g:4879:3: rule__IntegerLiteralExp__IntegerSymbolAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__IntegerExp__IntegerSymbolAssignment_1();
+            rule__IntegerLiteralExp__IntegerSymbolAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getIntegerExpAccess().getIntegerSymbolAssignment_1()); 
+             after(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolAssignment_1()); 
 
             }
 
@@ -15306,7 +15305,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__IntegerExp__Group__1__Impl"
+    // $ANTLR end "rule__IntegerLiteralExp__Group__1__Impl"
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__0"
@@ -15436,7 +15435,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4933:2: 'Bag'
             {
              before(grammarAccess.getBagLiteralExpAccess().getBagKeyword_1()); 
-            match(input,42,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getBagLiteralExpAccess().getBagKeyword_1()); 
 
             }
@@ -15511,7 +15510,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4960:2: '{'
             {
              before(grammarAccess.getBagLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getBagLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -15590,7 +15589,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( ((LA36_0>=RULE_ID && LA36_0<=RULE_INT)||LA36_0==24||LA36_0==30||LA36_0==37||(LA36_0>=41 && LA36_0<=42)||(LA36_0>=45 && LA36_0<=51)||LA36_0==53||(LA36_0>=67 && LA36_0<=68)) ) {
+            if ( ((LA36_0>=RULE_ID && LA36_0<=RULE_INT)||LA36_0==23||LA36_0==29||LA36_0==36||(LA36_0>=40 && LA36_0<=41)||(LA36_0>=44 && LA36_0<=50)||LA36_0==52||(LA36_0>=66 && LA36_0<=67)) ) {
                 alt36=1;
             }
             switch (alt36) {
@@ -15677,7 +15676,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5013:2: '}'
             {
              before(grammarAccess.getBagLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getBagLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -15838,7 +15837,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt37=2;
                 int LA37_0 = input.LA(1);
 
-                if ( (LA37_0==39) ) {
+                if ( (LA37_0==38) ) {
                     alt37=1;
                 }
 
@@ -15935,7 +15934,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5095:2: ','
             {
              before(grammarAccess.getBagLiteralExpAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getBagLiteralExpAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -16165,7 +16164,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5176:2: 'OrderedSet'
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getOrderedSetKeyword_1()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getOrderedSetLiteralExpAccess().getOrderedSetKeyword_1()); 
 
             }
@@ -16240,7 +16239,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5203:2: '{'
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getOrderedSetLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -16319,7 +16318,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( ((LA38_0>=RULE_ID && LA38_0<=RULE_INT)||LA38_0==24||LA38_0==30||LA38_0==37||(LA38_0>=41 && LA38_0<=42)||(LA38_0>=45 && LA38_0<=51)||LA38_0==53||(LA38_0>=67 && LA38_0<=68)) ) {
+            if ( ((LA38_0>=RULE_ID && LA38_0<=RULE_INT)||LA38_0==23||LA38_0==29||LA38_0==36||(LA38_0>=40 && LA38_0<=41)||(LA38_0>=44 && LA38_0<=50)||LA38_0==52||(LA38_0>=66 && LA38_0<=67)) ) {
                 alt38=1;
             }
             switch (alt38) {
@@ -16406,7 +16405,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5256:2: '}'
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getOrderedSetLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -16567,7 +16566,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt39=2;
                 int LA39_0 = input.LA(1);
 
-                if ( (LA39_0==39) ) {
+                if ( (LA39_0==38) ) {
                     alt39=1;
                 }
 
@@ -16664,7 +16663,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5338:2: ','
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getOrderedSetLiteralExpAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -16894,7 +16893,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5419:2: 'Sequence'
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getSequenceKeyword_1()); 
-            match(input,46,FOLLOW_2); 
+            match(input,45,FOLLOW_2); 
              after(grammarAccess.getSequenceLiteralExpAccess().getSequenceKeyword_1()); 
 
             }
@@ -16969,7 +16968,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5446:2: '{'
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getSequenceLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -17048,7 +17047,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt40=2;
             int LA40_0 = input.LA(1);
 
-            if ( ((LA40_0>=RULE_ID && LA40_0<=RULE_INT)||LA40_0==24||LA40_0==30||LA40_0==37||(LA40_0>=41 && LA40_0<=42)||(LA40_0>=45 && LA40_0<=51)||LA40_0==53||(LA40_0>=67 && LA40_0<=68)) ) {
+            if ( ((LA40_0>=RULE_ID && LA40_0<=RULE_INT)||LA40_0==23||LA40_0==29||LA40_0==36||(LA40_0>=40 && LA40_0<=41)||(LA40_0>=44 && LA40_0<=50)||LA40_0==52||(LA40_0>=66 && LA40_0<=67)) ) {
                 alt40=1;
             }
             switch (alt40) {
@@ -17135,7 +17134,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5499:2: '}'
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getSequenceLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -17296,7 +17295,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt41=2;
                 int LA41_0 = input.LA(1);
 
-                if ( (LA41_0==39) ) {
+                if ( (LA41_0==38) ) {
                     alt41=1;
                 }
 
@@ -17393,7 +17392,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5581:2: ','
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getSequenceLiteralExpAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -17623,7 +17622,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5662:2: 'Set'
             {
              before(grammarAccess.getSetLiteralExpAccess().getSetKeyword_1()); 
-            match(input,47,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getSetLiteralExpAccess().getSetKeyword_1()); 
 
             }
@@ -17698,7 +17697,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5689:2: '{'
             {
              before(grammarAccess.getSetLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getSetLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -17777,7 +17776,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt42=2;
             int LA42_0 = input.LA(1);
 
-            if ( ((LA42_0>=RULE_ID && LA42_0<=RULE_INT)||LA42_0==24||LA42_0==30||LA42_0==37||(LA42_0>=41 && LA42_0<=42)||(LA42_0>=45 && LA42_0<=51)||LA42_0==53||(LA42_0>=67 && LA42_0<=68)) ) {
+            if ( ((LA42_0>=RULE_ID && LA42_0<=RULE_INT)||LA42_0==23||LA42_0==29||LA42_0==36||(LA42_0>=40 && LA42_0<=41)||(LA42_0>=44 && LA42_0<=50)||LA42_0==52||(LA42_0>=66 && LA42_0<=67)) ) {
                 alt42=1;
             }
             switch (alt42) {
@@ -17864,7 +17863,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5742:2: '}'
             {
              before(grammarAccess.getSetLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getSetLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -18025,7 +18024,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt43=2;
                 int LA43_0 = input.LA(1);
 
-                if ( (LA43_0==39) ) {
+                if ( (LA43_0==38) ) {
                     alt43=1;
                 }
 
@@ -18122,7 +18121,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5824:2: ','
             {
              before(grammarAccess.getSetLiteralExpAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getSetLiteralExpAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -18352,7 +18351,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5905:2: 'Tuple'
             {
              before(grammarAccess.getTupleLiteralExpAccess().getTupleKeyword_1()); 
-            match(input,48,FOLLOW_2); 
+            match(input,47,FOLLOW_2); 
              after(grammarAccess.getTupleLiteralExpAccess().getTupleKeyword_1()); 
 
             }
@@ -18427,7 +18426,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5932:2: '{'
             {
              before(grammarAccess.getTupleLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getTupleLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -18593,7 +18592,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5985:2: '}'
             {
              before(grammarAccess.getTupleLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getTupleLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -18754,7 +18753,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt45=2;
                 int LA45_0 = input.LA(1);
 
-                if ( (LA45_0==39) ) {
+                if ( (LA45_0==38) ) {
                     alt45=1;
                 }
 
@@ -18851,7 +18850,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6067:2: ','
             {
              before(grammarAccess.getTupleLiteralExpAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getTupleLiteralExpAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -19095,7 +19094,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt46=2;
             int LA46_0 = input.LA(1);
 
-            if ( (LA46_0==36) ) {
+            if ( (LA46_0==35) ) {
                 alt46=1;
             }
             switch (alt46) {
@@ -19187,7 +19186,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6175:2: '='
             {
              before(grammarAccess.getTuplePartAccess().getEqualsSignKeyword_2()); 
-            match(input,18,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getTuplePartAccess().getEqualsSignKeyword_2()); 
 
             }
@@ -19342,7 +19341,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6229:2: ':'
             {
              before(grammarAccess.getTuplePartAccess().getColonKeyword_1_0()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getTuplePartAccess().getColonKeyword_1_0()); 
 
             }
@@ -19572,7 +19571,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6310:2: 'Map'
             {
              before(grammarAccess.getMapLiteralExpAccess().getMapKeyword_1()); 
-            match(input,49,FOLLOW_2); 
+            match(input,48,FOLLOW_2); 
              after(grammarAccess.getMapLiteralExpAccess().getMapKeyword_1()); 
 
             }
@@ -19647,7 +19646,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6337:2: '{'
             {
              before(grammarAccess.getMapLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,43,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getMapLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -19726,7 +19725,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( (LA47_0==37) ) {
+            if ( (LA47_0==36) ) {
                 alt47=1;
             }
             switch (alt47) {
@@ -19813,7 +19812,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6390:2: '}'
             {
              before(grammarAccess.getMapLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,44,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getMapLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -19974,7 +19973,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt48=2;
                 int LA48_0 = input.LA(1);
 
-                if ( (LA48_0==39) ) {
+                if ( (LA48_0==38) ) {
                     alt48=1;
                 }
 
@@ -20071,7 +20070,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6472:2: ','
             {
              before(grammarAccess.getMapLiteralExpAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getMapLiteralExpAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -20226,7 +20225,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6526:2: '('
             {
              before(grammarAccess.getMapElementAccess().getLeftParenthesisKeyword_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getMapElementAccess().getLeftParenthesisKeyword_0()); 
 
             }
@@ -20386,7 +20385,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6580:2: ','
             {
              before(grammarAccess.getMapElementAccess().getCommaKeyword_2()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getMapElementAccess().getCommaKeyword_2()); 
 
             }
@@ -20541,7 +20540,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6633:2: ')'
             {
              before(grammarAccess.getMapElementAccess().getRightParenthesisKeyword_4()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getMapElementAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -20616,7 +20615,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6661:2: '#'
             {
              before(grammarAccess.getEnumLiteralExpAccess().getNumberSignKeyword_0()); 
-            match(input,50,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getEnumLiteralExpAccess().getNumberSignKeyword_0()); 
 
             }
@@ -20771,7 +20770,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6715:2: 'let'
             {
              before(grammarAccess.getLetExpAccess().getLetKeyword_0()); 
-            match(input,51,FOLLOW_2); 
+            match(input,50,FOLLOW_2); 
              after(grammarAccess.getLetExpAccess().getLetKeyword_0()); 
 
             }
@@ -20931,7 +20930,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6769:2: 'in'
             {
              before(grammarAccess.getLetExpAccess().getInKeyword_2()); 
-            match(input,52,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getLetExpAccess().getInKeyword_2()); 
 
             }
@@ -21086,7 +21085,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6823:2: 'if'
             {
              before(grammarAccess.getIfExpAccess().getIfKeyword_0()); 
-            match(input,53,FOLLOW_2); 
+            match(input,52,FOLLOW_2); 
              after(grammarAccess.getIfExpAccess().getIfKeyword_0()); 
 
             }
@@ -21246,7 +21245,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6877:2: 'then'
             {
              before(grammarAccess.getIfExpAccess().getThenKeyword_2()); 
-            match(input,54,FOLLOW_2); 
+            match(input,53,FOLLOW_2); 
              after(grammarAccess.getIfExpAccess().getThenKeyword_2()); 
 
             }
@@ -21406,7 +21405,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6931:2: 'else'
             {
              before(grammarAccess.getIfExpAccess().getElseKeyword_4()); 
-            match(input,55,FOLLOW_2); 
+            match(input,54,FOLLOW_2); 
              after(grammarAccess.getIfExpAccess().getElseKeyword_4()); 
 
             }
@@ -21561,7 +21560,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6984:2: 'endif'
             {
              before(grammarAccess.getIfExpAccess().getEndifKeyword_6()); 
-            match(input,56,FOLLOW_2); 
+            match(input,55,FOLLOW_2); 
              after(grammarAccess.getIfExpAccess().getEndifKeyword_6()); 
 
             }
@@ -21636,7 +21635,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7012:2: '('
             {
              before(grammarAccess.getBraceExpAccess().getLeftParenthesisKeyword_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getBraceExpAccess().getLeftParenthesisKeyword_0()); 
 
             }
@@ -21791,7 +21790,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7065:2: ')'
             {
              before(grammarAccess.getBraceExpAccess().getRightParenthesisKeyword_2()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getBraceExpAccess().getRightParenthesisKeyword_2()); 
 
             }
@@ -21866,7 +21865,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7093:2: '.'
             {
              before(grammarAccess.getOperationCallAccess().getFullStopKeyword_0()); 
-            match(input,57,FOLLOW_2); 
+            match(input,56,FOLLOW_2); 
              after(grammarAccess.getOperationCallAccess().getFullStopKeyword_0()); 
 
             }
@@ -22026,7 +22025,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7147:2: '('
             {
              before(grammarAccess.getOperationCallAccess().getLeftParenthesisKeyword_2()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getOperationCallAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -22105,7 +22104,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt49=2;
             int LA49_0 = input.LA(1);
 
-            if ( ((LA49_0>=RULE_ID && LA49_0<=RULE_INT)||LA49_0==24||LA49_0==30||LA49_0==37||(LA49_0>=41 && LA49_0<=42)||(LA49_0>=45 && LA49_0<=51)||LA49_0==53||(LA49_0>=67 && LA49_0<=68)) ) {
+            if ( ((LA49_0>=RULE_ID && LA49_0<=RULE_INT)||LA49_0==23||LA49_0==29||LA49_0==36||(LA49_0>=40 && LA49_0<=41)||(LA49_0>=44 && LA49_0<=50)||LA49_0==52||(LA49_0>=66 && LA49_0<=67)) ) {
                 alt49=1;
             }
             switch (alt49) {
@@ -22192,7 +22191,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7200:2: ')'
             {
              before(grammarAccess.getOperationCallAccess().getRightParenthesisKeyword_4()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getOperationCallAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -22353,7 +22352,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt50=2;
                 int LA50_0 = input.LA(1);
 
-                if ( (LA50_0==39) ) {
+                if ( (LA50_0==38) ) {
                     alt50=1;
                 }
 
@@ -22450,7 +22449,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7282:2: ','
             {
              before(grammarAccess.getOperationCallAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getOperationCallAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -22605,7 +22604,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7336:2: '.'
             {
              before(grammarAccess.getNavigationOrAttributeCallAccess().getFullStopKeyword_0()); 
-            match(input,57,FOLLOW_2); 
+            match(input,56,FOLLOW_2); 
              after(grammarAccess.getNavigationOrAttributeCallAccess().getFullStopKeyword_0()); 
 
             }
@@ -22760,7 +22759,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7390:2: '->'
             {
              before(grammarAccess.getIterateExpAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
-            match(input,58,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getIterateExpAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
 
             }
@@ -22835,7 +22834,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7417:2: 'iterate'
             {
              before(grammarAccess.getIterateExpAccess().getIterateKeyword_1()); 
-            match(input,59,FOLLOW_2); 
+            match(input,58,FOLLOW_2); 
              after(grammarAccess.getIterateExpAccess().getIterateKeyword_1()); 
 
             }
@@ -22910,7 +22909,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7444:2: '('
             {
              before(grammarAccess.getIterateExpAccess().getLeftParenthesisKeyword_2()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getIterateExpAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -23076,7 +23075,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt51=2;
                 int LA51_0 = input.LA(1);
 
-                if ( (LA51_0==39) ) {
+                if ( (LA51_0==38) ) {
                     alt51=1;
                 }
 
@@ -23173,7 +23172,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7525:2: ';'
             {
              before(grammarAccess.getIterateExpAccess().getSemicolonKeyword_5()); 
-            match(input,60,FOLLOW_2); 
+            match(input,59,FOLLOW_2); 
              after(grammarAccess.getIterateExpAccess().getSemicolonKeyword_5()); 
 
             }
@@ -23333,7 +23332,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7579:2: '|'
             {
              before(grammarAccess.getIterateExpAccess().getVerticalLineKeyword_7()); 
-            match(input,61,FOLLOW_2); 
+            match(input,60,FOLLOW_2); 
              after(grammarAccess.getIterateExpAccess().getVerticalLineKeyword_7()); 
 
             }
@@ -23488,7 +23487,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7632:2: ')'
             {
              before(grammarAccess.getIterateExpAccess().getRightParenthesisKeyword_9()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getIterateExpAccess().getRightParenthesisKeyword_9()); 
 
             }
@@ -23563,7 +23562,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7660:2: ','
             {
              before(grammarAccess.getIterateExpAccess().getCommaKeyword_4_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getIterateExpAccess().getCommaKeyword_4_0()); 
 
             }
@@ -23802,7 +23801,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt52=2;
             int LA52_0 = input.LA(1);
 
-            if ( (LA52_0==36) ) {
+            if ( (LA52_0==35) ) {
                 alt52=1;
             }
             switch (alt52) {
@@ -23894,7 +23893,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7768:2: ':'
             {
              before(grammarAccess.getIteratorAccess().getColonKeyword_1_0()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getIteratorAccess().getColonKeyword_1_0()); 
 
             }
@@ -24049,7 +24048,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7822:2: '->'
             {
              before(grammarAccess.getIteratorExpAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
-            match(input,58,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getIteratorExpAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
 
             }
@@ -24209,7 +24208,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7876:2: '('
             {
              before(grammarAccess.getIteratorExpAccess().getLeftParenthesisKeyword_2()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getIteratorExpAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -24375,7 +24374,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt53=2;
                 int LA53_0 = input.LA(1);
 
-                if ( (LA53_0==39) ) {
+                if ( (LA53_0==38) ) {
                     alt53=1;
                 }
 
@@ -24472,7 +24471,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7957:2: '|'
             {
              before(grammarAccess.getIteratorExpAccess().getVerticalLineKeyword_5()); 
-            match(input,61,FOLLOW_2); 
+            match(input,60,FOLLOW_2); 
              after(grammarAccess.getIteratorExpAccess().getVerticalLineKeyword_5()); 
 
             }
@@ -24627,7 +24626,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8010:2: ')'
             {
              before(grammarAccess.getIteratorExpAccess().getRightParenthesisKeyword_7()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getIteratorExpAccess().getRightParenthesisKeyword_7()); 
 
             }
@@ -24702,7 +24701,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8038:2: ','
             {
              before(grammarAccess.getIteratorExpAccess().getCommaKeyword_4_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getIteratorExpAccess().getCommaKeyword_4_0()); 
 
             }
@@ -24857,7 +24856,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8092:2: '->'
             {
              before(grammarAccess.getCollectionOperationCallAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
-            match(input,58,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getCollectionOperationCallAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
 
             }
@@ -25017,7 +25016,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8146:2: '('
             {
              before(grammarAccess.getCollectionOperationCallAccess().getLeftParenthesisKeyword_2()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getCollectionOperationCallAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -25096,7 +25095,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt54=2;
             int LA54_0 = input.LA(1);
 
-            if ( ((LA54_0>=RULE_ID && LA54_0<=RULE_INT)||LA54_0==24||LA54_0==30||LA54_0==37||(LA54_0>=41 && LA54_0<=42)||(LA54_0>=45 && LA54_0<=51)||LA54_0==53||(LA54_0>=67 && LA54_0<=68)) ) {
+            if ( ((LA54_0>=RULE_ID && LA54_0<=RULE_INT)||LA54_0==23||LA54_0==29||LA54_0==36||(LA54_0>=40 && LA54_0<=41)||(LA54_0>=44 && LA54_0<=50)||LA54_0==52||(LA54_0>=66 && LA54_0<=67)) ) {
                 alt54=1;
             }
             switch (alt54) {
@@ -25183,7 +25182,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8199:2: ')'
             {
              before(grammarAccess.getCollectionOperationCallAccess().getRightParenthesisKeyword_4()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getCollectionOperationCallAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -25344,7 +25343,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt55=2;
                 int LA55_0 = input.LA(1);
 
-                if ( (LA55_0==39) ) {
+                if ( (LA55_0==38) ) {
                     alt55=1;
                 }
 
@@ -25441,7 +25440,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8281:2: ','
             {
              before(grammarAccess.getCollectionOperationCallAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getCollectionOperationCallAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -25685,7 +25684,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt56=2;
             int LA56_0 = input.LA(1);
 
-            if ( (LA56_0==36) ) {
+            if ( (LA56_0==35) ) {
                 alt56=1;
             }
             switch (alt56) {
@@ -25777,7 +25776,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8389:2: '='
             {
              before(grammarAccess.getLocalVariableAccess().getEqualsSignKeyword_2()); 
-            match(input,18,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getLocalVariableAccess().getEqualsSignKeyword_2()); 
 
             }
@@ -25932,7 +25931,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8443:2: ':'
             {
              before(grammarAccess.getLocalVariableAccess().getColonKeyword_1_0()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getLocalVariableAccess().getColonKeyword_1_0()); 
 
             }
@@ -26087,7 +26086,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8497:2: 'Bag'
             {
              before(grammarAccess.getBagTypeAccess().getBagKeyword_0()); 
-            match(input,42,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getBagTypeAccess().getBagKeyword_0()); 
 
             }
@@ -26162,7 +26161,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8524:2: '('
             {
              before(grammarAccess.getBagTypeAccess().getLeftParenthesisKeyword_1()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getBagTypeAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -26317,7 +26316,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8577:2: ')'
             {
              before(grammarAccess.getBagTypeAccess().getRightParenthesisKeyword_3()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getBagTypeAccess().getRightParenthesisKeyword_3()); 
 
             }
@@ -26392,7 +26391,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8605:2: 'OrderedSet'
             {
              before(grammarAccess.getOrderedSetTypeAccess().getOrderedSetKeyword_0()); 
-            match(input,45,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getOrderedSetTypeAccess().getOrderedSetKeyword_0()); 
 
             }
@@ -26467,7 +26466,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8632:2: '('
             {
              before(grammarAccess.getOrderedSetTypeAccess().getLeftParenthesisKeyword_1()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getOrderedSetTypeAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -26622,7 +26621,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8685:2: ')'
             {
              before(grammarAccess.getOrderedSetTypeAccess().getRightParenthesisKeyword_3()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getOrderedSetTypeAccess().getRightParenthesisKeyword_3()); 
 
             }
@@ -26697,7 +26696,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8713:2: 'Sequence'
             {
              before(grammarAccess.getSequenceTypeAccess().getSequenceKeyword_0()); 
-            match(input,46,FOLLOW_2); 
+            match(input,45,FOLLOW_2); 
              after(grammarAccess.getSequenceTypeAccess().getSequenceKeyword_0()); 
 
             }
@@ -26772,7 +26771,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8740:2: '('
             {
              before(grammarAccess.getSequenceTypeAccess().getLeftParenthesisKeyword_1()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getSequenceTypeAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -26927,7 +26926,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8793:2: ')'
             {
              before(grammarAccess.getSequenceTypeAccess().getRightParenthesisKeyword_3()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getSequenceTypeAccess().getRightParenthesisKeyword_3()); 
 
             }
@@ -27002,7 +27001,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8821:2: 'Set'
             {
              before(grammarAccess.getSetTypeAccess().getSetKeyword_0()); 
-            match(input,47,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getSetTypeAccess().getSetKeyword_0()); 
 
             }
@@ -27077,7 +27076,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8848:2: '('
             {
              before(grammarAccess.getSetTypeAccess().getLeftParenthesisKeyword_1()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getSetTypeAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -27232,7 +27231,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8901:2: ')'
             {
              before(grammarAccess.getSetTypeAccess().getRightParenthesisKeyword_3()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getSetTypeAccess().getRightParenthesisKeyword_3()); 
 
             }
@@ -27377,7 +27376,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8955:2: 'String'
             {
              before(grammarAccess.getStringTypeAccess().getStringKeyword_1()); 
-            match(input,62,FOLLOW_2); 
+            match(input,61,FOLLOW_2); 
              after(grammarAccess.getStringTypeAccess().getStringKeyword_1()); 
 
             }
@@ -27522,7 +27521,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9009:2: 'Boolean'
             {
              before(grammarAccess.getBooleanTypeAccess().getBooleanKeyword_1()); 
-            match(input,63,FOLLOW_2); 
+            match(input,62,FOLLOW_2); 
              after(grammarAccess.getBooleanTypeAccess().getBooleanKeyword_1()); 
 
             }
@@ -27667,7 +27666,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9063:2: 'Integer'
             {
              before(grammarAccess.getIntegerTypeAccess().getIntegerKeyword_1()); 
-            match(input,64,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getIntegerTypeAccess().getIntegerKeyword_1()); 
 
             }
@@ -27812,7 +27811,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9117:2: 'Real'
             {
              before(grammarAccess.getRealTypeAccess().getRealKeyword_1()); 
-            match(input,65,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getRealTypeAccess().getRealKeyword_1()); 
 
             }
@@ -27957,7 +27956,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9171:2: 'OclAny'
             {
              before(grammarAccess.getOclAnyTypeAccess().getOclAnyKeyword_1()); 
-            match(input,66,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getOclAnyTypeAccess().getOclAnyKeyword_1()); 
 
             }
@@ -28107,7 +28106,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9226:2: 'Tuple'
             {
              before(grammarAccess.getTupleTypeAccess().getTupleKeyword_1()); 
-            match(input,48,FOLLOW_2); 
+            match(input,47,FOLLOW_2); 
              after(grammarAccess.getTupleTypeAccess().getTupleKeyword_1()); 
 
             }
@@ -28182,7 +28181,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9253:2: '('
             {
              before(grammarAccess.getTupleTypeAccess().getLeftParenthesisKeyword_2()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getTupleTypeAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -28348,7 +28347,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9306:2: ')'
             {
              before(grammarAccess.getTupleTypeAccess().getRightParenthesisKeyword_4()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getTupleTypeAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -28509,7 +28508,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt58=2;
                 int LA58_0 = input.LA(1);
 
-                if ( (LA58_0==39) ) {
+                if ( (LA58_0==38) ) {
                     alt58=1;
                 }
 
@@ -28606,7 +28605,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9388:2: ','
             {
              before(grammarAccess.getTupleTypeAccess().getCommaKeyword_3_1_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getTupleTypeAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -28846,7 +28845,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9469:2: ':'
             {
              before(grammarAccess.getTupleTypeAttributeAccess().getColonKeyword_1()); 
-            match(input,36,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getTupleTypeAttributeAccess().getColonKeyword_1()); 
 
             }
@@ -29086,7 +29085,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9550:2: '!'
             {
              before(grammarAccess.getOclModelElementClassAccess().getExclamationMarkKeyword_1()); 
-            match(input,34,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getOclModelElementClassAccess().getExclamationMarkKeyword_1()); 
 
             }
@@ -29241,7 +29240,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9604:2: 'Map'
             {
              before(grammarAccess.getMapTypeAccess().getMapKeyword_0()); 
-            match(input,49,FOLLOW_2); 
+            match(input,48,FOLLOW_2); 
              after(grammarAccess.getMapTypeAccess().getMapKeyword_0()); 
 
             }
@@ -29316,7 +29315,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9631:2: '('
             {
              before(grammarAccess.getMapTypeAccess().getLeftParenthesisKeyword_1()); 
-            match(input,37,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getMapTypeAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -29476,7 +29475,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9685:2: ','
             {
              before(grammarAccess.getMapTypeAccess().getCommaKeyword_3()); 
-            match(input,39,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getMapTypeAccess().getCommaKeyword_3()); 
 
             }
@@ -29631,7 +29630,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9738:2: ')'
             {
              before(grammarAccess.getMapTypeAccess().getRightParenthesisKeyword_5()); 
-            match(input,38,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getMapTypeAccess().getRightParenthesisKeyword_5()); 
 
             }
@@ -29782,7 +29781,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 int alt59=2;
                 int LA59_0 = input.LA(1);
 
-                if ( (LA59_0==57) ) {
+                if ( (LA59_0==56) ) {
                     alt59=1;
                 }
 
@@ -29879,7 +29878,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9820:2: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
-            match(input,57,FOLLOW_2); 
+            match(input,56,FOLLOW_2); 
              after(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -31661,9 +31660,9 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__StringLiteralExp__StringSymbolAssignment_1"
 
 
-    // $ANTLR start "rule__RealExp__RealSymbolAssignment"
-    // InternalOcl.g:10491:1: rule__RealExp__RealSymbolAssignment : ( RULE_DOUBLE ) ;
-    public final void rule__RealExp__RealSymbolAssignment() throws RecognitionException {
+    // $ANTLR start "rule__RealLiteralExp__RealSymbolAssignment"
+    // InternalOcl.g:10491:1: rule__RealLiteralExp__RealSymbolAssignment : ( RULE_DOUBLE ) ;
+    public final void rule__RealLiteralExp__RealSymbolAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -31674,9 +31673,9 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:10496:2: ( RULE_DOUBLE )
             // InternalOcl.g:10497:3: RULE_DOUBLE
             {
-             before(grammarAccess.getRealExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); 
+             before(grammarAccess.getRealLiteralExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); 
             match(input,RULE_DOUBLE,FOLLOW_2); 
-             after(grammarAccess.getRealExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); 
+             after(grammarAccess.getRealLiteralExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); 
 
             }
 
@@ -31695,12 +31694,12 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__RealExp__RealSymbolAssignment"
+    // $ANTLR end "rule__RealLiteralExp__RealSymbolAssignment"
 
 
-    // $ANTLR start "rule__IntegerExp__IntegerSymbolAssignment_1"
-    // InternalOcl.g:10506:1: rule__IntegerExp__IntegerSymbolAssignment_1 : ( RULE_INT ) ;
-    public final void rule__IntegerExp__IntegerSymbolAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__IntegerLiteralExp__IntegerSymbolAssignment_1"
+    // InternalOcl.g:10506:1: rule__IntegerLiteralExp__IntegerSymbolAssignment_1 : ( RULE_INT ) ;
+    public final void rule__IntegerLiteralExp__IntegerSymbolAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -31711,9 +31710,9 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:10511:2: ( RULE_INT )
             // InternalOcl.g:10512:3: RULE_INT
             {
-             before(grammarAccess.getIntegerExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); 
+             before(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); 
             match(input,RULE_INT,FOLLOW_2); 
-             after(grammarAccess.getIntegerExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); 
+             after(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); 
 
             }
 
@@ -31732,7 +31731,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__IntegerExp__IntegerSymbolAssignment_1"
+    // $ANTLR end "rule__IntegerLiteralExp__IntegerSymbolAssignment_1"
 
 
     // $ANTLR start "rule__BagLiteralExp__ElementsAssignment_3_0"
@@ -32766,7 +32765,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:10904:4: 'true'
             {
              before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolTrueKeyword_0_0()); 
-            match(input,67,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolTrueKeyword_0_0()); 
 
             }
@@ -32811,7 +32810,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:10923:4: 'false'
             {
              before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolFalseKeyword_1_0()); 
-            match(input,68,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolFalseKeyword_1_0()); 
 
             }
@@ -34202,12 +34201,12 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     protected DFA16 dfa16 = new DFA16(this);
     static final String dfa_1s = "\21\uffff";
     static final String dfa_2s = "\1\uffff\1\20\17\uffff";
-    static final String dfa_3s = "\1\4\1\15\17\uffff";
-    static final String dfa_4s = "\1\104\1\75\17\uffff";
+    static final String dfa_3s = "\1\4\1\14\17\uffff";
+    static final String dfa_4s = "\1\103\1\74\17\uffff";
     static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\1";
     static final String dfa_6s = "\21\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\1\3\2\5\35\uffff\1\16\3\uffff\1\2\1\6\2\uffff\1\7\1\10\1\11\1\12\1\13\1\14\2\uffff\1\15\15\uffff\2\4",
+            "\1\1\1\3\2\5\34\uffff\1\16\3\uffff\1\2\1\6\2\uffff\1\7\1\10\1\11\1\12\1\13\1\14\2\uffff\1\15\15\uffff\2\4",
             "\21\20\3\uffff\1\20\1\17\1\20\2\uffff\3\20\3\uffff\1\20\7\uffff\1\20\1\uffff\5\20\2\uffff\1\20",
             "",
             "",
@@ -34253,24 +34252,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     }
     static final String dfa_8s = "\17\uffff";
     static final String dfa_9s = "\3\uffff\2\10\12\uffff";
-    static final String dfa_10s = "\1\71\2\4\2\15\1\45\3\uffff\1\4\1\15\1\uffff\1\4\1\uffff\1\15";
-    static final String dfa_11s = "\1\72\1\5\1\73\2\75\1\45\3\uffff\1\104\1\75\1\uffff\1\104\1\uffff\1\75";
+    static final String dfa_10s = "\1\70\2\4\2\14\1\44\3\uffff\1\4\1\14\1\uffff\1\4\1\uffff\1\14";
+    static final String dfa_11s = "\1\71\1\5\1\72\2\74\1\44\3\uffff\1\103\1\74\1\uffff\1\103\1\uffff\1\74";
     static final String dfa_12s = "\6\uffff\1\3\1\1\1\2\2\uffff\1\5\1\uffff\1\4\1\uffff";
     static final String dfa_13s = "\17\uffff}>";
     static final String[] dfa_14s = {
             "\1\1\1\2",
             "\1\4\1\3",
-            "\1\5\66\uffff\1\6",
+            "\1\5\65\uffff\1\6",
             "\21\10\3\uffff\1\10\1\uffff\1\10\1\uffff\1\7\3\10\3\uffff\1\10\7\uffff\1\10\1\uffff\5\10\2\uffff\1\10",
             "\21\10\3\uffff\1\10\1\uffff\1\10\1\uffff\1\7\3\10\3\uffff\1\10\7\uffff\1\10\1\uffff\5\10\2\uffff\1\10",
             "\1\11",
             "",
             "",
             "",
-            "\1\12\3\13\20\uffff\1\13\5\uffff\1\13\6\uffff\2\13\2\uffff\2\13\2\uffff\7\13\1\uffff\1\13\15\uffff\2\13",
+            "\1\12\3\13\17\uffff\1\13\5\uffff\1\13\6\uffff\2\13\2\uffff\2\13\2\uffff\7\13\1\uffff\1\13\15\uffff\2\13",
             "\21\13\4\uffff\1\13\1\uffff\1\15\1\uffff\1\13\1\14\21\uffff\2\13\2\uffff\1\15",
             "",
-            "\1\16\3\13\20\uffff\1\13\5\uffff\1\13\6\uffff\1\13\3\uffff\2\13\2\uffff\7\13\1\uffff\1\13\15\uffff\2\13",
+            "\1\16\3\13\17\uffff\1\13\5\uffff\1\13\6\uffff\1\13\3\uffff\2\13\2\uffff\7\13\1\uffff\1\13\15\uffff\2\13",
             "",
             "\21\13\4\uffff\1\13\1\uffff\1\15\1\uffff\1\13\1\14\21\uffff\2\13\2\uffff\1\15"
     };
@@ -34304,67 +34303,67 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000A00000000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000A00000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000500000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000400000002L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000500000002L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000080000000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000010800000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000010800000002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0xC003E40000000010L,0x0000000000000007L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x002FE620410000F0L,0x0000000000000018L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000004000000010L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x000000000003E000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000000000003E002L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0027E620410000F0L,0x0000000000000018L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x00000000000C0000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000F00000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000003000002L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x000000000C000002L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000030000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000030000002L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0600000000000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0600000000000002L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000008400000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000008400000002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0xE001F20000000010L,0x0000000000000003L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0017F310208000F0L,0x000000000000000CL});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000002000000010L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000004000000002L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x000000000001F000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000000000001F002L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0013F310208000F0L,0x000000000000000CL});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000780000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000001800002L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000006000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000006000002L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000018000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000018000002L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0300000000000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0300000000000002L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000010000000000L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x00000000000000C0L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x002FF620410000F0L,0x0000000000000018L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000100000000020L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000001000040000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000102000000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0017FB10208000F0L,0x000000000000000CL});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000080000000020L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000800020000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000081000000000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x002FE660410000F0L,0x0000000000000018L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x1000008000000000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x2000008000000000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0xC000000000000000L,0x0000000000000003L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0017F330208000F0L,0x000000000000000CL});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0800004000000000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x1000004000000000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0xE000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0100000000000002L});
 
 }
