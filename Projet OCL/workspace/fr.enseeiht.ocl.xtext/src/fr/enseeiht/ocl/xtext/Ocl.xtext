@@ -289,7 +289,7 @@ terminal DOUBLE returns ecore::EDouble :
 QualifiedName: ID ('.' ID)*;
 
 terminal OCL_COMMENT:
-    '--' !('\n'|'\r')* ('\r'? '\n')?
+    '--'.*
 ;
 
 	
