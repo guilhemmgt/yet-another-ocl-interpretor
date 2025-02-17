@@ -112,13 +112,13 @@ StringLiteralExp :
 	stringSymbol=STRING
 ;
 NumericLiteralExp: 
-	RealExp|IntegerExp
+	RealLiteralExp|IntegerLiteralExp
 ;
-RealExp : realSymbol=DOUBLE;
+RealLiteralExp : realSymbol=DOUBLE;
 
 
-IntegerExp:
-	{IntegerExp}
+IntegerLiteralExp:
+	{IntegerLiteralExp}
 	integerSymbol=INT
 ;
 BagLiteralExp:
@@ -281,15 +281,14 @@ MapType :
 ;
 
 
-
-
 terminal DOUBLE returns ecore::EDouble :
 (INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
 
 QualifiedName: ID ('.' ID)*;
 
-terminal OCL_COMMENT:
-    '--'.*
-;
 
+@Override
+terminal SL_COMMENT:
+    '--' .* '\n'
+;
 	

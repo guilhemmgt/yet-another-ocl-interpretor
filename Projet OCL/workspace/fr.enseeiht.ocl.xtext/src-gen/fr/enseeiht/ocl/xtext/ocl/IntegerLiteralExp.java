@@ -6,21 +6,21 @@ package fr.enseeiht.ocl.xtext.ocl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Integer Exp</b></em>'.
+ * A representation of the model object '<em><b>Integer Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.IntegerExp#getIntegerSymbol <em>Integer Symbol</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp#getIntegerSymbol <em>Integer Symbol</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getIntegerExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getIntegerLiteralExp()
  * @model
  * @generated
  */
-public interface IntegerExp extends NumericLiteralExp
+public interface IntegerLiteralExp extends NumericLiteralExp
 {
   /**
    * Returns the value of the '<em><b>Integer Symbol</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface IntegerExp extends NumericLiteralExp
    * <!-- end-user-doc -->
    * @return the value of the '<em>Integer Symbol</em>' attribute.
    * @see #setIntegerSymbol(int)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getIntegerExp_IntegerSymbol()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getIntegerLiteralExp_IntegerSymbol()
    * @model
    * @generated
    */
   int getIntegerSymbol();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.IntegerExp#getIntegerSymbol <em>Integer Symbol</em>}' attribute.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp#getIntegerSymbol <em>Integer Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Integer Symbol</em>' attribute.
@@ -44,4 +44,4 @@ public interface IntegerExp extends NumericLiteralExp
    */
   void setIntegerSymbol(int value);
 
-} // IntegerExp
+} // IntegerLiteralExp

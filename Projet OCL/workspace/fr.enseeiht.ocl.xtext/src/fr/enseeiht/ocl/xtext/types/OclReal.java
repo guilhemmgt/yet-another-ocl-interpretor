@@ -6,6 +6,7 @@ public class OclReal extends OclAny {
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
+		// conformance à OclAny et lui-même
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean realType = oclType.getClass().equals(OclReal.class);
 		return anyType || realType;
@@ -13,8 +14,14 @@ public class OclReal extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// TODO Auto-generated method stub
-		return null;
+		// OclReal s'unifie en OclInvalid avec lui-même, en OclAny avec tous les autres types.
+		if (oclType instanceof OclReal) {
+			return new OclReal();
+		}
+		else {
+			return new OclAny();
+		}
+		
 	}
 
 }

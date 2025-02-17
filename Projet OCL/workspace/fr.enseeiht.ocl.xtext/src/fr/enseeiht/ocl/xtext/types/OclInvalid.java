@@ -6,15 +6,21 @@ public class OclInvalid extends OclAny {
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
-		boolean anyType = oclType.getClass().equals(OclAny.class);
+		// conformance à OclAny et lui-même
+		boolean anyType = oclType.getClass().equals(OclAny.class); 
 		boolean invalidType = oclType.getClass().equals(OclInvalid.class);
 		return anyType || invalidType;
 	}
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// TODO Auto-generated method stub
-		return null;
+		// OclInvalid s'unifie en OclInvalid avec lui-même, en OclAny avec tous les autres types.
+		if (oclType instanceof OclInvalid) {
+			return new OclInvalid();
+		}
+		else {
+			return new OclAny();
+		}
 	}
 	
 
