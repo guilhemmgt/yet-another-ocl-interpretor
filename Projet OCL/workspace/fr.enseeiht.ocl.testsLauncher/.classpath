@@ -162,5 +162,6 @@
 			<attribute name="javadoc_location" value="http://junit.org/junit5/docs/current/api/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/fr.enseeiht.yaoi"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
