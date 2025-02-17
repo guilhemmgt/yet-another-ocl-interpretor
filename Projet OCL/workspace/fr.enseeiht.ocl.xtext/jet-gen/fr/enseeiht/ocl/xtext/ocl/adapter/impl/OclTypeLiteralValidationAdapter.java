@@ -4,21 +4,21 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.SetType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
- * OCLAdapter for SetType
+ * OCLAdapter for OclTypeLiteral
  * @generated
  */
-public final class SetTypeValidationAdapter implements OCLAdapter {
+public final class OclTypeLiteralValidationAdapter implements OCLAdapter {
 
-  private SetType target;
+  private OclTypeLiteral target;
 
   /**
    * @generated
    */
-  public SetTypeValidationAdapter(SetType object) {
+  public OclTypeLiteralValidationAdapter(OclTypeLiteral object) {
     this.target = object;
   }
 
@@ -29,7 +29,7 @@ public final class SetTypeValidationAdapter implements OCLAdapter {
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de SetTypeAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException("La methode getValue de OclTypeLiteralAdapter n'as pas encore été implémentée");
   }
 
   /**
@@ -38,7 +38,7 @@ public final class SetTypeValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de SetTypeAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException("La methode getType de OclTypeLiteralAdapter n'as pas encore été implémentée");
   }
 
   /**
