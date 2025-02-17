@@ -522,6 +522,18 @@ public class OCLValidationAdapterFactory
   }
 
   /**
+   * Creates an adapter for the <code>target</code>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param target the object to adapt.
+   * @return the adapter for the <code>target</code>.
+   * @generated
+   */
+  public OCLAdapter createAdapter(EObject target)
+  {
+    return modelSwitch.doSwitch(target);
+  }
+  /**
    * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.Module <em>Module</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
