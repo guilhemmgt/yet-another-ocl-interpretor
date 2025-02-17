@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class IntegerExpImpl extends NumericExpImpl implements IntegerExp
+public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
 {
   /**
    * The default value of the '{@link #getIntegerSymbol() <em>Integer Symbol</em>}' attribute.

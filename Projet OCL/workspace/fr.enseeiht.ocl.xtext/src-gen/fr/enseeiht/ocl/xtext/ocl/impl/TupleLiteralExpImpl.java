@@ -4,7 +4,7 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.TupleExp;
+import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 
 import java.util.Collection;
@@ -21,18 +21,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Tuple Exp</b></em>'.
+ * An implementation of the model object '<em><b>Tuple Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleExpImpl#getTuplePart <em>Tuple Part</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleLiteralExpImpl#getTuplePart <em>Tuple Part</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TupleExpImpl extends OclExpressionImpl implements TupleExp
+public class TupleLiteralExpImpl extends OclExpressionImpl implements TupleLiteralExp
 {
   /**
    * The cached value of the '{@link #getTuplePart() <em>Tuple Part</em>}' containment reference list.
@@ -49,7 +49,7 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TupleExpImpl()
+  protected TupleLiteralExpImpl()
   {
     super();
   }
@@ -62,7 +62,7 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.TUPLE_EXP;
+    return OclPackage.Literals.TUPLE_LITERAL_EXP;
   }
 
   /**
@@ -75,7 +75,7 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
   {
     if (tuplePart == null)
     {
-      tuplePart = new EObjectContainmentEList<TuplePart>(TuplePart.class, this, OclPackage.TUPLE_EXP__TUPLE_PART);
+      tuplePart = new EObjectContainmentEList<TuplePart>(TuplePart.class, this, OclPackage.TUPLE_LITERAL_EXP__TUPLE_PART);
     }
     return tuplePart;
   }
@@ -90,7 +90,7 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
   {
     switch (featureID)
     {
-      case OclPackage.TUPLE_EXP__TUPLE_PART:
+      case OclPackage.TUPLE_LITERAL_EXP__TUPLE_PART:
         return ((InternalEList<?>)getTuplePart()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
   {
     switch (featureID)
     {
-      case OclPackage.TUPLE_EXP__TUPLE_PART:
+      case OclPackage.TUPLE_LITERAL_EXP__TUPLE_PART:
         return getTuplePart();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
   {
     switch (featureID)
     {
-      case OclPackage.TUPLE_EXP__TUPLE_PART:
+      case OclPackage.TUPLE_LITERAL_EXP__TUPLE_PART:
         getTuplePart().clear();
         getTuplePart().addAll((Collection<? extends TuplePart>)newValue);
         return;
@@ -141,7 +141,7 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
   {
     switch (featureID)
     {
-      case OclPackage.TUPLE_EXP__TUPLE_PART:
+      case OclPackage.TUPLE_LITERAL_EXP__TUPLE_PART:
         getTuplePart().clear();
         return;
     }
@@ -158,10 +158,10 @@ public class TupleExpImpl extends OclExpressionImpl implements TupleExp
   {
     switch (featureID)
     {
-      case OclPackage.TUPLE_EXP__TUPLE_PART:
+      case OclPackage.TUPLE_LITERAL_EXP__TUPLE_PART:
         return tuplePart != null && !tuplePart.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //TupleExpImpl
+} //TupleLiteralExpImpl

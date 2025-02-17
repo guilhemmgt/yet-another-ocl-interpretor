@@ -3,8 +3,8 @@
  */
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
+import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.StringExp;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,45 +14,45 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String Exp</b></em>'.
+ * An implementation of the model object '<em><b>Boolean Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.StringExpImpl#getStringSymbol <em>String Symbol</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.BooleanLiteralExpImpl#getBooleanSymbol <em>Boolean Symbol</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StringExpImpl extends OclExpressionImpl implements StringExp
+public class BooleanLiteralExpImpl extends OclExpressionImpl implements BooleanLiteralExp
 {
   /**
-   * The default value of the '{@link #getStringSymbol() <em>String Symbol</em>}' attribute.
+   * The default value of the '{@link #getBooleanSymbol() <em>Boolean Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStringSymbol()
+   * @see #getBooleanSymbol()
    * @generated
    * @ordered
    */
-  protected static final String STRING_SYMBOL_EDEFAULT = null;
+  protected static final String BOOLEAN_SYMBOL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getStringSymbol() <em>String Symbol</em>}' attribute.
+   * The cached value of the '{@link #getBooleanSymbol() <em>Boolean Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStringSymbol()
+   * @see #getBooleanSymbol()
    * @generated
    * @ordered
    */
-  protected String stringSymbol = STRING_SYMBOL_EDEFAULT;
+  protected String booleanSymbol = BOOLEAN_SYMBOL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StringExpImpl()
+  protected BooleanLiteralExpImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.STRING_EXP;
+    return OclPackage.Literals.BOOLEAN_LITERAL_EXP;
   }
 
   /**
@@ -74,9 +74,9 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
    * @generated
    */
   @Override
-  public String getStringSymbol()
+  public String getBooleanSymbol()
   {
-    return stringSymbol;
+    return booleanSymbol;
   }
 
   /**
@@ -85,12 +85,12 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
    * @generated
    */
   @Override
-  public void setStringSymbol(String newStringSymbol)
+  public void setBooleanSymbol(String newBooleanSymbol)
   {
-    String oldStringSymbol = stringSymbol;
-    stringSymbol = newStringSymbol;
+    String oldBooleanSymbol = booleanSymbol;
+    booleanSymbol = newBooleanSymbol;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.STRING_EXP__STRING_SYMBOL, oldStringSymbol, stringSymbol));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL, oldBooleanSymbol, booleanSymbol));
   }
 
   /**
@@ -103,8 +103,8 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
   {
     switch (featureID)
     {
-      case OclPackage.STRING_EXP__STRING_SYMBOL:
-        return getStringSymbol();
+      case OclPackage.BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL:
+        return getBooleanSymbol();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
   {
     switch (featureID)
     {
-      case OclPackage.STRING_EXP__STRING_SYMBOL:
-        setStringSymbol((String)newValue);
+      case OclPackage.BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL:
+        setBooleanSymbol((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
   {
     switch (featureID)
     {
-      case OclPackage.STRING_EXP__STRING_SYMBOL:
-        setStringSymbol(STRING_SYMBOL_EDEFAULT);
+      case OclPackage.BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL:
+        setBooleanSymbol(BOOLEAN_SYMBOL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
   {
     switch (featureID)
     {
-      case OclPackage.STRING_EXP__STRING_SYMBOL:
-        return STRING_SYMBOL_EDEFAULT == null ? stringSymbol != null : !STRING_SYMBOL_EDEFAULT.equals(stringSymbol);
+      case OclPackage.BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL:
+        return BOOLEAN_SYMBOL_EDEFAULT == null ? booleanSymbol != null : !BOOLEAN_SYMBOL_EDEFAULT.equals(booleanSymbol);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class StringExpImpl extends OclExpressionImpl implements StringExp
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (stringSymbol: ");
-    result.append(stringSymbol);
+    result.append(" (booleanSymbol: ");
+    result.append(booleanSymbol);
     result.append(')');
     return result.toString();
   }
 
-} //StringExpImpl
+} //BooleanLiteralExpImpl

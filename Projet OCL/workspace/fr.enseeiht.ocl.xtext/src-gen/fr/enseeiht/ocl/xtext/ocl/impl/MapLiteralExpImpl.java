@@ -3,9 +3,9 @@
  */
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
-import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.MapElement;
+import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.SetExp;
 
 import java.util.Collection;
 
@@ -21,18 +21,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Set Exp</b></em>'.
+ * An implementation of the model object '<em><b>Map Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.SetExpImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.MapLiteralExpImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SetExpImpl extends OclExpressionImpl implements SetExp
+public class MapLiteralExpImpl extends OclExpressionImpl implements MapLiteralExp
 {
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -42,14 +42,14 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
    * @generated
    * @ordered
    */
-  protected EList<OclExpression> elements;
+  protected EList<MapElement> elements;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SetExpImpl()
+  protected MapLiteralExpImpl()
   {
     super();
   }
@@ -62,7 +62,7 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.SET_EXP;
+    return OclPackage.Literals.MAP_LITERAL_EXP;
   }
 
   /**
@@ -71,11 +71,11 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
    * @generated
    */
   @Override
-  public EList<OclExpression> getElements()
+  public EList<MapElement> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<OclExpression>(OclExpression.class, this, OclPackage.SET_EXP__ELEMENTS);
+      elements = new EObjectContainmentEList<MapElement>(MapElement.class, this, OclPackage.MAP_LITERAL_EXP__ELEMENTS);
     }
     return elements;
   }
@@ -90,7 +90,7 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
   {
     switch (featureID)
     {
-      case OclPackage.SET_EXP__ELEMENTS:
+      case OclPackage.MAP_LITERAL_EXP__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
   {
     switch (featureID)
     {
-      case OclPackage.SET_EXP__ELEMENTS:
+      case OclPackage.MAP_LITERAL_EXP__ELEMENTS:
         return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,9 +123,9 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
   {
     switch (featureID)
     {
-      case OclPackage.SET_EXP__ELEMENTS:
+      case OclPackage.MAP_LITERAL_EXP__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends OclExpression>)newValue);
+        getElements().addAll((Collection<? extends MapElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,7 +141,7 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
   {
     switch (featureID)
     {
-      case OclPackage.SET_EXP__ELEMENTS:
+      case OclPackage.MAP_LITERAL_EXP__ELEMENTS:
         getElements().clear();
         return;
     }
@@ -158,10 +158,10 @@ public class SetExpImpl extends OclExpressionImpl implements SetExp
   {
     switch (featureID)
     {
-      case OclPackage.SET_EXP__ELEMENTS:
+      case OclPackage.MAP_LITERAL_EXP__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //SetExpImpl
+} //MapLiteralExpImpl

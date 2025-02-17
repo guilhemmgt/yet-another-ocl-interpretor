@@ -3,26 +3,28 @@
  */
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
-import fr.enseeiht.ocl.xtext.ocl.NumericExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Numeric Exp</b></em>'.
+ * An implementation of the model object '<em><b>Type Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class NumericExpImpl extends OclExpressionImpl implements NumericExp
+public class OclTypeLiteralImpl extends MinimalEObjectImpl.Container implements OclTypeLiteral
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NumericExpImpl()
+  protected OclTypeLiteralImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class NumericExpImpl extends OclExpressionImpl implements NumericExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.NUMERIC_EXP;
+    return OclPackage.Literals.OCL_TYPE_LITERAL;
   }
 
-} //NumericExpImpl
+} //OclTypeLiteralImpl

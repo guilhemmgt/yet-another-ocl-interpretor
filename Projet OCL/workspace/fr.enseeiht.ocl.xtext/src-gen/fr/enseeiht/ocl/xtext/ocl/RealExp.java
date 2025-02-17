@@ -20,7 +20,7 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface RealExp extends NumericExp
+public interface RealExp extends NumericLiteralExp
 {
   /**
    * Returns the value of the '<em><b>Real Symbol</b></em>' attribute.

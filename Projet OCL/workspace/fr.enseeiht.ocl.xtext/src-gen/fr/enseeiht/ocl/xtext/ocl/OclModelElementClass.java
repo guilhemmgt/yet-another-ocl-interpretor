@@ -6,22 +6,22 @@ package fr.enseeiht.ocl.xtext.ocl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Model Element</b></em>'.
+ * A representation of the model object '<em><b>Model Element Class</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement#getModel <em>Model</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getModel <em>Model</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElement()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementClass()
  * @model
  * @generated
  */
-public interface OclModelElement extends OclType
+public interface OclModelElementClass extends OclTypeLiteral
 {
   /**
    * Returns the value of the '<em><b>Model</b></em>' reference.
@@ -29,14 +29,14 @@ public interface OclModelElement extends OclType
    * <!-- end-user-doc -->
    * @return the value of the '<em>Model</em>' reference.
    * @see #setModel(Import)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElement_Model()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementClass_Model()
    * @model
    * @generated
    */
   Import getModel();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement#getModel <em>Model</em>}' reference.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getModel <em>Model</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Model</em>' reference.
@@ -51,14 +51,14 @@ public interface OclModelElement extends OclType
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElement_Name()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementClass_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -67,4 +67,4 @@ public interface OclModelElement extends OclType
    */
   void setName(String value);
 
-} // OclModelElement
+} // OclModelElementClass

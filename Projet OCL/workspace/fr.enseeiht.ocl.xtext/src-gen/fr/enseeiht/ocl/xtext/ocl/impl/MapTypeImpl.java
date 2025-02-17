@@ -5,7 +5,7 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MapTypeImpl extends OclTypeImpl implements MapType
+public class MapTypeImpl extends OclTypeLiteralImpl implements MapType
 {
   /**
    * The cached value of the '{@link #getKeyType() <em>Key Type</em>}' containment reference.
@@ -39,7 +39,7 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * @generated
    * @ordered
    */
-  protected OclType keyType;
+  protected OclTypeLiteral keyType;
 
   /**
    * The cached value of the '{@link #getValueType() <em>Value Type</em>}' containment reference.
@@ -49,7 +49,7 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * @generated
    * @ordered
    */
-  protected OclType valueType;
+  protected OclTypeLiteral valueType;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,7 +78,7 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * @generated
    */
   @Override
-  public OclType getKeyType()
+  public OclTypeLiteral getKeyType()
   {
     return keyType;
   }
@@ -88,9 +88,9 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetKeyType(OclType newKeyType, NotificationChain msgs)
+  public NotificationChain basicSetKeyType(OclTypeLiteral newKeyType, NotificationChain msgs)
   {
-    OclType oldKeyType = keyType;
+    OclTypeLiteral oldKeyType = keyType;
     keyType = newKeyType;
     if (eNotificationRequired())
     {
@@ -106,7 +106,7 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * @generated
    */
   @Override
-  public void setKeyType(OclType newKeyType)
+  public void setKeyType(OclTypeLiteral newKeyType)
   {
     if (newKeyType != keyType)
     {
@@ -128,7 +128,7 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * @generated
    */
   @Override
-  public OclType getValueType()
+  public OclTypeLiteral getValueType()
   {
     return valueType;
   }
@@ -138,9 +138,9 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValueType(OclType newValueType, NotificationChain msgs)
+  public NotificationChain basicSetValueType(OclTypeLiteral newValueType, NotificationChain msgs)
   {
-    OclType oldValueType = valueType;
+    OclTypeLiteral oldValueType = valueType;
     valueType = newValueType;
     if (eNotificationRequired())
     {
@@ -156,7 +156,7 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
    * @generated
    */
   @Override
-  public void setValueType(OclType newValueType)
+  public void setValueType(OclTypeLiteral newValueType)
   {
     if (newValueType != valueType)
     {
@@ -219,10 +219,10 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
     switch (featureID)
     {
       case OclPackage.MAP_TYPE__KEY_TYPE:
-        setKeyType((OclType)newValue);
+        setKeyType((OclTypeLiteral)newValue);
         return;
       case OclPackage.MAP_TYPE__VALUE_TYPE:
-        setValueType((OclType)newValue);
+        setValueType((OclTypeLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -239,10 +239,10 @@ public class MapTypeImpl extends OclTypeImpl implements MapType
     switch (featureID)
     {
       case OclPackage.MAP_TYPE__KEY_TYPE:
-        setKeyType((OclType)null);
+        setKeyType((OclTypeLiteral)null);
         return;
       case OclPackage.MAP_TYPE__VALUE_TYPE:
-        setValueType((OclType)null);
+        setValueType((OclTypeLiteral)null);
         return;
     }
     super.eUnset(featureID);

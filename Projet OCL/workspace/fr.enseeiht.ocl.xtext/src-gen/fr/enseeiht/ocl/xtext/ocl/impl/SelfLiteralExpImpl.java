@@ -4,27 +4,25 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Type</b></em>'.
+ * An implementation of the model object '<em><b>Self Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class OclTypeImpl extends MinimalEObjectImpl.Container implements OclType
+public class SelfLiteralExpImpl extends OclExpressionImpl implements SelfLiteralExp
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OclTypeImpl()
+  protected SelfLiteralExpImpl()
   {
     super();
   }
@@ -37,7 +35,7 @@ public class OclTypeImpl extends MinimalEObjectImpl.Container implements OclType
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.OCL_TYPE;
+    return OclPackage.Literals.SELF_LITERAL_EXP;
   }
 
-} //OclTypeImpl
+} //SelfLiteralExpImpl

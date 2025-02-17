@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TupleTypeImpl extends OclTypeImpl implements TupleType
+public class TupleTypeImpl extends OclTypeLiteralImpl implements TupleType
 {
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.

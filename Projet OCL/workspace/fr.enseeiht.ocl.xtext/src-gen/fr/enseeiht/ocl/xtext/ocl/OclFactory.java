@@ -42,13 +42,13 @@ public interface OclFactory extends EFactory
   Import createImport();
 
   /**
-   * Returns a new object of class '<em>Module Element</em>'.
+   * Returns a new object of class '<em>Context Block</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Module Element</em>'.
+   * @return a new object of class '<em>Context Block</em>'.
    * @generated
    */
-  OclModuleElement createOclModuleElement();
+  OclContextBlock createOclContextBlock();
 
   /**
    * Returns a new object of class '<em>Feature Definition</em>'.
@@ -150,31 +150,31 @@ public interface OclFactory extends EFactory
   VariableExp createVariableExp();
 
   /**
-   * Returns a new object of class '<em>Self Exp</em>'.
+   * Returns a new object of class '<em>Self Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Self Exp</em>'.
+   * @return a new object of class '<em>Self Literal Exp</em>'.
    * @generated
    */
-  SelfExp createSelfExp();
+  SelfLiteralExp createSelfLiteralExp();
 
   /**
-   * Returns a new object of class '<em>String Exp</em>'.
+   * Returns a new object of class '<em>String Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Exp</em>'.
+   * @return a new object of class '<em>String Literal Exp</em>'.
    * @generated
    */
-  StringExp createStringExp();
+  StringLiteralExp createStringLiteralExp();
 
   /**
-   * Returns a new object of class '<em>Numeric Exp</em>'.
+   * Returns a new object of class '<em>Numeric Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Numeric Exp</em>'.
+   * @return a new object of class '<em>Numeric Literal Exp</em>'.
    * @generated
    */
-  NumericExp createNumericExp();
+  NumericLiteralExp createNumericLiteralExp();
 
   /**
    * Returns a new object of class '<em>Real Exp</em>'.
@@ -195,49 +195,49 @@ public interface OclFactory extends EFactory
   IntegerExp createIntegerExp();
 
   /**
-   * Returns a new object of class '<em>Bag Exp</em>'.
+   * Returns a new object of class '<em>Bag Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Bag Exp</em>'.
+   * @return a new object of class '<em>Bag Literal Exp</em>'.
    * @generated
    */
-  BagExp createBagExp();
+  BagLiteralExp createBagLiteralExp();
 
   /**
-   * Returns a new object of class '<em>Ordered Set Exp</em>'.
+   * Returns a new object of class '<em>Ordered Set Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ordered Set Exp</em>'.
+   * @return a new object of class '<em>Ordered Set Literal Exp</em>'.
    * @generated
    */
-  OrderedSetExp createOrderedSetExp();
+  OrderedSetLiteralExp createOrderedSetLiteralExp();
 
   /**
-   * Returns a new object of class '<em>Sequence Exp</em>'.
+   * Returns a new object of class '<em>Sequence Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sequence Exp</em>'.
+   * @return a new object of class '<em>Sequence Literal Exp</em>'.
    * @generated
    */
-  SequenceExp createSequenceExp();
+  SequenceLiteralExp createSequenceLiteralExp();
 
   /**
-   * Returns a new object of class '<em>Set Exp</em>'.
+   * Returns a new object of class '<em>Set Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Set Exp</em>'.
+   * @return a new object of class '<em>Set Literal Exp</em>'.
    * @generated
    */
-  SetExp createSetExp();
+  SetLiteralExp createSetLiteralExp();
 
   /**
-   * Returns a new object of class '<em>Tuple Exp</em>'.
+   * Returns a new object of class '<em>Tuple Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Tuple Exp</em>'.
+   * @return a new object of class '<em>Tuple Literal Exp</em>'.
    * @generated
    */
-  TupleExp createTupleExp();
+  TupleLiteralExp createTupleLiteralExp();
 
   /**
    * Returns a new object of class '<em>Tuple Part</em>'.
@@ -249,13 +249,13 @@ public interface OclFactory extends EFactory
   TuplePart createTuplePart();
 
   /**
-   * Returns a new object of class '<em>Map Exp</em>'.
+   * Returns a new object of class '<em>Map Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Map Exp</em>'.
+   * @return a new object of class '<em>Map Literal Exp</em>'.
    * @generated
    */
-  MapExp createMapExp();
+  MapLiteralExp createMapLiteralExp();
 
   /**
    * Returns a new object of class '<em>Map Element</em>'.
@@ -303,13 +303,13 @@ public interface OclFactory extends EFactory
   BraceExp createBraceExp();
 
   /**
-   * Returns a new object of class '<em>Boolean Exp</em>'.
+   * Returns a new object of class '<em>Boolean Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Exp</em>'.
+   * @return a new object of class '<em>Boolean Literal Exp</em>'.
    * @generated
    */
-  BooleanExp createBooleanExp();
+  BooleanLiteralExp createBooleanLiteralExp();
 
   /**
    * Returns a new object of class '<em>Property Call</em>'.
@@ -384,13 +384,13 @@ public interface OclFactory extends EFactory
   LocalVariable createLocalVariable();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
+   * Returns a new object of class '<em>Type Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
+   * @return a new object of class '<em>Type Literal</em>'.
    * @generated
    */
-  OclType createOclType();
+  OclTypeLiteral createOclTypeLiteral();
 
   /**
    * Returns a new object of class '<em>Collection Type</em>'.
@@ -519,13 +519,13 @@ public interface OclFactory extends EFactory
   TupleTypeAttribute createTupleTypeAttribute();
 
   /**
-   * Returns a new object of class '<em>Model Element</em>'.
+   * Returns a new object of class '<em>Model Element Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model Element</em>'.
+   * @return a new object of class '<em>Model Element Class</em>'.
    * @generated
    */
-  OclModelElement createOclModelElement();
+  OclModelElementClass createOclModelElementClass();
 
   /**
    * Returns a new object of class '<em>Map Type</em>'.

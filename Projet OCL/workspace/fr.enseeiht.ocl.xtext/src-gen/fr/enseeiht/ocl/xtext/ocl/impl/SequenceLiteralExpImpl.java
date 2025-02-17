@@ -3,9 +3,9 @@
  */
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
-import fr.enseeiht.ocl.xtext.ocl.BagExp;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
+import fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp;
 
 import java.util.Collection;
 
@@ -21,18 +21,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Bag Exp</b></em>'.
+ * An implementation of the model object '<em><b>Sequence Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.BagExpImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.SequenceLiteralExpImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BagExpImpl extends OclExpressionImpl implements BagExp
+public class SequenceLiteralExpImpl extends OclExpressionImpl implements SequenceLiteralExp
 {
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -49,7 +49,7 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BagExpImpl()
+  protected SequenceLiteralExpImpl()
   {
     super();
   }
@@ -62,7 +62,7 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.BAG_EXP;
+    return OclPackage.Literals.SEQUENCE_LITERAL_EXP;
   }
 
   /**
@@ -75,7 +75,7 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<OclExpression>(OclExpression.class, this, OclPackage.BAG_EXP__ELEMENTS);
+      elements = new EObjectContainmentEList<OclExpression>(OclExpression.class, this, OclPackage.SEQUENCE_LITERAL_EXP__ELEMENTS);
     }
     return elements;
   }
@@ -90,7 +90,7 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
   {
     switch (featureID)
     {
-      case OclPackage.BAG_EXP__ELEMENTS:
+      case OclPackage.SEQUENCE_LITERAL_EXP__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
   {
     switch (featureID)
     {
-      case OclPackage.BAG_EXP__ELEMENTS:
+      case OclPackage.SEQUENCE_LITERAL_EXP__ELEMENTS:
         return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
   {
     switch (featureID)
     {
-      case OclPackage.BAG_EXP__ELEMENTS:
+      case OclPackage.SEQUENCE_LITERAL_EXP__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends OclExpression>)newValue);
         return;
@@ -141,7 +141,7 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
   {
     switch (featureID)
     {
-      case OclPackage.BAG_EXP__ELEMENTS:
+      case OclPackage.SEQUENCE_LITERAL_EXP__ELEMENTS:
         getElements().clear();
         return;
     }
@@ -158,10 +158,10 @@ public class BagExpImpl extends OclExpressionImpl implements BagExp
   {
     switch (featureID)
     {
-      case OclPackage.BAG_EXP__ELEMENTS:
+      case OclPackage.SEQUENCE_LITERAL_EXP__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //BagExpImpl
+} //SequenceLiteralExpImpl

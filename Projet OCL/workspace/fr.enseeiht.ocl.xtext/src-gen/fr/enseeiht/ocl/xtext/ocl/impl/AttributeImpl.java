@@ -6,7 +6,7 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -62,7 +62,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    * @ordered
    */
-  protected OclType type;
+  protected OclTypeLiteral type;
 
   /**
    * The cached value of the '{@link #getInitExpression() <em>Init Expression</em>}' containment reference.
@@ -126,7 +126,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
-  public OclType getType()
+  public OclTypeLiteral getType()
   {
     return type;
   }
@@ -136,9 +136,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(OclType newType, NotificationChain msgs)
+  public NotificationChain basicSetType(OclTypeLiteral newType, NotificationChain msgs)
   {
-    OclType oldType = type;
+    OclTypeLiteral oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -154,7 +154,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
-  public void setType(OclType newType)
+  public void setType(OclTypeLiteral newType)
   {
     if (newType != type)
     {
@@ -272,7 +272,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         setName((String)newValue);
         return;
       case OclPackage.ATTRIBUTE__TYPE:
-        setType((OclType)newValue);
+        setType((OclTypeLiteral)newValue);
         return;
       case OclPackage.ATTRIBUTE__INIT_EXPRESSION:
         setInitExpression((OclExpression)newValue);
@@ -295,7 +295,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         setName(NAME_EDEFAULT);
         return;
       case OclPackage.ATTRIBUTE__TYPE:
-        setType((OclType)null);
+        setType((OclTypeLiteral)null);
         return;
       case OclPackage.ATTRIBUTE__INIT_EXPRESSION:
         setInitExpression((OclExpression)null);

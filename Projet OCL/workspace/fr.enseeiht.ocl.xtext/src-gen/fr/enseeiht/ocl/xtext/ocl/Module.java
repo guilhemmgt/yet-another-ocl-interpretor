@@ -17,7 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.Module#getImports <em>Imports</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.Module#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.Module#getContextlessFeatures <em>Contextless Features</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.Module#getContextBlocks <em>Context Blocks</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getModule()
@@ -39,15 +40,27 @@ public interface Module extends EObject
   EList<Import> getImports();
 
   /**
-   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * Returns the value of the '<em><b>Contextless Features</b></em>' containment reference list.
+   * The list contents are of type {@link fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getModule_Elements()
+   * @return the value of the '<em>Contextless Features</em>' containment reference list.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getModule_ContextlessFeatures()
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getElements();
+  EList<OclFeatureDefinition> getContextlessFeatures();
+
+  /**
+   * Returns the value of the '<em><b>Context Blocks</b></em>' containment reference list.
+   * The list contents are of type {@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Context Blocks</em>' containment reference list.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getModule_ContextBlocks()
+   * @model containment="true"
+   * @generated
+   */
+  EList<OclContextBlock> getContextBlocks();
 
 } // Module

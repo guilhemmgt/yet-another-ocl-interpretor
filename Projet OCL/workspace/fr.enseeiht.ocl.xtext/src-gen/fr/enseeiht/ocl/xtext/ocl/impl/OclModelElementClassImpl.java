@@ -4,7 +4,7 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.Import;
-import fr.enseeiht.ocl.xtext.ocl.OclModelElement;
+import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,19 +16,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model Element</b></em>'.
+ * An implementation of the model object '<em><b>Model Element Class</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementImpl#getModel <em>Model</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementClassImpl#getModel <em>Model</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementClassImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
+public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclModelElementClass
 {
   /**
    * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
@@ -65,7 +65,7 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OclModelElementImpl()
+  protected OclModelElementClassImpl()
   {
     super();
   }
@@ -78,7 +78,7 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.OCL_MODEL_ELEMENT;
+    return OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS;
   }
 
   /**
@@ -96,7 +96,7 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
       if (model != oldModel)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_MODEL_ELEMENT__MODEL, oldModel, model));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_MODEL_ELEMENT_CLASS__MODEL, oldModel, model));
       }
     }
     return model;
@@ -123,7 +123,7 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
     Import oldModel = model;
     model = newModel;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT__MODEL, oldModel, model));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT_CLASS__MODEL, oldModel, model));
   }
 
   /**
@@ -148,7 +148,7 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME, oldName, name));
   }
 
   /**
@@ -161,10 +161,10 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODEL_ELEMENT__MODEL:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__MODEL:
         if (resolve) return getModel();
         return basicGetModel();
-      case OclPackage.OCL_MODEL_ELEMENT__NAME:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -180,10 +180,10 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODEL_ELEMENT__MODEL:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__MODEL:
         setModel((Import)newValue);
         return;
-      case OclPackage.OCL_MODEL_ELEMENT__NAME:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
         setName((String)newValue);
         return;
     }
@@ -200,10 +200,10 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODEL_ELEMENT__MODEL:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__MODEL:
         setModel((Import)null);
         return;
-      case OclPackage.OCL_MODEL_ELEMENT__NAME:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -220,9 +220,9 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODEL_ELEMENT__MODEL:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__MODEL:
         return model != null;
-      case OclPackage.OCL_MODEL_ELEMENT__NAME:
+      case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -245,4 +245,4 @@ public class OclModelElementImpl extends OclTypeImpl implements OclModelElement
     return result.toString();
   }
 
-} //OclModelElementImpl
+} //OclModelElementClassImpl

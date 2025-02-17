@@ -21,19 +21,19 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface MapType extends OclType
+public interface MapType extends OclTypeLiteral
 {
   /**
    * Returns the value of the '<em><b>Key Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Key Type</em>' containment reference.
-   * @see #setKeyType(OclType)
+   * @see #setKeyType(OclTypeLiteral)
    * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMapType_KeyType()
    * @model containment="true"
    * @generated
    */
-  OclType getKeyType();
+  OclTypeLiteral getKeyType();
 
   /**
    * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.MapType#getKeyType <em>Key Type</em>}' containment reference.
@@ -43,19 +43,19 @@ public interface MapType extends OclType
    * @see #getKeyType()
    * @generated
    */
-  void setKeyType(OclType value);
+  void setKeyType(OclTypeLiteral value);
 
   /**
    * Returns the value of the '<em><b>Value Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value Type</em>' containment reference.
-   * @see #setValueType(OclType)
+   * @see #setValueType(OclTypeLiteral)
    * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMapType_ValueType()
    * @model containment="true"
    * @generated
    */
-  OclType getValueType();
+  OclTypeLiteral getValueType();
 
   /**
    * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.MapType#getValueType <em>Value Type</em>}' containment reference.
@@ -65,6 +65,6 @@ public interface MapType extends OclType
    * @see #getValueType()
    * @generated
    */
-  void setValueType(OclType value);
+  void setValueType(OclTypeLiteral value);
 
 } // MapType

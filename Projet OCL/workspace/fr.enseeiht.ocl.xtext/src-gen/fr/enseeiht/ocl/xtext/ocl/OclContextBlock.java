@@ -10,23 +10,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Module Element</b></em>'.
+ * A representation of the model object '<em><b>Context Block</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getEcoreTypes <em>Ecore Types</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getClass_ <em>Class</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getMembers <em>Members</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getEcoreTypes <em>Ecore Types</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getClass_ <em>Class</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getMembers <em>Members</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModuleElement()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclContextBlock()
  * @model
  * @generated
  */
-public interface OclModuleElement extends EObject
+public interface OclContextBlock extends EObject
 {
   /**
    * Returns the value of the '<em><b>Ecore Types</b></em>' reference.
@@ -34,14 +34,14 @@ public interface OclModuleElement extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ecore Types</em>' reference.
    * @see #setEcoreTypes(Import)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModuleElement_EcoreTypes()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclContextBlock_EcoreTypes()
    * @model
    * @generated
    */
   Import getEcoreTypes();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getEcoreTypes <em>Ecore Types</em>}' reference.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getEcoreTypes <em>Ecore Types</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ecore Types</em>' reference.
@@ -56,14 +56,14 @@ public interface OclModuleElement extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Class</em>' reference.
    * @see #setClass(EClass)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModuleElement_Class()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclContextBlock_Class()
    * @model
    * @generated
    */
   EClass getClass_();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getClass_ <em>Class</em>}' reference.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getClass_ <em>Class</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Class</em>' reference.
@@ -78,10 +78,10 @@ public interface OclModuleElement extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Members</em>' containment reference list.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModuleElement_Members()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclContextBlock_Members()
    * @model containment="true"
    * @generated
    */
   EList<EObject> getMembers();
 
-} // OclModuleElement
+} // OclContextBlock
