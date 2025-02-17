@@ -18,7 +18,7 @@ import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.IntegerExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.IntegerType;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
@@ -50,7 +50,7 @@ import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.Primitive;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
-import fr.enseeiht.ocl.xtext.ocl.RealExp;
+import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
@@ -222,14 +222,14 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createNumericLiteralExpAdapter();
       }
       @Override
-      public Adapter caseRealExp(RealExp object)
+      public Adapter caseRealLiteralExp(RealLiteralExp object)
       {
-        return createRealExpAdapter();
+        return createRealLiteralExpAdapter();
       }
       @Override
-      public Adapter caseIntegerExp(IntegerExp object)
+      public Adapter caseIntegerLiteralExp(IntegerLiteralExp object)
       {
-        return createIntegerExpAdapter();
+        return createIntegerLiteralExpAdapter();
       }
       @Override
       public Adapter caseBagLiteralExp(BagLiteralExp object)
@@ -724,31 +724,31 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RealExp <em>Real Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RealLiteralExp <em>Real Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.RealExp
+   * @see fr.enseeiht.ocl.xtext.ocl.RealLiteralExp
    * @generated
    */
-  public Adapter createRealExpAdapter()
+  public Adapter createRealLiteralExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntegerExp <em>Integer Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp <em>Integer Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntegerExp
+   * @see fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp
    * @generated
    */
-  public Adapter createIntegerExpAdapter()
+  public Adapter createIntegerLiteralExpAdapter()
   {
     return null;
   }

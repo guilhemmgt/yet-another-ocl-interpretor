@@ -3,7 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
-import fr.enseeiht.ocl.xtext.ocl.IntegerExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -14,18 +14,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Integer Exp</b></em>'.
+ * An implementation of the model object '<em><b>Integer Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.IntegerExpImpl#getIntegerSymbol <em>Integer Symbol</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.IntegerLiteralExpImpl#getIntegerSymbol <em>Integer Symbol</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
+public class IntegerLiteralExpImpl extends NumericLiteralExpImpl implements IntegerLiteralExp
 {
   /**
    * The default value of the '{@link #getIntegerSymbol() <em>Integer Symbol</em>}' attribute.
@@ -52,7 +52,7 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IntegerExpImpl()
+  protected IntegerLiteralExpImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.INTEGER_EXP;
+    return OclPackage.Literals.INTEGER_LITERAL_EXP;
   }
 
   /**
@@ -90,7 +90,7 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
     int oldIntegerSymbol = integerSymbol;
     integerSymbol = newIntegerSymbol;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.INTEGER_EXP__INTEGER_SYMBOL, oldIntegerSymbol, integerSymbol));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.INTEGER_LITERAL_EXP__INTEGER_SYMBOL, oldIntegerSymbol, integerSymbol));
   }
 
   /**
@@ -103,7 +103,7 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
   {
     switch (featureID)
     {
-      case OclPackage.INTEGER_EXP__INTEGER_SYMBOL:
+      case OclPackage.INTEGER_LITERAL_EXP__INTEGER_SYMBOL:
         return getIntegerSymbol();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
   {
     switch (featureID)
     {
-      case OclPackage.INTEGER_EXP__INTEGER_SYMBOL:
+      case OclPackage.INTEGER_LITERAL_EXP__INTEGER_SYMBOL:
         setIntegerSymbol((Integer)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
   {
     switch (featureID)
     {
-      case OclPackage.INTEGER_EXP__INTEGER_SYMBOL:
+      case OclPackage.INTEGER_LITERAL_EXP__INTEGER_SYMBOL:
         setIntegerSymbol(INTEGER_SYMBOL_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
   {
     switch (featureID)
     {
-      case OclPackage.INTEGER_EXP__INTEGER_SYMBOL:
+      case OclPackage.INTEGER_LITERAL_EXP__INTEGER_SYMBOL:
         return integerSymbol != INTEGER_SYMBOL_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -176,4 +176,4 @@ public class IntegerExpImpl extends NumericLiteralExpImpl implements IntegerExp
     return result.toString();
   }
 
-} //IntegerExpImpl
+} //IntegerLiteralExpImpl

@@ -1,0 +1,7 @@
+module a;
+
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv r:
+  if "a" then false else true endif

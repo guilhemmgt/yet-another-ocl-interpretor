@@ -6,13 +6,14 @@ public class OclAny implements OclType {
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
+		// OclAny ne se conforme qu'à lui-même
 		return oclType.getClass().equals(OclAny.class);
 	}
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// TODO Auto-generated method stub
-		return null;
+		// Tout type unifié avec OclAny est un OclAny (OclAny est le type le plus grand).
+		return new OclAny();
 	}
 
 

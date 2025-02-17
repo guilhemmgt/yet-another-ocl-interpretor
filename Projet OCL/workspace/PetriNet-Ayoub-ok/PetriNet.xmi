@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:PetriNet
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore"
+    name="saisons">
+  <petriNetElements
+      xsi:type="petrinet:Place"
+      arcs="//@petriNetElements.8 //@petriNetElements.15"
+      nbJetons="1"
+      name="printemps"/>
+  <petriNetElements
+      xsi:type="petrinet:Place"
+      arcs="//@petriNetElements.9 //@petriNetElements.10"
+      name="ete"/>
+  <petriNetElements
+      xsi:type="petrinet:Place"
+      arcs="//@petriNetElements.11 //@petriNetElements.12"
+      name="automne"/>
+  <petriNetElements
+      xsi:type="petrinet:Place"
+      arcs="//@petriNetElements.13 //@petriNetElements.14"
+      name="hiver"/>
+  <petriNetElements
+      xsi:type="petrinet:Transition"
+      arcs="//@petriNetElements.8 //@petriNetElements.9"
+      name="pte"/>
+  <petriNetElements
+      xsi:type="petrinet:Transition"
+      arcs="//@petriNetElements.10 //@petriNetElements.11"
+      name="eta"/>
+  <petriNetElements
+      xsi:type="petrinet:Transition"
+      arcs="//@petriNetElements.12 //@petriNetElements.13"
+      name="ath"/>
+  <petriNetElements
+      xsi:type="petrinet:Transition"
+      arcs="//@petriNetElements.14 //@petriNetElements.15"
+      name="htp"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.0"
+      transition="//@petriNetElements.4"
+      weight="1"
+      name="printemps_pte"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.1"
+      transition="//@petriNetElements.4"
+      weight="1"
+      direction="T2P"
+      name="pte_ete"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.1"
+      transition="//@petriNetElements.5"
+      weight="1"
+      name="ete_eta"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.2"
+      transition="//@petriNetElements.5"
+      weight="1"
+      direction="T2P"
+      name="eta_automne"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.2"
+      transition="//@petriNetElements.6"
+      weight="1"
+      name="automne_ath"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.3"
+      transition="//@petriNetElements.6"
+      weight="1"
+      direction="T2P"
+      name="ath_hiver"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.3"
+      transition="//@petriNetElements.7"
+      weight="1"
+      name="hiver_htp"/>
+  <petriNetElements
+      xsi:type="petrinet:Arc"
+      place="//@petriNetElements.0"
+      transition="//@petriNetElements.7"
+      weight="1"
+      direction="T2P"
+      name="htp_printemps"/>
+</petrinet:PetriNet>

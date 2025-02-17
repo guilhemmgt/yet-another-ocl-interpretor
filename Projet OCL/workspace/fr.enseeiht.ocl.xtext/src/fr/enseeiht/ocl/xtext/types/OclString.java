@@ -6,6 +6,7 @@ public class OclString extends OclAny {
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
+		// conformance à OclAny et lui-même
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean StringType = oclType.getClass().equals(OclString.class);
 		return anyType || StringType;
@@ -13,8 +14,13 @@ public class OclString extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// TODO Auto-generated method stub
-		return null;
+		// OclString s'unifie en OclInvalid avec lui-même, en OclAny avec tous les autres types.
+		if (oclType instanceof OclString) {
+			return new OclString();
+		}
+		else {
+			return new OclAny();
+		}
 	}
 	
 

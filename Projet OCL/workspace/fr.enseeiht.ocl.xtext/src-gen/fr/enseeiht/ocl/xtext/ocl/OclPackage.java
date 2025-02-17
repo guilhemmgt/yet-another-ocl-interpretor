@@ -678,14 +678,14 @@ public interface OclPackage extends EPackage
   int NUMERIC_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RealExpImpl <em>Real Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RealLiteralExpImpl <em>Real Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.RealExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getRealExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.RealLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getRealLiteralExp()
    * @generated
    */
-  int REAL_EXP = 17;
+  int REAL_LITERAL_EXP = 17;
 
   /**
    * The feature id for the '<em><b>Real Symbol</b></em>' attribute.
@@ -694,26 +694,26 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REAL_EXP__REAL_SYMBOL = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 0;
+  int REAL_LITERAL_EXP__REAL_SYMBOL = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Real Exp</em>' class.
+   * The number of structural features of the '<em>Real Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REAL_EXP_FEATURE_COUNT = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 1;
+  int REAL_LITERAL_EXP_FEATURE_COUNT = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.IntegerExpImpl <em>Integer Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.IntegerLiteralExpImpl <em>Integer Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.IntegerExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIntegerExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.IntegerLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIntegerLiteralExp()
    * @generated
    */
-  int INTEGER_EXP = 18;
+  int INTEGER_LITERAL_EXP = 18;
 
   /**
    * The feature id for the '<em><b>Integer Symbol</b></em>' attribute.
@@ -722,16 +722,16 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_EXP__INTEGER_SYMBOL = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 0;
+  int INTEGER_LITERAL_EXP__INTEGER_SYMBOL = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Integer Exp</em>' class.
+   * The number of structural features of the '<em>Integer Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTEGER_EXP_FEATURE_COUNT = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 1;
+  int INTEGER_LITERAL_EXP_FEATURE_COUNT = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagLiteralExpImpl <em>Bag Literal Exp</em>}' class.
@@ -2588,46 +2588,46 @@ public interface OclPackage extends EPackage
   EClass getNumericLiteralExp();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.RealExp <em>Real Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.RealLiteralExp <em>Real Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Real Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.RealExp
+   * @return the meta object for class '<em>Real Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.RealLiteralExp
    * @generated
    */
-  EClass getRealExp();
+  EClass getRealLiteralExp();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.RealExp#getRealSymbol <em>Real Symbol</em>}'.
+   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.RealLiteralExp#getRealSymbol <em>Real Symbol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Real Symbol</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.RealExp#getRealSymbol()
-   * @see #getRealExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.RealLiteralExp#getRealSymbol()
+   * @see #getRealLiteralExp()
    * @generated
    */
-  EAttribute getRealExp_RealSymbol();
+  EAttribute getRealLiteralExp_RealSymbol();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.IntegerExp <em>Integer Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp <em>Integer Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Integer Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntegerExp
+   * @return the meta object for class '<em>Integer Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp
    * @generated
    */
-  EClass getIntegerExp();
+  EClass getIntegerLiteralExp();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.IntegerExp#getIntegerSymbol <em>Integer Symbol</em>}'.
+   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp#getIntegerSymbol <em>Integer Symbol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Integer Symbol</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntegerExp#getIntegerSymbol()
-   * @see #getIntegerExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp#getIntegerSymbol()
+   * @see #getIntegerLiteralExp()
    * @generated
    */
-  EAttribute getIntegerExp_IntegerSymbol();
+  EAttribute getIntegerLiteralExp_IntegerSymbol();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.BagLiteralExp <em>Bag Literal Exp</em>}'.
@@ -3906,14 +3906,14 @@ public interface OclPackage extends EPackage
     EClass NUMERIC_LITERAL_EXP = eINSTANCE.getNumericLiteralExp();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RealExpImpl <em>Real Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RealLiteralExpImpl <em>Real Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.RealExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getRealExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.RealLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getRealLiteralExp()
      * @generated
      */
-    EClass REAL_EXP = eINSTANCE.getRealExp();
+    EClass REAL_LITERAL_EXP = eINSTANCE.getRealLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Real Symbol</b></em>' attribute feature.
@@ -3921,17 +3921,17 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REAL_EXP__REAL_SYMBOL = eINSTANCE.getRealExp_RealSymbol();
+    EAttribute REAL_LITERAL_EXP__REAL_SYMBOL = eINSTANCE.getRealLiteralExp_RealSymbol();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.IntegerExpImpl <em>Integer Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.IntegerLiteralExpImpl <em>Integer Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.IntegerExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIntegerExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.IntegerLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIntegerLiteralExp()
      * @generated
      */
-    EClass INTEGER_EXP = eINSTANCE.getIntegerExp();
+    EClass INTEGER_LITERAL_EXP = eINSTANCE.getIntegerLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Integer Symbol</b></em>' attribute feature.
@@ -3939,7 +3939,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INTEGER_EXP__INTEGER_SYMBOL = eINSTANCE.getIntegerExp_IntegerSymbol();
+    EAttribute INTEGER_LITERAL_EXP__INTEGER_SYMBOL = eINSTANCE.getIntegerLiteralExp_IntegerSymbol();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagLiteralExpImpl <em>Bag Literal Exp</em>}' class.

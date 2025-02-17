@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empty:Liar
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:empty="http://empty"
+    name="Me"
+    enum="enum2">
+  <maybe value="6"
+      subLiar="//@subLiar.0"/>
+  <subLiar name="Him"
+      enum="enum3"/>
+</empty:Liar>

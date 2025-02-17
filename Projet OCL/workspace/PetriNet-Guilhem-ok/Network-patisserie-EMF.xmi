@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petrinet:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" xsi:schemaLocation="http://petrinet PetriNet.ecore" name="patisserie">
+  <networkElements xsi:type="petrinet:Place" name="pateCookie" linksToPrevArcs="//@networkElements.14" linksToNextArcs="//@networkElements.13" tokens="20"/>
+  <networkElements xsi:type="petrinet:Place" name="pepitesChocolat" linksToPrevArcs="//@networkElements.16" linksToNextArcs="//@networkElements.15" tokens="300"/>
+  <networkElements xsi:type="petrinet:Place" name="faireCookie_idle" linksToNextArcs="//@networkElements.8" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="faireCookie_started" linksToPrevArcs="//@networkElements.9"/>
+  <networkElements xsi:type="petrinet:Place" name="faireCookie_running" linksToPrevArcs="//@networkElements.10" linksToNextArcs="//@networkElements.11"/>
+  <networkElements xsi:type="petrinet:Place" name="faireCookie_finished" linksToPrevArcs="//@networkElements.12" linksToNextArcs="//@networkElements.28"/>
+  <networkElements xsi:type="petrinet:Transition" name="faireCookie_start" linksToPrevArcs="//@networkElements.8 //@networkElements.13 //@networkElements.15" linksToNextArcs="//@networkElements.9 //@networkElements.10"/>
+  <networkElements xsi:type="petrinet:Transition" name="faireCookie_finish" linksToPrevArcs="//@networkElements.11" linksToNextArcs="//@networkElements.12 //@networkElements.14 //@networkElements.16"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.2" linkToNextCase="//@networkElements.6"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.6" linkToNextCase="//@networkElements.3"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.6" linkToNextCase="//@networkElements.4"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.4" linkToNextCase="//@networkElements.7"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.7" linkToNextCase="//@networkElements.5"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.0" linkToNextCase="//@networkElements.6"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.7" linkToNextCase="//@networkElements.0"/>
+  <networkElements xsi:type="petrinet:Arc" weight="10" linkToPrevCase="//@networkElements.1" linkToNextCase="//@networkElements.6"/>
+  <networkElements xsi:type="petrinet:Arc" weight="10" linkToPrevCase="//@networkElements.7" linkToNextCase="//@networkElements.1"/>
+  <networkElements xsi:type="petrinet:Place" name="manger_idle" linksToNextArcs="//@networkElements.23" tokens="1"/>
+  <networkElements xsi:type="petrinet:Place" name="manger_started" linksToPrevArcs="//@networkElements.24"/>
+  <networkElements xsi:type="petrinet:Place" name="manger_running" linksToPrevArcs="//@networkElements.25" linksToNextArcs="//@networkElements.26"/>
+  <networkElements xsi:type="petrinet:Place" name="manger_finished" linksToPrevArcs="//@networkElements.27"/>
+  <networkElements xsi:type="petrinet:Transition" name="manger_start" linksToPrevArcs="//@networkElements.23 //@networkElements.28" linksToNextArcs="//@networkElements.24 //@networkElements.25"/>
+  <networkElements xsi:type="petrinet:Transition" name="manger_finish" linksToPrevArcs="//@networkElements.26" linksToNextArcs="//@networkElements.27"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.17" linkToNextCase="//@networkElements.21"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.21" linkToNextCase="//@networkElements.18"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.21" linkToNextCase="//@networkElements.19"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.19" linkToNextCase="//@networkElements.22"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" linkToPrevCase="//@networkElements.22" linkToNextCase="//@networkElements.20"/>
+  <networkElements xsi:type="petrinet:Arc" weight="1" readOnly="true" linkToPrevCase="//@networkElements.5" linkToNextCase="//@networkElements.21"/>
+</petrinet:Network>

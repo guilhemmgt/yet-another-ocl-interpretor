@@ -6,6 +6,7 @@ public class OclVoid extends OclAny {
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
+		// conformance à OclAny et lui-même
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean voidType = oclType.getClass().equals(OclVoid.class);
 		return anyType || voidType;
@@ -13,8 +14,13 @@ public class OclVoid extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// TODO Auto-generated method stub
-		return null;
+		// OclVoid s'unifie en OclVoid avec lui-même, en OclAny avec tous les autres types.
+		if (oclType instanceof OclVoid) {
+			return new OclVoid();
+		}
+		else {
+			return new OclAny();
+		}
 	}
 
 }

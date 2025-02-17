@@ -1,0 +1,5 @@
+module a;
+
+import "http://empty" as empty
+
+|required (...)+ loop did not match anything at input '|'|

@@ -17,7 +17,7 @@ import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.IntegerExp;
+import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.IntegerType;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
@@ -42,7 +42,7 @@ import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetType;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
-import fr.enseeiht.ocl.xtext.ocl.RealExp;
+import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
@@ -122,8 +122,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OclPackage.INT_OP_CALL_EXP:
 				sequence_IntOpCallExp(context, (IntOpCallExp) semanticObject); 
 				return; 
-			case OclPackage.INTEGER_EXP:
-				sequence_IntegerExp(context, (IntegerExp) semanticObject); 
+			case OclPackage.INTEGER_LITERAL_EXP:
+				sequence_IntegerLiteralExp(context, (IntegerLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.INTEGER_TYPE:
 				sequence_IntegerType(context, (IntegerType) semanticObject); 
@@ -219,8 +219,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OclPackage.PROPERTY_CALL_EXP:
 				sequence_PropertyCallExp(context, (PropertyCallExp) semanticObject); 
 				return; 
-			case OclPackage.REAL_EXP:
-				sequence_RealExp(context, (RealExp) semanticObject); 
+			case OclPackage.REAL_LITERAL_EXP:
+				sequence_RealLiteralExp(context, (RealLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.REAL_TYPE:
 				sequence_RealType(context, (RealType) semanticObject); 
@@ -566,21 +566,21 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns IntegerExp
-	 *     NumericLiteralExp returns IntegerExp
-	 *     IntegerExp returns IntegerExp
+	 *     Primary_OclExpression returns IntegerLiteralExp
+	 *     NumericLiteralExp returns IntegerLiteralExp
+	 *     IntegerLiteralExp returns IntegerLiteralExp
 	 *
 	 * Constraint:
 	 *     integerSymbol=INT
 	 * </pre>
 	 */
-	protected void sequence_IntegerExp(ISerializationContext context, IntegerExp semanticObject) {
+	protected void sequence_IntegerLiteralExp(ISerializationContext context, IntegerLiteralExp semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.INTEGER_EXP__INTEGER_SYMBOL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.INTEGER_EXP__INTEGER_SYMBOL));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.INTEGER_LITERAL_EXP__INTEGER_SYMBOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.INTEGER_LITERAL_EXP__INTEGER_SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegerExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0(), semanticObject.getIntegerSymbol());
+		feeder.accept(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0(), semanticObject.getIntegerSymbol());
 		feeder.finish();
 	}
 	
@@ -1099,21 +1099,21 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Primary_OclExpression returns RealExp
-	 *     NumericLiteralExp returns RealExp
-	 *     RealExp returns RealExp
+	 *     Primary_OclExpression returns RealLiteralExp
+	 *     NumericLiteralExp returns RealLiteralExp
+	 *     RealLiteralExp returns RealLiteralExp
 	 *
 	 * Constraint:
 	 *     realSymbol=DOUBLE
 	 * </pre>
 	 */
-	protected void sequence_RealExp(ISerializationContext context, RealExp semanticObject) {
+	protected void sequence_RealLiteralExp(ISerializationContext context, RealLiteralExp semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.REAL_EXP__REAL_SYMBOL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.REAL_EXP__REAL_SYMBOL));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.REAL_LITERAL_EXP__REAL_SYMBOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.REAL_LITERAL_EXP__REAL_SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRealExpAccess().getRealSymbolDOUBLETerminalRuleCall_0(), semanticObject.getRealSymbol());
+		feeder.accept(grammarAccess.getRealLiteralExpAccess().getRealSymbolDOUBLETerminalRuleCall_0(), semanticObject.getRealSymbol());
 		feeder.finish();
 	}
 	
