@@ -45,9 +45,38 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclModelElementExp/name"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OperatorCallExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/argumentGauche"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OperatorCallExp/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/argument"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/argumentDroite"/>
+    </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//EqOpCallExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//EqOpCallExp/argumentGauche"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//EqOpCallExp/operationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//EqOpCallExp/argumentDroite"/>
+    </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//RelOpCallExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//RelOpCallExp/argumentGauche"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//RelOpCallExp/operationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//RelOpCallExp/argumentDroite"/>
+    </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//AddOpCallExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//AddOpCallExp/argumentGauche"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//AddOpCallExp/operationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//AddOpCallExp/argumentDroite"/>
+    </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//IntOpCallExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//IntOpCallExp/argumentGauche"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//IntOpCallExp/operationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//IntOpCallExp/argumentDroite"/>
+    </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//MulOpCallExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MulOpCallExp/argumentGauche"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//MulOpCallExp/operationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MulOpCallExp/argumentDroite"/>
+    </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//NotOpCallExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//NotOpCallExp/operationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//NotOpCallExp/source"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//PropertyCallExp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//PropertyCallExp/calls"/>
@@ -171,10 +200,5 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapType/keyType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapType/valueType"/>
     </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//EqOpCallExp"/>
-    <genClasses ecoreClass="Ocl.ecore#//RelOpCallExp"/>
-    <genClasses ecoreClass="Ocl.ecore#//AddOpCallExp"/>
-    <genClasses ecoreClass="Ocl.ecore#//IntOpCallExp"/>
-    <genClasses ecoreClass="Ocl.ecore#//MulOpCallExp"/>
   </genPackages>
 </genmodel:GenModel>

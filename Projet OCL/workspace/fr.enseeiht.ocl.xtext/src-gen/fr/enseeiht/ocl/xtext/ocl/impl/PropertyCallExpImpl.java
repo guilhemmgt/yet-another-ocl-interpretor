@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class PropertyCallExpImpl extends OperatorCallExpImpl implements PropertyCallExp
+public class PropertyCallExpImpl extends NotOpCallExpImpl implements PropertyCallExp
 {
   /**
    * The cached value of the '{@link #getCalls() <em>Calls</em>}' containment reference list.

@@ -39,39 +39,43 @@ OclModelElementExp :
 
 //priority_5
 
-OperatorCallExp returns OclExpression :
-	EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
+OperatorCallExp:
+	// argumentGauche=EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP) 	argumentDroite+=EqOpCallExp )*
+	argumentGauche=EqOpCallExp (operationName=BOOLOP argumentDroite=OperatorCallExp)?
 ;
-
 BOOLOP  		: 'and'|'or'|'xor'|'implies'|'equivalent';
 
-EqOpCallExp returns OperatorCallExp :
-	RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )?
+EqOpCallExp:
+	//argumentGauche=RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argumentDroite+=RelOpCallExp )?
+argumentGauche=RelOpCallExp (operationName=EQOP argumentDroite=RelOpCallExp)?
 ;
 EQOP  		: '='|'<>';
 
-RelOpCallExp returns OperatorCallExp :
-	AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )?
+RelOpCallExp:
+	//argumentGauche=AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argumentDroite+=AddOpCallExp )?
+	argumentGauche=AddOpCallExp (operationName=RELOP argumentDroite=AddOpCallExp)?
 ;
-
 RELOP  		: '>'|'<'|'>='|'<=' ;
 
-AddOpCallExp returns OperatorCallExp :
-	IntOpCallExp (({AddOpCallExp.source=current} operationName=ADDOP) 	argument=IntOpCallExp )*
+AddOpCallExp:
+	//argumentGauche=IntOpCallExp (({AddOpCallExp.source=current} operationName=ADDOP) 	argumentDroite+=IntOpCallExp )*
+	argumentGauche=IntOpCallExp (operationName=ADDOP argumentDroite=AddOpCallExp)?
 ;
- ADDOP : '-'|'+';
+ADDOP : '-'|'+';
 
-IntOpCallExp returns OperatorCallExp :
-	MulOpCallExp (({IntOpCallExp.source=current} operationName=INTOP) 	argument=MulOpCallExp )*
+IntOpCallExp :
+	//argumentGauche=MulOpCallExp (({IntOpCallExp.source=current} operationName=INTOP) 	argumentDroite+=MulOpCallExp )*
+	argumentGauche=MulOpCallExp (operationName=INTOP argumentDroite=IntOpCallExp)?
 ;
 INTOP : 'div'|'mod';
 
-MulOpCallExp returns OperatorCallExp :
-	NotOpCallExp (({MulOpCallExp.source=current} operationName=MULOP) 	argument=NotOpCallExp )*
+MulOpCallExp:
+	//argumentGauche=NotOpCallExp (({MulOpCallExp.source=current} operationName=MULOP) 	argumentDroite+=NotOpCallExp )*
+argumentGauche=NotOpCallExp (operationName=MULOP argumentDroite=MulOpCallExp)?
 ;
 MULOP: '*'|'/';
 
-NotOpCallExp returns OperatorCallExp :
+NotOpCallExp :
 	((operationName=UNARYOP source=NotOpCallExp) 
 		| 
 		PropertyCallExp)

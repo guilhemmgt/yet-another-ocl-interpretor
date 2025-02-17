@@ -30,6 +30,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
+import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -158,6 +159,48 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass operatorCallExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass eqOpCallExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass relOpCallExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass addOpCallExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass intOpCallExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mulOpCallExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass notOpCallExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -480,41 +523,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass mapTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass eqOpCallExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass relOpCallExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass addOpCallExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass intOpCallExpEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass mulOpCallExpEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -925,7 +933,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getOperatorCallExp_Source()
+  public EReference getOperatorCallExp_ArgumentGauche()
   {
     return (EReference)operatorCallExpEClass.getEStructuralFeatures().get(0);
   }
@@ -947,9 +955,262 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getOperatorCallExp_Argument()
+  public EReference getOperatorCallExp_ArgumentDroite()
   {
     return (EReference)operatorCallExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEqOpCallExp()
+  {
+    return eqOpCallExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEqOpCallExp_ArgumentGauche()
+  {
+    return (EReference)eqOpCallExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEqOpCallExp_OperationName()
+  {
+    return (EAttribute)eqOpCallExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEqOpCallExp_ArgumentDroite()
+  {
+    return (EReference)eqOpCallExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRelOpCallExp()
+  {
+    return relOpCallExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRelOpCallExp_ArgumentGauche()
+  {
+    return (EReference)relOpCallExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRelOpCallExp_OperationName()
+  {
+    return (EAttribute)relOpCallExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRelOpCallExp_ArgumentDroite()
+  {
+    return (EReference)relOpCallExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAddOpCallExp()
+  {
+    return addOpCallExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddOpCallExp_ArgumentGauche()
+  {
+    return (EReference)addOpCallExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAddOpCallExp_OperationName()
+  {
+    return (EAttribute)addOpCallExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAddOpCallExp_ArgumentDroite()
+  {
+    return (EReference)addOpCallExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIntOpCallExp()
+  {
+    return intOpCallExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIntOpCallExp_ArgumentGauche()
+  {
+    return (EReference)intOpCallExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getIntOpCallExp_OperationName()
+  {
+    return (EAttribute)intOpCallExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIntOpCallExp_ArgumentDroite()
+  {
+    return (EReference)intOpCallExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMulOpCallExp()
+  {
+    return mulOpCallExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMulOpCallExp_ArgumentGauche()
+  {
+    return (EReference)mulOpCallExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMulOpCallExp_OperationName()
+  {
+    return (EAttribute)mulOpCallExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMulOpCallExp_ArgumentDroite()
+  {
+    return (EReference)mulOpCallExpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNotOpCallExp()
+  {
+    return notOpCallExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNotOpCallExp_OperationName()
+  {
+    return (EAttribute)notOpCallExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNotOpCallExp_Source()
+  {
+    return (EReference)notOpCallExpEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1970,61 +2231,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getEqOpCallExp()
-  {
-    return eqOpCallExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getRelOpCallExp()
-  {
-    return relOpCallExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getAddOpCallExp()
-  {
-    return addOpCallExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getIntOpCallExp()
-  {
-    return intOpCallExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getMulOpCallExp()
-  {
-    return mulOpCallExpEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public OclFactory getOclFactory()
   {
     return (OclFactory)getEFactoryInstance();
@@ -2091,9 +2297,38 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     createEAttribute(oclModelElementExpEClass, OCL_MODEL_ELEMENT_EXP__NAME);
 
     operatorCallExpEClass = createEClass(OPERATOR_CALL_EXP);
-    createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__SOURCE);
+    createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__ARGUMENT_GAUCHE);
     createEAttribute(operatorCallExpEClass, OPERATOR_CALL_EXP__OPERATION_NAME);
-    createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__ARGUMENT);
+    createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__ARGUMENT_DROITE);
+
+    eqOpCallExpEClass = createEClass(EQ_OP_CALL_EXP);
+    createEReference(eqOpCallExpEClass, EQ_OP_CALL_EXP__ARGUMENT_GAUCHE);
+    createEAttribute(eqOpCallExpEClass, EQ_OP_CALL_EXP__OPERATION_NAME);
+    createEReference(eqOpCallExpEClass, EQ_OP_CALL_EXP__ARGUMENT_DROITE);
+
+    relOpCallExpEClass = createEClass(REL_OP_CALL_EXP);
+    createEReference(relOpCallExpEClass, REL_OP_CALL_EXP__ARGUMENT_GAUCHE);
+    createEAttribute(relOpCallExpEClass, REL_OP_CALL_EXP__OPERATION_NAME);
+    createEReference(relOpCallExpEClass, REL_OP_CALL_EXP__ARGUMENT_DROITE);
+
+    addOpCallExpEClass = createEClass(ADD_OP_CALL_EXP);
+    createEReference(addOpCallExpEClass, ADD_OP_CALL_EXP__ARGUMENT_GAUCHE);
+    createEAttribute(addOpCallExpEClass, ADD_OP_CALL_EXP__OPERATION_NAME);
+    createEReference(addOpCallExpEClass, ADD_OP_CALL_EXP__ARGUMENT_DROITE);
+
+    intOpCallExpEClass = createEClass(INT_OP_CALL_EXP);
+    createEReference(intOpCallExpEClass, INT_OP_CALL_EXP__ARGUMENT_GAUCHE);
+    createEAttribute(intOpCallExpEClass, INT_OP_CALL_EXP__OPERATION_NAME);
+    createEReference(intOpCallExpEClass, INT_OP_CALL_EXP__ARGUMENT_DROITE);
+
+    mulOpCallExpEClass = createEClass(MUL_OP_CALL_EXP);
+    createEReference(mulOpCallExpEClass, MUL_OP_CALL_EXP__ARGUMENT_GAUCHE);
+    createEAttribute(mulOpCallExpEClass, MUL_OP_CALL_EXP__OPERATION_NAME);
+    createEReference(mulOpCallExpEClass, MUL_OP_CALL_EXP__ARGUMENT_DROITE);
+
+    notOpCallExpEClass = createEClass(NOT_OP_CALL_EXP);
+    createEAttribute(notOpCallExpEClass, NOT_OP_CALL_EXP__OPERATION_NAME);
+    createEReference(notOpCallExpEClass, NOT_OP_CALL_EXP__SOURCE);
 
     propertyCallExpEClass = createEClass(PROPERTY_CALL_EXP);
     createEReference(propertyCallExpEClass, PROPERTY_CALL_EXP__CALLS);
@@ -2232,16 +2467,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     mapTypeEClass = createEClass(MAP_TYPE);
     createEReference(mapTypeEClass, MAP_TYPE__KEY_TYPE);
     createEReference(mapTypeEClass, MAP_TYPE__VALUE_TYPE);
-
-    eqOpCallExpEClass = createEClass(EQ_OP_CALL_EXP);
-
-    relOpCallExpEClass = createEClass(REL_OP_CALL_EXP);
-
-    addOpCallExpEClass = createEClass(ADD_OP_CALL_EXP);
-
-    intOpCallExpEClass = createEClass(INT_OP_CALL_EXP);
-
-    mulOpCallExpEClass = createEClass(MUL_OP_CALL_EXP);
   }
 
   /**
@@ -2276,7 +2501,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     parameterEClass.getESuperTypes().add(this.getAuxiliary());
     oclModelElementExpEClass.getESuperTypes().add(this.getOclExpression());
     operatorCallExpEClass.getESuperTypes().add(this.getOclExpression());
-    propertyCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
+    propertyCallExpEClass.getESuperTypes().add(this.getNotOpCallExp());
     variableExpEClass.getESuperTypes().add(this.getOclExpression());
     selfLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     stringLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
@@ -2316,11 +2541,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     tupleTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
     oclModelElementClassEClass.getESuperTypes().add(this.getOclTypeLiteral());
     mapTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
-    eqOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
-    relOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
-    addOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
-    intOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
-    mulOpCallExpEClass.getESuperTypes().add(this.getOperatorCallExp());
 
     // Initialize classes and features; add operations and parameters
     initEClass(moduleEClass, fr.enseeiht.ocl.xtext.ocl.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2364,9 +2584,38 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEAttribute(getOclModelElementExp_Name(), ecorePackage.getEString(), "name", null, 0, 1, OclModelElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operatorCallExpEClass, OperatorCallExp.class, "OperatorCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOperatorCallExp_Source(), this.getOclExpression(), null, "source", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperatorCallExp_ArgumentGauche(), this.getEqOpCallExp(), null, "argumentGauche", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOperatorCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperatorCallExp_Argument(), this.getOperatorCallExp(), null, "argument", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperatorCallExp_ArgumentDroite(), this.getOperatorCallExp(), null, "argumentDroite", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(eqOpCallExpEClass, EqOpCallExp.class, "EqOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEqOpCallExp_ArgumentGauche(), this.getRelOpCallExp(), null, "argumentGauche", null, 0, 1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEqOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEqOpCallExp_ArgumentDroite(), this.getRelOpCallExp(), null, "argumentDroite", null, 0, 1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(relOpCallExpEClass, RelOpCallExp.class, "RelOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRelOpCallExp_ArgumentGauche(), this.getAddOpCallExp(), null, "argumentGauche", null, 0, 1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelOpCallExp_ArgumentDroite(), this.getAddOpCallExp(), null, "argumentDroite", null, 0, 1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(addOpCallExpEClass, AddOpCallExp.class, "AddOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAddOpCallExp_ArgumentGauche(), this.getIntOpCallExp(), null, "argumentGauche", null, 0, 1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddOpCallExp_ArgumentDroite(), this.getAddOpCallExp(), null, "argumentDroite", null, 0, 1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(intOpCallExpEClass, IntOpCallExp.class, "IntOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIntOpCallExp_ArgumentGauche(), this.getMulOpCallExp(), null, "argumentGauche", null, 0, 1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIntOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntOpCallExp_ArgumentDroite(), this.getIntOpCallExp(), null, "argumentDroite", null, 0, 1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mulOpCallExpEClass, MulOpCallExp.class, "MulOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMulOpCallExp_ArgumentGauche(), this.getNotOpCallExp(), null, "argumentGauche", null, 0, 1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMulOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMulOpCallExp_ArgumentDroite(), this.getMulOpCallExp(), null, "argumentDroite", null, 0, 1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(notOpCallExpEClass, NotOpCallExp.class, "NotOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNotOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, NotOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNotOpCallExp_Source(), ecorePackage.getEObject(), null, "source", null, 0, 1, NotOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyCallExpEClass, PropertyCallExp.class, "PropertyCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPropertyCallExp_Calls(), this.getPropertyCall(), null, "calls", null, 0, -1, PropertyCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2505,16 +2754,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEClass(mapTypeEClass, MapType.class, "MapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMapType_KeyType(), this.getOclTypeLiteral(), null, "keyType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapType_ValueType(), this.getOclTypeLiteral(), null, "valueType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(eqOpCallExpEClass, EqOpCallExp.class, "EqOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(relOpCallExpEClass, RelOpCallExp.class, "RelOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(addOpCallExpEClass, AddOpCallExp.class, "AddOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(intOpCallExpEClass, IntOpCallExp.class, "IntOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(mulOpCallExpEClass, MulOpCallExp.class, "MulOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

@@ -30,6 +30,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
+import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -190,6 +191,36 @@ public class OclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseOperatorCallExp(OperatorCallExp object)
       {
         return createOperatorCallExpAdapter();
+      }
+      @Override
+      public Adapter caseEqOpCallExp(EqOpCallExp object)
+      {
+        return createEqOpCallExpAdapter();
+      }
+      @Override
+      public Adapter caseRelOpCallExp(RelOpCallExp object)
+      {
+        return createRelOpCallExpAdapter();
+      }
+      @Override
+      public Adapter caseAddOpCallExp(AddOpCallExp object)
+      {
+        return createAddOpCallExpAdapter();
+      }
+      @Override
+      public Adapter caseIntOpCallExp(IntOpCallExp object)
+      {
+        return createIntOpCallExpAdapter();
+      }
+      @Override
+      public Adapter caseMulOpCallExp(MulOpCallExp object)
+      {
+        return createMulOpCallExpAdapter();
+      }
+      @Override
+      public Adapter caseNotOpCallExp(NotOpCallExp object)
+      {
+        return createNotOpCallExpAdapter();
       }
       @Override
       public Adapter casePropertyCallExp(PropertyCallExp object)
@@ -422,31 +453,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createMapTypeAdapter();
       }
       @Override
-      public Adapter caseEqOpCallExp(EqOpCallExp object)
-      {
-        return createEqOpCallExpAdapter();
-      }
-      @Override
-      public Adapter caseRelOpCallExp(RelOpCallExp object)
-      {
-        return createRelOpCallExpAdapter();
-      }
-      @Override
-      public Adapter caseAddOpCallExp(AddOpCallExp object)
-      {
-        return createAddOpCallExpAdapter();
-      }
-      @Override
-      public Adapter caseIntOpCallExp(IntOpCallExp object)
-      {
-        return createIntOpCallExpAdapter();
-      }
-      @Override
-      public Adapter caseMulOpCallExp(MulOpCallExp object)
-      {
-        return createMulOpCallExpAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -629,6 +635,96 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOperatorCallExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp <em>Eq Op Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp
+   * @generated
+   */
+  public Adapter createEqOpCallExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp <em>Rel Op Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp
+   * @generated
+   */
+  public Adapter createRelOpCallExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp <em>Add Op Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp
+   * @generated
+   */
+  public Adapter createAddOpCallExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp <em>Int Op Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp
+   * @generated
+   */
+  public Adapter createIntOpCallExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp <em>Mul Op Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp
+   * @generated
+   */
+  public Adapter createMulOpCallExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.NotOpCallExp <em>Not Op Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.NotOpCallExp
+   * @generated
+   */
+  public Adapter createNotOpCallExpAdapter()
   {
     return null;
   }
@@ -1319,81 +1415,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMapTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp <em>Eq Op Call Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp
-   * @generated
-   */
-  public Adapter createEqOpCallExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp <em>Rel Op Call Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp
-   * @generated
-   */
-  public Adapter createRelOpCallExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp <em>Add Op Call Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp
-   * @generated
-   */
-  public Adapter createAddOpCallExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp <em>Int Op Call Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp
-   * @generated
-   */
-  public Adapter createIntOpCallExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp <em>Mul Op Call Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp
-   * @generated
-   */
-  public Adapter createMulOpCallExpAdapter()
   {
     return null;
   }

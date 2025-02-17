@@ -11,6 +11,12 @@ import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
+import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
@@ -57,11 +63,6 @@ import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
-import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ModuleValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ImportValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclContextBlockValidationAdapter;
@@ -73,6 +74,12 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclInvariantValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclExpressionValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModelElementExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OperatorCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EqOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RelOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AddOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MulOpCallExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NotOpCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PropertyCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AuxiliaryValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.VariableExpValidationAdapter;
@@ -119,11 +126,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeAttributeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModelElementClassValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapTypeValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EqOpCallExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RelOpCallExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AddOpCallExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntOpCallExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MulOpCallExpValidationAdapter;
 
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import org.eclipse.emf.ecore.EObject;
@@ -245,6 +247,36 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseOperatorCallExp(OperatorCallExp object)
       {
         return createOperatorCallExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseEqOpCallExp(EqOpCallExp object)
+      {
+        return createEqOpCallExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseRelOpCallExp(RelOpCallExp object)
+      {
+        return createRelOpCallExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseAddOpCallExp(AddOpCallExp object)
+      {
+        return createAddOpCallExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseIntOpCallExp(IntOpCallExp object)
+      {
+        return createIntOpCallExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseMulOpCallExp(MulOpCallExp object)
+      {
+        return createMulOpCallExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseNotOpCallExp(NotOpCallExp object)
+      {
+        return createNotOpCallExpValidationAdapter(object);
       }
       @Override
       public OCLAdapter casePropertyCallExp(PropertyCallExp object)
@@ -477,31 +509,6 @@ public class OCLValidationAdapterFactory
         return createMapTypeValidationAdapter(object);
       }
       @Override
-      public OCLAdapter caseEqOpCallExp(EqOpCallExp object)
-      {
-        return createEqOpCallExpValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseRelOpCallExp(RelOpCallExp object)
-      {
-        return createRelOpCallExpValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseAddOpCallExp(AddOpCallExp object)
-      {
-        return createAddOpCallExpValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseIntOpCallExp(IntOpCallExp object)
-      {
-        return createIntOpCallExpValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseMulOpCallExp(MulOpCallExp object)
-      {
-        return createMulOpCallExpValidationAdapter(object);
-      }
-      @Override
       public OCLAdapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -674,6 +681,84 @@ public class OCLValidationAdapterFactory
   public OCLAdapter createOperatorCallExpValidationAdapter(OperatorCallExp target)
   {
     return new OperatorCallExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp <em>EqOpCallExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp
+   * @generated
+   */
+  public OCLAdapter createEqOpCallExpValidationAdapter(EqOpCallExp target)
+  {
+    return new EqOpCallExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp <em>RelOpCallExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp
+   * @generated
+   */
+  public OCLAdapter createRelOpCallExpValidationAdapter(RelOpCallExp target)
+  {
+    return new RelOpCallExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp <em>AddOpCallExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp
+   * @generated
+   */
+  public OCLAdapter createAddOpCallExpValidationAdapter(AddOpCallExp target)
+  {
+    return new AddOpCallExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp <em>IntOpCallExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp
+   * @generated
+   */
+  public OCLAdapter createIntOpCallExpValidationAdapter(IntOpCallExp target)
+  {
+    return new IntOpCallExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp <em>MulOpCallExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp
+   * @generated
+   */
+  public OCLAdapter createMulOpCallExpValidationAdapter(MulOpCallExp target)
+  {
+    return new MulOpCallExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.NotOpCallExp <em>NotOpCallExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.NotOpCallExp
+   * @generated
+   */
+  public OCLAdapter createNotOpCallExpValidationAdapter(NotOpCallExp target)
+  {
+    return new NotOpCallExpValidationAdapter(target);
   }
 
   /**
@@ -1272,71 +1357,6 @@ public class OCLValidationAdapterFactory
   public OCLAdapter createMapTypeValidationAdapter(MapType target)
   {
     return new MapTypeValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp <em>EqOpCallExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp
-   * @generated
-   */
-  public OCLAdapter createEqOpCallExpValidationAdapter(EqOpCallExp target)
-  {
-    return new EqOpCallExpValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp <em>RelOpCallExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp
-   * @generated
-   */
-  public OCLAdapter createRelOpCallExpValidationAdapter(RelOpCallExp target)
-  {
-    return new RelOpCallExpValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp <em>AddOpCallExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp
-   * @generated
-   */
-  public OCLAdapter createAddOpCallExpValidationAdapter(AddOpCallExp target)
-  {
-    return new AddOpCallExpValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp <em>IntOpCallExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp
-   * @generated
-   */
-  public OCLAdapter createIntOpCallExpValidationAdapter(IntOpCallExp target)
-  {
-    return new IntOpCallExpValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp <em>MulOpCallExp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp
-   * @generated
-   */
-  public OCLAdapter createMulOpCallExpValidationAdapter(MulOpCallExp target)
-  {
-    return new MulOpCallExpValidationAdapter(target);
   }
 
 }

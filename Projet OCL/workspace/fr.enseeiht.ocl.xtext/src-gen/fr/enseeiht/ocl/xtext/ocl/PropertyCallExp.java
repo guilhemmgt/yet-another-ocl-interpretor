@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface PropertyCallExp extends OperatorCallExp
+public interface PropertyCallExp extends NotOpCallExp
 {
   /**
    * Returns the value of the '<em><b>Calls</b></em>' containment reference list.
