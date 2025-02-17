@@ -30,6 +30,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
+import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -214,12 +215,53 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OclPackage.EQ_OP_CALL_EXP:
+      {
+        EqOpCallExp eqOpCallExp = (EqOpCallExp)theEObject;
+        T result = caseEqOpCallExp(eqOpCallExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.REL_OP_CALL_EXP:
+      {
+        RelOpCallExp relOpCallExp = (RelOpCallExp)theEObject;
+        T result = caseRelOpCallExp(relOpCallExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.ADD_OP_CALL_EXP:
+      {
+        AddOpCallExp addOpCallExp = (AddOpCallExp)theEObject;
+        T result = caseAddOpCallExp(addOpCallExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.INT_OP_CALL_EXP:
+      {
+        IntOpCallExp intOpCallExp = (IntOpCallExp)theEObject;
+        T result = caseIntOpCallExp(intOpCallExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.MUL_OP_CALL_EXP:
+      {
+        MulOpCallExp mulOpCallExp = (MulOpCallExp)theEObject;
+        T result = caseMulOpCallExp(mulOpCallExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.NOT_OP_CALL_EXP:
+      {
+        NotOpCallExp notOpCallExp = (NotOpCallExp)theEObject;
+        T result = caseNotOpCallExp(notOpCallExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OclPackage.PROPERTY_CALL_EXP:
       {
         PropertyCallExp propertyCallExp = (PropertyCallExp)theEObject;
         T result = casePropertyCallExp(propertyCallExp);
-        if (result == null) result = caseOperatorCallExp(propertyCallExp);
-        if (result == null) result = caseOclExpression(propertyCallExp);
+        if (result == null) result = caseNotOpCallExp(propertyCallExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -590,51 +632,6 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OclPackage.EQ_OP_CALL_EXP:
-      {
-        EqOpCallExp eqOpCallExp = (EqOpCallExp)theEObject;
-        T result = caseEqOpCallExp(eqOpCallExp);
-        if (result == null) result = caseOperatorCallExp(eqOpCallExp);
-        if (result == null) result = caseOclExpression(eqOpCallExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.REL_OP_CALL_EXP:
-      {
-        RelOpCallExp relOpCallExp = (RelOpCallExp)theEObject;
-        T result = caseRelOpCallExp(relOpCallExp);
-        if (result == null) result = caseOperatorCallExp(relOpCallExp);
-        if (result == null) result = caseOclExpression(relOpCallExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.ADD_OP_CALL_EXP:
-      {
-        AddOpCallExp addOpCallExp = (AddOpCallExp)theEObject;
-        T result = caseAddOpCallExp(addOpCallExp);
-        if (result == null) result = caseOperatorCallExp(addOpCallExp);
-        if (result == null) result = caseOclExpression(addOpCallExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.INT_OP_CALL_EXP:
-      {
-        IntOpCallExp intOpCallExp = (IntOpCallExp)theEObject;
-        T result = caseIntOpCallExp(intOpCallExp);
-        if (result == null) result = caseOperatorCallExp(intOpCallExp);
-        if (result == null) result = caseOclExpression(intOpCallExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.MUL_OP_CALL_EXP:
-      {
-        MulOpCallExp mulOpCallExp = (MulOpCallExp)theEObject;
-        T result = caseMulOpCallExp(mulOpCallExp);
-        if (result == null) result = caseOperatorCallExp(mulOpCallExp);
-        if (result == null) result = caseOclExpression(mulOpCallExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -811,6 +808,102 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOperatorCallExp(OperatorCallExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Eq Op Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Eq Op Call Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEqOpCallExp(EqOpCallExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rel Op Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rel Op Call Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelOpCallExp(RelOpCallExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add Op Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add Op Call Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddOpCallExp(AddOpCallExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Int Op Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Int Op Call Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntOpCallExp(IntOpCallExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mul Op Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mul Op Call Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMulOpCallExp(MulOpCallExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Not Op Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Not Op Call Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNotOpCallExp(NotOpCallExp object)
   {
     return null;
   }
@@ -1547,86 +1640,6 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMapType(MapType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Eq Op Call Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Eq Op Call Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEqOpCallExp(EqOpCallExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Rel Op Call Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Rel Op Call Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRelOpCallExp(RelOpCallExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Add Op Call Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add Op Call Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAddOpCallExp(AddOpCallExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Int Op Call Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Int Op Call Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntOpCallExp(IntOpCallExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Mul Op Call Exp</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mul Op Call Exp</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMulOpCallExp(MulOpCallExp object)
   {
     return null;
   }

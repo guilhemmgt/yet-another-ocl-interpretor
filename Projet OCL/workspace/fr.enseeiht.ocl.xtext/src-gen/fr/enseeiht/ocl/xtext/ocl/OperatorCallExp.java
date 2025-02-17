@@ -13,9 +13,9 @@ package fr.enseeiht.ocl.xtext.ocl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getSource <em>Source</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentGauche <em>Argument Gauche</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationName <em>Operation Name</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgument <em>Argument</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentDroite <em>Argument Droite</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp()
@@ -25,26 +25,26 @@ package fr.enseeiht.ocl.xtext.ocl;
 public interface OperatorCallExp extends OclExpression
 {
   /**
-   * Returns the value of the '<em><b>Source</b></em>' containment reference.
+   * Returns the value of the '<em><b>Argument Gauche</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source</em>' containment reference.
-   * @see #setSource(OclExpression)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_Source()
+   * @return the value of the '<em>Argument Gauche</em>' containment reference.
+   * @see #setArgumentGauche(EqOpCallExp)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_ArgumentGauche()
    * @model containment="true"
    * @generated
    */
-  OclExpression getSource();
+  EqOpCallExp getArgumentGauche();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getSource <em>Source</em>}' containment reference.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentGauche <em>Argument Gauche</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source</em>' containment reference.
-   * @see #getSource()
+   * @param value the new value of the '<em>Argument Gauche</em>' containment reference.
+   * @see #getArgumentGauche()
    * @generated
    */
-  void setSource(OclExpression value);
+  void setArgumentGauche(EqOpCallExp value);
 
   /**
    * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
@@ -69,25 +69,25 @@ public interface OperatorCallExp extends OclExpression
   void setOperationName(String value);
 
   /**
-   * Returns the value of the '<em><b>Argument</b></em>' containment reference.
+   * Returns the value of the '<em><b>Argument Droite</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Argument</em>' containment reference.
-   * @see #setArgument(OperatorCallExp)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_Argument()
+   * @return the value of the '<em>Argument Droite</em>' containment reference.
+   * @see #setArgumentDroite(OperatorCallExp)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_ArgumentDroite()
    * @model containment="true"
    * @generated
    */
-  OperatorCallExp getArgument();
+  OperatorCallExp getArgumentDroite();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgument <em>Argument</em>}' containment reference.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentDroite <em>Argument Droite</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Argument</em>' containment reference.
-   * @see #getArgument()
+   * @param value the new value of the '<em>Argument Droite</em>' containment reference.
+   * @see #getArgumentDroite()
    * @generated
    */
-  void setArgument(OperatorCallExp value);
+  void setArgumentDroite(OperatorCallExp value);
 
 } // OperatorCallExp

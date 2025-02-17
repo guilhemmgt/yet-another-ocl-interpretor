@@ -29,6 +29,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
+import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
@@ -161,6 +162,9 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OclPackage.NAVIGATION_OR_ATTRIBUTE_CALL:
 				sequence_NavigationOrAttributeCall(context, (NavigationOrAttributeCall) semanticObject); 
 				return; 
+			case OclPackage.NOT_OP_CALL_EXP:
+				sequence_NotOpCallExp(context, (NotOpCallExp) semanticObject); 
+				return; 
 			case OclPackage.OCL_ANY_TYPE:
 				sequence_OclAnyType(context, (OclAnyType) semanticObject); 
 				return; 
@@ -186,27 +190,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_OperationCall(context, (OperationCall) semanticObject); 
 				return; 
 			case OclPackage.OPERATOR_CALL_EXP:
-				if (rule == grammarAccess.getEqOpCallExpRule()
-						|| action == grammarAccess.getEqOpCallExpAccess().getEqOpCallExpSourceAction_1_0_0()
-						|| rule == grammarAccess.getRelOpCallExpRule()
-						|| action == grammarAccess.getRelOpCallExpAccess().getRelOpCallExpSourceAction_1_0_0()
-						|| rule == grammarAccess.getAddOpCallExpRule()
-						|| action == grammarAccess.getAddOpCallExpAccess().getAddOpCallExpSourceAction_1_0_0()
-						|| rule == grammarAccess.getIntOpCallExpRule()
-						|| action == grammarAccess.getIntOpCallExpAccess().getIntOpCallExpSourceAction_1_0_0()
-						|| rule == grammarAccess.getMulOpCallExpRule()
-						|| action == grammarAccess.getMulOpCallExpAccess().getMulOpCallExpSourceAction_1_0_0()
-						|| rule == grammarAccess.getNotOpCallExpRule()) {
-					sequence_NotOpCallExp(context, (OperatorCallExp) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getOclExpressionRule()
-						|| rule == grammarAccess.getOperatorCallExpRule()
-						|| action == grammarAccess.getOperatorCallExpAccess().getOperatorCallExpSourceAction_1_0_0()) {
-					sequence_NotOpCallExp_OperatorCallExp(context, (OperatorCallExp) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_OperatorCallExp(context, (OperatorCallExp) semanticObject); 
+				return; 
 			case OclPackage.ORDERED_SET_LITERAL_EXP:
 				sequence_OrderedSetLiteralExp(context, (OrderedSetLiteralExp) semanticObject); 
 				return; 
@@ -272,34 +257,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclExpression returns AddOpCallExp
-	 *     OperatorCallExp returns AddOpCallExp
-	 *     OperatorCallExp.OperatorCallExp_1_0_0 returns AddOpCallExp
-	 *     EqOpCallExp returns AddOpCallExp
-	 *     EqOpCallExp.EqOpCallExp_1_0_0 returns AddOpCallExp
-	 *     RelOpCallExp returns AddOpCallExp
-	 *     RelOpCallExp.RelOpCallExp_1_0_0 returns AddOpCallExp
 	 *     AddOpCallExp returns AddOpCallExp
-	 *     AddOpCallExp.AddOpCallExp_1_0_0 returns AddOpCallExp
 	 *
 	 * Constraint:
-	 *     (source=AddOpCallExp_AddOpCallExp_1_0_0 operationName=ADDOP argument=IntOpCallExp)
+	 *     (argumentGauche=IntOpCallExp (operationName=ADDOP argumentDroite=AddOpCallExp)?)
 	 * </pre>
 	 */
 	protected void sequence_AddOpCallExp(ISerializationContext context, AddOpCallExp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddOpCallExpAccess().getAddOpCallExpSourceAction_1_0_0(), semanticObject.getSource());
-		feeder.accept(grammarAccess.getAddOpCallExpAccess().getOperationNameADDOPParserRuleCall_1_0_1_0(), semanticObject.getOperationName());
-		feeder.accept(grammarAccess.getAddOpCallExpAccess().getArgumentIntOpCallExpParserRuleCall_1_1_0(), semanticObject.getArgument());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -451,29 +416,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclExpression returns EqOpCallExp
-	 *     OperatorCallExp returns EqOpCallExp
-	 *     OperatorCallExp.OperatorCallExp_1_0_0 returns EqOpCallExp
 	 *     EqOpCallExp returns EqOpCallExp
 	 *
 	 * Constraint:
-	 *     (source=EqOpCallExp_EqOpCallExp_1_0_0 operationName=EQOP argument=RelOpCallExp)
+	 *     (argumentGauche=RelOpCallExp (operationName=EQOP argumentDroite=RelOpCallExp)?)
 	 * </pre>
 	 */
 	protected void sequence_EqOpCallExp(ISerializationContext context, EqOpCallExp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEqOpCallExpAccess().getEqOpCallExpSourceAction_1_0_0(), semanticObject.getSource());
-		feeder.accept(grammarAccess.getEqOpCallExpAccess().getOperationNameEQOPParserRuleCall_1_0_1_0(), semanticObject.getOperationName());
-		feeder.accept(grammarAccess.getEqOpCallExpAccess().getArgumentRelOpCallExpParserRuleCall_1_1_0(), semanticObject.getArgument());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -530,36 +480,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclExpression returns IntOpCallExp
-	 *     OperatorCallExp returns IntOpCallExp
-	 *     OperatorCallExp.OperatorCallExp_1_0_0 returns IntOpCallExp
-	 *     EqOpCallExp returns IntOpCallExp
-	 *     EqOpCallExp.EqOpCallExp_1_0_0 returns IntOpCallExp
-	 *     RelOpCallExp returns IntOpCallExp
-	 *     RelOpCallExp.RelOpCallExp_1_0_0 returns IntOpCallExp
-	 *     AddOpCallExp returns IntOpCallExp
-	 *     AddOpCallExp.AddOpCallExp_1_0_0 returns IntOpCallExp
 	 *     IntOpCallExp returns IntOpCallExp
-	 *     IntOpCallExp.IntOpCallExp_1_0_0 returns IntOpCallExp
 	 *
 	 * Constraint:
-	 *     (source=IntOpCallExp_IntOpCallExp_1_0_0 operationName=INTOP argument=MulOpCallExp)
+	 *     (argumentGauche=MulOpCallExp (operationName=INTOP argumentDroite=IntOpCallExp)?)
 	 * </pre>
 	 */
 	protected void sequence_IntOpCallExp(ISerializationContext context, IntOpCallExp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntOpCallExpAccess().getIntOpCallExpSourceAction_1_0_0(), semanticObject.getSource());
-		feeder.accept(grammarAccess.getIntOpCallExpAccess().getOperationNameINTOPParserRuleCall_1_0_1_0(), semanticObject.getOperationName());
-		feeder.accept(grammarAccess.getIntOpCallExpAccess().getArgumentMulOpCallExpParserRuleCall_1_1_0(), semanticObject.getArgument());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -765,38 +693,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclExpression returns MulOpCallExp
-	 *     OperatorCallExp returns MulOpCallExp
-	 *     OperatorCallExp.OperatorCallExp_1_0_0 returns MulOpCallExp
-	 *     EqOpCallExp returns MulOpCallExp
-	 *     EqOpCallExp.EqOpCallExp_1_0_0 returns MulOpCallExp
-	 *     RelOpCallExp returns MulOpCallExp
-	 *     RelOpCallExp.RelOpCallExp_1_0_0 returns MulOpCallExp
-	 *     AddOpCallExp returns MulOpCallExp
-	 *     AddOpCallExp.AddOpCallExp_1_0_0 returns MulOpCallExp
-	 *     IntOpCallExp returns MulOpCallExp
-	 *     IntOpCallExp.IntOpCallExp_1_0_0 returns MulOpCallExp
 	 *     MulOpCallExp returns MulOpCallExp
-	 *     MulOpCallExp.MulOpCallExp_1_0_0 returns MulOpCallExp
 	 *
 	 * Constraint:
-	 *     (source=MulOpCallExp_MulOpCallExp_1_0_0 operationName=MULOP argument=NotOpCallExp)
+	 *     (argumentGauche=NotOpCallExp (operationName=MULOP argumentDroite=MulOpCallExp)?)
 	 * </pre>
 	 */
 	protected void sequence_MulOpCallExp(ISerializationContext context, MulOpCallExp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMulOpCallExpAccess().getMulOpCallExpSourceAction_1_0_0(), semanticObject.getSource());
-		feeder.accept(grammarAccess.getMulOpCallExpAccess().getOperationNameMULOPParserRuleCall_1_0_1_0(), semanticObject.getOperationName());
-		feeder.accept(grammarAccess.getMulOpCallExpAccess().getArgumentNotOpCallExpParserRuleCall_1_1_0(), semanticObject.getArgument());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -818,49 +722,23 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     EqOpCallExp returns OperatorCallExp
-	 *     EqOpCallExp.EqOpCallExp_1_0_0 returns OperatorCallExp
-	 *     RelOpCallExp returns OperatorCallExp
-	 *     RelOpCallExp.RelOpCallExp_1_0_0 returns OperatorCallExp
-	 *     AddOpCallExp returns OperatorCallExp
-	 *     AddOpCallExp.AddOpCallExp_1_0_0 returns OperatorCallExp
-	 *     IntOpCallExp returns OperatorCallExp
-	 *     IntOpCallExp.IntOpCallExp_1_0_0 returns OperatorCallExp
-	 *     MulOpCallExp returns OperatorCallExp
-	 *     MulOpCallExp.MulOpCallExp_1_0_0 returns OperatorCallExp
-	 *     NotOpCallExp returns OperatorCallExp
+	 *     NotOpCallExp returns NotOpCallExp
 	 *
 	 * Constraint:
 	 *     (operationName=UNARYOP source=NotOpCallExp)
 	 * </pre>
 	 */
-	protected void sequence_NotOpCallExp(ISerializationContext context, OperatorCallExp semanticObject) {
+	protected void sequence_NotOpCallExp(ISerializationContext context, NotOpCallExp semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.NOT_OP_CALL_EXP__OPERATION_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.NOT_OP_CALL_EXP__OPERATION_NAME));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.NOT_OP_CALL_EXP__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.NOT_OP_CALL_EXP__SOURCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNotOpCallExpAccess().getOperationNameUNARYOPParserRuleCall_0_0_0(), semanticObject.getOperationName());
 		feeder.accept(grammarAccess.getNotOpCallExpAccess().getSourceNotOpCallExpParserRuleCall_0_1_0(), semanticObject.getSource());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     OclExpression returns OperatorCallExp
-	 *     OperatorCallExp returns OperatorCallExp
-	 *     OperatorCallExp.OperatorCallExp_1_0_0 returns OperatorCallExp
-	 *
-	 * Constraint:
-	 *     ((source=OperatorCallExp_OperatorCallExp_1_0_0 operationName=BOOLOP argument=EqOpCallExp) | (operationName=UNARYOP source=NotOpCallExp))
-	 * </pre>
-	 */
-	protected void sequence_NotOpCallExp_OperatorCallExp(ISerializationContext context, OperatorCallExp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1010,6 +888,21 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     OclExpression returns OperatorCallExp
+	 *     OperatorCallExp returns OperatorCallExp
+	 *
+	 * Constraint:
+	 *     (argumentGauche=EqOpCallExp (operationName=BOOLOP argumentDroite=OperatorCallExp)?)
+	 * </pre>
+	 */
+	protected void sequence_OperatorCallExp(ISerializationContext context, OperatorCallExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Primary_OclExpression returns OrderedSetLiteralExp
 	 *     OrderedSetLiteralExp returns OrderedSetLiteralExp
 	 *
@@ -1071,19 +964,6 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclExpression returns PropertyCallExp
-	 *     OperatorCallExp returns PropertyCallExp
-	 *     OperatorCallExp.OperatorCallExp_1_0_0 returns PropertyCallExp
-	 *     EqOpCallExp returns PropertyCallExp
-	 *     EqOpCallExp.EqOpCallExp_1_0_0 returns PropertyCallExp
-	 *     RelOpCallExp returns PropertyCallExp
-	 *     RelOpCallExp.RelOpCallExp_1_0_0 returns PropertyCallExp
-	 *     AddOpCallExp returns PropertyCallExp
-	 *     AddOpCallExp.AddOpCallExp_1_0_0 returns PropertyCallExp
-	 *     IntOpCallExp returns PropertyCallExp
-	 *     IntOpCallExp.IntOpCallExp_1_0_0 returns PropertyCallExp
-	 *     MulOpCallExp returns PropertyCallExp
-	 *     MulOpCallExp.MulOpCallExp_1_0_0 returns PropertyCallExp
 	 *     NotOpCallExp returns PropertyCallExp
 	 *     PropertyCallExp returns PropertyCallExp
 	 *
@@ -1138,31 +1018,14 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     OclExpression returns RelOpCallExp
-	 *     OperatorCallExp returns RelOpCallExp
-	 *     OperatorCallExp.OperatorCallExp_1_0_0 returns RelOpCallExp
-	 *     EqOpCallExp returns RelOpCallExp
-	 *     EqOpCallExp.EqOpCallExp_1_0_0 returns RelOpCallExp
 	 *     RelOpCallExp returns RelOpCallExp
 	 *
 	 * Constraint:
-	 *     (source=RelOpCallExp_RelOpCallExp_1_0_0 operationName=RELOP argument=AddOpCallExp)
+	 *     (argumentGauche=AddOpCallExp (operationName=RELOP argumentDroite=AddOpCallExp)?)
 	 * </pre>
 	 */
 	protected void sequence_RelOpCallExp(ISerializationContext context, RelOpCallExp semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__SOURCE));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__OPERATION_NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OPERATOR_CALL_EXP__ARGUMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRelOpCallExpAccess().getRelOpCallExpSourceAction_1_0_0(), semanticObject.getSource());
-		feeder.accept(grammarAccess.getRelOpCallExpAccess().getOperationNameRELOPParserRuleCall_1_0_1_0(), semanticObject.getOperationName());
-		feeder.accept(grammarAccess.getRelOpCallExpAccess().getArgumentAddOpCallExpParserRuleCall_1_1_0(), semanticObject.getArgument());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

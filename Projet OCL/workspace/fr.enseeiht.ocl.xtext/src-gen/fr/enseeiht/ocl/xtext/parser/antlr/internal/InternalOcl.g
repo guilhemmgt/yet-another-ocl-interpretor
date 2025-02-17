@@ -803,63 +803,65 @@ ruleOperatorCallExp returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getOperatorCallExpAccess().getEqOpCallExpParserRuleCall_0());
-		}
-		this_EqOpCallExp_0=ruleEqOpCallExp
-		{
-			$current = $this_EqOpCallExp_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getOperatorCallExpAccess().getArgumentGaucheEqOpCallExpParserRuleCall_0_0());
+				}
+				lv_argumentGauche_0_0=ruleEqOpCallExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getOperatorCallExpRule());
+					}
+					set(
+						$current,
+						"argumentGauche",
+						lv_argumentGauche_0_0,
+						"fr.enseeiht.ocl.xtext.Ocl.EqOpCallExp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				(
 					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getOperatorCallExpAccess().getOperatorCallExpSourceAction_1_0_0(),
-							$current);
+						newCompositeNode(grammarAccess.getOperatorCallExpAccess().getOperationNameBOOLOPParserRuleCall_1_0_0());
 					}
-				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getOperatorCallExpAccess().getOperationNameBOOLOPParserRuleCall_1_0_1_0());
-						}
-						lv_operationName_2_0=ruleBOOLOP
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getOperatorCallExpRule());
-							}
-							set(
-								$current,
-								"operationName",
-								lv_operationName_2_0,
-								"fr.enseeiht.ocl.xtext.Ocl.BOOLOP");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getOperatorCallExpAccess().getArgumentEqOpCallExpParserRuleCall_1_1_0());
-					}
-					lv_argument_3_0=ruleEqOpCallExp
+					lv_operationName_1_0=ruleBOOLOP
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getOperatorCallExpRule());
 						}
 						set(
 							$current,
-							"argument",
-							lv_argument_3_0,
-							"fr.enseeiht.ocl.xtext.Ocl.EqOpCallExp");
+							"operationName",
+							lv_operationName_1_0,
+							"fr.enseeiht.ocl.xtext.Ocl.BOOLOP");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)*
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getOperatorCallExpAccess().getArgumentDroiteOperatorCallExpParserRuleCall_1_1_0());
+					}
+					lv_argumentDroite_2_0=ruleOperatorCallExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOperatorCallExpRule());
+						}
+						set(
+							$current,
+							"argumentDroite",
+							lv_argumentDroite_2_0,
+							"fr.enseeiht.ocl.xtext.Ocl.OperatorCallExp");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -927,57 +929,59 @@ ruleEqOpCallExp returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getEqOpCallExpAccess().getRelOpCallExpParserRuleCall_0());
-		}
-		this_RelOpCallExp_0=ruleRelOpCallExp
-		{
-			$current = $this_RelOpCallExp_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEqOpCallExpAccess().getArgumentGaucheRelOpCallExpParserRuleCall_0_0());
+				}
+				lv_argumentGauche_0_0=ruleRelOpCallExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEqOpCallExpRule());
+					}
+					set(
+						$current,
+						"argumentGauche",
+						lv_argumentGauche_0_0,
+						"fr.enseeiht.ocl.xtext.Ocl.RelOpCallExp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				(
 					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getEqOpCallExpAccess().getEqOpCallExpSourceAction_1_0_0(),
-							$current);
+						newCompositeNode(grammarAccess.getEqOpCallExpAccess().getOperationNameEQOPParserRuleCall_1_0_0());
 					}
-				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getEqOpCallExpAccess().getOperationNameEQOPParserRuleCall_1_0_1_0());
-						}
-						lv_operationName_2_0=ruleEQOP
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getEqOpCallExpRule());
-							}
-							set(
-								$current,
-								"operationName",
-								lv_operationName_2_0,
-								"fr.enseeiht.ocl.xtext.Ocl.EQOP");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getEqOpCallExpAccess().getArgumentRelOpCallExpParserRuleCall_1_1_0());
-					}
-					lv_argument_3_0=ruleRelOpCallExp
+					lv_operationName_1_0=ruleEQOP
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEqOpCallExpRule());
 						}
 						set(
 							$current,
-							"argument",
-							lv_argument_3_0,
+							"operationName",
+							lv_operationName_1_0,
+							"fr.enseeiht.ocl.xtext.Ocl.EQOP");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEqOpCallExpAccess().getArgumentDroiteRelOpCallExpParserRuleCall_1_1_0());
+					}
+					lv_argumentDroite_2_0=ruleRelOpCallExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEqOpCallExpRule());
+						}
+						set(
+							$current,
+							"argumentDroite",
+							lv_argumentDroite_2_0,
 							"fr.enseeiht.ocl.xtext.Ocl.RelOpCallExp");
 						afterParserOrEnumRuleCall();
 					}
@@ -1033,57 +1037,59 @@ ruleRelOpCallExp returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getRelOpCallExpAccess().getAddOpCallExpParserRuleCall_0());
-		}
-		this_AddOpCallExp_0=ruleAddOpCallExp
-		{
-			$current = $this_AddOpCallExp_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRelOpCallExpAccess().getArgumentGaucheAddOpCallExpParserRuleCall_0_0());
+				}
+				lv_argumentGauche_0_0=ruleAddOpCallExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRelOpCallExpRule());
+					}
+					set(
+						$current,
+						"argumentGauche",
+						lv_argumentGauche_0_0,
+						"fr.enseeiht.ocl.xtext.Ocl.AddOpCallExp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				(
 					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getRelOpCallExpAccess().getRelOpCallExpSourceAction_1_0_0(),
-							$current);
+						newCompositeNode(grammarAccess.getRelOpCallExpAccess().getOperationNameRELOPParserRuleCall_1_0_0());
 					}
-				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getRelOpCallExpAccess().getOperationNameRELOPParserRuleCall_1_0_1_0());
-						}
-						lv_operationName_2_0=ruleRELOP
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getRelOpCallExpRule());
-							}
-							set(
-								$current,
-								"operationName",
-								lv_operationName_2_0,
-								"fr.enseeiht.ocl.xtext.Ocl.RELOP");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getRelOpCallExpAccess().getArgumentAddOpCallExpParserRuleCall_1_1_0());
-					}
-					lv_argument_3_0=ruleAddOpCallExp
+					lv_operationName_1_0=ruleRELOP
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRelOpCallExpRule());
 						}
 						set(
 							$current,
-							"argument",
-							lv_argument_3_0,
+							"operationName",
+							lv_operationName_1_0,
+							"fr.enseeiht.ocl.xtext.Ocl.RELOP");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRelOpCallExpAccess().getArgumentDroiteAddOpCallExpParserRuleCall_1_1_0());
+					}
+					lv_argumentDroite_2_0=ruleAddOpCallExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRelOpCallExpRule());
+						}
+						set(
+							$current,
+							"argumentDroite",
+							lv_argumentDroite_2_0,
 							"fr.enseeiht.ocl.xtext.Ocl.AddOpCallExp");
 						afterParserOrEnumRuleCall();
 					}
@@ -1151,63 +1157,65 @@ ruleAddOpCallExp returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getAddOpCallExpAccess().getIntOpCallExpParserRuleCall_0());
-		}
-		this_IntOpCallExp_0=ruleIntOpCallExp
-		{
-			$current = $this_IntOpCallExp_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAddOpCallExpAccess().getArgumentGaucheIntOpCallExpParserRuleCall_0_0());
+				}
+				lv_argumentGauche_0_0=ruleIntOpCallExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAddOpCallExpRule());
+					}
+					set(
+						$current,
+						"argumentGauche",
+						lv_argumentGauche_0_0,
+						"fr.enseeiht.ocl.xtext.Ocl.IntOpCallExp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				(
 					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getAddOpCallExpAccess().getAddOpCallExpSourceAction_1_0_0(),
-							$current);
+						newCompositeNode(grammarAccess.getAddOpCallExpAccess().getOperationNameADDOPParserRuleCall_1_0_0());
 					}
-				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAddOpCallExpAccess().getOperationNameADDOPParserRuleCall_1_0_1_0());
-						}
-						lv_operationName_2_0=ruleADDOP
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAddOpCallExpRule());
-							}
-							set(
-								$current,
-								"operationName",
-								lv_operationName_2_0,
-								"fr.enseeiht.ocl.xtext.Ocl.ADDOP");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAddOpCallExpAccess().getArgumentIntOpCallExpParserRuleCall_1_1_0());
-					}
-					lv_argument_3_0=ruleIntOpCallExp
+					lv_operationName_1_0=ruleADDOP
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAddOpCallExpRule());
 						}
 						set(
 							$current,
-							"argument",
-							lv_argument_3_0,
-							"fr.enseeiht.ocl.xtext.Ocl.IntOpCallExp");
+							"operationName",
+							lv_operationName_1_0,
+							"fr.enseeiht.ocl.xtext.Ocl.ADDOP");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)*
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAddOpCallExpAccess().getArgumentDroiteAddOpCallExpParserRuleCall_1_1_0());
+					}
+					lv_argumentDroite_2_0=ruleAddOpCallExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAddOpCallExpRule());
+						}
+						set(
+							$current,
+							"argumentDroite",
+							lv_argumentDroite_2_0,
+							"fr.enseeiht.ocl.xtext.Ocl.AddOpCallExp");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -1257,63 +1265,65 @@ ruleIntOpCallExp returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getIntOpCallExpAccess().getMulOpCallExpParserRuleCall_0());
-		}
-		this_MulOpCallExp_0=ruleMulOpCallExp
-		{
-			$current = $this_MulOpCallExp_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getIntOpCallExpAccess().getArgumentGaucheMulOpCallExpParserRuleCall_0_0());
+				}
+				lv_argumentGauche_0_0=ruleMulOpCallExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getIntOpCallExpRule());
+					}
+					set(
+						$current,
+						"argumentGauche",
+						lv_argumentGauche_0_0,
+						"fr.enseeiht.ocl.xtext.Ocl.MulOpCallExp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				(
 					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getIntOpCallExpAccess().getIntOpCallExpSourceAction_1_0_0(),
-							$current);
+						newCompositeNode(grammarAccess.getIntOpCallExpAccess().getOperationNameINTOPParserRuleCall_1_0_0());
 					}
-				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getIntOpCallExpAccess().getOperationNameINTOPParserRuleCall_1_0_1_0());
-						}
-						lv_operationName_2_0=ruleINTOP
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getIntOpCallExpRule());
-							}
-							set(
-								$current,
-								"operationName",
-								lv_operationName_2_0,
-								"fr.enseeiht.ocl.xtext.Ocl.INTOP");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getIntOpCallExpAccess().getArgumentMulOpCallExpParserRuleCall_1_1_0());
-					}
-					lv_argument_3_0=ruleMulOpCallExp
+					lv_operationName_1_0=ruleINTOP
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getIntOpCallExpRule());
 						}
 						set(
 							$current,
-							"argument",
-							lv_argument_3_0,
-							"fr.enseeiht.ocl.xtext.Ocl.MulOpCallExp");
+							"operationName",
+							lv_operationName_1_0,
+							"fr.enseeiht.ocl.xtext.Ocl.INTOP");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)*
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getIntOpCallExpAccess().getArgumentDroiteIntOpCallExpParserRuleCall_1_1_0());
+					}
+					lv_argumentDroite_2_0=ruleIntOpCallExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getIntOpCallExpRule());
+						}
+						set(
+							$current,
+							"argumentDroite",
+							lv_argumentDroite_2_0,
+							"fr.enseeiht.ocl.xtext.Ocl.IntOpCallExp");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -1363,63 +1373,65 @@ ruleMulOpCallExp returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getMulOpCallExpAccess().getNotOpCallExpParserRuleCall_0());
-		}
-		this_NotOpCallExp_0=ruleNotOpCallExp
-		{
-			$current = $this_NotOpCallExp_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMulOpCallExpAccess().getArgumentGaucheNotOpCallExpParserRuleCall_0_0());
+				}
+				lv_argumentGauche_0_0=ruleNotOpCallExp
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMulOpCallExpRule());
+					}
+					set(
+						$current,
+						"argumentGauche",
+						lv_argumentGauche_0_0,
+						"fr.enseeiht.ocl.xtext.Ocl.NotOpCallExp");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				(
 					{
-						$current = forceCreateModelElementAndSet(
-							grammarAccess.getMulOpCallExpAccess().getMulOpCallExpSourceAction_1_0_0(),
-							$current);
+						newCompositeNode(grammarAccess.getMulOpCallExpAccess().getOperationNameMULOPParserRuleCall_1_0_0());
 					}
-				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getMulOpCallExpAccess().getOperationNameMULOPParserRuleCall_1_0_1_0());
-						}
-						lv_operationName_2_0=ruleMULOP
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getMulOpCallExpRule());
-							}
-							set(
-								$current,
-								"operationName",
-								lv_operationName_2_0,
-								"fr.enseeiht.ocl.xtext.Ocl.MULOP");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMulOpCallExpAccess().getArgumentNotOpCallExpParserRuleCall_1_1_0());
-					}
-					lv_argument_3_0=ruleNotOpCallExp
+					lv_operationName_1_0=ruleMULOP
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMulOpCallExpRule());
 						}
 						set(
 							$current,
-							"argument",
-							lv_argument_3_0,
-							"fr.enseeiht.ocl.xtext.Ocl.NotOpCallExp");
+							"operationName",
+							lv_operationName_1_0,
+							"fr.enseeiht.ocl.xtext.Ocl.MULOP");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)*
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMulOpCallExpAccess().getArgumentDroiteMulOpCallExpParserRuleCall_1_1_0());
+					}
+					lv_argumentDroite_2_0=ruleMulOpCallExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMulOpCallExpRule());
+						}
+						set(
+							$current,
+							"argumentDroite",
+							lv_argumentDroite_2_0,
+							"fr.enseeiht.ocl.xtext.Ocl.MulOpCallExp");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 

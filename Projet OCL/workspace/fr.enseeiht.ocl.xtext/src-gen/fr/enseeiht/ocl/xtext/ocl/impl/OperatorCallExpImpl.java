@@ -3,7 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
-import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
 
@@ -23,9 +23,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperatorCallExpImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperatorCallExpImpl#getArgumentGauche <em>Argument Gauche</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperatorCallExpImpl#getOperationName <em>Operation Name</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperatorCallExpImpl#getArgument <em>Argument</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperatorCallExpImpl#getArgumentDroite <em>Argument Droite</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,14 +33,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCallExp
 {
   /**
-   * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+   * The cached value of the '{@link #getArgumentGauche() <em>Argument Gauche</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSource()
+   * @see #getArgumentGauche()
    * @generated
    * @ordered
    */
-  protected OclExpression source;
+  protected EqOpCallExp argumentGauche;
 
   /**
    * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
@@ -63,14 +63,14 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
   protected String operationName = OPERATION_NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getArgument() <em>Argument</em>}' containment reference.
+   * The cached value of the '{@link #getArgumentDroite() <em>Argument Droite</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArgument()
+   * @see #getArgumentDroite()
    * @generated
    * @ordered
    */
-  protected OperatorCallExp argument;
+  protected OperatorCallExp argumentDroite;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,9 +99,9 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
    * @generated
    */
   @Override
-  public OclExpression getSource()
+  public EqOpCallExp getArgumentGauche()
   {
-    return source;
+    return argumentGauche;
   }
 
   /**
@@ -109,13 +109,13 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSource(OclExpression newSource, NotificationChain msgs)
+  public NotificationChain basicSetArgumentGauche(EqOpCallExp newArgumentGauche, NotificationChain msgs)
   {
-    OclExpression oldSource = source;
-    source = newSource;
+    EqOpCallExp oldArgumentGauche = argumentGauche;
+    argumentGauche = newArgumentGauche;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__SOURCE, oldSource, newSource);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE, oldArgumentGauche, newArgumentGauche);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -127,20 +127,20 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
    * @generated
    */
   @Override
-  public void setSource(OclExpression newSource)
+  public void setArgumentGauche(EqOpCallExp newArgumentGauche)
   {
-    if (newSource != source)
+    if (newArgumentGauche != argumentGauche)
     {
       NotificationChain msgs = null;
-      if (source != null)
-        msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__SOURCE, null, msgs);
-      if (newSource != null)
-        msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__SOURCE, null, msgs);
-      msgs = basicSetSource(newSource, msgs);
+      if (argumentGauche != null)
+        msgs = ((InternalEObject)argumentGauche).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE, null, msgs);
+      if (newArgumentGauche != null)
+        msgs = ((InternalEObject)newArgumentGauche).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE, null, msgs);
+      msgs = basicSetArgumentGauche(newArgumentGauche, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__SOURCE, newSource, newSource));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE, newArgumentGauche, newArgumentGauche));
   }
 
   /**
@@ -174,9 +174,9 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
    * @generated
    */
   @Override
-  public OperatorCallExp getArgument()
+  public OperatorCallExp getArgumentDroite()
   {
-    return argument;
+    return argumentDroite;
   }
 
   /**
@@ -184,13 +184,13 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetArgument(OperatorCallExp newArgument, NotificationChain msgs)
+  public NotificationChain basicSetArgumentDroite(OperatorCallExp newArgumentDroite, NotificationChain msgs)
   {
-    OperatorCallExp oldArgument = argument;
-    argument = newArgument;
+    OperatorCallExp oldArgumentDroite = argumentDroite;
+    argumentDroite = newArgumentDroite;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__ARGUMENT, oldArgument, newArgument);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE, oldArgumentDroite, newArgumentDroite);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -202,20 +202,20 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
    * @generated
    */
   @Override
-  public void setArgument(OperatorCallExp newArgument)
+  public void setArgumentDroite(OperatorCallExp newArgumentDroite)
   {
-    if (newArgument != argument)
+    if (newArgumentDroite != argumentDroite)
     {
       NotificationChain msgs = null;
-      if (argument != null)
-        msgs = ((InternalEObject)argument).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__ARGUMENT, null, msgs);
-      if (newArgument != null)
-        msgs = ((InternalEObject)newArgument).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__ARGUMENT, null, msgs);
-      msgs = basicSetArgument(newArgument, msgs);
+      if (argumentDroite != null)
+        msgs = ((InternalEObject)argumentDroite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE, null, msgs);
+      if (newArgumentDroite != null)
+        msgs = ((InternalEObject)newArgumentDroite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE, null, msgs);
+      msgs = basicSetArgumentDroite(newArgumentDroite, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__ARGUMENT, newArgument, newArgument));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE, newArgumentDroite, newArgumentDroite));
   }
 
   /**
@@ -228,10 +228,10 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
   {
     switch (featureID)
     {
-      case OclPackage.OPERATOR_CALL_EXP__SOURCE:
-        return basicSetSource(null, msgs);
-      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT:
-        return basicSetArgument(null, msgs);
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE:
+        return basicSetArgumentGauche(null, msgs);
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE:
+        return basicSetArgumentDroite(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -246,12 +246,12 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
   {
     switch (featureID)
     {
-      case OclPackage.OPERATOR_CALL_EXP__SOURCE:
-        return getSource();
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE:
+        return getArgumentGauche();
       case OclPackage.OPERATOR_CALL_EXP__OPERATION_NAME:
         return getOperationName();
-      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT:
-        return getArgument();
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE:
+        return getArgumentDroite();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -266,14 +266,14 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
   {
     switch (featureID)
     {
-      case OclPackage.OPERATOR_CALL_EXP__SOURCE:
-        setSource((OclExpression)newValue);
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE:
+        setArgumentGauche((EqOpCallExp)newValue);
         return;
       case OclPackage.OPERATOR_CALL_EXP__OPERATION_NAME:
         setOperationName((String)newValue);
         return;
-      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT:
-        setArgument((OperatorCallExp)newValue);
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE:
+        setArgumentDroite((OperatorCallExp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -289,14 +289,14 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
   {
     switch (featureID)
     {
-      case OclPackage.OPERATOR_CALL_EXP__SOURCE:
-        setSource((OclExpression)null);
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE:
+        setArgumentGauche((EqOpCallExp)null);
         return;
       case OclPackage.OPERATOR_CALL_EXP__OPERATION_NAME:
         setOperationName(OPERATION_NAME_EDEFAULT);
         return;
-      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT:
-        setArgument((OperatorCallExp)null);
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE:
+        setArgumentDroite((OperatorCallExp)null);
         return;
     }
     super.eUnset(featureID);
@@ -312,12 +312,12 @@ public class OperatorCallExpImpl extends OclExpressionImpl implements OperatorCa
   {
     switch (featureID)
     {
-      case OclPackage.OPERATOR_CALL_EXP__SOURCE:
-        return source != null;
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_GAUCHE:
+        return argumentGauche != null;
       case OclPackage.OPERATOR_CALL_EXP__OPERATION_NAME:
         return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
-      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT:
-        return argument != null;
+      case OclPackage.OPERATOR_CALL_EXP__ARGUMENT_DROITE:
+        return argumentDroite != null;
     }
     return super.eIsSet(featureID);
   }

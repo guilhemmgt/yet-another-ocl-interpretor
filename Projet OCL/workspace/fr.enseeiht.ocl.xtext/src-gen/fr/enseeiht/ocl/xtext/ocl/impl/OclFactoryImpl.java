@@ -30,6 +30,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
+import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -138,6 +139,12 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.OCL_EXPRESSION: return createOclExpression();
       case OclPackage.OCL_MODEL_ELEMENT_EXP: return createOclModelElementExp();
       case OclPackage.OPERATOR_CALL_EXP: return createOperatorCallExp();
+      case OclPackage.EQ_OP_CALL_EXP: return createEqOpCallExp();
+      case OclPackage.REL_OP_CALL_EXP: return createRelOpCallExp();
+      case OclPackage.ADD_OP_CALL_EXP: return createAddOpCallExp();
+      case OclPackage.INT_OP_CALL_EXP: return createIntOpCallExp();
+      case OclPackage.MUL_OP_CALL_EXP: return createMulOpCallExp();
+      case OclPackage.NOT_OP_CALL_EXP: return createNotOpCallExp();
       case OclPackage.PROPERTY_CALL_EXP: return createPropertyCallExp();
       case OclPackage.AUXILIARY: return createAuxiliary();
       case OclPackage.VARIABLE_EXP: return createVariableExp();
@@ -184,11 +191,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.TUPLE_TYPE_ATTRIBUTE: return createTupleTypeAttribute();
       case OclPackage.OCL_MODEL_ELEMENT_CLASS: return createOclModelElementClass();
       case OclPackage.MAP_TYPE: return createMapType();
-      case OclPackage.EQ_OP_CALL_EXP: return createEqOpCallExp();
-      case OclPackage.REL_OP_CALL_EXP: return createRelOpCallExp();
-      case OclPackage.ADD_OP_CALL_EXP: return createAddOpCallExp();
-      case OclPackage.INT_OP_CALL_EXP: return createIntOpCallExp();
-      case OclPackage.MUL_OP_CALL_EXP: return createMulOpCallExp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -324,6 +326,78 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     OperatorCallExpImpl operatorCallExp = new OperatorCallExpImpl();
     return operatorCallExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EqOpCallExp createEqOpCallExp()
+  {
+    EqOpCallExpImpl eqOpCallExp = new EqOpCallExpImpl();
+    return eqOpCallExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RelOpCallExp createRelOpCallExp()
+  {
+    RelOpCallExpImpl relOpCallExp = new RelOpCallExpImpl();
+    return relOpCallExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AddOpCallExp createAddOpCallExp()
+  {
+    AddOpCallExpImpl addOpCallExp = new AddOpCallExpImpl();
+    return addOpCallExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntOpCallExp createIntOpCallExp()
+  {
+    IntOpCallExpImpl intOpCallExp = new IntOpCallExpImpl();
+    return intOpCallExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MulOpCallExp createMulOpCallExp()
+  {
+    MulOpCallExpImpl mulOpCallExp = new MulOpCallExpImpl();
+    return mulOpCallExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotOpCallExp createNotOpCallExp()
+  {
+    NotOpCallExpImpl notOpCallExp = new NotOpCallExpImpl();
+    return notOpCallExp;
   }
 
   /**
@@ -876,66 +950,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     MapTypeImpl mapType = new MapTypeImpl();
     return mapType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EqOpCallExp createEqOpCallExp()
-  {
-    EqOpCallExpImpl eqOpCallExp = new EqOpCallExpImpl();
-    return eqOpCallExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public RelOpCallExp createRelOpCallExp()
-  {
-    RelOpCallExpImpl relOpCallExp = new RelOpCallExpImpl();
-    return relOpCallExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public AddOpCallExp createAddOpCallExp()
-  {
-    AddOpCallExpImpl addOpCallExp = new AddOpCallExpImpl();
-    return addOpCallExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntOpCallExp createIntOpCallExp()
-  {
-    IntOpCallExpImpl intOpCallExp = new IntOpCallExpImpl();
-    return intOpCallExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public MulOpCallExp createMulOpCallExp()
-  {
-    MulOpCallExpImpl mulOpCallExp = new MulOpCallExpImpl();
-    return mulOpCallExp;
   }
 
   /**

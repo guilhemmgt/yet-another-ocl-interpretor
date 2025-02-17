@@ -4,19 +4,75 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Add Op Call Exp</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.AddOpCallExpImpl#getArgumentGauche <em>Argument Gauche</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.AddOpCallExpImpl#getOperationName <em>Operation Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.AddOpCallExpImpl#getArgumentDroite <em>Argument Droite</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class AddOpCallExpImpl extends OperatorCallExpImpl implements AddOpCallExp
+public class AddOpCallExpImpl extends MinimalEObjectImpl.Container implements AddOpCallExp
 {
+  /**
+   * The cached value of the '{@link #getArgumentGauche() <em>Argument Gauche</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArgumentGauche()
+   * @generated
+   * @ordered
+   */
+  protected IntOpCallExp argumentGauche;
+
+  /**
+   * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperationName()
+   * @generated
+   * @ordered
+   */
+  protected static final String OPERATION_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperationName()
+   * @generated
+   * @ordered
+   */
+  protected String operationName = OPERATION_NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getArgumentDroite() <em>Argument Droite</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArgumentDroite()
+   * @generated
+   * @ordered
+   */
+  protected AddOpCallExp argumentDroite;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +92,252 @@ public class AddOpCallExpImpl extends OperatorCallExpImpl implements AddOpCallEx
   protected EClass eStaticClass()
   {
     return OclPackage.Literals.ADD_OP_CALL_EXP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntOpCallExp getArgumentGauche()
+  {
+    return argumentGauche;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetArgumentGauche(IntOpCallExp newArgumentGauche, NotificationChain msgs)
+  {
+    IntOpCallExp oldArgumentGauche = argumentGauche;
+    argumentGauche = newArgumentGauche;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE, oldArgumentGauche, newArgumentGauche);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setArgumentGauche(IntOpCallExp newArgumentGauche)
+  {
+    if (newArgumentGauche != argumentGauche)
+    {
+      NotificationChain msgs = null;
+      if (argumentGauche != null)
+        msgs = ((InternalEObject)argumentGauche).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE, null, msgs);
+      if (newArgumentGauche != null)
+        msgs = ((InternalEObject)newArgumentGauche).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE, null, msgs);
+      msgs = basicSetArgumentGauche(newArgumentGauche, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE, newArgumentGauche, newArgumentGauche));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getOperationName()
+  {
+    return operationName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOperationName(String newOperationName)
+  {
+    String oldOperationName = operationName;
+    operationName = newOperationName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.ADD_OP_CALL_EXP__OPERATION_NAME, oldOperationName, operationName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AddOpCallExp getArgumentDroite()
+  {
+    return argumentDroite;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetArgumentDroite(AddOpCallExp newArgumentDroite, NotificationChain msgs)
+  {
+    AddOpCallExp oldArgumentDroite = argumentDroite;
+    argumentDroite = newArgumentDroite;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE, oldArgumentDroite, newArgumentDroite);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setArgumentDroite(AddOpCallExp newArgumentDroite)
+  {
+    if (newArgumentDroite != argumentDroite)
+    {
+      NotificationChain msgs = null;
+      if (argumentDroite != null)
+        msgs = ((InternalEObject)argumentDroite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE, null, msgs);
+      if (newArgumentDroite != null)
+        msgs = ((InternalEObject)newArgumentDroite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE, null, msgs);
+      msgs = basicSetArgumentDroite(newArgumentDroite, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE, newArgumentDroite, newArgumentDroite));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE:
+        return basicSetArgumentGauche(null, msgs);
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE:
+        return basicSetArgumentDroite(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE:
+        return getArgumentGauche();
+      case OclPackage.ADD_OP_CALL_EXP__OPERATION_NAME:
+        return getOperationName();
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE:
+        return getArgumentDroite();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE:
+        setArgumentGauche((IntOpCallExp)newValue);
+        return;
+      case OclPackage.ADD_OP_CALL_EXP__OPERATION_NAME:
+        setOperationName((String)newValue);
+        return;
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE:
+        setArgumentDroite((AddOpCallExp)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE:
+        setArgumentGauche((IntOpCallExp)null);
+        return;
+      case OclPackage.ADD_OP_CALL_EXP__OPERATION_NAME:
+        setOperationName(OPERATION_NAME_EDEFAULT);
+        return;
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE:
+        setArgumentDroite((AddOpCallExp)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_GAUCHE:
+        return argumentGauche != null;
+      case OclPackage.ADD_OP_CALL_EXP__OPERATION_NAME:
+        return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
+      case OclPackage.ADD_OP_CALL_EXP__ARGUMENT_DROITE:
+        return argumentDroite != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (operationName: ");
+    result.append(operationName);
+    result.append(')');
+    return result.toString();
   }
 
 } //AddOpCallExpImpl

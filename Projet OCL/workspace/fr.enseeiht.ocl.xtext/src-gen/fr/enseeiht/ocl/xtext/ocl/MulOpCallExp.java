@@ -3,17 +3,92 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Mul Op Call Exp</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentGauche <em>Argument Gauche</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getOperationName <em>Operation Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentDroite <em>Argument Droite</em>}</li>
+ * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMulOpCallExp()
  * @model
  * @generated
  */
-public interface MulOpCallExp extends OperatorCallExp
+public interface MulOpCallExp extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Argument Gauche</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Argument Gauche</em>' containment reference.
+   * @see #setArgumentGauche(NotOpCallExp)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMulOpCallExp_ArgumentGauche()
+   * @model containment="true"
+   * @generated
+   */
+  NotOpCallExp getArgumentGauche();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentGauche <em>Argument Gauche</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Argument Gauche</em>' containment reference.
+   * @see #getArgumentGauche()
+   * @generated
+   */
+  void setArgumentGauche(NotOpCallExp value);
+
+  /**
+   * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operation Name</em>' attribute.
+   * @see #setOperationName(String)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMulOpCallExp_OperationName()
+   * @model
+   * @generated
+   */
+  String getOperationName();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getOperationName <em>Operation Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operation Name</em>' attribute.
+   * @see #getOperationName()
+   * @generated
+   */
+  void setOperationName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Argument Droite</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Argument Droite</em>' containment reference.
+   * @see #setArgumentDroite(MulOpCallExp)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMulOpCallExp_ArgumentDroite()
+   * @model containment="true"
+   * @generated
+   */
+  MulOpCallExp getArgumentDroite();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentDroite <em>Argument Droite</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Argument Droite</em>' containment reference.
+   * @see #getArgumentDroite()
+   * @generated
+   */
+  void setArgumentDroite(MulOpCallExp value);
+
 } // MulOpCallExp
