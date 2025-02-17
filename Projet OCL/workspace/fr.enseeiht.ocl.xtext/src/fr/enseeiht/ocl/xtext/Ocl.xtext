@@ -4,73 +4,33 @@ generate ocl "http://www.enseeiht.fr/ocl/xtext/Ocl"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-//Model:
-//	(imports+=Import)*
-//	eventsMappings+=EventsMapping*;
-//
-//
-//
-//EventsMapping:
-//	'events mapping' name = ID ':'
-//		dsmlStream=DSMLStream
-//		'observed as'
-//		formalStream=FormalStream	
-//	'end events mapping'
-//;
-//
-//DSMLStream:
-//		elements += (StreamDSMLElement)+
-//;
-//
-//StreamDSMLElement:
-//'DSMLEvent' DSMLEvent
-//;
-//
-//DSMLEvent:
-//	name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID];
-//
-//FormalStream:
-//		elements += (StreamFormalElement)+
-//;
-//StreamFormalElement:
-//'FormalEvent'	FormalEvent
-//;
-//
-//FormalEvent:
-//	name =ID ':' ecoreTypes=[Import]'.'class=[ecore::EClass|ID] '('  body=OclExpression ')'//
-//;
-
 Module:
-	'module' name=ID ';' imports+=Import (elements+=ModuleElement)+
+	(imports+=Import)+ (elements+=OclFeatureDefinition)* (elements+=OclModuleElement)+
 ;
 
 
 Import:
 'import' package=[ecore::EPackage|STRING] 'as'name=ID;
 
-ModuleElement:
-	 OclModuleElement
-;
 OclModuleElement:
-	OclFeatureDefinition|OclInvariant
+	('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName]) (members+=(OclFeatureDefinition|OclInvariant))+
 ;
 OclFeatureDefinition:
-	('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'def' ':' feature = (Attribute|Operation)
+	'def' ':' feature = (Attribute|Operation)
 ;
 Attribute :
-	name=ID ':' type=OclType '=' initExpression=OclExpression ';'
+	name=ID ':' type=OclType '=' initExpression=OclExpression
 ;
 Operation:
-	name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression ';'
+	name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression
 ;
 Parameter:
 	name=ID ':' type=OclType
 ;
 OclInvariant:
-	('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName])? 'inv' name=ID ':' body=OclExpression //';'
+	'inv' name=ID ':' body=OclExpression
 ;
 OclExpression returns OclExpression :
-	//LambdaCallExp|
 	OperatorCallExp|LetExp;
 
 OclModelElementExp :
@@ -78,26 +38,20 @@ OclModelElementExp :
 ;
 
 //priority_5
-TEMPBIOP  		: 'until'|'release';
 
 OperatorCallExp returns OclExpression :
-
-	BoolOpCallExp ({OperatorCallExp.source = current} operationName=TEMPBIOP argument=BoolOpCallExp)*
-;
-
-BoolOpCallExp returns OperatorCallExp :
-	EqOpCallExp (({BoolOpCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
+	EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP) 	argument=EqOpCallExp )*
 ;
 
 BOOLOP  		: 'and'|'or'|'xor'|'implies'|'equivalent';
 
 EqOpCallExp returns OperatorCallExp :
-	RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )*
+	RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argument=RelOpCallExp )?
 ;
 EQOP  		: '='|'<>';
 
 RelOpCallExp returns OperatorCallExp :
-	AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )*
+	AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argument=AddOpCallExp )?
 ;
 
 RELOP  		: '>'|'<'|'>='|'<=' ;
@@ -118,13 +72,12 @@ MulOpCallExp returns OperatorCallExp :
 MULOP: '*'|'/';
 
 NotOpCallExp returns OperatorCallExp :
-	(((operationName=UnaryOP) source=NotOpCallExp) 
+	((operationName=UNARYOP source=NotOpCallExp) 
 		| 
 		PropertyCallExp)
 ;
-UnaryOP: NOTOP|UNARYTEMPOP;
-NOTOP: 'not';
-UNARYTEMPOP: 'always'|'eventually'|'next'|'All'|'Exists';
+UNARYOP: 'not' | '-'
+;
 //priority_0
 PropertyCallExp  :
 	source = Primary_OclExpression (calls+=PropertyCall)*
@@ -132,7 +85,6 @@ PropertyCallExp  :
 
 Primary_OclExpression returns OclExpression : 
 	VariableExp
-	|SuperExp
 	|SelfExp
 	|StringExp
 	|BooleanExp
@@ -144,23 +96,13 @@ Primary_OclExpression returns OclExpression :
 	|TupleExp
 	|MapExp
 	|EnumLiteralExp
-	|OclUndefinedExp
 	|IfExp
 	|BraceExp
 	|OclModelElementExp;
 
 Auxiliary :Iterator|LocalVariable|Parameter;
 VariableExp:
-	//name= ID|
-	referredVariable=[Auxiliary]|
-	VariableDeclaration
-;
-
-VariableDeclaration:
-	varName='thisModule'
-;
-SuperExp :
-	{SuperExp}	'super'
+	referredVariable=[Auxiliary]
 ;
 SelfExp :
 	{SelfExp}	'self'
@@ -175,8 +117,6 @@ NumericExp:
 RealExp : realSymbol=DOUBLE;
 
 
-REAL hidden(): INT '.' (EXT_INT | INT);
-terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
 IntegerExp:
 	{IntegerExp}
 	integerSymbol=INT
@@ -217,11 +157,6 @@ EnumLiteralExp :
 	"#" (name=STRING|name=ID)
 ;
 
-OclUndefinedExp :
-	{OclUndefinedExp}
-	'OclUndefined'
-;
-
 LetExp : 
 	'let' variable=LocalVariable 'in' in_=OclExpression
 ;
@@ -233,18 +168,6 @@ IfExp :
 BraceExp : 
 	'(' exp=OclExpression ')'
 ;
-	
-//CollectionPart:
-//	CollectionRange|CollectionItem
-//	;
-//	
-//CollectionRange:
-//	first=OclExpression '..' last=OclExpression
-//	;
-//	
-//CollectionItem:
-//	item=OclExpression
-//	;
 	
 BooleanExp:
 	booleanSymbol= 'true'|booleanSymbol= 'false'
@@ -282,17 +205,12 @@ LocalVariable :
 	name=ID (':' type=OclType)? '=' initExpression=OclExpression
 ;
 OclType : 
-	//oclModelElement | 
-	//{OclType} name=STRING
 	CollectionType
 	| Primitive 
 	| OclAnyType 
 	| TupleType 
 	| OclModelElement
 	| MapType 
-	// | LambdaType 
-	// | EnvType
-	| OclType_abstractContents
 	;
 
 CollectionType:
@@ -348,34 +266,25 @@ RealType:
 OclAnyType :
 	{OclAnyType}'OclAny'
 ;
-
-OclType_abstractContents  returns OclType :
-	{OclType}
-	'OclType'
-;
 	
 TupleType :
 	{TupleType}
-	 ('TupleType' | 'Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
+	 ('Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
 	 ;
 	 
 TupleTypeAttribute : name=ID ':' type=OclType;
 
-OclModelElement: model=[Import]'!'name=ID; //[ecore::EClass|ID];
+OclModelElement: model=[Import]'!'name=ID;
 	
 MapType : 
 	'Map' '(' keyType=OclType ',' valueType=OclType ')'
 ;
-//LambdaType :
-//	'Lambda' "(" (argumentTypes ("," argumentTypes)*)? ")" ":" returnType
-//;
-//	EnvType ::= name[ENVTYPE];
 
 
 
 
 terminal DOUBLE returns ecore::EDouble :
-('-'|'+')? (INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
+(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
 
 QualifiedName: ID ('.' ID)*;
 

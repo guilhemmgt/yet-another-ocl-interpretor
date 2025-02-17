@@ -2,22 +2,22 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ocl" nsURI="http://www.enseeiht.fr/ocl/xtext/Ocl" nsPrefix="ocl">
   <eClassifiers xsi:type="ecore:EClass" name="Module">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ModuleElement" containment="true"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EReference" name="package" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModuleElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OclModuleElement" eSuperTypes="#//ModuleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="OclModuleElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreTypes" eType="#//Import"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OclFeatureDefinition" eSuperTypes="#//OclModuleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="OclFeatureDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
@@ -38,7 +38,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Auxiliary"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OclInvariant" eSuperTypes="#//OclModuleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="OclInvariant">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//OclExpression"
         containment="true"/>
@@ -67,10 +67,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="VariableExp" eSuperTypes="#//OclExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredVariable" eType="#//Auxiliary"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//VariableExp">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SuperExp" eSuperTypes="#//OclExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="SelfExp" eSuperTypes="#//OclExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringExp" eSuperTypes="#//OclExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringSymbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -122,7 +118,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="EnumLiteralExp" eSuperTypes="#//OclExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OclUndefinedExp" eSuperTypes="#//OclExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="LetExp" eSuperTypes="#//OclExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//LocalVariable"
         containment="true"/>
@@ -213,7 +208,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" eType="#//OclType"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BoolOpCallExp" eSuperTypes="#//OperatorCallExp"/>
   <eClassifiers xsi:type="ecore:EClass" name="EqOpCallExp" eSuperTypes="#//OperatorCallExp"/>
   <eClassifiers xsi:type="ecore:EClass" name="RelOpCallExp" eSuperTypes="#//OperatorCallExp"/>
   <eClassifiers xsi:type="ecore:EClass" name="AddOpCallExp" eSuperTypes="#//OperatorCallExp"/>
