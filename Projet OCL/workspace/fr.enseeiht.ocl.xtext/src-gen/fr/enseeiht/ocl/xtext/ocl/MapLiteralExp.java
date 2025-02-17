@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Map Exp</b></em>'.
+ * A representation of the model object '<em><b>Map Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.MapExp#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.MapLiteralExp#getElements <em>Elements</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMapExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMapLiteralExp()
  * @model
  * @generated
  */
-public interface MapExp extends OclExpression
+public interface MapLiteralExp extends OclExpression
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
@@ -29,10 +29,10 @@ public interface MapExp extends OclExpression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMapExp_Elements()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getMapLiteralExp_Elements()
    * @model containment="true"
    * @generated
    */
   EList<MapElement> getElements();
 
-} // MapExp
+} // MapLiteralExp

@@ -3,26 +3,26 @@
  */
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
+import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.SelfExp;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Self Exp</b></em>'.
+ * An implementation of the model object '<em><b>Numeric Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class SelfExpImpl extends OclExpressionImpl implements SelfExp
+public class NumericLiteralExpImpl extends OclExpressionImpl implements NumericLiteralExp
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SelfExpImpl()
+  protected NumericLiteralExpImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class SelfExpImpl extends OclExpressionImpl implements SelfExp
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.SELF_EXP;
+    return OclPackage.Literals.NUMERIC_LITERAL_EXP;
   }
 
-} //SelfExpImpl
+} //NumericLiteralExpImpl

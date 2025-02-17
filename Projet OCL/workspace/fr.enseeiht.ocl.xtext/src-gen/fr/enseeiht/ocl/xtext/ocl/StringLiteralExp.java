@@ -6,21 +6,21 @@ package fr.enseeiht.ocl.xtext.ocl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>String Exp</b></em>'.
+ * A representation of the model object '<em><b>String Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.StringExp#getStringSymbol <em>String Symbol</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.StringLiteralExp#getStringSymbol <em>String Symbol</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getStringExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getStringLiteralExp()
  * @model
  * @generated
  */
-public interface StringExp extends OclExpression
+public interface StringLiteralExp extends OclExpression
 {
   /**
    * Returns the value of the '<em><b>String Symbol</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface StringExp extends OclExpression
    * <!-- end-user-doc -->
    * @return the value of the '<em>String Symbol</em>' attribute.
    * @see #setStringSymbol(String)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getStringExp_StringSymbol()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getStringLiteralExp_StringSymbol()
    * @model
    * @generated
    */
   String getStringSymbol();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.StringExp#getStringSymbol <em>String Symbol</em>}' attribute.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.StringLiteralExp#getStringSymbol <em>String Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>String Symbol</em>' attribute.
@@ -44,4 +44,4 @@ public interface StringExp extends OclExpression
    */
   void setStringSymbol(String value);
 
-} // StringExp
+} // StringLiteralExp

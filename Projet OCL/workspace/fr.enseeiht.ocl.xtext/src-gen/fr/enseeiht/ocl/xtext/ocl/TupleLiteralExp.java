@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Tuple Exp</b></em>'.
+ * A representation of the model object '<em><b>Tuple Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.TupleExp#getTuplePart <em>Tuple Part</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp#getTuplePart <em>Tuple Part</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getTupleExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getTupleLiteralExp()
  * @model
  * @generated
  */
-public interface TupleExp extends OclExpression
+public interface TupleLiteralExp extends OclExpression
 {
   /**
    * Returns the value of the '<em><b>Tuple Part</b></em>' containment reference list.
@@ -29,10 +29,10 @@ public interface TupleExp extends OclExpression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Tuple Part</em>' containment reference list.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getTupleExp_TuplePart()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getTupleLiteralExp_TuplePart()
    * @model containment="true"
    * @generated
    */
   EList<TuplePart> getTuplePart();
 
-} // TupleExp
+} // TupleLiteralExp

@@ -5,7 +5,7 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -62,7 +62,7 @@ public class TuplePartImpl extends MinimalEObjectImpl.Container implements Tuple
    * @generated
    * @ordered
    */
-  protected OclType type;
+  protected OclTypeLiteral type;
 
   /**
    * The cached value of the '{@link #getInitExpression() <em>Init Expression</em>}' containment reference.
@@ -126,7 +126,7 @@ public class TuplePartImpl extends MinimalEObjectImpl.Container implements Tuple
    * @generated
    */
   @Override
-  public OclType getType()
+  public OclTypeLiteral getType()
   {
     return type;
   }
@@ -136,9 +136,9 @@ public class TuplePartImpl extends MinimalEObjectImpl.Container implements Tuple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(OclType newType, NotificationChain msgs)
+  public NotificationChain basicSetType(OclTypeLiteral newType, NotificationChain msgs)
   {
-    OclType oldType = type;
+    OclTypeLiteral oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -154,7 +154,7 @@ public class TuplePartImpl extends MinimalEObjectImpl.Container implements Tuple
    * @generated
    */
   @Override
-  public void setType(OclType newType)
+  public void setType(OclTypeLiteral newType)
   {
     if (newType != type)
     {
@@ -272,7 +272,7 @@ public class TuplePartImpl extends MinimalEObjectImpl.Container implements Tuple
         setVarName((String)newValue);
         return;
       case OclPackage.TUPLE_PART__TYPE:
-        setType((OclType)newValue);
+        setType((OclTypeLiteral)newValue);
         return;
       case OclPackage.TUPLE_PART__INIT_EXPRESSION:
         setInitExpression((OclExpression)newValue);
@@ -295,7 +295,7 @@ public class TuplePartImpl extends MinimalEObjectImpl.Container implements Tuple
         setVarName(VAR_NAME_EDEFAULT);
         return;
       case OclPackage.TUPLE_PART__TYPE:
-        setType((OclType)null);
+        setType((OclTypeLiteral)null);
         return;
       case OclPackage.TUPLE_PART__INIT_EXPRESSION:
         setInitExpression((OclExpression)null);

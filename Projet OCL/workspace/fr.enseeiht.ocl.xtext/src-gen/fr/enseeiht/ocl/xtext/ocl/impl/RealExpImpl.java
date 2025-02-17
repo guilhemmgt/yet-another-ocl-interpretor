@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RealExpImpl extends NumericExpImpl implements RealExp
+public class RealExpImpl extends NumericLiteralExpImpl implements RealExp
 {
   /**
    * The default value of the '{@link #getRealSymbol() <em>Real Symbol</em>}' attribute.

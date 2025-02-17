@@ -20,19 +20,19 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface CollectionType extends OclType
+public interface CollectionType extends OclTypeLiteral
 {
   /**
    * Returns the value of the '<em><b>Element Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Element Type</em>' containment reference.
-   * @see #setElementType(OclType)
+   * @see #setElementType(OclTypeLiteral)
    * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getCollectionType_ElementType()
    * @model containment="true"
    * @generated
    */
-  OclType getElementType();
+  OclTypeLiteral getElementType();
 
   /**
    * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.CollectionType#getElementType <em>Element Type</em>}' containment reference.
@@ -42,6 +42,6 @@ public interface CollectionType extends OclType
    * @see #getElementType()
    * @generated
    */
-  void setElementType(OclType value);
+  void setElementType(OclTypeLiteral value);
 
 } // CollectionType

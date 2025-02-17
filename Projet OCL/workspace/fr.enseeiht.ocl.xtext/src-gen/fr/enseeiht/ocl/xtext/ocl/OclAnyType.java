@@ -14,6 +14,6 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface OclAnyType extends OclType
+public interface OclAnyType extends OclTypeLiteral
 {
 } // OclAnyType

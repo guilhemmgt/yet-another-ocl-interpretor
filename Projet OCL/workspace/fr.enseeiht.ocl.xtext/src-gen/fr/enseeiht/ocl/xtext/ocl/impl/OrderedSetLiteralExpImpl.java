@@ -5,7 +5,7 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OrderedSetExp;
+import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
 
 import java.util.Collection;
 
@@ -21,18 +21,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ordered Set Exp</b></em>'.
+ * An implementation of the model object '<em><b>Ordered Set Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetExpImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetLiteralExpImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetExp
+public class OrderedSetLiteralExpImpl extends OclExpressionImpl implements OrderedSetLiteralExp
 {
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -49,7 +49,7 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OrderedSetExpImpl()
+  protected OrderedSetLiteralExpImpl()
   {
     super();
   }
@@ -62,7 +62,7 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.ORDERED_SET_EXP;
+    return OclPackage.Literals.ORDERED_SET_LITERAL_EXP;
   }
 
   /**
@@ -75,7 +75,7 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<OclExpression>(OclExpression.class, this, OclPackage.ORDERED_SET_EXP__ELEMENTS);
+      elements = new EObjectContainmentEList<OclExpression>(OclExpression.class, this, OclPackage.ORDERED_SET_LITERAL_EXP__ELEMENTS);
     }
     return elements;
   }
@@ -90,7 +90,7 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
   {
     switch (featureID)
     {
-      case OclPackage.ORDERED_SET_EXP__ELEMENTS:
+      case OclPackage.ORDERED_SET_LITERAL_EXP__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
   {
     switch (featureID)
     {
-      case OclPackage.ORDERED_SET_EXP__ELEMENTS:
+      case OclPackage.ORDERED_SET_LITERAL_EXP__ELEMENTS:
         return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
   {
     switch (featureID)
     {
-      case OclPackage.ORDERED_SET_EXP__ELEMENTS:
+      case OclPackage.ORDERED_SET_LITERAL_EXP__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends OclExpression>)newValue);
         return;
@@ -141,7 +141,7 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
   {
     switch (featureID)
     {
-      case OclPackage.ORDERED_SET_EXP__ELEMENTS:
+      case OclPackage.ORDERED_SET_LITERAL_EXP__ELEMENTS:
         getElements().clear();
         return;
     }
@@ -158,10 +158,10 @@ public class OrderedSetExpImpl extends OclExpressionImpl implements OrderedSetEx
   {
     switch (featureID)
     {
-      case OclPackage.ORDERED_SET_EXP__ELEMENTS:
+      case OclPackage.ORDERED_SET_LITERAL_EXP__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //OrderedSetExpImpl
+} //OrderedSetLiteralExpImpl

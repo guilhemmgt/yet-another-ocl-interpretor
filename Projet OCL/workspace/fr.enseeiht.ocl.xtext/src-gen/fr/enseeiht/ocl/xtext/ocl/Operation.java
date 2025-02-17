@@ -67,12 +67,12 @@ public interface Operation extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Return Type</em>' containment reference.
-   * @see #setReturnType(OclType)
+   * @see #setReturnType(OclTypeLiteral)
    * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperation_ReturnType()
    * @model containment="true"
    * @generated
    */
-  OclType getReturnType();
+  OclTypeLiteral getReturnType();
 
   /**
    * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.Operation#getReturnType <em>Return Type</em>}' containment reference.
@@ -82,7 +82,7 @@ public interface Operation extends EObject
    * @see #getReturnType()
    * @generated
    */
-  void setReturnType(OclType value);
+  void setReturnType(OclTypeLiteral value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

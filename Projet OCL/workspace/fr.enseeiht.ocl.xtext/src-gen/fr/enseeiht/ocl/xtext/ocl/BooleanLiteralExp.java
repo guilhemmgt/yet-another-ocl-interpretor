@@ -6,21 +6,21 @@ package fr.enseeiht.ocl.xtext.ocl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Boolean Exp</b></em>'.
+ * A representation of the model object '<em><b>Boolean Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.BooleanExp#getBooleanSymbol <em>Boolean Symbol</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp#getBooleanSymbol <em>Boolean Symbol</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getBooleanExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getBooleanLiteralExp()
  * @model
  * @generated
  */
-public interface BooleanExp extends OclExpression
+public interface BooleanLiteralExp extends OclExpression
 {
   /**
    * Returns the value of the '<em><b>Boolean Symbol</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface BooleanExp extends OclExpression
    * <!-- end-user-doc -->
    * @return the value of the '<em>Boolean Symbol</em>' attribute.
    * @see #setBooleanSymbol(String)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getBooleanExp_BooleanSymbol()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getBooleanLiteralExp_BooleanSymbol()
    * @model
    * @generated
    */
   String getBooleanSymbol();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.BooleanExp#getBooleanSymbol <em>Boolean Symbol</em>}' attribute.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp#getBooleanSymbol <em>Boolean Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Boolean Symbol</em>' attribute.
@@ -44,4 +44,4 @@ public interface BooleanExp extends OclExpression
    */
   void setBooleanSymbol(String value);
 
-} // BooleanExp
+} // BooleanLiteralExp

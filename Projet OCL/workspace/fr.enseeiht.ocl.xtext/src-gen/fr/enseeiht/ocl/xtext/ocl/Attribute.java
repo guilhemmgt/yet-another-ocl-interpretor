@@ -52,12 +52,12 @@ public interface Attribute extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(OclType)
+   * @see #setType(OclTypeLiteral)
    * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getAttribute_Type()
    * @model containment="true"
    * @generated
    */
-  OclType getType();
+  OclTypeLiteral getType();
 
   /**
    * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getType <em>Type</em>}' containment reference.
@@ -67,7 +67,7 @@ public interface Attribute extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(OclType value);
+  void setType(OclTypeLiteral value);
 
   /**
    * Returns the value of the '<em><b>Init Expression</b></em>' containment reference.

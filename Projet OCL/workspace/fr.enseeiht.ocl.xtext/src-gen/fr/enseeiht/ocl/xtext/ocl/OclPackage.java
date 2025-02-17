@@ -77,13 +77,22 @@ public interface OclPackage extends EPackage
   int MODULE__IMPORTS = 0;
 
   /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Contextless Features</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE__ELEMENTS = 1;
+  int MODULE__CONTEXTLESS_FEATURES = 1;
+
+  /**
+   * The feature id for the '<em><b>Context Blocks</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULE__CONTEXT_BLOCKS = 2;
 
   /**
    * The number of structural features of the '<em>Module</em>' class.
@@ -92,7 +101,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FEATURE_COUNT = 2;
+  int MODULE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.ImportImpl <em>Import</em>}' class.
@@ -132,14 +141,14 @@ public interface OclPackage extends EPackage
   int IMPORT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModuleElementImpl <em>Module Element</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclContextBlockImpl <em>Context Block</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclModuleElementImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModuleElement()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclContextBlockImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclContextBlock()
    * @generated
    */
-  int OCL_MODULE_ELEMENT = 2;
+  int OCL_CONTEXT_BLOCK = 2;
 
   /**
    * The feature id for the '<em><b>Ecore Types</b></em>' reference.
@@ -148,7 +157,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OCL_MODULE_ELEMENT__ECORE_TYPES = 0;
+  int OCL_CONTEXT_BLOCK__ECORE_TYPES = 0;
 
   /**
    * The feature id for the '<em><b>Class</b></em>' reference.
@@ -157,7 +166,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OCL_MODULE_ELEMENT__CLASS = 1;
+  int OCL_CONTEXT_BLOCK__CLASS = 1;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -166,16 +175,16 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OCL_MODULE_ELEMENT__MEMBERS = 2;
+  int OCL_CONTEXT_BLOCK__MEMBERS = 2;
 
   /**
-   * The number of structural features of the '<em>Module Element</em>' class.
+   * The number of structural features of the '<em>Context Block</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OCL_MODULE_ELEMENT_FEATURE_COUNT = 3;
+  int OCL_CONTEXT_BLOCK_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclFeatureDefinitionImpl <em>Feature Definition</em>}' class.
@@ -603,33 +612,33 @@ public interface OclPackage extends EPackage
   int VARIABLE_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SelfExpImpl <em>Self Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SelfLiteralExpImpl <em>Self Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.SelfExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSelfExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.SelfLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSelfLiteralExp()
    * @generated
    */
-  int SELF_EXP = 14;
+  int SELF_LITERAL_EXP = 14;
 
   /**
-   * The number of structural features of the '<em>Self Exp</em>' class.
+   * The number of structural features of the '<em>Self Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELF_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int SELF_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.StringExpImpl <em>String Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.StringLiteralExpImpl <em>String Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.StringExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getStringExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.StringLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getStringLiteralExp()
    * @generated
    */
-  int STRING_EXP = 15;
+  int STRING_LITERAL_EXP = 15;
 
   /**
    * The feature id for the '<em><b>String Symbol</b></em>' attribute.
@@ -638,35 +647,35 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRING_EXP__STRING_SYMBOL = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int STRING_LITERAL_EXP__STRING_SYMBOL = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>String Exp</em>' class.
+   * The number of structural features of the '<em>String Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int STRING_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.NumericExpImpl <em>Numeric Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.NumericLiteralExpImpl <em>Numeric Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.NumericExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNumericExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.NumericLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNumericLiteralExp()
    * @generated
    */
-  int NUMERIC_EXP = 16;
+  int NUMERIC_LITERAL_EXP = 16;
 
   /**
-   * The number of structural features of the '<em>Numeric Exp</em>' class.
+   * The number of structural features of the '<em>Numeric Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NUMERIC_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int NUMERIC_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RealExpImpl <em>Real Exp</em>}' class.
@@ -685,7 +694,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REAL_EXP__REAL_SYMBOL = NUMERIC_EXP_FEATURE_COUNT + 0;
+  int REAL_EXP__REAL_SYMBOL = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Real Exp</em>' class.
@@ -694,7 +703,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REAL_EXP_FEATURE_COUNT = NUMERIC_EXP_FEATURE_COUNT + 1;
+  int REAL_EXP_FEATURE_COUNT = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.IntegerExpImpl <em>Integer Exp</em>}' class.
@@ -713,7 +722,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_EXP__INTEGER_SYMBOL = NUMERIC_EXP_FEATURE_COUNT + 0;
+  int INTEGER_EXP__INTEGER_SYMBOL = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Integer Exp</em>' class.
@@ -722,45 +731,17 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_EXP_FEATURE_COUNT = NUMERIC_EXP_FEATURE_COUNT + 1;
+  int INTEGER_EXP_FEATURE_COUNT = NUMERIC_LITERAL_EXP_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagExpImpl <em>Bag Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagLiteralExpImpl <em>Bag Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.BagExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBagExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.BagLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBagLiteralExp()
    * @generated
    */
-  int BAG_EXP = 19;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BAG_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Bag Exp</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BAG_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetExpImpl <em>Ordered Set Exp</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOrderedSetExp()
-   * @generated
-   */
-  int ORDERED_SET_EXP = 20;
+  int BAG_LITERAL_EXP = 19;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -769,26 +750,26 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ORDERED_SET_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int BAG_LITERAL_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Ordered Set Exp</em>' class.
+   * The number of structural features of the '<em>Bag Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ORDERED_SET_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int BAG_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SequenceExpImpl <em>Sequence Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetLiteralExpImpl <em>Ordered Set Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.SequenceExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSequenceExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOrderedSetLiteralExp()
    * @generated
    */
-  int SEQUENCE_EXP = 21;
+  int ORDERED_SET_LITERAL_EXP = 20;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -797,26 +778,26 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int ORDERED_SET_LITERAL_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Sequence Exp</em>' class.
+   * The number of structural features of the '<em>Ordered Set Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SEQUENCE_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int ORDERED_SET_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SetExpImpl <em>Set Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SequenceLiteralExpImpl <em>Sequence Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.SetExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSetExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.SequenceLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSequenceLiteralExp()
    * @generated
    */
-  int SET_EXP = 22;
+  int SEQUENCE_LITERAL_EXP = 21;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -825,26 +806,54 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SET_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int SEQUENCE_LITERAL_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Set Exp</em>' class.
+   * The number of structural features of the '<em>Sequence Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SET_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int SEQUENCE_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleExpImpl <em>Tuple Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SetLiteralExpImpl <em>Set Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.TupleExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.SetLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSetLiteralExp()
    * @generated
    */
-  int TUPLE_EXP = 23;
+  int SET_LITERAL_EXP = 22;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SET_LITERAL_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Set Literal Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SET_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleLiteralExpImpl <em>Tuple Literal Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.TupleLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleLiteralExp()
+   * @generated
+   */
+  int TUPLE_LITERAL_EXP = 23;
 
   /**
    * The feature id for the '<em><b>Tuple Part</b></em>' containment reference list.
@@ -853,16 +862,16 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TUPLE_EXP__TUPLE_PART = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int TUPLE_LITERAL_EXP__TUPLE_PART = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Tuple Exp</em>' class.
+   * The number of structural features of the '<em>Tuple Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TUPLE_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int TUPLE_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TuplePartImpl <em>Tuple Part</em>}' class.
@@ -911,14 +920,14 @@ public interface OclPackage extends EPackage
   int TUPLE_PART_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapExpImpl <em>Map Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapLiteralExpImpl <em>Map Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.MapExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.MapLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapLiteralExp()
    * @generated
    */
-  int MAP_EXP = 25;
+  int MAP_LITERAL_EXP = 25;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -927,16 +936,16 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAP_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int MAP_LITERAL_EXP__ELEMENTS = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Map Exp</em>' class.
+   * The number of structural features of the '<em>Map Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAP_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int MAP_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapElementImpl <em>Map Element</em>}' class.
@@ -1115,14 +1124,14 @@ public interface OclPackage extends EPackage
   int BRACE_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BooleanExpImpl <em>Boolean Exp</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BooleanLiteralExpImpl <em>Boolean Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.BooleanExpImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.BooleanLiteralExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanLiteralExp()
    * @generated
    */
-  int BOOLEAN_EXP = 31;
+  int BOOLEAN_LITERAL_EXP = 31;
 
   /**
    * The feature id for the '<em><b>Boolean Symbol</b></em>' attribute.
@@ -1131,16 +1140,16 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BOOLEAN_EXP__BOOLEAN_SYMBOL = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Boolean Exp</em>' class.
+   * The number of structural features of the '<em>Boolean Literal Exp</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BOOLEAN_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int BOOLEAN_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.PropertyCallImpl <em>Property Call</em>}' class.
@@ -1439,23 +1448,23 @@ public interface OclPackage extends EPackage
   int LOCAL_VARIABLE_FEATURE_COUNT = AUXILIARY_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclTypeImpl <em>Type</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclTypeLiteralImpl <em>Type Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclTypeImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclType()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclTypeLiteralImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclTypeLiteral()
    * @generated
    */
-  int OCL_TYPE = 40;
+  int OCL_TYPE_LITERAL = 40;
 
   /**
-   * The number of structural features of the '<em>Type</em>' class.
+   * The number of structural features of the '<em>Type Literal</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OCL_TYPE_FEATURE_COUNT = 0;
+  int OCL_TYPE_LITERAL_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
@@ -1474,7 +1483,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLLECTION_TYPE__ELEMENT_TYPE = OCL_TYPE_FEATURE_COUNT + 0;
+  int COLLECTION_TYPE__ELEMENT_TYPE = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Collection Type</em>' class.
@@ -1483,7 +1492,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLLECTION_TYPE_FEATURE_COUNT = OCL_TYPE_FEATURE_COUNT + 1;
+  int COLLECTION_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagTypeImpl <em>Bag Type</em>}' class.
@@ -1614,7 +1623,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMITIVE_FEATURE_COUNT = OCL_TYPE_FEATURE_COUNT + 0;
+  int PRIMITIVE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.StringTypeImpl <em>String Type</em>}' class.
@@ -1728,7 +1737,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OCL_ANY_TYPE_FEATURE_COUNT = OCL_TYPE_FEATURE_COUNT + 0;
+  int OCL_ANY_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleTypeImpl <em>Tuple Type</em>}' class.
@@ -1747,7 +1756,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TUPLE_TYPE__ATTRIBUTES = OCL_TYPE_FEATURE_COUNT + 0;
+  int TUPLE_TYPE__ATTRIBUTES = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Tuple Type</em>' class.
@@ -1756,7 +1765,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TUPLE_TYPE_FEATURE_COUNT = OCL_TYPE_FEATURE_COUNT + 1;
+  int TUPLE_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleTypeAttributeImpl <em>Tuple Type Attribute</em>}' class.
@@ -1796,14 +1805,14 @@ public interface OclPackage extends EPackage
   int TUPLE_TYPE_ATTRIBUTE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementImpl <em>Model Element</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementClassImpl <em>Model Element Class</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElement()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementClassImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElementClass()
    * @generated
    */
-  int OCL_MODEL_ELEMENT = 55;
+  int OCL_MODEL_ELEMENT_CLASS = 55;
 
   /**
    * The feature id for the '<em><b>Model</b></em>' reference.
@@ -1812,7 +1821,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OCL_MODEL_ELEMENT__MODEL = OCL_TYPE_FEATURE_COUNT + 0;
+  int OCL_MODEL_ELEMENT_CLASS__MODEL = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1821,16 +1830,16 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OCL_MODEL_ELEMENT__NAME = OCL_TYPE_FEATURE_COUNT + 1;
+  int OCL_MODEL_ELEMENT_CLASS__NAME = OCL_TYPE_LITERAL_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Model Element</em>' class.
+   * The number of structural features of the '<em>Model Element Class</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OCL_MODEL_ELEMENT_FEATURE_COUNT = OCL_TYPE_FEATURE_COUNT + 2;
+  int OCL_MODEL_ELEMENT_CLASS_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapTypeImpl <em>Map Type</em>}' class.
@@ -1849,7 +1858,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAP_TYPE__KEY_TYPE = OCL_TYPE_FEATURE_COUNT + 0;
+  int MAP_TYPE__KEY_TYPE = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value Type</b></em>' containment reference.
@@ -1858,7 +1867,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAP_TYPE__VALUE_TYPE = OCL_TYPE_FEATURE_COUNT + 1;
+  int MAP_TYPE__VALUE_TYPE = OCL_TYPE_LITERAL_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Map Type</em>' class.
@@ -1867,7 +1876,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAP_TYPE_FEATURE_COUNT = OCL_TYPE_FEATURE_COUNT + 2;
+  int MAP_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.EqOpCallExpImpl <em>Eq Op Call Exp</em>}' class.
@@ -2122,15 +2131,26 @@ public interface OclPackage extends EPackage
   EReference getModule_Imports();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.Module#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.Module#getContextlessFeatures <em>Contextless Features</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.Module#getElements()
+   * @return the meta object for the containment reference list '<em>Contextless Features</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.Module#getContextlessFeatures()
    * @see #getModule()
    * @generated
    */
-  EReference getModule_Elements();
+  EReference getModule_ContextlessFeatures();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.Module#getContextBlocks <em>Context Blocks</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Context Blocks</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.Module#getContextBlocks()
+   * @see #getModule()
+   * @generated
+   */
+  EReference getModule_ContextBlocks();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.Import <em>Import</em>}'.
@@ -2165,47 +2185,47 @@ public interface OclPackage extends EPackage
   EAttribute getImport_Name();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement <em>Module Element</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock <em>Context Block</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Module Element</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModuleElement
+   * @return the meta object for class '<em>Context Block</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclContextBlock
    * @generated
    */
-  EClass getOclModuleElement();
+  EClass getOclContextBlock();
 
   /**
-   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getEcoreTypes <em>Ecore Types</em>}'.
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getEcoreTypes <em>Ecore Types</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Ecore Types</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getEcoreTypes()
-   * @see #getOclModuleElement()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getEcoreTypes()
+   * @see #getOclContextBlock()
    * @generated
    */
-  EReference getOclModuleElement_EcoreTypes();
+  EReference getOclContextBlock_EcoreTypes();
 
   /**
-   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getClass_ <em>Class</em>}'.
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getClass_ <em>Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Class</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getClass_()
-   * @see #getOclModuleElement()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getClass_()
+   * @see #getOclContextBlock()
    * @generated
    */
-  EReference getOclModuleElement_Class();
+  EReference getOclContextBlock_Class();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getMembers <em>Members</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getMembers <em>Members</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Members</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModuleElement#getMembers()
-   * @see #getOclModuleElement()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclContextBlock#getMembers()
+   * @see #getOclContextBlock()
    * @generated
    */
-  EReference getOclModuleElement_Members();
+  EReference getOclContextBlock_Members();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition <em>Feature Definition</em>}'.
@@ -2527,45 +2547,45 @@ public interface OclPackage extends EPackage
   EReference getVariableExp_ReferredVariable();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.SelfExp <em>Self Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp <em>Self Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Self Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.SelfExp
+   * @return the meta object for class '<em>Self Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp
    * @generated
    */
-  EClass getSelfExp();
+  EClass getSelfLiteralExp();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.StringExp <em>String Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.StringLiteralExp <em>String Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>String Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.StringExp
+   * @return the meta object for class '<em>String Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.StringLiteralExp
    * @generated
    */
-  EClass getStringExp();
+  EClass getStringLiteralExp();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.StringExp#getStringSymbol <em>String Symbol</em>}'.
+   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.StringLiteralExp#getStringSymbol <em>String Symbol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>String Symbol</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.StringExp#getStringSymbol()
-   * @see #getStringExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.StringLiteralExp#getStringSymbol()
+   * @see #getStringLiteralExp()
    * @generated
    */
-  EAttribute getStringExp_StringSymbol();
+  EAttribute getStringLiteralExp_StringSymbol();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.NumericExp <em>Numeric Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp <em>Numeric Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Numeric Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.NumericExp
+   * @return the meta object for class '<em>Numeric Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp
    * @generated
    */
-  EClass getNumericExp();
+  EClass getNumericLiteralExp();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.RealExp <em>Real Exp</em>}'.
@@ -2610,109 +2630,109 @@ public interface OclPackage extends EPackage
   EAttribute getIntegerExp_IntegerSymbol();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.BagExp <em>Bag Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.BagLiteralExp <em>Bag Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Bag Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.BagExp
+   * @return the meta object for class '<em>Bag Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.BagLiteralExp
    * @generated
    */
-  EClass getBagExp();
+  EClass getBagLiteralExp();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.BagExp#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.BagExp#getElements()
-   * @see #getBagExp()
-   * @generated
-   */
-  EReference getBagExp_Elements();
-
-  /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OrderedSetExp <em>Ordered Set Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ordered Set Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetExp
-   * @generated
-   */
-  EClass getOrderedSetExp();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.OrderedSetExp#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.BagLiteralExp#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetExp#getElements()
-   * @see #getOrderedSetExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.BagLiteralExp#getElements()
+   * @see #getBagLiteralExp()
    * @generated
    */
-  EReference getOrderedSetExp_Elements();
+  EReference getBagLiteralExp_Elements();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.SequenceExp <em>Sequence Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp <em>Ordered Set Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Sequence Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.SequenceExp
+   * @return the meta object for class '<em>Ordered Set Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp
    * @generated
    */
-  EClass getSequenceExp();
+  EClass getOrderedSetLiteralExp();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.SequenceExp#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.SequenceExp#getElements()
-   * @see #getSequenceExp()
-   * @generated
-   */
-  EReference getSequenceExp_Elements();
-
-  /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.SetExp <em>Set Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Set Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.SetExp
-   * @generated
-   */
-  EClass getSetExp();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.SetExp#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.SetExp#getElements()
-   * @see #getSetExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp#getElements()
+   * @see #getOrderedSetLiteralExp()
    * @generated
    */
-  EReference getSetExp_Elements();
+  EReference getOrderedSetLiteralExp_Elements();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.TupleExp <em>Tuple Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp <em>Sequence Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Tuple Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.TupleExp
+   * @return the meta object for class '<em>Sequence Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp
    * @generated
    */
-  EClass getTupleExp();
+  EClass getSequenceLiteralExp();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.TupleExp#getTuplePart <em>Tuple Part</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp#getElements()
+   * @see #getSequenceLiteralExp()
+   * @generated
+   */
+  EReference getSequenceLiteralExp_Elements();
+
+  /**
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.SetLiteralExp <em>Set Literal Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Set Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.SetLiteralExp
+   * @generated
+   */
+  EClass getSetLiteralExp();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.SetLiteralExp#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.SetLiteralExp#getElements()
+   * @see #getSetLiteralExp()
+   * @generated
+   */
+  EReference getSetLiteralExp_Elements();
+
+  /**
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp <em>Tuple Literal Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tuple Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp
+   * @generated
+   */
+  EClass getTupleLiteralExp();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp#getTuplePart <em>Tuple Part</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Tuple Part</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.TupleExp#getTuplePart()
-   * @see #getTupleExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp#getTuplePart()
+   * @see #getTupleLiteralExp()
    * @generated
    */
-  EReference getTupleExp_TuplePart();
+  EReference getTupleLiteralExp_TuplePart();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.TuplePart <em>Tuple Part</em>}'.
@@ -2758,25 +2778,25 @@ public interface OclPackage extends EPackage
   EReference getTuplePart_InitExpression();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.MapExp <em>Map Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.MapLiteralExp <em>Map Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Map Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.MapExp
+   * @return the meta object for class '<em>Map Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.MapLiteralExp
    * @generated
    */
-  EClass getMapExp();
+  EClass getMapLiteralExp();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.MapExp#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.MapLiteralExp#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.MapExp#getElements()
-   * @see #getMapExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.MapLiteralExp#getElements()
+   * @see #getMapLiteralExp()
    * @generated
    */
-  EReference getMapExp_Elements();
+  EReference getMapLiteralExp_Elements();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.MapElement <em>Map Element</em>}'.
@@ -2928,25 +2948,25 @@ public interface OclPackage extends EPackage
   EReference getBraceExp_Exp();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.BooleanExp <em>Boolean Exp</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp <em>Boolean Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Boolean Exp</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.BooleanExp
+   * @return the meta object for class '<em>Boolean Literal Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp
    * @generated
    */
-  EClass getBooleanExp();
+  EClass getBooleanLiteralExp();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.BooleanExp#getBooleanSymbol <em>Boolean Symbol</em>}'.
+   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp#getBooleanSymbol <em>Boolean Symbol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Boolean Symbol</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.BooleanExp#getBooleanSymbol()
-   * @see #getBooleanExp()
+   * @see fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp#getBooleanSymbol()
+   * @see #getBooleanLiteralExp()
    * @generated
    */
-  EAttribute getBooleanExp_BooleanSymbol();
+  EAttribute getBooleanLiteralExp_BooleanSymbol();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.PropertyCall <em>Property Call</em>}'.
@@ -3161,14 +3181,14 @@ public interface OclPackage extends EPackage
   EReference getLocalVariable_InitExpression();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclType <em>Type</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral <em>Type Literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Type</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclType
+   * @return the meta object for class '<em>Type Literal</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral
    * @generated
    */
-  EClass getOclType();
+  EClass getOclTypeLiteral();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionType <em>Collection Type</em>}'.
@@ -3355,36 +3375,36 @@ public interface OclPackage extends EPackage
   EReference getTupleTypeAttribute_Type();
 
   /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement <em>Model Element</em>}'.
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass <em>Model Element Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model Element</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElement
+   * @return the meta object for class '<em>Model Element Class</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementClass
    * @generated
    */
-  EClass getOclModelElement();
+  EClass getOclModelElementClass();
 
   /**
-   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement#getModel <em>Model</em>}'.
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getModel <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Model</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElement#getModel()
-   * @see #getOclModelElement()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getModel()
+   * @see #getOclModelElementClass()
    * @generated
    */
-  EReference getOclModelElement_Model();
+  EReference getOclModelElementClass_Model();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElement#getName()
-   * @see #getOclModelElement()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName()
+   * @see #getOclModelElementClass()
    * @generated
    */
-  EAttribute getOclModelElement_Name();
+  EAttribute getOclModelElementClass_Name();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.MapType <em>Map Type</em>}'.
@@ -3510,12 +3530,20 @@ public interface OclPackage extends EPackage
     EReference MODULE__IMPORTS = eINSTANCE.getModule_Imports();
 
     /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Contextless Features</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODULE__ELEMENTS = eINSTANCE.getModule_Elements();
+    EReference MODULE__CONTEXTLESS_FEATURES = eINSTANCE.getModule_ContextlessFeatures();
+
+    /**
+     * The meta object literal for the '<em><b>Context Blocks</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULE__CONTEXT_BLOCKS = eINSTANCE.getModule_ContextBlocks();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.ImportImpl <em>Import</em>}' class.
@@ -3544,14 +3572,14 @@ public interface OclPackage extends EPackage
     EAttribute IMPORT__NAME = eINSTANCE.getImport_Name();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModuleElementImpl <em>Module Element</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclContextBlockImpl <em>Context Block</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclModuleElementImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModuleElement()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclContextBlockImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclContextBlock()
      * @generated
      */
-    EClass OCL_MODULE_ELEMENT = eINSTANCE.getOclModuleElement();
+    EClass OCL_CONTEXT_BLOCK = eINSTANCE.getOclContextBlock();
 
     /**
      * The meta object literal for the '<em><b>Ecore Types</b></em>' reference feature.
@@ -3559,7 +3587,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OCL_MODULE_ELEMENT__ECORE_TYPES = eINSTANCE.getOclModuleElement_EcoreTypes();
+    EReference OCL_CONTEXT_BLOCK__ECORE_TYPES = eINSTANCE.getOclContextBlock_EcoreTypes();
 
     /**
      * The meta object literal for the '<em><b>Class</b></em>' reference feature.
@@ -3567,7 +3595,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OCL_MODULE_ELEMENT__CLASS = eINSTANCE.getOclModuleElement_Class();
+    EReference OCL_CONTEXT_BLOCK__CLASS = eINSTANCE.getOclContextBlock_Class();
 
     /**
      * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
@@ -3575,7 +3603,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OCL_MODULE_ELEMENT__MEMBERS = eINSTANCE.getOclModuleElement_Members();
+    EReference OCL_CONTEXT_BLOCK__MEMBERS = eINSTANCE.getOclContextBlock_Members();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclFeatureDefinitionImpl <em>Feature Definition</em>}' class.
@@ -3840,24 +3868,24 @@ public interface OclPackage extends EPackage
     EReference VARIABLE_EXP__REFERRED_VARIABLE = eINSTANCE.getVariableExp_ReferredVariable();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SelfExpImpl <em>Self Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SelfLiteralExpImpl <em>Self Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.SelfExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSelfExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.SelfLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSelfLiteralExp()
      * @generated
      */
-    EClass SELF_EXP = eINSTANCE.getSelfExp();
+    EClass SELF_LITERAL_EXP = eINSTANCE.getSelfLiteralExp();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.StringExpImpl <em>String Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.StringLiteralExpImpl <em>String Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.StringExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getStringExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.StringLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getStringLiteralExp()
      * @generated
      */
-    EClass STRING_EXP = eINSTANCE.getStringExp();
+    EClass STRING_LITERAL_EXP = eINSTANCE.getStringLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>String Symbol</b></em>' attribute feature.
@@ -3865,17 +3893,17 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRING_EXP__STRING_SYMBOL = eINSTANCE.getStringExp_StringSymbol();
+    EAttribute STRING_LITERAL_EXP__STRING_SYMBOL = eINSTANCE.getStringLiteralExp_StringSymbol();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.NumericExpImpl <em>Numeric Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.NumericLiteralExpImpl <em>Numeric Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.NumericExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNumericExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.NumericLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNumericLiteralExp()
      * @generated
      */
-    EClass NUMERIC_EXP = eINSTANCE.getNumericExp();
+    EClass NUMERIC_LITERAL_EXP = eINSTANCE.getNumericLiteralExp();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RealExpImpl <em>Real Exp</em>}' class.
@@ -3914,14 +3942,14 @@ public interface OclPackage extends EPackage
     EAttribute INTEGER_EXP__INTEGER_SYMBOL = eINSTANCE.getIntegerExp_IntegerSymbol();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagExpImpl <em>Bag Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagLiteralExpImpl <em>Bag Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.BagExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBagExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.BagLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBagLiteralExp()
      * @generated
      */
-    EClass BAG_EXP = eINSTANCE.getBagExp();
+    EClass BAG_LITERAL_EXP = eINSTANCE.getBagLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -3929,35 +3957,17 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BAG_EXP__ELEMENTS = eINSTANCE.getBagExp_Elements();
+    EReference BAG_LITERAL_EXP__ELEMENTS = eINSTANCE.getBagLiteralExp_Elements();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetExpImpl <em>Ordered Set Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetLiteralExpImpl <em>Ordered Set Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOrderedSetExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOrderedSetLiteralExp()
      * @generated
      */
-    EClass ORDERED_SET_EXP = eINSTANCE.getOrderedSetExp();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ORDERED_SET_EXP__ELEMENTS = eINSTANCE.getOrderedSetExp_Elements();
-
-    /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SequenceExpImpl <em>Sequence Exp</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.SequenceExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSequenceExp()
-     * @generated
-     */
-    EClass SEQUENCE_EXP = eINSTANCE.getSequenceExp();
+    EClass ORDERED_SET_LITERAL_EXP = eINSTANCE.getOrderedSetLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -3965,17 +3975,17 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SEQUENCE_EXP__ELEMENTS = eINSTANCE.getSequenceExp_Elements();
+    EReference ORDERED_SET_LITERAL_EXP__ELEMENTS = eINSTANCE.getOrderedSetLiteralExp_Elements();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SetExpImpl <em>Set Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SequenceLiteralExpImpl <em>Sequence Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.SetExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSetExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.SequenceLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSequenceLiteralExp()
      * @generated
      */
-    EClass SET_EXP = eINSTANCE.getSetExp();
+    EClass SEQUENCE_LITERAL_EXP = eINSTANCE.getSequenceLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -3983,17 +3993,35 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SET_EXP__ELEMENTS = eINSTANCE.getSetExp_Elements();
+    EReference SEQUENCE_LITERAL_EXP__ELEMENTS = eINSTANCE.getSequenceLiteralExp_Elements();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleExpImpl <em>Tuple Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SetLiteralExpImpl <em>Set Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.TupleExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.SetLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSetLiteralExp()
      * @generated
      */
-    EClass TUPLE_EXP = eINSTANCE.getTupleExp();
+    EClass SET_LITERAL_EXP = eINSTANCE.getSetLiteralExp();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SET_LITERAL_EXP__ELEMENTS = eINSTANCE.getSetLiteralExp_Elements();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleLiteralExpImpl <em>Tuple Literal Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.TupleLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleLiteralExp()
+     * @generated
+     */
+    EClass TUPLE_LITERAL_EXP = eINSTANCE.getTupleLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Tuple Part</b></em>' containment reference list feature.
@@ -4001,7 +4029,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TUPLE_EXP__TUPLE_PART = eINSTANCE.getTupleExp_TuplePart();
+    EReference TUPLE_LITERAL_EXP__TUPLE_PART = eINSTANCE.getTupleLiteralExp_TuplePart();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TuplePartImpl <em>Tuple Part</em>}' class.
@@ -4038,14 +4066,14 @@ public interface OclPackage extends EPackage
     EReference TUPLE_PART__INIT_EXPRESSION = eINSTANCE.getTuplePart_InitExpression();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapExpImpl <em>Map Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapLiteralExpImpl <em>Map Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.MapExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.MapLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapLiteralExp()
      * @generated
      */
-    EClass MAP_EXP = eINSTANCE.getMapExp();
+    EClass MAP_LITERAL_EXP = eINSTANCE.getMapLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -4053,7 +4081,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAP_EXP__ELEMENTS = eINSTANCE.getMapExp_Elements();
+    EReference MAP_LITERAL_EXP__ELEMENTS = eINSTANCE.getMapLiteralExp_Elements();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapElementImpl <em>Map Element</em>}' class.
@@ -4178,14 +4206,14 @@ public interface OclPackage extends EPackage
     EReference BRACE_EXP__EXP = eINSTANCE.getBraceExp_Exp();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BooleanExpImpl <em>Boolean Exp</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BooleanLiteralExpImpl <em>Boolean Literal Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.BooleanExpImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanExp()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.BooleanLiteralExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanLiteralExp()
      * @generated
      */
-    EClass BOOLEAN_EXP = eINSTANCE.getBooleanExp();
+    EClass BOOLEAN_LITERAL_EXP = eINSTANCE.getBooleanLiteralExp();
 
     /**
      * The meta object literal for the '<em><b>Boolean Symbol</b></em>' attribute feature.
@@ -4193,7 +4221,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BOOLEAN_EXP__BOOLEAN_SYMBOL = eINSTANCE.getBooleanExp_BooleanSymbol();
+    EAttribute BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL = eINSTANCE.getBooleanLiteralExp_BooleanSymbol();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.PropertyCallImpl <em>Property Call</em>}' class.
@@ -4372,14 +4400,14 @@ public interface OclPackage extends EPackage
     EReference LOCAL_VARIABLE__INIT_EXPRESSION = eINSTANCE.getLocalVariable_InitExpression();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclTypeImpl <em>Type</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclTypeLiteralImpl <em>Type Literal</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclTypeImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclType()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclTypeLiteralImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclTypeLiteral()
      * @generated
      */
-    EClass OCL_TYPE = eINSTANCE.getOclType();
+    EClass OCL_TYPE_LITERAL = eINSTANCE.getOclTypeLiteral();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
@@ -4554,14 +4582,14 @@ public interface OclPackage extends EPackage
     EReference TUPLE_TYPE_ATTRIBUTE__TYPE = eINSTANCE.getTupleTypeAttribute_Type();
 
     /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementImpl <em>Model Element</em>}' class.
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementClassImpl <em>Model Element Class</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElement()
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementClassImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElementClass()
      * @generated
      */
-    EClass OCL_MODEL_ELEMENT = eINSTANCE.getOclModelElement();
+    EClass OCL_MODEL_ELEMENT_CLASS = eINSTANCE.getOclModelElementClass();
 
     /**
      * The meta object literal for the '<em><b>Model</b></em>' reference feature.
@@ -4569,7 +4597,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OCL_MODEL_ELEMENT__MODEL = eINSTANCE.getOclModelElement_Model();
+    EReference OCL_MODEL_ELEMENT_CLASS__MODEL = eINSTANCE.getOclModelElementClass_Model();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -4577,7 +4605,7 @@ public interface OclPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OCL_MODEL_ELEMENT__NAME = eINSTANCE.getOclModelElement_Name();
+    EAttribute OCL_MODEL_ELEMENT_CLASS__NAME = eINSTANCE.getOclModelElementClass_Name();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapTypeImpl <em>Map Type</em>}' class.

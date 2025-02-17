@@ -6,9 +6,9 @@ package fr.enseeiht.ocl.xtext.ocl.util;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
-import fr.enseeiht.ocl.xtext.ocl.BagExp;
+import fr.enseeiht.ocl.xtext.ocl.BagLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
-import fr.enseeiht.ocl.xtext.ocl.BooleanExp;
+import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
@@ -26,25 +26,25 @@ import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
-import fr.enseeiht.ocl.xtext.ocl.MapExp;
+import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
-import fr.enseeiht.ocl.xtext.ocl.NumericExp;
+import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
-import fr.enseeiht.ocl.xtext.ocl.OclModelElement;
+import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
-import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
-import fr.enseeiht.ocl.xtext.ocl.OrderedSetExp;
+import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetType;
 import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.Primitive;
@@ -53,14 +53,14 @@ import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.RealExp;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.SelfExp;
-import fr.enseeiht.ocl.xtext.ocl.SequenceExp;
+import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SequenceType;
-import fr.enseeiht.ocl.xtext.ocl.SetExp;
+import fr.enseeiht.ocl.xtext.ocl.SetLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.SetType;
-import fr.enseeiht.ocl.xtext.ocl.StringExp;
+import fr.enseeiht.ocl.xtext.ocl.StringLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.StringType;
-import fr.enseeiht.ocl.xtext.ocl.TupleExp;
+import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
@@ -147,9 +147,9 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createImportAdapter();
       }
       @Override
-      public Adapter caseOclModuleElement(OclModuleElement object)
+      public Adapter caseOclContextBlock(OclContextBlock object)
       {
-        return createOclModuleElementAdapter();
+        return createOclContextBlockAdapter();
       }
       @Override
       public Adapter caseOclFeatureDefinition(OclFeatureDefinition object)
@@ -207,19 +207,19 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createVariableExpAdapter();
       }
       @Override
-      public Adapter caseSelfExp(SelfExp object)
+      public Adapter caseSelfLiteralExp(SelfLiteralExp object)
       {
-        return createSelfExpAdapter();
+        return createSelfLiteralExpAdapter();
       }
       @Override
-      public Adapter caseStringExp(StringExp object)
+      public Adapter caseStringLiteralExp(StringLiteralExp object)
       {
-        return createStringExpAdapter();
+        return createStringLiteralExpAdapter();
       }
       @Override
-      public Adapter caseNumericExp(NumericExp object)
+      public Adapter caseNumericLiteralExp(NumericLiteralExp object)
       {
-        return createNumericExpAdapter();
+        return createNumericLiteralExpAdapter();
       }
       @Override
       public Adapter caseRealExp(RealExp object)
@@ -232,29 +232,29 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createIntegerExpAdapter();
       }
       @Override
-      public Adapter caseBagExp(BagExp object)
+      public Adapter caseBagLiteralExp(BagLiteralExp object)
       {
-        return createBagExpAdapter();
+        return createBagLiteralExpAdapter();
       }
       @Override
-      public Adapter caseOrderedSetExp(OrderedSetExp object)
+      public Adapter caseOrderedSetLiteralExp(OrderedSetLiteralExp object)
       {
-        return createOrderedSetExpAdapter();
+        return createOrderedSetLiteralExpAdapter();
       }
       @Override
-      public Adapter caseSequenceExp(SequenceExp object)
+      public Adapter caseSequenceLiteralExp(SequenceLiteralExp object)
       {
-        return createSequenceExpAdapter();
+        return createSequenceLiteralExpAdapter();
       }
       @Override
-      public Adapter caseSetExp(SetExp object)
+      public Adapter caseSetLiteralExp(SetLiteralExp object)
       {
-        return createSetExpAdapter();
+        return createSetLiteralExpAdapter();
       }
       @Override
-      public Adapter caseTupleExp(TupleExp object)
+      public Adapter caseTupleLiteralExp(TupleLiteralExp object)
       {
-        return createTupleExpAdapter();
+        return createTupleLiteralExpAdapter();
       }
       @Override
       public Adapter caseTuplePart(TuplePart object)
@@ -262,9 +262,9 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createTuplePartAdapter();
       }
       @Override
-      public Adapter caseMapExp(MapExp object)
+      public Adapter caseMapLiteralExp(MapLiteralExp object)
       {
-        return createMapExpAdapter();
+        return createMapLiteralExpAdapter();
       }
       @Override
       public Adapter caseMapElement(MapElement object)
@@ -292,9 +292,9 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createBraceExpAdapter();
       }
       @Override
-      public Adapter caseBooleanExp(BooleanExp object)
+      public Adapter caseBooleanLiteralExp(BooleanLiteralExp object)
       {
-        return createBooleanExpAdapter();
+        return createBooleanLiteralExpAdapter();
       }
       @Override
       public Adapter casePropertyCall(PropertyCall object)
@@ -337,9 +337,9 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createLocalVariableAdapter();
       }
       @Override
-      public Adapter caseOclType(OclType object)
+      public Adapter caseOclTypeLiteral(OclTypeLiteral object)
       {
-        return createOclTypeAdapter();
+        return createOclTypeLiteralAdapter();
       }
       @Override
       public Adapter caseCollectionType(CollectionType object)
@@ -412,9 +412,9 @@ public class OclAdapterFactory extends AdapterFactoryImpl
         return createTupleTypeAttributeAdapter();
       }
       @Override
-      public Adapter caseOclModelElement(OclModelElement object)
+      public Adapter caseOclModelElementClass(OclModelElementClass object)
       {
-        return createOclModelElementAdapter();
+        return createOclModelElementClassAdapter();
       }
       @Override
       public Adapter caseMapType(MapType object)
@@ -499,16 +499,16 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclModuleElement <em>Module Element</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclContextBlock <em>Context Block</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModuleElement
+   * @see fr.enseeiht.ocl.xtext.ocl.OclContextBlock
    * @generated
    */
-  public Adapter createOclModuleElementAdapter()
+  public Adapter createOclContextBlockAdapter()
   {
     return null;
   }
@@ -679,46 +679,46 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SelfExp <em>Self Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp <em>Self Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.SelfExp
+   * @see fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp
    * @generated
    */
-  public Adapter createSelfExpAdapter()
+  public Adapter createSelfLiteralExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.StringExp <em>String Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.StringLiteralExp <em>String Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.StringExp
+   * @see fr.enseeiht.ocl.xtext.ocl.StringLiteralExp
    * @generated
    */
-  public Adapter createStringExpAdapter()
+  public Adapter createStringLiteralExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.NumericExp <em>Numeric Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp <em>Numeric Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.NumericExp
+   * @see fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp
    * @generated
    */
-  public Adapter createNumericExpAdapter()
+  public Adapter createNumericLiteralExpAdapter()
   {
     return null;
   }
@@ -754,76 +754,76 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.BagExp <em>Bag Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.BagLiteralExp <em>Bag Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.BagExp
+   * @see fr.enseeiht.ocl.xtext.ocl.BagLiteralExp
    * @generated
    */
-  public Adapter createBagExpAdapter()
+  public Adapter createBagLiteralExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OrderedSetExp <em>Ordered Set Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp <em>Ordered Set Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetExp
+   * @see fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp
    * @generated
    */
-  public Adapter createOrderedSetExpAdapter()
+  public Adapter createOrderedSetLiteralExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SequenceExp <em>Sequence Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp <em>Sequence Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.SequenceExp
+   * @see fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp
    * @generated
    */
-  public Adapter createSequenceExpAdapter()
+  public Adapter createSequenceLiteralExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SetExp <em>Set Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.SetLiteralExp <em>Set Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.SetExp
+   * @see fr.enseeiht.ocl.xtext.ocl.SetLiteralExp
    * @generated
    */
-  public Adapter createSetExpAdapter()
+  public Adapter createSetLiteralExpAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.TupleExp <em>Tuple Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp <em>Tuple Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.TupleExp
+   * @see fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp
    * @generated
    */
-  public Adapter createTupleExpAdapter()
+  public Adapter createTupleLiteralExpAdapter()
   {
     return null;
   }
@@ -844,16 +844,16 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.MapExp <em>Map Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.MapLiteralExp <em>Map Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.MapExp
+   * @see fr.enseeiht.ocl.xtext.ocl.MapLiteralExp
    * @generated
    */
-  public Adapter createMapExpAdapter()
+  public Adapter createMapLiteralExpAdapter()
   {
     return null;
   }
@@ -934,16 +934,16 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.BooleanExp <em>Boolean Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp <em>Boolean Literal Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.BooleanExp
+   * @see fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp
    * @generated
    */
-  public Adapter createBooleanExpAdapter()
+  public Adapter createBooleanLiteralExpAdapter()
   {
     return null;
   }
@@ -1069,16 +1069,16 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclType <em>Type</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral <em>Type Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclType
+   * @see fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral
    * @generated
    */
-  public Adapter createOclTypeAdapter()
+  public Adapter createOclTypeLiteralAdapter()
   {
     return null;
   }
@@ -1294,16 +1294,16 @@ public class OclAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElement <em>Model Element</em>}'.
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass <em>Model Element Class</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElement
+   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementClass
    * @generated
    */
-  public Adapter createOclModelElementAdapter()
+  public Adapter createOclModelElementClassAdapter()
   {
     return null;
   }

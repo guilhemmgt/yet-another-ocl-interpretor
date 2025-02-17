@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Ordered Set Exp</b></em>'.
+ * A representation of the model object '<em><b>Bag Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OrderedSetExp#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.BagLiteralExp#getElements <em>Elements</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOrderedSetExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getBagLiteralExp()
  * @model
  * @generated
  */
-public interface OrderedSetExp extends OclExpression
+public interface BagLiteralExp extends OclExpression
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
@@ -29,10 +29,10 @@ public interface OrderedSetExp extends OclExpression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOrderedSetExp_Elements()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getBagLiteralExp_Elements()
    * @model containment="true"
    * @generated
    */
   EList<OclExpression> getElements();
 
-} // OrderedSetExp
+} // BagLiteralExp

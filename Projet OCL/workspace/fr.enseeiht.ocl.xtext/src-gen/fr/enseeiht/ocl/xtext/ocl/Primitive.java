@@ -14,6 +14,6 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface Primitive extends OclType
+public interface Primitive extends OclTypeLiteral
 {
 } // Primitive

@@ -4,7 +4,7 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.Import;
-import fr.enseeiht.ocl.xtext.ocl.OclModuleElement;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
 import java.util.Collection;
@@ -26,20 +26,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Module Element</b></em>'.
+ * An implementation of the model object '<em><b>Context Block</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModuleElementImpl#getEcoreTypes <em>Ecore Types</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModuleElementImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModuleElementImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclContextBlockImpl#getEcoreTypes <em>Ecore Types</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclContextBlockImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclContextBlockImpl#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OclModuleElementImpl extends MinimalEObjectImpl.Container implements OclModuleElement
+public class OclContextBlockImpl extends MinimalEObjectImpl.Container implements OclContextBlock
 {
   /**
    * The cached value of the '{@link #getEcoreTypes() <em>Ecore Types</em>}' reference.
@@ -76,7 +76,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OclModuleElementImpl()
+  protected OclContextBlockImpl()
   {
     super();
   }
@@ -89,7 +89,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return OclPackage.Literals.OCL_MODULE_ELEMENT;
+    return OclPackage.Literals.OCL_CONTEXT_BLOCK;
   }
 
   /**
@@ -107,7 +107,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
       if (ecoreTypes != oldEcoreTypes)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_MODULE_ELEMENT__ECORE_TYPES, oldEcoreTypes, ecoreTypes));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_CONTEXT_BLOCK__ECORE_TYPES, oldEcoreTypes, ecoreTypes));
       }
     }
     return ecoreTypes;
@@ -134,7 +134,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
     Import oldEcoreTypes = ecoreTypes;
     ecoreTypes = newEcoreTypes;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODULE_ELEMENT__ECORE_TYPES, oldEcoreTypes, ecoreTypes));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_CONTEXT_BLOCK__ECORE_TYPES, oldEcoreTypes, ecoreTypes));
   }
 
   /**
@@ -152,7 +152,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
       if (class_ != oldClass)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_MODULE_ELEMENT__CLASS, oldClass, class_));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_CONTEXT_BLOCK__CLASS, oldClass, class_));
       }
     }
     return class_;
@@ -179,7 +179,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
     EClass oldClass = class_;
     class_ = newClass;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODULE_ELEMENT__CLASS, oldClass, class_));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_CONTEXT_BLOCK__CLASS, oldClass, class_));
   }
 
   /**
@@ -192,7 +192,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
   {
     if (members == null)
     {
-      members = new EObjectContainmentEList<EObject>(EObject.class, this, OclPackage.OCL_MODULE_ELEMENT__MEMBERS);
+      members = new EObjectContainmentEList<EObject>(EObject.class, this, OclPackage.OCL_CONTEXT_BLOCK__MEMBERS);
     }
     return members;
   }
@@ -207,7 +207,7 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODULE_ELEMENT__MEMBERS:
+      case OclPackage.OCL_CONTEXT_BLOCK__MEMBERS:
         return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -223,13 +223,13 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODULE_ELEMENT__ECORE_TYPES:
+      case OclPackage.OCL_CONTEXT_BLOCK__ECORE_TYPES:
         if (resolve) return getEcoreTypes();
         return basicGetEcoreTypes();
-      case OclPackage.OCL_MODULE_ELEMENT__CLASS:
+      case OclPackage.OCL_CONTEXT_BLOCK__CLASS:
         if (resolve) return getClass_();
         return basicGetClass();
-      case OclPackage.OCL_MODULE_ELEMENT__MEMBERS:
+      case OclPackage.OCL_CONTEXT_BLOCK__MEMBERS:
         return getMembers();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -246,13 +246,13 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODULE_ELEMENT__ECORE_TYPES:
+      case OclPackage.OCL_CONTEXT_BLOCK__ECORE_TYPES:
         setEcoreTypes((Import)newValue);
         return;
-      case OclPackage.OCL_MODULE_ELEMENT__CLASS:
+      case OclPackage.OCL_CONTEXT_BLOCK__CLASS:
         setClass((EClass)newValue);
         return;
-      case OclPackage.OCL_MODULE_ELEMENT__MEMBERS:
+      case OclPackage.OCL_CONTEXT_BLOCK__MEMBERS:
         getMembers().clear();
         getMembers().addAll((Collection<? extends EObject>)newValue);
         return;
@@ -270,13 +270,13 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODULE_ELEMENT__ECORE_TYPES:
+      case OclPackage.OCL_CONTEXT_BLOCK__ECORE_TYPES:
         setEcoreTypes((Import)null);
         return;
-      case OclPackage.OCL_MODULE_ELEMENT__CLASS:
+      case OclPackage.OCL_CONTEXT_BLOCK__CLASS:
         setClass((EClass)null);
         return;
-      case OclPackage.OCL_MODULE_ELEMENT__MEMBERS:
+      case OclPackage.OCL_CONTEXT_BLOCK__MEMBERS:
         getMembers().clear();
         return;
     }
@@ -293,14 +293,14 @@ public class OclModuleElementImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OclPackage.OCL_MODULE_ELEMENT__ECORE_TYPES:
+      case OclPackage.OCL_CONTEXT_BLOCK__ECORE_TYPES:
         return ecoreTypes != null;
-      case OclPackage.OCL_MODULE_ELEMENT__CLASS:
+      case OclPackage.OCL_CONTEXT_BLOCK__CLASS:
         return class_ != null;
-      case OclPackage.OCL_MODULE_ELEMENT__MEMBERS:
+      case OclPackage.OCL_CONTEXT_BLOCK__MEMBERS:
         return members != null && !members.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //OclModuleElementImpl
+} //OclContextBlockImpl

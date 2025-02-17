@@ -7,21 +7,21 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Set Exp</b></em>'.
+ * A representation of the model object '<em><b>Set Literal Exp</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.SetExp#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.SetLiteralExp#getElements <em>Elements</em>}</li>
  * </ul>
  *
- * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getSetExp()
+ * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getSetLiteralExp()
  * @model
  * @generated
  */
-public interface SetExp extends OclExpression
+public interface SetLiteralExp extends OclExpression
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
@@ -29,10 +29,10 @@ public interface SetExp extends OclExpression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getSetExp_Elements()
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getSetLiteralExp_Elements()
    * @model containment="true"
    * @generated
    */
   EList<OclExpression> getElements();
 
-} // SetExp
+} // SetLiteralExp

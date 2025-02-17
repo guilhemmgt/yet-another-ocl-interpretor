@@ -5,27 +5,27 @@ generate ocl "http://www.enseeiht.fr/ocl/xtext/Ocl"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Module:
-	(imports+=Import)+ (elements+=OclFeatureDefinition)* (elements+=OclModuleElement)+
+	(imports+=Import)+ (contextlessFeatures+=OclFeatureDefinition)* (contextBlocks+=OclContextBlock)+
 ;
 
 
 Import:
 'import' package=[ecore::EPackage|STRING] 'as'name=ID;
 
-OclModuleElement:
+OclContextBlock:
 	('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName]) (members+=(OclFeatureDefinition|OclInvariant))+
 ;
 OclFeatureDefinition:
 	'def' ':' feature = (Attribute|Operation)
 ;
 Attribute :
-	name=ID ':' type=OclType '=' initExpression=OclExpression
+	name=ID ':' type=OclTypeLiteral '=' initExpression=OclExpression
 ;
 Operation:
-	name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclType '=' body=OclExpression
+	name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclTypeLiteral '=' body=OclExpression
 ;
 Parameter:
-	name=ID ':' type=OclType
+	name=ID ':' type=OclTypeLiteral
 ;
 OclInvariant:
 	'inv' name=ID ':' body=OclExpression
@@ -85,16 +85,16 @@ PropertyCallExp  :
 
 Primary_OclExpression returns OclExpression : 
 	VariableExp
-	|SelfExp
-	|StringExp
-	|BooleanExp
-	|NumericExp
-	|BagExp
-	|OrderedSetExp
-	|SequenceExp
-	|SetExp
-	|TupleExp
-	|MapExp
+	|SelfLiteralExp
+	|StringLiteralExp
+	|BooleanLiteralExp
+	|NumericLiteralExp
+	|BagLiteralExp
+	|OrderedSetLiteralExp
+	|SequenceLiteralExp
+	|SetLiteralExp
+	|TupleLiteralExp
+	|MapLiteralExp
 	|EnumLiteralExp
 	|IfExp
 	|BraceExp
@@ -104,14 +104,14 @@ Auxiliary :Iterator|LocalVariable|Parameter;
 VariableExp:
 	referredVariable=[Auxiliary]
 ;
-SelfExp :
-	{SelfExp}	'self'
+SelfLiteralExp :
+	{SelfLiteralExp}	'self'
 ;
-StringExp :
-	{StringExp}
+StringLiteralExp :
+	{StringLiteralExp}
 	stringSymbol=STRING
 ;
-NumericExp: 
+NumericLiteralExp: 
 	RealExp|IntegerExp
 ;
 RealExp : realSymbol=DOUBLE;
@@ -121,31 +121,31 @@ IntegerExp:
 	{IntegerExp}
 	integerSymbol=INT
 ;
-BagExp:
-	{BagExp}
+BagLiteralExp:
+	{BagLiteralExp}
 	'Bag' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
 ;
-OrderedSetExp:
-	{OrderedSetExp}
+OrderedSetLiteralExp:
+	{OrderedSetLiteralExp}
 	'OrderedSet' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
 ;
-SequenceExp:
-	{SequenceExp}
+SequenceLiteralExp:
+	{SequenceLiteralExp}
 	'Sequence' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
 ;
-SetExp:
-	{SetExp}
+SetLiteralExp:
+	{SetLiteralExp}
 	'Set' '{' (elements+=OclExpression ("," elements+=OclExpression)*)? '}'
 ;
-TupleExp:
-	{TupleExp}
+TupleLiteralExp:
+	{TupleLiteralExp}
 	'Tuple' '{' (tuplePart+=TuplePart ("," tuplePart+=TuplePart)*)? '}'
 ;
 TuplePart:
-	varName=STRING (':' type=OclType)? '=' initExpression=OclExpression
+	varName=STRING (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
-MapExp : 
-	{MapExp}
+MapLiteralExp : 
+	{MapLiteralExp}
 	'Map' '{' (elements+=MapElement (',' elements+=MapElement)*)? '}'
 ;
 
@@ -169,7 +169,7 @@ BraceExp :
 	'(' exp=OclExpression ')'
 ;
 	
-BooleanExp:
+BooleanLiteralExp:
 	booleanSymbol= 'true'|booleanSymbol= 'false'
 	;
 	
@@ -190,7 +190,7 @@ IterateExp:
 	;
 	
 Iterator : 
-	name=ID (':' type=OclType)?
+	name=ID (':' type=OclTypeLiteral)?
 	;
 
 IteratorExp : 
@@ -202,14 +202,14 @@ CollectionOperationCall :
 	;
 
 LocalVariable : 
-	name=ID (':' type=OclType)? '=' initExpression=OclExpression
+	name=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
-OclType : 
+OclTypeLiteral : 
 	CollectionType
 	| Primitive 
 	| OclAnyType 
 	| TupleType 
-	| OclModelElement
+	| OclModelElementClass
 	| MapType 
 	;
 
@@ -221,19 +221,19 @@ CollectionType:
 	;
 
 BagType :
-	'Bag' '(' elementType=OclType ')'
+	'Bag' '(' elementType=OclTypeLiteral ')'
 ;
 
 OrderedSetType :
-	'OrderedSet' '(' elementType=OclType ')'
+	'OrderedSet' '(' elementType=OclTypeLiteral ')'
 ;
 
 SequenceType :
-	'Sequence' '(' elementType=OclType ')'
+	'Sequence' '(' elementType=OclTypeLiteral ')'
 ;
 
 SetType :
-	'Set' '(' elementType=OclType ')'
+	'Set' '(' elementType=OclTypeLiteral ')'
 ;
 
 Primitive:
@@ -272,12 +272,12 @@ TupleType :
 	 ('Tuple') '(' (attributes+=TupleTypeAttribute (',' attributes+=TupleTypeAttribute)*)? ')'
 	 ;
 	 
-TupleTypeAttribute : name=ID ':' type=OclType;
+TupleTypeAttribute : name=ID ':' type=OclTypeLiteral;
 
-OclModelElement: model=[Import]'!'name=ID;
+OclModelElementClass: model=[Import]'!'name=ID;
 	
 MapType : 
-	'Map' '(' keyType=OclType ',' valueType=OclType ')'
+	'Map' '(' keyType=OclTypeLiteral ',' valueType=OclTypeLiteral ')'
 ;
 
 
@@ -288,6 +288,8 @@ terminal DOUBLE returns ecore::EDouble :
 
 QualifiedName: ID ('.' ID)*;
 
-
+terminal OCL_COMMENT:
+    '--' !('\n'|'\r')* ('\r'? '\n')?
+;
 
 	

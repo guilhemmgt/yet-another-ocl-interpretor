@@ -5,7 +5,7 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclType;
+import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -60,7 +60,7 @@ public class AuxiliaryImpl extends MinimalEObjectImpl.Container implements Auxil
    * @generated
    * @ordered
    */
-  protected OclType type;
+  protected OclTypeLiteral type;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public class AuxiliaryImpl extends MinimalEObjectImpl.Container implements Auxil
    * @generated
    */
   @Override
-  public OclType getType()
+  public OclTypeLiteral getType()
   {
     return type;
   }
@@ -124,9 +124,9 @@ public class AuxiliaryImpl extends MinimalEObjectImpl.Container implements Auxil
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(OclType newType, NotificationChain msgs)
+  public NotificationChain basicSetType(OclTypeLiteral newType, NotificationChain msgs)
   {
-    OclType oldType = type;
+    OclTypeLiteral oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -142,7 +142,7 @@ public class AuxiliaryImpl extends MinimalEObjectImpl.Container implements Auxil
    * @generated
    */
   @Override
-  public void setType(OclType newType)
+  public void setType(OclTypeLiteral newType)
   {
     if (newType != type)
     {
@@ -206,7 +206,7 @@ public class AuxiliaryImpl extends MinimalEObjectImpl.Container implements Auxil
         setName((String)newValue);
         return;
       case OclPackage.AUXILIARY__TYPE:
-        setType((OclType)newValue);
+        setType((OclTypeLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -226,7 +226,7 @@ public class AuxiliaryImpl extends MinimalEObjectImpl.Container implements Auxil
         setName(NAME_EDEFAULT);
         return;
       case OclPackage.AUXILIARY__TYPE:
-        setType((OclType)null);
+        setType((OclTypeLiteral)null);
         return;
     }
     super.eUnset(featureID);

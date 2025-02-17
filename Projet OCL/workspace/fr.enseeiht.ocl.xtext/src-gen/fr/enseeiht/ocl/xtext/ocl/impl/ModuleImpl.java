@@ -4,6 +4,8 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.Import;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
 import java.util.Collection;
@@ -13,7 +15,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -30,7 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.ModuleImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.ModuleImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.ModuleImpl#getContextlessFeatures <em>Contextless Features</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.ModuleImpl#getContextBlocks <em>Context Blocks</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,14 +50,24 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements fr.ensee
   protected EList<Import> imports;
 
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getContextlessFeatures() <em>Contextless Features</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getContextlessFeatures()
    * @generated
    * @ordered
    */
-  protected EList<EObject> elements;
+  protected EList<OclFeatureDefinition> contextlessFeatures;
+
+  /**
+   * The cached value of the '{@link #getContextBlocks() <em>Context Blocks</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContextBlocks()
+   * @generated
+   * @ordered
+   */
+  protected EList<OclContextBlock> contextBlocks;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,13 +111,28 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements fr.ensee
    * @generated
    */
   @Override
-  public EList<EObject> getElements()
+  public EList<OclFeatureDefinition> getContextlessFeatures()
   {
-    if (elements == null)
+    if (contextlessFeatures == null)
     {
-      elements = new EObjectContainmentEList<EObject>(EObject.class, this, OclPackage.MODULE__ELEMENTS);
+      contextlessFeatures = new EObjectContainmentEList<OclFeatureDefinition>(OclFeatureDefinition.class, this, OclPackage.MODULE__CONTEXTLESS_FEATURES);
     }
-    return elements;
+    return contextlessFeatures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<OclContextBlock> getContextBlocks()
+  {
+    if (contextBlocks == null)
+    {
+      contextBlocks = new EObjectContainmentEList<OclContextBlock>(OclContextBlock.class, this, OclPackage.MODULE__CONTEXT_BLOCKS);
+    }
+    return contextBlocks;
   }
 
   /**
@@ -120,8 +147,10 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements fr.ensee
     {
       case OclPackage.MODULE__IMPORTS:
         return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-      case OclPackage.MODULE__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case OclPackage.MODULE__CONTEXTLESS_FEATURES:
+        return ((InternalEList<?>)getContextlessFeatures()).basicRemove(otherEnd, msgs);
+      case OclPackage.MODULE__CONTEXT_BLOCKS:
+        return ((InternalEList<?>)getContextBlocks()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -138,8 +167,10 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements fr.ensee
     {
       case OclPackage.MODULE__IMPORTS:
         return getImports();
-      case OclPackage.MODULE__ELEMENTS:
-        return getElements();
+      case OclPackage.MODULE__CONTEXTLESS_FEATURES:
+        return getContextlessFeatures();
+      case OclPackage.MODULE__CONTEXT_BLOCKS:
+        return getContextBlocks();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -159,9 +190,13 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements fr.ensee
         getImports().clear();
         getImports().addAll((Collection<? extends Import>)newValue);
         return;
-      case OclPackage.MODULE__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends EObject>)newValue);
+      case OclPackage.MODULE__CONTEXTLESS_FEATURES:
+        getContextlessFeatures().clear();
+        getContextlessFeatures().addAll((Collection<? extends OclFeatureDefinition>)newValue);
+        return;
+      case OclPackage.MODULE__CONTEXT_BLOCKS:
+        getContextBlocks().clear();
+        getContextBlocks().addAll((Collection<? extends OclContextBlock>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -180,8 +215,11 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements fr.ensee
       case OclPackage.MODULE__IMPORTS:
         getImports().clear();
         return;
-      case OclPackage.MODULE__ELEMENTS:
-        getElements().clear();
+      case OclPackage.MODULE__CONTEXTLESS_FEATURES:
+        getContextlessFeatures().clear();
+        return;
+      case OclPackage.MODULE__CONTEXT_BLOCKS:
+        getContextBlocks().clear();
         return;
     }
     super.eUnset(featureID);
@@ -199,8 +237,10 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements fr.ensee
     {
       case OclPackage.MODULE__IMPORTS:
         return imports != null && !imports.isEmpty();
-      case OclPackage.MODULE__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case OclPackage.MODULE__CONTEXTLESS_FEATURES:
+        return contextlessFeatures != null && !contextlessFeatures.isEmpty();
+      case OclPackage.MODULE__CONTEXT_BLOCKS:
+        return contextBlocks != null && !contextBlocks.isEmpty();
     }
     return super.eIsSet(featureID);
   }
