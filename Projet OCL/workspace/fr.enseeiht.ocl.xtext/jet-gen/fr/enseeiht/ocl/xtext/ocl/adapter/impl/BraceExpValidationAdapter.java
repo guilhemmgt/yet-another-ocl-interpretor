@@ -39,10 +39,8 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  // Factory pour la récupération des arguments.
-	  OCLValidationAdapterFactory factory = new OCLValidationAdapterFactory();
 	  // L'expression dans les parenthèses
-	  OclExpressionValidationAdapter exp = (OclExpressionValidationAdapter) factory.createAdapter(this.target.getExp());
+	  OclExpressionValidationAdapter exp = (OclExpressionValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp());
 	  
 	  return exp.getType();
 	  

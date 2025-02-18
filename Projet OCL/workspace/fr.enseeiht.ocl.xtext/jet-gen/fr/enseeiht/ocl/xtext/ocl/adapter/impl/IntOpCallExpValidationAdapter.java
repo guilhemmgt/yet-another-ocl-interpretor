@@ -42,11 +42,9 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  // Factory pour la récupération des arguments.
-	  OCLValidationAdapterFactory factory = new OCLValidationAdapterFactory();
 	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OperatorCallExpValidationAdapter arg1 = (OperatorCallExpValidationAdapter) factory.createAdapter(this.target.getArgumentGauche());
-	  OperatorCallExpValidationAdapter arg2 = (OperatorCallExpValidationAdapter) factory.createAdapter(this.target.getArgumentDroite());
+	  OperatorCallExpValidationAdapter arg1 = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
+	  OperatorCallExpValidationAdapter arg2 = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
 	  if (arg2 == null) {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
 		  return arg1.getType();
@@ -61,7 +59,7 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 		  else {
 			  // Opération invalide
-			  return new OclInvalid();
+			  return new OclInvalid(target, type1, type2);
 		  }
 	  }
   }
