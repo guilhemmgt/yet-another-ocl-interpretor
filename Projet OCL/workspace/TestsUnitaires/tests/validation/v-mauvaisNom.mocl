@@ -2,4 +2,4 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 inv r:
-  liar.name <> "Me"
+  self.name <> "Me"
