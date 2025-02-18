@@ -36,8 +36,25 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  // Passage au rang suivant
 		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	  }
+	  
+	  // Cohérence de types
+	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	  if (!(left instanceof Number && right instanceof Number)) {
+		  return false;
+	  }
+	  Double leftNum = ((Number)left).doubleValue();
+	  Double rightNum = ((Number)right).doubleValue();
+	  
 	  // Traitement des opérations
-	  throw new UnimplementedException("La methode getValue de OperatorCallExpAdapter n'as pas encore été implémentée pour cette opérations"); 
+	  switch (this.target.getOperationName()) {
+		  case "+":
+			  return leftNum + rightNum;
+		  case "-":
+			  return leftNum - rightNum;
+		  default:
+			  throw new UnimplementedException("La methode getValue de AddOpCallExpAdapter n'as pas encore été implémentée pour cette opération");
+	  }
   }
 
   /**

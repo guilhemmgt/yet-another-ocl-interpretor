@@ -34,8 +34,25 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 		  // Passage au rang suivant
 		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	  }
+	  
+	  // Cohérence de types
+	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	  if (!(left instanceof Integer && right instanceof Integer)) {
+		  return false;
+	  }
+	  Integer leftNum = ((Integer)left);
+	  Integer rightNum = ((Integer)right);
+	  
 	  // Traitement des opérations
-	  throw new UnimplementedException("La methode getValue de IntOpCallExpAdapter n'as pas encore été implémentée");
+	  switch (this.target.getOperationName()) {
+		  case "div":
+			  return leftNum / rightNum;
+		  case "mod":
+			  return leftNum % rightNum;
+		  default:
+			  throw new UnimplementedException("La methode getValue de IntOpCallExpAdapter n'as pas encore été implémentée pour cette opération");
+	  }
   }
 
   /**
