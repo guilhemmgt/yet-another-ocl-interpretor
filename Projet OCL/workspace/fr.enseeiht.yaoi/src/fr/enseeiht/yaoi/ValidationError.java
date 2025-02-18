@@ -39,6 +39,6 @@ public class ValidationError {
 	
 	@Override
 	public String toString() {
-		return this.failedInvariant.getName() + " failed for object " + this.testedObject.toString();
+		return this.failedInvariant.getName() + " failed for object " + this.testedObject + ".";
 	}
 }

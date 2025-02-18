@@ -1,7 +1,5 @@
 package fr.enseeiht.ocl.testsLauncher.test.ko.guilhem;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -53,7 +51,7 @@ class PetrinetTest {
 	@ArgumentsSource(InvsArgumentsProvider.class)
 	@DisplayName("Network-batard")
 	void testNetworkBlocageEMF(String invName, List<ValidationError> errors) {
-		assertErrorsSize(invName, errors, expectedNumberOfErrors.get(invName));
+		LauncherUtils.assertErrorsSize(invName, errors, expectedNumberOfErrors.get(invName));
 	}
 	
 	static class InvsArgumentsProvider implements ArgumentsProvider {
@@ -67,19 +65,6 @@ class PetrinetTest {
 			}
 	        return Stream.of(arguments.toArray(new Arguments[0]));
 	    }
-	}
-
-	private static void assertErrorsSize(String adapterName, List<ValidationError> errors, int nbErreurs) {
-		String message =  "Noeud : " + adapterName + ".\n" 
-						+ "Nombre d'erreur attendu : " + String.valueOf(nbErreurs) + ".\n"
-						+ "Nombre d'erreur remontées : " + String.valueOf(errors.size()) + ".\n";
-		if(!errors.isEmpty())
-			message += "Liste des erreurs :\n";
-		for (ValidationError error : errors) {
-			message += error + "\n";
-		}
-		
-		assertEquals(nbErreurs, errors.size(), message);
 	}
 
 }
