@@ -1,5 +1,7 @@
 package fr.enseeiht.ocl.testsLauncher.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
@@ -32,9 +34,8 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
-
 public class LauncherUtils {
-	
+
 	public static void main(String[] args) {
 		try {
 			Path workspacePath = Paths.get(new File(".").getAbsolutePath()).getParent().getParent();
@@ -54,7 +55,7 @@ public class LauncherUtils {
 					} else {
 						System.out.println(" " + errors.size() + " erreurs trouvées");
 						for (ValidationError error : errors) {
-							System.out.println("=> " + error.getMessage());
+							System.out.println("=> " + error);
 						}
 					}
 					
@@ -103,7 +104,7 @@ public class LauncherUtils {
 		
 		//Get Resources
 		Resource moclResource = getMoclResource(projectFolder, moclName);
-		Resource ecoreResource = getEcoreResource(projectFolder, ecoreName);
+		Resource ecoreResource = getXMLResource(projectFolder, ecoreName, "ecore");
 		
 		//Add ecore to mocl to make the Eclass visible
 		moclResource.getContents().add(EcoreUtil.copy(ecoreResource.getContents().get(0)));
@@ -129,10 +130,7 @@ public class LauncherUtils {
         Map<String, ValidationResult> xmiErrors = new HashMap<String, ValidationResult>();
         
         for (String xmiName: xmiNames) {
-        	Resource xmiResource = getXMIResource(projectFolder, xmiName);
-//        	xmiResource
-//        	ValidationResult result = OclInterpretor.validate(xmiResource, moclObject);
-//        	Map<OclInvariant, ValidationError>
+        	Resource xmiResource = getXMLResource(projectFolder, xmiName, "xmi");
 			xmiErrors.put(xmiName, OclInterpretor.validate(xmiResource, moclObject));
 		}
         
@@ -140,34 +138,19 @@ public class LauncherUtils {
 		
 	}
 	
-	private static Resource getEcoreResource(File projectFolder, String ecoreFileText) throws FileNotFoundException, BadFileExtensionException {
-		File ecoreFile = new File(projectFolder.getAbsolutePath() + "/" + ecoreFileText);
+	private static Resource getXMLResource(File projectFolder, String xmlFileText, String extension) throws FileNotFoundException, BadFileExtensionException {
+		File xmlFile = new File(projectFolder.getAbsolutePath() + "/" + xmlFileText);
 		
-		if(!ecoreFile.exists())
-			throw new FileNotFoundException("Le fichier " + ecoreFileText + " n'existe pas.");
+		if(!xmlFile.exists())
+			throw new FileNotFoundException("Le fichier " + xmlFileText + " n'existe pas.");
 		
-		if(!ecoreFileText.split("\\.")[ecoreFileText.split("\\.").length-1].equals("ecore"))
-			throw new BadFileExtensionException(ecoreFileText, "ecore");
+		if(!xmlFileText.split("\\.")[xmlFileText.split("\\.").length-1].equals(extension))
+			throw new BadFileExtensionException(xmlFileText, extension);
 		
-		URI ecoreURI = URI.createFileURI(ecoreFile.getAbsolutePath());
-		
-		ResourceSet resourceSet = new ResourceSetImpl();
-        return resourceSet.getResource(ecoreURI, true);
-	}
-	
-	private static Resource getXMIResource(File projectFolder, String xmiFileText) throws FileNotFoundException, BadFileExtensionException {
-		File xmiFile = new File(projectFolder.getAbsolutePath() + "/" + xmiFileText);
-		
-		if(!xmiFile.exists())
-			throw new FileNotFoundException("Le fichier " + xmiFileText + " n'existe pas.");
-		
-		if(!xmiFileText.split("\\.")[xmiFileText.split("\\.").length-1].equals("xmi"))
-			throw new BadFileExtensionException(xmiFileText, "xmi");
-		
-		URI xmiURI = URI.createFileURI(xmiFile.getAbsolutePath());
+		URI xmlURI = URI.createFileURI(xmlFile.getAbsolutePath());
 		
 		ResourceSet resourceSet = new ResourceSetImpl();
-        return resourceSet.getResource(xmiURI, false);
+        return resourceSet.getResource(xmlURI, true);
 	}
 	
 	private static Resource getMoclResource(File projectFolder, String moclFileText) throws BadFileExtensionException, FileNotFoundException {
@@ -187,5 +170,19 @@ public class LauncherUtils {
         EcoreUtil.resolveAll(moclResource);
         return moclResource;
 	}
+
+	public static void assertErrorsSize(String adapterName, List<ValidationError> errors, int nbErreurs) {
+		String message =  "Noeud : " + adapterName + ".\n" 
+						+ "Nombre d'erreur attendu : " + String.valueOf(nbErreurs) + ".\n"
+						+ "Nombre d'erreur remontées : " + String.valueOf(errors.size()) + ".\n";
+		if(!errors.isEmpty())
+			message += "Liste des erreurs :\n";
+		for (ValidationError error : errors) {
+			message += error + "\n";
+		}
+		
+		assertEquals(nbErreurs, errors.size(), message);
+	}
+
 
 }

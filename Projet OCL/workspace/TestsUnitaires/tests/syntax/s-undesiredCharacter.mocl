@@ -1,3 +1,3 @@
-module a;a
+-- @error : "required (...)+ loop did not match anything at input 'a'"
 
-|mismatched input 'a' expecting 'import'|
+a

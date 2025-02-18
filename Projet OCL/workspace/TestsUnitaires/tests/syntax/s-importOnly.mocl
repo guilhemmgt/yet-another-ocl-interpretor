@@ -1,5 +1,4 @@
-module a;
+
+-- @error : "required (...)+ loop did not match anything at input '<EOF>'"
 
 import "http://empty" as empty
-
-|required (...)+ loop did not match anything at input '|'|

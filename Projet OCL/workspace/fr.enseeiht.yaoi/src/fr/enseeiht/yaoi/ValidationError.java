@@ -7,7 +7,6 @@ import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
  * Object containig information about the violation of an invariant
  */
 public class ValidationError {
-	private String message;
 	private OclInvariant failedInvariant;
 	private EObject testedObject;
 	
@@ -17,19 +16,11 @@ public class ValidationError {
 	 * @param testedObject
 	 * @param message
 	 */
-	public ValidationError(OclInvariant failedInvariant, EObject testedObject, String message) {
+	public ValidationError(OclInvariant failedInvariant, EObject testedObject) {
 		this.failedInvariant = failedInvariant;
 		this.testedObject = testedObject;
-		this.message = message;
 	}
-	/**
-	 * Get a message explaining the failure of an invariant
-	 * @return error message
-	 */
-	public String getMessage() {
-		return message;
-	}
-
+	
 	/**
 	 * Get the invariant that was violated
 	 * @return
@@ -46,4 +37,8 @@ public class ValidationError {
 		return testedObject;
 	}
 	
+	@Override
+	public String toString() {
+		return this.failedInvariant.getName() + " failed for object " + this.testedObject + ".";
+	}
 }

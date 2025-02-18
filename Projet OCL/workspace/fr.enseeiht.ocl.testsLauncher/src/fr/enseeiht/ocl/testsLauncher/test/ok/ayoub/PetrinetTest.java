@@ -1,7 +1,5 @@
 package fr.enseeiht.ocl.testsLauncher.test.ok.ayoub;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,7 +38,7 @@ class PetrinetTest {
 	@ArgumentsSource(InvsArgumentsProvider.class)
 	@DisplayName("PetriNet")
 	void testPetriNet(String invName, List<ValidationError> errors) {
-		assertErrorsSize(invName, errors, 0);
+		LauncherUtils.assertErrorsSize(invName, errors, 0);
 	}
 	
 	static class InvsArgumentsProvider implements ArgumentsProvider {
@@ -54,19 +52,6 @@ class PetrinetTest {
 			}
 	        return Stream.of(arguments.toArray(new Arguments[0]));
 	    }
-	}
-
-	private static void assertErrorsSize(String adapterName, List<ValidationError> errors, int nbErreurs) {
-		String message =  "Noeud : " + adapterName + ".\n" 
-						+ "Nombre d'erreur attendu : " + String.valueOf(nbErreurs) + ".\n"
-						+ "Nombre d'erreur remontées : " + String.valueOf(errors.size()) + ".\n";
-		if(!errors.isEmpty())
-			message += "Liste des erreurs :\n";
-		for (ValidationError error : errors) {
-			message += error.getMessage() + "\n";
-		}
-		
-		assertEquals(nbErreurs, errors.size(), message);
 	}
 
 }
