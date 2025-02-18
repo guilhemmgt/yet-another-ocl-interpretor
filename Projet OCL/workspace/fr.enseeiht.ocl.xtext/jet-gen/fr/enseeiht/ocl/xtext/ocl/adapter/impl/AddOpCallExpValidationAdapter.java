@@ -41,7 +41,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated NOT
+   * @generated
    */
   public OclType getType() {
 	  // Factory pour la récupération des arguments.
