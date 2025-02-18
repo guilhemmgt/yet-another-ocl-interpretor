@@ -77,7 +77,7 @@ class SimplePDLTest {
 		if(!errors.isEmpty())
 			message += "Liste des erreurs :\n";
 		for (ValidationError error : errors) {
-			message += error.getMessage() + "\n";
+			message += error + "\n";
 		}
 		
 		assertEquals(nbErreurs, errors.size(), message);

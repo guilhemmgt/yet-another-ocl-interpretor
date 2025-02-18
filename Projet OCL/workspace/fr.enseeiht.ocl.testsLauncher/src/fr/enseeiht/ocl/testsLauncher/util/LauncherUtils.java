@@ -54,7 +54,7 @@ public class LauncherUtils {
 					} else {
 						System.out.println(" " + errors.size() + " erreurs trouvées");
 						for (ValidationError error : errors) {
-							System.out.println("=> " + error.getMessage());
+							System.out.println("=> " + error);
 						}
 					}
 					
