@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -26,10 +27,23 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de EqOpCallExpAdapter n'as pas encore été implémentée");
+	  if (this.target.getOperationName() == null) {
+		  // Passage au rang suivant
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  }
+	  // Traitement des opérations  '='|'<>'
+	  switch(this.target.getOperationName()) {
+	  	case "=": 
+	  		return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget)
+	  				.equals(OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget));
+	  	case "<>":
+	  		return !OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget)
+					.equals(OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget));
+	  }
+	  throw new UnimplementedException("La methode getValue de EqOpCallExpValidationAdapter n'as pas encore été implémentée pour cette opérations");
   }
 
   /**
