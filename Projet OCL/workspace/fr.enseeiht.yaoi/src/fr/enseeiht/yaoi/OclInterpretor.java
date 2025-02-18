@@ -37,7 +37,7 @@ public class OclInterpretor {
 							// Récupère la valeur de l'invariant (= validation) et renvoie une erreur s'il est violé
 							Boolean invResult = (Boolean) factory.createAdapter(invariant).getValue(xmiObject);
 							if (!invResult) {
-								result.addError(new ValidationError (invariant, xmiObject, "invariant violated"));
+								result.addError(new ValidationError (invariant, xmiObject));
 							}
 						}
 					}
