@@ -16,7 +16,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 public class OclInterpretor {
 
 	public static ValidationResult validate (Resource xmi, Module mocl) {
-		OCLValidationAdapterFactory factory = new OCLValidationAdapterFactory();
 		ValidationResult result = new ValidationResult();
 
 		// Récupère le contenu du XMI
@@ -36,7 +35,7 @@ public class OclInterpretor {
 					for (EObject xmiObject : xmiContent) {
 						if (isSubClassOrEqual(context.getClass_(), xmiObject.eClass())) {
 							// Récupère la valeur de l'invariant (= validation) et renvoie une erreur s'il est violé
-							Boolean invResult = (Boolean) factory.createAdapter(invariant).getValue(xmiObject);
+							Boolean invResult = (Boolean) OCLValidationAdapterFactory.INSTANCE.createAdapter(invariant).getValue(xmiObject);
 							if (!invResult) {
 								result.addError(new ValidationError (invariant, xmiObject));
 							}

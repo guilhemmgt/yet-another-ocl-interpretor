@@ -141,7 +141,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
  */
 public class OCLValidationAdapterFactory
 {
-  public static OCLValidationAdapterFactory INSTANCE = new OCLValidationAdapterFactory();
+  public final static OCLValidationAdapterFactory INSTANCE = new OCLValidationAdapterFactory();
   /**
    * The cached model package.
    * <!-- begin-user-doc -->
