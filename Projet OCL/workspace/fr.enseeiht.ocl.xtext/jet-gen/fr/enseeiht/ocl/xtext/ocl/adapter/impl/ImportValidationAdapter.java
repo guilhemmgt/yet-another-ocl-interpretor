@@ -35,10 +35,10 @@ public final class ImportValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de ImportAdapter n'as pas encore été implémentée");
+    return null;
   }
 
   /**
