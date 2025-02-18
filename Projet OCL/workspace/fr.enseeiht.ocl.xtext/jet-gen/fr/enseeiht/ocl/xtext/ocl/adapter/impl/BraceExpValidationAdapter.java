@@ -39,13 +39,7 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-	  // Factory pour la récupération des arguments.
-	  OCLValidationAdapterFactory factory = new OCLValidationAdapterFactory();
-	  // L'expression dans les parenthèses
-	  OclExpressionValidationAdapter exp = (OclExpressionValidationAdapter) factory.createAdapter(this.target.getExp());
-	  
-	  return exp.getType();
-	  
+    throw new UnimplementedException("La methode getType de BraceExpAdapter n'as pas encore été implémentée");
   }
 
   /**

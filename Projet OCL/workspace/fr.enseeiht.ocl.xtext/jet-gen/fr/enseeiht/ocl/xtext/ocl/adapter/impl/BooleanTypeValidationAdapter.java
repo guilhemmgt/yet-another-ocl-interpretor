@@ -39,7 +39,7 @@ public final class BooleanTypeValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-	  return new OclBoolean();
+    throw new UnimplementedException("La methode getType de BooleanTypeAdapter n'as pas encore été implémentée");
   }
 
   /**

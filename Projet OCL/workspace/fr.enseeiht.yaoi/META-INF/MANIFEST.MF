@@ -3,6 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Yaoi
 Bundle-SymbolicName: fr.enseeiht.yaoi
 Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore
+Export-Package: fr.enseeiht.yaoi
+Require-Bundle: org.eclipse.emf.ecore,
+ fr.enseeiht.ocl.xtext;bundle-version="1.0.0"
 Automatic-Module-Name: fr.enseeiht.yaoi
 Bundle-RequiredExecutionEnvironment: JavaSE-17

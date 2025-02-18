@@ -43,29 +43,7 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-	  // Factory pour la récupération des arguments.
-	  OCLValidationAdapterFactory factory = new OCLValidationAdapterFactory();
-	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OperatorCallExpValidationAdapter arg1 = (OperatorCallExpValidationAdapter) factory.createAdapter(this.target.getArgumentGauche());
-	  OperatorCallExpValidationAdapter arg2 = (OperatorCallExpValidationAdapter) factory.createAdapter(this.target.getArgumentDroite());
-	  if (arg2 == null) {
-		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
-		  return arg1.getType();
-	  }
-	  else {
-		  OclType type1 = arg1.getType();
-		  OclType type2 = arg2.getType();
-		  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide.
-		  // C'est la spé.
-		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid()) ;
-		  if (!anyInvalid) {
-			  return new OclInvalid();
-		  }
-		  else {
-			  // Opération invalide
-			  return new OclBoolean();
-		  }
-	  }
+    throw new UnimplementedException("La methode getType de EqOpCallExpAdapter n'as pas encore été implémentée");
   }
 
   /**
