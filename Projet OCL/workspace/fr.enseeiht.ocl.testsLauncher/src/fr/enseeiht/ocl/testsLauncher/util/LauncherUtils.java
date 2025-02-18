@@ -15,8 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.resource.XtextSyntaxDiagnostic;
@@ -37,6 +35,8 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
 public class LauncherUtils {
 	
+	private static XtextResourceSet resourceSet;
+
 	public static void main(String[] args) {
 		try {
 			Path workspacePath = Paths.get(new File(".").getAbsolutePath()).getParent().getParent();
@@ -150,7 +150,7 @@ public class LauncherUtils {
 		
 		URI xmlURI = URI.createFileURI(xmlFile.getAbsolutePath());
 		
-		ResourceSet resourceSet = new ResourceSetImpl();
+		//ResourceSet resourceSet = new ResourceSetImpl();
         return resourceSet.getResource(xmlURI, true);
 	}
 	
@@ -166,7 +166,7 @@ public class LauncherUtils {
 		URI moclURI = URI.createFileURI(moclFile.getAbsolutePath());
 		
 		Injector injector = new OclStandaloneSetup().createInjectorAndDoEMFRegistration();
-        XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
+        resourceSet = injector.getInstance(XtextResourceSet.class);
         Resource moclResource = resourceSet.getResource(moclURI, true);
         EcoreUtil.resolveAll(moclResource);
         return moclResource;

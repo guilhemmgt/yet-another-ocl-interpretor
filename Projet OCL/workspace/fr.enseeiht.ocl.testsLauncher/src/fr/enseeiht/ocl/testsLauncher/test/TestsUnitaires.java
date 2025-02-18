@@ -15,6 +15,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -55,10 +57,6 @@ public class TestsUnitaires {
 
 		projectFolder = new File(workspacePath.toFile().getAbsolutePath() + "/" + projectName);
 		testFolder = new File(projectFolder.getAbsolutePath() + "/tests");
-//		Map<String, Map<String, List<String>>> errorsMaps = LauncherUtils.run(workspacePath, "PetrinetTest",
-//				"petriNet.mocl", "PetriNet.ecore", "Net.xmi");
-//		errorsMap = errorsMaps.get("Net.xmi");
-
 	}
 	
 	@ParameterizedTest(name = "{0}")
@@ -74,9 +72,6 @@ public class TestsUnitaires {
 	}
 
 	private static List<Arguments> provideSyntaxArguments() {
-		// return Stream.of(Arguments.of("PetrinetTest", "petriNet.mocl",
-		// "PetriNet.ecore", "Net.xmi"));
-
 		List<Arguments> args = new ArrayList<Arguments>();
 
 		try {
@@ -85,17 +80,19 @@ public class TestsUnitaires {
 			for (Path path : (Iterable<Path>) () -> s.iterator()) {
 				String name = path.getFileName().toString().split("-")[1].split("\\.")[0];
 				String relativePath = projectFolder.toURI().relativize(path.toFile().toURI()).getPath();
-				String lastLine = "";
+				String errorLine = null;
 				String sCurrentLine;
 				BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
 				while ((sCurrentLine = br.readLine()) != null) {
-					lastLine = sCurrentLine;
+					Pattern p = Pattern.compile("\\s(?=([^\"\\\\]*(\\\\.|\"([^\"\\\\]*\\\\.)*[^\"\\\\]*\"))*[^\"]*$)", Pattern.CASE_INSENSITIVE);
+					Matcher m = p.matcher(sCurrentLine);
+					sCurrentLine = m.replaceAll("");
+					if(sCurrentLine.startsWith("--@error:\"") && sCurrentLine.endsWith("\"")) {
+						errorLine = sCurrentLine.substring(10, sCurrentLine.length() - 1);
+						break;
+					}
 				}
-				if (lastLine.endsWith("|") && lastLine.startsWith("|"))
-					lastLine = lastLine.substring(1, lastLine.length() - 1);
-				else
-					lastLine = null;
-				args.add(Arguments.of(Named.of(name, relativePath), lastLine));
+				args.add(Arguments.of(Named.of(name, relativePath), errorLine));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -117,9 +114,6 @@ public class TestsUnitaires {
 	}
 
 	private static List<Arguments> provideTypeCheckingArguments() {
-		// return Stream.of(Arguments.of("PetrinetTest", "petriNet.mocl",
-		// "PetriNet.ecore", "Net.xmi"));
-
 		List<Arguments> args = new ArrayList<Arguments>();
 
 		try {
@@ -128,17 +122,18 @@ public class TestsUnitaires {
 			for (Path path : (Iterable<Path>) () -> s.iterator()) {
 				String name = path.getFileName().toString().split("-")[1].split("\\.")[0];
 				String relativePath = projectFolder.toURI().relativize(path.toFile().toURI()).getPath();
-				String lastLine = "";
+				String errorLine = null;
 				String sCurrentLine;
 				BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
 				while ((sCurrentLine = br.readLine()) != null) {
-					lastLine = sCurrentLine;
+					System.out.println(sCurrentLine);
+					if(sCurrentLine.replace(" ", "").startsWith("--@error:\"") && sCurrentLine.replace(" ", "").endsWith("\"")) {
+						System.out.println(sCurrentLine);
+						errorLine = sCurrentLine.replace(" ", "").substring(10, sCurrentLine.length() - 1);
+						break;
+					}
 				}
-				if (lastLine.endsWith("|") && lastLine.startsWith("|"))
-					lastLine = lastLine.substring(1, lastLine.length() - 1);
-				else
-					lastLine = null;
-				args.add(Arguments.of(Named.of(name, relativePath), lastLine));
+				args.add(Arguments.of(Named.of(name, relativePath), errorLine));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -163,9 +158,6 @@ public class TestsUnitaires {
 	}
 
 	private static List<Arguments> provideValidationArguments() {
-		// return Stream.of(Arguments.of("PetrinetTest", "petriNet.mocl",
-		// "PetriNet.ecore", "Net.xmi"));
-
 		List<Arguments> args = new ArrayList<Arguments>();
 
 		try {
@@ -207,13 +199,10 @@ public class TestsUnitaires {
 		for (ValidationError error : result.getErrors()) {
 			message += error + "\n";
 		}
-		return null;
+		return message;
 	}
 
 	private static List<Arguments> provideOkArguments() {
-		// return Stream.of(Arguments.of("PetrinetTest", "petriNet.mocl",
-		// "PetriNet.ecore", "Net.xmi"));
-
 		List<Arguments> args = new ArrayList<Arguments>();
 
 		try {
@@ -239,18 +228,4 @@ public class TestsUnitaires {
 
 		return args;
 	}
-
-//	private static void assertErrorsSize(String adapterName, List<String> errors, int nbErreurs) {
-//		String message =  "Noeud : " + adapterName + ".\n" 
-//						+ "Nombre d'erreur attendu : " + String.valueOf(nbErreurs) + ".\n"
-//						+ "Nombre d'erreur remontées : " + String.valueOf(errors.size()) + ".\n";
-//		if(!errors.isEmpty())
-//			message += "Liste des erreurs :\n";
-//		for (String error : errors) {
-//			message += error + "\n";
-//		}
-//		
-//		assertEquals(nbErreurs, errors.size(), message);
-//	}
-
 }
