@@ -1,7 +1,5 @@
 package fr.enseeiht.ocl.testsLauncher.test.ok.guilhem;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,35 +38,35 @@ class SimplePDLTest {
 	@ArgumentsSource(InvsArgumentsProvider.class)
 	@DisplayName("Process-blocage")
 	void testNetworkBlocageEMF(String invName, List<ValidationError> errors) {
-		assertErrorsSize(invName, errors, 0);
+		LauncherUtils.assertErrorsSize(invName, errors, 0);
 	}
 	
 	@ParameterizedTest(name="{0}")
 	@ArgumentsSource(InvsArgumentsProvider.class)
 	@DisplayName("Process-concurrence")
 	void testNetworkDeveloppementEMF(String invName, List<ValidationError> errors) {
-		assertErrorsSize(invName, errors, 0);
+		LauncherUtils.assertErrorsSize(invName, errors, 0);
 	}
 	
 	@ParameterizedTest(name="{0}")
 	@ArgumentsSource(InvsArgumentsProvider.class)
 	@DisplayName("Process-developpement")
 	void testNetworkPatisserieEMF(String invName, List<ValidationError> errors) {
-		assertErrorsSize(invName, errors, 0);
+		LauncherUtils.assertErrorsSize(invName, errors, 0);
 	}
 	
 	@ParameterizedTest(name="{0}")
 	@ArgumentsSource(InvsArgumentsProvider.class)
 	@DisplayName("Process-patisserie")
 	void testNetworkReadarc(String invName, List<ValidationError> errors) {
-		assertErrorsSize(invName, errors, 0);
+		LauncherUtils.assertErrorsSize(invName, errors, 0);
 	}
 	
 	@ParameterizedTest(name="{0}")
 	@ArgumentsSource(InvsArgumentsProvider.class)
 	@DisplayName("Process-penurie")
 	void testNetworkSaisons(String invName, List<ValidationError> errors) {
-		assertErrorsSize(invName, errors, 0);
+		LauncherUtils.assertErrorsSize(invName, errors, 0);
 	}
 	
 	static class InvsArgumentsProvider implements ArgumentsProvider {
@@ -83,18 +81,4 @@ class SimplePDLTest {
 	        return Stream.of(arguments.toArray(new Arguments[0]));
 	    }
 	}
-
-	private static void assertErrorsSize(String adapterName, List<ValidationError> errors, int nbErreurs) {
-		String message =  "Noeud : " + adapterName + ".\n" 
-						+ "Nombre d'erreur attendu : " + String.valueOf(nbErreurs) + ".\n"
-						+ "Nombre d'erreur remontées : " + String.valueOf(errors.size()) + ".\n";
-		if(!errors.isEmpty())
-			message += "Liste des erreurs :\n";
-		for (ValidationError error : errors) {
-			message += error + "\n";
-		}
-		
-		assertEquals(nbErreurs, errors.size(), message);
-	}
-
 }

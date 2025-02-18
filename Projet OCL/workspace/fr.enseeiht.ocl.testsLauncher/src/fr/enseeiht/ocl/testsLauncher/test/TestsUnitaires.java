@@ -159,7 +159,7 @@ public class TestsUnitaires {
 		
 		List<ValidationError> errors = result.getInvariantError(invs.get(0));
 		
-		assertTrue(!errors.isEmpty());
+		assertTrue("Aucune erreur de validation trouvée.", !errors.isEmpty());
 	}
 
 	private static List<Arguments> provideValidationArguments() {
@@ -199,7 +199,15 @@ public class TestsUnitaires {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
 		
-		assertTrue(result.hasNoError());
+		assertTrue("Erreur de validation trouvée.\n" + getOkErrorMessage(result), result.hasNoError());
+	}
+
+	private String getOkErrorMessage(ValidationResult result) {
+		String message = "Liste des erreurs trouvées :\n";
+		for (ValidationError error : result.getErrors()) {
+			message += error + "\n";
+		}
+		return null;
 	}
 
 	private static List<Arguments> provideOkArguments() {
