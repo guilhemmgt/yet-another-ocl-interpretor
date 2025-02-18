@@ -29,7 +29,7 @@ public final class SelfLiteralExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  return this.target;
+	  return contextTarget;
   }
 
   /**
