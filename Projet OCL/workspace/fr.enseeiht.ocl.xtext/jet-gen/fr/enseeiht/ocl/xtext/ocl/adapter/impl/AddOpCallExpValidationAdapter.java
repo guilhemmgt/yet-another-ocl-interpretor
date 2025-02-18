@@ -38,14 +38,10 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated NOT
+   * @generated
    */
   public OclType getType() {
-	  OCLValidationAdapterFactory factory = new OCLValidationAdapterFactory();
-	  // ATTENTION !!! LES ARGS PEUVENT ETRE NULL !
-	  OperatorCallExpValidationAdapter arg1 = (OperatorCallExpValidationAdapter) factory.createAdapter(this.target.getArgumentGauche());
-	  OperatorCallExpValidationAdapter arg2 = (OperatorCallExpValidationAdapter) factory.createAdapter(this.target.getArgumentDroite());
-	  return new OclInteger();
+    throw new UnimplementedException("La methode getType de AddOpCallExpAdapter n'as pas encore été implémentée");
   }
 
   /**

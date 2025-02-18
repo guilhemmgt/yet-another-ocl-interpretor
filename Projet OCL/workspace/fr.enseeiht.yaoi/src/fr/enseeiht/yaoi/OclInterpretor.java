@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -33,7 +34,7 @@ public class OclInterpretor {
 					OclInvariant invariant = (OclInvariant)contextMember;
 					// Boucle sur les objets du XMI concernés par le Contexte
 					for (EObject xmiObject : xmiContent) {
-						if (xmiObject.getClass().isInstance(context.getClass_().getClass())) {
+						if (isSubClassOrEqual(context.getClass_(), xmiObject.eClass())) {
 							// Récupère la valeur de l'invariant (= validation) et renvoie une erreur s'il est violé
 							Boolean invResult = (Boolean) factory.createAdapter(invariant).getValue(xmiObject);
 							if (!invResult) {
@@ -46,5 +47,17 @@ public class OclInterpretor {
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * Check if an EClass herits or is the same as an other one
+	 * @param eClass
+	 * @param object
+	 * @return
+	 */
+	public static boolean isSubClassOrEqual(EClass parentEClass, EClass childEClass) {
+		// Check if the two class have the same name or if the parent class is one of the superclass or child class
+		return childEClass.getClassifierID() == parentEClass.getClassifierID()
+				|| childEClass.getEAllSuperTypes().stream().map(c -> c.getClassifierID()).anyMatch(id -> id.equals(parentEClass.getClassifierID()));
 	}
 }
