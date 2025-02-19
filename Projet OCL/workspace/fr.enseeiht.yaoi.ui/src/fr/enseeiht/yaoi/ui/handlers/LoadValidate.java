@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -96,27 +97,24 @@ public class LoadValidate extends AbstractHandler {
 		if (xmiPath == null)
 			return null;
 		
-		URI xmiUri = URI.createFileURI(xmiPath);
-		Resource xmiResource = resourceSet.createResource(xmiUri);
 		*/
 		
 		IStructuredSelection selection = HandlerUtil.getCurrentStructuredSelection(event);
 		selection = (IStructuredSelection) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getSelection();
-		
+		System.out.println(selection);
 		Object firstElement = selection.getFirstElement();
 		System.out.println("firstelement : " + firstElement);
-		
 		Resource xmiResource = null;		
 		if (firstElement instanceof Resource) {
 			xmiResource = (Resource) firstElement;
+			xmiResource = resourceSet.createResource(((XMIResource) firstElement).getURI());
 		} else if (firstElement instanceof EObject) {
 			xmiResource = ((EObject) firstElement).eResource();
 		} else {
 			throw new RuntimeException("Shouldn't be able to call the menu on this : " + firstElement);
 		}
 
-		System.out.println("xmi resource : " + xmiResource.getAllContents());
-		
+		System.out.println("xmi resource : " + xmiResource);
 		OclInterpretor.validate(xmiResource, moclModule);
 		
 		return null;
