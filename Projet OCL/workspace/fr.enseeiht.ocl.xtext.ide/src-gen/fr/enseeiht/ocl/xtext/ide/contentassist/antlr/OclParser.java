@@ -81,6 +81,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNotOpCallExpAccess().getGroup_0(), "rule__NotOpCallExp__Group_0__0");
 			builder.put(grammarAccess.getPropertyCallExpAccess().getGroup(), "rule__PropertyCallExp__Group__0");
 			builder.put(grammarAccess.getSelfLiteralExpAccess().getGroup(), "rule__SelfLiteralExp__Group__0");
+			builder.put(grammarAccess.getNullLiteralExpAccess().getGroup(), "rule__NullLiteralExp__Group__0");
 			builder.put(grammarAccess.getStringLiteralExpAccess().getGroup(), "rule__StringLiteralExp__Group__0");
 			builder.put(grammarAccess.getIntegerLiteralExpAccess().getGroup(), "rule__IntegerLiteralExp__Group__0");
 			builder.put(grammarAccess.getBagLiteralExpAccess().getGroup(), "rule__BagLiteralExp__Group__0");

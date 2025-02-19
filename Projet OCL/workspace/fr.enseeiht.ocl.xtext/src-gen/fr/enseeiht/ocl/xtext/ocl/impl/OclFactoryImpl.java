@@ -31,6 +31,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.NullLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -149,6 +150,7 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.AUXILIARY: return createAuxiliary();
       case OclPackage.VARIABLE_EXP: return createVariableExp();
       case OclPackage.SELF_LITERAL_EXP: return createSelfLiteralExp();
+      case OclPackage.NULL_LITERAL_EXP: return createNullLiteralExp();
       case OclPackage.STRING_LITERAL_EXP: return createStringLiteralExp();
       case OclPackage.NUMERIC_LITERAL_EXP: return createNumericLiteralExp();
       case OclPackage.REAL_LITERAL_EXP: return createRealLiteralExp();
@@ -446,6 +448,18 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     SelfLiteralExpImpl selfLiteralExp = new SelfLiteralExpImpl();
     return selfLiteralExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NullLiteralExp createNullLiteralExp()
+  {
+    NullLiteralExpImpl nullLiteralExp = new NullLiteralExpImpl();
+    return nullLiteralExp;
   }
 
   /**

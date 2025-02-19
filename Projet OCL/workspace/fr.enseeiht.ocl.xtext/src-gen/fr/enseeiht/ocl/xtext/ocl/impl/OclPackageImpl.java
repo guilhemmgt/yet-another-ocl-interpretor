@@ -31,6 +31,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.NullLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -229,6 +230,13 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass selfLiteralExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nullLiteralExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1307,6 +1315,17 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
+  public EClass getNullLiteralExp()
+  {
+    return nullLiteralExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getStringLiteralExp()
   {
     return stringLiteralExpEClass;
@@ -2342,6 +2361,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     selfLiteralExpEClass = createEClass(SELF_LITERAL_EXP);
 
+    nullLiteralExpEClass = createEClass(NULL_LITERAL_EXP);
+
     stringLiteralExpEClass = createEClass(STRING_LITERAL_EXP);
     createEAttribute(stringLiteralExpEClass, STRING_LITERAL_EXP__STRING_SYMBOL);
 
@@ -2628,6 +2649,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEReference(getVariableExp_ReferredVariable(), this.getAuxiliary(), null, "referredVariable", null, 0, 1, VariableExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selfLiteralExpEClass, SelfLiteralExp.class, "SelfLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(nullLiteralExpEClass, NullLiteralExp.class, "NullLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(stringLiteralExpEClass, StringLiteralExp.class, "StringLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLiteralExp_StringSymbol(), ecorePackage.getEString(), "stringSymbol", null, 0, 1, StringLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
