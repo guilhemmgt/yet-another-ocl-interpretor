@@ -3,9 +3,9 @@ import "http://empty" as empty
 context empty!empty.Liar
 
 inv not1:
-	not false;
+	not false
 inv not2:
-	not not not true;
+	not not not not true
 inv not3:
 	not (5 = 4.)
 	
@@ -14,4 +14,4 @@ inv negative1:
 inv negative2:
 	-5.=-5
 inv negative3:
-	--4=4.
+	-(-4)=4.

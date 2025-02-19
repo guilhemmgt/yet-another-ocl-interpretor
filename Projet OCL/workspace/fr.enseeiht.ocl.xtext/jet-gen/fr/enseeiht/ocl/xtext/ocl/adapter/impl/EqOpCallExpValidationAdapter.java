@@ -34,16 +34,20 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 		  // Passage au rang suivant
 		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	  }
+	  
+	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	  Boolean equal = left.equals(right) || (left instanceof Number && right instanceof Number && ((Number)left).doubleValue() == ((Number)right).doubleValue());
+
 	  // Traitement des opérations  '='|'<>'
 	  switch(this.target.getOperationName()) {
 	  	case "=": 
-	  		return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget)
-	  				.equals(OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget));
+	  		return equal;
 	  	case "<>":
-	  		return !OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget)
-					.equals(OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget));
+	  		return !equal;
+  		default:
+  			throw new UnimplementedException("La methode getValue de EqOpCallExpValidationAdapter n'as pas encore été implémentée pour cette opérations");
 	  }
-	  throw new UnimplementedException("La methode getValue de EqOpCallExpValidationAdapter n'as pas encore été implémentée pour cette opérations");
   }
 
   /**

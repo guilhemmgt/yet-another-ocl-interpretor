@@ -32,7 +32,9 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
   public Object getValue(EObject contextTarget) {
 	  // Cohérence de types
 	  Object arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getValue(contextTarget);
-
+	  System.out.println("==== " + this.target.getOperationName());
+	  System.out.println(arg);
+	  
 	  // Traitement des opérations
 	  switch (this.target.getOperationName()) {
 		  case "not":
