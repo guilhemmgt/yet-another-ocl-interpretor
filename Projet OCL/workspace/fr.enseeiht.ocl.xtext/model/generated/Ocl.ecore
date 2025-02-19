@@ -110,6 +110,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="referredVariable" eType="#//Auxiliary"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelfLiteralExp" eSuperTypes="#//OclExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NullLiteralExp"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringLiteralExp" eSuperTypes="#//OclExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringSymbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

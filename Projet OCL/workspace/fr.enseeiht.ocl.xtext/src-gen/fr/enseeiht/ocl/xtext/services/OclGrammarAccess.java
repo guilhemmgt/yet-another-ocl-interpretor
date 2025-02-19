@@ -1082,6 +1082,26 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'self'
 		public Keyword getSelfKeyword_1() { return cSelfKeyword_1; }
 	}
+	public class NullLiteralExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.NullLiteralExp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cNullLiteralExpAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNullKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//NullLiteralExp :
+		//    {NullLiteralExp} 'null'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{NullLiteralExp} 'null'
+		public Group getGroup() { return cGroup; }
+		
+		//{NullLiteralExp}
+		public Action getNullLiteralExpAction_0() { return cNullLiteralExpAction_0; }
+		
+		//'null'
+		public Keyword getNullKeyword_1() { return cNullKeyword_1; }
+	}
 	public class StringLiteralExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.StringLiteralExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2793,6 +2813,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final AuxiliaryElements pAuxiliary;
 	private final VariableExpElements pVariableExp;
 	private final SelfLiteralExpElements pSelfLiteralExp;
+	private final NullLiteralExpElements pNullLiteralExp;
 	private final StringLiteralExpElements pStringLiteralExp;
 	private final NumericLiteralExpElements pNumericLiteralExp;
 	private final RealLiteralExpElements pRealLiteralExp;
@@ -2877,6 +2898,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pAuxiliary = new AuxiliaryElements();
 		this.pVariableExp = new VariableExpElements();
 		this.pSelfLiteralExp = new SelfLiteralExpElements();
+		this.pNullLiteralExp = new NullLiteralExpElements();
 		this.pStringLiteralExp = new StringLiteralExpElements();
 		this.pNumericLiteralExp = new NumericLiteralExpElements();
 		this.pRealLiteralExp = new RealLiteralExpElements();
@@ -3274,6 +3296,17 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getSelfLiteralExpRule() {
 		return getSelfLiteralExpAccess().getRule();
+	}
+	
+	//NullLiteralExp :
+	//    {NullLiteralExp} 'null'
+	//;
+	public NullLiteralExpElements getNullLiteralExpAccess() {
+		return pNullLiteralExp;
+	}
+	
+	public ParserRule getNullLiteralExpRule() {
+		return getNullLiteralExpAccess().getRule();
 	}
 	
 	//StringLiteralExp :

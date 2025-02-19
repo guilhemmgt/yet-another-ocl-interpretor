@@ -111,6 +111,10 @@ VariableExp:
 SelfLiteralExp :
 	{SelfLiteralExp}	'self'
 ;
+
+NullLiteralExp : 
+	{NullLiteralExp} 'null'
+;
 StringLiteralExp :
 	{StringLiteralExp}
 	stringSymbol=STRING
