@@ -18,26 +18,34 @@ import fr.enseeiht.ocl.xtext.types.*;
 
 public class OclTypeChecker {
 	
-	private List<OclInvalid> invalidList;
-	private List<EPackage> packList;
+	
 	
 	public OclTypeChecker() {
-		this.invalidList = new LinkedList<OclInvalid>();
-		this.packList = new LinkedList<EPackage>();
 	}
  	
-	public OclInvalid getAllTypes(Module mocl) {
+	/** Récupère le type de tous les invariants, des feature definitions et les vérifie.
+	 * @param mocl : le Module qui applique tous les invariants et définit les features.
+	 * @return Un OclInvalid avec la liste de toutes les erreurs à l'intérieur. Vide s'il n'y en a pas.
+	 */
+	public static OclInvalid getAllTypes(Module mocl) {
+		List<OclInvalid> invalidList = new LinkedList<OclInvalid>();
+		List<EPackage> packList = new LinkedList<EPackage>();
+		// Le EPackage importé le permier (TODO : en faire plusieurs)
 		EPackage pack = mocl.getImports().get(0).getPackage();
+		// La liiste des invariants dans le fichier mocl.
 		List<OclInvariant> invs = new ArrayList<OclInvariant>();
+		// Remplissage de la liste des invariants
 		for (OclContextBlock contextBlock : mocl.getContextBlocks()) {
 			if(contextBlock instanceof OclInvariant) {
 				invs.add((OclInvariant) contextBlock);
 			}
 		}
-		
+		// Vérification des invariants à partir de leur liste.
 		for (OclInvariant inv : invs) {
+			// Récupération de l'expression dans l'invariant
 			OclExpressionValidationAdapter exp = (OclExpressionValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(inv.getBody());
 			OclType type = exp.getType();
+			// L'expression dans l'invariant doit nécessairement avoir un type Boolean
 			boolean isCorrect = type.conformsTo(new OclBoolean());
 			if (!isCorrect) {
 				String message = "Invariant does not have the required type Boolean (it has the type " + type + " instead)";
@@ -46,11 +54,14 @@ public class OclTypeChecker {
 			
 		}
 		
-		return this.flattenInvalid();
+		return flattenInvalid(invalidList);
 		
 	}
 	
-	public OclInvalid flattenInvalid() {
+	/** Regroupe le contenu des OclInvalids dans invalidList dans un seul OclInvalid.
+	 * @return l'OclInvalid qui contient tous les messages d'erreur.
+	 */
+	public static OclInvalid flattenInvalid(List<OclInvalid> invalidList) {
 		return new OclInvalid(invalidList.toArray(new OclInvalid[0]));
 	}
 

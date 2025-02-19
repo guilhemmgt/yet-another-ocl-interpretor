@@ -3,6 +3,13 @@
  */
 package fr.enseeiht.ocl.xtext.validation;
 
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+
+import fr.enseeiht.ocl.xtext.ocl.Module;
 
 /**
  * This class contains custom validation rules. 
@@ -11,6 +18,20 @@ package fr.enseeiht.ocl.xtext.validation;
  */
 public class OclValidator extends AbstractOclValidator {
 	
+	public void checkType(Module module) {
+		OclInvalid invalid = OclTypeChecker.getAllTypes(module);
+		for (TypeCheckingError error : invalid.origins) {
+			EObject target = error.getCause();
+			EObject container = target.eContainer();
+            if(container.eGet(target.eContainingFeature()) instanceof List){
+                @SuppressWarnings("unchecked")
+                List<EObject> features = (List<EObject>) container.eGet(target.eContainingFeature());
+                error(error.getMessage(), container, target.eContainingFeature(), features.indexOf(target), "org.eclipse.xtext.diagnostics.Diagnostic.CheckType", new String[0]);
+            } else {
+                error(error.getMessage(), container, target.eContainingFeature(), "org.eclipse.xtext.diagnostics.Diagnostic.CheckType", new String[0]);
+            }
+		}
+	}
 //	public static final String INVALID_NAME = "invalidName";
 //
 //	@Check
