@@ -2525,6 +2525,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     propertyCallExpEClass.getESuperTypes().add(this.getNotOpCallExp());
     variableExpEClass.getESuperTypes().add(this.getOclExpression());
     selfLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
+    nullLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     stringLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     numericLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     realLiteralExpEClass.getESuperTypes().add(this.getNumericLiteralExp());

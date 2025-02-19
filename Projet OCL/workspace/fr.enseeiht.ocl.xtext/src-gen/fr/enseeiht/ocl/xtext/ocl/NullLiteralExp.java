@@ -3,7 +3,6 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface NullLiteralExp extends EObject
+public interface NullLiteralExp extends OclExpression
 {
 } // NullLiteralExp

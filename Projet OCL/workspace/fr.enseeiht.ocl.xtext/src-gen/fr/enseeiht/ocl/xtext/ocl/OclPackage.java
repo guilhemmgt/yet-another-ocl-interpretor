@@ -905,7 +905,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NULL_LITERAL_EXP_FEATURE_COUNT = 0;
+  int NULL_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.StringLiteralExpImpl <em>String Literal Exp</em>}' class.
