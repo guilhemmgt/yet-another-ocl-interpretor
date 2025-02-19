@@ -293,6 +293,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         NullLiteralExp nullLiteralExp = (NullLiteralExp)theEObject;
         T result = caseNullLiteralExp(nullLiteralExp);
+        if (result == null) result = caseOclExpression(nullLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

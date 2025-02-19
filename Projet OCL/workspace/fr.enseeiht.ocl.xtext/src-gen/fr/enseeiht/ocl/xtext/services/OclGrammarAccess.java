@@ -939,6 +939,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cIfExpParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		private final RuleCall cBraceExpParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		private final RuleCall cOclModelElementExpParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cNullLiteralExpParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
 		
 		//Primary_OclExpression returns OclExpression :
 		//    VariableExp
@@ -955,7 +956,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    |EnumLiteralExp
 		//    |IfExp
 		//    |BraceExp
-		//    |OclModelElementExp;
+		//    |OclModelElementExp
+		//    |NullLiteralExp;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//VariableExp
@@ -973,6 +975,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//|IfExp
 		//|BraceExp
 		//|OclModelElementExp
+		//|NullLiteralExp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//VariableExp
@@ -1019,6 +1022,9 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//OclModelElementExp
 		public RuleCall getOclModelElementExpParserRuleCall_14() { return cOclModelElementExpParserRuleCall_14; }
+		
+		//NullLiteralExp
+		public RuleCall getNullLiteralExpParserRuleCall_15() { return cNullLiteralExpParserRuleCall_15; }
 	}
 	public class AuxiliaryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Auxiliary");
@@ -3258,7 +3264,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    |EnumLiteralExp
 	//    |IfExp
 	//    |BraceExp
-	//    |OclModelElementExp;
+	//    |OclModelElementExp
+	//    |NullLiteralExp;
 	public Primary_OclExpressionElements getPrimary_OclExpressionAccess() {
 		return pPrimary_OclExpression;
 	}

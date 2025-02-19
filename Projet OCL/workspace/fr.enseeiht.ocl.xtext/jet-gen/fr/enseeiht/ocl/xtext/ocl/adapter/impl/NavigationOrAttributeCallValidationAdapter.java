@@ -1,7 +1,6 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
-import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -10,7 +9,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
-import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -46,12 +44,16 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	} else {
 		source = (EObject) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getValue(contextTarget);
 	}
-	for (EStructuralFeature feat : source.eClass().getEAllStructuralFeatures()) {
-		if (this.target.getName().equals(feat.getName())) {
-			return source.eGet(feat);
+	
+	if (source != null) {
+		for (EStructuralFeature feat : source.eClass().getEAllStructuralFeatures()) {
+			if (this.target.getName().equals(feat.getName())) {
+				System.out.println(source.eGet(feat));
+				return source.eGet(feat);
+			}
 		}
 	}
-    throw new UnimplementedException("La methode getValue de NavigationOrAttributeCallAdapter n'as pas encore été implémentée");
+	return null;
   }
 
   /**
@@ -71,7 +73,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-     public boolean conformsTo(OclType oclType) {
+      public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

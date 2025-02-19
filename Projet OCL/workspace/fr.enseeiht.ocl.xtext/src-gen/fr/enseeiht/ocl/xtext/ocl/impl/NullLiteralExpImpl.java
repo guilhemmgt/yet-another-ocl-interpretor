@@ -8,8 +8,6 @@ import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Null Literal Exp</b></em>'.
@@ -17,7 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class NullLiteralExpImpl extends MinimalEObjectImpl.Container implements NullLiteralExp
+public class NullLiteralExpImpl extends OclExpressionImpl implements NullLiteralExp
 {
   /**
    * <!-- begin-user-doc -->

@@ -749,6 +749,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Primary_OclExpression returns NullLiteralExp
 	 *     NullLiteralExp returns NullLiteralExp
 	 *
 	 * Constraint:
