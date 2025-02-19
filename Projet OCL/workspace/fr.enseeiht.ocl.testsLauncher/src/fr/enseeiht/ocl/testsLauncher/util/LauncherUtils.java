@@ -119,13 +119,13 @@ public class LauncherUtils {
         moclObject.getImports().get(0).setPackage(ecorePackage);
         //moclResource.getErrors()
 		// Check type
-		for (Diagnostic diagnostic : EcoreUtil.computeDiagnostic(moclResource, true).getChildren()) {
-			System.out.println(diagnostic.getMessage());
-			System.out.println(diagnostic.getData().get(0).getClass());
+//		for (Diagnostic diagnostic : EcoreUtil.computeDiagnostic(moclResource, true).getChildren()) {
+//			System.out.println(diagnostic.getMessage());
+//			System.out.println(diagnostic.getData().get(0).getClass());
 //			if (diagnostic.getData().get(0) instanceof XtextSyntaxDiagnostic) {
 //				throw new SyntaxException(diagnostic.getMessage());
 //			}
-		}
+//		}
 		
         Map<String, ValidationResult> xmiErrors = new HashMap<String, ValidationResult>();
         
