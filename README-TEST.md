@@ -24,7 +24,14 @@ Les fichiers de tests doit suivre une structure particulière :
 	- `ok` : tout passe
 - le nom du test ne doit donc pas avoir de `-`, et la convention est d'utiliser le *Camel case*
 - il est possible de rajouter des informations supplémentaires : 
-	- si le fichier est préfixé de `s` ou `t`, alors il est possible de rajouter le message d'erreur attendu (SOON)
+	- si le fichier est préfixé de `s` ou `t`, alors il est possible de rajouter le message d'erreur attendu, pour cela il vous faut rajouter un commentaire dans votre fichier mocl avec la balise `@error`. ex :
+ 
+		 ```ada
+		 -- @error : "required (...)+ loop did not match anything at input '<EOF>'"
+   		 
+		 import "http://empty" as empty
+		 ```
+
 	- si le fichier est préfixé de `v` ou `ok`, que vous considérez que les `ecore` et `xmi` utilisés par défaut ne sont pas suffisamment complets et que vous ne voulez pas les modifier parce que vous pensez que vous casserez quelque chose, il est possible de lier votre test à un autre `ecore` et `xmi` que vous venez d'écrire, pour cela :
 		- créez vos fichiers à la racine du projet.
 		- écrivez les noms de ces fichiers dans le nom du test de cette manière : `<préfixe>;<nom du Ecore sans le ".ecore">;<nom du XMI sans le ".xmi">-<nom du test>.mocl`
