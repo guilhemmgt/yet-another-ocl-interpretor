@@ -34,16 +34,30 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 		// Passage au rang suivant
 		return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	}
+	
+	Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	if (!(left instanceof Boolean && right instanceof Boolean)) {
+		return false;
+	}
+	Boolean leftBool = ((Boolean)left);
+	Boolean rightBool = ((Boolean)right);
+	
 	// Traitement des opérations  'and'|'or'|'xor'|'implies'|'equivalent'
 	switch(this.target.getOperationName()) {
-		case "and": 
+		case "and":
+			return leftBool && rightBool;
 		case "or": 
+			return leftBool || rightBool;
 		case "xor":
+			return leftBool ^ rightBool;
 		case "implies":
+			return !leftBool || (leftBool && rightBool);
 		case "equivalent":
-			break;
+			return (!leftBool && !rightBool) || (leftBool && rightBool);
+		default:
+			throw new UnimplementedException("La methode getValue de OperatorCallExpAdapter n'as pas encore été implémentée pour cette opérations");
 	}
-	throw new UnimplementedException("La methode getValue de OperatorCallExpAdapter n'as pas encore été implémentée pour cette opérations");
   }
 
   /**
