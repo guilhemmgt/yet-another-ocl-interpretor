@@ -23,4 +23,10 @@ public class OclVoid extends OclAny {
 		}
 	}
 
+
+	
+	@Override
+	public String toString() {
+		return "OclVoid";
+	}
 }

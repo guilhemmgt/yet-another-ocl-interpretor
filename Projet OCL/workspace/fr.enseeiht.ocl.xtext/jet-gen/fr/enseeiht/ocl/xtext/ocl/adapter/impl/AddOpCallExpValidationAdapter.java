@@ -58,13 +58,19 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  boolean isString = type1.conformsTo(new OclString()) && type2.conformsTo(new OclString());
 		  // Real + Real : Real
 		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
-		  if (isString || isReal) {
+		  // operator = '+' | '-'
+		  boolean operatorIsAddition = this.target.getOperationName() == "+";
+		  if ((isString || isReal) && operatorIsAddition ){
 			  // Rappel : Puisque Integer s'unifie avec Real, on a : Real + Integer : Real
+			  return type1.unifyWith(type2);
+		  }
+		  else if (isReal && !operatorIsAddition){
 			  return type1.unifyWith(type2);
 		  }
 		  else {
 			  // Opération invalide
-			  return new OclInvalid(target, type1, type2);
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + "(operation : '" + target.getOperationName() + "')";
+			  return new OclInvalid(target, message, type1, type2);
 		  }
 	  }
   }

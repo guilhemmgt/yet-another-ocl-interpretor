@@ -22,6 +22,11 @@ public class OclString extends OclAny {
 			return new OclAny();
 		}
 	}
+
 	
+	@Override
+	public String toString() {
+		return "String";
+	}
 
 }

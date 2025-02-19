@@ -57,7 +57,8 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 		  // C'est la spé.
 		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid()) ;
 		  if (!anyInvalid) {
-			  return new OclInvalid(target, type1, type2);
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + "(operation : '" + target.getOperationName() + "')";
+			  return new OclInvalid(target, message, type1, type2);
 		  }
 		  else {
 			  // Opération invalide

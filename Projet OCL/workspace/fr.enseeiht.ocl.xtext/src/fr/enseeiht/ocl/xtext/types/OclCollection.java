@@ -30,5 +30,12 @@ public class OclCollection extends OclAny {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
+	
+	@Override
+	public String toString() {
+		return "OclCollection<" + subtype.toString() + ">";
+	}
 
 }

@@ -24,6 +24,12 @@ public class OclInteger extends OclReal {
 			return new OclAny();
 		}
 	}
+
+	
+	@Override
+	public String toString() {
+		return "Integer";
+	}
 	
 
 }

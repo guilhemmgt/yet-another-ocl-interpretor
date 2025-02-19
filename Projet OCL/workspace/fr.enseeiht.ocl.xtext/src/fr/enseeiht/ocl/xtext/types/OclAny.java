@@ -15,6 +15,11 @@ public class OclAny implements OclType {
 		// Tout type unifié avec OclAny est un OclAny (OclAny est le type le plus grand).
 		return new OclAny();
 	}
+	
+	@Override
+	public String toString() {
+		return "OclAny";
+	}
 
 
 }

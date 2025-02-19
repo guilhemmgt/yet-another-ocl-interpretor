@@ -6,10 +6,11 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
+import fr.enseeiht.ocl.xtext.validation.TypeCheckingError;
 
 public class OclInvalid extends OclAny {
 	
-	public List<EObject> origins; 
+	public List<TypeCheckingError> origins; 
 
 	/** Génère la classe OclInvalid en ajoutant toutes les causes d'échec des éléments qui ont causé sa génération.
 	 * Par exemple, "1+(void*3)" résulte en deux éléments de type Integer et Invalid.
@@ -17,7 +18,7 @@ public class OclInvalid extends OclAny {
 	 * @param others : les types des autres éléments impliqués dans la levée d'erreur
 	 */
 	public OclInvalid(OclType ... others) {
-		this.origins = new LinkedList<EObject>();
+		this.origins = new LinkedList<TypeCheckingError>();
 		
 		for (OclType other : others) {
 			if (other instanceof OclInvalid) {
@@ -35,8 +36,8 @@ public class OclInvalid extends OclAny {
 	 * @param cause : l'EObject qui a soulevé l'Invalidité.
 	 * @param others : les types des autres éléments impliqués dans la levée d'erreur
 	 */
-	public OclInvalid(EObject cause, OclType ... others) {
-		this.origins = new LinkedList<EObject>();
+	public OclInvalid(EObject cause, String message, OclType ... others) {
+		this.origins = new LinkedList<TypeCheckingError>();
 		
 		boolean addCause = true; // Détermine si on ajoute l'EObject courant.
 		for (OclType other : others) {
@@ -50,10 +51,11 @@ public class OclInvalid extends OclAny {
 		}
 		if (addCause) {
 			// Dans ce cas la liste des origines est vide.
-			this.origins.add(cause);
+			TypeCheckingError error = new TypeCheckingError(cause, message);
+			this.origins.add(error);
 		}
 	}
-
+	
 	@Override
 	public boolean conformsTo(OclType oclType) {
 		// conformance à OclAny et lui-même
@@ -71,6 +73,13 @@ public class OclInvalid extends OclAny {
 		else {
 			return new OclAny();
 		}
+	}
+	
+
+	
+	@Override
+	public String toString() {
+		return "OclInvalid";
 	}
 	
 }

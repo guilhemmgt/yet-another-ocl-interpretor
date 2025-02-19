@@ -60,7 +60,8 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 		  else {
 			  // Opération invalide
-			  return new OclInvalid(target, type1, type2);
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + "(operation : '" + target.getOperationName() + "')";
+			  return new OclInvalid(target, message, type1, type2);
 		  }
 	  }
   }
