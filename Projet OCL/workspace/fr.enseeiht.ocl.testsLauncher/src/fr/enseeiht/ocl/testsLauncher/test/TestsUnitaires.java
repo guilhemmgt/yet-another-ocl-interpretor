@@ -29,7 +29,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
-import fr.enseeiht.ocl.testsLauncher.exceptions.TypeCheckingException;
+import fr.enseeiht.ocl.testsLauncher.exceptions.CheckTypeException;
 import fr.enseeiht.ocl.testsLauncher.util.LauncherUtils;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.yaoi.ValidationError;
@@ -105,7 +105,7 @@ public class TestsUnitaires {
 	@MethodSource("provideTypeCheckingArguments")
 	@DisplayName("Tests KO sur le typage")
 	void testTypeChecking(String moclName, String errorMessage) {
-		TypeCheckingException exp = assertThrows(TypeCheckingException.class,
+		CheckTypeException exp = assertThrows(CheckTypeException.class,
 				() -> LauncherUtils.run(workspacePath, projectName, moclName, emptyEcoreName, liarXmiName),
 				"L'erreur de type n'as pas été identifié");
 		if (errorMessage != null)
@@ -145,7 +145,7 @@ public class TestsUnitaires {
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideValidationArguments")
 	@DisplayName("Tests KO sur la validation")
-	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException {
+	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
 		
@@ -187,7 +187,7 @@ public class TestsUnitaires {
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideOkArguments")
 	@DisplayName("Tests OK")
-	void testOk(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException {
+	void testOk(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
 		
