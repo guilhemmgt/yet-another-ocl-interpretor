@@ -27,10 +27,10 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de BraceExpAdapter n'as pas encore été implémentée");
+    return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp()).getValue(contextTarget);
   }
 
   /**

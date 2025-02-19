@@ -31,10 +31,27 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de EqOpCallExpAdapter n'as pas encore été implémentée");
+	  if (this.target.getOperationName() == null) {
+		  // Passage au rang suivant
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  }
+	  
+	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	  Boolean equal = left.equals(right) || (left instanceof Number && right instanceof Number && ((Number)left).doubleValue() == ((Number)right).doubleValue());
+
+	  // Traitement des opérations  '='|'<>'
+	  switch(this.target.getOperationName()) {
+	  	case "=": 
+	  		return equal;
+	  	case "<>":
+	  		return !equal;
+  		default:
+  			throw new UnimplementedException("La methode getValue de EqOpCallExpValidationAdapter n'as pas encore été implémentée pour cette opérations");
+	  }
   }
 
   /**

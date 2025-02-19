@@ -152,7 +152,7 @@ public class TestsUnitaires {
 		List<OclInvariant> invs = LauncherUtils.getInvariants(workspacePath, projectName, moclName);
 		assertEquals(1, invs.size(), "Test malformé");
 		
-		List<ValidationError> errors = result.getInvariantError(invs.get(0));
+		List<ValidationError> errors = result.getInvariantErrors(invs.get(0));
 		
 		assertTrue("Aucune erreur de validation trouvée.", !errors.isEmpty());
 	}

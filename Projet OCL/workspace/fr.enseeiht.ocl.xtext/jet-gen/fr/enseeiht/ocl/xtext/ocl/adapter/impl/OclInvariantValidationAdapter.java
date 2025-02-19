@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -26,10 +27,10 @@ public final class OclInvariantValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de OclInvariantAdapter n'as pas encore été implémentée");
+    return OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getBody()).getValue(contextTarget);
   }
 
   /**

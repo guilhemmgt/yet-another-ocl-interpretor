@@ -26,10 +26,10 @@ public final class StringLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de StringLiteralExpAdapter n'as pas encore été implémentée");
+	  return this.target.getStringSymbol();
   }
 
   /**

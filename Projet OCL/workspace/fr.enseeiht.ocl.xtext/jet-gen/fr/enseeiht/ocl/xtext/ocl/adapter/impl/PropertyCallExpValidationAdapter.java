@@ -3,8 +3,11 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
+import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -26,10 +29,13 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de PropertyCallExpAdapter n'as pas encore été implémentée");
+	  if (this.target.getCalls().isEmpty()) {
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getValue(contextTarget);
+	  }
+	  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getCalls().get(this.target.getCalls().size()-1)).getValue(contextTarget);
   }
 
   /**

@@ -26,10 +26,10 @@ public final class SelfLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de SelfLiteralExpAdapter n'as pas encore été implémentée");
+	  return contextTarget;
   }
 
   /**

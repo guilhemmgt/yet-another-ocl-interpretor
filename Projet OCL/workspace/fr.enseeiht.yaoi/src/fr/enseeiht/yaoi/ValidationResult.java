@@ -1,11 +1,13 @@
 package fr.enseeiht.yaoi;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 
@@ -43,8 +45,17 @@ public class ValidationResult {
 	 * @param inv
 	 * @return A list of all the ValidationError
 	 */
-	public List<ValidationError> getInvariantError(OclInvariant inv) {
-		return this.errors.stream().filter(v -> v.getFailedInvariant().equals(inv)).toList();
+	public List<ValidationError> getInvariantErrors(OclInvariant inv) {
+		List<ValidationError> result = new ArrayList<ValidationError>();
+		for (ValidationError err : this.errors) {
+			boolean classesMatch = ((OclContextBlock) err.getFailedInvariant().eContainer()).getClass_().getClassifierID() == ((OclContextBlock) inv.eContainer()).getClass_().getClassifierID();
+			boolean objectsMatch = ((OclContextBlock) err.getFailedInvariant().eContainer()).getEcoreTypes().getName().equals(((OclContextBlock) inv.eContainer()).getEcoreTypes().getName());
+			boolean namesMatch = err.getFailedInvariant().getName().equals(inv.getName());
+			if (classesMatch && objectsMatch && namesMatch) {
+				result.add(err);
+			}
+		}
+		return result;
 	}
 	
 	
