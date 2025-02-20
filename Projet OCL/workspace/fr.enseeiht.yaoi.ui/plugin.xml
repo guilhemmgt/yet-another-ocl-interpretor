@@ -24,19 +24,6 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
-         <menu
-               id="fr.enseeiht.yaoi.menus.sampleMenu"
-               label="Sample Menu"
-               mnemonic="M">
-            <command
-                  commandId="fr.enseeiht.yaoi.commands.sampleCommand"
-                  id="fr.enseeiht.yaoi.menus.sampleCommand"
-                  mnemonic="S">
-            </command>
-         </menu>
-      </menuContribution>
-      <menuContribution
             allPopups="false"
             locationURI="popup:org.eclipse.emf.ecore.presentation.ReflectiveEditorID?after=additions">
          <menu
@@ -47,8 +34,32 @@
                   id="fr.enseeiht.yaoi.menus.sampleCommand"
                   mnemonic="S">
             </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <and>
+                     <count
+                           value="1">
+                     </count>
+                     <test
+                           forcePluginActivation="true"
+                           property="fr.enseeiht.yaoi.ui.isecore">
+                     </test>
+                  </and>
+               </with>
+            </visibleWhen>
          </menu>
       </menuContribution>
    </extension>
-
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="fr.enseeiht.yaoi.ui.testers.isEcore"
+            id="fr.enseeiht.yaoi.ui.isEcore"
+            namespace="fr.enseeiht.yaoi.ui"
+            properties="isecore"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
 </plugin>
