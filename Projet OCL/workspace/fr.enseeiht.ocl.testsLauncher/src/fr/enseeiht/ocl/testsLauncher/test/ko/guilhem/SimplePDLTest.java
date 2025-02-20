@@ -62,7 +62,7 @@ class SimplePDLTest {
 	    	ValidationResult result = resultMap.get(context.getDisplayName() + ".xmi");
 			List<Arguments> arguments = new ArrayList<Arguments>();
 	    	for (OclInvariant inv : invs) {
-	    		arguments.add(Arguments.of(inv.getName(), result.getInvariantError(inv)));
+	    		arguments.add(Arguments.of(inv.getName(), result.getInvariantErrors(inv)));
 			}
 	        return Stream.of(arguments.toArray(new Arguments[0]));
 	    }

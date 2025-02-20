@@ -1,0 +1,21 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv times1:
+	3*4=12
+inv times2:
+	3.65*4=14.6
+inv times3:
+	-0.001 < 3*2.2-6.6
+inv times4:
+	3*2.2-6.6 < 0.001
+	
+inv divided1:
+	12/4=3
+inv divided2:
+	14.6/4=3.65
+inv divided3:
+	-0.001 < 6.6/2.2-3
+inv divided4:
+	6.6/2.2-3 < 0.001

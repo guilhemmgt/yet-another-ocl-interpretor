@@ -1,0 +1,6 @@
+
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv nomInterdit:
+  if true then true else false endif 

@@ -19,9 +19,7 @@ public class AdapterTemplate
   protected final String TEXT_5 = "ValidationAdapter implements OCLAdapter {" + NL + "" + NL + "\tprivate ";
   protected final String TEXT_6 = " target;" + NL + "" + NL + "\t/**" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic ";
   protected final String TEXT_7 = "ValidationAdapter(";
-  protected final String TEXT_8 = " object) {" + NL + "\t\tthis.target = object;" + NL + "\t}" + NL + "" + NL + "\t/**" + NL + "\t * Returns the value of the element given its context" + NL + "\t * @param Target" + NL + "\t * @return value of the element" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic Object getValue(EObject contextTarget) {" + NL + "\t\tthrow new UnimplementedException(\"La methode getValue de ";
-  protected final String TEXT_9 = "Adapter n'as pas encore été implémentée\");" + NL + "\t}" + NL + "" + NL + "\t/**" + NL + "\t * Get the type of the element" + NL + "\t * @return type of the element" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic OclType getType() {" + NL + "\t\tthrow new UnimplementedException(\"La methode getType de ";
-  protected final String TEXT_10 = "Adapter n'as pas encore été implémentée\");" + NL + "\t}" + NL + "" + NL + "\t/**" + NL + "\t * Get adapted element" + NL + "\t * @return adapted element" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic EObject getElement() {" + NL + "\t\treturn this.target;" + NL + "\t}" + NL + " }";
+  protected final String TEXT_8 = " object) {" + NL + "\t\tthis.target = object;" + NL + "\t}" + NL + "" + NL + "\t/**" + NL + "\t * Returns the value of the element given its context" + NL + "\t * @param Target" + NL + "\t * @return value of the element" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic Object getValue(EObject contextTarget) {" + NL + "\t\tthrow new UnimplementedException(this.getClass(),\"getValue\");" + NL + "\t}" + NL + "" + NL + "\t/**" + NL + "\t * Get the type of the element" + NL + "\t * @return type of the element" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic OclType getType() {" + NL + "\t\tthrow new UnimplementedException(this.getClass(),\"getType\");" + NL + "\t}" + NL + "" + NL + "\t/**" + NL + "\t * Get adapted element" + NL + "\t * @return adapted element" + NL + "\t * @generated" + NL + "\t */" + NL + "\tpublic EObject getElement() {" + NL + "\t\treturn this.target;" + NL + "\t}" + NL + " }";
 
   public String generate(Object argument)
   {
@@ -40,10 +38,6 @@ public class AdapterTemplate
     stringBuffer.append(TEXT_7);
     stringBuffer.append(argument);
     stringBuffer.append(TEXT_8);
-    stringBuffer.append(argument);
-    stringBuffer.append(TEXT_9);
-    stringBuffer.append(argument);
-    stringBuffer.append(TEXT_10);
     return stringBuffer.toString();
   }
 }

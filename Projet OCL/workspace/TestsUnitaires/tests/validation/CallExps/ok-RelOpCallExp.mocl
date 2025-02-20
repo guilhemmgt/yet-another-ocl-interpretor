@@ -1,0 +1,31 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv gt_int:
+	2 > 1
+inv gt_real:
+	2. > 1.5
+
+inv get_int1:
+	2 >= 1
+inv get_int2:
+	2 >= 2
+inv get_real1:
+	2. >= 1.5
+inv get_real1:
+	1.5 >= 1.5
+  
+inv lt_int:
+	1 < 2
+inv lt_real:
+	1.5 < 2.
+  
+inv let_int1:
+	1 <= 2
+inv let_int2:
+	2 <= 2
+inv let_real1:
+	1.5 <= 2.
+inv let_real1:
+	1.5 <= 1.5

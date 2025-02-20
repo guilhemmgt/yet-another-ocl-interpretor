@@ -3,8 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="empty" nsURI="http://empty" nsPrefix="empty">
   <eClassifiers xsi:type="ecore:EClass" name="Liar">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="maybe" upperBound="-1"
-        eType="#//Maybe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maybe" eType="#//Maybe"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subLiar" upperBound="-1"
         eType="#//SubLiar" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enum" eType="#//Enum"/>

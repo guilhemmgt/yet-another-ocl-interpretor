@@ -30,7 +30,7 @@ public final class IntegerTypeValidationAdapter implements OCLAdapter {
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de IntegerTypeAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getValue");
   }
 
   /**

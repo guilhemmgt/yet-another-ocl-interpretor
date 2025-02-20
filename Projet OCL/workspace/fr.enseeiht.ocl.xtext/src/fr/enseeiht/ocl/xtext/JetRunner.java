@@ -8,6 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.codegen.merge.java.JControlModel;
 import org.eclipse.emf.codegen.merge.java.JMerger;
+import org.eclipse.emf.codegen.merge.java.facade.JCompilationUnit;
+import org.eclipse.emf.codegen.merge.java.facade.jdom.JDOMFacadeHelper;
+import org.eclipse.emf.codegen.merge.java.facade.jdom.JDOMJCompilationUnit;
 import org.eclipse.emf.codegen.util.CodeGenUtil;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -23,6 +26,19 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.templates.AdapterFactoryTemplate;
 import fr.enseeiht.ocl.xtext.ocl.adapter.templates.AdapterTemplate;
 
 public class JetRunner implements IWorkflowComponent {
+	
+	// WARNING : May implode over time
+	// This allows JMerge to use the right source level when parsing
+	class MyJDomFacadeHelper extends JDOMFacadeHelper {
+		  @Override
+		  public JCompilationUnit createCompilationUnit(String name,String contents) {
+			@SuppressWarnings("deprecation")
+		    JDOMJCompilationUnit compilationUnit = (JDOMJCompilationUnit)   convertToNode(getJDOMFactory().createCompilationUnit(contents, name));
+					compilationUnit.setOriginalContent(contents);
+		    return compilationUnit;
+		  }
+	}
+	
 	private JMerger jMerger;
 
 	private List<String> ecoreClassesNames;
@@ -59,7 +75,7 @@ public class JetRunner implements IWorkflowComponent {
 		// Configuration de JMerge
 		{
 			JControlModel jControlModel = new JControlModel();
-			jControlModel.initialize(CodeGenUtil.instantiateFacadeHelper(JMerger.DEFAULT_FACADE_HELPER_CLASS),
+			jControlModel.initialize(new MyJDomFacadeHelper(),
 					"./templates/emf-merge.xml");
 			jMerger = new JMerger(jControlModel);
 		}

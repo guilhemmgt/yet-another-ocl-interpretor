@@ -2,6 +2,6 @@
 <empty:Liar
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:empty="http://empty"
-    xsi:schemaLocation="http://empty Empty.ecore"
-    name="LOL"/>
+    xsi:schemaLocation="http://empty Empty.ecore"/>

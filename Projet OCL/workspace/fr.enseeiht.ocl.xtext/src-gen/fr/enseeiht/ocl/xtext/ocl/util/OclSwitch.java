@@ -31,6 +31,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.NullLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -285,6 +286,14 @@ public class OclSwitch<T> extends Switch<T>
         SelfLiteralExp selfLiteralExp = (SelfLiteralExp)theEObject;
         T result = caseSelfLiteralExp(selfLiteralExp);
         if (result == null) result = caseOclExpression(selfLiteralExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.NULL_LITERAL_EXP:
+      {
+        NullLiteralExp nullLiteralExp = (NullLiteralExp)theEObject;
+        T result = caseNullLiteralExp(nullLiteralExp);
+        if (result == null) result = caseOclExpression(nullLiteralExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -968,6 +977,22 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSelfLiteralExp(SelfLiteralExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Null Literal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Null Literal Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNullLiteralExp(NullLiteralExp object)
   {
     return null;
   }

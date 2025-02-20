@@ -213,6 +213,15 @@ public interface OclFactory extends EFactory
   SelfLiteralExp createSelfLiteralExp();
 
   /**
+   * Returns a new object of class '<em>Null Literal Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Null Literal Exp</em>'.
+   * @generated
+   */
+  NullLiteralExp createNullLiteralExp();
+
+  /**
    * Returns a new object of class '<em>String Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
