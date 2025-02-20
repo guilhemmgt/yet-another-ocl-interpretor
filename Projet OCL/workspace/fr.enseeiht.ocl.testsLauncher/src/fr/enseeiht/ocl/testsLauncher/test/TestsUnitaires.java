@@ -180,7 +180,7 @@ public class TestsUnitaires {
 		List<OclInvariant> invs = LauncherUtils.getInvariants(workspacePath, projectName, moclName);
 		assertEquals(1, invs.size(), "Test malformé, il doit n'y avoir qu'un invariant à tester dans le fichier mocl");
 		
-		List<ValidationError> errors = result.getInvariantError(invs.get(0));
+		List<ValidationError> errors = result.getInvariantErrors(invs.get(0));
 		
 		List<ValidationError> undefinedErors = new ArrayList<ValidationError>();
 		for (ValidationError error : errors) {

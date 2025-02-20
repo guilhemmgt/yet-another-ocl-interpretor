@@ -29,7 +29,7 @@ public final class CollectionOperationCallValidationAdapter implements OCLAdapte
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de CollectionOperationCallAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getValue");
   }
 
   /**
@@ -38,7 +38,7 @@ public final class CollectionOperationCallValidationAdapter implements OCLAdapte
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de CollectionOperationCallAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

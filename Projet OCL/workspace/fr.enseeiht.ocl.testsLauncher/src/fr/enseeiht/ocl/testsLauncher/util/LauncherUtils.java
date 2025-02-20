@@ -55,7 +55,7 @@ public class LauncherUtils {
 				
 				for (OclInvariant inv : getInvariants(workspacePath, "TestsUnitaires", "tests/validation/v-falseInv.mocl")) {
 					
-					List<ValidationError> errors = errorsMaps.get(model).getInvariantError(inv);
+					List<ValidationError> errors = errorsMaps.get(model).getInvariantErrors(inv);
 					System.out.print("- " + inv.getName() + ":");
 					if (errors.isEmpty()) {
 						System.out.println(" OK");

@@ -21,6 +21,7 @@ import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.NullLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.StringLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
@@ -84,6 +85,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PropertyCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.AuxiliaryValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.VariableExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.SelfLiteralExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NullLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.StringLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NumericLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RealLiteralExpValidationAdapter;
@@ -141,6 +143,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
  */
 public class OCLValidationAdapterFactory
 {
+  public final static OCLValidationAdapterFactory INSTANCE = new OCLValidationAdapterFactory();
   /**
    * The cached model package.
    * <!-- begin-user-doc -->
@@ -155,7 +158,7 @@ public class OCLValidationAdapterFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public OCLValidationAdapterFactory()
+  private OCLValidationAdapterFactory()
   {
     if (modelPackage == null)
     {
@@ -297,6 +300,11 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseSelfLiteralExp(SelfLiteralExp object)
       {
         return createSelfLiteralExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseNullLiteralExp(NullLiteralExp object)
+      {
+        return createNullLiteralExpValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseStringLiteralExp(StringLiteralExp object)
@@ -811,6 +819,19 @@ public class OCLValidationAdapterFactory
   public OCLAdapter createSelfLiteralExpValidationAdapter(SelfLiteralExp target)
   {
     return new SelfLiteralExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.NullLiteralExp <em>NullLiteralExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.NullLiteralExp
+   * @generated
+   */
+  public OCLAdapter createNullLiteralExpValidationAdapter(NullLiteralExp target)
+  {
+    return new NullLiteralExpValidationAdapter(target);
   }
 
   /**
