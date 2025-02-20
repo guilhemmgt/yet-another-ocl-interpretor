@@ -35,6 +35,7 @@ import fr.enseeiht.ocl.testsLauncher.util.LauncherUtils;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.yaoi.ValidationError;
 import fr.enseeiht.yaoi.ValidationResult;
+import fr.enseeiht.yaoi.ValidationUndefined;
 
 public class TestsUnitaires {
 
@@ -182,10 +183,10 @@ public class TestsUnitaires {
 		
 		List<ValidationError> errors = result.getInvariantErrors(invs.get(0));
 		
-		List<ValidationError> undefinedErors = new ArrayList<ValidationError>();
+		List<ValidationUndefined> undefinedErors = new ArrayList<ValidationUndefined>();
 		for (ValidationError error : errors) {
-			if(error instanceof ValidationError) {
-				undefinedErors.add(error);
+			if(error instanceof ValidationUndefined) {
+				undefinedErors.add((ValidationUndefined) error);
 			}
 		}
 		
@@ -233,16 +234,16 @@ public class TestsUnitaires {
 		List<OclInvariant> invs = LauncherUtils.getInvariants(workspacePath, projectName, moclName);
 		assertEquals(1, invs.size(), "Test malformé");
 		
-		List<ValidationError> errors = result.getInvariantError(invs.get(0));
+		List<ValidationError> errors = result.getInvariantErrors(invs.get(0));
 		
-		List<ValidationError> undefinedErors = new ArrayList<ValidationError>();
+		List<ValidationUndefined> undefinedErors = new ArrayList<ValidationUndefined>();
 		for (ValidationError error : errors) {
-			if(error instanceof ValidationError) {
-				undefinedErors.add(error);
+			if(error instanceof ValidationUndefined) {
+				undefinedErors.add((ValidationUndefined) error);
 			}
 		}
 		
-		assertTrue("Aucune valeur \"null\" retournée.", undefinedErors.isEmpty());
+		assertTrue("Valeur \"null\" retournée.", undefinedErors.isEmpty());
 		
 		assertFalse("Aucune erreur de validation trouvée.", errors.isEmpty());
 	}
