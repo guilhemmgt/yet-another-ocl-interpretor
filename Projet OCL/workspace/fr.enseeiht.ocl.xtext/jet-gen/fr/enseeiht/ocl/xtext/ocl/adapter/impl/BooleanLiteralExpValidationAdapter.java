@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -35,7 +36,7 @@ public final class BooleanLiteralExpValidationAdapter implements OCLAdapter {
 		case "false":
 			return Boolean.FALSE;
 		default:
-			throw new UnimplementedException("La methode getValue de BooleanLiteralExpAdapter n'as pas encore été implémentée pour cette opération");
+			throw new UnsupportedFeatureException(this.target.getBooleanSymbol());
 	}
   }
 
@@ -45,7 +46,7 @@ public final class BooleanLiteralExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de BooleanLiteralExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

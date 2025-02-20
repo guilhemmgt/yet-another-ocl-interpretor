@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 
 public class OclInterpretor {
@@ -34,10 +35,14 @@ public class OclInterpretor {
 					// Boucle sur les objets du XMI concernés par le Contexte
 					for (EObject xmiObject : xmiContent) {
 						if (isSubClassOrEqual(context.getClass_(), xmiObject.eClass())) {
-							// Récupère la valeur de l'invariant (= validation) et renvoie une erreur s'il est violé
-							Boolean invResult = (Boolean) OCLValidationAdapterFactory.INSTANCE.createAdapter(invariant).getValue(xmiObject);
-							if (!invResult) {
-								result.addError(new ValidationError (invariant, xmiObject));
+							try {
+								// Récupère la valeur de l'invariant (= validation) et renvoie une erreur s'il est violé
+								boolean invResult = (boolean) OCLValidationAdapterFactory.INSTANCE.createAdapter(invariant).getValue(xmiObject);
+								if (!invResult) {
+									result.addError(new ValidationFailed (invariant, xmiObject));
+							}
+							} catch (UndefinedAccesException e) {
+								result.addError(new ValidationUndefined(invariant, xmiObject, e.getNullExpression()));
 							}
 						}
 					}

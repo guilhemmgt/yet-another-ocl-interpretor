@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
@@ -42,8 +43,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 			  }
 			  return -((Number)arg).doubleValue();
 		  default:
-			  throw new UnimplementedException("La methode getValue de NotOpCallExpAdapter n'as pas encore été implémentée pour cette opération");
-	  }
+			  throw new UnsupportedFeatureException(this.target.getOperationName());}
   }
 
   /**
@@ -52,7 +52,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de NotOpCallExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

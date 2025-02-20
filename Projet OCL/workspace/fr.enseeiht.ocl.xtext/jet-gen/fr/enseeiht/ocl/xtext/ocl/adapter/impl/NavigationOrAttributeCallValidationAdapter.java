@@ -62,7 +62,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de NavigationOrAttributeCallAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**
@@ -73,7 +73,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-      public boolean conformsTo(OclType oclType) {
+       public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

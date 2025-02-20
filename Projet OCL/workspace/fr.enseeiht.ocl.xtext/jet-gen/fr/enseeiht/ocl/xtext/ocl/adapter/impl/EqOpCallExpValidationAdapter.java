@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -51,7 +52,7 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  	case "<>":
 	  		return !equal;
   		default:
-  			throw new UnimplementedException("La methode getValue de EqOpCallExpValidationAdapter n'as pas encore été implémentée pour cette opérations");
+			  throw new UnsupportedFeatureException(this.target.getOperationName());
 	  }
   }
 
@@ -61,7 +62,7 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de EqOpCallExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**
