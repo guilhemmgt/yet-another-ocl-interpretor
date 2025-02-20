@@ -1,5 +1,6 @@
 package fr.enseeiht.ocl.testsLauncher.test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -113,6 +114,33 @@ public class TestsUnitaires {
 
 	}
 
+	private static List<Arguments> provideValidationArguments() {
+		List<Arguments> args = new ArrayList<Arguments>();
+
+		try {
+			Stream<Path> s = Files.walk(testFolder.toPath())
+					.filter(p -> Files.isRegularFile(p) && p.getFileName().toString().split("-")[0].split(";")[0].equals("v"));
+			for (Path path : (Iterable<Path>) () -> s.iterator()) {
+				String name = path.getFileName().toString().split("-")[1].split("\\.")[0];
+				String relativePath = projectFolder.toURI().relativize(path.toFile().toURI()).getPath();
+				String ecoreName;
+				String xmiName;
+				if(path.getFileName().toString().split("-")[0].split(";").length==3) {
+					ecoreName = path.getFileName().toString().split("-")[0].split(";")[1] + ".ecore";
+					xmiName = path.getFileName().toString().split("-")[0].split(";")[2] + ".xmi";
+				} else {
+					ecoreName = emptyEcoreName;
+					xmiName = liarXmiName;
+				}
+				args.add(Arguments.of(Named.of(name, relativePath), ecoreName, xmiName));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return args;
+	}
+
 	private static List<Arguments> provideTypeCheckingArguments() {
 		List<Arguments> args = new ArrayList<Arguments>();
 
@@ -143,26 +171,37 @@ public class TestsUnitaires {
 	}
 	
 	@ParameterizedTest(name = "{0}")
-	@MethodSource("provideValidationArguments")
-	@DisplayName("Tests KO sur la validation")
-	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
+	@MethodSource("provideValidationUndefinedArguments")
+	@DisplayName("Tests KO sur la validation (retourne null)")
+	void testValidationUndefined(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
 		
 		List<OclInvariant> invs = LauncherUtils.getInvariants(workspacePath, projectName, moclName);
-		assertEquals(1, invs.size(), "Test malformé");
+		assertEquals(1, invs.size(), "Test malformé, il doit n'y avoir qu'un invariant à tester dans le fichier mocl");
 		
 		List<ValidationError> errors = result.getInvariantError(invs.get(0));
 		
-		assertTrue("Aucune erreur de validation trouvée.", !errors.isEmpty());
+		List<ValidationError> undefinedErors = new ArrayList<ValidationError>();
+		for (ValidationError error : errors) {
+			if(error instanceof ValidationError) {
+				undefinedErors.add(error);
+			}
+		}
+		
+		assertFalse("Aucune valeur \"null\" retournée.", undefinedErors.isEmpty());
+		
+		if (undefinedErors.size() != errors.size())
+			System.out.println("\u001B[33mWARNING : Le test a vérifié pluieurs élments et il n'as pas retourné le même résultat pour chaque.\u001B[0m");
+		
 	}
 
-	private static List<Arguments> provideValidationArguments() {
+	private static List<Arguments> provideValidationUndefinedArguments() {
 		List<Arguments> args = new ArrayList<Arguments>();
 
 		try {
 			Stream<Path> s = Files.walk(testFolder.toPath())
-					.filter(p -> Files.isRegularFile(p) && p.getFileName().toString().split("-")[0].split(";")[0].equals("v"));
+					.filter(p -> Files.isRegularFile(p) && p.getFileName().toString().split("-")[0].split(";")[0].equals("vu"));
 			for (Path path : (Iterable<Path>) () -> s.iterator()) {
 				String name = path.getFileName().toString().split("-")[1].split("\\.")[0];
 				String relativePath = projectFolder.toURI().relativize(path.toFile().toURI()).getPath();
@@ -182,6 +221,30 @@ public class TestsUnitaires {
 		}
 
 		return args;
+	}
+	
+	@ParameterizedTest(name = "{0}")
+	@MethodSource("provideValidationArguments")
+	@DisplayName("Tests KO sur la validation")
+	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
+		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
+		ValidationResult result = resultMap.get(xmi);
+		
+		List<OclInvariant> invs = LauncherUtils.getInvariants(workspacePath, projectName, moclName);
+		assertEquals(1, invs.size(), "Test malformé");
+		
+		List<ValidationError> errors = result.getInvariantError(invs.get(0));
+		
+		List<ValidationError> undefinedErors = new ArrayList<ValidationError>();
+		for (ValidationError error : errors) {
+			if(error instanceof ValidationError) {
+				undefinedErors.add(error);
+			}
+		}
+		
+		assertTrue("Aucune valeur \"null\" retournée.", undefinedErors.isEmpty());
+		
+		assertFalse("Aucune erreur de validation trouvée.", errors.isEmpty());
 	}
 	
 	@ParameterizedTest(name = "{0}")
