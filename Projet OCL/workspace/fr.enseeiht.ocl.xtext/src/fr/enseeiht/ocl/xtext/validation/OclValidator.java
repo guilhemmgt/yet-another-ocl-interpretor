@@ -18,6 +18,8 @@ import fr.enseeiht.ocl.xtext.ocl.Module;
  */
 public class OclValidator extends AbstractOclValidator {
 	
+	private static final String CHECK_TYPE_DIAGNOSTIC = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType";
+	
 	public void checkType(Module module) {
 		OclInvalid invalid = OclTypeChecker.getAllTypes(module);
 		for (TypeCheckingError error : invalid.origins) {
@@ -26,9 +28,9 @@ public class OclValidator extends AbstractOclValidator {
             if(container.eGet(target.eContainingFeature()) instanceof List){
                 @SuppressWarnings("unchecked")
                 List<EObject> features = (List<EObject>) container.eGet(target.eContainingFeature());
-                error(error.getMessage(), container, target.eContainingFeature(), features.indexOf(target), "org.eclipse.xtext.diagnostics.Diagnostic.CheckType", new String[0]);
+                error(error.getMessage(), container, target.eContainingFeature(), features.indexOf(target), CHECK_TYPE_DIAGNOSTIC, new String[0]);
             } else {
-                error(error.getMessage(), container, target.eContainingFeature(), "org.eclipse.xtext.diagnostics.Diagnostic.CheckType", new String[0]);
+                error(error.getMessage(), container, target.eContainingFeature(), CHECK_TYPE_DIAGNOSTIC, new String[0]);
             }
 		}
 	}
