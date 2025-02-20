@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -52,6 +53,8 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 				return source.eGet(feat);
 			}
 		}
+	} else {
+		throw new UndefinedAccesException(source);
 	}
 	return null;
   }
