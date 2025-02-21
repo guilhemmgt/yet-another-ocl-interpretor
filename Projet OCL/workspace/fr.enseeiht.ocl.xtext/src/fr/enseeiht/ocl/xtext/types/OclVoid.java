@@ -6,10 +6,9 @@ public class OclVoid extends OclAny {
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
-		// conformance à OclAny et lui-même
-		boolean anyType = oclType.getClass().equals(OclAny.class);
-		boolean voidType = oclType.getClass().equals(OclVoid.class);
-		return anyType || voidType;
+		// conformance à tout sauf OclInvalid
+		boolean invalidType = oclType.getClass().equals(OclInvalid.class);
+		return !invalidType;
 	}
 
 	@Override

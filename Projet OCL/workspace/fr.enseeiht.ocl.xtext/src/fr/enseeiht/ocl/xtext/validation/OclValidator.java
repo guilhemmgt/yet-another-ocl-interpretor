@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 
 import fr.enseeiht.ocl.xtext.ocl.Module;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 
 /**
  * This class contains custom validation rules. 
@@ -30,6 +31,8 @@ public class OclValidator extends AbstractOclValidator {
 		try {
 			OclInvalid invalid = OclTypeChecker.getAllTypes(module);
 
+			System.out.println("Taille oclInvalid : " + invalid.origins.size());
+			
 			for (TypeCheckingError error : invalid.origins) {
 				EObject target = error.getCause();
 				EObject container = target.eContainer();
@@ -44,6 +47,10 @@ public class OclValidator extends AbstractOclValidator {
 				}
 			}
 		} catch (Exception e) {
+
+			if (e instanceof UnimplementedException) {
+				throw e;				
+			}
 			info(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"), CHECK_TYPE_DIAGNOSTIC,
 					new String[] { e.getClass().toString().split(" ")[1] });
 

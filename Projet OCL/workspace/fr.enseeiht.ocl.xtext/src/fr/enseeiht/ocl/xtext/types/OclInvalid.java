@@ -58,10 +58,8 @@ public class OclInvalid extends OclAny {
 	
 	@Override
 	public boolean conformsTo(OclType oclType) {
-		// conformance à OclAny et lui-même
-		boolean anyType = oclType.getClass().equals(OclAny.class); 
-		boolean invalidType = oclType.getClass().equals(OclInvalid.class);
-		return anyType || invalidType;
+		// conformance à tout
+		return true;
 	}
 
 	@Override

@@ -43,7 +43,7 @@ OperatorCallExp:
 	// argumentGauche=EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP) 	argumentDroite+=EqOpCallExp )*
 	argumentGauche=EqOpCallExp (operationName=BOOLOP argumentDroite=OperatorCallExp)?
 ;
-BOOLOP  		: 'and'|'or'|'xor'|'implies'|'equivalent';
+BOOLOP  		: 'and'|'or'|'xor'|'implies';
 
 EqOpCallExp:
 	//argumentGauche=RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argumentDroite+=RelOpCallExp )?

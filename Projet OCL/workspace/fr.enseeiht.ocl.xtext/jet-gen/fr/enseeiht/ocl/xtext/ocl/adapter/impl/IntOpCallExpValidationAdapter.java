@@ -7,6 +7,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclString;
+import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
@@ -77,12 +78,20 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 		  OclType type2 = arg2.getType();
 		  // Integer mod Integer : Integer
 		  boolean isInteger = type1.conformsTo(new OclInteger()) && type2.conformsTo(new OclInteger());
+		  // Invalid mod ... : Invalid
+		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
+		  // Void mod ... : Void
+		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
+		  
 		  if (isInteger) {
 			  return type1.unifyWith(type2);
 		  }
+		  else if (anyVoid && !anyInvalid) {
+			  return new OclVoid();
+		  }
 		  else {
 			  // Opération invalide
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + "(operation : '" + target.getOperationName() + "')";
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationName() + "')";
 			  return new OclInvalid(target, message, type1, type2);
 		  }
 	  }

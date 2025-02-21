@@ -8,6 +8,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
+import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -82,12 +83,20 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 		  OclType type2 = arg2.getType();
 		  // Real > Real : Bool
 		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
+		  // Invalid > ... : Invalid
+		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
+		  // Void > ... : Void
+		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
+		  
 		  if (isReal){
 			  return new OclBoolean();
 		  }
+		  else if (anyVoid && !anyInvalid) {
+			  return new OclVoid();
+		  }
 		  else {
 			  // Opération invalide
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + "(operation : '" + target.getOperationName() + "')";
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationName() + "')";
 			  return new OclInvalid(target, message, type1, type2);
 		  }
 	  }

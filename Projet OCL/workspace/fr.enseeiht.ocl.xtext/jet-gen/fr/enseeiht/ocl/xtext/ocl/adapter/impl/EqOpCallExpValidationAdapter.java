@@ -8,6 +8,7 @@ import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclString;
+import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -76,16 +77,20 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  else {
 		  OclType type1 = arg1.getType();
 		  OclType type2 = arg2.getType();
-		  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide.
+		  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide ou vide.
 		  // C'est la spé.
-		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid()) ;
-		  if (!anyInvalid) {
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + "(operation : '" + target.getOperationName() + "')";
-			  return new OclInvalid(target, message, type1, type2);
+		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
+		  // Void = ... : Void
+		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
+		  
+
+		  if (anyVoid && !anyInvalid) {
+			  return new OclVoid();
 		  }
 		  else {
 			  // Opération invalide
-			  return new OclBoolean();
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationName() + "')";
+			  return new OclInvalid(target, message, type1, type2);
 		  }
 	  }
   }
