@@ -132,6 +132,9 @@ public class LauncherUtils {
         	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.ERROR)) {
         		throw new CheckTypeException(issue.getMessage());
         	}
+        	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.INFO)) {
+        		throw new RuntimeException(issue.getData()[0] + " : " + issue.getMessage());
+        	}
         }
 		
         // Validation

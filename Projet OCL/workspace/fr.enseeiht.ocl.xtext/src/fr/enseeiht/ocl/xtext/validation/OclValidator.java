@@ -8,6 +8,7 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
 
 import fr.enseeiht.ocl.xtext.ocl.Module;
 
@@ -20,18 +21,32 @@ public class OclValidator extends AbstractOclValidator {
 	
 	private static final String CHECK_TYPE_DIAGNOSTIC = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType";
 	
+	/**
+	 * Type Checking for the OCL syntax. Should not be called manually.
+	 * @param module the root element
+	 */
+	@Check
 	public void checkType(Module module) {
-		OclInvalid invalid = OclTypeChecker.getAllTypes(module);
-		for (TypeCheckingError error : invalid.origins) {
-			EObject target = error.getCause();
-			EObject container = target.eContainer();
-            if(container.eGet(target.eContainingFeature()) instanceof List){
-                @SuppressWarnings("unchecked")
-                List<EObject> features = (List<EObject>) container.eGet(target.eContainingFeature());
-                error(error.getMessage(), container, target.eContainingFeature(), features.indexOf(target), CHECK_TYPE_DIAGNOSTIC, new String[0]);
-            } else {
-                error(error.getMessage(), container, target.eContainingFeature(), CHECK_TYPE_DIAGNOSTIC, new String[0]);
-            }
+		try {
+			OclInvalid invalid = OclTypeChecker.getAllTypes(module);
+
+			for (TypeCheckingError error : invalid.origins) {
+				EObject target = error.getCause();
+				EObject container = target.eContainer();
+				if (container.eGet(target.eContainingFeature()) instanceof List) {
+					@SuppressWarnings("unchecked")
+					List<EObject> features = (List<EObject>) container.eGet(target.eContainingFeature());
+					error(error.getMessage(), container, target.eContainingFeature(), features.indexOf(target),
+							CHECK_TYPE_DIAGNOSTIC, new String[0]);
+				} else {
+					error(error.getMessage(), container, target.eContainingFeature(), CHECK_TYPE_DIAGNOSTIC,
+							new String[0]);
+				}
+			}
+		} catch (Exception e) {
+			info(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"), CHECK_TYPE_DIAGNOSTIC,
+					new String[] { e.getClass().toString().split(" ")[1] });
+
 		}
 	}
 //	public static final String INVALID_NAME = "invalidName";
