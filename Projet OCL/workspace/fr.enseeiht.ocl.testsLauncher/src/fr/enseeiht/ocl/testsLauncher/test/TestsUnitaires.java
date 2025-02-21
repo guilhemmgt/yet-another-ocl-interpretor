@@ -124,6 +124,7 @@ public class TestsUnitaires {
 				String relativePath = projectFolder.toURI().relativize(path.toFile().toURI()).getPath();
 				String errorLine = null;
 				String sCurrentLine;
+				
 				BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
 				while ((sCurrentLine = br.readLine()) != null) {
 					System.out.println(sCurrentLine);
