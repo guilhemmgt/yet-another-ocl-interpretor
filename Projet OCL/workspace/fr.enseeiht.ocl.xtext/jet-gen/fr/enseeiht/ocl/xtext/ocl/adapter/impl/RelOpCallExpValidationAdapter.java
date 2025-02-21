@@ -5,6 +5,9 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -66,7 +69,30 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  
+	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
+	  OperatorCallExpValidationAdapter arg1 = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
+	  OperatorCallExpValidationAdapter arg2 = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
+
+	  if (arg2 == null) {
+		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
+		  return arg1.getType();
+	  } else {
+		  OclType type1 = arg1.getType();
+		  OclType type2 = arg2.getType();
+		  // Real > Real : Bool
+		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
+		  if (isReal){
+			  return new OclBoolean();
+		  }
+		  else {
+			  // Opération invalide
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + "(operation : '" + target.getOperationName() + "')";
+			  return new OclInvalid(target, message, type1, type2);
+		  }
+	  }
+	  
+	  
   }
 
   /**

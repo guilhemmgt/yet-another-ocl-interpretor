@@ -55,7 +55,6 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
 	  OperatorCallExpValidationAdapter arg = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
 	  
 	  OclType type = arg.getType();
