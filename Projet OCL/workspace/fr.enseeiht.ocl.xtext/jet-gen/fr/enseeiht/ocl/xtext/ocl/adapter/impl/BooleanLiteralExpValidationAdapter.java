@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
@@ -27,10 +28,17 @@ public final class BooleanLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de BooleanLiteralExpAdapter n'as pas encore été implémentée");
+	switch (this.target.getBooleanSymbol()) {
+		case "true":
+			return Boolean.TRUE;
+		case "false":
+			return Boolean.FALSE;
+		default:
+			throw new UnsupportedFeatureException(this.target.getBooleanSymbol());
+	}
   }
 
   /**

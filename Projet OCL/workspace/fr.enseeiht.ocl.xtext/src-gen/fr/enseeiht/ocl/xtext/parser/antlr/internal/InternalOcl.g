@@ -1770,6 +1770,15 @@ rulePrimary_OclExpression returns [EObject current=null]
 			$current = $this_OclModelElementExp_14.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15());
+		}
+		this_NullLiteralExp_15=ruleNullLiteralExp
+		{
+			$current = $this_NullLiteralExp_15.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1829,6 +1838,36 @@ ruleSelfLiteralExp returns [EObject current=null]
 		otherlv_1='self'
 		{
 			newLeafNode(otherlv_1, grammarAccess.getSelfLiteralExpAccess().getSelfKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleNullLiteralExp
+entryRuleNullLiteralExp returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNullLiteralExpRule()); }
+	iv_ruleNullLiteralExp=ruleNullLiteralExp
+	{ $current=$iv_ruleNullLiteralExp.current; }
+	EOF;
+
+// Rule NullLiteralExp
+ruleNullLiteralExp returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getNullLiteralExpAccess().getNullLiteralExpAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='null'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getNullLiteralExpAccess().getNullKeyword_1());
 		}
 	)
 ;

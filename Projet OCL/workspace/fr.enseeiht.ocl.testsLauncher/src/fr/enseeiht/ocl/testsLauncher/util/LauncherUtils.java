@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -20,7 +19,11 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.resource.XtextSyntaxDiagnostic;
-
+import org.eclipse.xtext.util.CancelIndicator;
+import org.eclipse.xtext.validation.CheckMode;
+import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.diagnostics.Severity;
 import com.google.inject.Injector;
 
 import fr.enseeiht.ocl.xtext.OclStandaloneSetup;
@@ -32,9 +35,13 @@ import fr.enseeiht.yaoi.ValidationError;
 import fr.enseeiht.yaoi.ValidationResult;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
+import fr.enseeiht.ocl.testsLauncher.exceptions.CheckTypeException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
 public class LauncherUtils {
+
+	private static Module moclObject;
+	private static Injector injector;
 
 	public static void main(String[] args) {
 		try {
@@ -48,7 +55,7 @@ public class LauncherUtils {
 				
 				for (OclInvariant inv : getInvariants(workspacePath, "TestsUnitaires", "tests/validation/v-falseInv.mocl")) {
 					
-					List<ValidationError> errors = errorsMaps.get(model).getInvariantError(inv);
+					List<ValidationError> errors = errorsMaps.get(model).getInvariantErrors(inv);
 					System.out.print("- " + inv.getName() + ":");
 					if (errors.isEmpty()) {
 						System.out.println(" OK");
@@ -62,23 +69,12 @@ public class LauncherUtils {
 				}
 			}
 			
-		} catch (FileNotFoundException | BadFileExtensionException | BadFileStructureException | SyntaxException e) {
+		} catch (FileNotFoundException | BadFileExtensionException | BadFileStructureException | SyntaxException | CheckTypeException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static List<OclInvariant> getInvariants(Path workspacePath, String projectName, String moclName) {
-		File projectFolder = new File(workspacePath.toFile().getAbsolutePath() + "/" + projectName);
-
-		Resource moclResource;
-		try {
-			moclResource = getMoclResource(projectFolder, moclName);
-		} catch (BadFileExtensionException | FileNotFoundException e) {
-			throw new RuntimeException(e);
-		}
-		
-		Module moclObject = (Module) moclResource.getContents().get(0);
-
 		List<OclInvariant> invs = new ArrayList<OclInvariant>();
 		for (OclContextBlock block : moclObject.getContextBlocks()) {
 			for (Object member : block.getMembers()) {
@@ -90,7 +86,7 @@ public class LauncherUtils {
 		return invs;
 	}
 
-	public static Map<String, ValidationResult> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException {
+	public static Map<String, ValidationResult> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
 
         File projectFolder = new File(workspacePath.toFile().getAbsolutePath() + "/" + projectName);
 		
@@ -119,16 +115,30 @@ public class LauncherUtils {
 		//Get EObjects from ecore and mocl
 		if(!(moclResource.getContents().get(0) instanceof Module))
 			throw new BadFileStructureException(moclName, moclName.split("\\.")[moclName.split("\\.").length-1].equals("mocl")?null : "mocl");
-        Module moclObject = (Module) moclResource.getContents().get(0);
+        moclObject = (Module) moclResource.getContents().get(0);
         if(!(ecoreResource.getContents().get(0) instanceof EPackage))
 			throw new BadFileStructureException(ecoreName, ecoreName.split("\\.")[ecoreName.split("\\.").length-1].equals("ecore")?null : "ecore");
         EPackage ecorePackage = (EPackage) ecoreResource.getContents().get(0);
         
         //Update the import of the mocl
         moclObject.getImports().get(0).setPackage(ecorePackage);
-		
-        Map<String, ValidationResult> xmiErrors = new HashMap<String, ValidationResult>();
+        EcoreUtil.resolveAll(moclObject);
         
+        // Check type
+        IResourceValidator validator = injector.getInstance(IResourceValidator.class);
+        List<Issue> issues = validator.validate(moclResource,
+                CheckMode.ALL, CancelIndicator.NullImpl);
+        for (Issue issue: issues) {
+        	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.ERROR)) {
+        		throw new CheckTypeException(issue.getMessage());
+        	}
+        	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.INFO)) {
+        		throw new RuntimeException(issue.getData()[0] + " : " + issue.getMessage());
+        	}
+        }
+		
+        // Validation
+        Map<String, ValidationResult> xmiErrors = new HashMap<String, ValidationResult>();
         for (String xmiName: xmiNames) {
         	Resource xmiResource = getXMLResource(projectFolder, xmiName, "xmi");
 			xmiErrors.put(xmiName, OclInterpretor.validate(xmiResource, moclObject));
@@ -164,7 +174,7 @@ public class LauncherUtils {
 		
 		URI moclURI = URI.createFileURI(moclFile.getAbsolutePath());
 		
-		Injector injector = new OclStandaloneSetup().createInjectorAndDoEMFRegistration();
+		injector = new OclStandaloneSetup().createInjectorAndDoEMFRegistration();
         XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
         Resource moclResource = resourceSet.getResource(moclURI, true);
         EcoreUtil.resolveAll(moclResource);

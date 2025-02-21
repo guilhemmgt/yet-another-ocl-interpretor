@@ -7,6 +7,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclReal;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -30,10 +31,22 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de NotOpCallExpAdapter n'as pas encore été implémentée");
+	  Object arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getValue(contextTarget);
+	  
+	  // Traitement des opérations
+	  switch (this.target.getOperationName()) {
+		  case "not":
+			  return (arg instanceof Boolean) && !((Boolean)arg);
+		  case "-":
+			  if (!(arg instanceof Number)) {
+				  return false;
+			  }
+			  return -((Number)arg).doubleValue();
+		  default:
+			  throw new UnsupportedFeatureException(this.target.getOperationName());}
   }
 
   /**

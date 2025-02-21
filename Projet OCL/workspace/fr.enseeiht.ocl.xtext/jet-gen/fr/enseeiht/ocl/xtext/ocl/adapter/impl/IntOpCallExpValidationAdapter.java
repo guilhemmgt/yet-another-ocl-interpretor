@@ -7,6 +7,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclString;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -30,10 +31,32 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de IntOpCallExpAdapter n'as pas encore été implémentée");
+	  if (this.target.getOperationName() == null) {
+		  // Passage au rang suivant
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  }
+	  
+	  // Cohérence de types
+	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	  if (!(left instanceof Integer && right instanceof Integer)) {
+		  return false;
+	  }
+	  Integer leftNum = ((Integer)left);
+	  Integer rightNum = ((Integer)right);
+	  
+	  // Traitement des opérations
+	  switch (this.target.getOperationName()) {
+		  case "div":
+			  return leftNum / rightNum;
+		  case "mod":
+			  return leftNum % rightNum;
+		  default:
+			  throw new UnsupportedFeatureException(this.target.getOperationName());
+	  }
   }
 
   /**

@@ -89,6 +89,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//VariableExp/referredVariable"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//SelfLiteralExp"/>
+    <genClasses ecoreClass="Ocl.ecore#//NullLiteralExp"/>
     <genClasses ecoreClass="Ocl.ecore#//StringLiteralExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//StringLiteralExp/stringSymbol"/>
     </genClasses>

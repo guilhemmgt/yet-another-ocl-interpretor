@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv xor2:
+	true xor true

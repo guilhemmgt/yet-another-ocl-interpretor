@@ -30,6 +30,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.NullLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
@@ -164,6 +165,9 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case OclPackage.NOT_OP_CALL_EXP:
 				sequence_NotOpCallExp(context, (NotOpCallExp) semanticObject); 
+				return; 
+			case OclPackage.NULL_LITERAL_EXP:
+				sequence_NullLiteralExp(context, (NullLiteralExp) semanticObject); 
 				return; 
 			case OclPackage.OCL_ANY_TYPE:
 				sequence_OclAnyType(context, (OclAnyType) semanticObject); 
@@ -739,6 +743,21 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getNotOpCallExpAccess().getOperationNameUNARYOPParserRuleCall_0_0_0(), semanticObject.getOperationName());
 		feeder.accept(grammarAccess.getNotOpCallExpAccess().getSourceNotOpCallExpParserRuleCall_0_1_0(), semanticObject.getSource());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Primary_OclExpression returns NullLiteralExp
+	 *     NullLiteralExp returns NullLiteralExp
+	 *
+	 * Constraint:
+	 *     {NullLiteralExp}
+	 * </pre>
+	 */
+	protected void sequence_NullLiteralExp(ISerializationContext context, NullLiteralExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
