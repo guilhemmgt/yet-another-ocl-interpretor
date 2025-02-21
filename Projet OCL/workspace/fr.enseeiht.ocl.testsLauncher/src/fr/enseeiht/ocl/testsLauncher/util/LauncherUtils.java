@@ -40,6 +40,8 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
 public class LauncherUtils {
 
+	private static final boolean CHECK_TYPE = true;
+	
 	private static Module moclObject;
 	private static Injector injector;
 
@@ -124,14 +126,16 @@ public class LauncherUtils {
         moclObject.getImports().get(0).setPackage(ecorePackage);
         EcoreUtil.resolveAll(moclObject);
         
-        // Check type
-        IResourceValidator validator = injector.getInstance(IResourceValidator.class);
-        List<Issue> issues = validator.validate(moclResource,
-                CheckMode.ALL, CancelIndicator.NullImpl);
-        for (Issue issue: issues) {
-        	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.ERROR)) {
-        		throw new CheckTypeException(issue.getMessage());
-        	}
+        if(CHECK_TYPE) {
+		    // Check type
+		    IResourceValidator validator = injector.getInstance(IResourceValidator.class);
+		    List<Issue> issues = validator.validate(moclResource,
+		            CheckMode.ALL, CancelIndicator.NullImpl);
+		    for (Issue issue: issues) {
+		    	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.ERROR)) {
+		    		throw new CheckTypeException(issue.getMessage() + ". (ligne : " + issue.getLineNumber() + "; colonne : " + issue.getColumn() + ")");
+		    	}
+		    }
         }
 		
         // Validation
