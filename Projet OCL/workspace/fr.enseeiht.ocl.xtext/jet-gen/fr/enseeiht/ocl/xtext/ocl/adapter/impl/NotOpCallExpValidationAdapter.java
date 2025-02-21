@@ -64,7 +64,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  // - Real : Real
 	  boolean isReal = type.conformsTo(new OclReal());
 	  // operator = 'not' | '-'
-	  boolean operationIsNot = this.target.getOperationName() == "not";
+	  boolean operationIsNot = this.target.getOperationName().equals("not");
 	  // Invalid + ... : Invalid
 	  boolean isInvalid = type.conformsTo(new OclInvalid());
 	  // Void + ... : Void

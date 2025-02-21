@@ -40,8 +40,7 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 	  // L'expression dans les parenthèses
-	  OclExpressionValidationAdapter exp = (OclExpressionValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp());
-	  
+	  OCLAdapter exp =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp());
 	  return exp.getType();
 	  
   }

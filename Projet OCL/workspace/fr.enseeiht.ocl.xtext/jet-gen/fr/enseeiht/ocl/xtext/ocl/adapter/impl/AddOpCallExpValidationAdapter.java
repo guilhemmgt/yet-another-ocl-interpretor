@@ -83,7 +83,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  // Real + Real : Real
 		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
 		  // operator = '+' | '-'
-		  boolean operatorIsAddition = this.target.getOperationName() == "+";
+		  boolean operatorIsAddition = this.target.getOperationName().equals("+");
 		  // Invalid + ... : Invalid
 		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
 		  // Void + ... : Void
