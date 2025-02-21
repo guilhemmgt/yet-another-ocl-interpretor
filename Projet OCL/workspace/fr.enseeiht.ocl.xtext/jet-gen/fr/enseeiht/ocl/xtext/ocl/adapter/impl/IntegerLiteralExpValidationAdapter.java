@@ -29,7 +29,7 @@ public final class IntegerLiteralExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  return (Number)this.target.getIntegerSymbol();
+	  return (Integer)this.target.getIntegerSymbol();
   }
 
   /**

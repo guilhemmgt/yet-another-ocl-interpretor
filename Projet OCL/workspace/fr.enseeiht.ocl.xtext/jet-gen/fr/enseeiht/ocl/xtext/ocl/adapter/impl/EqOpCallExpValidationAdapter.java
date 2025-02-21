@@ -38,14 +38,12 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
-	  Boolean equal;
-	  if (left != null) {
-		  equal = left.equals(right) || (left instanceof Number && right instanceof Number && ((Number)left).doubleValue() == ((Number)right).doubleValue());
-	  } else {
-		  equal = right == null;
-	  }
+	  
+	  Boolean equal = (left instanceof Number && right instanceof Number && ((Number)left).doubleValue() == ((Number)right).doubleValue()) ||
+			  		  (left != null && left.equals(right)) || 
+			  		  (left == right);
 
-	  // Traitement des opérations  '='|'<>'
+	  // Traitement des opérations
 	  switch(this.target.getOperationName()) {
 	  	case "=": 
 	  		return equal;

@@ -29,7 +29,7 @@ public final class RealLiteralExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  return (Number)this.target.getRealSymbol();
+	  return (Double)this.target.getRealSymbol();
   }
 
   /**
