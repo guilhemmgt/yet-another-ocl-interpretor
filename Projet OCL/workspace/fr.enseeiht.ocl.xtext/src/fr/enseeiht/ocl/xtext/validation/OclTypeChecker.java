@@ -49,7 +49,6 @@ public class OclTypeChecker {
 			// Récupération de l'expression dans l'invariant
 			OCLAdapter exp = OCLValidationAdapterFactory.INSTANCE.createAdapter(inv.getBody());
 			OclType type = exp.getType();
-			System.out.println("Step");
 			// L'expression dans l'invariant doit nécessairement avoir un type Boolean
 			boolean isCorrect = type.conformsTo(new OclBoolean());
 			boolean isInvalid = type.conformsTo(new OclInvalid());
@@ -62,8 +61,6 @@ public class OclTypeChecker {
 			}
 			
 		}
-		System.out.println("invalidList :");
-		System.out.println(flattenInvalid(invalidList));
 		return flattenInvalid(invalidList);
 		
 	}

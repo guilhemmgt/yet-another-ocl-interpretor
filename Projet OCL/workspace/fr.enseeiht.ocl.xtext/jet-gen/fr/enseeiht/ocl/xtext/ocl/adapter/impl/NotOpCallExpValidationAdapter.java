@@ -56,7 +56,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  OperatorCallExpValidationAdapter arg = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
+	  OCLAdapter arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
 	  
 	  OclType type = arg.getType();
 	  // not Boolean : boolean

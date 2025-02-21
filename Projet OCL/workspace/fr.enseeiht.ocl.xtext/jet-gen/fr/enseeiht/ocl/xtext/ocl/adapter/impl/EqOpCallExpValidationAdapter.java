@@ -68,13 +68,13 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OperatorCallExpValidationAdapter arg1 = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
-	  OperatorCallExpValidationAdapter arg2 = (OperatorCallExpValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
-	  if (arg2 == null) {
+	  OCLAdapter arg1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
+	  if (this.target.getArgumentDroite() == null) {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
 		  return arg1.getType();
 	  }
 	  else {
+		  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
 		  OclType type1 = arg1.getType();
 		  OclType type2 = arg2.getType();
 		  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide ou vide.
