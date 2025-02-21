@@ -8,6 +8,8 @@ inv plus2:
 	2.5+0.5=3
 inv plus3:
 	2.5+2=4.5
+inv plus4:
+	2. + 1. = 3
 	
 inv minus1:
 	4-2=2
