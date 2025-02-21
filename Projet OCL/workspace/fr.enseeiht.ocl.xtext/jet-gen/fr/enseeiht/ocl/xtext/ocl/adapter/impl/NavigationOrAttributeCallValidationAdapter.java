@@ -49,7 +49,6 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	if (source != null) {
 		for (EStructuralFeature feat : source.eClass().getEAllStructuralFeatures()) {
 			if (this.target.getName().equals(feat.getName())) {
-				System.out.println(source.eGet(feat));
 				return source.eGet(feat);
 			}
 		}

@@ -5,8 +5,6 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.ocl.util.OclAdapterFactory;
-import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
