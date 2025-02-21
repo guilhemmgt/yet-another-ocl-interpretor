@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -32,7 +33,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    */
   public Object getValue(EObject contextTarget) {
 	  Object arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getValue(contextTarget);
-	  
+	  if (arg == null) throw new UndefinedAccesException(this.target.getSource());
 	  // Traitement des opérations
 	  switch (this.target.getOperationName()) {
 		  case "not":
