@@ -19,7 +19,8 @@ import fr.enseeiht.ocl.xtext.ocl.Module;
  */
 public class OclValidator extends AbstractOclValidator {
 	
-	private static final String CHECK_TYPE_DIAGNOSTIC = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType";
+	private static final String CHECK_TYPE_DIAGNOSTIC = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType";	
+	private static final String CHECK_TYPE_DIAGNOSTIC_TEMP_EXCEPTION = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType.Exception";
 	
 	/**
 	 * Type Checking for the OCL syntax. Should not be called manually.
@@ -47,7 +48,7 @@ public class OclValidator extends AbstractOclValidator {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			info(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"), CHECK_TYPE_DIAGNOSTIC,
+			warning(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"), CHECK_TYPE_DIAGNOSTIC_TEMP_EXCEPTION,
 					new String[] { e.getClass().toString().split(" ")[1] });
 
 		}

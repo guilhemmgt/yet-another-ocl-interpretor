@@ -135,7 +135,7 @@ public class LauncherUtils {
 		    	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.ERROR)) {
 		    		throw new CheckTypeException(issue.getMessage() + ". (ligne : " + issue.getLineNumber() + "; colonne : " + issue.getColumn() + ")");
 		    	}
-				if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.INFO)) {
+				if(issue.getCode().endsWith("CheckType.Exception") && (issue.getSeverity() == Severity.WARNING)) {
 					throw new RuntimeException(issue.getData()[0] + " : " + issue.getMessage());
 				}
 		    }
