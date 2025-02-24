@@ -55,7 +55,7 @@
    <extension
          point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
-            class="fr.enseeiht.yaoi.ui.testers.isEcore"
+            class="fr.enseeiht.yaoi.ui.testers.IsEcore"
             id="fr.enseeiht.yaoi.ui.isEcore"
             namespace="fr.enseeiht.yaoi.ui"
             properties="isecore"
