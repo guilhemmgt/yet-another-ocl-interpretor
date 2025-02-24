@@ -44,10 +44,13 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  // TODO : la moitié du truc, c'est juste pour faire marcher les tests.
-	  OCLAdapter arg1 =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
-	  return arg1.getType()
-;  }
+	  // On renvoie lui meme
+	  if (this.target.getCalls().isEmpty()) {
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getType();
+	  }
+	  // On renvoie le dernier call
+	  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getCalls().get(this.target.getCalls().size()-1)).getType();
+  }
 
   /**
    * Get adapted element
