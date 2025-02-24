@@ -3,8 +3,10 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -34,16 +36,36 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 		// Passage au rang suivant
 		return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	}
+	
+	Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+	Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	
+	if (left == null || right == null) {
+		// Levée d'erreur et envoi de l'argument fautif
+		throw new UndefinedAccesException(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
+	}
+	
+	if (!(left instanceof Boolean && right instanceof Boolean)) {
+		return false;
+	}
+	Boolean leftBool = ((Boolean)left);
+	Boolean rightBool = ((Boolean)right);
+	
 	// Traitement des opérations  'and'|'or'|'xor'|'implies'|'equivalent'
 	switch(this.target.getOperationName()) {
-		case "and": 
+		case "and":
+			return leftBool && rightBool;
 		case "or": 
+			return leftBool || rightBool;
 		case "xor":
+			return leftBool ^ rightBool;
 		case "implies":
+			return !leftBool || (leftBool && rightBool);
 		case "equivalent":
-			break;
+			return (!leftBool && !rightBool) || (leftBool && rightBool);
+		default:
+			  throw new UnsupportedFeatureException(this.target.getOperationName());
 	}
-	throw new UnimplementedException("La methode getValue de OperatorCallExpAdapter n'as pas encore été implémentée pour cette opérations");
   }
 
   /**
@@ -52,7 +74,7 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de OperatorCallExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

@@ -29,7 +29,7 @@ public final class SetTypeValidationAdapter implements OCLAdapter {
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de SetTypeAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getValue");
   }
 
   /**
@@ -38,7 +38,7 @@ public final class SetTypeValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de SetTypeAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

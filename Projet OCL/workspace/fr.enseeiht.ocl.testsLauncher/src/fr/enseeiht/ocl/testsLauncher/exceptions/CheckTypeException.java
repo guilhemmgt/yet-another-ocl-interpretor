@@ -1,15 +1,15 @@
 package fr.enseeiht.ocl.testsLauncher.exceptions;
 
-public class TypeCheckingException extends Exception {
+public class CheckTypeException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	public TypeCheckingException(String message) {
+	public CheckTypeException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public TypeCheckingException(String message, Throwable cause) {
+	public CheckTypeException(String message, Throwable cause) {
 		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}

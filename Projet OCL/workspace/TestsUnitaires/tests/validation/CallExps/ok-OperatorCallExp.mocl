@@ -1,0 +1,36 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv and1:
+	true and true
+inv and2:
+	true and true and true
+
+inv or1:
+	true or false
+inv or2:
+	false or true
+inv or3:
+	false or false or true
+
+inv xor1:
+	false xor true
+inv xor2:
+	true xor false
+inv xor3:
+	true xor false xor false
+
+inv implies1:
+	false implies true
+inv implies2:
+	false implies false
+inv implies3:
+	true implies true
+inv implies4:
+	true implies false implies true
+
+inv equivalent1:
+	true equivalent true
+inv equivalent2:
+	false equivalent false

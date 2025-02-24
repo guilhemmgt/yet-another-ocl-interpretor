@@ -31,6 +31,7 @@ import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.NullLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
@@ -241,6 +242,11 @@ public class OclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSelfLiteralExp(SelfLiteralExp object)
       {
         return createSelfLiteralExpAdapter();
+      }
+      @Override
+      public Adapter caseNullLiteralExp(NullLiteralExp object)
+      {
+        return createNullLiteralExpAdapter();
       }
       @Override
       public Adapter caseStringLiteralExp(StringLiteralExp object)
@@ -785,6 +791,21 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSelfLiteralExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.NullLiteralExp <em>Null Literal Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.NullLiteralExp
+   * @generated
+   */
+  public Adapter createNullLiteralExpAdapter()
   {
     return null;
   }

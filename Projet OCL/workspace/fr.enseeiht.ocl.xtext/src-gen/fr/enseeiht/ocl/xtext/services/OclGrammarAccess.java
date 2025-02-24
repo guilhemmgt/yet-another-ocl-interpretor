@@ -939,6 +939,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cIfExpParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		private final RuleCall cBraceExpParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		private final RuleCall cOclModelElementExpParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cNullLiteralExpParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
 		
 		//Primary_OclExpression returns OclExpression :
 		//    VariableExp
@@ -955,7 +956,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    |EnumLiteralExp
 		//    |IfExp
 		//    |BraceExp
-		//    |OclModelElementExp;
+		//    |OclModelElementExp
+		//    |NullLiteralExp;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//VariableExp
@@ -973,6 +975,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//|IfExp
 		//|BraceExp
 		//|OclModelElementExp
+		//|NullLiteralExp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//VariableExp
@@ -1019,6 +1022,9 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//OclModelElementExp
 		public RuleCall getOclModelElementExpParserRuleCall_14() { return cOclModelElementExpParserRuleCall_14; }
+		
+		//NullLiteralExp
+		public RuleCall getNullLiteralExpParserRuleCall_15() { return cNullLiteralExpParserRuleCall_15; }
 	}
 	public class AuxiliaryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Auxiliary");
@@ -1081,6 +1087,26 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//'self'
 		public Keyword getSelfKeyword_1() { return cSelfKeyword_1; }
+	}
+	public class NullLiteralExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.NullLiteralExp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cNullLiteralExpAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNullKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//NullLiteralExp :
+		//    {NullLiteralExp} 'null'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{NullLiteralExp} 'null'
+		public Group getGroup() { return cGroup; }
+		
+		//{NullLiteralExp}
+		public Action getNullLiteralExpAction_0() { return cNullLiteralExpAction_0; }
+		
+		//'null'
+		public Keyword getNullKeyword_1() { return cNullKeyword_1; }
 	}
 	public class StringLiteralExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.StringLiteralExp");
@@ -2793,6 +2819,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final AuxiliaryElements pAuxiliary;
 	private final VariableExpElements pVariableExp;
 	private final SelfLiteralExpElements pSelfLiteralExp;
+	private final NullLiteralExpElements pNullLiteralExp;
 	private final StringLiteralExpElements pStringLiteralExp;
 	private final NumericLiteralExpElements pNumericLiteralExp;
 	private final RealLiteralExpElements pRealLiteralExp;
@@ -2877,6 +2904,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pAuxiliary = new AuxiliaryElements();
 		this.pVariableExp = new VariableExpElements();
 		this.pSelfLiteralExp = new SelfLiteralExpElements();
+		this.pNullLiteralExp = new NullLiteralExpElements();
 		this.pStringLiteralExp = new StringLiteralExpElements();
 		this.pNumericLiteralExp = new NumericLiteralExpElements();
 		this.pRealLiteralExp = new RealLiteralExpElements();
@@ -3236,7 +3264,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    |EnumLiteralExp
 	//    |IfExp
 	//    |BraceExp
-	//    |OclModelElementExp;
+	//    |OclModelElementExp
+	//    |NullLiteralExp;
 	public Primary_OclExpressionElements getPrimary_OclExpressionAccess() {
 		return pPrimary_OclExpression;
 	}
@@ -3274,6 +3303,17 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getSelfLiteralExpRule() {
 		return getSelfLiteralExpAccess().getRule();
+	}
+	
+	//NullLiteralExp :
+	//    {NullLiteralExp} 'null'
+	//;
+	public NullLiteralExpElements getNullLiteralExpAccess() {
+		return pNullLiteralExp;
+	}
+	
+	public ParserRule getNullLiteralExpRule() {
+		return getNullLiteralExpAccess().getRule();
 	}
 	
 	//StringLiteralExp :

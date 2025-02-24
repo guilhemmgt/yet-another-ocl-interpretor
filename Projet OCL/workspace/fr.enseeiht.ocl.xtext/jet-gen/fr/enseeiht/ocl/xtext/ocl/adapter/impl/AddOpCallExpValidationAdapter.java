@@ -3,6 +3,8 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.util.OclAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
@@ -10,6 +12,7 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -40,23 +43,32 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	  }
 	  
-	  // Cohérence de types
 	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
 	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
-	  if (!(left instanceof Number && right instanceof Number)) {
-		  return false;
+	  
+	  if (left == null || right == null) {
+		  // Levée d'erreur et envoi de l'argument fautif
+		  throw new UndefinedAccesException(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
 	  }
-	  Double leftNum = ((Number)left).doubleValue();
-	  Double rightNum = ((Number)right).doubleValue();
 	  
 	  // Traitement des opérations
 	  switch (this.target.getOperationName()) {
 		  case "+":
-			  return leftNum + rightNum;
+			  if (left instanceof Number && right instanceof Number) {
+				  return (left instanceof Integer ? (Integer)left : (Double)left) + (right instanceof Integer ? (Integer)right : (Double)right);
+			  } else if (left instanceof String && right instanceof String) {
+				  return ((String)left).concat((String)right);
+			  } else {
+				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), new Class<?>[] { left.getClass(), right.getClass() });
+			  }
 		  case "-":
-			  return leftNum - rightNum;
+			  if (left instanceof Number && right instanceof Number) {
+				  return (left instanceof Integer ? (Integer)left : (Double)left) - (right instanceof Integer ? (Integer)right : (Double)right);
+			  } else {
+				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), new Class<?>[] { left.getClass(), right.getClass() });
+			  }
 		  default:
-			  throw new UnimplementedException("La methode getValue de AddOpCallExpAdapter n'as pas encore été implémentée pour cette opération");
+			  throw new UnsupportedFeatureException(this.target.getOperationName());
 	  }
   }
 
@@ -66,7 +78,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de AddOpCallExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

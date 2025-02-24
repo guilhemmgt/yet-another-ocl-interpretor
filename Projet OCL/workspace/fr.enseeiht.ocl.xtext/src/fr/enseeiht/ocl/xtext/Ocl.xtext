@@ -103,7 +103,8 @@ Primary_OclExpression returns OclExpression :
 	|IfExp
 	|BraceExp
 	|OclModelElementExp
-	|ContextlessCallExp;
+	|ContextlessCallExp
+	|NullLiteralExp;
 
 Auxiliary :Iterator|LocalVariable|Parameter;
 VariableExp:
@@ -111,6 +112,10 @@ VariableExp:
 ;
 SelfLiteralExp :
 	{SelfLiteralExp}	'self'
+;
+
+NullLiteralExp : 
+	{NullLiteralExp} 'null'
 ;
 StringLiteralExp :
 	{StringLiteralExp}

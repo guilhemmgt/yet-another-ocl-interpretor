@@ -29,7 +29,7 @@ public final class IntegerLiteralExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  return (Number)this.target.getIntegerSymbol();
+	  return (Integer)this.target.getIntegerSymbol();
   }
 
   /**
@@ -38,7 +38,7 @@ public final class IntegerLiteralExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de IntegerLiteralExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

@@ -30,7 +30,7 @@ public final class <%=argument%>ValidationAdapter implements OCLAdapter {
 	 * @generated
 	 */
 	public Object getValue(EObject contextTarget) {
-		throw new UnimplementedException("La methode getValue de <%=argument%>Adapter n'as pas encore été implémentée");
+		throw new UnimplementedException(this.getClass(),"getValue");
 	}
 
 	/**
@@ -39,7 +39,7 @@ public final class <%=argument%>ValidationAdapter implements OCLAdapter {
 	 * @generated
 	 */
 	public OclType getType() {
-		throw new UnimplementedException("La methode getType de <%=argument%>Adapter n'as pas encore été implémentée");
+		throw new UnimplementedException(this.getClass(),"getType");
 	}
 
 	/**

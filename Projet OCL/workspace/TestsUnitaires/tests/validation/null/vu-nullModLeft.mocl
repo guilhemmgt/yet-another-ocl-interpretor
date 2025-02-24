@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv minus1:
+	null mod 2 = 2

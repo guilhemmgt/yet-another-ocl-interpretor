@@ -1,0 +1,11 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv priority1:
+	1+2*3=7
+inv priority2:
+	1+2*3+4=11
+
+inv priority3:
+	true and not (5 = 3)

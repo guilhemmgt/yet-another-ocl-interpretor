@@ -5,9 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
-import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -44,7 +42,7 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de PropertyCallExpAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**
