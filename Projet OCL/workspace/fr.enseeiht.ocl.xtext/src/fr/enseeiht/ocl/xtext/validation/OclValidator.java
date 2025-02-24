@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 
 import fr.enseeiht.ocl.xtext.ocl.Module;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 
 /**
  * This class contains custom validation rules. 
@@ -47,10 +46,7 @@ public class OclValidator extends AbstractOclValidator {
 				}
 			}
 		} catch (Exception e) {
-
-			if (e instanceof UnimplementedException) {
-				throw e;				
-			}
+			e.printStackTrace();
 			info(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"), CHECK_TYPE_DIAGNOSTIC,
 					new String[] { e.getClass().toString().split(" ")[1] });
 
