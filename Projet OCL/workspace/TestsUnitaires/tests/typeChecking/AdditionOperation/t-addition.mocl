@@ -1,5 +1,6 @@
 import "http://empty" as empty
 
 context empty!empty.Liar
+
 inv r:
-  "s"=1
+  1+"s" = "échec"
