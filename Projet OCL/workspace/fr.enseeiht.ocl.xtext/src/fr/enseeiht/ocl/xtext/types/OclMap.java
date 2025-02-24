@@ -7,18 +7,28 @@ import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 
 public class OclMap extends OclAny {
 
-	protected Map<OclType, OclType> subtypes;
+	protected OclType keyType;
+	protected OclType valueType;
 	
-	public Map<OclType, OclType> getSubtypes() {
-		return subtypes;
+	public OclType getKeyType() {
+		return keyType;
 	}
 
-	public void setSubtypes(Map<OclType, OclType> subtypes) {
-		this.subtypes = subtypes;
+	public void setKeyType(OclType keyType) {
+		this.keyType = keyType;
 	}
 
-	public OclMap(Map<OclType, OclType> subtypes) {
-		this.subtypes = subtypes;
+	public OclType getValueType() {
+		return valueType;
+	}
+
+	public void setValueType(OclType valueType) {
+		this.valueType = valueType;
+	}
+
+	public OclMap(OclType key, OclType value) {
+		this.keyType = key;
+		this.valueType = value;
 	}
 
 	@Override
@@ -31,11 +41,7 @@ public class OclMap extends OclAny {
 		if (oclType.getClass().equals(OclMap.class)) {
 			// Vérification de la conformance des types des éléments
 			OclMap OclMapType = (OclMap) oclType; 
-			for (OclType type : subtypes.keySet()) {
-				if (OclMapType.subtypes.get(type).conformsTo(type)) {
-					return true;
-				}
-			}
+			mapType = keyType.conformsTo(OclMapType.keyType) && valueType.conformsTo(OclMapType.valueType);
 		}
 		return anyType || mapType;
 	}
@@ -44,18 +50,16 @@ public class OclMap extends OclAny {
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre map en une map avec pour sous-type l'unification des sous-types.
 		if (oclType instanceof OclMap) {
-			//return new OclMap(((OclMap) oclType).subtypes.unifyWith(subtypes));
-			return new OclAny();
+			OclMap map = (OclMap) oclType;
+			return new OclMap(keyType.unifyWith(map), valueType.unifyWith(map.valueType));
 		}
 		else {
 			return new OclAny();
 		}
 	}
 	
-
-	
 	@Override
 	public String toString() {
-		return "OclMap<" + subtypes.toString() + ">";
+		return "OclMap<" + keyType.toString() + ", " + valueType.toString() +">";
 	}
 }
