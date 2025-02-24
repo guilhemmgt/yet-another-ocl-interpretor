@@ -2,16 +2,13 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroException;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
-import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
