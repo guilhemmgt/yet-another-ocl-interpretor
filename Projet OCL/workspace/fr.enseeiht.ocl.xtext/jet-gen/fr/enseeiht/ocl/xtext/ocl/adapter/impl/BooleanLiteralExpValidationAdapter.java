@@ -47,7 +47,7 @@ public final class BooleanLiteralExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-    return new OclBoolean();
+	  return new OclBoolean();
   }
 
   /**

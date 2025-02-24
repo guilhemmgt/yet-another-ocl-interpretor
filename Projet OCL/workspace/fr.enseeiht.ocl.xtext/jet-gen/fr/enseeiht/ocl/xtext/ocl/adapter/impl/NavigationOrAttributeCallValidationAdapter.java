@@ -76,7 +76,8 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-       public boolean conformsTo(OclType oclType) {
+  
+  public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }
