@@ -366,6 +366,15 @@ public interface OclFactory extends EFactory
   BraceExp createBraceExp();
 
   /**
+   * Returns a new object of class '<em>Contextless Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Contextless Call Exp</em>'.
+   * @generated
+   */
+  ContextlessCallExp createContextlessCallExp();
+
+  /**
    * Returns a new object of class '<em>Boolean Literal Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

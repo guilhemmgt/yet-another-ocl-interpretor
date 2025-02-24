@@ -44,7 +44,8 @@ public class OclMap extends OclAny {
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre map en une map avec pour sous-type l'unification des sous-types.
 		if (oclType instanceof OclMap) {
-			return new OclMap(((OclMap) oclType).subtype.unifyWith(subtype));
+			//return new OclMap(((OclMap) oclType).subtypes.unifyWith(subtypes));
+			return new OclAny();
 		}
 		else {
 			return new OclAny();
@@ -55,6 +56,6 @@ public class OclMap extends OclAny {
 	
 	@Override
 	public String toString() {
-		return "OclMap<" + subtype.toString() + ">";
+		return "OclMap<" + subtypes.toString() + ">";
 	}
 }

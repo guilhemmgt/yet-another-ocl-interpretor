@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -99,7 +100,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-     public boolean conformsTo(OclType oclType) {
+       public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

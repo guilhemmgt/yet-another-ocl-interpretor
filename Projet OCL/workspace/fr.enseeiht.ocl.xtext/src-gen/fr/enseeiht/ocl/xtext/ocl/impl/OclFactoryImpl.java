@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
@@ -167,6 +168,7 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.LET_EXP: return createLetExp();
       case OclPackage.IF_EXP: return createIfExp();
       case OclPackage.BRACE_EXP: return createBraceExp();
+      case OclPackage.CONTEXTLESS_CALL_EXP: return createContextlessCallExp();
       case OclPackage.BOOLEAN_LITERAL_EXP: return createBooleanLiteralExp();
       case OclPackage.PROPERTY_CALL: return createPropertyCall();
       case OclPackage.OPERATION_CALL: return createOperationCall();
@@ -652,6 +654,18 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     BraceExpImpl braceExp = new BraceExpImpl();
     return braceExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ContextlessCallExp createContextlessCallExp()
+  {
+    ContextlessCallExpImpl contextlessCallExp = new ContextlessCallExpImpl();
+    return contextlessCallExp;
   }
 
   /**

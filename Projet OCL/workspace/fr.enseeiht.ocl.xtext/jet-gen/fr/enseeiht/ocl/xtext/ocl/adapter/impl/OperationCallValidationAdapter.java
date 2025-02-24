@@ -42,7 +42,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-	  throw new UnimplementedException(getClass(), null);
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

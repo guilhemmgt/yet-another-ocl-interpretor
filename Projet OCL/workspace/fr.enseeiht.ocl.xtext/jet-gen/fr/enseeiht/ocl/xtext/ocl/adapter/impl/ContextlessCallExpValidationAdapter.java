@@ -2,22 +2,21 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.NullLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 /**
- * OCLAdapter for NullLiteralExp
+ * OCLAdapter for ContextlessCallExp
  * @generated
  */
-public final class NullLiteralExpValidationAdapter implements OCLAdapter {
+public final class ContextlessCallExpValidationAdapter implements OCLAdapter {
 
-  private NullLiteralExp target;
+  private ContextlessCallExp target;
 
   /**
    * @generated
    */
-  public NullLiteralExpValidationAdapter(NullLiteralExp object) {
+  public ContextlessCallExpValidationAdapter(ContextlessCallExp object) {
     this.target = object;
   }
 
@@ -25,19 +24,19 @@ public final class NullLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated NOT
+   * @generated
    */
   public Object getValue(EObject contextTarget) {
-	  return null;
+    throw new UnimplementedException(this.getClass(),"getValue");
   }
 
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated Not
+   * @generated
    */
   public OclType getType() {
-    return new OclVoid();
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**
