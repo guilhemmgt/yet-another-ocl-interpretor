@@ -4,7 +4,7 @@ import fr.enseeiht.ocl.xtext.OclType;
 
 public class OclCollection extends OclAny {
 	 
-	public OclAny subtype;
+	public OclType subtype;
 	
 	public OclCollection(OclAny subtype) {
 		this.subtype = subtype;
