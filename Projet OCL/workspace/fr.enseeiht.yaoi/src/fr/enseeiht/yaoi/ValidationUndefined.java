@@ -7,7 +7,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 public class ValidationUndefined implements ValidationError {
 	private OclInvariant failedInvariant;
 	private EObject testedObject;
-	private EObject nullExpr;
+	private String message;
 	
 	/**
 	 * Create an ValidationFailed that indicate the failure of an invariant by an EObject 
@@ -15,10 +15,10 @@ public class ValidationUndefined implements ValidationError {
 	 * @param testedObject
 	 * @param message
 	 */
-	public ValidationUndefined(OclInvariant failedInvariant, EObject testedObject, EObject nullExpr) {
+	public ValidationUndefined(OclInvariant failedInvariant, EObject testedObject, String message) {
 		this.failedInvariant = failedInvariant;
 		this.testedObject = testedObject;
-		this.nullExpr = nullExpr;
+		this.message = message;
 	}
 	
 	/**
@@ -27,7 +27,7 @@ public class ValidationUndefined implements ValidationError {
 	 */
 	@Override
 	public OclInvariant getFailedInvariant() {
-		return failedInvariant;
+		return this.failedInvariant;
 	}
 	
 	/**
@@ -36,15 +36,15 @@ public class ValidationUndefined implements ValidationError {
 	 */
 	@Override
 	public EObject getTestedObject() {
-		return testedObject;
+		return this.testedObject;
 	}
 	
-	public EObject getNullExpression() {
-		return this.nullExpr;
+	public String getMessage() {
+		return this.message;
 	}
 	
 	@Override
 	public String toString() {
-		return this.failedInvariant.getName() + " is undefined for object " + this.testedObject + " because " + this.nullExpr + " is null";
+		return this.failedInvariant.getName() + " is undefined for object " + this.testedObject + ": " + this.message;
 	}
 }

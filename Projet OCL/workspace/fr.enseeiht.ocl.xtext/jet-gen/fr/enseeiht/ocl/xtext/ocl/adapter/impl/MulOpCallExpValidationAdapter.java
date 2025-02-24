@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
@@ -55,6 +56,8 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 		  case "*":
 			  return (left instanceof Integer ? (Integer)left : (Double)left) * (right instanceof Integer ? (Integer)right : (Double)right);
 		  case "/":
+			  if ((right instanceof Integer ? (Integer)right : (Double)right) == 0) // Pas de division par zéro
+				  throw new DivisionByZeroException(this.target.getArgumentDroite());
 			  return (left instanceof Integer ? (Integer)left : (Double)left) / (right instanceof Integer ? (Integer)right : (Double)right);
 		  default:
 			  throw new UnsupportedFeatureException(this.target.getOperationName());

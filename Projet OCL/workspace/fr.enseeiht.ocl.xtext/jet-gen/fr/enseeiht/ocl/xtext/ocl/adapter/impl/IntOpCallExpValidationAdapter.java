@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
@@ -56,8 +57,12 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 	  // Traitement des opérations
 	  switch (this.target.getOperationName()) {
 		  case "div":
+			  if (rightNum == 0)
+				  throw new DivisionByZeroException(this.target.getArgumentDroite());
 			  return leftNum / rightNum;
 		  case "mod":
+			  if (rightNum == 0)
+				  throw new DivisionByZeroException(this.target.getArgumentDroite());
 			  return leftNum % rightNum;
 		  default:
 			  throw new UnsupportedFeatureException(this.target.getOperationName());
