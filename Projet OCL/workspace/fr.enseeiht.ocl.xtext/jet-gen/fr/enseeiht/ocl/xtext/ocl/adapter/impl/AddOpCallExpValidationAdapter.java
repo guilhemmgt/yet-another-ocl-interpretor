@@ -1,6 +1,10 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.LinkedList;
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
@@ -13,6 +17,7 @@ import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -67,42 +72,81 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
    * @return type of the element
    * @generated NOT
    */
-  public OclType getType() { // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OCLAdapter arg1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
-	  if (this.target.getArgumentDroite() == null) {
-		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
-		  return arg1.getType();
+  public OclType getType() {
+	  // On s'assure que tous les types sont conformes à l'un des types valides de l'opération
+	  this.target.getArgs();
+	  OclType t0 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getType();
+	  if (this.target.getOperationNames().isEmpty()) {
+		  // Il n'y a pas de membre à droite, on renvoie le type du premier
+		  return t0;
 	  }
 	  else {
-		  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
-		  OclType type1 = arg1.getType();
-		  OclType type2 = arg2.getType();
-		  // String + String : String
-		  boolean isString = type1.conformsTo(new OclString()) && type2.conformsTo(new OclString());
-		  // Real + Real : Real
-		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
-		  // operator = '+' | '-'
-		  boolean operatorIsAddition = this.target.getOperationName().equals("+");
-		  // Invalid + ... : Invalid
-		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-		  // Void + ... : Void
-		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
+		  // On boucle sur les opérations
+		  int itr = 1;
+		  // String, supportant "+"
+		  boolean isString = t0.conformsTo(new OclString());
+		  // Real / Integer, supportant "+-"
+		  boolean isReal = t0.conformsTo(new OclReal());
+		  // operator = '+' | '-'. Utile pour string
+		  boolean operatorIsAddition = true;
+		  OclInvalid fail_collector = null;
+		  boolean anyVoid = false;
+		  // Le résultat de l'unification des types
+		  OclType unifyResult = t0;
+		  // Pour le report des erreurs: stocke les types uniques
+		  List<OclType> uniqueTypes = new LinkedList<OclType>();
+		  
+		  while (target.getArgs().get(itr) != null) {
+			  OclType titr = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(itr)).getType();
+			  
+			  isString = isString && titr.conformsTo(new OclString());
+			  isReal = isReal && titr.conformsTo(new OclReal());
+			  operatorIsAddition = operatorIsAddition && this.target.getOperationNames().get(itr-1).equals("+");
+			  
+			  if (titr.conformsTo(new OclInvalid())) {
+				  if (fail_collector == null) {
+					  fail_collector = new OclInvalid(titr);
+				  } else {
+					  fail_collector = new OclInvalid(fail_collector, titr);
+				  }
+			  }
+			  anyVoid = anyVoid && titr.conformsTo(new OclVoid());
+			  
+			  if (isString || isReal) {
+				  unifyResult = unifyResult.unifyWith(titr);
+			  }
+			  
+			  boolean isUnique = true;
+			  for (OclType typ : uniqueTypes) {
+				  isUnique = isUnique && typ.getClass().equals(titr.getClass());
+			  }
+			  if (!isUnique) {
+				  uniqueTypes.add(titr);
+			  }
+		  }
 		  
 		  if ((isString || isReal) && operatorIsAddition ){
 			  // Rappel : Puisque Integer s'unifie avec Real, on a : Real + Integer : Real
-			  return type1.unifyWith(type2);
+			  return unifyResult;
 		  }
 		  else if (isReal && !operatorIsAddition){
-			  return type1.unifyWith(type2);
+			  return unifyResult;
 		  }
-		  else if (anyVoid && !anyInvalid) {
+		  else if (anyVoid && fail_collector == null) {
 			  return new OclVoid();
 		  }
 		  else {
 			  // Opération invalide
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationName() + "')";
-			  return new OclInvalid(target, message, type1, type2);
-		
+			  String message = "Invalid operation '" + (operatorIsAddition ? "+" : "-") + "' with types ";
+			  List<String> messageStr = new LinkedList<String>(); 
+			  for (OclType typ : uniqueTypes) {
+				  messageStr.add(typ.toString());
+			  }
+			  message += String.join(", ", messageStr) + ".";
+			  if (fail_collector != null) return new OclInvalid(target, message, fail_collector);
+			  else return new OclInvalid(target, message);
+		  }
+		}
   }
 
   /**
