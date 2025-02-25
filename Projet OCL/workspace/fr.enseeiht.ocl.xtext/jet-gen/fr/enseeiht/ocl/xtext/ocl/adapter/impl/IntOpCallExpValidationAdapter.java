@@ -5,12 +5,13 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -48,10 +49,12 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 	
 		  if (result == null || right == null) {
 			  // Levée d'erreur et envoi de l'argument fautif
-			  throw new UndefinedAccesException(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i+1));
+			  result = new UndefinedAccessInvalid(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i+1));
 		  }
-		  
-		  if (!(result instanceof Integer && right instanceof Integer)) {
+	  if (result instanceof Invalid || right instanceof Invalid) {
+		  result = result instanceof Invalid ? result : right;
+	  }
+			  if (!(result instanceof Integer && right instanceof Integer)) {
 			  throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i), new Class<?>[] { result.getClass(), right.getClass() });
 		  }
 		  Integer leftNum = ((Integer)result);
@@ -61,12 +64,12 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 		  switch (this.target.getOperationNames().get(i)) {
 			  case "div":
 				  if (rightNum == 0)
-					  throw new DivisionByZeroException(this.target.getArgs().get(i+1));
+					  return new DivisionByZeroInvalid(this.target.getArgs().get(i+1));
 				  result = leftNum / rightNum;
 				  break;
 			  case "mod":
 				  if (rightNum == 0)
-					  throw new DivisionByZeroException(this.target.getArgs().get(i+1));
+					  return new DivisionByZeroInvalid(this.target.getArgs().get(i+1));
 				  result = leftNum % rightNum;
 				  break;
 			  default:

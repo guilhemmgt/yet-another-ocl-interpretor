@@ -8,8 +8,9 @@ import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -45,7 +46,10 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  if (result == null || right == null) {
 			// Levée d'erreur et envoi de l'argument fautif
-			throw new UndefinedAccesException(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(1));
+			result = new UndefinedAccessInvalid(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(1));
+	  }
+	  if (result instanceof Invalid || right instanceof Invalid) {
+		  result =  result instanceof Invalid ? result : right;
 	  }
 	  
 	  if (!(result instanceof Number && right instanceof Number)) {

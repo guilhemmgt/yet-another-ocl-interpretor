@@ -1,9 +1,6 @@
 package fr.enseeiht.ocl.xtext.types;
 
-import java.util.Map;
-
 import fr.enseeiht.ocl.xtext.OclType;
-import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 
 public class OclMap extends OclAny {
 

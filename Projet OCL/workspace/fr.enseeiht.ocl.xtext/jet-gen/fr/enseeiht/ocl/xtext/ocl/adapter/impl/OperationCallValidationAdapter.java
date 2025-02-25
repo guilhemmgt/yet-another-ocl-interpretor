@@ -9,11 +9,8 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
-import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
-import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
@@ -89,7 +86,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 			}
 		}
 	} else {
-		throw new UndefinedAccesException(source.getElement());
+		return new UndefinedAccessInvalid(source.getElement());
 	}
 	return null;
   }

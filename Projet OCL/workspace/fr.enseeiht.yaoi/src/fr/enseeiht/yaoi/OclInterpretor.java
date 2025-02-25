@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
-import fr.enseeiht.ocl.xtext.ocl.adapter.YaoiRuntimeException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 
 public class OclInterpretor {
@@ -26,24 +26,33 @@ public class OclInterpretor {
 			xmiContent.add(xmiTree.next());
 		}
 		
+		// Boucle sur les objets du XMI concernés par le Contexte
+		for (EObject xmiObject : xmiContent) {
+			result.addErrors(validate(xmiObject, mocl).getErrors());
+		}
+		
+		return result;
+	}
+	
+	public static ValidationResult validate(EObject xmiObject, Module mocl) {
+		ValidationResult result = new ValidationResult();
+		
 		// Boucle sur les Contextes OCL
-		for (OclContextBlock context : mocl.getContextBlocks()) { 
+		for (OclContextBlock context : mocl.getContextBlocks()) {
 			// Boucle sur les Invariants OCL
-			for (Object contextMember : context.getMembers()) { 
-				if (contextMember instanceof OclInvariant) { 
-					OclInvariant invariant = (OclInvariant)contextMember;
-					// Boucle sur les objets du XMI concernés par le Contexte
-					for (EObject xmiObject : xmiContent) {
-						if (isSubClassOrEqual(context.getClass_(), xmiObject.eClass())) {
-							try {
-								// Récupère la valeur de l'invariant (= validation) et renvoie une erreur s'il est violé
-								boolean invResult = (boolean) OCLValidationAdapterFactory.INSTANCE.createAdapter(invariant).getValue(xmiObject);
-								if (!invResult) {
-									result.addError(new ValidationFailed(invariant, xmiObject));
-								}
-							} catch (YaoiRuntimeException e) {
-								result.addError(new ValidationUndefined(invariant, xmiObject, e.getMessage()));
-							}
+			for (Object contextMember : context.getMembers()) {
+				if (contextMember instanceof OclInvariant) {
+					OclInvariant invariant = (OclInvariant) contextMember;
+					if (isSubClassOrEqual(context.getClass_(), xmiObject.eClass())) {
+						// Récupère la valeur de l'invariant (= validation) et renvoie une erreur s'il
+						// est violé
+						Object invResult = OCLValidationAdapterFactory.INSTANCE.createAdapter(invariant)
+								.getValue(xmiObject);
+						if (invResult instanceof Invalid) {
+							result.addError(
+									new ValidationUndefined(invariant, xmiObject, ((Invalid) invResult).getMessage()));
+						} else if (invResult instanceof Boolean && !((Boolean) invResult)) {
+							result.addError(new ValidationFailed(invariant, xmiObject));
 						}
 					}
 				}

@@ -9,8 +9,9 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -39,7 +40,10 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  Object arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getValue(contextTarget);
 	  
 	  if (arg == null) {
-		  throw new UndefinedAccesException(this.target.getSource());
+		  return new UndefinedAccessInvalid(this.target.getSource());
+	  }
+	  if (arg instanceof Invalid) {
+		  return arg;
 	  }
 	  
 	  // Traitement des opérations

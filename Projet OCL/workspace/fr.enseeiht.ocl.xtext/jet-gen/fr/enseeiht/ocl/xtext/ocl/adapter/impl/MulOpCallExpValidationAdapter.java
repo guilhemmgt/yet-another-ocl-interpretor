@@ -8,9 +8,10 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
-import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -49,8 +50,11 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 		  
 		  if (result == null || right == null) {
 			  // Levée d'erreur et envoi de l'argument fautif
-			  throw new UndefinedAccesException(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i+1));
+			  result = new UndefinedAccessInvalid(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i+1));
 		  }
+	  if (result instanceof Invalid || right instanceof Invalid) {
+		  result = result instanceof Invalid ? result : right;
+	  }
 		  if (!(result instanceof Number && right instanceof Number)) {
 			  throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i), new Class<?>[] { result.getClass(), right.getClass() });
 		  }
@@ -62,7 +66,7 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 				  break;
 			  case "/":
 				  if ((right instanceof Integer ? (Integer)right : (Double)right) == 0) // Pas de division par zéro
-					  throw new DivisionByZeroException(this.target.getArgs().get(i+1));
+					  return new DivisionByZeroInvalid(this.target.getArgs().get(i+1));
 				  result = (result instanceof Integer ? (Integer)result : (Double)result) / (right instanceof Integer ? (Integer)right : (Double)right);
 				  break;
 			  default:

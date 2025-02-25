@@ -7,6 +7,7 @@ import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -44,6 +45,10 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  Boolean equal = (result instanceof Number && right instanceof Number && ((Number)result).doubleValue() == ((Number)right).doubleValue()) ||
 			  		  (result != null && result.equals(right)) || 
 			  		  (result == right);
+	  
+	  if (result instanceof Invalid || right instanceof Invalid) {
+		  result = result instanceof Invalid ? result : right;
+	  }
 
 	  // Traitement des opérations
 	  switch(this.target.getOperationNames().get(0)) {
