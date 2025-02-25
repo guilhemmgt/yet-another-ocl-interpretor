@@ -29,7 +29,7 @@ public final class OclFeatureDefinitionValidationAdapter implements OCLAdapter {
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException("La methode getValue de OclFeatureDefinitionAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getValue");
   }
 
   /**
@@ -38,7 +38,7 @@ public final class OclFeatureDefinitionValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException("La methode getType de OclFeatureDefinitionAdapter n'as pas encore été implémentée");
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

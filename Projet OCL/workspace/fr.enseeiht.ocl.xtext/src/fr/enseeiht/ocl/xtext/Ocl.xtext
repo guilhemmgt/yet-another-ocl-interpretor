@@ -22,7 +22,7 @@ Attribute :
 	name=ID ':' type=OclTypeLiteral '=' initExpression=OclExpression
 ;
 Operation:
-	name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)+)? ')' ':' returnType=OclTypeLiteral '=' body=OclExpression
+	name=ID  '(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')' ':' returnType=OclTypeLiteral '=' body=OclExpression
 ;
 Parameter:
 	name=ID ':' type=OclTypeLiteral
@@ -102,7 +102,9 @@ Primary_OclExpression returns OclExpression :
 	|EnumLiteralExp
 	|IfExp
 	|BraceExp
-	|OclModelElementExp;
+	|OclModelElementExp
+	|ContextlessCallExp
+	|NullLiteralExp;
 
 Auxiliary :Iterator|LocalVariable|Parameter;
 VariableExp:
@@ -110,6 +112,10 @@ VariableExp:
 ;
 SelfLiteralExp :
 	{SelfLiteralExp}	'self'
+;
+
+NullLiteralExp : 
+	{NullLiteralExp} 'null'
 ;
 StringLiteralExp :
 	{StringLiteralExp}
@@ -172,6 +178,10 @@ IfExp :
 BraceExp : 
 	'(' exp=OclExpression ')'
 ;
+
+ContextlessCallExp :
+	operationName=ID '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
+;
 	
 BooleanLiteralExp:
 	booleanSymbol= 'true'|booleanSymbol= 'false'
@@ -182,7 +192,7 @@ PropertyCall:
 	;
 	
 OperationCall:
-	'.' (operationName=STRING|operationName=ID) '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
+	'.' operationName=ID '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
 	;
 
 NavigationOrAttributeCall : 

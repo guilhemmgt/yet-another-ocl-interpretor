@@ -749,6 +749,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleNullLiteralExp
+entryRuleNullLiteralExp
+:
+{ before(grammarAccess.getNullLiteralExpRule()); }
+	 ruleNullLiteralExp
+{ after(grammarAccess.getNullLiteralExpRule()); } 
+	 EOF 
+;
+
+// Rule NullLiteralExp
+ruleNullLiteralExp 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getNullLiteralExpAccess().getGroup()); }
+		(rule__NullLiteralExp__Group__0)
+		{ after(grammarAccess.getNullLiteralExpAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleStringLiteralExp
 entryRuleStringLiteralExp
 :
@@ -2178,6 +2203,12 @@ rule__Primary_OclExpression__Alternatives
 		{ before(grammarAccess.getPrimary_OclExpressionAccess().getOclModelElementExpParserRuleCall_14()); }
 		ruleOclModelElementExp
 		{ after(grammarAccess.getPrimary_OclExpressionAccess().getOclModelElementExpParserRuleCall_14()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15()); }
+		ruleNullLiteralExp
+		{ after(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15()); }
 	)
 ;
 finally {
@@ -4446,6 +4477,60 @@ rule__SelfLiteralExp__Group__1__Impl
 	{ before(grammarAccess.getSelfLiteralExpAccess().getSelfKeyword_1()); }
 	'self'
 	{ after(grammarAccess.getSelfLiteralExpAccess().getSelfKeyword_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__NullLiteralExp__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__NullLiteralExp__Group__0__Impl
+	rule__NullLiteralExp__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NullLiteralExp__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getNullLiteralExpAccess().getNullLiteralExpAction_0()); }
+	()
+	{ after(grammarAccess.getNullLiteralExpAccess().getNullLiteralExpAction_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NullLiteralExp__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__NullLiteralExp__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NullLiteralExp__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getNullLiteralExpAccess().getNullKeyword_1()); }
+	'null'
+	{ after(grammarAccess.getNullLiteralExpAccess().getNullKeyword_1()); }
 )
 ;
 finally {

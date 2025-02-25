@@ -65,7 +65,7 @@ public class ValidationResult {
 	 * @return A list of all the ValidationError
 	 */
 	public List<ValidationError> getElementErrors(EObject inv) {
-		throw new UnimplementedException("getElementErrors not implemented");
+		throw new UnimplementedException(this.getClass(),"getElementErrors");
 	}
 	
 	/**
