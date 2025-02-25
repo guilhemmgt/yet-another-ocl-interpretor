@@ -25,16 +25,6 @@ public final class ModuleValidationAdapter implements OCLAdapter {
    */
   public ModuleValidationAdapter(Module object) {
     this.target = object;
-    this.localDefinitions = new ArrayList<OclFeatureDefinition>();
-    this.localDefinitions.addAll(this.target.getContextlessFeatures());
-    // Gather all def in contexts
-    for (OclContextBlock context : this.target.getContextBlocks()) {
-    	for (EObject elt : context.getMembers()) {
-    		if (elt instanceof OclFeatureDefinition) {
-    			this.localDefinitions.add((OclFeatureDefinition) elt);
-    		}
-    	}
-    }
   }
 
   /**
@@ -57,6 +47,14 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    throw new UnimplementedException(this.getClass(),"toString");
+  }
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
@@ -64,8 +62,7 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-  
-  public List<OclFeatureDefinition> getAllDefinition() {
+   public List<OclFeatureDefinition> getAllDefinition() {
 	  return this.localDefinitions;
   }
  }

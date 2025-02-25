@@ -42,6 +42,14 @@ public final class SequenceLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    throw new UnimplementedException(this.getClass(),"toString");
+  }
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

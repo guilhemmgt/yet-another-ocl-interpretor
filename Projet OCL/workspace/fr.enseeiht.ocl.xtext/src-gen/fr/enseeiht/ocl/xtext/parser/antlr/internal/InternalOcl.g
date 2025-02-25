@@ -1766,20 +1766,20 @@ rulePrimary_OclExpression returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15());
+			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_15());
 		}
-		this_NullLiteralExp_15=ruleNullLiteralExp
+		this_ContextlessCallExp_15=ruleContextlessCallExp
 		{
-			$current = $this_NullLiteralExp_15.current;
+			$current = $this_ContextlessCallExp_15.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_16());
+			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_16());
 		}
-		this_ContextlessCallExp_16=ruleContextlessCallExp
+		this_NullLiteralExp_16=ruleNullLiteralExp
 		{
-			$current = $this_ContextlessCallExp_16.current;
+			$current = $this_NullLiteralExp_16.current;
 			afterParserOrEnumRuleCall();
 		}
 	)

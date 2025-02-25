@@ -49,6 +49,14 @@ public final class OperationValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    throw new UnimplementedException(this.getClass(),"toString");
+  }
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
@@ -56,8 +64,7 @@ public final class OperationValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-  
-  public OclType getSourceType() {
+   public OclType getSourceType() {
 	  if (this.target.eContainer() instanceof OclContextBlock) {
 		  // TODO : Adapt this with answer from Paul
 		  return /*((OclContextBlock)this.target.eContainer()).getClass_()*/ new OclAny();

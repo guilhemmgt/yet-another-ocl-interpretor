@@ -2,6 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -58,6 +59,14 @@ public final class IfExpValidationAdapter implements OCLAdapter {
 		 return new OclInvalid(target, "If expression requires that 'then' and 'else' branches be conform to each other, which is not the case of '" + thenelm.toString() + "' and '" + elseelm.toString() + "'.", thenelm, elseelm);
 	 }
 
+  }
+
+  /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    throw new UnimplementedException(this.getClass(),"toString");
   }
 
   /**

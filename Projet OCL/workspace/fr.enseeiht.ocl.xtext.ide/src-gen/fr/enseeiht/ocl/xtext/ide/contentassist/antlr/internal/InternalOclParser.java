@@ -6664,13 +6664,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primary_OclExpression__Alternatives"
-    // InternalOcl.g:2132:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleNullLiteralExp ) | ( ruleContextlessCallExp ) );
+    // InternalOcl.g:2132:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) | ( ruleNullLiteralExp ) );
     public final void rule__Primary_OclExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2136:1: ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleNullLiteralExp ) | ( ruleContextlessCallExp ) )
+            // InternalOcl.g:2136:1: ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) | ( ruleNullLiteralExp ) )
             int alt12=17;
             alt12 = dfa12.predict(input);
             switch (alt12) {
@@ -6960,18 +6960,18 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 16 :
-                    // InternalOcl.g:2227:2: ( ruleNullLiteralExp )
+                    // InternalOcl.g:2227:2: ( ruleContextlessCallExp )
                     {
-                    // InternalOcl.g:2227:2: ( ruleNullLiteralExp )
-                    // InternalOcl.g:2228:3: ruleNullLiteralExp
+                    // InternalOcl.g:2227:2: ( ruleContextlessCallExp )
+                    // InternalOcl.g:2228:3: ruleContextlessCallExp
                     {
-                     before(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15()); 
+                     before(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_15()); 
                     pushFollow(FOLLOW_2);
-                    ruleNullLiteralExp();
+                    ruleContextlessCallExp();
 
                     state._fsp--;
 
-                     after(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15()); 
+                     after(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_15()); 
 
                     }
 
@@ -6979,18 +6979,18 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 17 :
-                    // InternalOcl.g:2233:2: ( ruleContextlessCallExp )
+                    // InternalOcl.g:2233:2: ( ruleNullLiteralExp )
                     {
-                    // InternalOcl.g:2233:2: ( ruleContextlessCallExp )
-                    // InternalOcl.g:2234:3: ruleContextlessCallExp
+                    // InternalOcl.g:2233:2: ( ruleNullLiteralExp )
+                    // InternalOcl.g:2234:3: ruleNullLiteralExp
                     {
-                     before(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_16()); 
+                     before(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_16()); 
                     pushFollow(FOLLOW_2);
-                    ruleContextlessCallExp();
+                    ruleNullLiteralExp();
 
                     state._fsp--;
 
-                     after(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_16()); 
+                     after(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_16()); 
 
                     }
 
@@ -14170,7 +14170,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4488:1: ( rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1 )
             // InternalOcl.g:4489:2: rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_23);
             rule__NullLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -14470,7 +14470,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4596:1: ( rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1 )
             // InternalOcl.g:4597:2: rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_35);
             rule__IntegerLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -14625,7 +14625,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4650:1: ( rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1 )
             // InternalOcl.g:4651:2: rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_36);
             rule__BagLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -14700,7 +14700,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4677:1: ( rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2 )
             // InternalOcl.g:4678:2: rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__BagLiteralExp__Group__1__Impl();
 
             state._fsp--;
@@ -14775,7 +14775,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4704:1: ( rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3 )
             // InternalOcl.g:4705:2: rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__BagLiteralExp__Group__2__Impl();
 
             state._fsp--;
@@ -14850,7 +14850,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4731:1: ( rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4 )
             // InternalOcl.g:4732:2: rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__BagLiteralExp__Group__3__Impl();
 
             state._fsp--;
@@ -15354,7 +15354,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4893:1: ( rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1 )
             // InternalOcl.g:4894:2: rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_39);
             rule__OrderedSetLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -15429,7 +15429,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4920:1: ( rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2 )
             // InternalOcl.g:4921:2: rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__OrderedSetLiteralExp__Group__1__Impl();
 
             state._fsp--;
@@ -15504,7 +15504,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4947:1: ( rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3 )
             // InternalOcl.g:4948:2: rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__OrderedSetLiteralExp__Group__2__Impl();
 
             state._fsp--;
@@ -15579,7 +15579,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:4974:1: ( rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4 )
             // InternalOcl.g:4975:2: rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__OrderedSetLiteralExp__Group__3__Impl();
 
             state._fsp--;
@@ -16083,7 +16083,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5136:1: ( rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1 )
             // InternalOcl.g:5137:2: rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_40);
             rule__SequenceLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -16158,7 +16158,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5163:1: ( rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2 )
             // InternalOcl.g:5164:2: rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__SequenceLiteralExp__Group__1__Impl();
 
             state._fsp--;
@@ -16233,7 +16233,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5190:1: ( rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3 )
             // InternalOcl.g:5191:2: rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SequenceLiteralExp__Group__2__Impl();
 
             state._fsp--;
@@ -16308,7 +16308,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5217:1: ( rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4 )
             // InternalOcl.g:5218:2: rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SequenceLiteralExp__Group__3__Impl();
 
             state._fsp--;
@@ -16812,7 +16812,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5379:1: ( rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1 )
             // InternalOcl.g:5380:2: rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_41);
             rule__SetLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -16887,7 +16887,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5406:1: ( rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2 )
             // InternalOcl.g:5407:2: rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__SetLiteralExp__Group__1__Impl();
 
             state._fsp--;
@@ -16962,7 +16962,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5433:1: ( rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3 )
             // InternalOcl.g:5434:2: rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SetLiteralExp__Group__2__Impl();
 
             state._fsp--;
@@ -17037,7 +17037,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5460:1: ( rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4 )
             // InternalOcl.g:5461:2: rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_38);
             rule__SetLiteralExp__Group__3__Impl();
 
             state._fsp--;
@@ -17541,7 +17541,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5622:1: ( rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1 )
             // InternalOcl.g:5623:2: rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__TupleLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -17616,7 +17616,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5649:1: ( rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2 )
             // InternalOcl.g:5650:2: rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__TupleLiteralExp__Group__1__Impl();
 
             state._fsp--;
@@ -17691,7 +17691,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5676:1: ( rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3 )
             // InternalOcl.g:5677:2: rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__TupleLiteralExp__Group__2__Impl();
 
             state._fsp--;
@@ -17766,7 +17766,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5703:1: ( rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4 )
             // InternalOcl.g:5704:2: rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__TupleLiteralExp__Group__3__Impl();
 
             state._fsp--;
@@ -18270,7 +18270,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5865:1: ( rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1 )
             // InternalOcl.g:5866:2: rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             rule__TuplePart__Group__0__Impl();
 
             state._fsp--;
@@ -18355,7 +18355,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5892:1: ( rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2 )
             // InternalOcl.g:5893:2: rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             rule__TuplePart__Group__1__Impl();
 
             state._fsp--;
@@ -18761,7 +18761,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6027:1: ( rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1 )
             // InternalOcl.g:6028:2: rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__MapLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -18836,7 +18836,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6054:1: ( rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2 )
             // InternalOcl.g:6055:2: rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2
             {
-            pushFollow(FOLLOW_38);
+            pushFollow(FOLLOW_37);
             rule__MapLiteralExp__Group__1__Impl();
 
             state._fsp--;
@@ -18911,7 +18911,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6081:1: ( rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3 )
             // InternalOcl.g:6082:2: rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_46);
             rule__MapLiteralExp__Group__2__Impl();
 
             state._fsp--;
@@ -18986,7 +18986,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6108:1: ( rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4 )
             // InternalOcl.g:6109:2: rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_46);
             rule__MapLiteralExp__Group__3__Impl();
 
             state._fsp--;
@@ -19725,7 +19725,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6351:1: ( rule__MapElement__Group__3__Impl rule__MapElement__Group__4 )
             // InternalOcl.g:6352:2: rule__MapElement__Group__3__Impl rule__MapElement__Group__4
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__MapElement__Group__3__Impl();
 
             state._fsp--;
@@ -19880,7 +19880,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6405:1: ( rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1 )
             // InternalOcl.g:6406:2: rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__EnumLiteralExp__Group__0__Impl();
 
             state._fsp--;
@@ -20110,7 +20110,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6486:1: ( rule__LetExp__Group__1__Impl rule__LetExp__Group__2 )
             // InternalOcl.g:6487:2: rule__LetExp__Group__1__Impl rule__LetExp__Group__2
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__LetExp__Group__1__Impl();
 
             state._fsp--;
@@ -20425,7 +20425,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6594:1: ( rule__IfExp__Group__1__Impl rule__IfExp__Group__2 )
             // InternalOcl.g:6595:2: rule__IfExp__Group__1__Impl rule__IfExp__Group__2
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__IfExp__Group__1__Impl();
 
             state._fsp--;
@@ -20585,7 +20585,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6648:1: ( rule__IfExp__Group__3__Impl rule__IfExp__Group__4 )
             // InternalOcl.g:6649:2: rule__IfExp__Group__3__Impl rule__IfExp__Group__4
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__IfExp__Group__3__Impl();
 
             state._fsp--;
@@ -20745,7 +20745,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6702:1: ( rule__IfExp__Group__5__Impl rule__IfExp__Group__6 )
             // InternalOcl.g:6703:2: rule__IfExp__Group__5__Impl rule__IfExp__Group__6
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__IfExp__Group__5__Impl();
 
             state._fsp--;
@@ -20975,7 +20975,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6783:1: ( rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2 )
             // InternalOcl.g:6784:2: rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__BraceExp__Group__1__Impl();
 
             state._fsp--;
@@ -21215,7 +21215,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6864:1: ( rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2 )
             // InternalOcl.g:6865:2: rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__ContextlessCallExp__Group__1__Impl();
 
             state._fsp--;
@@ -21290,7 +21290,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:6891:1: ( rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3 )
             // InternalOcl.g:6892:2: rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__ContextlessCallExp__Group__2__Impl();
 
             state._fsp--;
@@ -21954,7 +21954,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7107:1: ( rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3 )
             // InternalOcl.g:7108:2: rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__OperationCall__Group__2__Impl();
 
             state._fsp--;
@@ -22029,7 +22029,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7134:1: ( rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4 )
             // InternalOcl.g:7135:2: rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__OperationCall__Group__3__Impl();
 
             state._fsp--;
@@ -22533,7 +22533,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7296:1: ( rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1 )
             // InternalOcl.g:7297:2: rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__NavigationOrAttributeCall__Group__0__Impl();
 
             state._fsp--;
@@ -22688,7 +22688,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7350:1: ( rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1 )
             // InternalOcl.g:7351:2: rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_54);
             rule__IterateExp__Group__0__Impl();
 
             state._fsp--;
@@ -22913,7 +22913,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7431:1: ( rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4 )
             // InternalOcl.g:7432:2: rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_55);
             rule__IterateExp__Group__3__Impl();
 
             state._fsp--;
@@ -22998,7 +22998,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7458:1: ( rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5 )
             // InternalOcl.g:7459:2: rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_55);
             rule__IterateExp__Group__4__Impl();
 
             state._fsp--;
@@ -23176,7 +23176,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7512:1: ( rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7 )
             // InternalOcl.g:7513:2: rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_56);
             rule__IterateExp__Group__6__Impl();
 
             state._fsp--;
@@ -23336,7 +23336,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7566:1: ( rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9 )
             // InternalOcl.g:7567:2: rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__IterateExp__Group__8__Impl();
 
             state._fsp--;
@@ -24212,7 +24212,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7863:1: ( rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4 )
             // InternalOcl.g:7864:2: rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_57);
             rule__IteratorExp__Group__3__Impl();
 
             state._fsp--;
@@ -24297,7 +24297,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7890:1: ( rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5 )
             // InternalOcl.g:7891:2: rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5
             {
-            pushFollow(FOLLOW_58);
+            pushFollow(FOLLOW_57);
             rule__IteratorExp__Group__4__Impl();
 
             state._fsp--;
@@ -24475,7 +24475,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:7944:1: ( rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7 )
             // InternalOcl.g:7945:2: rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__IteratorExp__Group__6__Impl();
 
             state._fsp--;
@@ -24945,7 +24945,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8106:1: ( rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3 )
             // InternalOcl.g:8107:2: rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__CollectionOperationCall__Group__2__Impl();
 
             state._fsp--;
@@ -25020,7 +25020,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8133:1: ( rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4 )
             // InternalOcl.g:8134:2: rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_53);
             rule__CollectionOperationCall__Group__3__Impl();
 
             state._fsp--;
@@ -25524,7 +25524,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8295:1: ( rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1 )
             // InternalOcl.g:8296:2: rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             rule__LocalVariable__Group__0__Impl();
 
             state._fsp--;
@@ -25609,7 +25609,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8322:1: ( rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2 )
             // InternalOcl.g:8323:2: rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             rule__LocalVariable__Group__1__Impl();
 
             state._fsp--;
@@ -26165,7 +26165,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8511:1: ( rule__BagType__Group__2__Impl rule__BagType__Group__3 )
             // InternalOcl.g:8512:2: rule__BagType__Group__2__Impl rule__BagType__Group__3
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__BagType__Group__2__Impl();
 
             state._fsp--;
@@ -26470,7 +26470,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8619:1: ( rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3 )
             // InternalOcl.g:8620:2: rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__OrderedSetType__Group__2__Impl();
 
             state._fsp--;
@@ -26775,7 +26775,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8727:1: ( rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3 )
             // InternalOcl.g:8728:2: rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__SequenceType__Group__2__Impl();
 
             state._fsp--;
@@ -27080,7 +27080,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8835:1: ( rule__SetType__Group__2__Impl rule__SetType__Group__3 )
             // InternalOcl.g:8836:2: rule__SetType__Group__2__Impl rule__SetType__Group__3
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__SetType__Group__2__Impl();
 
             state._fsp--;
@@ -27235,7 +27235,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8889:1: ( rule__StringType__Group__0__Impl rule__StringType__Group__1 )
             // InternalOcl.g:8890:2: rule__StringType__Group__0__Impl rule__StringType__Group__1
             {
-            pushFollow(FOLLOW_59);
+            pushFollow(FOLLOW_58);
             rule__StringType__Group__0__Impl();
 
             state._fsp--;
@@ -27380,7 +27380,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8943:1: ( rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1 )
             // InternalOcl.g:8944:2: rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1
             {
-            pushFollow(FOLLOW_60);
+            pushFollow(FOLLOW_59);
             rule__BooleanType__Group__0__Impl();
 
             state._fsp--;
@@ -27525,7 +27525,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:8997:1: ( rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1 )
             // InternalOcl.g:8998:2: rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1
             {
-            pushFollow(FOLLOW_61);
+            pushFollow(FOLLOW_60);
             rule__IntegerType__Group__0__Impl();
 
             state._fsp--;
@@ -27670,7 +27670,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9051:1: ( rule__RealType__Group__0__Impl rule__RealType__Group__1 )
             // InternalOcl.g:9052:2: rule__RealType__Group__0__Impl rule__RealType__Group__1
             {
-            pushFollow(FOLLOW_62);
+            pushFollow(FOLLOW_61);
             rule__RealType__Group__0__Impl();
 
             state._fsp--;
@@ -27815,7 +27815,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9105:1: ( rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1 )
             // InternalOcl.g:9106:2: rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1
             {
-            pushFollow(FOLLOW_63);
+            pushFollow(FOLLOW_62);
             rule__OclAnyType__Group__0__Impl();
 
             state._fsp--;
@@ -27960,7 +27960,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9159:1: ( rule__TupleType__Group__0__Impl rule__TupleType__Group__1 )
             // InternalOcl.g:9160:2: rule__TupleType__Group__0__Impl rule__TupleType__Group__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__TupleType__Group__0__Impl();
 
             state._fsp--;
@@ -29479,7 +29479,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9672:1: ( rule__MapType__Group__4__Impl rule__MapType__Group__5 )
             // InternalOcl.g:9673:2: rule__MapType__Group__4__Impl rule__MapType__Group__5
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__MapType__Group__4__Impl();
 
             state._fsp--;
@@ -29634,7 +29634,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:9726:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
             // InternalOcl.g:9727:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_63);
             rule__QualifiedName__Group__0__Impl();
 
             state._fsp--;
@@ -29761,7 +29761,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalOcl.g:9767:3: rule__QualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_65);
+            	    pushFollow(FOLLOW_64);
             	    rule__QualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -34502,7 +34502,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     static final String dfa_2s = "\1\uffff\1\22\21\uffff";
     static final String dfa_3s = "\1\4\1\14\21\uffff";
     static final String dfa_4s = "\1\103\1\74\21\uffff";
-    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\20\1\17\1\21\1\1";
+    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\21\1\17\1\20\1\1";
     static final String dfa_6s = "\23\uffff}>";
     static final String[] dfa_7s = {
             "\1\1\1\3\2\5\33\uffff\1\16\3\uffff\1\2\1\17\1\6\2\uffff\1\7\1\10\1\11\1\12\1\13\1\14\2\uffff\1\15\15\uffff\2\4",
@@ -34548,7 +34548,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_7;
         }
         public String getDescription() {
-            return "2132:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleNullLiteralExp ) | ( ruleContextlessCallExp ) );";
+            return "2132:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) | ( ruleNullLiteralExp ) );";
         }
     }
     static final String dfa_8s = "\16\uffff";
@@ -34635,36 +34635,35 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0300000000000000L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0300000000000002L});
     public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x00000000000000C0L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0017FB88104000F0L,0x000000000000000CL});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000080000000020L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000400010000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000080800000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0017F398104000F0L,0x000000000000000CL});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0800002000000000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x1000002000000000L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0xE000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0100000000000002L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x00000000000000C0L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0017FB88104000F0L,0x000000000000000CL});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000080000000020L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000400010000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000080800000000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0017F398104000F0L,0x000000000000000CL});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0800002000000000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x1000002000000000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0xE000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0100000000000002L});
 
 }

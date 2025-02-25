@@ -2,6 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -96,6 +97,14 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 			  return new OclBoolean();
 		  }
 	  }
+  }
+
+  /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    throw new UnimplementedException(this.getClass(),"toString");
   }
 
   /**

@@ -935,8 +935,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cIfExpParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		private final RuleCall cBraceExpParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		private final RuleCall cOclModelElementExpParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
-		private final RuleCall cNullLiteralExpParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
-		private final RuleCall cContextlessCallExpParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		private final RuleCall cContextlessCallExpParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cNullLiteralExpParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
 		
 		//Primary_OclExpression returns OclExpression :
 		//    VariableExp
@@ -954,8 +954,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    |IfExp
 		//    |BraceExp
 		//    |OclModelElementExp
-		//    |NullLiteralExp
-		//    |ContextlessCallExp;
+		//    |ContextlessCallExp
+		//    |NullLiteralExp;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//VariableExp
@@ -973,8 +973,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//|IfExp
 		//|BraceExp
 		//|OclModelElementExp
-		//|NullLiteralExp
 		//|ContextlessCallExp
+		//|NullLiteralExp
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//VariableExp
@@ -1022,11 +1022,11 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//OclModelElementExp
 		public RuleCall getOclModelElementExpParserRuleCall_14() { return cOclModelElementExpParserRuleCall_14; }
 		
-		//NullLiteralExp
-		public RuleCall getNullLiteralExpParserRuleCall_15() { return cNullLiteralExpParserRuleCall_15; }
-		
 		//ContextlessCallExp
-		public RuleCall getContextlessCallExpParserRuleCall_16() { return cContextlessCallExpParserRuleCall_16; }
+		public RuleCall getContextlessCallExpParserRuleCall_15() { return cContextlessCallExpParserRuleCall_15; }
+		
+		//NullLiteralExp
+		public RuleCall getNullLiteralExpParserRuleCall_16() { return cNullLiteralExpParserRuleCall_16; }
 	}
 	public class AuxiliaryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.Auxiliary");
@@ -3313,8 +3313,8 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    |IfExp
 	//    |BraceExp
 	//    |OclModelElementExp
-	//    |NullLiteralExp
-	//    |ContextlessCallExp;
+	//    |ContextlessCallExp
+	//    |NullLiteralExp;
 	public Primary_OclExpressionElements getPrimary_OclExpressionAccess() {
 		return pPrimary_OclExpression;
 	}

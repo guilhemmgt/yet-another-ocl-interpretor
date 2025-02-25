@@ -2,6 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
@@ -47,6 +48,14 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
 	  }
 	  // On renvoie le dernier call
 	  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getCalls().get(this.target.getCalls().size()-1)).getType();
+  }
+
+  /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    throw new UnimplementedException(this.getClass(),"toString");
   }
 
   /**

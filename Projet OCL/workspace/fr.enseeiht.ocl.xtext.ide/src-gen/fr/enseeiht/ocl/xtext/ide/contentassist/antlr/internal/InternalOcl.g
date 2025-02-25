@@ -2225,15 +2225,15 @@ rule__Primary_OclExpression__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15()); }
-		ruleNullLiteralExp
-		{ after(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15()); }
+		{ before(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_15()); }
+		ruleContextlessCallExp
+		{ after(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_15()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_16()); }
-		ruleContextlessCallExp
-		{ after(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_16()); }
+		{ before(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_16()); }
+		ruleNullLiteralExp
+		{ after(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_16()); }
 	)
 ;
 finally {

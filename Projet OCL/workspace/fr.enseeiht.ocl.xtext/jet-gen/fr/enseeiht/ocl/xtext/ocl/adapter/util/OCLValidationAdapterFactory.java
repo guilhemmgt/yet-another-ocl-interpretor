@@ -1102,6 +1102,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createContextlessCallExpValidationAdapter(ContextlessCallExp target)
   {
+	
     return new ContextlessCallExpValidationAdapter(target);
   }
 
