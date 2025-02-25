@@ -84,10 +84,10 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  // Void + ... : Void
 	  boolean isVoid = type.conformsTo(new OclVoid());
 	  
-	  if (isBoolean && operationIsNot) {
+	  if (isBoolean && operationIsNot && !isInvalid) {
 		  return new OclBoolean();
 	  }
-	  else if (isReal && !operationIsNot) {
+	  else if (isReal && !operationIsNot && !isInvalid) {
 		  return new OclReal();
 	  }
 	  else if (isVoid && !isInvalid) {

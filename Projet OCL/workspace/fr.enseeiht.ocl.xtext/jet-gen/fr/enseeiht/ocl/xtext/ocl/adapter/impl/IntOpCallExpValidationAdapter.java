@@ -103,7 +103,7 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 			  // Void mod ... : Void
 			  boolean anyVoid = resultType.conformsTo(new OclVoid()) || argType.conformsTo(new OclVoid());
 			  
-			  if (isInteger) {
+			  if (isInteger && !anyInvalid) {
 				  resultType =  resultType.unifyWith(argType);
 			  }
 			  else if (anyVoid && !anyInvalid) {
