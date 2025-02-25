@@ -6,10 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
-import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclSet;
 
 public class OclOclAsSet implements IOclOperation {
