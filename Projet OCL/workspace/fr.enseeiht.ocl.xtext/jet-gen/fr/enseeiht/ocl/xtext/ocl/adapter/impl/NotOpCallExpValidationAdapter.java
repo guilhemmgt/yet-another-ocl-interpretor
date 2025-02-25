@@ -106,7 +106,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+    return super.toString();
   }
 
   /**

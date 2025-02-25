@@ -119,7 +119,7 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+    return super.toString();
   }
 
   /**

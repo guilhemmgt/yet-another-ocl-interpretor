@@ -47,7 +47,7 @@ public final class StringLiteralExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+    return super.toString();
   }
 
   /**

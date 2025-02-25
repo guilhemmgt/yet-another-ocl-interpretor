@@ -46,7 +46,7 @@ public final class OclTypeLiteralValidationAdapter implements OCLAdapter {
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+    return super.toString();
   }
 
   /**
@@ -57,7 +57,7 @@ public final class OclTypeLiteralValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-   public OclType getOclType() {
+    public OclType getOclType() {
 	return null;
   }
  }

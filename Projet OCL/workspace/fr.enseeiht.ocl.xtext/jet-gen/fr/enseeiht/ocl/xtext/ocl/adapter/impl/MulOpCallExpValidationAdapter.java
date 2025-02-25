@@ -123,7 +123,7 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+    return super.toString();
   }
 
   /**

@@ -94,7 +94,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+    return super.toString();
   }
 
   /**
@@ -105,7 +105,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-        public boolean conformsTo(OclType oclType) {
+         public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

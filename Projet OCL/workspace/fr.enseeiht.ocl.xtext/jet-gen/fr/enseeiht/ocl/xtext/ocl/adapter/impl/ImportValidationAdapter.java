@@ -42,11 +42,11 @@ public final class ImportValidationAdapter implements OCLAdapter {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+    return "import " + this.target.getPackage().getNsURI() + " as " + this.target.getName();
   }
 
   /**

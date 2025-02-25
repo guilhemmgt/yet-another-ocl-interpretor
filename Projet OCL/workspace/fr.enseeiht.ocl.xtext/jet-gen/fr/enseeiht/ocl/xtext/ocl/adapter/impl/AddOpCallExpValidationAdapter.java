@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
@@ -17,6 +18,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -168,11 +170,18 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
   public String toString() {
-    throw new UnimplementedException(this.getClass(),"toString");
+	   String res = "";
+	   EList<IntOpCallExp> args = this.target.getArgs();
+	   EList<String> ops = this.target.getOperationNames();
+	   for (int i = 0; i < ops.size(); i++) {
+		   res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(i)).toString() + ops.get(i);
+	   }
+	   res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(args.size()-1)).toString();
+	   return res;
   }
 
   /**
