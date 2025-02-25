@@ -8,11 +8,13 @@ public interface IOclOperation {
 
 	public Object getValue(Object source, List<Object> args);
 	
-	public OclType getReturnType();
+	public OclType getReturnType(OclType sourceType, List<OclType> argsType);
 	
 	public List<OclType> getArgsType();
 	
 	public int getArgsAmount();
 	
 	public OclType getSourceType();
+	
+	public String getName();
 }

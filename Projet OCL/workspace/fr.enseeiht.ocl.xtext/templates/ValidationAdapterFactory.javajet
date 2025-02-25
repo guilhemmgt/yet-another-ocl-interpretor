@@ -27,6 +27,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 public class OCLValidationAdapterFactory
 {
   public final static OCLValidationAdapterFactory INSTANCE = new OCLValidationAdapterFactory();
+  private ModuleValidationAdapter moduleAdapter = null;
   /**
    * The cached model package.
    * <!-- begin-user-doc -->
@@ -129,7 +130,14 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter create<%=className%>ValidationAdapter(<%=className%> target)
   {
+	<%if (className.equals("Module")) {%>
+	if (this.moduleAdapter == null) {
+		this.moduleAdapter = new ModuleValidationAdapter(target);
+	}
+	return this.moduleAdapter;
+  	<%} else {%>
     return new <%=className%>ValidationAdapter(target);
+    <%}%>
   }
 
 <%}%>

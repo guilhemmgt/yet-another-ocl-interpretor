@@ -144,6 +144,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 public class OCLValidationAdapterFactory
 {
   public final static OCLValidationAdapterFactory INSTANCE = new OCLValidationAdapterFactory();
+  private ModuleValidationAdapter moduleAdapter = null;
   /**
    * The cached model package.
    * <!-- begin-user-doc -->
@@ -558,7 +559,12 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createModuleValidationAdapter(Module target)
   {
-    return new ModuleValidationAdapter(target);
+	
+	if (this.moduleAdapter == null) {
+		this.moduleAdapter = new ModuleValidationAdapter(target);
+	}
+	return this.moduleAdapter;
+  	
   }
 
   /**
@@ -571,6 +577,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createImportValidationAdapter(Import target)
   {
+	
     return new ImportValidationAdapter(target);
   }
 
@@ -584,6 +591,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclContextBlockValidationAdapter(OclContextBlock target)
   {
+	
     return new OclContextBlockValidationAdapter(target);
   }
 
@@ -597,6 +605,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclFeatureDefinitionValidationAdapter(OclFeatureDefinition target)
   {
+	
     return new OclFeatureDefinitionValidationAdapter(target);
   }
 
@@ -610,6 +619,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createAttributeValidationAdapter(Attribute target)
   {
+	
     return new AttributeValidationAdapter(target);
   }
 
@@ -623,6 +633,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOperationValidationAdapter(Operation target)
   {
+	
     return new OperationValidationAdapter(target);
   }
 
@@ -636,6 +647,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createParameterValidationAdapter(Parameter target)
   {
+	
     return new ParameterValidationAdapter(target);
   }
 
@@ -649,6 +661,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclInvariantValidationAdapter(OclInvariant target)
   {
+	
     return new OclInvariantValidationAdapter(target);
   }
 
@@ -662,6 +675,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclExpressionValidationAdapter(OclExpression target)
   {
+	
     return new OclExpressionValidationAdapter(target);
   }
 
@@ -675,6 +689,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclModelElementExpValidationAdapter(OclModelElementExp target)
   {
+	
     return new OclModelElementExpValidationAdapter(target);
   }
 
@@ -688,6 +703,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOperatorCallExpValidationAdapter(OperatorCallExp target)
   {
+	
     return new OperatorCallExpValidationAdapter(target);
   }
 
@@ -701,6 +717,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createEqOpCallExpValidationAdapter(EqOpCallExp target)
   {
+	
     return new EqOpCallExpValidationAdapter(target);
   }
 
@@ -714,6 +731,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createRelOpCallExpValidationAdapter(RelOpCallExp target)
   {
+	
     return new RelOpCallExpValidationAdapter(target);
   }
 
@@ -727,6 +745,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createAddOpCallExpValidationAdapter(AddOpCallExp target)
   {
+	
     return new AddOpCallExpValidationAdapter(target);
   }
 
@@ -740,6 +759,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createIntOpCallExpValidationAdapter(IntOpCallExp target)
   {
+	
     return new IntOpCallExpValidationAdapter(target);
   }
 
@@ -753,6 +773,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createMulOpCallExpValidationAdapter(MulOpCallExp target)
   {
+	
     return new MulOpCallExpValidationAdapter(target);
   }
 
@@ -766,6 +787,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createNotOpCallExpValidationAdapter(NotOpCallExp target)
   {
+	
     return new NotOpCallExpValidationAdapter(target);
   }
 
@@ -779,6 +801,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createPropertyCallExpValidationAdapter(PropertyCallExp target)
   {
+	
     return new PropertyCallExpValidationAdapter(target);
   }
 
@@ -792,6 +815,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createAuxiliaryValidationAdapter(Auxiliary target)
   {
+	
     return new AuxiliaryValidationAdapter(target);
   }
 
@@ -805,6 +829,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createVariableExpValidationAdapter(VariableExp target)
   {
+	
     return new VariableExpValidationAdapter(target);
   }
 
@@ -818,6 +843,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createSelfLiteralExpValidationAdapter(SelfLiteralExp target)
   {
+	
     return new SelfLiteralExpValidationAdapter(target);
   }
 
@@ -831,6 +857,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createNullLiteralExpValidationAdapter(NullLiteralExp target)
   {
+	
     return new NullLiteralExpValidationAdapter(target);
   }
 
@@ -844,6 +871,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createStringLiteralExpValidationAdapter(StringLiteralExp target)
   {
+	
     return new StringLiteralExpValidationAdapter(target);
   }
 
@@ -857,6 +885,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createNumericLiteralExpValidationAdapter(NumericLiteralExp target)
   {
+	
     return new NumericLiteralExpValidationAdapter(target);
   }
 
@@ -870,6 +899,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createRealLiteralExpValidationAdapter(RealLiteralExp target)
   {
+	
     return new RealLiteralExpValidationAdapter(target);
   }
 
@@ -883,6 +913,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createIntegerLiteralExpValidationAdapter(IntegerLiteralExp target)
   {
+	
     return new IntegerLiteralExpValidationAdapter(target);
   }
 
@@ -896,6 +927,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createBagLiteralExpValidationAdapter(BagLiteralExp target)
   {
+	
     return new BagLiteralExpValidationAdapter(target);
   }
 
@@ -909,6 +941,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOrderedSetLiteralExpValidationAdapter(OrderedSetLiteralExp target)
   {
+	
     return new OrderedSetLiteralExpValidationAdapter(target);
   }
 
@@ -922,6 +955,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createSequenceLiteralExpValidationAdapter(SequenceLiteralExp target)
   {
+	
     return new SequenceLiteralExpValidationAdapter(target);
   }
 
@@ -935,6 +969,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createSetLiteralExpValidationAdapter(SetLiteralExp target)
   {
+	
     return new SetLiteralExpValidationAdapter(target);
   }
 
@@ -948,6 +983,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createTupleLiteralExpValidationAdapter(TupleLiteralExp target)
   {
+	
     return new TupleLiteralExpValidationAdapter(target);
   }
 
@@ -961,6 +997,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createTuplePartValidationAdapter(TuplePart target)
   {
+	
     return new TuplePartValidationAdapter(target);
   }
 
@@ -974,6 +1011,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createMapLiteralExpValidationAdapter(MapLiteralExp target)
   {
+	
     return new MapLiteralExpValidationAdapter(target);
   }
 
@@ -987,6 +1025,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createMapElementValidationAdapter(MapElement target)
   {
+	
     return new MapElementValidationAdapter(target);
   }
 
@@ -1000,6 +1039,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createEnumLiteralExpValidationAdapter(EnumLiteralExp target)
   {
+	
     return new EnumLiteralExpValidationAdapter(target);
   }
 
@@ -1013,6 +1053,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createLetExpValidationAdapter(LetExp target)
   {
+	
     return new LetExpValidationAdapter(target);
   }
 
@@ -1026,6 +1067,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createIfExpValidationAdapter(IfExp target)
   {
+	
     return new IfExpValidationAdapter(target);
   }
 
@@ -1039,6 +1081,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createBraceExpValidationAdapter(BraceExp target)
   {
+	
     return new BraceExpValidationAdapter(target);
   }
 
@@ -1052,6 +1095,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createBooleanLiteralExpValidationAdapter(BooleanLiteralExp target)
   {
+	
     return new BooleanLiteralExpValidationAdapter(target);
   }
 
@@ -1065,6 +1109,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createPropertyCallValidationAdapter(PropertyCall target)
   {
+	
     return new PropertyCallValidationAdapter(target);
   }
 
@@ -1078,6 +1123,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOperationCallValidationAdapter(OperationCall target)
   {
+	
     return new OperationCallValidationAdapter(target);
   }
 
@@ -1091,6 +1137,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createNavigationOrAttributeCallValidationAdapter(NavigationOrAttributeCall target)
   {
+	
     return new NavigationOrAttributeCallValidationAdapter(target);
   }
 
@@ -1104,6 +1151,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createIterateExpValidationAdapter(IterateExp target)
   {
+	
     return new IterateExpValidationAdapter(target);
   }
 
@@ -1117,6 +1165,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createIteratorValidationAdapter(Iterator target)
   {
+	
     return new IteratorValidationAdapter(target);
   }
 
@@ -1130,6 +1179,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createIteratorExpValidationAdapter(IteratorExp target)
   {
+	
     return new IteratorExpValidationAdapter(target);
   }
 
@@ -1143,6 +1193,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createCollectionOperationCallValidationAdapter(CollectionOperationCall target)
   {
+	
     return new CollectionOperationCallValidationAdapter(target);
   }
 
@@ -1156,6 +1207,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createLocalVariableValidationAdapter(LocalVariable target)
   {
+	
     return new LocalVariableValidationAdapter(target);
   }
 
@@ -1169,6 +1221,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclTypeLiteralValidationAdapter(OclTypeLiteral target)
   {
+	
     return new OclTypeLiteralValidationAdapter(target);
   }
 
@@ -1182,6 +1235,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createCollectionTypeValidationAdapter(CollectionType target)
   {
+	
     return new CollectionTypeValidationAdapter(target);
   }
 
@@ -1195,6 +1249,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createBagTypeValidationAdapter(BagType target)
   {
+	
     return new BagTypeValidationAdapter(target);
   }
 
@@ -1208,6 +1263,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOrderedSetTypeValidationAdapter(OrderedSetType target)
   {
+	
     return new OrderedSetTypeValidationAdapter(target);
   }
 
@@ -1221,6 +1277,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createSequenceTypeValidationAdapter(SequenceType target)
   {
+	
     return new SequenceTypeValidationAdapter(target);
   }
 
@@ -1234,6 +1291,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createSetTypeValidationAdapter(SetType target)
   {
+	
     return new SetTypeValidationAdapter(target);
   }
 
@@ -1247,6 +1305,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createPrimitiveValidationAdapter(Primitive target)
   {
+	
     return new PrimitiveValidationAdapter(target);
   }
 
@@ -1260,6 +1319,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createStringTypeValidationAdapter(StringType target)
   {
+	
     return new StringTypeValidationAdapter(target);
   }
 
@@ -1273,6 +1333,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createBooleanTypeValidationAdapter(BooleanType target)
   {
+	
     return new BooleanTypeValidationAdapter(target);
   }
 
@@ -1286,6 +1347,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createNumericTypeValidationAdapter(NumericType target)
   {
+	
     return new NumericTypeValidationAdapter(target);
   }
 
@@ -1299,6 +1361,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createIntegerTypeValidationAdapter(IntegerType target)
   {
+	
     return new IntegerTypeValidationAdapter(target);
   }
 
@@ -1312,6 +1375,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createRealTypeValidationAdapter(RealType target)
   {
+	
     return new RealTypeValidationAdapter(target);
   }
 
@@ -1325,6 +1389,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclAnyTypeValidationAdapter(OclAnyType target)
   {
+	
     return new OclAnyTypeValidationAdapter(target);
   }
 
@@ -1338,6 +1403,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createTupleTypeValidationAdapter(TupleType target)
   {
+	
     return new TupleTypeValidationAdapter(target);
   }
 
@@ -1351,6 +1417,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createTupleTypeAttributeValidationAdapter(TupleTypeAttribute target)
   {
+	
     return new TupleTypeAttributeValidationAdapter(target);
   }
 
@@ -1364,6 +1431,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createOclModelElementClassValidationAdapter(OclModelElementClass target)
   {
+	
     return new OclModelElementClassValidationAdapter(target);
   }
 
@@ -1377,6 +1445,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createMapTypeValidationAdapter(MapType target)
   {
+	
     return new MapTypeValidationAdapter(target);
   }
 
