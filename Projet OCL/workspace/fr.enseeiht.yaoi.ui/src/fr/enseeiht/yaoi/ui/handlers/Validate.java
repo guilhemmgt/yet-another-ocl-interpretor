@@ -1,13 +1,10 @@
 package fr.enseeiht.yaoi.ui.handlers;
 
-import java.io.File;
 import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -38,9 +35,6 @@ public class Validate extends AbstractHandler {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 
-		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-
-		// Test
 		IEditorPart editor = HandlerUtil.getActiveEditorChecked(event);
 		if (!(editor instanceof IEditingDomainProvider)) {
 			throw new RuntimeException("???");
@@ -57,7 +51,7 @@ public class Validate extends AbstractHandler {
 			// TODO : popup error (load mocl first)
 			return null;
 		}
-		
+
 		//// MOCL
 
 		EcoreUtil.resolveAll(moclResource);
@@ -95,17 +89,15 @@ public class Validate extends AbstractHandler {
 		//// RESULTS
 
 		ValidationResult res = OclInterpretor.validate(xmiResource, moclModule);
-        boolean hasSkillIssues = res.hasNoError();
-        System.out.println("Skill issues ? " + (hasSkillIssues ? "No" : "Yes"));
-        if (!hasSkillIssues) {
-                Set<ValidationError> errors = res.getErrors();
-                for (ValidationError error : errors) {
-                        System.out.println("        Error: " + error);
-                }
-        }
-  
-  		
-  
+		boolean hasSkillIssues = res.hasNoError();
+		System.out.println("Skill issues ? " + (hasSkillIssues ? "No" : "Yes"));
+		if (!hasSkillIssues) {
+			Set<ValidationError> errors = res.getErrors();
+			for (ValidationError error : errors) {
+				System.out.println("        Error: " + error);
+			}
+		}
+
 		return null;
 	}
 }

@@ -36,7 +36,8 @@ public class Load extends AbstractHandler {
 		List<ViewerFilter> filters = Collections.singletonList(new ViewerFilter() {
 			@Override
 			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof IContainer) || ((element instanceof File) && ((File) element).getFileExtension().equals("mocl"));
+				return (element instanceof IContainer)
+						|| ((element instanceof File) && ((File) element).getFileExtension().equals("mocl"));
 			}
 		});
 
