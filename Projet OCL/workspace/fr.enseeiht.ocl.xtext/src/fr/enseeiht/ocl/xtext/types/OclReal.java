@@ -23,5 +23,12 @@ public class OclReal extends OclAny {
 		}
 		
 	}
+	
+
+	
+	@Override
+	public String toString() {
+		return "Real";
+	}
 
 }

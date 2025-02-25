@@ -2,12 +2,16 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclReal;
+import fr.enseeiht.ocl.xtext.types.OclVoid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -36,7 +40,10 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  Object arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getValue(contextTarget);
 	  
 	  if (arg == null) {
-		  throw new UndefinedAccesException(this.target.getSource());
+		  return new UndefinedAccessInvalid(this.target.getSource());
+	  }
+	  if (arg instanceof Invalid) {
+		  return arg;
 	  }
 	  
 	  // Traitement des opérations
@@ -60,10 +67,37 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  OCLAdapter arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
+	  
+	  OclType type = arg.getType();
+	  // not Boolean : boolean
+	  boolean isBoolean = type.conformsTo(new OclBoolean());
+	  // - Real : Real
+	  boolean isReal = type.conformsTo(new OclReal());
+	  // operator = 'not' | '-'
+	  boolean operationIsNot = this.target.getOperationName().equals("not");
+	  // Invalid + ... : Invalid
+	  boolean isInvalid = type.conformsTo(new OclInvalid());
+	  // Void + ... : Void
+	  boolean isVoid = type.conformsTo(new OclVoid());
+	  
+	  if (isBoolean && operationIsNot) {
+		  return new OclBoolean();
+	  }
+	  else if (isReal && !operationIsNot) {
+		  return new OclReal();
+	  }
+	  else if (isVoid && !isInvalid) {
+		  return new OclVoid();
+	  }
+	  else {
+		  // Opération invalide
+		  String message = "Invalid operation for type " + type + " (operation : '" + target.getOperationName() + "')";
+		  return new OclInvalid(target, message, type);
+	  }
   }
 
   /**

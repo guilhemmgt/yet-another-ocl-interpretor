@@ -1,11 +1,18 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.OclType;
+import fr.enseeiht.ocl.xtext.ocl.Parameter;
 
 /**
  * OCLAdapter for Operation
@@ -48,5 +55,22 @@ public final class OperationValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+  
+  public OclType getSourceType() {
+	  if (this.target.eContainer() instanceof OclContextBlock) {
+		  // TODO : Adapt this with answer from Paul
+		  return /*((OclContextBlock)this.target.eContainer()).getClass_()*/ new OclAny();
+	  }
+	  return null;
+  }
+  
+  public List<OclType> getArgumentsType() {
+	  List<OclType> result = new ArrayList<OclType>();
+	  for (Parameter param : this.target.getParameters()) {
+		  OclTypeLiteralValidationAdapter paramTypeAdapter = ((OclTypeLiteralValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(param.getType()));
+		  result.add(paramTypeAdapter.getOclType());
+	  }
+	  return null;
   }
  }

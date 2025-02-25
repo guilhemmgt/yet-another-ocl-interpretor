@@ -4,7 +4,7 @@ import fr.enseeiht.ocl.xtext.OclType;
 
 public class OclCollection extends OclAny {
 	 
-	public OclAny subtype;
+	public OclType subtype;
 	
 	public OclCollection(OclAny subtype) {
 		this.subtype = subtype;
@@ -29,6 +29,13 @@ public class OclCollection extends OclAny {
 	public OclType unifyWith(OclType oclType) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+
+	
+	@Override
+	public String toString() {
+		return "OclCollection<" + subtype.toString() + ">";
 	}
 
 }

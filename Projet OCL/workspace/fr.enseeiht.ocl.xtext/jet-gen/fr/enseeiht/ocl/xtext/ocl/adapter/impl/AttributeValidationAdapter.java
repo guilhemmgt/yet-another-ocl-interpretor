@@ -38,7 +38,7 @@ public final class AttributeValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**
