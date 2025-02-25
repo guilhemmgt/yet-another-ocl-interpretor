@@ -9,8 +9,9 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -46,7 +47,10 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  if (left == null || right == null) {
 		  // Levée d'erreur et envoi de l'argument fautif
-		  throw new UndefinedAccesException(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
+		  return new UndefinedAccessInvalid(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
+	  }
+	  if (left instanceof Invalid || right instanceof Invalid) {
+		  return left instanceof Invalid ? left : right;
 	  }
 	  
 	  // Traitement des opérations

@@ -8,9 +8,10 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
-import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -47,7 +48,10 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  if (left == null || right == null) {
 		  // Levée d'erreur et envoi de l'argument fautif
-		  throw new UndefinedAccesException(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
+		  return new UndefinedAccessInvalid(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
+	  }
+	  if (left instanceof Invalid || right instanceof Invalid) {
+		  return left instanceof Invalid ? left : right;
 	  }
 	  if (!(left instanceof Number && right instanceof Number)) {
 		  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), new Class<?>[] { left.getClass(), right.getClass() });
@@ -59,7 +63,7 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 			  return (left instanceof Integer ? (Integer)left : (Double)left) * (right instanceof Integer ? (Integer)right : (Double)right);
 		  case "/":
 			  if ((right instanceof Integer ? (Integer)right : (Double)right) == 0) // Pas de division par zéro
-				  throw new DivisionByZeroException(this.target.getArgumentDroite());
+				  return new DivisionByZeroInvalid(this.target.getArgumentDroite());
 			  return (left instanceof Integer ? (Integer)left : (Double)left) / (right instanceof Integer ? (Integer)right : (Double)right);
 		  default:
 			  throw new UnsupportedFeatureException(this.target.getOperationName());
