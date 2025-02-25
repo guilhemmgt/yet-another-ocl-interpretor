@@ -3,10 +3,35 @@
  */
 package fr.enseeiht.ocl.xtext.ui.contentassist;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+
+import fr.enseeiht.ocl.xtext.ocl.Import;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
  * on how to customize the content assistant.
  */
 public class OclProposalProvider extends AbstractOclProposalProvider {
+	
+	@Override
+	public void completeImport_Name(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		super.completeImport_Name(model, assignment, context, acceptor);
+
+		Import import_ = (Import) model;
+
+		String proposal = import_.getPackage().getNsPrefix();
+
+		// Create and register the completion proposal:
+		// The proposal may be null as the createCompletionProposal(..)
+		// methods check for valid prefixes and terminal token conflicts.
+		// The acceptor handles null-values gracefully.
+		acceptor.accept(createCompletionProposal(proposal, context));
+	}
+	
+	
+	
 }
