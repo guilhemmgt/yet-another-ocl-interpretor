@@ -3,14 +3,13 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -51,12 +50,11 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	if (source != null) {
 		for (EStructuralFeature feat : source.eClass().getEAllStructuralFeatures()) {
 			if (this.target.getName().equals(feat.getName())) {
-				System.out.println(source.eGet(feat));
 				return source.eGet(feat);
 			}
 		}
 	} else {
-		throw new UndefinedAccesException(source);
+		return new UndefinedAccessInvalid(source);
 	}
 	return null;
   }
@@ -86,8 +84,6 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 				return new OclEClass(feat.eClass());
 			}
 		}
-	  } else {
-		  throw new UndefinedAccesException(target);
 	  }
 	  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
   }

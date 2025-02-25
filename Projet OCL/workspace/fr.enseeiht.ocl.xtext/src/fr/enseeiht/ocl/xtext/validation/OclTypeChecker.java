@@ -1,6 +1,5 @@
 package fr.enseeiht.ocl.xtext.validation;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,8 +12,6 @@ import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclExpressionValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OperatorCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.*;
 

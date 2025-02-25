@@ -10,6 +10,8 @@ inv times3:
 	-0.001 < 3*2.2-6.6
 inv times4:
 	3*2.2-6.6 < 0.001
+inv times5:
+	4*5*5.5=110
 	
 inv divided1:
 	12/4=3
@@ -19,3 +21,5 @@ inv divided3:
 	-0.001 < 6.6/2.2-3
 inv divided4:
 	6.6/2.2-3 < 0.001
+inv divided5:
+	30/5/2=3

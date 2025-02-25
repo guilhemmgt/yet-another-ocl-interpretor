@@ -1,0 +1,25 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv eq1:
+	1=1
+inv eq2:
+	1.5=1.5
+inv eq3:
+	null=null
+inv eq4:
+	"hello"="hello"
+inv eq5:
+	true=true
+
+inv neq1:
+	1<>2
+inv neq2:
+	1.5<>1.25
+inv neq3:
+	1<>null
+inv neq4:
+	"hello"<>"world"
+inv neq5:
+	true<>false
