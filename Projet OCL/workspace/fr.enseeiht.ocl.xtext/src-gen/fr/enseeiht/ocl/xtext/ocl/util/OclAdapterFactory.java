@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
@@ -327,6 +328,11 @@ public class OclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBraceExp(BraceExp object)
       {
         return createBraceExpAdapter();
+      }
+      @Override
+      public Adapter caseContextlessCallExp(ContextlessCallExp object)
+      {
+        return createContextlessCallExpAdapter();
       }
       @Override
       public Adapter caseBooleanLiteralExp(BooleanLiteralExp object)
@@ -1046,6 +1052,21 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBraceExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp <em>Contextless Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp
+   * @generated
+   */
+  public Adapter createContextlessCallExpAdapter()
   {
     return null;
   }

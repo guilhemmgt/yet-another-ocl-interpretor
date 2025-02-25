@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
@@ -349,6 +350,13 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass braceExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextlessCallExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1733,6 +1741,39 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
+  public EClass getContextlessCallExp()
+  {
+    return contextlessCallExpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getContextlessCallExp_OperationName()
+  {
+    return (EAttribute)contextlessCallExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContextlessCallExp_Arguments()
+  {
+    return (EReference)contextlessCallExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getBooleanLiteralExp()
   {
     return booleanLiteralExpEClass;
@@ -2416,6 +2457,10 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     braceExpEClass = createEClass(BRACE_EXP);
     createEReference(braceExpEClass, BRACE_EXP__EXP);
 
+    contextlessCallExpEClass = createEClass(CONTEXTLESS_CALL_EXP);
+    createEAttribute(contextlessCallExpEClass, CONTEXTLESS_CALL_EXP__OPERATION_NAME);
+    createEReference(contextlessCallExpEClass, CONTEXTLESS_CALL_EXP__ARGUMENTS);
+
     booleanLiteralExpEClass = createEClass(BOOLEAN_LITERAL_EXP);
     createEAttribute(booleanLiteralExpEClass, BOOLEAN_LITERAL_EXP__BOOLEAN_SYMBOL);
 
@@ -2540,6 +2585,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     letExpEClass.getESuperTypes().add(this.getOclExpression());
     ifExpEClass.getESuperTypes().add(this.getOclExpression());
     braceExpEClass.getESuperTypes().add(this.getOclExpression());
+    contextlessCallExpEClass.getESuperTypes().add(this.getOclExpression());
     booleanLiteralExpEClass.getESuperTypes().add(this.getOclExpression());
     operationCallEClass.getESuperTypes().add(this.getPropertyCall());
     navigationOrAttributeCallEClass.getESuperTypes().add(this.getPropertyCall());
@@ -2705,6 +2751,10 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(braceExpEClass, BraceExp.class, "BraceExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBraceExp_Exp(), this.getOclExpression(), null, "exp", null, 0, 1, BraceExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contextlessCallExpEClass, ContextlessCallExp.class, "ContextlessCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContextlessCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, ContextlessCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextlessCallExp_Arguments(), this.getOclExpression(), null, "arguments", null, 0, -1, ContextlessCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(booleanLiteralExpEClass, BooleanLiteralExp.class, "BooleanLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBooleanLiteralExp_BooleanSymbol(), ecorePackage.getEString(), "booleanSymbol", null, 0, 1, BooleanLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

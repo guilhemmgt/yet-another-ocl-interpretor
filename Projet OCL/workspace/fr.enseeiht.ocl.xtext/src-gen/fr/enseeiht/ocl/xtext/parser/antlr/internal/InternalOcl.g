@@ -518,7 +518,7 @@ ruleOperation returns [EObject current=null]
 						}
 					)
 				)
-			)+
+			)*
 		)?
 		otherlv_5=')'
 		{
@@ -1772,11 +1772,20 @@ rulePrimary_OclExpression returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_15());
+			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_15());
 		}
-		this_NullLiteralExp_15=ruleNullLiteralExp
+		this_ContextlessCallExp_15=ruleContextlessCallExp
 		{
-			$current = $this_NullLiteralExp_15.current;
+			$current = $this_ContextlessCallExp_15.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_16());
+		}
+		this_NullLiteralExp_16=ruleNullLiteralExp
+		{
+			$current = $this_NullLiteralExp_16.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -2954,6 +2963,97 @@ ruleBraceExp returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleContextlessCallExp
+entryRuleContextlessCallExp returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getContextlessCallExpRule()); }
+	iv_ruleContextlessCallExp=ruleContextlessCallExp
+	{ $current=$iv_ruleContextlessCallExp.current; }
+	EOF;
+
+// Rule ContextlessCallExp
+ruleContextlessCallExp returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_operationName_0_0=RULE_ID
+				{
+					newLeafNode(lv_operationName_0_0, grammarAccess.getContextlessCallExpAccess().getOperationNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getContextlessCallExpRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"operationName",
+						lv_operationName_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getContextlessCallExpAccess().getLeftParenthesisKeyword_1());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getContextlessCallExpAccess().getArgumentsOclExpressionParserRuleCall_2_0_0());
+					}
+					lv_arguments_2_0=ruleOclExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getContextlessCallExpRule());
+						}
+						add(
+							$current,
+							"arguments",
+							lv_arguments_2_0,
+							"fr.enseeiht.ocl.xtext.Ocl.OclExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_3=','
+				{
+					newLeafNode(otherlv_3, grammarAccess.getContextlessCallExpAccess().getCommaKeyword_2_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getContextlessCallExpAccess().getArgumentsOclExpressionParserRuleCall_2_1_1_0());
+						}
+						lv_arguments_4_0=ruleOclExpression
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getContextlessCallExpRule());
+							}
+							add(
+								$current,
+								"arguments",
+								lv_arguments_4_0,
+								"fr.enseeiht.ocl.xtext.Ocl.OclExpression");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		otherlv_5=')'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getContextlessCallExpAccess().getRightParenthesisKeyword_3());
+		}
+	)
+;
+
 // Entry rule entryRuleBooleanLiteralExp
 entryRuleBooleanLiteralExp returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getBooleanLiteralExpRule()); }
@@ -3087,46 +3187,25 @@ ruleOperationCall returns [EObject current=null]
 		}
 		(
 			(
-				(
-					lv_operationName_1_0=RULE_STRING
-					{
-						newLeafNode(lv_operationName_1_0, grammarAccess.getOperationCallAccess().getOperationNameSTRINGTerminalRuleCall_1_0_0());
+				lv_operationName_1_0=RULE_ID
+				{
+					newLeafNode(lv_operationName_1_0, grammarAccess.getOperationCallAccess().getOperationNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getOperationCallRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getOperationCallRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"operationName",
-							lv_operationName_1_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-			    |
-			(
-				(
-					lv_operationName_2_0=RULE_ID
-					{
-						newLeafNode(lv_operationName_2_0, grammarAccess.getOperationCallAccess().getOperationNameIDTerminalRuleCall_1_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getOperationCallRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"operationName",
-							lv_operationName_2_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
+					setWithLastConsumed(
+						$current,
+						"operationName",
+						lv_operationName_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
 			)
 		)
-		otherlv_3='('
+		otherlv_2='('
 		{
-			newLeafNode(otherlv_3, grammarAccess.getOperationCallAccess().getLeftParenthesisKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getOperationCallAccess().getLeftParenthesisKeyword_2());
 		}
 		(
 			(
@@ -3134,7 +3213,7 @@ ruleOperationCall returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getOperationCallAccess().getArgumentsOclExpressionParserRuleCall_3_0_0());
 					}
-					lv_arguments_4_0=ruleOclExpression
+					lv_arguments_3_0=ruleOclExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getOperationCallRule());
@@ -3142,23 +3221,23 @@ ruleOperationCall returns [EObject current=null]
 						add(
 							$current,
 							"arguments",
-							lv_arguments_4_0,
+							lv_arguments_3_0,
 							"fr.enseeiht.ocl.xtext.Ocl.OclExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_5=','
+				otherlv_4=','
 				{
-					newLeafNode(otherlv_5, grammarAccess.getOperationCallAccess().getCommaKeyword_3_1_0());
+					newLeafNode(otherlv_4, grammarAccess.getOperationCallAccess().getCommaKeyword_3_1_0());
 				}
 				(
 					(
 						{
 							newCompositeNode(grammarAccess.getOperationCallAccess().getArgumentsOclExpressionParserRuleCall_3_1_1_0());
 						}
-						lv_arguments_6_0=ruleOclExpression
+						lv_arguments_5_0=ruleOclExpression
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getOperationCallRule());
@@ -3166,7 +3245,7 @@ ruleOperationCall returns [EObject current=null]
 							add(
 								$current,
 								"arguments",
-								lv_arguments_6_0,
+								lv_arguments_5_0,
 								"fr.enseeiht.ocl.xtext.Ocl.OclExpression");
 							afterParserOrEnumRuleCall();
 						}
@@ -3174,9 +3253,9 @@ ruleOperationCall returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_7=')'
+		otherlv_6=')'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getOperationCallAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_6, grammarAccess.getOperationCallAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;
