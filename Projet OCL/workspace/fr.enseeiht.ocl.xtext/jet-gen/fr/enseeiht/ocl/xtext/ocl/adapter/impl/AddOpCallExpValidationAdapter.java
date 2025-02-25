@@ -142,7 +142,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 			  }
 			  itr++;
 		  }
-		  
+
 		  if ((isString || isReal) && operatorIsAddition ){
 			  // Rappel : Puisque Integer s'unifie avec Real, on a : Real + Integer : Real
 			  return unifyResult;
