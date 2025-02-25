@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -89,14 +90,20 @@ public class Validate extends AbstractHandler {
 		//// RESULTS
 
 		ValidationResult res = OclInterpretor.validate(xmiResource, moclModule);
-		boolean hasSkillIssues = res.hasNoError();
-		System.out.println("Skill issues ? " + (hasSkillIssues ? "No" : "Yes"));
-		if (!hasSkillIssues) {
-			Set<ValidationError> errors = res.getErrors();
-			for (ValidationError error : errors) {
-				System.out.println("        Error: " + error);
-			}
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		StringBuilder sb = new StringBuilder("Validation Errors:\n");
+		for (ValidationError error : res.getErrors()) {
+		    String invName = error.getFailedInvariant() != null 
+		                     ? error.getFailedInvariant().getName() 
+		                     : "Unknown Invariant";
+		    String objName = error.getTestedObject() != null 
+		                     ? error.getTestedObject().toString() 
+		                     : "Unknown Object";
+		    sb.append("  Invariant \"").append(invName)
+		      .append("\" is violated by \"").append(objName).append("\"\n");
 		}
+		MessageDialog.openError(shell, "Validation Results", sb.toString());
+
 
 		return null;
 	}
