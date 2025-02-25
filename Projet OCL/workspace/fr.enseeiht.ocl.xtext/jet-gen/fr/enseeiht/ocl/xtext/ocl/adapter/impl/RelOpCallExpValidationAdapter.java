@@ -35,27 +35,27 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  if (this.target.getOperationName() == null) {
+	  Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getValue(contextTarget);
+	  if (this.target.getOperationNames().size() == 0) {
 		  // Passage au rang suivant
-		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+		  return result;
 	  }
 	  
-	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
-	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1)).getValue(contextTarget);
 	  
-	  if (left == null || right == null) {
+	  if (result == null || right == null) {
 			// Levée d'erreur et envoi de l'argument fautif
-			throw new UndefinedAccesException(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
+			throw new UndefinedAccesException(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(1));
 	  }
 	  
-	  if (!(left instanceof Number && right instanceof Number)) {
+	  if (!(result instanceof Number && right instanceof Number)) {
 		  return false;
 	  }
-	  Double leftDouble = ((Number)left).doubleValue();
+	  Double leftDouble = ((Number)result).doubleValue();
 	  Double rightDouble = ((Number)right).doubleValue();
 	  
 	  // Traitement des opérations
-	  switch (this.target.getOperationName()) {
+	  switch (this.target.getOperationNames().get(0)) {
 		  case ">":
 		  return leftDouble > rightDouble;
 	  case "<":
@@ -65,7 +65,7 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 	  case "<=":
 		  return leftDouble <= rightDouble;
 	  default:
-		  throw new UnsupportedFeatureException(this.target.getOperationName());
+		  throw new UnsupportedFeatureException(this.target.getOperationNames().get(0));
 		  
 	  }
   }
@@ -77,13 +77,13 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
   public OclType getType() {
 	  
 	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OCLAdapter arg1 =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
-	  if (this.target.getArgumentDroite() == null) {
+	  OCLAdapter arg1 =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0));
+	  if (this.target.getOperationNames().size() == 0) {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
 		  return arg1.getType();
 	  } 
 	  else {
-		  OCLAdapter arg2 =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
+		  OCLAdapter arg2 =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1));
 		  OclType type1 = arg1.getType();
 		  OclType type2 = arg2.getType();
 		  // Real > Real : Bool
@@ -101,7 +101,7 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 		  else {
 			  // Opération invalide
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationName() + "')";
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationNames().get(0) + "')";
 			  return new OclInvalid(target, message, type1, type2);
 		  }
 	  }

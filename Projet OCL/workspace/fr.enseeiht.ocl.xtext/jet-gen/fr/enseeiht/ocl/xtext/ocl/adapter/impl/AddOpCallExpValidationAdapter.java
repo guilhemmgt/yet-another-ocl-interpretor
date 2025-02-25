@@ -4,7 +4,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
@@ -16,7 +15,6 @@ import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -41,38 +39,45 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  if (this.target.getOperationName() == null) {
+	  Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getValue(contextTarget);
+	  
+	  if (this.target.getOperationNames().size() == 0) {
 		  // Passage au rang suivant
-		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+		  return result;
 	  }
-	  
-	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
-	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
-	  
-	  if (left == null || right == null) {
-		  // Levée d'erreur et envoi de l'argument fautif
-		  throw new UndefinedAccesException(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
-	  }
-	  
-	  // Traitement des opérations
-	  switch (this.target.getOperationName()) {
+	  for(int i=0; i < this.target.getOperationNames().size();i++) {
+		  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i+1)).getValue(contextTarget);
+		  
+		  if (result == null || right == null) {
+			  // Levée d'erreur et envoi de l'argument fautif
+			  throw new UndefinedAccesException(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i+1));
+		  }
+		  
+		  // Traitement des opérations
+		  switch (this.target.getOperationNames().get(i)) {
 		  case "+":
-			  if (left instanceof Number && right instanceof Number) {
-				  return (left instanceof Integer ? (Integer)left : (Double)left) + (right instanceof Integer ? (Integer)right : (Double)right);
-			  } else if (left instanceof String && right instanceof String) {
-				  return ((String)left).concat((String)right);
+			  if (result instanceof Number && right instanceof Number) {
+				  result = (result instanceof Integer ? (Integer)result : (Double)result) + (right instanceof Integer ? (Integer)right : (Double)right);
+				  break;			  
+			  } else if (result instanceof String && right instanceof String) {
+				  result = ((String)result).concat((String)right);
+				  break;
 			  } else {
-				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), new Class<?>[] { left.getClass(), right.getClass() });
+				  throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i), new Class<?>[] { result.getClass(), right.getClass() });
 			  }
 		  case "-":
-			  if (left instanceof Number && right instanceof Number) {
-				  return (left instanceof Integer ? (Integer)left : (Double)left) - (right instanceof Integer ? (Integer)right : (Double)right);
+			  if (result instanceof Number && right instanceof Number) {
+				  result = (result instanceof Integer ? (Integer)result : (Double)result) - (right instanceof Integer ? (Integer)right : (Double)right);
+				  break;
 			  } else {
-				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), new Class<?>[] { left.getClass(), right.getClass() });
+				  throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i), new Class<?>[] { result.getClass(), right.getClass() });
 			  }
 		  default:
-			  throw new UnsupportedFeatureException(this.target.getOperationName());
+			  throw new UnsupportedFeatureException(this.target.getOperationNames().get(i));
+		  }
 	  }
+	  return result;
+	  
   }
 
   /**

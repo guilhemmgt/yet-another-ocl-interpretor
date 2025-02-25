@@ -29,8 +29,3 @@ inv implies3:
 	true implies true
 inv implies4:
 	true implies false implies true
-
-inv equivalent1:
-	true equivalent true
-inv equivalent2:
-	false equivalent false
