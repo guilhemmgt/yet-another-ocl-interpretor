@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.IntegerType;
@@ -39,7 +40,7 @@ public final class IntegerTypeValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-    return new OclInteger();
+    return new OclClassifier(new OclInteger());
   }
 
   /**

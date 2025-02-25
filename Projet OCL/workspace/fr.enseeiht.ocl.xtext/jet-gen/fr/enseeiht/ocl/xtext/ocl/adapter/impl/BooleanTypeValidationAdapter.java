@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -39,7 +40,7 @@ public final class BooleanTypeValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  return new OclBoolean();
+	  return new OclClassifier(new OclBoolean());
   }
 
   /**

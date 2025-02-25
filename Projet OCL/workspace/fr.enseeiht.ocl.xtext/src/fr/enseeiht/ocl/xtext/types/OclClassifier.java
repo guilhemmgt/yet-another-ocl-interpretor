@@ -6,6 +6,7 @@ public class OclClassifier extends OclAny {
 
 	protected OclType representedType;
 	
+
 	public OclClassifier(OclType type) {
 		representedType = type;
 	}
@@ -40,5 +41,13 @@ public class OclClassifier extends OclAny {
 		return "OclClassifier<"+representedType+">";
 	}
 
+	
+	public OclType getRepresentedType() {
+		return representedType;
+	}
+
+	public void setRepresentedType(OclType representedType) {
+		this.representedType = representedType;
+	}
 	
 }
