@@ -1,6 +1,7 @@
 package fr.enseeiht.yaoi;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,6 +31,14 @@ public class ValidationResult {
 	 */
 	public Set<ValidationError> getErrors() {
 		return this.errors;
+	}
+	
+	/**
+	 * Register a new error to the ValidationResult
+	 * @param newError
+	 */
+	public void addErrors(Collection<ValidationError> newError) {
+		this.errors.addAll(newError);
 	}
 	
 	/**

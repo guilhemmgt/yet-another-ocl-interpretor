@@ -28,6 +28,13 @@ public class OclSet extends OclCollection {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
+	
+	@Override
+	public String toString() {
+		return "Set<"+subtype.toString() + ">";
+	}
 
 
 }

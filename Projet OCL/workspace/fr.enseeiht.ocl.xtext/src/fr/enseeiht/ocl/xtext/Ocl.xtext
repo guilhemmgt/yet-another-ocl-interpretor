@@ -10,7 +10,7 @@ Module:
 
 
 Import:
-'import' package=[ecore::EPackage|STRING] 'as'name=ID;
+	'import' package=[ecore::EPackage|STRING] 'as'name=ID;
 
 OclContextBlock:
 	('context' ecoreTypes=[Import]'!'class=[ecore::EClass|QualifiedName]) (members+=(OclFeatureDefinition|OclInvariant))+
@@ -40,38 +40,38 @@ OclModelElementExp :
 //priority_5
 
 OperatorCallExp:
-	// argumentGauche=EqOpCallExp (({OperatorCallExp.source=current} operationName=BOOLOP) 	argumentDroite+=EqOpCallExp )*
-	argumentGauche=EqOpCallExp (operationName=BOOLOP argumentDroite=OperatorCallExp)?
+	// args+=EqOpCallExp (({OperatorCallExp.source=current} operationNames+=BOOLOP) 	args+=EqOpCallExp )*
+	args+=EqOpCallExp (operationNames+=BOOLOP args+=OperatorCallExp)*
 ;
-BOOLOP  		: 'and'|'or'|'xor'|'implies'|'equivalent';
+BOOLOP  		: 'and'|'or'|'xor'|'implies';
 
 EqOpCallExp:
-	//argumentGauche=RelOpCallExp (({EqOpCallExp.source=current} operationName=EQOP) 	argumentDroite+=RelOpCallExp )?
-argumentGauche=RelOpCallExp (operationName=EQOP argumentDroite=RelOpCallExp)?
+	//args+=RelOpCallExp (({EqOpCallExp.source=current} operationNames+=EQOP) 	args+=RelOpCallExp )?
+	args+=RelOpCallExp (operationNames+=EQOP args+=RelOpCallExp)?
 ;
 EQOP  		: '='|'<>';
 
 RelOpCallExp:
-	//argumentGauche=AddOpCallExp (({RelOpCallExp.source=current} operationName=RELOP) 	argumentDroite+=AddOpCallExp )?
-	argumentGauche=AddOpCallExp (operationName=RELOP argumentDroite=AddOpCallExp)?
+	//args+=AddOpCallExp (({RelOpCallExp.source=current} operationNames+=RELOP) 	args+=AddOpCallExp )?
+	args+=AddOpCallExp (operationNames+=RELOP args+=AddOpCallExp)?
 ;
 RELOP  		: '>'|'<'|'>='|'<=' ;
 
 AddOpCallExp:
-	//argumentGauche=IntOpCallExp (({AddOpCallExp.source=current} operationName=ADDOP) 	argumentDroite+=IntOpCallExp )*
-	argumentGauche=IntOpCallExp (operationName=ADDOP argumentDroite=AddOpCallExp)?
+	//args+=IntOpCallExp (({AddOpCallExp.source=current} operationNames+=ADDOP) 	args+=IntOpCallExp )*
+	args+=IntOpCallExp (operationNames+=ADDOP args+=AddOpCallExp)*
 ;
 ADDOP : '-'|'+';
 
 IntOpCallExp :
-	//argumentGauche=MulOpCallExp (({IntOpCallExp.source=current} operationName=INTOP) 	argumentDroite+=MulOpCallExp )*
-	argumentGauche=MulOpCallExp (operationName=INTOP argumentDroite=IntOpCallExp)?
+	//args+=MulOpCallExp (({IntOpCallExp.source=current} operationNames+=INTOP) 	args+=MulOpCallExp )*
+	args+=MulOpCallExp (operationNames+=INTOP args+=IntOpCallExp)*
 ;
 INTOP : 'div'|'mod';
 
 MulOpCallExp:
-	//argumentGauche=NotOpCallExp (({MulOpCallExp.source=current} operationName=MULOP) 	argumentDroite+=NotOpCallExp )*
-argumentGauche=NotOpCallExp (operationName=MULOP argumentDroite=MulOpCallExp)?
+	//args+=NotOpCallExp (({MulOpCallExp.source=current} operationNames+=MULOP) 	args+=NotOpCallExp )*
+	args+=NotOpCallExp (operationNames+=MULOP args+=MulOpCallExp)*
 ;
 MULOP: '*'|'/';
 
@@ -296,7 +296,7 @@ MapType :
 
 
 terminal DOUBLE returns ecore::EDouble :
-(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
+	(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
 
 QualifiedName: ID ('.' ID)*;
 

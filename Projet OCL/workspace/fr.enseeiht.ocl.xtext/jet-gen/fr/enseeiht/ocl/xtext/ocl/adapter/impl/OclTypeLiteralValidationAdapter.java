@@ -49,4 +49,8 @@ public final class OclTypeLiteralValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
+
+  public OclType getOclType() {
+	return null;
+  }
  }

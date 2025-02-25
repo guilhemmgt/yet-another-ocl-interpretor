@@ -24,5 +24,11 @@ public class OclBoolean extends OclAny {
 		
 	}
 
+	
+	@Override
+	public String toString() {
+		return "Boolean";
+	}
+
 
 }

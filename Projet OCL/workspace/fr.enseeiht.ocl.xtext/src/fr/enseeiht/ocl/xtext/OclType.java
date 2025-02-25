@@ -14,4 +14,10 @@ public interface OclType {
 	 */
 	public OclType unifyWith(OclType oclType);
 	
+	
+	/** The string that represents the type
+	 * @return the name of the type
+	 */
+	public String toString();
+	
 }
