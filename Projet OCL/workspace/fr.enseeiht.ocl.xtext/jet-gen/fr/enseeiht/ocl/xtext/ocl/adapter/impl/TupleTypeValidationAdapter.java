@@ -1,10 +1,17 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclTuple;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
+import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -35,10 +42,15 @@ public final class TupleTypeValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  Map<String, OclType> map = new HashMap<String, OclType>();
+	  for (TupleTypeAttribute attribute : target.getAttributes()) {
+		  TupleTypeAttributeValidationAdapter att = (TupleTypeAttributeValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(attribute);
+		  map.put(att.getName(), att.getType());
+	  }
+	  return new OclClassifier(new OclTuple(map));
   }
 
   /**

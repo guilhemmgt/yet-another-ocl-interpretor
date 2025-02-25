@@ -5,8 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
@@ -28,10 +26,7 @@ public class OclTypeChecker {
 	 */
 	public static OclInvalid getAllTypes(Module mocl) {
 		List<OclInvalid> invalidList = new LinkedList<OclInvalid>();
-		List<EPackage> packList = new LinkedList<EPackage>();
-		// Le EPackage importé le permier (TODO : en faire plusieurs)
-		EPackage pack = mocl.getImports().get(0).getPackage();
-		// La liiste des invariants dans le fichier mocl.
+		// La liste des invariants dans le fichier mocl.
 		List<OclInvariant> invs = new ArrayList<OclInvariant>();
 		// Remplissage de la liste des invariants
 		for (OclContextBlock contextBlock : mocl.getContextBlocks()) {
