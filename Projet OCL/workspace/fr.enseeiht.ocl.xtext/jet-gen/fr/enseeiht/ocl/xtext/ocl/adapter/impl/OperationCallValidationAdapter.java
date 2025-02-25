@@ -9,6 +9,8 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
+import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
@@ -97,7 +99,44 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+	int pos = container.getCalls().indexOf(this.target);
+	OCLAdapter source;
+	// Get value from the rest of the navigation
+	if (pos == 0) {
+		// root call
+		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
+	} else {
+		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
+	}
+	OclType sourceType = source.getType();
+	if (sourceType.conformsTo(new OclInvalid())) {
+		// Méthodes utilisateur
+		
+		// Méthodes système
+		List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+		List<OclType> paramTypes = new ArrayList<OclType>();
+		for (OclExpression param : this.target.getArguments()) {
+			paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
+		}
+		if (operations != null ) {
+			for (IOclOperation operation : operations) {
+				if (true /*&& OperationResolutionUtils.isCorrectImplementation(source.getType(), operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())*/ ) {
+					// Compute args value 
+					List<Object> args = new ArrayList<Object>();
+					for (EObject arg : this.target.getArguments()) {
+						OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
+						args.add(argAdapter.getType());
+					}
+					// TODO
+										
+				}
+			}
+		}
+	} else {
+		return new OclInvalid(sourceType);
+	}
+	return new OclAny();
   }
 
   /**

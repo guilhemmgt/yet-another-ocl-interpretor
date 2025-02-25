@@ -140,6 +140,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 			  if (!isUnique) {
 				  uniqueTypes.add(titr);
 			  }
+			  itr++;
 		  }
 		  
 		  if ((isString || isReal) && operatorIsAddition ){
