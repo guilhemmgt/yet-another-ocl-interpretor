@@ -38,6 +38,7 @@ import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
+import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
@@ -102,6 +103,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EnumLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.LetExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IfExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BraceExpValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ContextlessCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BooleanLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PropertyCallValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OperationCallValidationAdapter;
@@ -386,6 +388,11 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseBraceExp(BraceExp object)
       {
         return createBraceExpValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseContextlessCallExp(ContextlessCallExp object)
+      {
+        return createContextlessCallExpValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseBooleanLiteralExp(BooleanLiteralExp object)
@@ -1083,6 +1090,19 @@ public class OCLValidationAdapterFactory
   {
 	
     return new BraceExpValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp <em>ContextlessCallExp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp
+   * @generated
+   */
+  public OCLAdapter createContextlessCallExpValidationAdapter(ContextlessCallExp target)
+  {
+    return new ContextlessCallExpValidationAdapter(target);
   }
 
   /**

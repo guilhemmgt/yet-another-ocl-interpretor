@@ -3,10 +3,12 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclEClass;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccesException;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
@@ -61,10 +63,32 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  // On récupère le type du parent, qui devrait alors etre une EClass
+	  PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+	  // On remonte la pile des accès
+	  int pos = container.getCalls().indexOf(this.target);
+	  OclEClass source;
+	  if (pos == 0) {
+		  // root call
+		  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+	  } else {
+		  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
+	  }
+	  // On a le type parent! On récupère son sous-type.
+	  
+	  if (source != null) {
+		for (EStructuralFeature feat : source.classtype.getEAllStructuralFeatures()) {
+			if (this.target.getName().equals(feat.getName())) {
+				return new OclEClass(feat.eClass());
+			}
+		}
+	  } else {
+		  throw new UndefinedAccesException(target);
+	  }
+	  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
   }
 
   /**
@@ -75,7 +99,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-     public boolean conformsTo(OclType oclType) {
+       public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

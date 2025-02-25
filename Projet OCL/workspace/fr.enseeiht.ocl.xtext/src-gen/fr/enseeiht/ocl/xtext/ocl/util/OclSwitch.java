@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
@@ -422,6 +423,14 @@ public class OclSwitch<T> extends Switch<T>
         BraceExp braceExp = (BraceExp)theEObject;
         T result = caseBraceExp(braceExp);
         if (result == null) result = caseOclExpression(braceExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.CONTEXTLESS_CALL_EXP:
+      {
+        ContextlessCallExp contextlessCallExp = (ContextlessCallExp)theEObject;
+        T result = caseContextlessCallExp(contextlessCallExp);
+        if (result == null) result = caseOclExpression(contextlessCallExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1249,6 +1258,22 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBraceExp(BraceExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Contextless Call Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Contextless Call Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextlessCallExp(ContextlessCallExp object)
   {
     return null;
   }

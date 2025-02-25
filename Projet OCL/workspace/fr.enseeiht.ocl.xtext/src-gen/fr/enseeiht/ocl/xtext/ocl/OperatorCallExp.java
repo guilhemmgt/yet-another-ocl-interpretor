@@ -3,6 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,9 +14,8 @@ package fr.enseeiht.ocl.xtext.ocl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentGauche <em>Argument Gauche</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationName <em>Operation Name</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentDroite <em>Argument Droite</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgs <em>Args</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationNames <em>Operation Names</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp()
@@ -25,69 +25,27 @@ package fr.enseeiht.ocl.xtext.ocl;
 public interface OperatorCallExp extends OclExpression
 {
   /**
-   * Returns the value of the '<em><b>Argument Gauche</b></em>' containment reference.
+   * Returns the value of the '<em><b>Args</b></em>' containment reference list.
+   * The list contents are of type {@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Argument Gauche</em>' containment reference.
-   * @see #setArgumentGauche(EqOpCallExp)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_ArgumentGauche()
+   * @return the value of the '<em>Args</em>' containment reference list.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_Args()
    * @model containment="true"
    * @generated
    */
-  EqOpCallExp getArgumentGauche();
+  EList<EqOpCallExp> getArgs();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentGauche <em>Argument Gauche</em>}' containment reference.
+   * Returns the value of the '<em><b>Operation Names</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Argument Gauche</em>' containment reference.
-   * @see #getArgumentGauche()
+   * @return the value of the '<em>Operation Names</em>' attribute list.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_OperationNames()
+   * @model unique="false"
    * @generated
    */
-  void setArgumentGauche(EqOpCallExp value);
-
-  /**
-   * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operation Name</em>' attribute.
-   * @see #setOperationName(String)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_OperationName()
-   * @model
-   * @generated
-   */
-  String getOperationName();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationName <em>Operation Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operation Name</em>' attribute.
-   * @see #getOperationName()
-   * @generated
-   */
-  void setOperationName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Argument Droite</em>' containment reference.
-   * @see #setArgumentDroite(OperatorCallExp)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperatorCallExp_ArgumentDroite()
-   * @model containment="true"
-   * @generated
-   */
-  OperatorCallExp getArgumentDroite();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentDroite <em>Argument Droite</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Argument Droite</em>' containment reference.
-   * @see #getArgumentDroite()
-   * @generated
-   */
-  void setArgumentDroite(OperatorCallExp value);
+  EList<String> getOperationNames();
 
 } // OperatorCallExp
