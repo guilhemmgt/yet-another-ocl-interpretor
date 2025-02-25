@@ -1,10 +1,13 @@
 package fr.enseeiht.yaoi.ui.handlers;
 
+import java.io.File;
 import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -44,34 +47,19 @@ public class Validate extends AbstractHandler {
 		}
 		EditingDomain editorDomain = ((IEditingDomainProvider) editor).getEditingDomain();
 		ResourceSet resourceSet = editorDomain.getResourceSet();
-		URI moclUri = null;
+		Resource moclResource = null;
 		for (Resource r : resourceSet.getResources()) {
-			System.out.println(r);
 			if (r.getURI().fileExtension().equals("mocl")) {
-				System.out.println("aaaaaaaaa");
-				moclUri = r.getURI();
+				moclResource = r;
 			}
 		}
-		
+		if (moclResource == null) {
+			// TODO : popup error (load mocl first)
+			return null;
+		}
 		
 		//// MOCL
 
-		// Récupérer le .mocl (via fenêtre de dialogue)
-//		FileDialog fileDialog = new FileDialog(shell, SWT.OPEN);
-//		fileDialog.setText("Sélectionner un fichier de contraintes");
-//		fileDialog.setFilterExtensions(new String[] { "*.mocl" });
-//		String moclPath = fileDialog.open();
-//		// En cas d'annulation de la sélection par l'user
-//		if (moclPath == null)
-//			return null;
-//
-//		// Récupérer l'URI du .mocl
-//		File moclFile = new File(moclPath);
-//		IFile moclIFile = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(moclFile.toURI())[0];
-//		URI moclUri = URI.createPlatformResourceURI(moclIFile.getFullPath().toString(), true);
-//        URI moclUri = URI.createFileURI(moclPath);
-		// Récupérer la Resource du .mocl
-		Resource moclResource = resourceSet.getResource(moclUri, true);
 		EcoreUtil.resolveAll(moclResource);
 		// Récupérer le Module MOCL
 		Module moclModule = (Module) moclResource.getContents().get(0);
