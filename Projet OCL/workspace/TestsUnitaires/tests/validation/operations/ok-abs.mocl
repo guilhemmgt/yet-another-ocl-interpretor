@@ -1,0 +1,14 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv abs:
+ 	2.3 = (-2.3).abs()
+  
+inv abscinte :
+	(2.3).abs() = (2.3).abs()
+	
+inv absent :
+	(2.3).abs() = 2.3
+	
+inv absolu :
+	(0.).abs() = 0

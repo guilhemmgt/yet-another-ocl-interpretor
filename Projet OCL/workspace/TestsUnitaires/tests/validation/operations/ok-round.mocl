@@ -1,0 +1,17 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv round:
+	(3.4).round() = 3
+
+inv roundSwiss:
+	(3.5).round() = 4
+
+inv AroundTheWorld:
+	(-4.).round() = -4
+
+inv Aroundi:
+	(4.).round() = 4
+
+inv Neround:
+	(4.8).round() = 5

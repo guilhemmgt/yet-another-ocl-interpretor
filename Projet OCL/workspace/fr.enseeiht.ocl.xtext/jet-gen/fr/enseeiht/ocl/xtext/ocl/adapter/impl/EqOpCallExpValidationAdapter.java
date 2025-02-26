@@ -34,31 +34,33 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getValue(contextTarget);
-	  if (this.target.getOperationNames().size() == 0) {
-		  // Passage au rang suivant
-		  return result;
-	  }
-	  
-	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1)).getValue(contextTarget);
-	  
-	  Boolean equal = (result instanceof Number && right instanceof Number && ((Number)result).doubleValue() == ((Number)right).doubleValue()) ||
-			  		  (result != null && result.equals(right)) || 
-			  		  (result == right);
-	  
-	  if (result instanceof Invalid || right instanceof Invalid) {
-		  result = result instanceof Invalid ? result : right;
-	  }
+		Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0))
+				.getValue(contextTarget);
+		if (this.target.getOperationNames().size() == 0) {
+			// Passage au rang suivant
+			return result;
+		}
 
-	  // Traitement des opérations
-	  switch(this.target.getOperationNames().get(0)) {
-	  	case "=": 
-	  		return equal;
-	  	case "<>":
-	  		return !equal;
-  		default:
-			  throw new UnsupportedFeatureException(this.target.getOperationNames().get(0));
-	  }
+		Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1))
+				.getValue(contextTarget);
+
+		Boolean equal = (result instanceof Number && right instanceof Number
+				&& ((Number) result).doubleValue() == ((Number) right).doubleValue())
+				|| (result != null && result.equals(right)) || (result == right);
+
+		if (result instanceof Invalid || right instanceof Invalid) {
+			return result instanceof Invalid ? result : right;
+		}
+
+		// Traitement des opérations
+		switch (this.target.getOperationNames().get(0)) {
+		case "=":
+			return equal;
+		case "<>":
+			return !equal;
+		default:
+			throw new UnsupportedFeatureException(this.target.getOperationNames().get(0));
+		}
   }
 
   /**

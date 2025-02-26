@@ -1,0 +1,14 @@
+import "http://empty" as empty
+
+context empty!empty.Maybes
+inv stringToInt:
+	"867".toInteger() = 867
+	
+inv stringToInt:
+	"  -867".toInteger() = -867
+	
+inv stringToInt:
+	"-867                                  ".toInteger() = -867
+	
+inv stringToInt:
+	"-0".toInteger() = 0
