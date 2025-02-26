@@ -4,11 +4,17 @@
 package fr.enseeiht.ocl.xtext.ui.contentassist;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
+import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.Import;
+import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
+import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclEClass;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
@@ -31,7 +37,28 @@ public class OclProposalProvider extends AbstractOclProposalProvider {
 		// The acceptor handles null-values gracefully.
 		acceptor.accept(createCompletionProposal(proposal, context));
 	}
-	
-	
+
+	@Override
+	public void completeNavigationOrAttributeCall_Name(EObject model, Assignment assignment,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeNavigationOrAttributeCall_Name(model, assignment, context, acceptor);
+		
+
+		OclType type =  OCLValidationAdapterFactory.INSTANCE.createAdapter(model).getType();
+		if(type instanceof OclEClass eClassType) {
+			for (EStructuralFeature feature : eClassType.classtype.getEAllStructuralFeatures()) {
+				acceptor.accept(createCompletionProposal(feature.getName(), context));
+			}
+		}
+		
+//		if(model instanceof NavigationOrAttributeCall call) {
+//			System.out.println(OCLValidationAdapterFactory.INSTANCE.createAdapter(call).getType());
+//		}
+//		if(model instanceof PropertyCallExp propertyExp) {
+//			System.out.println(OCLValidationAdapterFactory.INSTANCE.createAdapter(propertyExp).getType());
+//		
+//		}
+		
+	}
 	
 }

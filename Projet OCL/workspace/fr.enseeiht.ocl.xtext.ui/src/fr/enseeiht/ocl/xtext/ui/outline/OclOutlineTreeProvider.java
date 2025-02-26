@@ -11,6 +11,7 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 
 /**
  * Customization of the default outline structure.
@@ -39,12 +40,9 @@ public class OclOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
 	@Override
 	protected Object _text(Object modelElement) {
-		// TODO Auto-generated method stub
-		if(modelElement instanceof IntegerLiteralExp ile)
-			return String.valueOf(ile.getIntegerSymbol());
-//		if(super._text(modelElement) == null) {
-//			return "temppp";
-//		}
+		String outlineString = OCLValidationAdapterFactory.INSTANCE.createAdapter((EObject) modelElement).getOutlineString();
+		if(outlineString != null)
+			return outlineString;
 		return super._text(modelElement);
 	}
 

@@ -76,6 +76,7 @@ Export-Package: fr.enseeiht.ocl.xtext;uses:="com.google.inject,org.eclipse.xtext
    org.eclipse.xtext,
    org.eclipse.xtext.serializer",
  fr.enseeiht.ocl.xtext.services;uses:="org.eclipse.xtext.common.services,org.eclipse.xtext.service,org.eclipse.xtext",
+ fr.enseeiht.ocl.xtext.types,
  fr.enseeiht.ocl.xtext.validation;uses:="org.eclipse.xtext.util,org.eclipse.xtext.validation"
 Import-Package: org.apache.log4j,
  org.eclipse.emf.mwe2.ecore
