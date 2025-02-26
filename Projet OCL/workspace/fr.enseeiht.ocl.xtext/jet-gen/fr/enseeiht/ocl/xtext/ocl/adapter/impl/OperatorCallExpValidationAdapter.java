@@ -101,13 +101,8 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 			  boolean isBoolean = resultType.conformsTo(new OclBoolean()) && type2.conformsTo(new OclBoolean());
 			  // Invalid + ... : Invalid
 			  boolean anyInvalid = resultType.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-			  // Void + ... : Void
-			  boolean anyVoid = resultType.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
 			  if (isBoolean && !anyInvalid) {
 				  resultType = new OclBoolean();
-			  }
-			  else if (anyVoid && !anyInvalid) {
-				  resultType = new OclVoid();
 			  }
 			  else {
 				  // Opération invalide
