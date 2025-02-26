@@ -24,6 +24,8 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.diagnostics.Severity;
+import org.eclipse.xtext.linking.impl.XtextLinkingDiagnostic;
+
 import com.google.inject.Injector;
 
 import fr.enseeiht.ocl.xtext.OclStandaloneSetup;
@@ -36,11 +38,13 @@ import fr.enseeiht.yaoi.ValidationResult;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.CheckTypeException;
+import fr.enseeiht.ocl.testsLauncher.exceptions.LinkingException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
 public class LauncherUtils {
 
-	private static final boolean CHECK_TYPE = false;
+	private static final boolean CHECK_TYPE = true;
+	private static final boolean VALIDATE = true;
 	
 	private static Module moclObject;
 	private static Injector injector;
@@ -71,7 +75,7 @@ public class LauncherUtils {
 				}
 			}
 			
-		} catch (FileNotFoundException | BadFileExtensionException | BadFileStructureException | SyntaxException | CheckTypeException e) {
+		} catch (FileNotFoundException | BadFileExtensionException | BadFileStructureException | SyntaxException | CheckTypeException | LinkingException e) {
 			e.printStackTrace();
 		}
 	}
@@ -88,7 +92,7 @@ public class LauncherUtils {
 		return invs;
 	}
 
-	public static Map<String, ValidationResult> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
+	public static Map<String, ValidationResult> run(Path workspacePath, String projectName, String moclName, String ecoreName, String... xmiNames) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 
         File projectFolder = new File(workspacePath.toFile().getAbsolutePath() + "/" + projectName);
 		
@@ -109,8 +113,8 @@ public class LauncherUtils {
 		
 		// Check syntax
 		for (Diagnostic diagnostic : EcoreUtil.computeDiagnostic(moclResource, false).getChildren()) {
-			if(diagnostic.getData().get(0) instanceof XtextSyntaxDiagnostic) {
-				throw new SyntaxException(diagnostic.getMessage());
+			if(diagnostic.getData().get(0) instanceof XtextSyntaxDiagnostic dia) {
+				throw new SyntaxException(diagnostic.getMessage() + ". (ligne : " + dia.getLine() + "; colonne : " + dia.getColumn() + ")");
 			}
 		}
 		
@@ -125,9 +129,16 @@ public class LauncherUtils {
         //Update the import of the mocl
         moclObject.getImports().get(0).setPackage(ecorePackage);
         EcoreUtil.resolveAll(moclObject);
+
+        //Check linking
+        for (Diagnostic diagnostic : EcoreUtil.computeDiagnostic(moclResource, false).getChildren()) {
+        	if(diagnostic.getData().get(0) instanceof XtextLinkingDiagnostic dia && !dia.getUriToProblem().fragment().contains("@imports")) {
+        		throw new LinkingException(diagnostic.getMessage() + " (ligne : " + dia.getLine() + "; colonne : " + dia.getColumn() + ")");
+			}
+		}
         
+	    // Check type
         if(CHECK_TYPE) {
-		    // Check type
 		    IResourceValidator validator = injector.getInstance(IResourceValidator.class);
 		    List<Issue> issues = validator.validate(moclResource,
 		            CheckMode.ALL, CancelIndicator.NullImpl);
@@ -142,14 +153,18 @@ public class LauncherUtils {
         }
 		
         // Validation
-        Map<String, ValidationResult> xmiErrors = new HashMap<String, ValidationResult>();
-        for (String xmiName: xmiNames) {
-        	Resource xmiResource = getXMLResource(projectFolder, xmiName, "xmi");
-			xmiErrors.put(xmiName, OclInterpretor.validate(xmiResource, moclObject));
-		}
-        
+    	Map<String, ValidationResult> xmiErrors = new HashMap<String, ValidationResult>();
+        if(VALIDATE) {
+            for (String xmiName: xmiNames) {
+            	Resource xmiResource = getXMLResource(projectFolder, xmiName, "xmi");
+    			xmiErrors.put(xmiName, OclInterpretor.validate(xmiResource, moclObject));
+    		}
+        } else {
+        	for (String xmiName: xmiNames) {
+        		xmiErrors.put(xmiName, new ValidationResult());
+    		}
+        }
         return xmiErrors;
-		
 	}
 	
 	private static Resource getXMLResource(File projectFolder, String xmlFileText, String extension) throws FileNotFoundException, BadFileExtensionException {
