@@ -93,6 +93,7 @@ Primary_OclExpression returns OclExpression :
 	|StringLiteralExp
 	|BooleanLiteralExp
 	|NumericLiteralExp
+	|NullLiteralExp
 	|BagLiteralExp
 	|OrderedSetLiteralExp
 	|SequenceLiteralExp
@@ -103,8 +104,7 @@ Primary_OclExpression returns OclExpression :
 	|IfExp
 	|BraceExp
 	|OclModelElementExp
-	|ContextlessCallExp
-	|NullLiteralExp;
+	|ContextlessCallExp;
 
 Auxiliary :Iterator|LocalVariable|Parameter;
 VariableExp:
@@ -219,7 +219,7 @@ LocalVariable :
 	name=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
 OclTypeLiteral : 
-	CollectionType
+	CollectionTypeLiteral
 	| Primitive 
 	| OclAnyType 
 	| TupleType 
@@ -227,12 +227,17 @@ OclTypeLiteral :
 	| MapType 
 	;
 
-CollectionType:
-	BagType
+CollectionTypeLiteral:
+	CollectionType
+	| BagType
 	| OrderedSetType 
 	| SequenceType 
 	| SetType 
 	;
+	
+CollectionType :
+	'Collection' '(' elementType=OclTypeLiteral ')'
+;
 
 BagType :
 	'Bag' '(' elementType=OclTypeLiteral ')'

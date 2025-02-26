@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -512,10 +513,19 @@ public class OclSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OclPackage.COLLECTION_TYPE_LITERAL:
+      {
+        CollectionTypeLiteral collectionTypeLiteral = (CollectionTypeLiteral)theEObject;
+        T result = caseCollectionTypeLiteral(collectionTypeLiteral);
+        if (result == null) result = caseOclTypeLiteral(collectionTypeLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OclPackage.COLLECTION_TYPE:
       {
         CollectionType collectionType = (CollectionType)theEObject;
         T result = caseCollectionType(collectionType);
+        if (result == null) result = caseCollectionTypeLiteral(collectionType);
         if (result == null) result = caseOclTypeLiteral(collectionType);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -524,7 +534,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         BagType bagType = (BagType)theEObject;
         T result = caseBagType(bagType);
-        if (result == null) result = caseCollectionType(bagType);
+        if (result == null) result = caseCollectionTypeLiteral(bagType);
         if (result == null) result = caseOclTypeLiteral(bagType);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -533,7 +543,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         OrderedSetType orderedSetType = (OrderedSetType)theEObject;
         T result = caseOrderedSetType(orderedSetType);
-        if (result == null) result = caseCollectionType(orderedSetType);
+        if (result == null) result = caseCollectionTypeLiteral(orderedSetType);
         if (result == null) result = caseOclTypeLiteral(orderedSetType);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -542,7 +552,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         SequenceType sequenceType = (SequenceType)theEObject;
         T result = caseSequenceType(sequenceType);
-        if (result == null) result = caseCollectionType(sequenceType);
+        if (result == null) result = caseCollectionTypeLiteral(sequenceType);
         if (result == null) result = caseOclTypeLiteral(sequenceType);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -551,7 +561,7 @@ public class OclSwitch<T> extends Switch<T>
       {
         SetType setType = (SetType)theEObject;
         T result = caseSetType(setType);
-        if (result == null) result = caseCollectionType(setType);
+        if (result == null) result = caseCollectionTypeLiteral(setType);
         if (result == null) result = caseOclTypeLiteral(setType);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -1434,6 +1444,22 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOclTypeLiteral(OclTypeLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Collection Type Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Collection Type Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCollectionTypeLiteral(CollectionTypeLiteral object)
   {
     return null;
   }

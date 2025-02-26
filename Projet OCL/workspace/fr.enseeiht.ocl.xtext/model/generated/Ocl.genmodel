@@ -170,9 +170,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//LocalVariable/initExpression"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OclTypeLiteral"/>
-    <genClasses ecoreClass="Ocl.ecore#//CollectionType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//CollectionType/elementType"/>
+    <genClasses ecoreClass="Ocl.ecore#//CollectionTypeLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//CollectionTypeLiteral/elementType"/>
     </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//CollectionType"/>
     <genClasses ecoreClass="Ocl.ecore#//BagType"/>
     <genClasses ecoreClass="Ocl.ecore#//OrderedSetType"/>
     <genClasses ecoreClass="Ocl.ecore#//SequenceType"/>

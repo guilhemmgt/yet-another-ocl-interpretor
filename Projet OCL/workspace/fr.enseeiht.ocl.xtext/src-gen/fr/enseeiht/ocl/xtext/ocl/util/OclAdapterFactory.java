@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -383,6 +384,11 @@ public class OclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseOclTypeLiteral(OclTypeLiteral object)
       {
         return createOclTypeLiteralAdapter();
+      }
+      @Override
+      public Adapter caseCollectionTypeLiteral(CollectionTypeLiteral object)
+      {
+        return createCollectionTypeLiteralAdapter();
       }
       @Override
       public Adapter caseCollectionType(CollectionType object)
@@ -1217,6 +1223,21 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOclTypeLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral <em>Collection Type Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral
+   * @generated
+   */
+  public Adapter createCollectionTypeLiteralAdapter()
   {
     return null;
   }

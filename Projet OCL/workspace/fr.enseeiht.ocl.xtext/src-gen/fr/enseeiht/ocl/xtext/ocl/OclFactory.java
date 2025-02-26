@@ -465,6 +465,15 @@ public interface OclFactory extends EFactory
   OclTypeLiteral createOclTypeLiteral();
 
   /**
+   * Returns a new object of class '<em>Collection Type Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Collection Type Literal</em>'.
+   * @generated
+   */
+  CollectionTypeLiteral createCollectionTypeLiteral();
+
+  /**
    * Returns a new object of class '<em>Collection Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

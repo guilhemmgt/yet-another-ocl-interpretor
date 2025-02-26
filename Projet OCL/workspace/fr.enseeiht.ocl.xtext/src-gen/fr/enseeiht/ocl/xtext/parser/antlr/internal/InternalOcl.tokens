@@ -18,15 +18,16 @@
 '>'=28
 '>='=30
 'Bag'=41
-'Boolean'=64
-'Integer'=65
+'Boolean'=65
+'Collection'=63
+'Integer'=66
 'Map'=48
-'OclAny'=67
+'OclAny'=68
 'OrderedSet'=44
-'Real'=66
+'Real'=67
 'Sequence'=45
 'Set'=46
-'String'=63
+'String'=64
 'Tuple'=47
 'and'=23
 'as'=13
@@ -118,3 +119,4 @@ T__64=64
 T__65=65
 T__66=66
 T__67=67
+T__68=68

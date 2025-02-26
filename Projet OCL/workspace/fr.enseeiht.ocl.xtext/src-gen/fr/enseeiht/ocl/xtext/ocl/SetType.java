@@ -14,6 +14,6 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface SetType extends CollectionType
+public interface SetType extends CollectionTypeLiteral
 {
 } // SetType

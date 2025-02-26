@@ -49,6 +49,7 @@ import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
+import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.ocl.BagType;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetType;
@@ -114,6 +115,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IteratorExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.CollectionOperationCallValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.LocalVariableValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclTypeLiteralValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.CollectionTypeLiteralValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.CollectionTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BagTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OrderedSetTypeValidationAdapter;
@@ -443,6 +445,11 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseOclTypeLiteral(OclTypeLiteral object)
       {
         return createOclTypeLiteralValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseCollectionTypeLiteral(CollectionTypeLiteral object)
+      {
+        return createCollectionTypeLiteralValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseCollectionType(CollectionType object)
@@ -1102,6 +1109,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createContextlessCallExpValidationAdapter(ContextlessCallExp target)
   {
+	
     return new ContextlessCallExpValidationAdapter(target);
   }
 
@@ -1243,6 +1251,20 @@ public class OCLValidationAdapterFactory
   {
 	
     return new OclTypeLiteralValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral <em>CollectionTypeLiteral</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral
+   * @generated
+   */
+  public OCLAdapter createCollectionTypeLiteralValidationAdapter(CollectionTypeLiteral target)
+  {
+	
+    return new CollectionTypeLiteralValidationAdapter(target);
   }
 
   /**

@@ -1,25 +1,22 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
-
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
-import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.BraceExp;
+import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.OclType;
-
 /**
- * OCLAdapter for BraceExp
+ * OCLAdapter for CollectionTypeLiteral
  * @generated
  */
-public final class BraceExpValidationAdapter implements OCLAdapter {
+public final class CollectionTypeLiteralValidationAdapter implements OCLAdapter {
 
-  private BraceExp target;
+  private CollectionTypeLiteral target;
 
   /**
    * @generated
    */
-  public BraceExpValidationAdapter(BraceExp object) {
+  public CollectionTypeLiteralValidationAdapter(CollectionTypeLiteral object) {
     this.target = object;
   }
 
@@ -27,20 +24,19 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated NOT
+   * @generated
    */
   public Object getValue(EObject contextTarget) {
-    return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp()).getValue(contextTarget);
+    throw new UnimplementedException(this.getClass(),"getValue");
   }
 
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated NOT
+   * @generated
    */
   public OclType getType() {
-	  // L'expression dans les parenthèses
-	  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp()).getType();	  
+    throw new UnimplementedException(this.getClass(),"getType");
   }
 
   /**

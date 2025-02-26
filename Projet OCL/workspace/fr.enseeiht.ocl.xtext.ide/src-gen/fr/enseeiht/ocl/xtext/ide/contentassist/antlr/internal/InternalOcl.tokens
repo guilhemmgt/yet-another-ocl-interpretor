@@ -18,15 +18,16 @@
 '>'=18
 '>='=20
 'Bag'=41
-'Boolean'=62
-'Integer'=63
+'Boolean'=63
+'Collection'=61
+'Integer'=64
 'Map'=48
-'OclAny'=65
+'OclAny'=66
 'OrderedSet'=44
-'Real'=64
+'Real'=65
 'Sequence'=45
 'Set'=46
-'String'=61
+'String'=62
 'Tuple'=47
 'and'=12
 'as'=30
@@ -35,7 +36,7 @@
 'div'=24
 'else'=54
 'endif'=55
-'false'=67
+'false'=68
 'if'=52
 'implies'=15
 'import'=29
@@ -49,7 +50,7 @@
 'or'=13
 'self'=39
 'then'=53
-'true'=66
+'true'=67
 'xor'=14
 '{'=42
 '|'=60
@@ -118,3 +119,4 @@ T__64=64
 T__65=65
 T__66=66
 T__67=67
+T__68=68

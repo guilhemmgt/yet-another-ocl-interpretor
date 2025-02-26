@@ -1,0 +1,12 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv intstring:
+  1+"s" = "échec"
+  
+ inv realstring:
+ 	1.0 + "s" = "échec"
+ 	
+ inv avecnull:
+ 	1.0 + null + "s" = "échec"

@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -427,6 +428,13 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass oclTypeLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass collectionTypeLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1961,9 +1969,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getCollectionType()
+  public EClass getCollectionTypeLiteral()
   {
-    return collectionTypeEClass;
+    return collectionTypeLiteralEClass;
   }
 
   /**
@@ -1972,9 +1980,20 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getCollectionType_ElementType()
+  public EReference getCollectionTypeLiteral_ElementType()
   {
-    return (EReference)collectionTypeEClass.getEStructuralFeatures().get(0);
+    return (EReference)collectionTypeLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCollectionType()
+  {
+    return collectionTypeEClass;
   }
 
   /**
@@ -2422,8 +2441,10 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclTypeLiteralEClass = createEClass(OCL_TYPE_LITERAL);
 
+    collectionTypeLiteralEClass = createEClass(COLLECTION_TYPE_LITERAL);
+    createEReference(collectionTypeLiteralEClass, COLLECTION_TYPE_LITERAL__ELEMENT_TYPE);
+
     collectionTypeEClass = createEClass(COLLECTION_TYPE);
-    createEReference(collectionTypeEClass, COLLECTION_TYPE__ELEMENT_TYPE);
 
     bagTypeEClass = createEClass(BAG_TYPE);
 
@@ -2522,11 +2543,12 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     iteratorExpEClass.getESuperTypes().add(this.getPropertyCall());
     collectionOperationCallEClass.getESuperTypes().add(this.getPropertyCall());
     localVariableEClass.getESuperTypes().add(this.getAuxiliary());
-    collectionTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
-    bagTypeEClass.getESuperTypes().add(this.getCollectionType());
-    orderedSetTypeEClass.getESuperTypes().add(this.getCollectionType());
-    sequenceTypeEClass.getESuperTypes().add(this.getCollectionType());
-    setTypeEClass.getESuperTypes().add(this.getCollectionType());
+    collectionTypeLiteralEClass.getESuperTypes().add(this.getOclTypeLiteral());
+    collectionTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    bagTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    orderedSetTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    sequenceTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    setTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
     primitiveEClass.getESuperTypes().add(this.getOclTypeLiteral());
     stringTypeEClass.getESuperTypes().add(this.getPrimitive());
     booleanTypeEClass.getESuperTypes().add(this.getPrimitive());
@@ -2711,8 +2733,10 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclTypeLiteralEClass, OclTypeLiteral.class, "OclTypeLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(collectionTypeLiteralEClass, CollectionTypeLiteral.class, "CollectionTypeLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCollectionTypeLiteral_ElementType(), this.getOclTypeLiteral(), null, "elementType", null, 0, 1, CollectionTypeLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(collectionTypeEClass, CollectionType.class, "CollectionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCollectionType_ElementType(), this.getOclTypeLiteral(), null, "elementType", null, 0, 1, CollectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bagTypeEClass, BagType.class, "BagType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

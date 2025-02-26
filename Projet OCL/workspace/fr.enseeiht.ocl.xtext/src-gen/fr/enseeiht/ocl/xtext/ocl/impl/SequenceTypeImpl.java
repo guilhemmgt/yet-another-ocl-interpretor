@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SequenceTypeImpl extends CollectionTypeImpl implements SequenceType
+public class SequenceTypeImpl extends CollectionTypeLiteralImpl implements SequenceType
 {
   /**
    * <!-- begin-user-doc -->

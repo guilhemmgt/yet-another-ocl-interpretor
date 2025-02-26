@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -179,6 +180,7 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.COLLECTION_OPERATION_CALL: return createCollectionOperationCall();
       case OclPackage.LOCAL_VARIABLE: return createLocalVariable();
       case OclPackage.OCL_TYPE_LITERAL: return createOclTypeLiteral();
+      case OclPackage.COLLECTION_TYPE_LITERAL: return createCollectionTypeLiteral();
       case OclPackage.COLLECTION_TYPE: return createCollectionType();
       case OclPackage.BAG_TYPE: return createBagType();
       case OclPackage.ORDERED_SET_TYPE: return createOrderedSetType();
@@ -786,6 +788,18 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     OclTypeLiteralImpl oclTypeLiteral = new OclTypeLiteralImpl();
     return oclTypeLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CollectionTypeLiteral createCollectionTypeLiteral()
+  {
+    CollectionTypeLiteralImpl collectionTypeLiteral = new CollectionTypeLiteralImpl();
+    return collectionTypeLiteral;
   }
 
   /**
