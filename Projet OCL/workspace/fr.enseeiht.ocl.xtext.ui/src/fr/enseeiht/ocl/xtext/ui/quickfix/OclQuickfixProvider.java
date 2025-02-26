@@ -3,6 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ui.quickfix;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
@@ -36,7 +37,7 @@ public class OclQuickfixProvider extends DefaultQuickfixProvider {
 		acceptor.accept(issue, "on tente", "ca doit faire quelque chose", null, (element, context) -> {
 			if(element instanceof RelOpCallExp) {
 				System.out.println("épeu???");
-				((AddOpCallExp) element.eGet(element.eClass().getEStructuralFeature("argumentGauche"))).setOperationName("-");
+				((EList<AddOpCallExp>) element.eGet(element.eClass().getEStructuralFeature("args"))).get(0).getOperationNames().set(0, "-");
 			}else {
 				System.out.println("badaboum");
 			}

@@ -3,6 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ui.outline;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
@@ -20,12 +21,13 @@ public class OclOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void _createChildren(IOutlineNode parentNode, EObject modelElement) {
 		for (EObject child : modelElement.eContents()) {
-			if(child.eClass().getEStructuralFeature("argumentGauche") != null) {
-				while ((!(child instanceof NotOpCallExp)) && child.eGet(child.eClass().getEStructuralFeature("operationName")) == null) {
-					child = (EObject) child.eGet(child.eClass().getEStructuralFeature("argumentGauche"));
+			if(child.eClass().getEStructuralFeature("args") != null) {
+				while ((!(child instanceof NotOpCallExp)) && ((EList<String>)child.eGet(child.eClass().getEStructuralFeature("operationNames"))).isEmpty()) {
+					child = ((EList<EObject>) child.eGet(child.eClass().getEStructuralFeature("args"))).get(0);
 				}
 			}
 			if((child instanceof PropertyCallExp pce) && pce.getCalls().isEmpty()) {
