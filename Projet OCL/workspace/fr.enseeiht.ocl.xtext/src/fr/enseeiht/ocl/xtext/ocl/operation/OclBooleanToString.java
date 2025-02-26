@@ -1,25 +1,22 @@
-package fr.enseeiht.ocl.xtext.ocl.operation.impl;
+package fr.enseeiht.ocl.xtext.ocl.operation;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
-import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclSet;
+import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclString;
 
-public class OclOclAsSet implements IOclOperation {
+public class OclBooleanToString implements IOclOperation {
 
 	@Override
 	public Object getValue(Object source, List<Object> args) {
-		return new HashSet<Object>(Arrays.asList(source));
+		return source.toString();
 	}
 
 	@Override
 	public OclType getReturnType(OclType sourceType, List<OclType> argsType) {
-		return new OclSet(sourceType);
+		return new OclString();
 	}
 
 	@Override
@@ -34,12 +31,13 @@ public class OclOclAsSet implements IOclOperation {
 
 	@Override
 	public OclType getSourceType() {
-		return new OclAny();
+		return new OclBoolean();
 	}
 
 	@Override
 	public String getName() {
-		return "oclAsSet";
+		return "toString";
 	}
+
 
 }

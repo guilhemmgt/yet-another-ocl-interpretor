@@ -1,0 +1,5 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv stringToIntLiteral:
+	"deux".toReal() = 2

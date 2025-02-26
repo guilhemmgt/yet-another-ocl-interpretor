@@ -39,43 +39,49 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getValue(contextTarget);
-	  
-	  if (this.target.getOperationNames().size() == 0) {
-		  // Passage au rang suivant
-		  return result;
-	  }
+		Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0))
+				.getValue(contextTarget);
 
-	  for(int i=0; i < this.target.getOperationNames().size();i++) {
-		  // Cohérence de types
-		  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i+1)).getValue(contextTarget);
-		  
-		  if (result == null || right == null) {
-			  // Levée d'erreur et envoi de l'argument fautif
-			  result = new UndefinedAccessInvalid(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i+1));
-		  }
-	  if (result instanceof Invalid || right instanceof Invalid) {
-		  result = result instanceof Invalid ? result : right;
-	  }
-		  if (!(result instanceof Number && right instanceof Number)) {
-			  throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i), new Class<?>[] { result.getClass(), right.getClass() });
-		  }
-		  
-		  // Traitement des opérations
-		  switch (this.target.getOperationNames().get(i)) {
-			  case "*":
-				  result = (result instanceof Integer ? (Integer)result : (Double)result) * (right instanceof Integer ? (Integer)right : (Double)right);
-				  break;
-			  case "/":
-				  if ((right instanceof Integer ? (Integer)right : (Double)right) == 0) // Pas de division par zéro
-					  return new DivisionByZeroInvalid(this.target.getArgs().get(i+1));
-				  result = (result instanceof Integer ? (Integer)result : (Double)result) / (right instanceof Integer ? (Integer)right : (Double)right);
-				  break;
-			  default:
-				  throw new UnsupportedFeatureException(this.target.getOperationNames().get(i));
-		  }
-	  }
-	  return result;
+		if (this.target.getOperationNames().size() == 0) {
+			// Passage au rang suivant
+			return result;
+		}
+
+		for (int i = 0; i < this.target.getOperationNames().size(); i++) {
+			// Cohérence de types
+			Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i + 1))
+					.getValue(contextTarget);
+
+			if (result == null || right == null) {
+				// Levée d'erreur et envoi de l'argument fautif
+				result = new UndefinedAccessInvalid(
+						result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i + 1));
+			}
+			if (result instanceof Invalid || right instanceof Invalid) {
+				return result instanceof Invalid ? result : right;
+			}
+			if (!(result instanceof Number && right instanceof Number)) {
+				throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i),
+						new Class<?>[] { result.getClass(), right.getClass() });
+			}
+
+			// Traitement des opérations
+			switch (this.target.getOperationNames().get(i)) {
+			case "*":
+				result = (result instanceof Integer ? (Integer) result : (Double) result)
+						* (right instanceof Integer ? (Integer) right : (Double) right);
+				break;
+			case "/":
+				if ((right instanceof Integer ? (Integer) right : (Double) right) == 0) // Pas de division par zéro
+					return new DivisionByZeroInvalid(this.target.getArgs().get(i + 1));
+				result = (result instanceof Integer ? (Integer) result : (Double) result)
+						/ (right instanceof Integer ? (Integer) right : (Double) right);
+				break;
+			default:
+				throw new UnsupportedFeatureException(this.target.getOperationNames().get(i));
+			}
+		}
+		return result;
   }
 
   /**
