@@ -42,12 +42,12 @@ public final class StringTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
-  public String toString() {
-    return super.toString();
-  }
+	public String toString() {
+		return "String";
+	}
 
   /**
    * Get adapted element

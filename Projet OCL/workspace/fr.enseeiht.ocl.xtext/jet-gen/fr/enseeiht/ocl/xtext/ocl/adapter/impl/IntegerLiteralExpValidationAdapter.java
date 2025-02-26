@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
@@ -43,12 +42,12 @@ public final class IntegerLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
-  public String toString() {
-    return super.toString();
-  }
+	public String toString() {
+		return Integer.toString(target.getIntegerSymbol());
+	}
 
   /**
    * Get adapted element

@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetType;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -42,12 +43,12 @@ public final class OrderedSetTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
-  public String toString() {
-    return super.toString();
-  }
+	public String toString() {
+		return "OrderedSet(" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getElementType()) + ")";
+	}
 
   /**
    * Get adapted element

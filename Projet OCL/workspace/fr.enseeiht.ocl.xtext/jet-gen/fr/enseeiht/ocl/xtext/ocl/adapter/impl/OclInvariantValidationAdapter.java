@@ -43,12 +43,12 @@ public final class OclInvariantValidationAdapter implements OCLAdapter {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
-  public String toString() {
-    return super.toString();
-  }
+	public String toString() {
+		return "inv " + this.target.getName() + ":\n\t" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody());
+	}
 
   /**
    * Get adapted element

@@ -45,9 +45,9 @@ public final class ImportValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
    @Override
-  public String toString() {
-    return "import " + this.target.getPackage().getNsURI() + " as " + this.target.getName();
-  }
+	public String toString() {
+		return "import " + this.target.getPackage().getNsURI() + " as " + this.target.getName();
+	}
 
   /**
    * Get adapted element

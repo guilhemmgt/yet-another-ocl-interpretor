@@ -566,7 +566,6 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createModuleValidationAdapter(Module target)
   {
-	
 	if (this.moduleAdapter == null) {
 		this.moduleAdapter = new ModuleValidationAdapter(target);
 	}

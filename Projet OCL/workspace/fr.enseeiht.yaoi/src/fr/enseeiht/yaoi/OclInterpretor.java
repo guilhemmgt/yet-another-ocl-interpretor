@@ -17,8 +17,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 public class OclInterpretor {
 
 	public static ValidationResult validate (Resource xmi, Module mocl) {
-		System.out.println(OCLValidationAdapterFactory.INSTANCE.createAdapter(mocl));
-		
 		ValidationResult result = new ValidationResult();
 
 		// Récupère le contenu du XMI

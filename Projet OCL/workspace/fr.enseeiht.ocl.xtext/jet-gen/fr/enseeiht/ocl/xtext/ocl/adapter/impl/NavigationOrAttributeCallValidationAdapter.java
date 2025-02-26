@@ -3,7 +3,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -90,12 +89,12 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
-  public String toString() {
-    return super.toString();
-  }
+	public String toString() {
+		return "." + this.target.getName();
+	}
 
   /**
    * Get adapted element

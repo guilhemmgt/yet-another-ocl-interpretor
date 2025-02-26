@@ -53,12 +53,12 @@ public final class AttributeValidationAdapter implements OCLAdapter {
   }
 
   /**
-   * @generated
+   * @generated NOT
    */
    @Override
-  public String toString() {
-    return super.toString();
-  }
+	public String toString() {
+		return ":" + this.target.getName() + "=" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getInitExpression());
+	}
 
   /**
    * Get adapted element
