@@ -1,9 +1,11 @@
-package fr.enseeiht.ocl.xtext.ocl.operation;
+package fr.enseeiht.ocl.xtext.ocl.operation.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
+import fr.enseeiht.ocl.xtext.ocl.adapter.NumberFormatInvalid;
+import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclString;
 
@@ -12,6 +14,7 @@ public class OclToInteger implements IOclOperation {
 	@Override
 	public Object getValue(Object source, List<Object> args) {
 		String sourceStr = (String)source;
+		System.out.println(sourceStr);
 		if (!sourceStr.matches("-?\\d+")) {
 			return new NumberFormatInvalid(source,getName());
 		}

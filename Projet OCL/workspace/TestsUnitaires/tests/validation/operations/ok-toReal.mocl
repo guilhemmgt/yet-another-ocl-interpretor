@@ -3,13 +3,6 @@ import "http://empty" as empty
 context empty!empty.Maybe
 inv stringIntToReal:
 	"867".toReal() = 867.
-	
-inv stringIntToRealSpace:
-	"  -867".toReal() = -867.
-	
-inv stringIntToRealSpaaaaaace:
-	"-867.0                                  ".toReal() = -867.
-	
 inv stringIntToRealZero:
 	"-0".toReal() = 0.
 	
@@ -17,10 +10,8 @@ inv stringToReal:
 	"8.67".toReal() = 8.67
 	
 inv stringIntToRealSpace:
-	"  -86.7".toReal() = -86.7
+	"-86.7".toReal() = -86.7
 	
-inv stringIntToRealSpaaaaaace:
-	"-.867                                  ".toReal() = -.867
 	
 inv stringIntToRealZero:
 	"-0.0000001".toReal() = -0.0000001

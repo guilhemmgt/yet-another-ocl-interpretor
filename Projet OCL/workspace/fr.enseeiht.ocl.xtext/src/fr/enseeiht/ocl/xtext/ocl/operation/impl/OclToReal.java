@@ -1,9 +1,11 @@
-package fr.enseeiht.ocl.xtext.ocl.operation;
+package fr.enseeiht.ocl.xtext.ocl.operation.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
+import fr.enseeiht.ocl.xtext.ocl.adapter.NumberFormatInvalid;
+import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclString;
 
@@ -12,7 +14,7 @@ public class OclToReal implements IOclOperation {
 	@Override
 	public Object getValue(Object source, List<Object> args) {
 		String sourceStr = (String)source;
-		if (!sourceStr.matches("-?\\d+(\\.(\\d)?)?")) {
+		if (!sourceStr.matches("([-]?[\\d]*\\.[\\d]*)|(-?\\d+)")) {
 			return new NumberFormatInvalid(source,getName());
 		}
 		try {

@@ -1,6 +1,4 @@
-package fr.enseeiht.ocl.xtext.ocl.operation;
-
-import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
+package fr.enseeiht.ocl.xtext.ocl.adapter;
 
 public class NumberFormatInvalid extends Invalid {
 

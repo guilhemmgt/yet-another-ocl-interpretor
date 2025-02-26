@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv stringIntToRealSpaaaaaace:
+	"-867.0                                  ".toReal() = -867.

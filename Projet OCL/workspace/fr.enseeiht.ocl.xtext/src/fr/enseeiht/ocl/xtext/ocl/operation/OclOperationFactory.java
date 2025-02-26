@@ -13,6 +13,8 @@ import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclOclIsUndefined;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclRound;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSize;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSubString;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToInteger;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToReal;
 
 public class OclOperationFactory {
 
