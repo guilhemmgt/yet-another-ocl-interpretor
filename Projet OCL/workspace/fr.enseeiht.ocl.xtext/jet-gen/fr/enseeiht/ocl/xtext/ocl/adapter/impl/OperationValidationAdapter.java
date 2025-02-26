@@ -49,7 +49,7 @@ public final class OperationValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 		OCLAdapter exp = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getBody());
-		OclClassifier returntype = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getReturnType());
+		OclClassifier returntype = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getReturnType()).getType();
 		OclType type = exp.getType();
 		// L'expression dans l'invariant doit nécessairement avoir e bon type de retour
 		boolean isCorrect = type.conformsTo(returntype.getRepresentedType());
