@@ -94,14 +94,9 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
 		  // Invalid > ... : Invalid
 		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-		  // Void > ... : Void
-		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
 		  
 		  if (isReal && !anyInvalid){
 			  return new OclBoolean();
-		  }
-		  else if (anyVoid && !anyInvalid) {
-			  return new OclVoid();
 		  }
 		  else {
 			  // Opération invalide

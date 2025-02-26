@@ -97,15 +97,10 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 			  boolean isReal = resultType.conformsTo(new OclReal()) && argType.conformsTo(new OclReal());
 			  // Invalid * ... : Invalid
 			  boolean anyInvalid = resultType.conformsTo(new OclInvalid()) || argType.conformsTo(new OclInvalid());
-			  // Void * ... : Void
-			  boolean anyVoid = resultType.conformsTo(new OclVoid()) || argType.conformsTo(new OclVoid());
 			  
 			  if (isReal && !anyInvalid) {
 				  // Rappel : Puisque Integer s'unifie avec Real, on a : Real + Integer : Real
 				  resultType = resultType.unifyWith(argType);
-			  }
-			  else if (anyVoid && !anyInvalid) {
-				  resultType =  new OclVoid();
 			  }
 			  else {
 				  // Opération invalide

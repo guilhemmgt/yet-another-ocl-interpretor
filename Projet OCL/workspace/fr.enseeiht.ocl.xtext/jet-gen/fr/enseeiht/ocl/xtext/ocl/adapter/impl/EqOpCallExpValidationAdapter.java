@@ -80,14 +80,8 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 		  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide ou vide.
 		  // C'est la spé.
 		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-		  // Void = ... : Void
-		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
 		  
-
-		  if (anyVoid && !anyInvalid) {
-			  return new OclVoid();
-		  }
-		  else if (anyInvalid){
+		  if (anyInvalid){
 			  // Opération invalide
 			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationNames().get(0) + "')";
 			  return new OclInvalid(target, message, type1, type2);

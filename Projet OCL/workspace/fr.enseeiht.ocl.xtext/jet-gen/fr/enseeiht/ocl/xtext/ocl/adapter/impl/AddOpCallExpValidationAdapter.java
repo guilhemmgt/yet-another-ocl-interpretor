@@ -105,7 +105,6 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  // operator = '+' | '-'. Utile pour string
 		  boolean operatorIsAddition = true;
 		  OclInvalid fail_collector = null;
-		  boolean anyVoid = false;
 		  // Le résultat de l'unification des types
 		  OclType unifyResult = t0;
 		  // Pour le report des erreurs: stocke les types uniques
@@ -125,7 +124,6 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 					  fail_collector = new OclInvalid(fail_collector, titr);
 				  }
 			  }
-			  anyVoid = anyVoid && titr.conformsTo(new OclVoid());
 			  
 			  if (isString || isReal) {
 				  unifyResult = unifyResult.unifyWith(titr);
@@ -146,9 +144,6 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 		  else if (isReal && !operatorIsAddition && fail_collector == null){
 			  return unifyResult;
-		  }
-		  else if (anyVoid && fail_collector == null) {
-			  return new OclVoid();
 		  }
 		  else {
 			  // Opération invalide
