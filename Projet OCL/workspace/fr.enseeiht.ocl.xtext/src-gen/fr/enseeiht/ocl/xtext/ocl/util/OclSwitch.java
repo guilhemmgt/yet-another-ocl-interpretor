@@ -45,6 +45,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -626,6 +627,14 @@ public class OclSwitch<T> extends Switch<T>
         OclAnyType oclAnyType = (OclAnyType)theEObject;
         T result = caseOclAnyType(oclAnyType);
         if (result == null) result = caseOclTypeLiteral(oclAnyType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OclPackage.OCL_VOID_TYPE:
+      {
+        OclVoidType oclVoidType = (OclVoidType)theEObject;
+        T result = caseOclVoidType(oclVoidType);
+        if (result == null) result = caseOclTypeLiteral(oclVoidType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1652,6 +1661,22 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOclAnyType(OclAnyType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Void Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Void Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOclVoidType(OclVoidType object)
   {
     return null;
   }

@@ -222,6 +222,7 @@ OclTypeLiteral :
 	CollectionTypeLiteral
 	| Primitive 
 	| OclAnyType 
+	| OclVoidType
 	| TupleType 
 	| OclModelElementClass
 	| MapType 
@@ -284,6 +285,10 @@ RealType:
 
 OclAnyType :
 	{OclAnyType}'OclAny'
+;
+
+OclVoidType :
+	{OclVoidType}'OclVoid'
 ;
 	
 TupleType :

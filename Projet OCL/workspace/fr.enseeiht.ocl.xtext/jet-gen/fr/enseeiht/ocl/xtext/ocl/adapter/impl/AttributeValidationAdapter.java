@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
@@ -41,8 +42,9 @@ public final class AttributeValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 	  // name : returnType = expressionType
-	  OclType returnType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
+	  OclClassifier returnClassifier = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
 	  OclType expressionType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getInitExpression()).getType();
+	  OclType returnType = returnClassifier.getRepresentedType();
 	  if (expressionType.conformsTo(returnType)) {
 		  return returnType;
 	  }

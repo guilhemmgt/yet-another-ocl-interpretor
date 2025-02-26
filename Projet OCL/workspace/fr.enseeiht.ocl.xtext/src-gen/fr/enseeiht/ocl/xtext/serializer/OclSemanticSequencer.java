@@ -40,6 +40,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -194,6 +195,9 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case OclPackage.OCL_MODEL_ELEMENT_EXP:
 				sequence_OclModelElementExp(context, (OclModelElementExp) semanticObject); 
+				return; 
+			case OclPackage.OCL_VOID_TYPE:
+				sequence_OclVoidType(context, (OclVoidType) semanticObject); 
 				return; 
 			case OclPackage.OPERATION:
 				sequence_Operation(context, (Operation) semanticObject); 
@@ -917,6 +921,21 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getOclModelElementExpAccess().getModelImportIDTerminalRuleCall_0_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__MODEL, false));
 		feeder.accept(grammarAccess.getOclModelElementExpAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     OclTypeLiteral returns OclVoidType
+	 *     OclVoidType returns OclVoidType
+	 *
+	 * Constraint:
+	 *     {OclVoidType}
+	 * </pre>
+	 */
+	protected void sequence_OclVoidType(ISerializationContext context, OclVoidType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

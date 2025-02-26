@@ -1,29 +1,24 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.Module;
-import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
-import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.OclType;
-
 /**
- * OCLAdapter for Module
+ * OCLAdapter for OclVoidType
  * @generated
  */
-public final class ModuleValidationAdapter implements OCLAdapter {
+public final class OclVoidTypeValidationAdapter implements OCLAdapter {
 
-  private Module target;
-  private List<OclFeatureDefinition> localDefinitions; 
+  private OclVoidType target;
+
   /**
    * @generated
    */
-  public ModuleValidationAdapter(Module object) {
+  public OclVoidTypeValidationAdapter(OclVoidType object) {
     this.target = object;
   }
 
@@ -40,10 +35,10 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+    return new OclClassifier(new OclVoid());
   }
 
   /**
@@ -53,8 +48,5 @@ public final class ModuleValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
-  }
-        public List<OclFeatureDefinition> getAllDefinition() {
-	  return this.localDefinitions;
   }
  }

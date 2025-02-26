@@ -23,6 +23,7 @@
 'Integer'=64
 'Map'=48
 'OclAny'=66
+'OclVoid'=67
 'OrderedSet'=44
 'Real'=65
 'Sequence'=45
@@ -36,7 +37,7 @@
 'div'=24
 'else'=54
 'endif'=55
-'false'=68
+'false'=69
 'if'=52
 'implies'=15
 'import'=29
@@ -50,7 +51,7 @@
 'or'=13
 'self'=39
 'then'=53
-'true'=67
+'true'=68
 'xor'=14
 '{'=42
 '|'=60
@@ -120,3 +121,4 @@ T__65=65
 T__66=66
 T__67=67
 T__68=68
+T__69=69

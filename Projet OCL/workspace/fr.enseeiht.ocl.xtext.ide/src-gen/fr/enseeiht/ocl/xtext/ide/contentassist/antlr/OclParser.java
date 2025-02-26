@@ -136,6 +136,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIntegerTypeAccess().getGroup(), "rule__IntegerType__Group__0");
 			builder.put(grammarAccess.getRealTypeAccess().getGroup(), "rule__RealType__Group__0");
 			builder.put(grammarAccess.getOclAnyTypeAccess().getGroup(), "rule__OclAnyType__Group__0");
+			builder.put(grammarAccess.getOclVoidTypeAccess().getGroup(), "rule__OclVoidType__Group__0");
 			builder.put(grammarAccess.getTupleTypeAccess().getGroup(), "rule__TupleType__Group__0");
 			builder.put(grammarAccess.getTupleTypeAccess().getGroup_3(), "rule__TupleType__Group_3__0");
 			builder.put(grammarAccess.getTupleTypeAccess().getGroup_3_1(), "rule__TupleType__Group_3_1__0");

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_DOUBLE", "RULE_INT", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'and'", "'or'", "'xor'", "'implies'", "'='", "'<>'", "'>'", "'<'", "'>='", "'<='", "'-'", "'+'", "'div'", "'mod'", "'*'", "'/'", "'not'", "'import'", "'as'", "'context'", "'!'", "'def'", "':'", "'('", "')'", "','", "'inv'", "'self'", "'null'", "'Bag'", "'{'", "'}'", "'OrderedSet'", "'Sequence'", "'Set'", "'Tuple'", "'Map'", "'#'", "'let'", "'in'", "'if'", "'then'", "'else'", "'endif'", "'.'", "'->'", "'iterate'", "';'", "'|'", "'Collection'", "'String'", "'Boolean'", "'Integer'", "'Real'", "'OclAny'", "'true'", "'false'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_DOUBLE", "RULE_INT", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'and'", "'or'", "'xor'", "'implies'", "'='", "'<>'", "'>'", "'<'", "'>='", "'<='", "'-'", "'+'", "'div'", "'mod'", "'*'", "'/'", "'not'", "'import'", "'as'", "'context'", "'!'", "'def'", "':'", "'('", "')'", "','", "'inv'", "'self'", "'null'", "'Bag'", "'{'", "'}'", "'OrderedSet'", "'Sequence'", "'Set'", "'Tuple'", "'Map'", "'#'", "'let'", "'in'", "'if'", "'then'", "'else'", "'endif'", "'.'", "'->'", "'iterate'", "';'", "'|'", "'Collection'", "'String'", "'Boolean'", "'Integer'", "'Real'", "'OclAny'", "'OclVoid'", "'true'", "'false'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -58,6 +58,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final int T__24=24;
     public static final int T__68=68;
     public static final int T__25=25;
+    public static final int T__69=69;
     public static final int T__62=62;
     public static final int T__63=63;
     public static final int T__20=20;
@@ -5439,12 +5440,89 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleOclAnyType"
 
 
+    // $ANTLR start "entryRuleOclVoidType"
+    // InternalOcl.g:1778:1: entryRuleOclVoidType : ruleOclVoidType EOF ;
+    public final void entryRuleOclVoidType() throws RecognitionException {
+        try {
+            // InternalOcl.g:1779:1: ( ruleOclVoidType EOF )
+            // InternalOcl.g:1780:1: ruleOclVoidType EOF
+            {
+             before(grammarAccess.getOclVoidTypeRule()); 
+            pushFollow(FOLLOW_1);
+            ruleOclVoidType();
+
+            state._fsp--;
+
+             after(grammarAccess.getOclVoidTypeRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleOclVoidType"
+
+
+    // $ANTLR start "ruleOclVoidType"
+    // InternalOcl.g:1787:1: ruleOclVoidType : ( ( rule__OclVoidType__Group__0 ) ) ;
+    public final void ruleOclVoidType() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalOcl.g:1791:2: ( ( ( rule__OclVoidType__Group__0 ) ) )
+            // InternalOcl.g:1792:2: ( ( rule__OclVoidType__Group__0 ) )
+            {
+            // InternalOcl.g:1792:2: ( ( rule__OclVoidType__Group__0 ) )
+            // InternalOcl.g:1793:3: ( rule__OclVoidType__Group__0 )
+            {
+             before(grammarAccess.getOclVoidTypeAccess().getGroup()); 
+            // InternalOcl.g:1794:3: ( rule__OclVoidType__Group__0 )
+            // InternalOcl.g:1794:4: rule__OclVoidType__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__OclVoidType__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getOclVoidTypeAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleOclVoidType"
+
+
     // $ANTLR start "entryRuleTupleType"
-    // InternalOcl.g:1778:1: entryRuleTupleType : ruleTupleType EOF ;
+    // InternalOcl.g:1803:1: entryRuleTupleType : ruleTupleType EOF ;
     public final void entryRuleTupleType() throws RecognitionException {
         try {
-            // InternalOcl.g:1779:1: ( ruleTupleType EOF )
-            // InternalOcl.g:1780:1: ruleTupleType EOF
+            // InternalOcl.g:1804:1: ( ruleTupleType EOF )
+            // InternalOcl.g:1805:1: ruleTupleType EOF
             {
              before(grammarAccess.getTupleTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -5470,21 +5548,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleTupleType"
-    // InternalOcl.g:1787:1: ruleTupleType : ( ( rule__TupleType__Group__0 ) ) ;
+    // InternalOcl.g:1812:1: ruleTupleType : ( ( rule__TupleType__Group__0 ) ) ;
     public final void ruleTupleType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1791:2: ( ( ( rule__TupleType__Group__0 ) ) )
-            // InternalOcl.g:1792:2: ( ( rule__TupleType__Group__0 ) )
+            // InternalOcl.g:1816:2: ( ( ( rule__TupleType__Group__0 ) ) )
+            // InternalOcl.g:1817:2: ( ( rule__TupleType__Group__0 ) )
             {
-            // InternalOcl.g:1792:2: ( ( rule__TupleType__Group__0 ) )
-            // InternalOcl.g:1793:3: ( rule__TupleType__Group__0 )
+            // InternalOcl.g:1817:2: ( ( rule__TupleType__Group__0 ) )
+            // InternalOcl.g:1818:3: ( rule__TupleType__Group__0 )
             {
              before(grammarAccess.getTupleTypeAccess().getGroup()); 
-            // InternalOcl.g:1794:3: ( rule__TupleType__Group__0 )
-            // InternalOcl.g:1794:4: rule__TupleType__Group__0
+            // InternalOcl.g:1819:3: ( rule__TupleType__Group__0 )
+            // InternalOcl.g:1819:4: rule__TupleType__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__TupleType__Group__0();
@@ -5517,11 +5595,11 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleTupleTypeAttribute"
-    // InternalOcl.g:1803:1: entryRuleTupleTypeAttribute : ruleTupleTypeAttribute EOF ;
+    // InternalOcl.g:1828:1: entryRuleTupleTypeAttribute : ruleTupleTypeAttribute EOF ;
     public final void entryRuleTupleTypeAttribute() throws RecognitionException {
         try {
-            // InternalOcl.g:1804:1: ( ruleTupleTypeAttribute EOF )
-            // InternalOcl.g:1805:1: ruleTupleTypeAttribute EOF
+            // InternalOcl.g:1829:1: ( ruleTupleTypeAttribute EOF )
+            // InternalOcl.g:1830:1: ruleTupleTypeAttribute EOF
             {
              before(grammarAccess.getTupleTypeAttributeRule()); 
             pushFollow(FOLLOW_1);
@@ -5547,21 +5625,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleTupleTypeAttribute"
-    // InternalOcl.g:1812:1: ruleTupleTypeAttribute : ( ( rule__TupleTypeAttribute__Group__0 ) ) ;
+    // InternalOcl.g:1837:1: ruleTupleTypeAttribute : ( ( rule__TupleTypeAttribute__Group__0 ) ) ;
     public final void ruleTupleTypeAttribute() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1816:2: ( ( ( rule__TupleTypeAttribute__Group__0 ) ) )
-            // InternalOcl.g:1817:2: ( ( rule__TupleTypeAttribute__Group__0 ) )
+            // InternalOcl.g:1841:2: ( ( ( rule__TupleTypeAttribute__Group__0 ) ) )
+            // InternalOcl.g:1842:2: ( ( rule__TupleTypeAttribute__Group__0 ) )
             {
-            // InternalOcl.g:1817:2: ( ( rule__TupleTypeAttribute__Group__0 ) )
-            // InternalOcl.g:1818:3: ( rule__TupleTypeAttribute__Group__0 )
+            // InternalOcl.g:1842:2: ( ( rule__TupleTypeAttribute__Group__0 ) )
+            // InternalOcl.g:1843:3: ( rule__TupleTypeAttribute__Group__0 )
             {
              before(grammarAccess.getTupleTypeAttributeAccess().getGroup()); 
-            // InternalOcl.g:1819:3: ( rule__TupleTypeAttribute__Group__0 )
-            // InternalOcl.g:1819:4: rule__TupleTypeAttribute__Group__0
+            // InternalOcl.g:1844:3: ( rule__TupleTypeAttribute__Group__0 )
+            // InternalOcl.g:1844:4: rule__TupleTypeAttribute__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__TupleTypeAttribute__Group__0();
@@ -5594,11 +5672,11 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleOclModelElementClass"
-    // InternalOcl.g:1828:1: entryRuleOclModelElementClass : ruleOclModelElementClass EOF ;
+    // InternalOcl.g:1853:1: entryRuleOclModelElementClass : ruleOclModelElementClass EOF ;
     public final void entryRuleOclModelElementClass() throws RecognitionException {
         try {
-            // InternalOcl.g:1829:1: ( ruleOclModelElementClass EOF )
-            // InternalOcl.g:1830:1: ruleOclModelElementClass EOF
+            // InternalOcl.g:1854:1: ( ruleOclModelElementClass EOF )
+            // InternalOcl.g:1855:1: ruleOclModelElementClass EOF
             {
              before(grammarAccess.getOclModelElementClassRule()); 
             pushFollow(FOLLOW_1);
@@ -5624,21 +5702,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleOclModelElementClass"
-    // InternalOcl.g:1837:1: ruleOclModelElementClass : ( ( rule__OclModelElementClass__Group__0 ) ) ;
+    // InternalOcl.g:1862:1: ruleOclModelElementClass : ( ( rule__OclModelElementClass__Group__0 ) ) ;
     public final void ruleOclModelElementClass() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1841:2: ( ( ( rule__OclModelElementClass__Group__0 ) ) )
-            // InternalOcl.g:1842:2: ( ( rule__OclModelElementClass__Group__0 ) )
+            // InternalOcl.g:1866:2: ( ( ( rule__OclModelElementClass__Group__0 ) ) )
+            // InternalOcl.g:1867:2: ( ( rule__OclModelElementClass__Group__0 ) )
             {
-            // InternalOcl.g:1842:2: ( ( rule__OclModelElementClass__Group__0 ) )
-            // InternalOcl.g:1843:3: ( rule__OclModelElementClass__Group__0 )
+            // InternalOcl.g:1867:2: ( ( rule__OclModelElementClass__Group__0 ) )
+            // InternalOcl.g:1868:3: ( rule__OclModelElementClass__Group__0 )
             {
              before(grammarAccess.getOclModelElementClassAccess().getGroup()); 
-            // InternalOcl.g:1844:3: ( rule__OclModelElementClass__Group__0 )
-            // InternalOcl.g:1844:4: rule__OclModelElementClass__Group__0
+            // InternalOcl.g:1869:3: ( rule__OclModelElementClass__Group__0 )
+            // InternalOcl.g:1869:4: rule__OclModelElementClass__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__OclModelElementClass__Group__0();
@@ -5671,11 +5749,11 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleMapType"
-    // InternalOcl.g:1853:1: entryRuleMapType : ruleMapType EOF ;
+    // InternalOcl.g:1878:1: entryRuleMapType : ruleMapType EOF ;
     public final void entryRuleMapType() throws RecognitionException {
         try {
-            // InternalOcl.g:1854:1: ( ruleMapType EOF )
-            // InternalOcl.g:1855:1: ruleMapType EOF
+            // InternalOcl.g:1879:1: ( ruleMapType EOF )
+            // InternalOcl.g:1880:1: ruleMapType EOF
             {
              before(grammarAccess.getMapTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -5701,21 +5779,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleMapType"
-    // InternalOcl.g:1862:1: ruleMapType : ( ( rule__MapType__Group__0 ) ) ;
+    // InternalOcl.g:1887:1: ruleMapType : ( ( rule__MapType__Group__0 ) ) ;
     public final void ruleMapType() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1866:2: ( ( ( rule__MapType__Group__0 ) ) )
-            // InternalOcl.g:1867:2: ( ( rule__MapType__Group__0 ) )
+            // InternalOcl.g:1891:2: ( ( ( rule__MapType__Group__0 ) ) )
+            // InternalOcl.g:1892:2: ( ( rule__MapType__Group__0 ) )
             {
-            // InternalOcl.g:1867:2: ( ( rule__MapType__Group__0 ) )
-            // InternalOcl.g:1868:3: ( rule__MapType__Group__0 )
+            // InternalOcl.g:1892:2: ( ( rule__MapType__Group__0 ) )
+            // InternalOcl.g:1893:3: ( rule__MapType__Group__0 )
             {
              before(grammarAccess.getMapTypeAccess().getGroup()); 
-            // InternalOcl.g:1869:3: ( rule__MapType__Group__0 )
-            // InternalOcl.g:1869:4: rule__MapType__Group__0
+            // InternalOcl.g:1894:3: ( rule__MapType__Group__0 )
+            // InternalOcl.g:1894:4: rule__MapType__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__MapType__Group__0();
@@ -5748,11 +5826,11 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // InternalOcl.g:1878:1: entryRuleQualifiedName : ruleQualifiedName EOF ;
+    // InternalOcl.g:1903:1: entryRuleQualifiedName : ruleQualifiedName EOF ;
     public final void entryRuleQualifiedName() throws RecognitionException {
         try {
-            // InternalOcl.g:1879:1: ( ruleQualifiedName EOF )
-            // InternalOcl.g:1880:1: ruleQualifiedName EOF
+            // InternalOcl.g:1904:1: ( ruleQualifiedName EOF )
+            // InternalOcl.g:1905:1: ruleQualifiedName EOF
             {
              before(grammarAccess.getQualifiedNameRule()); 
             pushFollow(FOLLOW_1);
@@ -5778,21 +5856,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // InternalOcl.g:1887:1: ruleQualifiedName : ( ( rule__QualifiedName__Group__0 ) ) ;
+    // InternalOcl.g:1912:1: ruleQualifiedName : ( ( rule__QualifiedName__Group__0 ) ) ;
     public final void ruleQualifiedName() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1891:2: ( ( ( rule__QualifiedName__Group__0 ) ) )
-            // InternalOcl.g:1892:2: ( ( rule__QualifiedName__Group__0 ) )
+            // InternalOcl.g:1916:2: ( ( ( rule__QualifiedName__Group__0 ) ) )
+            // InternalOcl.g:1917:2: ( ( rule__QualifiedName__Group__0 ) )
             {
-            // InternalOcl.g:1892:2: ( ( rule__QualifiedName__Group__0 ) )
-            // InternalOcl.g:1893:3: ( rule__QualifiedName__Group__0 )
+            // InternalOcl.g:1917:2: ( ( rule__QualifiedName__Group__0 ) )
+            // InternalOcl.g:1918:3: ( rule__QualifiedName__Group__0 )
             {
              before(grammarAccess.getQualifiedNameAccess().getGroup()); 
-            // InternalOcl.g:1894:3: ( rule__QualifiedName__Group__0 )
-            // InternalOcl.g:1894:4: rule__QualifiedName__Group__0
+            // InternalOcl.g:1919:3: ( rule__QualifiedName__Group__0 )
+            // InternalOcl.g:1919:4: rule__QualifiedName__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group__0();
@@ -5825,13 +5903,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__MembersAlternatives_1_0"
-    // InternalOcl.g:1902:1: rule__OclContextBlock__MembersAlternatives_1_0 : ( ( ruleOclFeatureDefinition ) | ( ruleOclInvariant ) );
+    // InternalOcl.g:1927:1: rule__OclContextBlock__MembersAlternatives_1_0 : ( ( ruleOclFeatureDefinition ) | ( ruleOclInvariant ) );
     public final void rule__OclContextBlock__MembersAlternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1906:1: ( ( ruleOclFeatureDefinition ) | ( ruleOclInvariant ) )
+            // InternalOcl.g:1931:1: ( ( ruleOclFeatureDefinition ) | ( ruleOclInvariant ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -5849,10 +5927,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalOcl.g:1907:2: ( ruleOclFeatureDefinition )
+                    // InternalOcl.g:1932:2: ( ruleOclFeatureDefinition )
                     {
-                    // InternalOcl.g:1907:2: ( ruleOclFeatureDefinition )
-                    // InternalOcl.g:1908:3: ruleOclFeatureDefinition
+                    // InternalOcl.g:1932:2: ( ruleOclFeatureDefinition )
+                    // InternalOcl.g:1933:3: ruleOclFeatureDefinition
                     {
                      before(grammarAccess.getOclContextBlockAccess().getMembersOclFeatureDefinitionParserRuleCall_1_0_0()); 
                     pushFollow(FOLLOW_2);
@@ -5868,10 +5946,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:1913:2: ( ruleOclInvariant )
+                    // InternalOcl.g:1938:2: ( ruleOclInvariant )
                     {
-                    // InternalOcl.g:1913:2: ( ruleOclInvariant )
-                    // InternalOcl.g:1914:3: ruleOclInvariant
+                    // InternalOcl.g:1938:2: ( ruleOclInvariant )
+                    // InternalOcl.g:1939:3: ruleOclInvariant
                     {
                      before(grammarAccess.getOclContextBlockAccess().getMembersOclInvariantParserRuleCall_1_0_1()); 
                     pushFollow(FOLLOW_2);
@@ -5904,24 +5982,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__FeatureAlternatives_2_0"
-    // InternalOcl.g:1923:1: rule__OclFeatureDefinition__FeatureAlternatives_2_0 : ( ( ruleAttribute ) | ( ruleOperation ) );
+    // InternalOcl.g:1948:1: rule__OclFeatureDefinition__FeatureAlternatives_2_0 : ( ( ruleAttribute ) | ( ruleOperation ) );
     public final void rule__OclFeatureDefinition__FeatureAlternatives_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1927:1: ( ( ruleAttribute ) | ( ruleOperation ) )
+            // InternalOcl.g:1952:1: ( ( ruleAttribute ) | ( ruleOperation ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
             if ( (LA2_0==RULE_ID) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( (LA2_1==34) ) {
-                    alt2=1;
-                }
-                else if ( (LA2_1==35) ) {
+                if ( (LA2_1==35) ) {
                     alt2=2;
+                }
+                else if ( (LA2_1==34) ) {
+                    alt2=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -5938,10 +6016,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalOcl.g:1928:2: ( ruleAttribute )
+                    // InternalOcl.g:1953:2: ( ruleAttribute )
                     {
-                    // InternalOcl.g:1928:2: ( ruleAttribute )
-                    // InternalOcl.g:1929:3: ruleAttribute
+                    // InternalOcl.g:1953:2: ( ruleAttribute )
+                    // InternalOcl.g:1954:3: ruleAttribute
                     {
                      before(grammarAccess.getOclFeatureDefinitionAccess().getFeatureAttributeParserRuleCall_2_0_0()); 
                     pushFollow(FOLLOW_2);
@@ -5957,10 +6035,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:1934:2: ( ruleOperation )
+                    // InternalOcl.g:1959:2: ( ruleOperation )
                     {
-                    // InternalOcl.g:1934:2: ( ruleOperation )
-                    // InternalOcl.g:1935:3: ruleOperation
+                    // InternalOcl.g:1959:2: ( ruleOperation )
+                    // InternalOcl.g:1960:3: ruleOperation
                     {
                      before(grammarAccess.getOclFeatureDefinitionAccess().getFeatureOperationParserRuleCall_2_0_1()); 
                     pushFollow(FOLLOW_2);
@@ -5993,17 +6071,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclExpression__Alternatives"
-    // InternalOcl.g:1944:1: rule__OclExpression__Alternatives : ( ( ruleOperatorCallExp ) | ( ruleLetExp ) );
+    // InternalOcl.g:1969:1: rule__OclExpression__Alternatives : ( ( ruleOperatorCallExp ) | ( ruleLetExp ) );
     public final void rule__OclExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1948:1: ( ( ruleOperatorCallExp ) | ( ruleLetExp ) )
+            // InternalOcl.g:1973:1: ( ( ruleOperatorCallExp ) | ( ruleLetExp ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>=RULE_ID && LA3_0<=RULE_INT)||LA3_0==22||LA3_0==28||LA3_0==35||(LA3_0>=39 && LA3_0<=41)||(LA3_0>=44 && LA3_0<=49)||LA3_0==52||(LA3_0>=67 && LA3_0<=68)) ) {
+            if ( ((LA3_0>=RULE_ID && LA3_0<=RULE_INT)||LA3_0==22||LA3_0==28||LA3_0==35||(LA3_0>=39 && LA3_0<=41)||(LA3_0>=44 && LA3_0<=49)||LA3_0==52||(LA3_0>=68 && LA3_0<=69)) ) {
                 alt3=1;
             }
             else if ( (LA3_0==50) ) {
@@ -6017,10 +6095,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalOcl.g:1949:2: ( ruleOperatorCallExp )
+                    // InternalOcl.g:1974:2: ( ruleOperatorCallExp )
                     {
-                    // InternalOcl.g:1949:2: ( ruleOperatorCallExp )
-                    // InternalOcl.g:1950:3: ruleOperatorCallExp
+                    // InternalOcl.g:1974:2: ( ruleOperatorCallExp )
+                    // InternalOcl.g:1975:3: ruleOperatorCallExp
                     {
                      before(grammarAccess.getOclExpressionAccess().getOperatorCallExpParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -6036,10 +6114,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:1955:2: ( ruleLetExp )
+                    // InternalOcl.g:1980:2: ( ruleLetExp )
                     {
-                    // InternalOcl.g:1955:2: ( ruleLetExp )
-                    // InternalOcl.g:1956:3: ruleLetExp
+                    // InternalOcl.g:1980:2: ( ruleLetExp )
+                    // InternalOcl.g:1981:3: ruleLetExp
                     {
                      before(grammarAccess.getOclExpressionAccess().getLetExpParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -6072,13 +6150,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BOOLOP__Alternatives"
-    // InternalOcl.g:1965:1: rule__BOOLOP__Alternatives : ( ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'implies' ) );
+    // InternalOcl.g:1990:1: rule__BOOLOP__Alternatives : ( ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'implies' ) );
     public final void rule__BOOLOP__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:1969:1: ( ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'implies' ) )
+            // InternalOcl.g:1994:1: ( ( 'and' ) | ( 'or' ) | ( 'xor' ) | ( 'implies' ) )
             int alt4=4;
             switch ( input.LA(1) ) {
             case 12:
@@ -6110,10 +6188,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             switch (alt4) {
                 case 1 :
-                    // InternalOcl.g:1970:2: ( 'and' )
+                    // InternalOcl.g:1995:2: ( 'and' )
                     {
-                    // InternalOcl.g:1970:2: ( 'and' )
-                    // InternalOcl.g:1971:3: 'and'
+                    // InternalOcl.g:1995:2: ( 'and' )
+                    // InternalOcl.g:1996:3: 'and'
                     {
                      before(grammarAccess.getBOOLOPAccess().getAndKeyword_0()); 
                     match(input,12,FOLLOW_2); 
@@ -6125,10 +6203,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:1976:2: ( 'or' )
+                    // InternalOcl.g:2001:2: ( 'or' )
                     {
-                    // InternalOcl.g:1976:2: ( 'or' )
-                    // InternalOcl.g:1977:3: 'or'
+                    // InternalOcl.g:2001:2: ( 'or' )
+                    // InternalOcl.g:2002:3: 'or'
                     {
                      before(grammarAccess.getBOOLOPAccess().getOrKeyword_1()); 
                     match(input,13,FOLLOW_2); 
@@ -6140,10 +6218,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:1982:2: ( 'xor' )
+                    // InternalOcl.g:2007:2: ( 'xor' )
                     {
-                    // InternalOcl.g:1982:2: ( 'xor' )
-                    // InternalOcl.g:1983:3: 'xor'
+                    // InternalOcl.g:2007:2: ( 'xor' )
+                    // InternalOcl.g:2008:3: 'xor'
                     {
                      before(grammarAccess.getBOOLOPAccess().getXorKeyword_2()); 
                     match(input,14,FOLLOW_2); 
@@ -6155,10 +6233,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalOcl.g:1988:2: ( 'implies' )
+                    // InternalOcl.g:2013:2: ( 'implies' )
                     {
-                    // InternalOcl.g:1988:2: ( 'implies' )
-                    // InternalOcl.g:1989:3: 'implies'
+                    // InternalOcl.g:2013:2: ( 'implies' )
+                    // InternalOcl.g:2014:3: 'implies'
                     {
                      before(grammarAccess.getBOOLOPAccess().getImpliesKeyword_3()); 
                     match(input,15,FOLLOW_2); 
@@ -6187,13 +6265,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EQOP__Alternatives"
-    // InternalOcl.g:1998:1: rule__EQOP__Alternatives : ( ( '=' ) | ( '<>' ) );
+    // InternalOcl.g:2023:1: rule__EQOP__Alternatives : ( ( '=' ) | ( '<>' ) );
     public final void rule__EQOP__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2002:1: ( ( '=' ) | ( '<>' ) )
+            // InternalOcl.g:2027:1: ( ( '=' ) | ( '<>' ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -6211,10 +6289,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalOcl.g:2003:2: ( '=' )
+                    // InternalOcl.g:2028:2: ( '=' )
                     {
-                    // InternalOcl.g:2003:2: ( '=' )
-                    // InternalOcl.g:2004:3: '='
+                    // InternalOcl.g:2028:2: ( '=' )
+                    // InternalOcl.g:2029:3: '='
                     {
                      before(grammarAccess.getEQOPAccess().getEqualsSignKeyword_0()); 
                     match(input,16,FOLLOW_2); 
@@ -6226,10 +6304,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2009:2: ( '<>' )
+                    // InternalOcl.g:2034:2: ( '<>' )
                     {
-                    // InternalOcl.g:2009:2: ( '<>' )
-                    // InternalOcl.g:2010:3: '<>'
+                    // InternalOcl.g:2034:2: ( '<>' )
+                    // InternalOcl.g:2035:3: '<>'
                     {
                      before(grammarAccess.getEQOPAccess().getLessThanSignGreaterThanSignKeyword_1()); 
                     match(input,17,FOLLOW_2); 
@@ -6258,13 +6336,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RELOP__Alternatives"
-    // InternalOcl.g:2019:1: rule__RELOP__Alternatives : ( ( '>' ) | ( '<' ) | ( '>=' ) | ( '<=' ) );
+    // InternalOcl.g:2044:1: rule__RELOP__Alternatives : ( ( '>' ) | ( '<' ) | ( '>=' ) | ( '<=' ) );
     public final void rule__RELOP__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2023:1: ( ( '>' ) | ( '<' ) | ( '>=' ) | ( '<=' ) )
+            // InternalOcl.g:2048:1: ( ( '>' ) | ( '<' ) | ( '>=' ) | ( '<=' ) )
             int alt6=4;
             switch ( input.LA(1) ) {
             case 18:
@@ -6296,10 +6374,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             switch (alt6) {
                 case 1 :
-                    // InternalOcl.g:2024:2: ( '>' )
+                    // InternalOcl.g:2049:2: ( '>' )
                     {
-                    // InternalOcl.g:2024:2: ( '>' )
-                    // InternalOcl.g:2025:3: '>'
+                    // InternalOcl.g:2049:2: ( '>' )
+                    // InternalOcl.g:2050:3: '>'
                     {
                      before(grammarAccess.getRELOPAccess().getGreaterThanSignKeyword_0()); 
                     match(input,18,FOLLOW_2); 
@@ -6311,10 +6389,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2030:2: ( '<' )
+                    // InternalOcl.g:2055:2: ( '<' )
                     {
-                    // InternalOcl.g:2030:2: ( '<' )
-                    // InternalOcl.g:2031:3: '<'
+                    // InternalOcl.g:2055:2: ( '<' )
+                    // InternalOcl.g:2056:3: '<'
                     {
                      before(grammarAccess.getRELOPAccess().getLessThanSignKeyword_1()); 
                     match(input,19,FOLLOW_2); 
@@ -6326,10 +6404,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:2036:2: ( '>=' )
+                    // InternalOcl.g:2061:2: ( '>=' )
                     {
-                    // InternalOcl.g:2036:2: ( '>=' )
-                    // InternalOcl.g:2037:3: '>='
+                    // InternalOcl.g:2061:2: ( '>=' )
+                    // InternalOcl.g:2062:3: '>='
                     {
                      before(grammarAccess.getRELOPAccess().getGreaterThanSignEqualsSignKeyword_2()); 
                     match(input,20,FOLLOW_2); 
@@ -6341,10 +6419,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalOcl.g:2042:2: ( '<=' )
+                    // InternalOcl.g:2067:2: ( '<=' )
                     {
-                    // InternalOcl.g:2042:2: ( '<=' )
-                    // InternalOcl.g:2043:3: '<='
+                    // InternalOcl.g:2067:2: ( '<=' )
+                    // InternalOcl.g:2068:3: '<='
                     {
                      before(grammarAccess.getRELOPAccess().getLessThanSignEqualsSignKeyword_3()); 
                     match(input,21,FOLLOW_2); 
@@ -6373,13 +6451,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ADDOP__Alternatives"
-    // InternalOcl.g:2052:1: rule__ADDOP__Alternatives : ( ( '-' ) | ( '+' ) );
+    // InternalOcl.g:2077:1: rule__ADDOP__Alternatives : ( ( '-' ) | ( '+' ) );
     public final void rule__ADDOP__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2056:1: ( ( '-' ) | ( '+' ) )
+            // InternalOcl.g:2081:1: ( ( '-' ) | ( '+' ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -6397,10 +6475,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalOcl.g:2057:2: ( '-' )
+                    // InternalOcl.g:2082:2: ( '-' )
                     {
-                    // InternalOcl.g:2057:2: ( '-' )
-                    // InternalOcl.g:2058:3: '-'
+                    // InternalOcl.g:2082:2: ( '-' )
+                    // InternalOcl.g:2083:3: '-'
                     {
                      before(grammarAccess.getADDOPAccess().getHyphenMinusKeyword_0()); 
                     match(input,22,FOLLOW_2); 
@@ -6412,10 +6490,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2063:2: ( '+' )
+                    // InternalOcl.g:2088:2: ( '+' )
                     {
-                    // InternalOcl.g:2063:2: ( '+' )
-                    // InternalOcl.g:2064:3: '+'
+                    // InternalOcl.g:2088:2: ( '+' )
+                    // InternalOcl.g:2089:3: '+'
                     {
                      before(grammarAccess.getADDOPAccess().getPlusSignKeyword_1()); 
                     match(input,23,FOLLOW_2); 
@@ -6444,13 +6522,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__INTOP__Alternatives"
-    // InternalOcl.g:2073:1: rule__INTOP__Alternatives : ( ( 'div' ) | ( 'mod' ) );
+    // InternalOcl.g:2098:1: rule__INTOP__Alternatives : ( ( 'div' ) | ( 'mod' ) );
     public final void rule__INTOP__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2077:1: ( ( 'div' ) | ( 'mod' ) )
+            // InternalOcl.g:2102:1: ( ( 'div' ) | ( 'mod' ) )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -6468,10 +6546,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalOcl.g:2078:2: ( 'div' )
+                    // InternalOcl.g:2103:2: ( 'div' )
                     {
-                    // InternalOcl.g:2078:2: ( 'div' )
-                    // InternalOcl.g:2079:3: 'div'
+                    // InternalOcl.g:2103:2: ( 'div' )
+                    // InternalOcl.g:2104:3: 'div'
                     {
                      before(grammarAccess.getINTOPAccess().getDivKeyword_0()); 
                     match(input,24,FOLLOW_2); 
@@ -6483,10 +6561,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2084:2: ( 'mod' )
+                    // InternalOcl.g:2109:2: ( 'mod' )
                     {
-                    // InternalOcl.g:2084:2: ( 'mod' )
-                    // InternalOcl.g:2085:3: 'mod'
+                    // InternalOcl.g:2109:2: ( 'mod' )
+                    // InternalOcl.g:2110:3: 'mod'
                     {
                      before(grammarAccess.getINTOPAccess().getModKeyword_1()); 
                     match(input,25,FOLLOW_2); 
@@ -6515,13 +6593,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MULOP__Alternatives"
-    // InternalOcl.g:2094:1: rule__MULOP__Alternatives : ( ( '*' ) | ( '/' ) );
+    // InternalOcl.g:2119:1: rule__MULOP__Alternatives : ( ( '*' ) | ( '/' ) );
     public final void rule__MULOP__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2098:1: ( ( '*' ) | ( '/' ) )
+            // InternalOcl.g:2123:1: ( ( '*' ) | ( '/' ) )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -6539,10 +6617,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalOcl.g:2099:2: ( '*' )
+                    // InternalOcl.g:2124:2: ( '*' )
                     {
-                    // InternalOcl.g:2099:2: ( '*' )
-                    // InternalOcl.g:2100:3: '*'
+                    // InternalOcl.g:2124:2: ( '*' )
+                    // InternalOcl.g:2125:3: '*'
                     {
                      before(grammarAccess.getMULOPAccess().getAsteriskKeyword_0()); 
                     match(input,26,FOLLOW_2); 
@@ -6554,10 +6632,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2105:2: ( '/' )
+                    // InternalOcl.g:2130:2: ( '/' )
                     {
-                    // InternalOcl.g:2105:2: ( '/' )
-                    // InternalOcl.g:2106:3: '/'
+                    // InternalOcl.g:2130:2: ( '/' )
+                    // InternalOcl.g:2131:3: '/'
                     {
                      before(grammarAccess.getMULOPAccess().getSolidusKeyword_1()); 
                     match(input,27,FOLLOW_2); 
@@ -6586,20 +6664,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NotOpCallExp__Alternatives"
-    // InternalOcl.g:2115:1: rule__NotOpCallExp__Alternatives : ( ( ( rule__NotOpCallExp__Group_0__0 ) ) | ( rulePropertyCallExp ) );
+    // InternalOcl.g:2140:1: rule__NotOpCallExp__Alternatives : ( ( ( rule__NotOpCallExp__Group_0__0 ) ) | ( rulePropertyCallExp ) );
     public final void rule__NotOpCallExp__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2119:1: ( ( ( rule__NotOpCallExp__Group_0__0 ) ) | ( rulePropertyCallExp ) )
+            // InternalOcl.g:2144:1: ( ( ( rule__NotOpCallExp__Group_0__0 ) ) | ( rulePropertyCallExp ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
             if ( (LA10_0==22||LA10_0==28) ) {
                 alt10=1;
             }
-            else if ( ((LA10_0>=RULE_ID && LA10_0<=RULE_INT)||LA10_0==35||(LA10_0>=39 && LA10_0<=41)||(LA10_0>=44 && LA10_0<=49)||LA10_0==52||(LA10_0>=67 && LA10_0<=68)) ) {
+            else if ( ((LA10_0>=RULE_ID && LA10_0<=RULE_INT)||LA10_0==35||(LA10_0>=39 && LA10_0<=41)||(LA10_0>=44 && LA10_0<=49)||LA10_0==52||(LA10_0>=68 && LA10_0<=69)) ) {
                 alt10=2;
             }
             else {
@@ -6610,14 +6688,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalOcl.g:2120:2: ( ( rule__NotOpCallExp__Group_0__0 ) )
+                    // InternalOcl.g:2145:2: ( ( rule__NotOpCallExp__Group_0__0 ) )
                     {
-                    // InternalOcl.g:2120:2: ( ( rule__NotOpCallExp__Group_0__0 ) )
-                    // InternalOcl.g:2121:3: ( rule__NotOpCallExp__Group_0__0 )
+                    // InternalOcl.g:2145:2: ( ( rule__NotOpCallExp__Group_0__0 ) )
+                    // InternalOcl.g:2146:3: ( rule__NotOpCallExp__Group_0__0 )
                     {
                      before(grammarAccess.getNotOpCallExpAccess().getGroup_0()); 
-                    // InternalOcl.g:2122:3: ( rule__NotOpCallExp__Group_0__0 )
-                    // InternalOcl.g:2122:4: rule__NotOpCallExp__Group_0__0
+                    // InternalOcl.g:2147:3: ( rule__NotOpCallExp__Group_0__0 )
+                    // InternalOcl.g:2147:4: rule__NotOpCallExp__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__NotOpCallExp__Group_0__0();
@@ -6635,10 +6713,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2126:2: ( rulePropertyCallExp )
+                    // InternalOcl.g:2151:2: ( rulePropertyCallExp )
                     {
-                    // InternalOcl.g:2126:2: ( rulePropertyCallExp )
-                    // InternalOcl.g:2127:3: rulePropertyCallExp
+                    // InternalOcl.g:2151:2: ( rulePropertyCallExp )
+                    // InternalOcl.g:2152:3: rulePropertyCallExp
                     {
                      before(grammarAccess.getNotOpCallExpAccess().getPropertyCallExpParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -6671,13 +6749,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UNARYOP__Alternatives"
-    // InternalOcl.g:2136:1: rule__UNARYOP__Alternatives : ( ( 'not' ) | ( '-' ) );
+    // InternalOcl.g:2161:1: rule__UNARYOP__Alternatives : ( ( 'not' ) | ( '-' ) );
     public final void rule__UNARYOP__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2140:1: ( ( 'not' ) | ( '-' ) )
+            // InternalOcl.g:2165:1: ( ( 'not' ) | ( '-' ) )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -6695,10 +6773,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalOcl.g:2141:2: ( 'not' )
+                    // InternalOcl.g:2166:2: ( 'not' )
                     {
-                    // InternalOcl.g:2141:2: ( 'not' )
-                    // InternalOcl.g:2142:3: 'not'
+                    // InternalOcl.g:2166:2: ( 'not' )
+                    // InternalOcl.g:2167:3: 'not'
                     {
                      before(grammarAccess.getUNARYOPAccess().getNotKeyword_0()); 
                     match(input,28,FOLLOW_2); 
@@ -6710,10 +6788,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2147:2: ( '-' )
+                    // InternalOcl.g:2172:2: ( '-' )
                     {
-                    // InternalOcl.g:2147:2: ( '-' )
-                    // InternalOcl.g:2148:3: '-'
+                    // InternalOcl.g:2172:2: ( '-' )
+                    // InternalOcl.g:2173:3: '-'
                     {
                      before(grammarAccess.getUNARYOPAccess().getHyphenMinusKeyword_1()); 
                     match(input,22,FOLLOW_2); 
@@ -6742,21 +6820,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primary_OclExpression__Alternatives"
-    // InternalOcl.g:2157:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleNullLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) );
+    // InternalOcl.g:2182:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleNullLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) );
     public final void rule__Primary_OclExpression__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2161:1: ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleNullLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) )
+            // InternalOcl.g:2186:1: ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleNullLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) )
             int alt12=17;
             alt12 = dfa12.predict(input);
             switch (alt12) {
                 case 1 :
-                    // InternalOcl.g:2162:2: ( ruleVariableExp )
+                    // InternalOcl.g:2187:2: ( ruleVariableExp )
                     {
-                    // InternalOcl.g:2162:2: ( ruleVariableExp )
-                    // InternalOcl.g:2163:3: ruleVariableExp
+                    // InternalOcl.g:2187:2: ( ruleVariableExp )
+                    // InternalOcl.g:2188:3: ruleVariableExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getVariableExpParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -6772,10 +6850,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2168:2: ( ruleSelfLiteralExp )
+                    // InternalOcl.g:2193:2: ( ruleSelfLiteralExp )
                     {
-                    // InternalOcl.g:2168:2: ( ruleSelfLiteralExp )
-                    // InternalOcl.g:2169:3: ruleSelfLiteralExp
+                    // InternalOcl.g:2193:2: ( ruleSelfLiteralExp )
+                    // InternalOcl.g:2194:3: ruleSelfLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getSelfLiteralExpParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -6791,10 +6869,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:2174:2: ( ruleStringLiteralExp )
+                    // InternalOcl.g:2199:2: ( ruleStringLiteralExp )
                     {
-                    // InternalOcl.g:2174:2: ( ruleStringLiteralExp )
-                    // InternalOcl.g:2175:3: ruleStringLiteralExp
+                    // InternalOcl.g:2199:2: ( ruleStringLiteralExp )
+                    // InternalOcl.g:2200:3: ruleStringLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getStringLiteralExpParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -6810,10 +6888,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalOcl.g:2180:2: ( ruleBooleanLiteralExp )
+                    // InternalOcl.g:2205:2: ( ruleBooleanLiteralExp )
                     {
-                    // InternalOcl.g:2180:2: ( ruleBooleanLiteralExp )
-                    // InternalOcl.g:2181:3: ruleBooleanLiteralExp
+                    // InternalOcl.g:2205:2: ( ruleBooleanLiteralExp )
+                    // InternalOcl.g:2206:3: ruleBooleanLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getBooleanLiteralExpParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -6829,10 +6907,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalOcl.g:2186:2: ( ruleNumericLiteralExp )
+                    // InternalOcl.g:2211:2: ( ruleNumericLiteralExp )
                     {
-                    // InternalOcl.g:2186:2: ( ruleNumericLiteralExp )
-                    // InternalOcl.g:2187:3: ruleNumericLiteralExp
+                    // InternalOcl.g:2211:2: ( ruleNumericLiteralExp )
+                    // InternalOcl.g:2212:3: ruleNumericLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getNumericLiteralExpParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -6848,10 +6926,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalOcl.g:2192:2: ( ruleNullLiteralExp )
+                    // InternalOcl.g:2217:2: ( ruleNullLiteralExp )
                     {
-                    // InternalOcl.g:2192:2: ( ruleNullLiteralExp )
-                    // InternalOcl.g:2193:3: ruleNullLiteralExp
+                    // InternalOcl.g:2217:2: ( ruleNullLiteralExp )
+                    // InternalOcl.g:2218:3: ruleNullLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getNullLiteralExpParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
@@ -6867,10 +6945,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalOcl.g:2198:2: ( ruleBagLiteralExp )
+                    // InternalOcl.g:2223:2: ( ruleBagLiteralExp )
                     {
-                    // InternalOcl.g:2198:2: ( ruleBagLiteralExp )
-                    // InternalOcl.g:2199:3: ruleBagLiteralExp
+                    // InternalOcl.g:2223:2: ( ruleBagLiteralExp )
+                    // InternalOcl.g:2224:3: ruleBagLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getBagLiteralExpParserRuleCall_6()); 
                     pushFollow(FOLLOW_2);
@@ -6886,10 +6964,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 8 :
-                    // InternalOcl.g:2204:2: ( ruleOrderedSetLiteralExp )
+                    // InternalOcl.g:2229:2: ( ruleOrderedSetLiteralExp )
                     {
-                    // InternalOcl.g:2204:2: ( ruleOrderedSetLiteralExp )
-                    // InternalOcl.g:2205:3: ruleOrderedSetLiteralExp
+                    // InternalOcl.g:2229:2: ( ruleOrderedSetLiteralExp )
+                    // InternalOcl.g:2230:3: ruleOrderedSetLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getOrderedSetLiteralExpParserRuleCall_7()); 
                     pushFollow(FOLLOW_2);
@@ -6905,10 +6983,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 9 :
-                    // InternalOcl.g:2210:2: ( ruleSequenceLiteralExp )
+                    // InternalOcl.g:2235:2: ( ruleSequenceLiteralExp )
                     {
-                    // InternalOcl.g:2210:2: ( ruleSequenceLiteralExp )
-                    // InternalOcl.g:2211:3: ruleSequenceLiteralExp
+                    // InternalOcl.g:2235:2: ( ruleSequenceLiteralExp )
+                    // InternalOcl.g:2236:3: ruleSequenceLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getSequenceLiteralExpParserRuleCall_8()); 
                     pushFollow(FOLLOW_2);
@@ -6924,10 +7002,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 10 :
-                    // InternalOcl.g:2216:2: ( ruleSetLiteralExp )
+                    // InternalOcl.g:2241:2: ( ruleSetLiteralExp )
                     {
-                    // InternalOcl.g:2216:2: ( ruleSetLiteralExp )
-                    // InternalOcl.g:2217:3: ruleSetLiteralExp
+                    // InternalOcl.g:2241:2: ( ruleSetLiteralExp )
+                    // InternalOcl.g:2242:3: ruleSetLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getSetLiteralExpParserRuleCall_9()); 
                     pushFollow(FOLLOW_2);
@@ -6943,10 +7021,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 11 :
-                    // InternalOcl.g:2222:2: ( ruleTupleLiteralExp )
+                    // InternalOcl.g:2247:2: ( ruleTupleLiteralExp )
                     {
-                    // InternalOcl.g:2222:2: ( ruleTupleLiteralExp )
-                    // InternalOcl.g:2223:3: ruleTupleLiteralExp
+                    // InternalOcl.g:2247:2: ( ruleTupleLiteralExp )
+                    // InternalOcl.g:2248:3: ruleTupleLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getTupleLiteralExpParserRuleCall_10()); 
                     pushFollow(FOLLOW_2);
@@ -6962,10 +7040,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 12 :
-                    // InternalOcl.g:2228:2: ( ruleMapLiteralExp )
+                    // InternalOcl.g:2253:2: ( ruleMapLiteralExp )
                     {
-                    // InternalOcl.g:2228:2: ( ruleMapLiteralExp )
-                    // InternalOcl.g:2229:3: ruleMapLiteralExp
+                    // InternalOcl.g:2253:2: ( ruleMapLiteralExp )
+                    // InternalOcl.g:2254:3: ruleMapLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getMapLiteralExpParserRuleCall_11()); 
                     pushFollow(FOLLOW_2);
@@ -6981,10 +7059,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 13 :
-                    // InternalOcl.g:2234:2: ( ruleEnumLiteralExp )
+                    // InternalOcl.g:2259:2: ( ruleEnumLiteralExp )
                     {
-                    // InternalOcl.g:2234:2: ( ruleEnumLiteralExp )
-                    // InternalOcl.g:2235:3: ruleEnumLiteralExp
+                    // InternalOcl.g:2259:2: ( ruleEnumLiteralExp )
+                    // InternalOcl.g:2260:3: ruleEnumLiteralExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getEnumLiteralExpParserRuleCall_12()); 
                     pushFollow(FOLLOW_2);
@@ -7000,10 +7078,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 14 :
-                    // InternalOcl.g:2240:2: ( ruleIfExp )
+                    // InternalOcl.g:2265:2: ( ruleIfExp )
                     {
-                    // InternalOcl.g:2240:2: ( ruleIfExp )
-                    // InternalOcl.g:2241:3: ruleIfExp
+                    // InternalOcl.g:2265:2: ( ruleIfExp )
+                    // InternalOcl.g:2266:3: ruleIfExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getIfExpParserRuleCall_13()); 
                     pushFollow(FOLLOW_2);
@@ -7019,10 +7097,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 15 :
-                    // InternalOcl.g:2246:2: ( ruleBraceExp )
+                    // InternalOcl.g:2271:2: ( ruleBraceExp )
                     {
-                    // InternalOcl.g:2246:2: ( ruleBraceExp )
-                    // InternalOcl.g:2247:3: ruleBraceExp
+                    // InternalOcl.g:2271:2: ( ruleBraceExp )
+                    // InternalOcl.g:2272:3: ruleBraceExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getBraceExpParserRuleCall_14()); 
                     pushFollow(FOLLOW_2);
@@ -7038,10 +7116,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 16 :
-                    // InternalOcl.g:2252:2: ( ruleOclModelElementExp )
+                    // InternalOcl.g:2277:2: ( ruleOclModelElementExp )
                     {
-                    // InternalOcl.g:2252:2: ( ruleOclModelElementExp )
-                    // InternalOcl.g:2253:3: ruleOclModelElementExp
+                    // InternalOcl.g:2277:2: ( ruleOclModelElementExp )
+                    // InternalOcl.g:2278:3: ruleOclModelElementExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getOclModelElementExpParserRuleCall_15()); 
                     pushFollow(FOLLOW_2);
@@ -7057,10 +7135,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 17 :
-                    // InternalOcl.g:2258:2: ( ruleContextlessCallExp )
+                    // InternalOcl.g:2283:2: ( ruleContextlessCallExp )
                     {
-                    // InternalOcl.g:2258:2: ( ruleContextlessCallExp )
-                    // InternalOcl.g:2259:3: ruleContextlessCallExp
+                    // InternalOcl.g:2283:2: ( ruleContextlessCallExp )
+                    // InternalOcl.g:2284:3: ruleContextlessCallExp
                     {
                      before(grammarAccess.getPrimary_OclExpressionAccess().getContextlessCallExpParserRuleCall_16()); 
                     pushFollow(FOLLOW_2);
@@ -7093,13 +7171,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NumericLiteralExp__Alternatives"
-    // InternalOcl.g:2268:1: rule__NumericLiteralExp__Alternatives : ( ( ruleRealLiteralExp ) | ( ruleIntegerLiteralExp ) );
+    // InternalOcl.g:2293:1: rule__NumericLiteralExp__Alternatives : ( ( ruleRealLiteralExp ) | ( ruleIntegerLiteralExp ) );
     public final void rule__NumericLiteralExp__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2272:1: ( ( ruleRealLiteralExp ) | ( ruleIntegerLiteralExp ) )
+            // InternalOcl.g:2297:1: ( ( ruleRealLiteralExp ) | ( ruleIntegerLiteralExp ) )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -7117,10 +7195,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalOcl.g:2273:2: ( ruleRealLiteralExp )
+                    // InternalOcl.g:2298:2: ( ruleRealLiteralExp )
                     {
-                    // InternalOcl.g:2273:2: ( ruleRealLiteralExp )
-                    // InternalOcl.g:2274:3: ruleRealLiteralExp
+                    // InternalOcl.g:2298:2: ( ruleRealLiteralExp )
+                    // InternalOcl.g:2299:3: ruleRealLiteralExp
                     {
                      before(grammarAccess.getNumericLiteralExpAccess().getRealLiteralExpParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -7136,10 +7214,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2279:2: ( ruleIntegerLiteralExp )
+                    // InternalOcl.g:2304:2: ( ruleIntegerLiteralExp )
                     {
-                    // InternalOcl.g:2279:2: ( ruleIntegerLiteralExp )
-                    // InternalOcl.g:2280:3: ruleIntegerLiteralExp
+                    // InternalOcl.g:2304:2: ( ruleIntegerLiteralExp )
+                    // InternalOcl.g:2305:3: ruleIntegerLiteralExp
                     {
                      before(grammarAccess.getNumericLiteralExpAccess().getIntegerLiteralExpParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -7172,13 +7250,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumLiteralExp__Alternatives_1"
-    // InternalOcl.g:2289:1: rule__EnumLiteralExp__Alternatives_1 : ( ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) ) | ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) ) );
+    // InternalOcl.g:2314:1: rule__EnumLiteralExp__Alternatives_1 : ( ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) ) | ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) ) );
     public final void rule__EnumLiteralExp__Alternatives_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2293:1: ( ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) ) | ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) ) )
+            // InternalOcl.g:2318:1: ( ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) ) | ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) ) )
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -7196,14 +7274,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalOcl.g:2294:2: ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) )
+                    // InternalOcl.g:2319:2: ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) )
                     {
-                    // InternalOcl.g:2294:2: ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) )
-                    // InternalOcl.g:2295:3: ( rule__EnumLiteralExp__NameAssignment_1_0 )
+                    // InternalOcl.g:2319:2: ( ( rule__EnumLiteralExp__NameAssignment_1_0 ) )
+                    // InternalOcl.g:2320:3: ( rule__EnumLiteralExp__NameAssignment_1_0 )
                     {
                      before(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_0()); 
-                    // InternalOcl.g:2296:3: ( rule__EnumLiteralExp__NameAssignment_1_0 )
-                    // InternalOcl.g:2296:4: rule__EnumLiteralExp__NameAssignment_1_0
+                    // InternalOcl.g:2321:3: ( rule__EnumLiteralExp__NameAssignment_1_0 )
+                    // InternalOcl.g:2321:4: rule__EnumLiteralExp__NameAssignment_1_0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EnumLiteralExp__NameAssignment_1_0();
@@ -7221,14 +7299,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2300:2: ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) )
+                    // InternalOcl.g:2325:2: ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) )
                     {
-                    // InternalOcl.g:2300:2: ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) )
-                    // InternalOcl.g:2301:3: ( rule__EnumLiteralExp__NameAssignment_1_1 )
+                    // InternalOcl.g:2325:2: ( ( rule__EnumLiteralExp__NameAssignment_1_1 ) )
+                    // InternalOcl.g:2326:3: ( rule__EnumLiteralExp__NameAssignment_1_1 )
                     {
                      before(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_1()); 
-                    // InternalOcl.g:2302:3: ( rule__EnumLiteralExp__NameAssignment_1_1 )
-                    // InternalOcl.g:2302:4: rule__EnumLiteralExp__NameAssignment_1_1
+                    // InternalOcl.g:2327:3: ( rule__EnumLiteralExp__NameAssignment_1_1 )
+                    // InternalOcl.g:2327:4: rule__EnumLiteralExp__NameAssignment_1_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__EnumLiteralExp__NameAssignment_1_1();
@@ -7263,20 +7341,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanLiteralExp__Alternatives"
-    // InternalOcl.g:2310:1: rule__BooleanLiteralExp__Alternatives : ( ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) ) | ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) ) );
+    // InternalOcl.g:2335:1: rule__BooleanLiteralExp__Alternatives : ( ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) ) | ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) ) );
     public final void rule__BooleanLiteralExp__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2314:1: ( ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) ) | ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) ) )
+            // InternalOcl.g:2339:1: ( ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) ) | ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) ) )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==67) ) {
+            if ( (LA15_0==68) ) {
                 alt15=1;
             }
-            else if ( (LA15_0==68) ) {
+            else if ( (LA15_0==69) ) {
                 alt15=2;
             }
             else {
@@ -7287,14 +7365,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt15) {
                 case 1 :
-                    // InternalOcl.g:2315:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) )
+                    // InternalOcl.g:2340:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) )
                     {
-                    // InternalOcl.g:2315:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) )
-                    // InternalOcl.g:2316:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 )
+                    // InternalOcl.g:2340:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 ) )
+                    // InternalOcl.g:2341:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 )
                     {
                      before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolAssignment_0()); 
-                    // InternalOcl.g:2317:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 )
-                    // InternalOcl.g:2317:4: rule__BooleanLiteralExp__BooleanSymbolAssignment_0
+                    // InternalOcl.g:2342:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_0 )
+                    // InternalOcl.g:2342:4: rule__BooleanLiteralExp__BooleanSymbolAssignment_0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BooleanLiteralExp__BooleanSymbolAssignment_0();
@@ -7312,14 +7390,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2321:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) )
+                    // InternalOcl.g:2346:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) )
                     {
-                    // InternalOcl.g:2321:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) )
-                    // InternalOcl.g:2322:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 )
+                    // InternalOcl.g:2346:2: ( ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 ) )
+                    // InternalOcl.g:2347:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 )
                     {
                      before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolAssignment_1()); 
-                    // InternalOcl.g:2323:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 )
-                    // InternalOcl.g:2323:4: rule__BooleanLiteralExp__BooleanSymbolAssignment_1
+                    // InternalOcl.g:2348:3: ( rule__BooleanLiteralExp__BooleanSymbolAssignment_1 )
+                    // InternalOcl.g:2348:4: rule__BooleanLiteralExp__BooleanSymbolAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__BooleanLiteralExp__BooleanSymbolAssignment_1();
@@ -7354,21 +7432,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyCall__Alternatives"
-    // InternalOcl.g:2331:1: rule__PropertyCall__Alternatives : ( ( ruleOperationCall ) | ( ruleNavigationOrAttributeCall ) | ( ruleIterateExp ) | ( ruleIteratorExp ) | ( ruleCollectionOperationCall ) );
+    // InternalOcl.g:2356:1: rule__PropertyCall__Alternatives : ( ( ruleOperationCall ) | ( ruleNavigationOrAttributeCall ) | ( ruleIterateExp ) | ( ruleIteratorExp ) | ( ruleCollectionOperationCall ) );
     public final void rule__PropertyCall__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2335:1: ( ( ruleOperationCall ) | ( ruleNavigationOrAttributeCall ) | ( ruleIterateExp ) | ( ruleIteratorExp ) | ( ruleCollectionOperationCall ) )
+            // InternalOcl.g:2360:1: ( ( ruleOperationCall ) | ( ruleNavigationOrAttributeCall ) | ( ruleIterateExp ) | ( ruleIteratorExp ) | ( ruleCollectionOperationCall ) )
             int alt16=5;
             alt16 = dfa16.predict(input);
             switch (alt16) {
                 case 1 :
-                    // InternalOcl.g:2336:2: ( ruleOperationCall )
+                    // InternalOcl.g:2361:2: ( ruleOperationCall )
                     {
-                    // InternalOcl.g:2336:2: ( ruleOperationCall )
-                    // InternalOcl.g:2337:3: ruleOperationCall
+                    // InternalOcl.g:2361:2: ( ruleOperationCall )
+                    // InternalOcl.g:2362:3: ruleOperationCall
                     {
                      before(grammarAccess.getPropertyCallAccess().getOperationCallParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -7384,10 +7462,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2342:2: ( ruleNavigationOrAttributeCall )
+                    // InternalOcl.g:2367:2: ( ruleNavigationOrAttributeCall )
                     {
-                    // InternalOcl.g:2342:2: ( ruleNavigationOrAttributeCall )
-                    // InternalOcl.g:2343:3: ruleNavigationOrAttributeCall
+                    // InternalOcl.g:2367:2: ( ruleNavigationOrAttributeCall )
+                    // InternalOcl.g:2368:3: ruleNavigationOrAttributeCall
                     {
                      before(grammarAccess.getPropertyCallAccess().getNavigationOrAttributeCallParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -7403,10 +7481,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:2348:2: ( ruleIterateExp )
+                    // InternalOcl.g:2373:2: ( ruleIterateExp )
                     {
-                    // InternalOcl.g:2348:2: ( ruleIterateExp )
-                    // InternalOcl.g:2349:3: ruleIterateExp
+                    // InternalOcl.g:2373:2: ( ruleIterateExp )
+                    // InternalOcl.g:2374:3: ruleIterateExp
                     {
                      before(grammarAccess.getPropertyCallAccess().getIterateExpParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -7422,10 +7500,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalOcl.g:2354:2: ( ruleIteratorExp )
+                    // InternalOcl.g:2379:2: ( ruleIteratorExp )
                     {
-                    // InternalOcl.g:2354:2: ( ruleIteratorExp )
-                    // InternalOcl.g:2355:3: ruleIteratorExp
+                    // InternalOcl.g:2379:2: ( ruleIteratorExp )
+                    // InternalOcl.g:2380:3: ruleIteratorExp
                     {
                      before(grammarAccess.getPropertyCallAccess().getIteratorExpParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -7441,10 +7519,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalOcl.g:2360:2: ( ruleCollectionOperationCall )
+                    // InternalOcl.g:2385:2: ( ruleCollectionOperationCall )
                     {
-                    // InternalOcl.g:2360:2: ( ruleCollectionOperationCall )
-                    // InternalOcl.g:2361:3: ruleCollectionOperationCall
+                    // InternalOcl.g:2385:2: ( ruleCollectionOperationCall )
+                    // InternalOcl.g:2386:3: ruleCollectionOperationCall
                     {
                      before(grammarAccess.getPropertyCallAccess().getCollectionOperationCallParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -7477,13 +7555,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigationOrAttributeCall__Alternatives_1"
-    // InternalOcl.g:2370:1: rule__NavigationOrAttributeCall__Alternatives_1 : ( ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) ) | ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) ) );
+    // InternalOcl.g:2395:1: rule__NavigationOrAttributeCall__Alternatives_1 : ( ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) ) | ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) ) );
     public final void rule__NavigationOrAttributeCall__Alternatives_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2374:1: ( ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) ) | ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) ) )
+            // InternalOcl.g:2399:1: ( ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) ) | ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) ) )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -7501,14 +7579,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt17) {
                 case 1 :
-                    // InternalOcl.g:2375:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) )
+                    // InternalOcl.g:2400:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) )
                     {
-                    // InternalOcl.g:2375:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) )
-                    // InternalOcl.g:2376:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_0 )
+                    // InternalOcl.g:2400:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_0 ) )
+                    // InternalOcl.g:2401:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_0 )
                     {
                      before(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_0()); 
-                    // InternalOcl.g:2377:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_0 )
-                    // InternalOcl.g:2377:4: rule__NavigationOrAttributeCall__NameAssignment_1_0
+                    // InternalOcl.g:2402:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_0 )
+                    // InternalOcl.g:2402:4: rule__NavigationOrAttributeCall__NameAssignment_1_0
                     {
                     pushFollow(FOLLOW_2);
                     rule__NavigationOrAttributeCall__NameAssignment_1_0();
@@ -7526,14 +7604,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2381:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) )
+                    // InternalOcl.g:2406:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) )
                     {
-                    // InternalOcl.g:2381:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) )
-                    // InternalOcl.g:2382:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_1 )
+                    // InternalOcl.g:2406:2: ( ( rule__NavigationOrAttributeCall__NameAssignment_1_1 ) )
+                    // InternalOcl.g:2407:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_1 )
                     {
                      before(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_1()); 
-                    // InternalOcl.g:2383:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_1 )
-                    // InternalOcl.g:2383:4: rule__NavigationOrAttributeCall__NameAssignment_1_1
+                    // InternalOcl.g:2408:3: ( rule__NavigationOrAttributeCall__NameAssignment_1_1 )
+                    // InternalOcl.g:2408:4: rule__NavigationOrAttributeCall__NameAssignment_1_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__NavigationOrAttributeCall__NameAssignment_1_1();
@@ -7568,14 +7646,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclTypeLiteral__Alternatives"
-    // InternalOcl.g:2391:1: rule__OclTypeLiteral__Alternatives : ( ( ruleCollectionTypeLiteral ) | ( rulePrimitive ) | ( ruleOclAnyType ) | ( ruleTupleType ) | ( ruleOclModelElementClass ) | ( ruleMapType ) );
+    // InternalOcl.g:2416:1: rule__OclTypeLiteral__Alternatives : ( ( ruleCollectionTypeLiteral ) | ( rulePrimitive ) | ( ruleOclAnyType ) | ( ruleOclVoidType ) | ( ruleTupleType ) | ( ruleOclModelElementClass ) | ( ruleMapType ) );
     public final void rule__OclTypeLiteral__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2395:1: ( ( ruleCollectionTypeLiteral ) | ( rulePrimitive ) | ( ruleOclAnyType ) | ( ruleTupleType ) | ( ruleOclModelElementClass ) | ( ruleMapType ) )
-            int alt18=6;
+            // InternalOcl.g:2420:1: ( ( ruleCollectionTypeLiteral ) | ( rulePrimitive ) | ( ruleOclAnyType ) | ( ruleOclVoidType ) | ( ruleTupleType ) | ( ruleOclModelElementClass ) | ( ruleMapType ) )
+            int alt18=7;
             switch ( input.LA(1) ) {
             case 41:
             case 44:
@@ -7599,19 +7677,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                 alt18=3;
                 }
                 break;
-            case 47:
+            case 67:
                 {
                 alt18=4;
                 }
                 break;
-            case RULE_ID:
+            case 47:
                 {
                 alt18=5;
                 }
                 break;
-            case 48:
+            case RULE_ID:
                 {
                 alt18=6;
+                }
+                break;
+            case 48:
+                {
+                alt18=7;
                 }
                 break;
             default:
@@ -7623,10 +7706,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             switch (alt18) {
                 case 1 :
-                    // InternalOcl.g:2396:2: ( ruleCollectionTypeLiteral )
+                    // InternalOcl.g:2421:2: ( ruleCollectionTypeLiteral )
                     {
-                    // InternalOcl.g:2396:2: ( ruleCollectionTypeLiteral )
-                    // InternalOcl.g:2397:3: ruleCollectionTypeLiteral
+                    // InternalOcl.g:2421:2: ( ruleCollectionTypeLiteral )
+                    // InternalOcl.g:2422:3: ruleCollectionTypeLiteral
                     {
                      before(grammarAccess.getOclTypeLiteralAccess().getCollectionTypeLiteralParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -7642,10 +7725,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2402:2: ( rulePrimitive )
+                    // InternalOcl.g:2427:2: ( rulePrimitive )
                     {
-                    // InternalOcl.g:2402:2: ( rulePrimitive )
-                    // InternalOcl.g:2403:3: rulePrimitive
+                    // InternalOcl.g:2427:2: ( rulePrimitive )
+                    // InternalOcl.g:2428:3: rulePrimitive
                     {
                      before(grammarAccess.getOclTypeLiteralAccess().getPrimitiveParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -7661,10 +7744,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:2408:2: ( ruleOclAnyType )
+                    // InternalOcl.g:2433:2: ( ruleOclAnyType )
                     {
-                    // InternalOcl.g:2408:2: ( ruleOclAnyType )
-                    // InternalOcl.g:2409:3: ruleOclAnyType
+                    // InternalOcl.g:2433:2: ( ruleOclAnyType )
+                    // InternalOcl.g:2434:3: ruleOclAnyType
                     {
                      before(grammarAccess.getOclTypeLiteralAccess().getOclAnyTypeParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -7680,18 +7763,18 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalOcl.g:2414:2: ( ruleTupleType )
+                    // InternalOcl.g:2439:2: ( ruleOclVoidType )
                     {
-                    // InternalOcl.g:2414:2: ( ruleTupleType )
-                    // InternalOcl.g:2415:3: ruleTupleType
+                    // InternalOcl.g:2439:2: ( ruleOclVoidType )
+                    // InternalOcl.g:2440:3: ruleOclVoidType
                     {
-                     before(grammarAccess.getOclTypeLiteralAccess().getTupleTypeParserRuleCall_3()); 
+                     before(grammarAccess.getOclTypeLiteralAccess().getOclVoidTypeParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
-                    ruleTupleType();
+                    ruleOclVoidType();
 
                     state._fsp--;
 
-                     after(grammarAccess.getOclTypeLiteralAccess().getTupleTypeParserRuleCall_3()); 
+                     after(grammarAccess.getOclTypeLiteralAccess().getOclVoidTypeParserRuleCall_3()); 
 
                     }
 
@@ -7699,18 +7782,18 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalOcl.g:2420:2: ( ruleOclModelElementClass )
+                    // InternalOcl.g:2445:2: ( ruleTupleType )
                     {
-                    // InternalOcl.g:2420:2: ( ruleOclModelElementClass )
-                    // InternalOcl.g:2421:3: ruleOclModelElementClass
+                    // InternalOcl.g:2445:2: ( ruleTupleType )
+                    // InternalOcl.g:2446:3: ruleTupleType
                     {
-                     before(grammarAccess.getOclTypeLiteralAccess().getOclModelElementClassParserRuleCall_4()); 
+                     before(grammarAccess.getOclTypeLiteralAccess().getTupleTypeParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
-                    ruleOclModelElementClass();
+                    ruleTupleType();
 
                     state._fsp--;
 
-                     after(grammarAccess.getOclTypeLiteralAccess().getOclModelElementClassParserRuleCall_4()); 
+                     after(grammarAccess.getOclTypeLiteralAccess().getTupleTypeParserRuleCall_4()); 
 
                     }
 
@@ -7718,18 +7801,37 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalOcl.g:2426:2: ( ruleMapType )
+                    // InternalOcl.g:2451:2: ( ruleOclModelElementClass )
                     {
-                    // InternalOcl.g:2426:2: ( ruleMapType )
-                    // InternalOcl.g:2427:3: ruleMapType
+                    // InternalOcl.g:2451:2: ( ruleOclModelElementClass )
+                    // InternalOcl.g:2452:3: ruleOclModelElementClass
                     {
-                     before(grammarAccess.getOclTypeLiteralAccess().getMapTypeParserRuleCall_5()); 
+                     before(grammarAccess.getOclTypeLiteralAccess().getOclModelElementClassParserRuleCall_5()); 
+                    pushFollow(FOLLOW_2);
+                    ruleOclModelElementClass();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getOclTypeLiteralAccess().getOclModelElementClassParserRuleCall_5()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalOcl.g:2457:2: ( ruleMapType )
+                    {
+                    // InternalOcl.g:2457:2: ( ruleMapType )
+                    // InternalOcl.g:2458:3: ruleMapType
+                    {
+                     before(grammarAccess.getOclTypeLiteralAccess().getMapTypeParserRuleCall_6()); 
                     pushFollow(FOLLOW_2);
                     ruleMapType();
 
                     state._fsp--;
 
-                     after(grammarAccess.getOclTypeLiteralAccess().getMapTypeParserRuleCall_5()); 
+                     after(grammarAccess.getOclTypeLiteralAccess().getMapTypeParserRuleCall_6()); 
 
                     }
 
@@ -7754,13 +7856,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionTypeLiteral__Alternatives"
-    // InternalOcl.g:2436:1: rule__CollectionTypeLiteral__Alternatives : ( ( ruleCollectionType ) | ( ruleBagType ) | ( ruleOrderedSetType ) | ( ruleSequenceType ) | ( ruleSetType ) );
+    // InternalOcl.g:2467:1: rule__CollectionTypeLiteral__Alternatives : ( ( ruleCollectionType ) | ( ruleBagType ) | ( ruleOrderedSetType ) | ( ruleSequenceType ) | ( ruleSetType ) );
     public final void rule__CollectionTypeLiteral__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2440:1: ( ( ruleCollectionType ) | ( ruleBagType ) | ( ruleOrderedSetType ) | ( ruleSequenceType ) | ( ruleSetType ) )
+            // InternalOcl.g:2471:1: ( ( ruleCollectionType ) | ( ruleBagType ) | ( ruleOrderedSetType ) | ( ruleSequenceType ) | ( ruleSetType ) )
             int alt19=5;
             switch ( input.LA(1) ) {
             case 61:
@@ -7797,10 +7899,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             switch (alt19) {
                 case 1 :
-                    // InternalOcl.g:2441:2: ( ruleCollectionType )
+                    // InternalOcl.g:2472:2: ( ruleCollectionType )
                     {
-                    // InternalOcl.g:2441:2: ( ruleCollectionType )
-                    // InternalOcl.g:2442:3: ruleCollectionType
+                    // InternalOcl.g:2472:2: ( ruleCollectionType )
+                    // InternalOcl.g:2473:3: ruleCollectionType
                     {
                      before(grammarAccess.getCollectionTypeLiteralAccess().getCollectionTypeParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -7816,10 +7918,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2447:2: ( ruleBagType )
+                    // InternalOcl.g:2478:2: ( ruleBagType )
                     {
-                    // InternalOcl.g:2447:2: ( ruleBagType )
-                    // InternalOcl.g:2448:3: ruleBagType
+                    // InternalOcl.g:2478:2: ( ruleBagType )
+                    // InternalOcl.g:2479:3: ruleBagType
                     {
                      before(grammarAccess.getCollectionTypeLiteralAccess().getBagTypeParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -7835,10 +7937,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:2453:2: ( ruleOrderedSetType )
+                    // InternalOcl.g:2484:2: ( ruleOrderedSetType )
                     {
-                    // InternalOcl.g:2453:2: ( ruleOrderedSetType )
-                    // InternalOcl.g:2454:3: ruleOrderedSetType
+                    // InternalOcl.g:2484:2: ( ruleOrderedSetType )
+                    // InternalOcl.g:2485:3: ruleOrderedSetType
                     {
                      before(grammarAccess.getCollectionTypeLiteralAccess().getOrderedSetTypeParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -7854,10 +7956,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalOcl.g:2459:2: ( ruleSequenceType )
+                    // InternalOcl.g:2490:2: ( ruleSequenceType )
                     {
-                    // InternalOcl.g:2459:2: ( ruleSequenceType )
-                    // InternalOcl.g:2460:3: ruleSequenceType
+                    // InternalOcl.g:2490:2: ( ruleSequenceType )
+                    // InternalOcl.g:2491:3: ruleSequenceType
                     {
                      before(grammarAccess.getCollectionTypeLiteralAccess().getSequenceTypeParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -7873,10 +7975,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalOcl.g:2465:2: ( ruleSetType )
+                    // InternalOcl.g:2496:2: ( ruleSetType )
                     {
-                    // InternalOcl.g:2465:2: ( ruleSetType )
-                    // InternalOcl.g:2466:3: ruleSetType
+                    // InternalOcl.g:2496:2: ( ruleSetType )
+                    // InternalOcl.g:2497:3: ruleSetType
                     {
                      before(grammarAccess.getCollectionTypeLiteralAccess().getSetTypeParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -7909,13 +8011,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Alternatives"
-    // InternalOcl.g:2475:1: rule__Primitive__Alternatives : ( ( ruleStringType ) | ( ruleBooleanType ) | ( ruleNumericType ) );
+    // InternalOcl.g:2506:1: rule__Primitive__Alternatives : ( ( ruleStringType ) | ( ruleBooleanType ) | ( ruleNumericType ) );
     public final void rule__Primitive__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2479:1: ( ( ruleStringType ) | ( ruleBooleanType ) | ( ruleNumericType ) )
+            // InternalOcl.g:2510:1: ( ( ruleStringType ) | ( ruleBooleanType ) | ( ruleNumericType ) )
             int alt20=3;
             switch ( input.LA(1) ) {
             case 62:
@@ -7943,10 +8045,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             switch (alt20) {
                 case 1 :
-                    // InternalOcl.g:2480:2: ( ruleStringType )
+                    // InternalOcl.g:2511:2: ( ruleStringType )
                     {
-                    // InternalOcl.g:2480:2: ( ruleStringType )
-                    // InternalOcl.g:2481:3: ruleStringType
+                    // InternalOcl.g:2511:2: ( ruleStringType )
+                    // InternalOcl.g:2512:3: ruleStringType
                     {
                      before(grammarAccess.getPrimitiveAccess().getStringTypeParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -7962,10 +8064,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2486:2: ( ruleBooleanType )
+                    // InternalOcl.g:2517:2: ( ruleBooleanType )
                     {
-                    // InternalOcl.g:2486:2: ( ruleBooleanType )
-                    // InternalOcl.g:2487:3: ruleBooleanType
+                    // InternalOcl.g:2517:2: ( ruleBooleanType )
+                    // InternalOcl.g:2518:3: ruleBooleanType
                     {
                      before(grammarAccess.getPrimitiveAccess().getBooleanTypeParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -7981,10 +8083,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:2492:2: ( ruleNumericType )
+                    // InternalOcl.g:2523:2: ( ruleNumericType )
                     {
-                    // InternalOcl.g:2492:2: ( ruleNumericType )
-                    // InternalOcl.g:2493:3: ruleNumericType
+                    // InternalOcl.g:2523:2: ( ruleNumericType )
+                    // InternalOcl.g:2524:3: ruleNumericType
                     {
                      before(grammarAccess.getPrimitiveAccess().getNumericTypeParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -8017,13 +8119,13 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NumericType__Alternatives"
-    // InternalOcl.g:2502:1: rule__NumericType__Alternatives : ( ( ruleIntegerType ) | ( ruleRealType ) );
+    // InternalOcl.g:2533:1: rule__NumericType__Alternatives : ( ( ruleIntegerType ) | ( ruleRealType ) );
     public final void rule__NumericType__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2506:1: ( ( ruleIntegerType ) | ( ruleRealType ) )
+            // InternalOcl.g:2537:1: ( ( ruleIntegerType ) | ( ruleRealType ) )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -8041,10 +8143,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt21) {
                 case 1 :
-                    // InternalOcl.g:2507:2: ( ruleIntegerType )
+                    // InternalOcl.g:2538:2: ( ruleIntegerType )
                     {
-                    // InternalOcl.g:2507:2: ( ruleIntegerType )
-                    // InternalOcl.g:2508:3: ruleIntegerType
+                    // InternalOcl.g:2538:2: ( ruleIntegerType )
+                    // InternalOcl.g:2539:3: ruleIntegerType
                     {
                      before(grammarAccess.getNumericTypeAccess().getIntegerTypeParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -8060,10 +8162,10 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:2513:2: ( ruleRealType )
+                    // InternalOcl.g:2544:2: ( ruleRealType )
                     {
-                    // InternalOcl.g:2513:2: ( ruleRealType )
-                    // InternalOcl.g:2514:3: ruleRealType
+                    // InternalOcl.g:2544:2: ( ruleRealType )
+                    // InternalOcl.g:2545:3: ruleRealType
                     {
                      before(grammarAccess.getNumericTypeAccess().getRealTypeParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -8096,14 +8198,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__Group__0"
-    // InternalOcl.g:2523:1: rule__Module__Group__0 : rule__Module__Group__0__Impl rule__Module__Group__1 ;
+    // InternalOcl.g:2554:1: rule__Module__Group__0 : rule__Module__Group__0__Impl rule__Module__Group__1 ;
     public final void rule__Module__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2527:1: ( rule__Module__Group__0__Impl rule__Module__Group__1 )
-            // InternalOcl.g:2528:2: rule__Module__Group__0__Impl rule__Module__Group__1
+            // InternalOcl.g:2558:1: ( rule__Module__Group__0__Impl rule__Module__Group__1 )
+            // InternalOcl.g:2559:2: rule__Module__Group__0__Impl rule__Module__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Module__Group__0__Impl();
@@ -8134,24 +8236,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__Group__0__Impl"
-    // InternalOcl.g:2535:1: rule__Module__Group__0__Impl : ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) ) ;
+    // InternalOcl.g:2566:1: rule__Module__Group__0__Impl : ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) ) ;
     public final void rule__Module__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2539:1: ( ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) ) )
-            // InternalOcl.g:2540:1: ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) )
+            // InternalOcl.g:2570:1: ( ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) ) )
+            // InternalOcl.g:2571:1: ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) )
             {
-            // InternalOcl.g:2540:1: ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) )
-            // InternalOcl.g:2541:2: ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* )
+            // InternalOcl.g:2571:1: ( ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* ) )
+            // InternalOcl.g:2572:2: ( ( rule__Module__ImportsAssignment_0 ) ) ( ( rule__Module__ImportsAssignment_0 )* )
             {
-            // InternalOcl.g:2541:2: ( ( rule__Module__ImportsAssignment_0 ) )
-            // InternalOcl.g:2542:3: ( rule__Module__ImportsAssignment_0 )
+            // InternalOcl.g:2572:2: ( ( rule__Module__ImportsAssignment_0 ) )
+            // InternalOcl.g:2573:3: ( rule__Module__ImportsAssignment_0 )
             {
              before(grammarAccess.getModuleAccess().getImportsAssignment_0()); 
-            // InternalOcl.g:2543:3: ( rule__Module__ImportsAssignment_0 )
-            // InternalOcl.g:2543:4: rule__Module__ImportsAssignment_0
+            // InternalOcl.g:2574:3: ( rule__Module__ImportsAssignment_0 )
+            // InternalOcl.g:2574:4: rule__Module__ImportsAssignment_0
             {
             pushFollow(FOLLOW_4);
             rule__Module__ImportsAssignment_0();
@@ -8165,11 +8267,11 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalOcl.g:2546:2: ( ( rule__Module__ImportsAssignment_0 )* )
-            // InternalOcl.g:2547:3: ( rule__Module__ImportsAssignment_0 )*
+            // InternalOcl.g:2577:2: ( ( rule__Module__ImportsAssignment_0 )* )
+            // InternalOcl.g:2578:3: ( rule__Module__ImportsAssignment_0 )*
             {
              before(grammarAccess.getModuleAccess().getImportsAssignment_0()); 
-            // InternalOcl.g:2548:3: ( rule__Module__ImportsAssignment_0 )*
+            // InternalOcl.g:2579:3: ( rule__Module__ImportsAssignment_0 )*
             loop22:
             do {
                 int alt22=2;
@@ -8182,7 +8284,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt22) {
             	case 1 :
-            	    // InternalOcl.g:2548:4: rule__Module__ImportsAssignment_0
+            	    // InternalOcl.g:2579:4: rule__Module__ImportsAssignment_0
             	    {
             	    pushFollow(FOLLOW_4);
             	    rule__Module__ImportsAssignment_0();
@@ -8224,14 +8326,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__Group__1"
-    // InternalOcl.g:2557:1: rule__Module__Group__1 : rule__Module__Group__1__Impl rule__Module__Group__2 ;
+    // InternalOcl.g:2588:1: rule__Module__Group__1 : rule__Module__Group__1__Impl rule__Module__Group__2 ;
     public final void rule__Module__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2561:1: ( rule__Module__Group__1__Impl rule__Module__Group__2 )
-            // InternalOcl.g:2562:2: rule__Module__Group__1__Impl rule__Module__Group__2
+            // InternalOcl.g:2592:1: ( rule__Module__Group__1__Impl rule__Module__Group__2 )
+            // InternalOcl.g:2593:2: rule__Module__Group__1__Impl rule__Module__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__Module__Group__1__Impl();
@@ -8262,20 +8364,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__Group__1__Impl"
-    // InternalOcl.g:2569:1: rule__Module__Group__1__Impl : ( ( rule__Module__ContextlessFeaturesAssignment_1 )* ) ;
+    // InternalOcl.g:2600:1: rule__Module__Group__1__Impl : ( ( rule__Module__ContextlessFeaturesAssignment_1 )* ) ;
     public final void rule__Module__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2573:1: ( ( ( rule__Module__ContextlessFeaturesAssignment_1 )* ) )
-            // InternalOcl.g:2574:1: ( ( rule__Module__ContextlessFeaturesAssignment_1 )* )
+            // InternalOcl.g:2604:1: ( ( ( rule__Module__ContextlessFeaturesAssignment_1 )* ) )
+            // InternalOcl.g:2605:1: ( ( rule__Module__ContextlessFeaturesAssignment_1 )* )
             {
-            // InternalOcl.g:2574:1: ( ( rule__Module__ContextlessFeaturesAssignment_1 )* )
-            // InternalOcl.g:2575:2: ( rule__Module__ContextlessFeaturesAssignment_1 )*
+            // InternalOcl.g:2605:1: ( ( rule__Module__ContextlessFeaturesAssignment_1 )* )
+            // InternalOcl.g:2606:2: ( rule__Module__ContextlessFeaturesAssignment_1 )*
             {
              before(grammarAccess.getModuleAccess().getContextlessFeaturesAssignment_1()); 
-            // InternalOcl.g:2576:2: ( rule__Module__ContextlessFeaturesAssignment_1 )*
+            // InternalOcl.g:2607:2: ( rule__Module__ContextlessFeaturesAssignment_1 )*
             loop23:
             do {
                 int alt23=2;
@@ -8288,7 +8390,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt23) {
             	case 1 :
-            	    // InternalOcl.g:2576:3: rule__Module__ContextlessFeaturesAssignment_1
+            	    // InternalOcl.g:2607:3: rule__Module__ContextlessFeaturesAssignment_1
             	    {
             	    pushFollow(FOLLOW_5);
             	    rule__Module__ContextlessFeaturesAssignment_1();
@@ -8327,14 +8429,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__Group__2"
-    // InternalOcl.g:2584:1: rule__Module__Group__2 : rule__Module__Group__2__Impl ;
+    // InternalOcl.g:2615:1: rule__Module__Group__2 : rule__Module__Group__2__Impl ;
     public final void rule__Module__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2588:1: ( rule__Module__Group__2__Impl )
-            // InternalOcl.g:2589:2: rule__Module__Group__2__Impl
+            // InternalOcl.g:2619:1: ( rule__Module__Group__2__Impl )
+            // InternalOcl.g:2620:2: rule__Module__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Module__Group__2__Impl();
@@ -8360,24 +8462,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__Group__2__Impl"
-    // InternalOcl.g:2595:1: rule__Module__Group__2__Impl : ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) ) ;
+    // InternalOcl.g:2626:1: rule__Module__Group__2__Impl : ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) ) ;
     public final void rule__Module__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2599:1: ( ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) ) )
-            // InternalOcl.g:2600:1: ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) )
+            // InternalOcl.g:2630:1: ( ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) ) )
+            // InternalOcl.g:2631:1: ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) )
             {
-            // InternalOcl.g:2600:1: ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) )
-            // InternalOcl.g:2601:2: ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* )
+            // InternalOcl.g:2631:1: ( ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* ) )
+            // InternalOcl.g:2632:2: ( ( rule__Module__ContextBlocksAssignment_2 ) ) ( ( rule__Module__ContextBlocksAssignment_2 )* )
             {
-            // InternalOcl.g:2601:2: ( ( rule__Module__ContextBlocksAssignment_2 ) )
-            // InternalOcl.g:2602:3: ( rule__Module__ContextBlocksAssignment_2 )
+            // InternalOcl.g:2632:2: ( ( rule__Module__ContextBlocksAssignment_2 ) )
+            // InternalOcl.g:2633:3: ( rule__Module__ContextBlocksAssignment_2 )
             {
              before(grammarAccess.getModuleAccess().getContextBlocksAssignment_2()); 
-            // InternalOcl.g:2603:3: ( rule__Module__ContextBlocksAssignment_2 )
-            // InternalOcl.g:2603:4: rule__Module__ContextBlocksAssignment_2
+            // InternalOcl.g:2634:3: ( rule__Module__ContextBlocksAssignment_2 )
+            // InternalOcl.g:2634:4: rule__Module__ContextBlocksAssignment_2
             {
             pushFollow(FOLLOW_6);
             rule__Module__ContextBlocksAssignment_2();
@@ -8391,11 +8493,11 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalOcl.g:2606:2: ( ( rule__Module__ContextBlocksAssignment_2 )* )
-            // InternalOcl.g:2607:3: ( rule__Module__ContextBlocksAssignment_2 )*
+            // InternalOcl.g:2637:2: ( ( rule__Module__ContextBlocksAssignment_2 )* )
+            // InternalOcl.g:2638:3: ( rule__Module__ContextBlocksAssignment_2 )*
             {
              before(grammarAccess.getModuleAccess().getContextBlocksAssignment_2()); 
-            // InternalOcl.g:2608:3: ( rule__Module__ContextBlocksAssignment_2 )*
+            // InternalOcl.g:2639:3: ( rule__Module__ContextBlocksAssignment_2 )*
             loop24:
             do {
                 int alt24=2;
@@ -8408,7 +8510,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt24) {
             	case 1 :
-            	    // InternalOcl.g:2608:4: rule__Module__ContextBlocksAssignment_2
+            	    // InternalOcl.g:2639:4: rule__Module__ContextBlocksAssignment_2
             	    {
             	    pushFollow(FOLLOW_6);
             	    rule__Module__ContextBlocksAssignment_2();
@@ -8450,14 +8552,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__0"
-    // InternalOcl.g:2618:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
+    // InternalOcl.g:2649:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
     public final void rule__Import__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2622:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
-            // InternalOcl.g:2623:2: rule__Import__Group__0__Impl rule__Import__Group__1
+            // InternalOcl.g:2653:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
+            // InternalOcl.g:2654:2: rule__Import__Group__0__Impl rule__Import__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Import__Group__0__Impl();
@@ -8488,17 +8590,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__0__Impl"
-    // InternalOcl.g:2630:1: rule__Import__Group__0__Impl : ( 'import' ) ;
+    // InternalOcl.g:2661:1: rule__Import__Group__0__Impl : ( 'import' ) ;
     public final void rule__Import__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2634:1: ( ( 'import' ) )
-            // InternalOcl.g:2635:1: ( 'import' )
+            // InternalOcl.g:2665:1: ( ( 'import' ) )
+            // InternalOcl.g:2666:1: ( 'import' )
             {
-            // InternalOcl.g:2635:1: ( 'import' )
-            // InternalOcl.g:2636:2: 'import'
+            // InternalOcl.g:2666:1: ( 'import' )
+            // InternalOcl.g:2667:2: 'import'
             {
              before(grammarAccess.getImportAccess().getImportKeyword_0()); 
             match(input,29,FOLLOW_2); 
@@ -8525,14 +8627,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__1"
-    // InternalOcl.g:2645:1: rule__Import__Group__1 : rule__Import__Group__1__Impl rule__Import__Group__2 ;
+    // InternalOcl.g:2676:1: rule__Import__Group__1 : rule__Import__Group__1__Impl rule__Import__Group__2 ;
     public final void rule__Import__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2649:1: ( rule__Import__Group__1__Impl rule__Import__Group__2 )
-            // InternalOcl.g:2650:2: rule__Import__Group__1__Impl rule__Import__Group__2
+            // InternalOcl.g:2680:1: ( rule__Import__Group__1__Impl rule__Import__Group__2 )
+            // InternalOcl.g:2681:2: rule__Import__Group__1__Impl rule__Import__Group__2
             {
             pushFollow(FOLLOW_8);
             rule__Import__Group__1__Impl();
@@ -8563,21 +8665,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__1__Impl"
-    // InternalOcl.g:2657:1: rule__Import__Group__1__Impl : ( ( rule__Import__PackageAssignment_1 ) ) ;
+    // InternalOcl.g:2688:1: rule__Import__Group__1__Impl : ( ( rule__Import__PackageAssignment_1 ) ) ;
     public final void rule__Import__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2661:1: ( ( ( rule__Import__PackageAssignment_1 ) ) )
-            // InternalOcl.g:2662:1: ( ( rule__Import__PackageAssignment_1 ) )
+            // InternalOcl.g:2692:1: ( ( ( rule__Import__PackageAssignment_1 ) ) )
+            // InternalOcl.g:2693:1: ( ( rule__Import__PackageAssignment_1 ) )
             {
-            // InternalOcl.g:2662:1: ( ( rule__Import__PackageAssignment_1 ) )
-            // InternalOcl.g:2663:2: ( rule__Import__PackageAssignment_1 )
+            // InternalOcl.g:2693:1: ( ( rule__Import__PackageAssignment_1 ) )
+            // InternalOcl.g:2694:2: ( rule__Import__PackageAssignment_1 )
             {
              before(grammarAccess.getImportAccess().getPackageAssignment_1()); 
-            // InternalOcl.g:2664:2: ( rule__Import__PackageAssignment_1 )
-            // InternalOcl.g:2664:3: rule__Import__PackageAssignment_1
+            // InternalOcl.g:2695:2: ( rule__Import__PackageAssignment_1 )
+            // InternalOcl.g:2695:3: rule__Import__PackageAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Import__PackageAssignment_1();
@@ -8610,14 +8712,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__2"
-    // InternalOcl.g:2672:1: rule__Import__Group__2 : rule__Import__Group__2__Impl rule__Import__Group__3 ;
+    // InternalOcl.g:2703:1: rule__Import__Group__2 : rule__Import__Group__2__Impl rule__Import__Group__3 ;
     public final void rule__Import__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2676:1: ( rule__Import__Group__2__Impl rule__Import__Group__3 )
-            // InternalOcl.g:2677:2: rule__Import__Group__2__Impl rule__Import__Group__3
+            // InternalOcl.g:2707:1: ( rule__Import__Group__2__Impl rule__Import__Group__3 )
+            // InternalOcl.g:2708:2: rule__Import__Group__2__Impl rule__Import__Group__3
             {
             pushFollow(FOLLOW_9);
             rule__Import__Group__2__Impl();
@@ -8648,17 +8750,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__2__Impl"
-    // InternalOcl.g:2684:1: rule__Import__Group__2__Impl : ( 'as' ) ;
+    // InternalOcl.g:2715:1: rule__Import__Group__2__Impl : ( 'as' ) ;
     public final void rule__Import__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2688:1: ( ( 'as' ) )
-            // InternalOcl.g:2689:1: ( 'as' )
+            // InternalOcl.g:2719:1: ( ( 'as' ) )
+            // InternalOcl.g:2720:1: ( 'as' )
             {
-            // InternalOcl.g:2689:1: ( 'as' )
-            // InternalOcl.g:2690:2: 'as'
+            // InternalOcl.g:2720:1: ( 'as' )
+            // InternalOcl.g:2721:2: 'as'
             {
              before(grammarAccess.getImportAccess().getAsKeyword_2()); 
             match(input,30,FOLLOW_2); 
@@ -8685,14 +8787,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__3"
-    // InternalOcl.g:2699:1: rule__Import__Group__3 : rule__Import__Group__3__Impl ;
+    // InternalOcl.g:2730:1: rule__Import__Group__3 : rule__Import__Group__3__Impl ;
     public final void rule__Import__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2703:1: ( rule__Import__Group__3__Impl )
-            // InternalOcl.g:2704:2: rule__Import__Group__3__Impl
+            // InternalOcl.g:2734:1: ( rule__Import__Group__3__Impl )
+            // InternalOcl.g:2735:2: rule__Import__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Import__Group__3__Impl();
@@ -8718,21 +8820,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__Group__3__Impl"
-    // InternalOcl.g:2710:1: rule__Import__Group__3__Impl : ( ( rule__Import__NameAssignment_3 ) ) ;
+    // InternalOcl.g:2741:1: rule__Import__Group__3__Impl : ( ( rule__Import__NameAssignment_3 ) ) ;
     public final void rule__Import__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2714:1: ( ( ( rule__Import__NameAssignment_3 ) ) )
-            // InternalOcl.g:2715:1: ( ( rule__Import__NameAssignment_3 ) )
+            // InternalOcl.g:2745:1: ( ( ( rule__Import__NameAssignment_3 ) ) )
+            // InternalOcl.g:2746:1: ( ( rule__Import__NameAssignment_3 ) )
             {
-            // InternalOcl.g:2715:1: ( ( rule__Import__NameAssignment_3 ) )
-            // InternalOcl.g:2716:2: ( rule__Import__NameAssignment_3 )
+            // InternalOcl.g:2746:1: ( ( rule__Import__NameAssignment_3 ) )
+            // InternalOcl.g:2747:2: ( rule__Import__NameAssignment_3 )
             {
              before(grammarAccess.getImportAccess().getNameAssignment_3()); 
-            // InternalOcl.g:2717:2: ( rule__Import__NameAssignment_3 )
-            // InternalOcl.g:2717:3: rule__Import__NameAssignment_3
+            // InternalOcl.g:2748:2: ( rule__Import__NameAssignment_3 )
+            // InternalOcl.g:2748:3: rule__Import__NameAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Import__NameAssignment_3();
@@ -8765,14 +8867,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group__0"
-    // InternalOcl.g:2726:1: rule__OclContextBlock__Group__0 : rule__OclContextBlock__Group__0__Impl rule__OclContextBlock__Group__1 ;
+    // InternalOcl.g:2757:1: rule__OclContextBlock__Group__0 : rule__OclContextBlock__Group__0__Impl rule__OclContextBlock__Group__1 ;
     public final void rule__OclContextBlock__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2730:1: ( rule__OclContextBlock__Group__0__Impl rule__OclContextBlock__Group__1 )
-            // InternalOcl.g:2731:2: rule__OclContextBlock__Group__0__Impl rule__OclContextBlock__Group__1
+            // InternalOcl.g:2761:1: ( rule__OclContextBlock__Group__0__Impl rule__OclContextBlock__Group__1 )
+            // InternalOcl.g:2762:2: rule__OclContextBlock__Group__0__Impl rule__OclContextBlock__Group__1
             {
             pushFollow(FOLLOW_10);
             rule__OclContextBlock__Group__0__Impl();
@@ -8803,21 +8905,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group__0__Impl"
-    // InternalOcl.g:2738:1: rule__OclContextBlock__Group__0__Impl : ( ( rule__OclContextBlock__Group_0__0 ) ) ;
+    // InternalOcl.g:2769:1: rule__OclContextBlock__Group__0__Impl : ( ( rule__OclContextBlock__Group_0__0 ) ) ;
     public final void rule__OclContextBlock__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2742:1: ( ( ( rule__OclContextBlock__Group_0__0 ) ) )
-            // InternalOcl.g:2743:1: ( ( rule__OclContextBlock__Group_0__0 ) )
+            // InternalOcl.g:2773:1: ( ( ( rule__OclContextBlock__Group_0__0 ) ) )
+            // InternalOcl.g:2774:1: ( ( rule__OclContextBlock__Group_0__0 ) )
             {
-            // InternalOcl.g:2743:1: ( ( rule__OclContextBlock__Group_0__0 ) )
-            // InternalOcl.g:2744:2: ( rule__OclContextBlock__Group_0__0 )
+            // InternalOcl.g:2774:1: ( ( rule__OclContextBlock__Group_0__0 ) )
+            // InternalOcl.g:2775:2: ( rule__OclContextBlock__Group_0__0 )
             {
              before(grammarAccess.getOclContextBlockAccess().getGroup_0()); 
-            // InternalOcl.g:2745:2: ( rule__OclContextBlock__Group_0__0 )
-            // InternalOcl.g:2745:3: rule__OclContextBlock__Group_0__0
+            // InternalOcl.g:2776:2: ( rule__OclContextBlock__Group_0__0 )
+            // InternalOcl.g:2776:3: rule__OclContextBlock__Group_0__0
             {
             pushFollow(FOLLOW_2);
             rule__OclContextBlock__Group_0__0();
@@ -8850,14 +8952,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group__1"
-    // InternalOcl.g:2753:1: rule__OclContextBlock__Group__1 : rule__OclContextBlock__Group__1__Impl ;
+    // InternalOcl.g:2784:1: rule__OclContextBlock__Group__1 : rule__OclContextBlock__Group__1__Impl ;
     public final void rule__OclContextBlock__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2757:1: ( rule__OclContextBlock__Group__1__Impl )
-            // InternalOcl.g:2758:2: rule__OclContextBlock__Group__1__Impl
+            // InternalOcl.g:2788:1: ( rule__OclContextBlock__Group__1__Impl )
+            // InternalOcl.g:2789:2: rule__OclContextBlock__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OclContextBlock__Group__1__Impl();
@@ -8883,24 +8985,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group__1__Impl"
-    // InternalOcl.g:2764:1: rule__OclContextBlock__Group__1__Impl : ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) ) ;
+    // InternalOcl.g:2795:1: rule__OclContextBlock__Group__1__Impl : ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) ) ;
     public final void rule__OclContextBlock__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2768:1: ( ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) ) )
-            // InternalOcl.g:2769:1: ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) )
+            // InternalOcl.g:2799:1: ( ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) ) )
+            // InternalOcl.g:2800:1: ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) )
             {
-            // InternalOcl.g:2769:1: ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) )
-            // InternalOcl.g:2770:2: ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* )
+            // InternalOcl.g:2800:1: ( ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* ) )
+            // InternalOcl.g:2801:2: ( ( rule__OclContextBlock__MembersAssignment_1 ) ) ( ( rule__OclContextBlock__MembersAssignment_1 )* )
             {
-            // InternalOcl.g:2770:2: ( ( rule__OclContextBlock__MembersAssignment_1 ) )
-            // InternalOcl.g:2771:3: ( rule__OclContextBlock__MembersAssignment_1 )
+            // InternalOcl.g:2801:2: ( ( rule__OclContextBlock__MembersAssignment_1 ) )
+            // InternalOcl.g:2802:3: ( rule__OclContextBlock__MembersAssignment_1 )
             {
              before(grammarAccess.getOclContextBlockAccess().getMembersAssignment_1()); 
-            // InternalOcl.g:2772:3: ( rule__OclContextBlock__MembersAssignment_1 )
-            // InternalOcl.g:2772:4: rule__OclContextBlock__MembersAssignment_1
+            // InternalOcl.g:2803:3: ( rule__OclContextBlock__MembersAssignment_1 )
+            // InternalOcl.g:2803:4: rule__OclContextBlock__MembersAssignment_1
             {
             pushFollow(FOLLOW_11);
             rule__OclContextBlock__MembersAssignment_1();
@@ -8914,11 +9016,11 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalOcl.g:2775:2: ( ( rule__OclContextBlock__MembersAssignment_1 )* )
-            // InternalOcl.g:2776:3: ( rule__OclContextBlock__MembersAssignment_1 )*
+            // InternalOcl.g:2806:2: ( ( rule__OclContextBlock__MembersAssignment_1 )* )
+            // InternalOcl.g:2807:3: ( rule__OclContextBlock__MembersAssignment_1 )*
             {
              before(grammarAccess.getOclContextBlockAccess().getMembersAssignment_1()); 
-            // InternalOcl.g:2777:3: ( rule__OclContextBlock__MembersAssignment_1 )*
+            // InternalOcl.g:2808:3: ( rule__OclContextBlock__MembersAssignment_1 )*
             loop25:
             do {
                 int alt25=2;
@@ -8931,7 +9033,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt25) {
             	case 1 :
-            	    // InternalOcl.g:2777:4: rule__OclContextBlock__MembersAssignment_1
+            	    // InternalOcl.g:2808:4: rule__OclContextBlock__MembersAssignment_1
             	    {
             	    pushFollow(FOLLOW_11);
             	    rule__OclContextBlock__MembersAssignment_1();
@@ -8973,14 +9075,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__0"
-    // InternalOcl.g:2787:1: rule__OclContextBlock__Group_0__0 : rule__OclContextBlock__Group_0__0__Impl rule__OclContextBlock__Group_0__1 ;
+    // InternalOcl.g:2818:1: rule__OclContextBlock__Group_0__0 : rule__OclContextBlock__Group_0__0__Impl rule__OclContextBlock__Group_0__1 ;
     public final void rule__OclContextBlock__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2791:1: ( rule__OclContextBlock__Group_0__0__Impl rule__OclContextBlock__Group_0__1 )
-            // InternalOcl.g:2792:2: rule__OclContextBlock__Group_0__0__Impl rule__OclContextBlock__Group_0__1
+            // InternalOcl.g:2822:1: ( rule__OclContextBlock__Group_0__0__Impl rule__OclContextBlock__Group_0__1 )
+            // InternalOcl.g:2823:2: rule__OclContextBlock__Group_0__0__Impl rule__OclContextBlock__Group_0__1
             {
             pushFollow(FOLLOW_9);
             rule__OclContextBlock__Group_0__0__Impl();
@@ -9011,17 +9113,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__0__Impl"
-    // InternalOcl.g:2799:1: rule__OclContextBlock__Group_0__0__Impl : ( 'context' ) ;
+    // InternalOcl.g:2830:1: rule__OclContextBlock__Group_0__0__Impl : ( 'context' ) ;
     public final void rule__OclContextBlock__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2803:1: ( ( 'context' ) )
-            // InternalOcl.g:2804:1: ( 'context' )
+            // InternalOcl.g:2834:1: ( ( 'context' ) )
+            // InternalOcl.g:2835:1: ( 'context' )
             {
-            // InternalOcl.g:2804:1: ( 'context' )
-            // InternalOcl.g:2805:2: 'context'
+            // InternalOcl.g:2835:1: ( 'context' )
+            // InternalOcl.g:2836:2: 'context'
             {
              before(grammarAccess.getOclContextBlockAccess().getContextKeyword_0_0()); 
             match(input,31,FOLLOW_2); 
@@ -9048,14 +9150,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__1"
-    // InternalOcl.g:2814:1: rule__OclContextBlock__Group_0__1 : rule__OclContextBlock__Group_0__1__Impl rule__OclContextBlock__Group_0__2 ;
+    // InternalOcl.g:2845:1: rule__OclContextBlock__Group_0__1 : rule__OclContextBlock__Group_0__1__Impl rule__OclContextBlock__Group_0__2 ;
     public final void rule__OclContextBlock__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2818:1: ( rule__OclContextBlock__Group_0__1__Impl rule__OclContextBlock__Group_0__2 )
-            // InternalOcl.g:2819:2: rule__OclContextBlock__Group_0__1__Impl rule__OclContextBlock__Group_0__2
+            // InternalOcl.g:2849:1: ( rule__OclContextBlock__Group_0__1__Impl rule__OclContextBlock__Group_0__2 )
+            // InternalOcl.g:2850:2: rule__OclContextBlock__Group_0__1__Impl rule__OclContextBlock__Group_0__2
             {
             pushFollow(FOLLOW_12);
             rule__OclContextBlock__Group_0__1__Impl();
@@ -9086,21 +9188,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__1__Impl"
-    // InternalOcl.g:2826:1: rule__OclContextBlock__Group_0__1__Impl : ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) ) ;
+    // InternalOcl.g:2857:1: rule__OclContextBlock__Group_0__1__Impl : ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) ) ;
     public final void rule__OclContextBlock__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2830:1: ( ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) ) )
-            // InternalOcl.g:2831:1: ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) )
+            // InternalOcl.g:2861:1: ( ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) ) )
+            // InternalOcl.g:2862:1: ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) )
             {
-            // InternalOcl.g:2831:1: ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) )
-            // InternalOcl.g:2832:2: ( rule__OclContextBlock__EcoreTypesAssignment_0_1 )
+            // InternalOcl.g:2862:1: ( ( rule__OclContextBlock__EcoreTypesAssignment_0_1 ) )
+            // InternalOcl.g:2863:2: ( rule__OclContextBlock__EcoreTypesAssignment_0_1 )
             {
              before(grammarAccess.getOclContextBlockAccess().getEcoreTypesAssignment_0_1()); 
-            // InternalOcl.g:2833:2: ( rule__OclContextBlock__EcoreTypesAssignment_0_1 )
-            // InternalOcl.g:2833:3: rule__OclContextBlock__EcoreTypesAssignment_0_1
+            // InternalOcl.g:2864:2: ( rule__OclContextBlock__EcoreTypesAssignment_0_1 )
+            // InternalOcl.g:2864:3: rule__OclContextBlock__EcoreTypesAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__OclContextBlock__EcoreTypesAssignment_0_1();
@@ -9133,14 +9235,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__2"
-    // InternalOcl.g:2841:1: rule__OclContextBlock__Group_0__2 : rule__OclContextBlock__Group_0__2__Impl rule__OclContextBlock__Group_0__3 ;
+    // InternalOcl.g:2872:1: rule__OclContextBlock__Group_0__2 : rule__OclContextBlock__Group_0__2__Impl rule__OclContextBlock__Group_0__3 ;
     public final void rule__OclContextBlock__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2845:1: ( rule__OclContextBlock__Group_0__2__Impl rule__OclContextBlock__Group_0__3 )
-            // InternalOcl.g:2846:2: rule__OclContextBlock__Group_0__2__Impl rule__OclContextBlock__Group_0__3
+            // InternalOcl.g:2876:1: ( rule__OclContextBlock__Group_0__2__Impl rule__OclContextBlock__Group_0__3 )
+            // InternalOcl.g:2877:2: rule__OclContextBlock__Group_0__2__Impl rule__OclContextBlock__Group_0__3
             {
             pushFollow(FOLLOW_9);
             rule__OclContextBlock__Group_0__2__Impl();
@@ -9171,17 +9273,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__2__Impl"
-    // InternalOcl.g:2853:1: rule__OclContextBlock__Group_0__2__Impl : ( '!' ) ;
+    // InternalOcl.g:2884:1: rule__OclContextBlock__Group_0__2__Impl : ( '!' ) ;
     public final void rule__OclContextBlock__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2857:1: ( ( '!' ) )
-            // InternalOcl.g:2858:1: ( '!' )
+            // InternalOcl.g:2888:1: ( ( '!' ) )
+            // InternalOcl.g:2889:1: ( '!' )
             {
-            // InternalOcl.g:2858:1: ( '!' )
-            // InternalOcl.g:2859:2: '!'
+            // InternalOcl.g:2889:1: ( '!' )
+            // InternalOcl.g:2890:2: '!'
             {
              before(grammarAccess.getOclContextBlockAccess().getExclamationMarkKeyword_0_2()); 
             match(input,32,FOLLOW_2); 
@@ -9208,14 +9310,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__3"
-    // InternalOcl.g:2868:1: rule__OclContextBlock__Group_0__3 : rule__OclContextBlock__Group_0__3__Impl ;
+    // InternalOcl.g:2899:1: rule__OclContextBlock__Group_0__3 : rule__OclContextBlock__Group_0__3__Impl ;
     public final void rule__OclContextBlock__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2872:1: ( rule__OclContextBlock__Group_0__3__Impl )
-            // InternalOcl.g:2873:2: rule__OclContextBlock__Group_0__3__Impl
+            // InternalOcl.g:2903:1: ( rule__OclContextBlock__Group_0__3__Impl )
+            // InternalOcl.g:2904:2: rule__OclContextBlock__Group_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OclContextBlock__Group_0__3__Impl();
@@ -9241,21 +9343,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__Group_0__3__Impl"
-    // InternalOcl.g:2879:1: rule__OclContextBlock__Group_0__3__Impl : ( ( rule__OclContextBlock__ClassAssignment_0_3 ) ) ;
+    // InternalOcl.g:2910:1: rule__OclContextBlock__Group_0__3__Impl : ( ( rule__OclContextBlock__ClassAssignment_0_3 ) ) ;
     public final void rule__OclContextBlock__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2883:1: ( ( ( rule__OclContextBlock__ClassAssignment_0_3 ) ) )
-            // InternalOcl.g:2884:1: ( ( rule__OclContextBlock__ClassAssignment_0_3 ) )
+            // InternalOcl.g:2914:1: ( ( ( rule__OclContextBlock__ClassAssignment_0_3 ) ) )
+            // InternalOcl.g:2915:1: ( ( rule__OclContextBlock__ClassAssignment_0_3 ) )
             {
-            // InternalOcl.g:2884:1: ( ( rule__OclContextBlock__ClassAssignment_0_3 ) )
-            // InternalOcl.g:2885:2: ( rule__OclContextBlock__ClassAssignment_0_3 )
+            // InternalOcl.g:2915:1: ( ( rule__OclContextBlock__ClassAssignment_0_3 ) )
+            // InternalOcl.g:2916:2: ( rule__OclContextBlock__ClassAssignment_0_3 )
             {
              before(grammarAccess.getOclContextBlockAccess().getClassAssignment_0_3()); 
-            // InternalOcl.g:2886:2: ( rule__OclContextBlock__ClassAssignment_0_3 )
-            // InternalOcl.g:2886:3: rule__OclContextBlock__ClassAssignment_0_3
+            // InternalOcl.g:2917:2: ( rule__OclContextBlock__ClassAssignment_0_3 )
+            // InternalOcl.g:2917:3: rule__OclContextBlock__ClassAssignment_0_3
             {
             pushFollow(FOLLOW_2);
             rule__OclContextBlock__ClassAssignment_0_3();
@@ -9288,14 +9390,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__Group__0"
-    // InternalOcl.g:2895:1: rule__OclFeatureDefinition__Group__0 : rule__OclFeatureDefinition__Group__0__Impl rule__OclFeatureDefinition__Group__1 ;
+    // InternalOcl.g:2926:1: rule__OclFeatureDefinition__Group__0 : rule__OclFeatureDefinition__Group__0__Impl rule__OclFeatureDefinition__Group__1 ;
     public final void rule__OclFeatureDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2899:1: ( rule__OclFeatureDefinition__Group__0__Impl rule__OclFeatureDefinition__Group__1 )
-            // InternalOcl.g:2900:2: rule__OclFeatureDefinition__Group__0__Impl rule__OclFeatureDefinition__Group__1
+            // InternalOcl.g:2930:1: ( rule__OclFeatureDefinition__Group__0__Impl rule__OclFeatureDefinition__Group__1 )
+            // InternalOcl.g:2931:2: rule__OclFeatureDefinition__Group__0__Impl rule__OclFeatureDefinition__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__OclFeatureDefinition__Group__0__Impl();
@@ -9326,17 +9428,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__Group__0__Impl"
-    // InternalOcl.g:2907:1: rule__OclFeatureDefinition__Group__0__Impl : ( 'def' ) ;
+    // InternalOcl.g:2938:1: rule__OclFeatureDefinition__Group__0__Impl : ( 'def' ) ;
     public final void rule__OclFeatureDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2911:1: ( ( 'def' ) )
-            // InternalOcl.g:2912:1: ( 'def' )
+            // InternalOcl.g:2942:1: ( ( 'def' ) )
+            // InternalOcl.g:2943:1: ( 'def' )
             {
-            // InternalOcl.g:2912:1: ( 'def' )
-            // InternalOcl.g:2913:2: 'def'
+            // InternalOcl.g:2943:1: ( 'def' )
+            // InternalOcl.g:2944:2: 'def'
             {
              before(grammarAccess.getOclFeatureDefinitionAccess().getDefKeyword_0()); 
             match(input,33,FOLLOW_2); 
@@ -9363,14 +9465,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__Group__1"
-    // InternalOcl.g:2922:1: rule__OclFeatureDefinition__Group__1 : rule__OclFeatureDefinition__Group__1__Impl rule__OclFeatureDefinition__Group__2 ;
+    // InternalOcl.g:2953:1: rule__OclFeatureDefinition__Group__1 : rule__OclFeatureDefinition__Group__1__Impl rule__OclFeatureDefinition__Group__2 ;
     public final void rule__OclFeatureDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2926:1: ( rule__OclFeatureDefinition__Group__1__Impl rule__OclFeatureDefinition__Group__2 )
-            // InternalOcl.g:2927:2: rule__OclFeatureDefinition__Group__1__Impl rule__OclFeatureDefinition__Group__2
+            // InternalOcl.g:2957:1: ( rule__OclFeatureDefinition__Group__1__Impl rule__OclFeatureDefinition__Group__2 )
+            // InternalOcl.g:2958:2: rule__OclFeatureDefinition__Group__1__Impl rule__OclFeatureDefinition__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__OclFeatureDefinition__Group__1__Impl();
@@ -9401,17 +9503,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__Group__1__Impl"
-    // InternalOcl.g:2934:1: rule__OclFeatureDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalOcl.g:2965:1: rule__OclFeatureDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__OclFeatureDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2938:1: ( ( ':' ) )
-            // InternalOcl.g:2939:1: ( ':' )
+            // InternalOcl.g:2969:1: ( ( ':' ) )
+            // InternalOcl.g:2970:1: ( ':' )
             {
-            // InternalOcl.g:2939:1: ( ':' )
-            // InternalOcl.g:2940:2: ':'
+            // InternalOcl.g:2970:1: ( ':' )
+            // InternalOcl.g:2971:2: ':'
             {
              before(grammarAccess.getOclFeatureDefinitionAccess().getColonKeyword_1()); 
             match(input,34,FOLLOW_2); 
@@ -9438,14 +9540,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__Group__2"
-    // InternalOcl.g:2949:1: rule__OclFeatureDefinition__Group__2 : rule__OclFeatureDefinition__Group__2__Impl ;
+    // InternalOcl.g:2980:1: rule__OclFeatureDefinition__Group__2 : rule__OclFeatureDefinition__Group__2__Impl ;
     public final void rule__OclFeatureDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2953:1: ( rule__OclFeatureDefinition__Group__2__Impl )
-            // InternalOcl.g:2954:2: rule__OclFeatureDefinition__Group__2__Impl
+            // InternalOcl.g:2984:1: ( rule__OclFeatureDefinition__Group__2__Impl )
+            // InternalOcl.g:2985:2: rule__OclFeatureDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OclFeatureDefinition__Group__2__Impl();
@@ -9471,21 +9573,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__Group__2__Impl"
-    // InternalOcl.g:2960:1: rule__OclFeatureDefinition__Group__2__Impl : ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) ) ;
+    // InternalOcl.g:2991:1: rule__OclFeatureDefinition__Group__2__Impl : ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) ) ;
     public final void rule__OclFeatureDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2964:1: ( ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) ) )
-            // InternalOcl.g:2965:1: ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) )
+            // InternalOcl.g:2995:1: ( ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) ) )
+            // InternalOcl.g:2996:1: ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) )
             {
-            // InternalOcl.g:2965:1: ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) )
-            // InternalOcl.g:2966:2: ( rule__OclFeatureDefinition__FeatureAssignment_2 )
+            // InternalOcl.g:2996:1: ( ( rule__OclFeatureDefinition__FeatureAssignment_2 ) )
+            // InternalOcl.g:2997:2: ( rule__OclFeatureDefinition__FeatureAssignment_2 )
             {
              before(grammarAccess.getOclFeatureDefinitionAccess().getFeatureAssignment_2()); 
-            // InternalOcl.g:2967:2: ( rule__OclFeatureDefinition__FeatureAssignment_2 )
-            // InternalOcl.g:2967:3: rule__OclFeatureDefinition__FeatureAssignment_2
+            // InternalOcl.g:2998:2: ( rule__OclFeatureDefinition__FeatureAssignment_2 )
+            // InternalOcl.g:2998:3: rule__OclFeatureDefinition__FeatureAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__OclFeatureDefinition__FeatureAssignment_2();
@@ -9518,14 +9620,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__0"
-    // InternalOcl.g:2976:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
+    // InternalOcl.g:3007:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
     public final void rule__Attribute__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2980:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
-            // InternalOcl.g:2981:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
+            // InternalOcl.g:3011:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
+            // InternalOcl.g:3012:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__Attribute__Group__0__Impl();
@@ -9556,21 +9658,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__0__Impl"
-    // InternalOcl.g:2988:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__NameAssignment_0 ) ) ;
+    // InternalOcl.g:3019:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__NameAssignment_0 ) ) ;
     public final void rule__Attribute__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:2992:1: ( ( ( rule__Attribute__NameAssignment_0 ) ) )
-            // InternalOcl.g:2993:1: ( ( rule__Attribute__NameAssignment_0 ) )
+            // InternalOcl.g:3023:1: ( ( ( rule__Attribute__NameAssignment_0 ) ) )
+            // InternalOcl.g:3024:1: ( ( rule__Attribute__NameAssignment_0 ) )
             {
-            // InternalOcl.g:2993:1: ( ( rule__Attribute__NameAssignment_0 ) )
-            // InternalOcl.g:2994:2: ( rule__Attribute__NameAssignment_0 )
+            // InternalOcl.g:3024:1: ( ( rule__Attribute__NameAssignment_0 ) )
+            // InternalOcl.g:3025:2: ( rule__Attribute__NameAssignment_0 )
             {
              before(grammarAccess.getAttributeAccess().getNameAssignment_0()); 
-            // InternalOcl.g:2995:2: ( rule__Attribute__NameAssignment_0 )
-            // InternalOcl.g:2995:3: rule__Attribute__NameAssignment_0
+            // InternalOcl.g:3026:2: ( rule__Attribute__NameAssignment_0 )
+            // InternalOcl.g:3026:3: rule__Attribute__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__NameAssignment_0();
@@ -9603,14 +9705,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__1"
-    // InternalOcl.g:3003:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
+    // InternalOcl.g:3034:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
     public final void rule__Attribute__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3007:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
-            // InternalOcl.g:3008:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
+            // InternalOcl.g:3038:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
+            // InternalOcl.g:3039:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__Attribute__Group__1__Impl();
@@ -9641,17 +9743,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__1__Impl"
-    // InternalOcl.g:3015:1: rule__Attribute__Group__1__Impl : ( ':' ) ;
+    // InternalOcl.g:3046:1: rule__Attribute__Group__1__Impl : ( ':' ) ;
     public final void rule__Attribute__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3019:1: ( ( ':' ) )
-            // InternalOcl.g:3020:1: ( ':' )
+            // InternalOcl.g:3050:1: ( ( ':' ) )
+            // InternalOcl.g:3051:1: ( ':' )
             {
-            // InternalOcl.g:3020:1: ( ':' )
-            // InternalOcl.g:3021:2: ':'
+            // InternalOcl.g:3051:1: ( ':' )
+            // InternalOcl.g:3052:2: ':'
             {
              before(grammarAccess.getAttributeAccess().getColonKeyword_1()); 
             match(input,34,FOLLOW_2); 
@@ -9678,14 +9780,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__2"
-    // InternalOcl.g:3030:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl rule__Attribute__Group__3 ;
+    // InternalOcl.g:3061:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl rule__Attribute__Group__3 ;
     public final void rule__Attribute__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3034:1: ( rule__Attribute__Group__2__Impl rule__Attribute__Group__3 )
-            // InternalOcl.g:3035:2: rule__Attribute__Group__2__Impl rule__Attribute__Group__3
+            // InternalOcl.g:3065:1: ( rule__Attribute__Group__2__Impl rule__Attribute__Group__3 )
+            // InternalOcl.g:3066:2: rule__Attribute__Group__2__Impl rule__Attribute__Group__3
             {
             pushFollow(FOLLOW_15);
             rule__Attribute__Group__2__Impl();
@@ -9716,21 +9818,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__2__Impl"
-    // InternalOcl.g:3042:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__TypeAssignment_2 ) ) ;
+    // InternalOcl.g:3073:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__TypeAssignment_2 ) ) ;
     public final void rule__Attribute__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3046:1: ( ( ( rule__Attribute__TypeAssignment_2 ) ) )
-            // InternalOcl.g:3047:1: ( ( rule__Attribute__TypeAssignment_2 ) )
+            // InternalOcl.g:3077:1: ( ( ( rule__Attribute__TypeAssignment_2 ) ) )
+            // InternalOcl.g:3078:1: ( ( rule__Attribute__TypeAssignment_2 ) )
             {
-            // InternalOcl.g:3047:1: ( ( rule__Attribute__TypeAssignment_2 ) )
-            // InternalOcl.g:3048:2: ( rule__Attribute__TypeAssignment_2 )
+            // InternalOcl.g:3078:1: ( ( rule__Attribute__TypeAssignment_2 ) )
+            // InternalOcl.g:3079:2: ( rule__Attribute__TypeAssignment_2 )
             {
              before(grammarAccess.getAttributeAccess().getTypeAssignment_2()); 
-            // InternalOcl.g:3049:2: ( rule__Attribute__TypeAssignment_2 )
-            // InternalOcl.g:3049:3: rule__Attribute__TypeAssignment_2
+            // InternalOcl.g:3080:2: ( rule__Attribute__TypeAssignment_2 )
+            // InternalOcl.g:3080:3: rule__Attribute__TypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__TypeAssignment_2();
@@ -9763,14 +9865,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__3"
-    // InternalOcl.g:3057:1: rule__Attribute__Group__3 : rule__Attribute__Group__3__Impl rule__Attribute__Group__4 ;
+    // InternalOcl.g:3088:1: rule__Attribute__Group__3 : rule__Attribute__Group__3__Impl rule__Attribute__Group__4 ;
     public final void rule__Attribute__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3061:1: ( rule__Attribute__Group__3__Impl rule__Attribute__Group__4 )
-            // InternalOcl.g:3062:2: rule__Attribute__Group__3__Impl rule__Attribute__Group__4
+            // InternalOcl.g:3092:1: ( rule__Attribute__Group__3__Impl rule__Attribute__Group__4 )
+            // InternalOcl.g:3093:2: rule__Attribute__Group__3__Impl rule__Attribute__Group__4
             {
             pushFollow(FOLLOW_16);
             rule__Attribute__Group__3__Impl();
@@ -9801,17 +9903,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__3__Impl"
-    // InternalOcl.g:3069:1: rule__Attribute__Group__3__Impl : ( '=' ) ;
+    // InternalOcl.g:3100:1: rule__Attribute__Group__3__Impl : ( '=' ) ;
     public final void rule__Attribute__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3073:1: ( ( '=' ) )
-            // InternalOcl.g:3074:1: ( '=' )
+            // InternalOcl.g:3104:1: ( ( '=' ) )
+            // InternalOcl.g:3105:1: ( '=' )
             {
-            // InternalOcl.g:3074:1: ( '=' )
-            // InternalOcl.g:3075:2: '='
+            // InternalOcl.g:3105:1: ( '=' )
+            // InternalOcl.g:3106:2: '='
             {
              before(grammarAccess.getAttributeAccess().getEqualsSignKeyword_3()); 
             match(input,16,FOLLOW_2); 
@@ -9838,14 +9940,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__4"
-    // InternalOcl.g:3084:1: rule__Attribute__Group__4 : rule__Attribute__Group__4__Impl ;
+    // InternalOcl.g:3115:1: rule__Attribute__Group__4 : rule__Attribute__Group__4__Impl ;
     public final void rule__Attribute__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3088:1: ( rule__Attribute__Group__4__Impl )
-            // InternalOcl.g:3089:2: rule__Attribute__Group__4__Impl
+            // InternalOcl.g:3119:1: ( rule__Attribute__Group__4__Impl )
+            // InternalOcl.g:3120:2: rule__Attribute__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__Group__4__Impl();
@@ -9871,21 +9973,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__Group__4__Impl"
-    // InternalOcl.g:3095:1: rule__Attribute__Group__4__Impl : ( ( rule__Attribute__InitExpressionAssignment_4 ) ) ;
+    // InternalOcl.g:3126:1: rule__Attribute__Group__4__Impl : ( ( rule__Attribute__InitExpressionAssignment_4 ) ) ;
     public final void rule__Attribute__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3099:1: ( ( ( rule__Attribute__InitExpressionAssignment_4 ) ) )
-            // InternalOcl.g:3100:1: ( ( rule__Attribute__InitExpressionAssignment_4 ) )
+            // InternalOcl.g:3130:1: ( ( ( rule__Attribute__InitExpressionAssignment_4 ) ) )
+            // InternalOcl.g:3131:1: ( ( rule__Attribute__InitExpressionAssignment_4 ) )
             {
-            // InternalOcl.g:3100:1: ( ( rule__Attribute__InitExpressionAssignment_4 ) )
-            // InternalOcl.g:3101:2: ( rule__Attribute__InitExpressionAssignment_4 )
+            // InternalOcl.g:3131:1: ( ( rule__Attribute__InitExpressionAssignment_4 ) )
+            // InternalOcl.g:3132:2: ( rule__Attribute__InitExpressionAssignment_4 )
             {
              before(grammarAccess.getAttributeAccess().getInitExpressionAssignment_4()); 
-            // InternalOcl.g:3102:2: ( rule__Attribute__InitExpressionAssignment_4 )
-            // InternalOcl.g:3102:3: rule__Attribute__InitExpressionAssignment_4
+            // InternalOcl.g:3133:2: ( rule__Attribute__InitExpressionAssignment_4 )
+            // InternalOcl.g:3133:3: rule__Attribute__InitExpressionAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__InitExpressionAssignment_4();
@@ -9918,14 +10020,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__0"
-    // InternalOcl.g:3111:1: rule__Operation__Group__0 : rule__Operation__Group__0__Impl rule__Operation__Group__1 ;
+    // InternalOcl.g:3142:1: rule__Operation__Group__0 : rule__Operation__Group__0__Impl rule__Operation__Group__1 ;
     public final void rule__Operation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3115:1: ( rule__Operation__Group__0__Impl rule__Operation__Group__1 )
-            // InternalOcl.g:3116:2: rule__Operation__Group__0__Impl rule__Operation__Group__1
+            // InternalOcl.g:3146:1: ( rule__Operation__Group__0__Impl rule__Operation__Group__1 )
+            // InternalOcl.g:3147:2: rule__Operation__Group__0__Impl rule__Operation__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__Operation__Group__0__Impl();
@@ -9956,21 +10058,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__0__Impl"
-    // InternalOcl.g:3123:1: rule__Operation__Group__0__Impl : ( ( rule__Operation__NameAssignment_0 ) ) ;
+    // InternalOcl.g:3154:1: rule__Operation__Group__0__Impl : ( ( rule__Operation__NameAssignment_0 ) ) ;
     public final void rule__Operation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3127:1: ( ( ( rule__Operation__NameAssignment_0 ) ) )
-            // InternalOcl.g:3128:1: ( ( rule__Operation__NameAssignment_0 ) )
+            // InternalOcl.g:3158:1: ( ( ( rule__Operation__NameAssignment_0 ) ) )
+            // InternalOcl.g:3159:1: ( ( rule__Operation__NameAssignment_0 ) )
             {
-            // InternalOcl.g:3128:1: ( ( rule__Operation__NameAssignment_0 ) )
-            // InternalOcl.g:3129:2: ( rule__Operation__NameAssignment_0 )
+            // InternalOcl.g:3159:1: ( ( rule__Operation__NameAssignment_0 ) )
+            // InternalOcl.g:3160:2: ( rule__Operation__NameAssignment_0 )
             {
              before(grammarAccess.getOperationAccess().getNameAssignment_0()); 
-            // InternalOcl.g:3130:2: ( rule__Operation__NameAssignment_0 )
-            // InternalOcl.g:3130:3: rule__Operation__NameAssignment_0
+            // InternalOcl.g:3161:2: ( rule__Operation__NameAssignment_0 )
+            // InternalOcl.g:3161:3: rule__Operation__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Operation__NameAssignment_0();
@@ -10003,14 +10105,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__1"
-    // InternalOcl.g:3138:1: rule__Operation__Group__1 : rule__Operation__Group__1__Impl rule__Operation__Group__2 ;
+    // InternalOcl.g:3169:1: rule__Operation__Group__1 : rule__Operation__Group__1__Impl rule__Operation__Group__2 ;
     public final void rule__Operation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3142:1: ( rule__Operation__Group__1__Impl rule__Operation__Group__2 )
-            // InternalOcl.g:3143:2: rule__Operation__Group__1__Impl rule__Operation__Group__2
+            // InternalOcl.g:3173:1: ( rule__Operation__Group__1__Impl rule__Operation__Group__2 )
+            // InternalOcl.g:3174:2: rule__Operation__Group__1__Impl rule__Operation__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__Operation__Group__1__Impl();
@@ -10041,17 +10143,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__1__Impl"
-    // InternalOcl.g:3150:1: rule__Operation__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:3181:1: rule__Operation__Group__1__Impl : ( '(' ) ;
     public final void rule__Operation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3154:1: ( ( '(' ) )
-            // InternalOcl.g:3155:1: ( '(' )
+            // InternalOcl.g:3185:1: ( ( '(' ) )
+            // InternalOcl.g:3186:1: ( '(' )
             {
-            // InternalOcl.g:3155:1: ( '(' )
-            // InternalOcl.g:3156:2: '('
+            // InternalOcl.g:3186:1: ( '(' )
+            // InternalOcl.g:3187:2: '('
             {
              before(grammarAccess.getOperationAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -10078,14 +10180,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__2"
-    // InternalOcl.g:3165:1: rule__Operation__Group__2 : rule__Operation__Group__2__Impl rule__Operation__Group__3 ;
+    // InternalOcl.g:3196:1: rule__Operation__Group__2 : rule__Operation__Group__2__Impl rule__Operation__Group__3 ;
     public final void rule__Operation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3169:1: ( rule__Operation__Group__2__Impl rule__Operation__Group__3 )
-            // InternalOcl.g:3170:2: rule__Operation__Group__2__Impl rule__Operation__Group__3
+            // InternalOcl.g:3200:1: ( rule__Operation__Group__2__Impl rule__Operation__Group__3 )
+            // InternalOcl.g:3201:2: rule__Operation__Group__2__Impl rule__Operation__Group__3
             {
             pushFollow(FOLLOW_18);
             rule__Operation__Group__2__Impl();
@@ -10116,20 +10218,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__2__Impl"
-    // InternalOcl.g:3177:1: rule__Operation__Group__2__Impl : ( ( rule__Operation__Group_2__0 )? ) ;
+    // InternalOcl.g:3208:1: rule__Operation__Group__2__Impl : ( ( rule__Operation__Group_2__0 )? ) ;
     public final void rule__Operation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3181:1: ( ( ( rule__Operation__Group_2__0 )? ) )
-            // InternalOcl.g:3182:1: ( ( rule__Operation__Group_2__0 )? )
+            // InternalOcl.g:3212:1: ( ( ( rule__Operation__Group_2__0 )? ) )
+            // InternalOcl.g:3213:1: ( ( rule__Operation__Group_2__0 )? )
             {
-            // InternalOcl.g:3182:1: ( ( rule__Operation__Group_2__0 )? )
-            // InternalOcl.g:3183:2: ( rule__Operation__Group_2__0 )?
+            // InternalOcl.g:3213:1: ( ( rule__Operation__Group_2__0 )? )
+            // InternalOcl.g:3214:2: ( rule__Operation__Group_2__0 )?
             {
              before(grammarAccess.getOperationAccess().getGroup_2()); 
-            // InternalOcl.g:3184:2: ( rule__Operation__Group_2__0 )?
+            // InternalOcl.g:3215:2: ( rule__Operation__Group_2__0 )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -10138,7 +10240,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt26) {
                 case 1 :
-                    // InternalOcl.g:3184:3: rule__Operation__Group_2__0
+                    // InternalOcl.g:3215:3: rule__Operation__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Operation__Group_2__0();
@@ -10174,14 +10276,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__3"
-    // InternalOcl.g:3192:1: rule__Operation__Group__3 : rule__Operation__Group__3__Impl rule__Operation__Group__4 ;
+    // InternalOcl.g:3223:1: rule__Operation__Group__3 : rule__Operation__Group__3__Impl rule__Operation__Group__4 ;
     public final void rule__Operation__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3196:1: ( rule__Operation__Group__3__Impl rule__Operation__Group__4 )
-            // InternalOcl.g:3197:2: rule__Operation__Group__3__Impl rule__Operation__Group__4
+            // InternalOcl.g:3227:1: ( rule__Operation__Group__3__Impl rule__Operation__Group__4 )
+            // InternalOcl.g:3228:2: rule__Operation__Group__3__Impl rule__Operation__Group__4
             {
             pushFollow(FOLLOW_13);
             rule__Operation__Group__3__Impl();
@@ -10212,17 +10314,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__3__Impl"
-    // InternalOcl.g:3204:1: rule__Operation__Group__3__Impl : ( ')' ) ;
+    // InternalOcl.g:3235:1: rule__Operation__Group__3__Impl : ( ')' ) ;
     public final void rule__Operation__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3208:1: ( ( ')' ) )
-            // InternalOcl.g:3209:1: ( ')' )
+            // InternalOcl.g:3239:1: ( ( ')' ) )
+            // InternalOcl.g:3240:1: ( ')' )
             {
-            // InternalOcl.g:3209:1: ( ')' )
-            // InternalOcl.g:3210:2: ')'
+            // InternalOcl.g:3240:1: ( ')' )
+            // InternalOcl.g:3241:2: ')'
             {
              before(grammarAccess.getOperationAccess().getRightParenthesisKeyword_3()); 
             match(input,36,FOLLOW_2); 
@@ -10249,14 +10351,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__4"
-    // InternalOcl.g:3219:1: rule__Operation__Group__4 : rule__Operation__Group__4__Impl rule__Operation__Group__5 ;
+    // InternalOcl.g:3250:1: rule__Operation__Group__4 : rule__Operation__Group__4__Impl rule__Operation__Group__5 ;
     public final void rule__Operation__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3223:1: ( rule__Operation__Group__4__Impl rule__Operation__Group__5 )
-            // InternalOcl.g:3224:2: rule__Operation__Group__4__Impl rule__Operation__Group__5
+            // InternalOcl.g:3254:1: ( rule__Operation__Group__4__Impl rule__Operation__Group__5 )
+            // InternalOcl.g:3255:2: rule__Operation__Group__4__Impl rule__Operation__Group__5
             {
             pushFollow(FOLLOW_14);
             rule__Operation__Group__4__Impl();
@@ -10287,17 +10389,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__4__Impl"
-    // InternalOcl.g:3231:1: rule__Operation__Group__4__Impl : ( ':' ) ;
+    // InternalOcl.g:3262:1: rule__Operation__Group__4__Impl : ( ':' ) ;
     public final void rule__Operation__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3235:1: ( ( ':' ) )
-            // InternalOcl.g:3236:1: ( ':' )
+            // InternalOcl.g:3266:1: ( ( ':' ) )
+            // InternalOcl.g:3267:1: ( ':' )
             {
-            // InternalOcl.g:3236:1: ( ':' )
-            // InternalOcl.g:3237:2: ':'
+            // InternalOcl.g:3267:1: ( ':' )
+            // InternalOcl.g:3268:2: ':'
             {
              before(grammarAccess.getOperationAccess().getColonKeyword_4()); 
             match(input,34,FOLLOW_2); 
@@ -10324,14 +10426,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__5"
-    // InternalOcl.g:3246:1: rule__Operation__Group__5 : rule__Operation__Group__5__Impl rule__Operation__Group__6 ;
+    // InternalOcl.g:3277:1: rule__Operation__Group__5 : rule__Operation__Group__5__Impl rule__Operation__Group__6 ;
     public final void rule__Operation__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3250:1: ( rule__Operation__Group__5__Impl rule__Operation__Group__6 )
-            // InternalOcl.g:3251:2: rule__Operation__Group__5__Impl rule__Operation__Group__6
+            // InternalOcl.g:3281:1: ( rule__Operation__Group__5__Impl rule__Operation__Group__6 )
+            // InternalOcl.g:3282:2: rule__Operation__Group__5__Impl rule__Operation__Group__6
             {
             pushFollow(FOLLOW_15);
             rule__Operation__Group__5__Impl();
@@ -10362,21 +10464,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__5__Impl"
-    // InternalOcl.g:3258:1: rule__Operation__Group__5__Impl : ( ( rule__Operation__ReturnTypeAssignment_5 ) ) ;
+    // InternalOcl.g:3289:1: rule__Operation__Group__5__Impl : ( ( rule__Operation__ReturnTypeAssignment_5 ) ) ;
     public final void rule__Operation__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3262:1: ( ( ( rule__Operation__ReturnTypeAssignment_5 ) ) )
-            // InternalOcl.g:3263:1: ( ( rule__Operation__ReturnTypeAssignment_5 ) )
+            // InternalOcl.g:3293:1: ( ( ( rule__Operation__ReturnTypeAssignment_5 ) ) )
+            // InternalOcl.g:3294:1: ( ( rule__Operation__ReturnTypeAssignment_5 ) )
             {
-            // InternalOcl.g:3263:1: ( ( rule__Operation__ReturnTypeAssignment_5 ) )
-            // InternalOcl.g:3264:2: ( rule__Operation__ReturnTypeAssignment_5 )
+            // InternalOcl.g:3294:1: ( ( rule__Operation__ReturnTypeAssignment_5 ) )
+            // InternalOcl.g:3295:2: ( rule__Operation__ReturnTypeAssignment_5 )
             {
              before(grammarAccess.getOperationAccess().getReturnTypeAssignment_5()); 
-            // InternalOcl.g:3265:2: ( rule__Operation__ReturnTypeAssignment_5 )
-            // InternalOcl.g:3265:3: rule__Operation__ReturnTypeAssignment_5
+            // InternalOcl.g:3296:2: ( rule__Operation__ReturnTypeAssignment_5 )
+            // InternalOcl.g:3296:3: rule__Operation__ReturnTypeAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__Operation__ReturnTypeAssignment_5();
@@ -10409,14 +10511,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__6"
-    // InternalOcl.g:3273:1: rule__Operation__Group__6 : rule__Operation__Group__6__Impl rule__Operation__Group__7 ;
+    // InternalOcl.g:3304:1: rule__Operation__Group__6 : rule__Operation__Group__6__Impl rule__Operation__Group__7 ;
     public final void rule__Operation__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3277:1: ( rule__Operation__Group__6__Impl rule__Operation__Group__7 )
-            // InternalOcl.g:3278:2: rule__Operation__Group__6__Impl rule__Operation__Group__7
+            // InternalOcl.g:3308:1: ( rule__Operation__Group__6__Impl rule__Operation__Group__7 )
+            // InternalOcl.g:3309:2: rule__Operation__Group__6__Impl rule__Operation__Group__7
             {
             pushFollow(FOLLOW_16);
             rule__Operation__Group__6__Impl();
@@ -10447,17 +10549,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__6__Impl"
-    // InternalOcl.g:3285:1: rule__Operation__Group__6__Impl : ( '=' ) ;
+    // InternalOcl.g:3316:1: rule__Operation__Group__6__Impl : ( '=' ) ;
     public final void rule__Operation__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3289:1: ( ( '=' ) )
-            // InternalOcl.g:3290:1: ( '=' )
+            // InternalOcl.g:3320:1: ( ( '=' ) )
+            // InternalOcl.g:3321:1: ( '=' )
             {
-            // InternalOcl.g:3290:1: ( '=' )
-            // InternalOcl.g:3291:2: '='
+            // InternalOcl.g:3321:1: ( '=' )
+            // InternalOcl.g:3322:2: '='
             {
              before(grammarAccess.getOperationAccess().getEqualsSignKeyword_6()); 
             match(input,16,FOLLOW_2); 
@@ -10484,14 +10586,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__7"
-    // InternalOcl.g:3300:1: rule__Operation__Group__7 : rule__Operation__Group__7__Impl ;
+    // InternalOcl.g:3331:1: rule__Operation__Group__7 : rule__Operation__Group__7__Impl ;
     public final void rule__Operation__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3304:1: ( rule__Operation__Group__7__Impl )
-            // InternalOcl.g:3305:2: rule__Operation__Group__7__Impl
+            // InternalOcl.g:3335:1: ( rule__Operation__Group__7__Impl )
+            // InternalOcl.g:3336:2: rule__Operation__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Operation__Group__7__Impl();
@@ -10517,21 +10619,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group__7__Impl"
-    // InternalOcl.g:3311:1: rule__Operation__Group__7__Impl : ( ( rule__Operation__BodyAssignment_7 ) ) ;
+    // InternalOcl.g:3342:1: rule__Operation__Group__7__Impl : ( ( rule__Operation__BodyAssignment_7 ) ) ;
     public final void rule__Operation__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3315:1: ( ( ( rule__Operation__BodyAssignment_7 ) ) )
-            // InternalOcl.g:3316:1: ( ( rule__Operation__BodyAssignment_7 ) )
+            // InternalOcl.g:3346:1: ( ( ( rule__Operation__BodyAssignment_7 ) ) )
+            // InternalOcl.g:3347:1: ( ( rule__Operation__BodyAssignment_7 ) )
             {
-            // InternalOcl.g:3316:1: ( ( rule__Operation__BodyAssignment_7 ) )
-            // InternalOcl.g:3317:2: ( rule__Operation__BodyAssignment_7 )
+            // InternalOcl.g:3347:1: ( ( rule__Operation__BodyAssignment_7 ) )
+            // InternalOcl.g:3348:2: ( rule__Operation__BodyAssignment_7 )
             {
              before(grammarAccess.getOperationAccess().getBodyAssignment_7()); 
-            // InternalOcl.g:3318:2: ( rule__Operation__BodyAssignment_7 )
-            // InternalOcl.g:3318:3: rule__Operation__BodyAssignment_7
+            // InternalOcl.g:3349:2: ( rule__Operation__BodyAssignment_7 )
+            // InternalOcl.g:3349:3: rule__Operation__BodyAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__Operation__BodyAssignment_7();
@@ -10564,14 +10666,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2__0"
-    // InternalOcl.g:3327:1: rule__Operation__Group_2__0 : rule__Operation__Group_2__0__Impl rule__Operation__Group_2__1 ;
+    // InternalOcl.g:3358:1: rule__Operation__Group_2__0 : rule__Operation__Group_2__0__Impl rule__Operation__Group_2__1 ;
     public final void rule__Operation__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3331:1: ( rule__Operation__Group_2__0__Impl rule__Operation__Group_2__1 )
-            // InternalOcl.g:3332:2: rule__Operation__Group_2__0__Impl rule__Operation__Group_2__1
+            // InternalOcl.g:3362:1: ( rule__Operation__Group_2__0__Impl rule__Operation__Group_2__1 )
+            // InternalOcl.g:3363:2: rule__Operation__Group_2__0__Impl rule__Operation__Group_2__1
             {
             pushFollow(FOLLOW_19);
             rule__Operation__Group_2__0__Impl();
@@ -10602,21 +10704,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2__0__Impl"
-    // InternalOcl.g:3339:1: rule__Operation__Group_2__0__Impl : ( ( rule__Operation__ParametersAssignment_2_0 ) ) ;
+    // InternalOcl.g:3370:1: rule__Operation__Group_2__0__Impl : ( ( rule__Operation__ParametersAssignment_2_0 ) ) ;
     public final void rule__Operation__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3343:1: ( ( ( rule__Operation__ParametersAssignment_2_0 ) ) )
-            // InternalOcl.g:3344:1: ( ( rule__Operation__ParametersAssignment_2_0 ) )
+            // InternalOcl.g:3374:1: ( ( ( rule__Operation__ParametersAssignment_2_0 ) ) )
+            // InternalOcl.g:3375:1: ( ( rule__Operation__ParametersAssignment_2_0 ) )
             {
-            // InternalOcl.g:3344:1: ( ( rule__Operation__ParametersAssignment_2_0 ) )
-            // InternalOcl.g:3345:2: ( rule__Operation__ParametersAssignment_2_0 )
+            // InternalOcl.g:3375:1: ( ( rule__Operation__ParametersAssignment_2_0 ) )
+            // InternalOcl.g:3376:2: ( rule__Operation__ParametersAssignment_2_0 )
             {
              before(grammarAccess.getOperationAccess().getParametersAssignment_2_0()); 
-            // InternalOcl.g:3346:2: ( rule__Operation__ParametersAssignment_2_0 )
-            // InternalOcl.g:3346:3: rule__Operation__ParametersAssignment_2_0
+            // InternalOcl.g:3377:2: ( rule__Operation__ParametersAssignment_2_0 )
+            // InternalOcl.g:3377:3: rule__Operation__ParametersAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__Operation__ParametersAssignment_2_0();
@@ -10649,14 +10751,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2__1"
-    // InternalOcl.g:3354:1: rule__Operation__Group_2__1 : rule__Operation__Group_2__1__Impl ;
+    // InternalOcl.g:3385:1: rule__Operation__Group_2__1 : rule__Operation__Group_2__1__Impl ;
     public final void rule__Operation__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3358:1: ( rule__Operation__Group_2__1__Impl )
-            // InternalOcl.g:3359:2: rule__Operation__Group_2__1__Impl
+            // InternalOcl.g:3389:1: ( rule__Operation__Group_2__1__Impl )
+            // InternalOcl.g:3390:2: rule__Operation__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Operation__Group_2__1__Impl();
@@ -10682,20 +10784,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2__1__Impl"
-    // InternalOcl.g:3365:1: rule__Operation__Group_2__1__Impl : ( ( rule__Operation__Group_2_1__0 )* ) ;
+    // InternalOcl.g:3396:1: rule__Operation__Group_2__1__Impl : ( ( rule__Operation__Group_2_1__0 )* ) ;
     public final void rule__Operation__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3369:1: ( ( ( rule__Operation__Group_2_1__0 )* ) )
-            // InternalOcl.g:3370:1: ( ( rule__Operation__Group_2_1__0 )* )
+            // InternalOcl.g:3400:1: ( ( ( rule__Operation__Group_2_1__0 )* ) )
+            // InternalOcl.g:3401:1: ( ( rule__Operation__Group_2_1__0 )* )
             {
-            // InternalOcl.g:3370:1: ( ( rule__Operation__Group_2_1__0 )* )
-            // InternalOcl.g:3371:2: ( rule__Operation__Group_2_1__0 )*
+            // InternalOcl.g:3401:1: ( ( rule__Operation__Group_2_1__0 )* )
+            // InternalOcl.g:3402:2: ( rule__Operation__Group_2_1__0 )*
             {
              before(grammarAccess.getOperationAccess().getGroup_2_1()); 
-            // InternalOcl.g:3372:2: ( rule__Operation__Group_2_1__0 )*
+            // InternalOcl.g:3403:2: ( rule__Operation__Group_2_1__0 )*
             loop27:
             do {
                 int alt27=2;
@@ -10708,7 +10810,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt27) {
             	case 1 :
-            	    // InternalOcl.g:3372:3: rule__Operation__Group_2_1__0
+            	    // InternalOcl.g:3403:3: rule__Operation__Group_2_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__Operation__Group_2_1__0();
@@ -10747,14 +10849,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2_1__0"
-    // InternalOcl.g:3381:1: rule__Operation__Group_2_1__0 : rule__Operation__Group_2_1__0__Impl rule__Operation__Group_2_1__1 ;
+    // InternalOcl.g:3412:1: rule__Operation__Group_2_1__0 : rule__Operation__Group_2_1__0__Impl rule__Operation__Group_2_1__1 ;
     public final void rule__Operation__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3385:1: ( rule__Operation__Group_2_1__0__Impl rule__Operation__Group_2_1__1 )
-            // InternalOcl.g:3386:2: rule__Operation__Group_2_1__0__Impl rule__Operation__Group_2_1__1
+            // InternalOcl.g:3416:1: ( rule__Operation__Group_2_1__0__Impl rule__Operation__Group_2_1__1 )
+            // InternalOcl.g:3417:2: rule__Operation__Group_2_1__0__Impl rule__Operation__Group_2_1__1
             {
             pushFollow(FOLLOW_9);
             rule__Operation__Group_2_1__0__Impl();
@@ -10785,17 +10887,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2_1__0__Impl"
-    // InternalOcl.g:3393:1: rule__Operation__Group_2_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:3424:1: rule__Operation__Group_2_1__0__Impl : ( ',' ) ;
     public final void rule__Operation__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3397:1: ( ( ',' ) )
-            // InternalOcl.g:3398:1: ( ',' )
+            // InternalOcl.g:3428:1: ( ( ',' ) )
+            // InternalOcl.g:3429:1: ( ',' )
             {
-            // InternalOcl.g:3398:1: ( ',' )
-            // InternalOcl.g:3399:2: ','
+            // InternalOcl.g:3429:1: ( ',' )
+            // InternalOcl.g:3430:2: ','
             {
              before(grammarAccess.getOperationAccess().getCommaKeyword_2_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -10822,14 +10924,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2_1__1"
-    // InternalOcl.g:3408:1: rule__Operation__Group_2_1__1 : rule__Operation__Group_2_1__1__Impl ;
+    // InternalOcl.g:3439:1: rule__Operation__Group_2_1__1 : rule__Operation__Group_2_1__1__Impl ;
     public final void rule__Operation__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3412:1: ( rule__Operation__Group_2_1__1__Impl )
-            // InternalOcl.g:3413:2: rule__Operation__Group_2_1__1__Impl
+            // InternalOcl.g:3443:1: ( rule__Operation__Group_2_1__1__Impl )
+            // InternalOcl.g:3444:2: rule__Operation__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Operation__Group_2_1__1__Impl();
@@ -10855,21 +10957,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__Group_2_1__1__Impl"
-    // InternalOcl.g:3419:1: rule__Operation__Group_2_1__1__Impl : ( ( rule__Operation__ParametersAssignment_2_1_1 ) ) ;
+    // InternalOcl.g:3450:1: rule__Operation__Group_2_1__1__Impl : ( ( rule__Operation__ParametersAssignment_2_1_1 ) ) ;
     public final void rule__Operation__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3423:1: ( ( ( rule__Operation__ParametersAssignment_2_1_1 ) ) )
-            // InternalOcl.g:3424:1: ( ( rule__Operation__ParametersAssignment_2_1_1 ) )
+            // InternalOcl.g:3454:1: ( ( ( rule__Operation__ParametersAssignment_2_1_1 ) ) )
+            // InternalOcl.g:3455:1: ( ( rule__Operation__ParametersAssignment_2_1_1 ) )
             {
-            // InternalOcl.g:3424:1: ( ( rule__Operation__ParametersAssignment_2_1_1 ) )
-            // InternalOcl.g:3425:2: ( rule__Operation__ParametersAssignment_2_1_1 )
+            // InternalOcl.g:3455:1: ( ( rule__Operation__ParametersAssignment_2_1_1 ) )
+            // InternalOcl.g:3456:2: ( rule__Operation__ParametersAssignment_2_1_1 )
             {
              before(grammarAccess.getOperationAccess().getParametersAssignment_2_1_1()); 
-            // InternalOcl.g:3426:2: ( rule__Operation__ParametersAssignment_2_1_1 )
-            // InternalOcl.g:3426:3: rule__Operation__ParametersAssignment_2_1_1
+            // InternalOcl.g:3457:2: ( rule__Operation__ParametersAssignment_2_1_1 )
+            // InternalOcl.g:3457:3: rule__Operation__ParametersAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Operation__ParametersAssignment_2_1_1();
@@ -10902,14 +11004,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__0"
-    // InternalOcl.g:3435:1: rule__Parameter__Group__0 : rule__Parameter__Group__0__Impl rule__Parameter__Group__1 ;
+    // InternalOcl.g:3466:1: rule__Parameter__Group__0 : rule__Parameter__Group__0__Impl rule__Parameter__Group__1 ;
     public final void rule__Parameter__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3439:1: ( rule__Parameter__Group__0__Impl rule__Parameter__Group__1 )
-            // InternalOcl.g:3440:2: rule__Parameter__Group__0__Impl rule__Parameter__Group__1
+            // InternalOcl.g:3470:1: ( rule__Parameter__Group__0__Impl rule__Parameter__Group__1 )
+            // InternalOcl.g:3471:2: rule__Parameter__Group__0__Impl rule__Parameter__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__Parameter__Group__0__Impl();
@@ -10940,21 +11042,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__0__Impl"
-    // InternalOcl.g:3447:1: rule__Parameter__Group__0__Impl : ( ( rule__Parameter__NameAssignment_0 ) ) ;
+    // InternalOcl.g:3478:1: rule__Parameter__Group__0__Impl : ( ( rule__Parameter__NameAssignment_0 ) ) ;
     public final void rule__Parameter__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3451:1: ( ( ( rule__Parameter__NameAssignment_0 ) ) )
-            // InternalOcl.g:3452:1: ( ( rule__Parameter__NameAssignment_0 ) )
+            // InternalOcl.g:3482:1: ( ( ( rule__Parameter__NameAssignment_0 ) ) )
+            // InternalOcl.g:3483:1: ( ( rule__Parameter__NameAssignment_0 ) )
             {
-            // InternalOcl.g:3452:1: ( ( rule__Parameter__NameAssignment_0 ) )
-            // InternalOcl.g:3453:2: ( rule__Parameter__NameAssignment_0 )
+            // InternalOcl.g:3483:1: ( ( rule__Parameter__NameAssignment_0 ) )
+            // InternalOcl.g:3484:2: ( rule__Parameter__NameAssignment_0 )
             {
              before(grammarAccess.getParameterAccess().getNameAssignment_0()); 
-            // InternalOcl.g:3454:2: ( rule__Parameter__NameAssignment_0 )
-            // InternalOcl.g:3454:3: rule__Parameter__NameAssignment_0
+            // InternalOcl.g:3485:2: ( rule__Parameter__NameAssignment_0 )
+            // InternalOcl.g:3485:3: rule__Parameter__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__NameAssignment_0();
@@ -10987,14 +11089,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__1"
-    // InternalOcl.g:3462:1: rule__Parameter__Group__1 : rule__Parameter__Group__1__Impl rule__Parameter__Group__2 ;
+    // InternalOcl.g:3493:1: rule__Parameter__Group__1 : rule__Parameter__Group__1__Impl rule__Parameter__Group__2 ;
     public final void rule__Parameter__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3466:1: ( rule__Parameter__Group__1__Impl rule__Parameter__Group__2 )
-            // InternalOcl.g:3467:2: rule__Parameter__Group__1__Impl rule__Parameter__Group__2
+            // InternalOcl.g:3497:1: ( rule__Parameter__Group__1__Impl rule__Parameter__Group__2 )
+            // InternalOcl.g:3498:2: rule__Parameter__Group__1__Impl rule__Parameter__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__Parameter__Group__1__Impl();
@@ -11025,17 +11127,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__1__Impl"
-    // InternalOcl.g:3474:1: rule__Parameter__Group__1__Impl : ( ':' ) ;
+    // InternalOcl.g:3505:1: rule__Parameter__Group__1__Impl : ( ':' ) ;
     public final void rule__Parameter__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3478:1: ( ( ':' ) )
-            // InternalOcl.g:3479:1: ( ':' )
+            // InternalOcl.g:3509:1: ( ( ':' ) )
+            // InternalOcl.g:3510:1: ( ':' )
             {
-            // InternalOcl.g:3479:1: ( ':' )
-            // InternalOcl.g:3480:2: ':'
+            // InternalOcl.g:3510:1: ( ':' )
+            // InternalOcl.g:3511:2: ':'
             {
              before(grammarAccess.getParameterAccess().getColonKeyword_1()); 
             match(input,34,FOLLOW_2); 
@@ -11062,14 +11164,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__2"
-    // InternalOcl.g:3489:1: rule__Parameter__Group__2 : rule__Parameter__Group__2__Impl ;
+    // InternalOcl.g:3520:1: rule__Parameter__Group__2 : rule__Parameter__Group__2__Impl ;
     public final void rule__Parameter__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3493:1: ( rule__Parameter__Group__2__Impl )
-            // InternalOcl.g:3494:2: rule__Parameter__Group__2__Impl
+            // InternalOcl.g:3524:1: ( rule__Parameter__Group__2__Impl )
+            // InternalOcl.g:3525:2: rule__Parameter__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__Group__2__Impl();
@@ -11095,21 +11197,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__Group__2__Impl"
-    // InternalOcl.g:3500:1: rule__Parameter__Group__2__Impl : ( ( rule__Parameter__TypeAssignment_2 ) ) ;
+    // InternalOcl.g:3531:1: rule__Parameter__Group__2__Impl : ( ( rule__Parameter__TypeAssignment_2 ) ) ;
     public final void rule__Parameter__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3504:1: ( ( ( rule__Parameter__TypeAssignment_2 ) ) )
-            // InternalOcl.g:3505:1: ( ( rule__Parameter__TypeAssignment_2 ) )
+            // InternalOcl.g:3535:1: ( ( ( rule__Parameter__TypeAssignment_2 ) ) )
+            // InternalOcl.g:3536:1: ( ( rule__Parameter__TypeAssignment_2 ) )
             {
-            // InternalOcl.g:3505:1: ( ( rule__Parameter__TypeAssignment_2 ) )
-            // InternalOcl.g:3506:2: ( rule__Parameter__TypeAssignment_2 )
+            // InternalOcl.g:3536:1: ( ( rule__Parameter__TypeAssignment_2 ) )
+            // InternalOcl.g:3537:2: ( rule__Parameter__TypeAssignment_2 )
             {
              before(grammarAccess.getParameterAccess().getTypeAssignment_2()); 
-            // InternalOcl.g:3507:2: ( rule__Parameter__TypeAssignment_2 )
-            // InternalOcl.g:3507:3: rule__Parameter__TypeAssignment_2
+            // InternalOcl.g:3538:2: ( rule__Parameter__TypeAssignment_2 )
+            // InternalOcl.g:3538:3: rule__Parameter__TypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Parameter__TypeAssignment_2();
@@ -11142,14 +11244,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__0"
-    // InternalOcl.g:3516:1: rule__OclInvariant__Group__0 : rule__OclInvariant__Group__0__Impl rule__OclInvariant__Group__1 ;
+    // InternalOcl.g:3547:1: rule__OclInvariant__Group__0 : rule__OclInvariant__Group__0__Impl rule__OclInvariant__Group__1 ;
     public final void rule__OclInvariant__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3520:1: ( rule__OclInvariant__Group__0__Impl rule__OclInvariant__Group__1 )
-            // InternalOcl.g:3521:2: rule__OclInvariant__Group__0__Impl rule__OclInvariant__Group__1
+            // InternalOcl.g:3551:1: ( rule__OclInvariant__Group__0__Impl rule__OclInvariant__Group__1 )
+            // InternalOcl.g:3552:2: rule__OclInvariant__Group__0__Impl rule__OclInvariant__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__OclInvariant__Group__0__Impl();
@@ -11180,17 +11282,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__0__Impl"
-    // InternalOcl.g:3528:1: rule__OclInvariant__Group__0__Impl : ( 'inv' ) ;
+    // InternalOcl.g:3559:1: rule__OclInvariant__Group__0__Impl : ( 'inv' ) ;
     public final void rule__OclInvariant__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3532:1: ( ( 'inv' ) )
-            // InternalOcl.g:3533:1: ( 'inv' )
+            // InternalOcl.g:3563:1: ( ( 'inv' ) )
+            // InternalOcl.g:3564:1: ( 'inv' )
             {
-            // InternalOcl.g:3533:1: ( 'inv' )
-            // InternalOcl.g:3534:2: 'inv'
+            // InternalOcl.g:3564:1: ( 'inv' )
+            // InternalOcl.g:3565:2: 'inv'
             {
              before(grammarAccess.getOclInvariantAccess().getInvKeyword_0()); 
             match(input,38,FOLLOW_2); 
@@ -11217,14 +11319,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__1"
-    // InternalOcl.g:3543:1: rule__OclInvariant__Group__1 : rule__OclInvariant__Group__1__Impl rule__OclInvariant__Group__2 ;
+    // InternalOcl.g:3574:1: rule__OclInvariant__Group__1 : rule__OclInvariant__Group__1__Impl rule__OclInvariant__Group__2 ;
     public final void rule__OclInvariant__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3547:1: ( rule__OclInvariant__Group__1__Impl rule__OclInvariant__Group__2 )
-            // InternalOcl.g:3548:2: rule__OclInvariant__Group__1__Impl rule__OclInvariant__Group__2
+            // InternalOcl.g:3578:1: ( rule__OclInvariant__Group__1__Impl rule__OclInvariant__Group__2 )
+            // InternalOcl.g:3579:2: rule__OclInvariant__Group__1__Impl rule__OclInvariant__Group__2
             {
             pushFollow(FOLLOW_13);
             rule__OclInvariant__Group__1__Impl();
@@ -11255,21 +11357,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__1__Impl"
-    // InternalOcl.g:3555:1: rule__OclInvariant__Group__1__Impl : ( ( rule__OclInvariant__NameAssignment_1 ) ) ;
+    // InternalOcl.g:3586:1: rule__OclInvariant__Group__1__Impl : ( ( rule__OclInvariant__NameAssignment_1 ) ) ;
     public final void rule__OclInvariant__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3559:1: ( ( ( rule__OclInvariant__NameAssignment_1 ) ) )
-            // InternalOcl.g:3560:1: ( ( rule__OclInvariant__NameAssignment_1 ) )
+            // InternalOcl.g:3590:1: ( ( ( rule__OclInvariant__NameAssignment_1 ) ) )
+            // InternalOcl.g:3591:1: ( ( rule__OclInvariant__NameAssignment_1 ) )
             {
-            // InternalOcl.g:3560:1: ( ( rule__OclInvariant__NameAssignment_1 ) )
-            // InternalOcl.g:3561:2: ( rule__OclInvariant__NameAssignment_1 )
+            // InternalOcl.g:3591:1: ( ( rule__OclInvariant__NameAssignment_1 ) )
+            // InternalOcl.g:3592:2: ( rule__OclInvariant__NameAssignment_1 )
             {
              before(grammarAccess.getOclInvariantAccess().getNameAssignment_1()); 
-            // InternalOcl.g:3562:2: ( rule__OclInvariant__NameAssignment_1 )
-            // InternalOcl.g:3562:3: rule__OclInvariant__NameAssignment_1
+            // InternalOcl.g:3593:2: ( rule__OclInvariant__NameAssignment_1 )
+            // InternalOcl.g:3593:3: rule__OclInvariant__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__OclInvariant__NameAssignment_1();
@@ -11302,14 +11404,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__2"
-    // InternalOcl.g:3570:1: rule__OclInvariant__Group__2 : rule__OclInvariant__Group__2__Impl rule__OclInvariant__Group__3 ;
+    // InternalOcl.g:3601:1: rule__OclInvariant__Group__2 : rule__OclInvariant__Group__2__Impl rule__OclInvariant__Group__3 ;
     public final void rule__OclInvariant__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3574:1: ( rule__OclInvariant__Group__2__Impl rule__OclInvariant__Group__3 )
-            // InternalOcl.g:3575:2: rule__OclInvariant__Group__2__Impl rule__OclInvariant__Group__3
+            // InternalOcl.g:3605:1: ( rule__OclInvariant__Group__2__Impl rule__OclInvariant__Group__3 )
+            // InternalOcl.g:3606:2: rule__OclInvariant__Group__2__Impl rule__OclInvariant__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__OclInvariant__Group__2__Impl();
@@ -11340,17 +11442,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__2__Impl"
-    // InternalOcl.g:3582:1: rule__OclInvariant__Group__2__Impl : ( ':' ) ;
+    // InternalOcl.g:3613:1: rule__OclInvariant__Group__2__Impl : ( ':' ) ;
     public final void rule__OclInvariant__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3586:1: ( ( ':' ) )
-            // InternalOcl.g:3587:1: ( ':' )
+            // InternalOcl.g:3617:1: ( ( ':' ) )
+            // InternalOcl.g:3618:1: ( ':' )
             {
-            // InternalOcl.g:3587:1: ( ':' )
-            // InternalOcl.g:3588:2: ':'
+            // InternalOcl.g:3618:1: ( ':' )
+            // InternalOcl.g:3619:2: ':'
             {
              before(grammarAccess.getOclInvariantAccess().getColonKeyword_2()); 
             match(input,34,FOLLOW_2); 
@@ -11377,14 +11479,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__3"
-    // InternalOcl.g:3597:1: rule__OclInvariant__Group__3 : rule__OclInvariant__Group__3__Impl ;
+    // InternalOcl.g:3628:1: rule__OclInvariant__Group__3 : rule__OclInvariant__Group__3__Impl ;
     public final void rule__OclInvariant__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3601:1: ( rule__OclInvariant__Group__3__Impl )
-            // InternalOcl.g:3602:2: rule__OclInvariant__Group__3__Impl
+            // InternalOcl.g:3632:1: ( rule__OclInvariant__Group__3__Impl )
+            // InternalOcl.g:3633:2: rule__OclInvariant__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OclInvariant__Group__3__Impl();
@@ -11410,21 +11512,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__Group__3__Impl"
-    // InternalOcl.g:3608:1: rule__OclInvariant__Group__3__Impl : ( ( rule__OclInvariant__BodyAssignment_3 ) ) ;
+    // InternalOcl.g:3639:1: rule__OclInvariant__Group__3__Impl : ( ( rule__OclInvariant__BodyAssignment_3 ) ) ;
     public final void rule__OclInvariant__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3612:1: ( ( ( rule__OclInvariant__BodyAssignment_3 ) ) )
-            // InternalOcl.g:3613:1: ( ( rule__OclInvariant__BodyAssignment_3 ) )
+            // InternalOcl.g:3643:1: ( ( ( rule__OclInvariant__BodyAssignment_3 ) ) )
+            // InternalOcl.g:3644:1: ( ( rule__OclInvariant__BodyAssignment_3 ) )
             {
-            // InternalOcl.g:3613:1: ( ( rule__OclInvariant__BodyAssignment_3 ) )
-            // InternalOcl.g:3614:2: ( rule__OclInvariant__BodyAssignment_3 )
+            // InternalOcl.g:3644:1: ( ( rule__OclInvariant__BodyAssignment_3 ) )
+            // InternalOcl.g:3645:2: ( rule__OclInvariant__BodyAssignment_3 )
             {
              before(grammarAccess.getOclInvariantAccess().getBodyAssignment_3()); 
-            // InternalOcl.g:3615:2: ( rule__OclInvariant__BodyAssignment_3 )
-            // InternalOcl.g:3615:3: rule__OclInvariant__BodyAssignment_3
+            // InternalOcl.g:3646:2: ( rule__OclInvariant__BodyAssignment_3 )
+            // InternalOcl.g:3646:3: rule__OclInvariant__BodyAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__OclInvariant__BodyAssignment_3();
@@ -11457,14 +11559,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__Group__0"
-    // InternalOcl.g:3624:1: rule__OclModelElementExp__Group__0 : rule__OclModelElementExp__Group__0__Impl rule__OclModelElementExp__Group__1 ;
+    // InternalOcl.g:3655:1: rule__OclModelElementExp__Group__0 : rule__OclModelElementExp__Group__0__Impl rule__OclModelElementExp__Group__1 ;
     public final void rule__OclModelElementExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3628:1: ( rule__OclModelElementExp__Group__0__Impl rule__OclModelElementExp__Group__1 )
-            // InternalOcl.g:3629:2: rule__OclModelElementExp__Group__0__Impl rule__OclModelElementExp__Group__1
+            // InternalOcl.g:3659:1: ( rule__OclModelElementExp__Group__0__Impl rule__OclModelElementExp__Group__1 )
+            // InternalOcl.g:3660:2: rule__OclModelElementExp__Group__0__Impl rule__OclModelElementExp__Group__1
             {
             pushFollow(FOLLOW_12);
             rule__OclModelElementExp__Group__0__Impl();
@@ -11495,21 +11597,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__Group__0__Impl"
-    // InternalOcl.g:3636:1: rule__OclModelElementExp__Group__0__Impl : ( ( rule__OclModelElementExp__ModelAssignment_0 ) ) ;
+    // InternalOcl.g:3667:1: rule__OclModelElementExp__Group__0__Impl : ( ( rule__OclModelElementExp__ModelAssignment_0 ) ) ;
     public final void rule__OclModelElementExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3640:1: ( ( ( rule__OclModelElementExp__ModelAssignment_0 ) ) )
-            // InternalOcl.g:3641:1: ( ( rule__OclModelElementExp__ModelAssignment_0 ) )
+            // InternalOcl.g:3671:1: ( ( ( rule__OclModelElementExp__ModelAssignment_0 ) ) )
+            // InternalOcl.g:3672:1: ( ( rule__OclModelElementExp__ModelAssignment_0 ) )
             {
-            // InternalOcl.g:3641:1: ( ( rule__OclModelElementExp__ModelAssignment_0 ) )
-            // InternalOcl.g:3642:2: ( rule__OclModelElementExp__ModelAssignment_0 )
+            // InternalOcl.g:3672:1: ( ( rule__OclModelElementExp__ModelAssignment_0 ) )
+            // InternalOcl.g:3673:2: ( rule__OclModelElementExp__ModelAssignment_0 )
             {
              before(grammarAccess.getOclModelElementExpAccess().getModelAssignment_0()); 
-            // InternalOcl.g:3643:2: ( rule__OclModelElementExp__ModelAssignment_0 )
-            // InternalOcl.g:3643:3: rule__OclModelElementExp__ModelAssignment_0
+            // InternalOcl.g:3674:2: ( rule__OclModelElementExp__ModelAssignment_0 )
+            // InternalOcl.g:3674:3: rule__OclModelElementExp__ModelAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__OclModelElementExp__ModelAssignment_0();
@@ -11542,14 +11644,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__Group__1"
-    // InternalOcl.g:3651:1: rule__OclModelElementExp__Group__1 : rule__OclModelElementExp__Group__1__Impl rule__OclModelElementExp__Group__2 ;
+    // InternalOcl.g:3682:1: rule__OclModelElementExp__Group__1 : rule__OclModelElementExp__Group__1__Impl rule__OclModelElementExp__Group__2 ;
     public final void rule__OclModelElementExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3655:1: ( rule__OclModelElementExp__Group__1__Impl rule__OclModelElementExp__Group__2 )
-            // InternalOcl.g:3656:2: rule__OclModelElementExp__Group__1__Impl rule__OclModelElementExp__Group__2
+            // InternalOcl.g:3686:1: ( rule__OclModelElementExp__Group__1__Impl rule__OclModelElementExp__Group__2 )
+            // InternalOcl.g:3687:2: rule__OclModelElementExp__Group__1__Impl rule__OclModelElementExp__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__OclModelElementExp__Group__1__Impl();
@@ -11580,17 +11682,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__Group__1__Impl"
-    // InternalOcl.g:3663:1: rule__OclModelElementExp__Group__1__Impl : ( '!' ) ;
+    // InternalOcl.g:3694:1: rule__OclModelElementExp__Group__1__Impl : ( '!' ) ;
     public final void rule__OclModelElementExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3667:1: ( ( '!' ) )
-            // InternalOcl.g:3668:1: ( '!' )
+            // InternalOcl.g:3698:1: ( ( '!' ) )
+            // InternalOcl.g:3699:1: ( '!' )
             {
-            // InternalOcl.g:3668:1: ( '!' )
-            // InternalOcl.g:3669:2: '!'
+            // InternalOcl.g:3699:1: ( '!' )
+            // InternalOcl.g:3700:2: '!'
             {
              before(grammarAccess.getOclModelElementExpAccess().getExclamationMarkKeyword_1()); 
             match(input,32,FOLLOW_2); 
@@ -11617,14 +11719,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__Group__2"
-    // InternalOcl.g:3678:1: rule__OclModelElementExp__Group__2 : rule__OclModelElementExp__Group__2__Impl ;
+    // InternalOcl.g:3709:1: rule__OclModelElementExp__Group__2 : rule__OclModelElementExp__Group__2__Impl ;
     public final void rule__OclModelElementExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3682:1: ( rule__OclModelElementExp__Group__2__Impl )
-            // InternalOcl.g:3683:2: rule__OclModelElementExp__Group__2__Impl
+            // InternalOcl.g:3713:1: ( rule__OclModelElementExp__Group__2__Impl )
+            // InternalOcl.g:3714:2: rule__OclModelElementExp__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OclModelElementExp__Group__2__Impl();
@@ -11650,21 +11752,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__Group__2__Impl"
-    // InternalOcl.g:3689:1: rule__OclModelElementExp__Group__2__Impl : ( ( rule__OclModelElementExp__NameAssignment_2 ) ) ;
+    // InternalOcl.g:3720:1: rule__OclModelElementExp__Group__2__Impl : ( ( rule__OclModelElementExp__NameAssignment_2 ) ) ;
     public final void rule__OclModelElementExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3693:1: ( ( ( rule__OclModelElementExp__NameAssignment_2 ) ) )
-            // InternalOcl.g:3694:1: ( ( rule__OclModelElementExp__NameAssignment_2 ) )
+            // InternalOcl.g:3724:1: ( ( ( rule__OclModelElementExp__NameAssignment_2 ) ) )
+            // InternalOcl.g:3725:1: ( ( rule__OclModelElementExp__NameAssignment_2 ) )
             {
-            // InternalOcl.g:3694:1: ( ( rule__OclModelElementExp__NameAssignment_2 ) )
-            // InternalOcl.g:3695:2: ( rule__OclModelElementExp__NameAssignment_2 )
+            // InternalOcl.g:3725:1: ( ( rule__OclModelElementExp__NameAssignment_2 ) )
+            // InternalOcl.g:3726:2: ( rule__OclModelElementExp__NameAssignment_2 )
             {
              before(grammarAccess.getOclModelElementExpAccess().getNameAssignment_2()); 
-            // InternalOcl.g:3696:2: ( rule__OclModelElementExp__NameAssignment_2 )
-            // InternalOcl.g:3696:3: rule__OclModelElementExp__NameAssignment_2
+            // InternalOcl.g:3727:2: ( rule__OclModelElementExp__NameAssignment_2 )
+            // InternalOcl.g:3727:3: rule__OclModelElementExp__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__OclModelElementExp__NameAssignment_2();
@@ -11697,14 +11799,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group__0"
-    // InternalOcl.g:3705:1: rule__OperatorCallExp__Group__0 : rule__OperatorCallExp__Group__0__Impl rule__OperatorCallExp__Group__1 ;
+    // InternalOcl.g:3736:1: rule__OperatorCallExp__Group__0 : rule__OperatorCallExp__Group__0__Impl rule__OperatorCallExp__Group__1 ;
     public final void rule__OperatorCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3709:1: ( rule__OperatorCallExp__Group__0__Impl rule__OperatorCallExp__Group__1 )
-            // InternalOcl.g:3710:2: rule__OperatorCallExp__Group__0__Impl rule__OperatorCallExp__Group__1
+            // InternalOcl.g:3740:1: ( rule__OperatorCallExp__Group__0__Impl rule__OperatorCallExp__Group__1 )
+            // InternalOcl.g:3741:2: rule__OperatorCallExp__Group__0__Impl rule__OperatorCallExp__Group__1
             {
             pushFollow(FOLLOW_21);
             rule__OperatorCallExp__Group__0__Impl();
@@ -11735,21 +11837,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group__0__Impl"
-    // InternalOcl.g:3717:1: rule__OperatorCallExp__Group__0__Impl : ( ( rule__OperatorCallExp__ArgsAssignment_0 ) ) ;
+    // InternalOcl.g:3748:1: rule__OperatorCallExp__Group__0__Impl : ( ( rule__OperatorCallExp__ArgsAssignment_0 ) ) ;
     public final void rule__OperatorCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3721:1: ( ( ( rule__OperatorCallExp__ArgsAssignment_0 ) ) )
-            // InternalOcl.g:3722:1: ( ( rule__OperatorCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:3752:1: ( ( ( rule__OperatorCallExp__ArgsAssignment_0 ) ) )
+            // InternalOcl.g:3753:1: ( ( rule__OperatorCallExp__ArgsAssignment_0 ) )
             {
-            // InternalOcl.g:3722:1: ( ( rule__OperatorCallExp__ArgsAssignment_0 ) )
-            // InternalOcl.g:3723:2: ( rule__OperatorCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:3753:1: ( ( rule__OperatorCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:3754:2: ( rule__OperatorCallExp__ArgsAssignment_0 )
             {
              before(grammarAccess.getOperatorCallExpAccess().getArgsAssignment_0()); 
-            // InternalOcl.g:3724:2: ( rule__OperatorCallExp__ArgsAssignment_0 )
-            // InternalOcl.g:3724:3: rule__OperatorCallExp__ArgsAssignment_0
+            // InternalOcl.g:3755:2: ( rule__OperatorCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:3755:3: rule__OperatorCallExp__ArgsAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__OperatorCallExp__ArgsAssignment_0();
@@ -11782,14 +11884,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group__1"
-    // InternalOcl.g:3732:1: rule__OperatorCallExp__Group__1 : rule__OperatorCallExp__Group__1__Impl ;
+    // InternalOcl.g:3763:1: rule__OperatorCallExp__Group__1 : rule__OperatorCallExp__Group__1__Impl ;
     public final void rule__OperatorCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3736:1: ( rule__OperatorCallExp__Group__1__Impl )
-            // InternalOcl.g:3737:2: rule__OperatorCallExp__Group__1__Impl
+            // InternalOcl.g:3767:1: ( rule__OperatorCallExp__Group__1__Impl )
+            // InternalOcl.g:3768:2: rule__OperatorCallExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OperatorCallExp__Group__1__Impl();
@@ -11815,20 +11917,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group__1__Impl"
-    // InternalOcl.g:3743:1: rule__OperatorCallExp__Group__1__Impl : ( ( rule__OperatorCallExp__Group_1__0 )* ) ;
+    // InternalOcl.g:3774:1: rule__OperatorCallExp__Group__1__Impl : ( ( rule__OperatorCallExp__Group_1__0 )* ) ;
     public final void rule__OperatorCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3747:1: ( ( ( rule__OperatorCallExp__Group_1__0 )* ) )
-            // InternalOcl.g:3748:1: ( ( rule__OperatorCallExp__Group_1__0 )* )
+            // InternalOcl.g:3778:1: ( ( ( rule__OperatorCallExp__Group_1__0 )* ) )
+            // InternalOcl.g:3779:1: ( ( rule__OperatorCallExp__Group_1__0 )* )
             {
-            // InternalOcl.g:3748:1: ( ( rule__OperatorCallExp__Group_1__0 )* )
-            // InternalOcl.g:3749:2: ( rule__OperatorCallExp__Group_1__0 )*
+            // InternalOcl.g:3779:1: ( ( rule__OperatorCallExp__Group_1__0 )* )
+            // InternalOcl.g:3780:2: ( rule__OperatorCallExp__Group_1__0 )*
             {
              before(grammarAccess.getOperatorCallExpAccess().getGroup_1()); 
-            // InternalOcl.g:3750:2: ( rule__OperatorCallExp__Group_1__0 )*
+            // InternalOcl.g:3781:2: ( rule__OperatorCallExp__Group_1__0 )*
             loop28:
             do {
                 int alt28=2;
@@ -11841,7 +11943,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt28) {
             	case 1 :
-            	    // InternalOcl.g:3750:3: rule__OperatorCallExp__Group_1__0
+            	    // InternalOcl.g:3781:3: rule__OperatorCallExp__Group_1__0
             	    {
             	    pushFollow(FOLLOW_22);
             	    rule__OperatorCallExp__Group_1__0();
@@ -11880,14 +11982,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group_1__0"
-    // InternalOcl.g:3759:1: rule__OperatorCallExp__Group_1__0 : rule__OperatorCallExp__Group_1__0__Impl rule__OperatorCallExp__Group_1__1 ;
+    // InternalOcl.g:3790:1: rule__OperatorCallExp__Group_1__0 : rule__OperatorCallExp__Group_1__0__Impl rule__OperatorCallExp__Group_1__1 ;
     public final void rule__OperatorCallExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3763:1: ( rule__OperatorCallExp__Group_1__0__Impl rule__OperatorCallExp__Group_1__1 )
-            // InternalOcl.g:3764:2: rule__OperatorCallExp__Group_1__0__Impl rule__OperatorCallExp__Group_1__1
+            // InternalOcl.g:3794:1: ( rule__OperatorCallExp__Group_1__0__Impl rule__OperatorCallExp__Group_1__1 )
+            // InternalOcl.g:3795:2: rule__OperatorCallExp__Group_1__0__Impl rule__OperatorCallExp__Group_1__1
             {
             pushFollow(FOLLOW_23);
             rule__OperatorCallExp__Group_1__0__Impl();
@@ -11918,21 +12020,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group_1__0__Impl"
-    // InternalOcl.g:3771:1: rule__OperatorCallExp__Group_1__0__Impl : ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) ) ;
+    // InternalOcl.g:3802:1: rule__OperatorCallExp__Group_1__0__Impl : ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) ) ;
     public final void rule__OperatorCallExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3775:1: ( ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) ) )
-            // InternalOcl.g:3776:1: ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:3806:1: ( ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) ) )
+            // InternalOcl.g:3807:1: ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) )
             {
-            // InternalOcl.g:3776:1: ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) )
-            // InternalOcl.g:3777:2: ( rule__OperatorCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:3807:1: ( ( rule__OperatorCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:3808:2: ( rule__OperatorCallExp__OperationNamesAssignment_1_0 )
             {
              before(grammarAccess.getOperatorCallExpAccess().getOperationNamesAssignment_1_0()); 
-            // InternalOcl.g:3778:2: ( rule__OperatorCallExp__OperationNamesAssignment_1_0 )
-            // InternalOcl.g:3778:3: rule__OperatorCallExp__OperationNamesAssignment_1_0
+            // InternalOcl.g:3809:2: ( rule__OperatorCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:3809:3: rule__OperatorCallExp__OperationNamesAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__OperatorCallExp__OperationNamesAssignment_1_0();
@@ -11965,14 +12067,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group_1__1"
-    // InternalOcl.g:3786:1: rule__OperatorCallExp__Group_1__1 : rule__OperatorCallExp__Group_1__1__Impl ;
+    // InternalOcl.g:3817:1: rule__OperatorCallExp__Group_1__1 : rule__OperatorCallExp__Group_1__1__Impl ;
     public final void rule__OperatorCallExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3790:1: ( rule__OperatorCallExp__Group_1__1__Impl )
-            // InternalOcl.g:3791:2: rule__OperatorCallExp__Group_1__1__Impl
+            // InternalOcl.g:3821:1: ( rule__OperatorCallExp__Group_1__1__Impl )
+            // InternalOcl.g:3822:2: rule__OperatorCallExp__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OperatorCallExp__Group_1__1__Impl();
@@ -11998,21 +12100,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__Group_1__1__Impl"
-    // InternalOcl.g:3797:1: rule__OperatorCallExp__Group_1__1__Impl : ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) ) ;
+    // InternalOcl.g:3828:1: rule__OperatorCallExp__Group_1__1__Impl : ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) ) ;
     public final void rule__OperatorCallExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3801:1: ( ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) ) )
-            // InternalOcl.g:3802:1: ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:3832:1: ( ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) ) )
+            // InternalOcl.g:3833:1: ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) )
             {
-            // InternalOcl.g:3802:1: ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) )
-            // InternalOcl.g:3803:2: ( rule__OperatorCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:3833:1: ( ( rule__OperatorCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:3834:2: ( rule__OperatorCallExp__ArgsAssignment_1_1 )
             {
              before(grammarAccess.getOperatorCallExpAccess().getArgsAssignment_1_1()); 
-            // InternalOcl.g:3804:2: ( rule__OperatorCallExp__ArgsAssignment_1_1 )
-            // InternalOcl.g:3804:3: rule__OperatorCallExp__ArgsAssignment_1_1
+            // InternalOcl.g:3835:2: ( rule__OperatorCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:3835:3: rule__OperatorCallExp__ArgsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__OperatorCallExp__ArgsAssignment_1_1();
@@ -12045,14 +12147,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group__0"
-    // InternalOcl.g:3813:1: rule__EqOpCallExp__Group__0 : rule__EqOpCallExp__Group__0__Impl rule__EqOpCallExp__Group__1 ;
+    // InternalOcl.g:3844:1: rule__EqOpCallExp__Group__0 : rule__EqOpCallExp__Group__0__Impl rule__EqOpCallExp__Group__1 ;
     public final void rule__EqOpCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3817:1: ( rule__EqOpCallExp__Group__0__Impl rule__EqOpCallExp__Group__1 )
-            // InternalOcl.g:3818:2: rule__EqOpCallExp__Group__0__Impl rule__EqOpCallExp__Group__1
+            // InternalOcl.g:3848:1: ( rule__EqOpCallExp__Group__0__Impl rule__EqOpCallExp__Group__1 )
+            // InternalOcl.g:3849:2: rule__EqOpCallExp__Group__0__Impl rule__EqOpCallExp__Group__1
             {
             pushFollow(FOLLOW_24);
             rule__EqOpCallExp__Group__0__Impl();
@@ -12083,21 +12185,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group__0__Impl"
-    // InternalOcl.g:3825:1: rule__EqOpCallExp__Group__0__Impl : ( ( rule__EqOpCallExp__ArgsAssignment_0 ) ) ;
+    // InternalOcl.g:3856:1: rule__EqOpCallExp__Group__0__Impl : ( ( rule__EqOpCallExp__ArgsAssignment_0 ) ) ;
     public final void rule__EqOpCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3829:1: ( ( ( rule__EqOpCallExp__ArgsAssignment_0 ) ) )
-            // InternalOcl.g:3830:1: ( ( rule__EqOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:3860:1: ( ( ( rule__EqOpCallExp__ArgsAssignment_0 ) ) )
+            // InternalOcl.g:3861:1: ( ( rule__EqOpCallExp__ArgsAssignment_0 ) )
             {
-            // InternalOcl.g:3830:1: ( ( rule__EqOpCallExp__ArgsAssignment_0 ) )
-            // InternalOcl.g:3831:2: ( rule__EqOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:3861:1: ( ( rule__EqOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:3862:2: ( rule__EqOpCallExp__ArgsAssignment_0 )
             {
              before(grammarAccess.getEqOpCallExpAccess().getArgsAssignment_0()); 
-            // InternalOcl.g:3832:2: ( rule__EqOpCallExp__ArgsAssignment_0 )
-            // InternalOcl.g:3832:3: rule__EqOpCallExp__ArgsAssignment_0
+            // InternalOcl.g:3863:2: ( rule__EqOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:3863:3: rule__EqOpCallExp__ArgsAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__EqOpCallExp__ArgsAssignment_0();
@@ -12130,14 +12232,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group__1"
-    // InternalOcl.g:3840:1: rule__EqOpCallExp__Group__1 : rule__EqOpCallExp__Group__1__Impl ;
+    // InternalOcl.g:3871:1: rule__EqOpCallExp__Group__1 : rule__EqOpCallExp__Group__1__Impl ;
     public final void rule__EqOpCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3844:1: ( rule__EqOpCallExp__Group__1__Impl )
-            // InternalOcl.g:3845:2: rule__EqOpCallExp__Group__1__Impl
+            // InternalOcl.g:3875:1: ( rule__EqOpCallExp__Group__1__Impl )
+            // InternalOcl.g:3876:2: rule__EqOpCallExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EqOpCallExp__Group__1__Impl();
@@ -12163,20 +12265,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group__1__Impl"
-    // InternalOcl.g:3851:1: rule__EqOpCallExp__Group__1__Impl : ( ( rule__EqOpCallExp__Group_1__0 )? ) ;
+    // InternalOcl.g:3882:1: rule__EqOpCallExp__Group__1__Impl : ( ( rule__EqOpCallExp__Group_1__0 )? ) ;
     public final void rule__EqOpCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3855:1: ( ( ( rule__EqOpCallExp__Group_1__0 )? ) )
-            // InternalOcl.g:3856:1: ( ( rule__EqOpCallExp__Group_1__0 )? )
+            // InternalOcl.g:3886:1: ( ( ( rule__EqOpCallExp__Group_1__0 )? ) )
+            // InternalOcl.g:3887:1: ( ( rule__EqOpCallExp__Group_1__0 )? )
             {
-            // InternalOcl.g:3856:1: ( ( rule__EqOpCallExp__Group_1__0 )? )
-            // InternalOcl.g:3857:2: ( rule__EqOpCallExp__Group_1__0 )?
+            // InternalOcl.g:3887:1: ( ( rule__EqOpCallExp__Group_1__0 )? )
+            // InternalOcl.g:3888:2: ( rule__EqOpCallExp__Group_1__0 )?
             {
              before(grammarAccess.getEqOpCallExpAccess().getGroup_1()); 
-            // InternalOcl.g:3858:2: ( rule__EqOpCallExp__Group_1__0 )?
+            // InternalOcl.g:3889:2: ( rule__EqOpCallExp__Group_1__0 )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -12185,7 +12287,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt29) {
                 case 1 :
-                    // InternalOcl.g:3858:3: rule__EqOpCallExp__Group_1__0
+                    // InternalOcl.g:3889:3: rule__EqOpCallExp__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EqOpCallExp__Group_1__0();
@@ -12221,14 +12323,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group_1__0"
-    // InternalOcl.g:3867:1: rule__EqOpCallExp__Group_1__0 : rule__EqOpCallExp__Group_1__0__Impl rule__EqOpCallExp__Group_1__1 ;
+    // InternalOcl.g:3898:1: rule__EqOpCallExp__Group_1__0 : rule__EqOpCallExp__Group_1__0__Impl rule__EqOpCallExp__Group_1__1 ;
     public final void rule__EqOpCallExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3871:1: ( rule__EqOpCallExp__Group_1__0__Impl rule__EqOpCallExp__Group_1__1 )
-            // InternalOcl.g:3872:2: rule__EqOpCallExp__Group_1__0__Impl rule__EqOpCallExp__Group_1__1
+            // InternalOcl.g:3902:1: ( rule__EqOpCallExp__Group_1__0__Impl rule__EqOpCallExp__Group_1__1 )
+            // InternalOcl.g:3903:2: rule__EqOpCallExp__Group_1__0__Impl rule__EqOpCallExp__Group_1__1
             {
             pushFollow(FOLLOW_23);
             rule__EqOpCallExp__Group_1__0__Impl();
@@ -12259,21 +12361,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group_1__0__Impl"
-    // InternalOcl.g:3879:1: rule__EqOpCallExp__Group_1__0__Impl : ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) ) ;
+    // InternalOcl.g:3910:1: rule__EqOpCallExp__Group_1__0__Impl : ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) ) ;
     public final void rule__EqOpCallExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3883:1: ( ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) ) )
-            // InternalOcl.g:3884:1: ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:3914:1: ( ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) ) )
+            // InternalOcl.g:3915:1: ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) )
             {
-            // InternalOcl.g:3884:1: ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) )
-            // InternalOcl.g:3885:2: ( rule__EqOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:3915:1: ( ( rule__EqOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:3916:2: ( rule__EqOpCallExp__OperationNamesAssignment_1_0 )
             {
              before(grammarAccess.getEqOpCallExpAccess().getOperationNamesAssignment_1_0()); 
-            // InternalOcl.g:3886:2: ( rule__EqOpCallExp__OperationNamesAssignment_1_0 )
-            // InternalOcl.g:3886:3: rule__EqOpCallExp__OperationNamesAssignment_1_0
+            // InternalOcl.g:3917:2: ( rule__EqOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:3917:3: rule__EqOpCallExp__OperationNamesAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__EqOpCallExp__OperationNamesAssignment_1_0();
@@ -12306,14 +12408,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group_1__1"
-    // InternalOcl.g:3894:1: rule__EqOpCallExp__Group_1__1 : rule__EqOpCallExp__Group_1__1__Impl ;
+    // InternalOcl.g:3925:1: rule__EqOpCallExp__Group_1__1 : rule__EqOpCallExp__Group_1__1__Impl ;
     public final void rule__EqOpCallExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3898:1: ( rule__EqOpCallExp__Group_1__1__Impl )
-            // InternalOcl.g:3899:2: rule__EqOpCallExp__Group_1__1__Impl
+            // InternalOcl.g:3929:1: ( rule__EqOpCallExp__Group_1__1__Impl )
+            // InternalOcl.g:3930:2: rule__EqOpCallExp__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EqOpCallExp__Group_1__1__Impl();
@@ -12339,21 +12441,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__Group_1__1__Impl"
-    // InternalOcl.g:3905:1: rule__EqOpCallExp__Group_1__1__Impl : ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) ) ;
+    // InternalOcl.g:3936:1: rule__EqOpCallExp__Group_1__1__Impl : ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) ) ;
     public final void rule__EqOpCallExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3909:1: ( ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) ) )
-            // InternalOcl.g:3910:1: ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:3940:1: ( ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) ) )
+            // InternalOcl.g:3941:1: ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) )
             {
-            // InternalOcl.g:3910:1: ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) )
-            // InternalOcl.g:3911:2: ( rule__EqOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:3941:1: ( ( rule__EqOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:3942:2: ( rule__EqOpCallExp__ArgsAssignment_1_1 )
             {
              before(grammarAccess.getEqOpCallExpAccess().getArgsAssignment_1_1()); 
-            // InternalOcl.g:3912:2: ( rule__EqOpCallExp__ArgsAssignment_1_1 )
-            // InternalOcl.g:3912:3: rule__EqOpCallExp__ArgsAssignment_1_1
+            // InternalOcl.g:3943:2: ( rule__EqOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:3943:3: rule__EqOpCallExp__ArgsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__EqOpCallExp__ArgsAssignment_1_1();
@@ -12386,14 +12488,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group__0"
-    // InternalOcl.g:3921:1: rule__RelOpCallExp__Group__0 : rule__RelOpCallExp__Group__0__Impl rule__RelOpCallExp__Group__1 ;
+    // InternalOcl.g:3952:1: rule__RelOpCallExp__Group__0 : rule__RelOpCallExp__Group__0__Impl rule__RelOpCallExp__Group__1 ;
     public final void rule__RelOpCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3925:1: ( rule__RelOpCallExp__Group__0__Impl rule__RelOpCallExp__Group__1 )
-            // InternalOcl.g:3926:2: rule__RelOpCallExp__Group__0__Impl rule__RelOpCallExp__Group__1
+            // InternalOcl.g:3956:1: ( rule__RelOpCallExp__Group__0__Impl rule__RelOpCallExp__Group__1 )
+            // InternalOcl.g:3957:2: rule__RelOpCallExp__Group__0__Impl rule__RelOpCallExp__Group__1
             {
             pushFollow(FOLLOW_25);
             rule__RelOpCallExp__Group__0__Impl();
@@ -12424,21 +12526,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group__0__Impl"
-    // InternalOcl.g:3933:1: rule__RelOpCallExp__Group__0__Impl : ( ( rule__RelOpCallExp__ArgsAssignment_0 ) ) ;
+    // InternalOcl.g:3964:1: rule__RelOpCallExp__Group__0__Impl : ( ( rule__RelOpCallExp__ArgsAssignment_0 ) ) ;
     public final void rule__RelOpCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3937:1: ( ( ( rule__RelOpCallExp__ArgsAssignment_0 ) ) )
-            // InternalOcl.g:3938:1: ( ( rule__RelOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:3968:1: ( ( ( rule__RelOpCallExp__ArgsAssignment_0 ) ) )
+            // InternalOcl.g:3969:1: ( ( rule__RelOpCallExp__ArgsAssignment_0 ) )
             {
-            // InternalOcl.g:3938:1: ( ( rule__RelOpCallExp__ArgsAssignment_0 ) )
-            // InternalOcl.g:3939:2: ( rule__RelOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:3969:1: ( ( rule__RelOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:3970:2: ( rule__RelOpCallExp__ArgsAssignment_0 )
             {
              before(grammarAccess.getRelOpCallExpAccess().getArgsAssignment_0()); 
-            // InternalOcl.g:3940:2: ( rule__RelOpCallExp__ArgsAssignment_0 )
-            // InternalOcl.g:3940:3: rule__RelOpCallExp__ArgsAssignment_0
+            // InternalOcl.g:3971:2: ( rule__RelOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:3971:3: rule__RelOpCallExp__ArgsAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__RelOpCallExp__ArgsAssignment_0();
@@ -12471,14 +12573,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group__1"
-    // InternalOcl.g:3948:1: rule__RelOpCallExp__Group__1 : rule__RelOpCallExp__Group__1__Impl ;
+    // InternalOcl.g:3979:1: rule__RelOpCallExp__Group__1 : rule__RelOpCallExp__Group__1__Impl ;
     public final void rule__RelOpCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3952:1: ( rule__RelOpCallExp__Group__1__Impl )
-            // InternalOcl.g:3953:2: rule__RelOpCallExp__Group__1__Impl
+            // InternalOcl.g:3983:1: ( rule__RelOpCallExp__Group__1__Impl )
+            // InternalOcl.g:3984:2: rule__RelOpCallExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RelOpCallExp__Group__1__Impl();
@@ -12504,20 +12606,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group__1__Impl"
-    // InternalOcl.g:3959:1: rule__RelOpCallExp__Group__1__Impl : ( ( rule__RelOpCallExp__Group_1__0 )? ) ;
+    // InternalOcl.g:3990:1: rule__RelOpCallExp__Group__1__Impl : ( ( rule__RelOpCallExp__Group_1__0 )? ) ;
     public final void rule__RelOpCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3963:1: ( ( ( rule__RelOpCallExp__Group_1__0 )? ) )
-            // InternalOcl.g:3964:1: ( ( rule__RelOpCallExp__Group_1__0 )? )
+            // InternalOcl.g:3994:1: ( ( ( rule__RelOpCallExp__Group_1__0 )? ) )
+            // InternalOcl.g:3995:1: ( ( rule__RelOpCallExp__Group_1__0 )? )
             {
-            // InternalOcl.g:3964:1: ( ( rule__RelOpCallExp__Group_1__0 )? )
-            // InternalOcl.g:3965:2: ( rule__RelOpCallExp__Group_1__0 )?
+            // InternalOcl.g:3995:1: ( ( rule__RelOpCallExp__Group_1__0 )? )
+            // InternalOcl.g:3996:2: ( rule__RelOpCallExp__Group_1__0 )?
             {
              before(grammarAccess.getRelOpCallExpAccess().getGroup_1()); 
-            // InternalOcl.g:3966:2: ( rule__RelOpCallExp__Group_1__0 )?
+            // InternalOcl.g:3997:2: ( rule__RelOpCallExp__Group_1__0 )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -12526,7 +12628,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt30) {
                 case 1 :
-                    // InternalOcl.g:3966:3: rule__RelOpCallExp__Group_1__0
+                    // InternalOcl.g:3997:3: rule__RelOpCallExp__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__RelOpCallExp__Group_1__0();
@@ -12562,14 +12664,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group_1__0"
-    // InternalOcl.g:3975:1: rule__RelOpCallExp__Group_1__0 : rule__RelOpCallExp__Group_1__0__Impl rule__RelOpCallExp__Group_1__1 ;
+    // InternalOcl.g:4006:1: rule__RelOpCallExp__Group_1__0 : rule__RelOpCallExp__Group_1__0__Impl rule__RelOpCallExp__Group_1__1 ;
     public final void rule__RelOpCallExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3979:1: ( rule__RelOpCallExp__Group_1__0__Impl rule__RelOpCallExp__Group_1__1 )
-            // InternalOcl.g:3980:2: rule__RelOpCallExp__Group_1__0__Impl rule__RelOpCallExp__Group_1__1
+            // InternalOcl.g:4010:1: ( rule__RelOpCallExp__Group_1__0__Impl rule__RelOpCallExp__Group_1__1 )
+            // InternalOcl.g:4011:2: rule__RelOpCallExp__Group_1__0__Impl rule__RelOpCallExp__Group_1__1
             {
             pushFollow(FOLLOW_23);
             rule__RelOpCallExp__Group_1__0__Impl();
@@ -12600,21 +12702,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group_1__0__Impl"
-    // InternalOcl.g:3987:1: rule__RelOpCallExp__Group_1__0__Impl : ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) ) ;
+    // InternalOcl.g:4018:1: rule__RelOpCallExp__Group_1__0__Impl : ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) ) ;
     public final void rule__RelOpCallExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3991:1: ( ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) ) )
-            // InternalOcl.g:3992:1: ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4022:1: ( ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) ) )
+            // InternalOcl.g:4023:1: ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) )
             {
-            // InternalOcl.g:3992:1: ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) )
-            // InternalOcl.g:3993:2: ( rule__RelOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4023:1: ( ( rule__RelOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4024:2: ( rule__RelOpCallExp__OperationNamesAssignment_1_0 )
             {
              before(grammarAccess.getRelOpCallExpAccess().getOperationNamesAssignment_1_0()); 
-            // InternalOcl.g:3994:2: ( rule__RelOpCallExp__OperationNamesAssignment_1_0 )
-            // InternalOcl.g:3994:3: rule__RelOpCallExp__OperationNamesAssignment_1_0
+            // InternalOcl.g:4025:2: ( rule__RelOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4025:3: rule__RelOpCallExp__OperationNamesAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__RelOpCallExp__OperationNamesAssignment_1_0();
@@ -12647,14 +12749,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group_1__1"
-    // InternalOcl.g:4002:1: rule__RelOpCallExp__Group_1__1 : rule__RelOpCallExp__Group_1__1__Impl ;
+    // InternalOcl.g:4033:1: rule__RelOpCallExp__Group_1__1 : rule__RelOpCallExp__Group_1__1__Impl ;
     public final void rule__RelOpCallExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4006:1: ( rule__RelOpCallExp__Group_1__1__Impl )
-            // InternalOcl.g:4007:2: rule__RelOpCallExp__Group_1__1__Impl
+            // InternalOcl.g:4037:1: ( rule__RelOpCallExp__Group_1__1__Impl )
+            // InternalOcl.g:4038:2: rule__RelOpCallExp__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RelOpCallExp__Group_1__1__Impl();
@@ -12680,21 +12782,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__Group_1__1__Impl"
-    // InternalOcl.g:4013:1: rule__RelOpCallExp__Group_1__1__Impl : ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) ) ;
+    // InternalOcl.g:4044:1: rule__RelOpCallExp__Group_1__1__Impl : ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) ) ;
     public final void rule__RelOpCallExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4017:1: ( ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) ) )
-            // InternalOcl.g:4018:1: ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4048:1: ( ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) ) )
+            // InternalOcl.g:4049:1: ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) )
             {
-            // InternalOcl.g:4018:1: ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) )
-            // InternalOcl.g:4019:2: ( rule__RelOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4049:1: ( ( rule__RelOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4050:2: ( rule__RelOpCallExp__ArgsAssignment_1_1 )
             {
              before(grammarAccess.getRelOpCallExpAccess().getArgsAssignment_1_1()); 
-            // InternalOcl.g:4020:2: ( rule__RelOpCallExp__ArgsAssignment_1_1 )
-            // InternalOcl.g:4020:3: rule__RelOpCallExp__ArgsAssignment_1_1
+            // InternalOcl.g:4051:2: ( rule__RelOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4051:3: rule__RelOpCallExp__ArgsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__RelOpCallExp__ArgsAssignment_1_1();
@@ -12727,14 +12829,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group__0"
-    // InternalOcl.g:4029:1: rule__AddOpCallExp__Group__0 : rule__AddOpCallExp__Group__0__Impl rule__AddOpCallExp__Group__1 ;
+    // InternalOcl.g:4060:1: rule__AddOpCallExp__Group__0 : rule__AddOpCallExp__Group__0__Impl rule__AddOpCallExp__Group__1 ;
     public final void rule__AddOpCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4033:1: ( rule__AddOpCallExp__Group__0__Impl rule__AddOpCallExp__Group__1 )
-            // InternalOcl.g:4034:2: rule__AddOpCallExp__Group__0__Impl rule__AddOpCallExp__Group__1
+            // InternalOcl.g:4064:1: ( rule__AddOpCallExp__Group__0__Impl rule__AddOpCallExp__Group__1 )
+            // InternalOcl.g:4065:2: rule__AddOpCallExp__Group__0__Impl rule__AddOpCallExp__Group__1
             {
             pushFollow(FOLLOW_26);
             rule__AddOpCallExp__Group__0__Impl();
@@ -12765,21 +12867,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group__0__Impl"
-    // InternalOcl.g:4041:1: rule__AddOpCallExp__Group__0__Impl : ( ( rule__AddOpCallExp__ArgsAssignment_0 ) ) ;
+    // InternalOcl.g:4072:1: rule__AddOpCallExp__Group__0__Impl : ( ( rule__AddOpCallExp__ArgsAssignment_0 ) ) ;
     public final void rule__AddOpCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4045:1: ( ( ( rule__AddOpCallExp__ArgsAssignment_0 ) ) )
-            // InternalOcl.g:4046:1: ( ( rule__AddOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:4076:1: ( ( ( rule__AddOpCallExp__ArgsAssignment_0 ) ) )
+            // InternalOcl.g:4077:1: ( ( rule__AddOpCallExp__ArgsAssignment_0 ) )
             {
-            // InternalOcl.g:4046:1: ( ( rule__AddOpCallExp__ArgsAssignment_0 ) )
-            // InternalOcl.g:4047:2: ( rule__AddOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:4077:1: ( ( rule__AddOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:4078:2: ( rule__AddOpCallExp__ArgsAssignment_0 )
             {
              before(grammarAccess.getAddOpCallExpAccess().getArgsAssignment_0()); 
-            // InternalOcl.g:4048:2: ( rule__AddOpCallExp__ArgsAssignment_0 )
-            // InternalOcl.g:4048:3: rule__AddOpCallExp__ArgsAssignment_0
+            // InternalOcl.g:4079:2: ( rule__AddOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:4079:3: rule__AddOpCallExp__ArgsAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__AddOpCallExp__ArgsAssignment_0();
@@ -12812,14 +12914,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group__1"
-    // InternalOcl.g:4056:1: rule__AddOpCallExp__Group__1 : rule__AddOpCallExp__Group__1__Impl ;
+    // InternalOcl.g:4087:1: rule__AddOpCallExp__Group__1 : rule__AddOpCallExp__Group__1__Impl ;
     public final void rule__AddOpCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4060:1: ( rule__AddOpCallExp__Group__1__Impl )
-            // InternalOcl.g:4061:2: rule__AddOpCallExp__Group__1__Impl
+            // InternalOcl.g:4091:1: ( rule__AddOpCallExp__Group__1__Impl )
+            // InternalOcl.g:4092:2: rule__AddOpCallExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AddOpCallExp__Group__1__Impl();
@@ -12845,20 +12947,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group__1__Impl"
-    // InternalOcl.g:4067:1: rule__AddOpCallExp__Group__1__Impl : ( ( rule__AddOpCallExp__Group_1__0 )* ) ;
+    // InternalOcl.g:4098:1: rule__AddOpCallExp__Group__1__Impl : ( ( rule__AddOpCallExp__Group_1__0 )* ) ;
     public final void rule__AddOpCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4071:1: ( ( ( rule__AddOpCallExp__Group_1__0 )* ) )
-            // InternalOcl.g:4072:1: ( ( rule__AddOpCallExp__Group_1__0 )* )
+            // InternalOcl.g:4102:1: ( ( ( rule__AddOpCallExp__Group_1__0 )* ) )
+            // InternalOcl.g:4103:1: ( ( rule__AddOpCallExp__Group_1__0 )* )
             {
-            // InternalOcl.g:4072:1: ( ( rule__AddOpCallExp__Group_1__0 )* )
-            // InternalOcl.g:4073:2: ( rule__AddOpCallExp__Group_1__0 )*
+            // InternalOcl.g:4103:1: ( ( rule__AddOpCallExp__Group_1__0 )* )
+            // InternalOcl.g:4104:2: ( rule__AddOpCallExp__Group_1__0 )*
             {
              before(grammarAccess.getAddOpCallExpAccess().getGroup_1()); 
-            // InternalOcl.g:4074:2: ( rule__AddOpCallExp__Group_1__0 )*
+            // InternalOcl.g:4105:2: ( rule__AddOpCallExp__Group_1__0 )*
             loop31:
             do {
                 int alt31=2;
@@ -12871,7 +12973,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt31) {
             	case 1 :
-            	    // InternalOcl.g:4074:3: rule__AddOpCallExp__Group_1__0
+            	    // InternalOcl.g:4105:3: rule__AddOpCallExp__Group_1__0
             	    {
             	    pushFollow(FOLLOW_27);
             	    rule__AddOpCallExp__Group_1__0();
@@ -12910,14 +13012,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group_1__0"
-    // InternalOcl.g:4083:1: rule__AddOpCallExp__Group_1__0 : rule__AddOpCallExp__Group_1__0__Impl rule__AddOpCallExp__Group_1__1 ;
+    // InternalOcl.g:4114:1: rule__AddOpCallExp__Group_1__0 : rule__AddOpCallExp__Group_1__0__Impl rule__AddOpCallExp__Group_1__1 ;
     public final void rule__AddOpCallExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4087:1: ( rule__AddOpCallExp__Group_1__0__Impl rule__AddOpCallExp__Group_1__1 )
-            // InternalOcl.g:4088:2: rule__AddOpCallExp__Group_1__0__Impl rule__AddOpCallExp__Group_1__1
+            // InternalOcl.g:4118:1: ( rule__AddOpCallExp__Group_1__0__Impl rule__AddOpCallExp__Group_1__1 )
+            // InternalOcl.g:4119:2: rule__AddOpCallExp__Group_1__0__Impl rule__AddOpCallExp__Group_1__1
             {
             pushFollow(FOLLOW_23);
             rule__AddOpCallExp__Group_1__0__Impl();
@@ -12948,21 +13050,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group_1__0__Impl"
-    // InternalOcl.g:4095:1: rule__AddOpCallExp__Group_1__0__Impl : ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) ) ;
+    // InternalOcl.g:4126:1: rule__AddOpCallExp__Group_1__0__Impl : ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) ) ;
     public final void rule__AddOpCallExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4099:1: ( ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) ) )
-            // InternalOcl.g:4100:1: ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4130:1: ( ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) ) )
+            // InternalOcl.g:4131:1: ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) )
             {
-            // InternalOcl.g:4100:1: ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) )
-            // InternalOcl.g:4101:2: ( rule__AddOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4131:1: ( ( rule__AddOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4132:2: ( rule__AddOpCallExp__OperationNamesAssignment_1_0 )
             {
              before(grammarAccess.getAddOpCallExpAccess().getOperationNamesAssignment_1_0()); 
-            // InternalOcl.g:4102:2: ( rule__AddOpCallExp__OperationNamesAssignment_1_0 )
-            // InternalOcl.g:4102:3: rule__AddOpCallExp__OperationNamesAssignment_1_0
+            // InternalOcl.g:4133:2: ( rule__AddOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4133:3: rule__AddOpCallExp__OperationNamesAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__AddOpCallExp__OperationNamesAssignment_1_0();
@@ -12995,14 +13097,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group_1__1"
-    // InternalOcl.g:4110:1: rule__AddOpCallExp__Group_1__1 : rule__AddOpCallExp__Group_1__1__Impl ;
+    // InternalOcl.g:4141:1: rule__AddOpCallExp__Group_1__1 : rule__AddOpCallExp__Group_1__1__Impl ;
     public final void rule__AddOpCallExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4114:1: ( rule__AddOpCallExp__Group_1__1__Impl )
-            // InternalOcl.g:4115:2: rule__AddOpCallExp__Group_1__1__Impl
+            // InternalOcl.g:4145:1: ( rule__AddOpCallExp__Group_1__1__Impl )
+            // InternalOcl.g:4146:2: rule__AddOpCallExp__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AddOpCallExp__Group_1__1__Impl();
@@ -13028,21 +13130,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__Group_1__1__Impl"
-    // InternalOcl.g:4121:1: rule__AddOpCallExp__Group_1__1__Impl : ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) ) ;
+    // InternalOcl.g:4152:1: rule__AddOpCallExp__Group_1__1__Impl : ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) ) ;
     public final void rule__AddOpCallExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4125:1: ( ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) ) )
-            // InternalOcl.g:4126:1: ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4156:1: ( ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) ) )
+            // InternalOcl.g:4157:1: ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) )
             {
-            // InternalOcl.g:4126:1: ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) )
-            // InternalOcl.g:4127:2: ( rule__AddOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4157:1: ( ( rule__AddOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4158:2: ( rule__AddOpCallExp__ArgsAssignment_1_1 )
             {
              before(grammarAccess.getAddOpCallExpAccess().getArgsAssignment_1_1()); 
-            // InternalOcl.g:4128:2: ( rule__AddOpCallExp__ArgsAssignment_1_1 )
-            // InternalOcl.g:4128:3: rule__AddOpCallExp__ArgsAssignment_1_1
+            // InternalOcl.g:4159:2: ( rule__AddOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4159:3: rule__AddOpCallExp__ArgsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__AddOpCallExp__ArgsAssignment_1_1();
@@ -13075,14 +13177,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group__0"
-    // InternalOcl.g:4137:1: rule__IntOpCallExp__Group__0 : rule__IntOpCallExp__Group__0__Impl rule__IntOpCallExp__Group__1 ;
+    // InternalOcl.g:4168:1: rule__IntOpCallExp__Group__0 : rule__IntOpCallExp__Group__0__Impl rule__IntOpCallExp__Group__1 ;
     public final void rule__IntOpCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4141:1: ( rule__IntOpCallExp__Group__0__Impl rule__IntOpCallExp__Group__1 )
-            // InternalOcl.g:4142:2: rule__IntOpCallExp__Group__0__Impl rule__IntOpCallExp__Group__1
+            // InternalOcl.g:4172:1: ( rule__IntOpCallExp__Group__0__Impl rule__IntOpCallExp__Group__1 )
+            // InternalOcl.g:4173:2: rule__IntOpCallExp__Group__0__Impl rule__IntOpCallExp__Group__1
             {
             pushFollow(FOLLOW_28);
             rule__IntOpCallExp__Group__0__Impl();
@@ -13113,21 +13215,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group__0__Impl"
-    // InternalOcl.g:4149:1: rule__IntOpCallExp__Group__0__Impl : ( ( rule__IntOpCallExp__ArgsAssignment_0 ) ) ;
+    // InternalOcl.g:4180:1: rule__IntOpCallExp__Group__0__Impl : ( ( rule__IntOpCallExp__ArgsAssignment_0 ) ) ;
     public final void rule__IntOpCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4153:1: ( ( ( rule__IntOpCallExp__ArgsAssignment_0 ) ) )
-            // InternalOcl.g:4154:1: ( ( rule__IntOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:4184:1: ( ( ( rule__IntOpCallExp__ArgsAssignment_0 ) ) )
+            // InternalOcl.g:4185:1: ( ( rule__IntOpCallExp__ArgsAssignment_0 ) )
             {
-            // InternalOcl.g:4154:1: ( ( rule__IntOpCallExp__ArgsAssignment_0 ) )
-            // InternalOcl.g:4155:2: ( rule__IntOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:4185:1: ( ( rule__IntOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:4186:2: ( rule__IntOpCallExp__ArgsAssignment_0 )
             {
              before(grammarAccess.getIntOpCallExpAccess().getArgsAssignment_0()); 
-            // InternalOcl.g:4156:2: ( rule__IntOpCallExp__ArgsAssignment_0 )
-            // InternalOcl.g:4156:3: rule__IntOpCallExp__ArgsAssignment_0
+            // InternalOcl.g:4187:2: ( rule__IntOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:4187:3: rule__IntOpCallExp__ArgsAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__IntOpCallExp__ArgsAssignment_0();
@@ -13160,14 +13262,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group__1"
-    // InternalOcl.g:4164:1: rule__IntOpCallExp__Group__1 : rule__IntOpCallExp__Group__1__Impl ;
+    // InternalOcl.g:4195:1: rule__IntOpCallExp__Group__1 : rule__IntOpCallExp__Group__1__Impl ;
     public final void rule__IntOpCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4168:1: ( rule__IntOpCallExp__Group__1__Impl )
-            // InternalOcl.g:4169:2: rule__IntOpCallExp__Group__1__Impl
+            // InternalOcl.g:4199:1: ( rule__IntOpCallExp__Group__1__Impl )
+            // InternalOcl.g:4200:2: rule__IntOpCallExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IntOpCallExp__Group__1__Impl();
@@ -13193,20 +13295,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group__1__Impl"
-    // InternalOcl.g:4175:1: rule__IntOpCallExp__Group__1__Impl : ( ( rule__IntOpCallExp__Group_1__0 )* ) ;
+    // InternalOcl.g:4206:1: rule__IntOpCallExp__Group__1__Impl : ( ( rule__IntOpCallExp__Group_1__0 )* ) ;
     public final void rule__IntOpCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4179:1: ( ( ( rule__IntOpCallExp__Group_1__0 )* ) )
-            // InternalOcl.g:4180:1: ( ( rule__IntOpCallExp__Group_1__0 )* )
+            // InternalOcl.g:4210:1: ( ( ( rule__IntOpCallExp__Group_1__0 )* ) )
+            // InternalOcl.g:4211:1: ( ( rule__IntOpCallExp__Group_1__0 )* )
             {
-            // InternalOcl.g:4180:1: ( ( rule__IntOpCallExp__Group_1__0 )* )
-            // InternalOcl.g:4181:2: ( rule__IntOpCallExp__Group_1__0 )*
+            // InternalOcl.g:4211:1: ( ( rule__IntOpCallExp__Group_1__0 )* )
+            // InternalOcl.g:4212:2: ( rule__IntOpCallExp__Group_1__0 )*
             {
              before(grammarAccess.getIntOpCallExpAccess().getGroup_1()); 
-            // InternalOcl.g:4182:2: ( rule__IntOpCallExp__Group_1__0 )*
+            // InternalOcl.g:4213:2: ( rule__IntOpCallExp__Group_1__0 )*
             loop32:
             do {
                 int alt32=2;
@@ -13219,7 +13321,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt32) {
             	case 1 :
-            	    // InternalOcl.g:4182:3: rule__IntOpCallExp__Group_1__0
+            	    // InternalOcl.g:4213:3: rule__IntOpCallExp__Group_1__0
             	    {
             	    pushFollow(FOLLOW_29);
             	    rule__IntOpCallExp__Group_1__0();
@@ -13258,14 +13360,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group_1__0"
-    // InternalOcl.g:4191:1: rule__IntOpCallExp__Group_1__0 : rule__IntOpCallExp__Group_1__0__Impl rule__IntOpCallExp__Group_1__1 ;
+    // InternalOcl.g:4222:1: rule__IntOpCallExp__Group_1__0 : rule__IntOpCallExp__Group_1__0__Impl rule__IntOpCallExp__Group_1__1 ;
     public final void rule__IntOpCallExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4195:1: ( rule__IntOpCallExp__Group_1__0__Impl rule__IntOpCallExp__Group_1__1 )
-            // InternalOcl.g:4196:2: rule__IntOpCallExp__Group_1__0__Impl rule__IntOpCallExp__Group_1__1
+            // InternalOcl.g:4226:1: ( rule__IntOpCallExp__Group_1__0__Impl rule__IntOpCallExp__Group_1__1 )
+            // InternalOcl.g:4227:2: rule__IntOpCallExp__Group_1__0__Impl rule__IntOpCallExp__Group_1__1
             {
             pushFollow(FOLLOW_23);
             rule__IntOpCallExp__Group_1__0__Impl();
@@ -13296,21 +13398,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group_1__0__Impl"
-    // InternalOcl.g:4203:1: rule__IntOpCallExp__Group_1__0__Impl : ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) ) ;
+    // InternalOcl.g:4234:1: rule__IntOpCallExp__Group_1__0__Impl : ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) ) ;
     public final void rule__IntOpCallExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4207:1: ( ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) ) )
-            // InternalOcl.g:4208:1: ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4238:1: ( ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) ) )
+            // InternalOcl.g:4239:1: ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) )
             {
-            // InternalOcl.g:4208:1: ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) )
-            // InternalOcl.g:4209:2: ( rule__IntOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4239:1: ( ( rule__IntOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4240:2: ( rule__IntOpCallExp__OperationNamesAssignment_1_0 )
             {
              before(grammarAccess.getIntOpCallExpAccess().getOperationNamesAssignment_1_0()); 
-            // InternalOcl.g:4210:2: ( rule__IntOpCallExp__OperationNamesAssignment_1_0 )
-            // InternalOcl.g:4210:3: rule__IntOpCallExp__OperationNamesAssignment_1_0
+            // InternalOcl.g:4241:2: ( rule__IntOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4241:3: rule__IntOpCallExp__OperationNamesAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__IntOpCallExp__OperationNamesAssignment_1_0();
@@ -13343,14 +13445,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group_1__1"
-    // InternalOcl.g:4218:1: rule__IntOpCallExp__Group_1__1 : rule__IntOpCallExp__Group_1__1__Impl ;
+    // InternalOcl.g:4249:1: rule__IntOpCallExp__Group_1__1 : rule__IntOpCallExp__Group_1__1__Impl ;
     public final void rule__IntOpCallExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4222:1: ( rule__IntOpCallExp__Group_1__1__Impl )
-            // InternalOcl.g:4223:2: rule__IntOpCallExp__Group_1__1__Impl
+            // InternalOcl.g:4253:1: ( rule__IntOpCallExp__Group_1__1__Impl )
+            // InternalOcl.g:4254:2: rule__IntOpCallExp__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IntOpCallExp__Group_1__1__Impl();
@@ -13376,21 +13478,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__Group_1__1__Impl"
-    // InternalOcl.g:4229:1: rule__IntOpCallExp__Group_1__1__Impl : ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) ) ;
+    // InternalOcl.g:4260:1: rule__IntOpCallExp__Group_1__1__Impl : ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) ) ;
     public final void rule__IntOpCallExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4233:1: ( ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) ) )
-            // InternalOcl.g:4234:1: ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4264:1: ( ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) ) )
+            // InternalOcl.g:4265:1: ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) )
             {
-            // InternalOcl.g:4234:1: ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) )
-            // InternalOcl.g:4235:2: ( rule__IntOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4265:1: ( ( rule__IntOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4266:2: ( rule__IntOpCallExp__ArgsAssignment_1_1 )
             {
              before(grammarAccess.getIntOpCallExpAccess().getArgsAssignment_1_1()); 
-            // InternalOcl.g:4236:2: ( rule__IntOpCallExp__ArgsAssignment_1_1 )
-            // InternalOcl.g:4236:3: rule__IntOpCallExp__ArgsAssignment_1_1
+            // InternalOcl.g:4267:2: ( rule__IntOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4267:3: rule__IntOpCallExp__ArgsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__IntOpCallExp__ArgsAssignment_1_1();
@@ -13423,14 +13525,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group__0"
-    // InternalOcl.g:4245:1: rule__MulOpCallExp__Group__0 : rule__MulOpCallExp__Group__0__Impl rule__MulOpCallExp__Group__1 ;
+    // InternalOcl.g:4276:1: rule__MulOpCallExp__Group__0 : rule__MulOpCallExp__Group__0__Impl rule__MulOpCallExp__Group__1 ;
     public final void rule__MulOpCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4249:1: ( rule__MulOpCallExp__Group__0__Impl rule__MulOpCallExp__Group__1 )
-            // InternalOcl.g:4250:2: rule__MulOpCallExp__Group__0__Impl rule__MulOpCallExp__Group__1
+            // InternalOcl.g:4280:1: ( rule__MulOpCallExp__Group__0__Impl rule__MulOpCallExp__Group__1 )
+            // InternalOcl.g:4281:2: rule__MulOpCallExp__Group__0__Impl rule__MulOpCallExp__Group__1
             {
             pushFollow(FOLLOW_30);
             rule__MulOpCallExp__Group__0__Impl();
@@ -13461,21 +13563,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group__0__Impl"
-    // InternalOcl.g:4257:1: rule__MulOpCallExp__Group__0__Impl : ( ( rule__MulOpCallExp__ArgsAssignment_0 ) ) ;
+    // InternalOcl.g:4288:1: rule__MulOpCallExp__Group__0__Impl : ( ( rule__MulOpCallExp__ArgsAssignment_0 ) ) ;
     public final void rule__MulOpCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4261:1: ( ( ( rule__MulOpCallExp__ArgsAssignment_0 ) ) )
-            // InternalOcl.g:4262:1: ( ( rule__MulOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:4292:1: ( ( ( rule__MulOpCallExp__ArgsAssignment_0 ) ) )
+            // InternalOcl.g:4293:1: ( ( rule__MulOpCallExp__ArgsAssignment_0 ) )
             {
-            // InternalOcl.g:4262:1: ( ( rule__MulOpCallExp__ArgsAssignment_0 ) )
-            // InternalOcl.g:4263:2: ( rule__MulOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:4293:1: ( ( rule__MulOpCallExp__ArgsAssignment_0 ) )
+            // InternalOcl.g:4294:2: ( rule__MulOpCallExp__ArgsAssignment_0 )
             {
              before(grammarAccess.getMulOpCallExpAccess().getArgsAssignment_0()); 
-            // InternalOcl.g:4264:2: ( rule__MulOpCallExp__ArgsAssignment_0 )
-            // InternalOcl.g:4264:3: rule__MulOpCallExp__ArgsAssignment_0
+            // InternalOcl.g:4295:2: ( rule__MulOpCallExp__ArgsAssignment_0 )
+            // InternalOcl.g:4295:3: rule__MulOpCallExp__ArgsAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__MulOpCallExp__ArgsAssignment_0();
@@ -13508,14 +13610,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group__1"
-    // InternalOcl.g:4272:1: rule__MulOpCallExp__Group__1 : rule__MulOpCallExp__Group__1__Impl ;
+    // InternalOcl.g:4303:1: rule__MulOpCallExp__Group__1 : rule__MulOpCallExp__Group__1__Impl ;
     public final void rule__MulOpCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4276:1: ( rule__MulOpCallExp__Group__1__Impl )
-            // InternalOcl.g:4277:2: rule__MulOpCallExp__Group__1__Impl
+            // InternalOcl.g:4307:1: ( rule__MulOpCallExp__Group__1__Impl )
+            // InternalOcl.g:4308:2: rule__MulOpCallExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MulOpCallExp__Group__1__Impl();
@@ -13541,20 +13643,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group__1__Impl"
-    // InternalOcl.g:4283:1: rule__MulOpCallExp__Group__1__Impl : ( ( rule__MulOpCallExp__Group_1__0 )* ) ;
+    // InternalOcl.g:4314:1: rule__MulOpCallExp__Group__1__Impl : ( ( rule__MulOpCallExp__Group_1__0 )* ) ;
     public final void rule__MulOpCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4287:1: ( ( ( rule__MulOpCallExp__Group_1__0 )* ) )
-            // InternalOcl.g:4288:1: ( ( rule__MulOpCallExp__Group_1__0 )* )
+            // InternalOcl.g:4318:1: ( ( ( rule__MulOpCallExp__Group_1__0 )* ) )
+            // InternalOcl.g:4319:1: ( ( rule__MulOpCallExp__Group_1__0 )* )
             {
-            // InternalOcl.g:4288:1: ( ( rule__MulOpCallExp__Group_1__0 )* )
-            // InternalOcl.g:4289:2: ( rule__MulOpCallExp__Group_1__0 )*
+            // InternalOcl.g:4319:1: ( ( rule__MulOpCallExp__Group_1__0 )* )
+            // InternalOcl.g:4320:2: ( rule__MulOpCallExp__Group_1__0 )*
             {
              before(grammarAccess.getMulOpCallExpAccess().getGroup_1()); 
-            // InternalOcl.g:4290:2: ( rule__MulOpCallExp__Group_1__0 )*
+            // InternalOcl.g:4321:2: ( rule__MulOpCallExp__Group_1__0 )*
             loop33:
             do {
                 int alt33=2;
@@ -13567,7 +13669,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt33) {
             	case 1 :
-            	    // InternalOcl.g:4290:3: rule__MulOpCallExp__Group_1__0
+            	    // InternalOcl.g:4321:3: rule__MulOpCallExp__Group_1__0
             	    {
             	    pushFollow(FOLLOW_31);
             	    rule__MulOpCallExp__Group_1__0();
@@ -13606,14 +13708,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group_1__0"
-    // InternalOcl.g:4299:1: rule__MulOpCallExp__Group_1__0 : rule__MulOpCallExp__Group_1__0__Impl rule__MulOpCallExp__Group_1__1 ;
+    // InternalOcl.g:4330:1: rule__MulOpCallExp__Group_1__0 : rule__MulOpCallExp__Group_1__0__Impl rule__MulOpCallExp__Group_1__1 ;
     public final void rule__MulOpCallExp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4303:1: ( rule__MulOpCallExp__Group_1__0__Impl rule__MulOpCallExp__Group_1__1 )
-            // InternalOcl.g:4304:2: rule__MulOpCallExp__Group_1__0__Impl rule__MulOpCallExp__Group_1__1
+            // InternalOcl.g:4334:1: ( rule__MulOpCallExp__Group_1__0__Impl rule__MulOpCallExp__Group_1__1 )
+            // InternalOcl.g:4335:2: rule__MulOpCallExp__Group_1__0__Impl rule__MulOpCallExp__Group_1__1
             {
             pushFollow(FOLLOW_23);
             rule__MulOpCallExp__Group_1__0__Impl();
@@ -13644,21 +13746,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group_1__0__Impl"
-    // InternalOcl.g:4311:1: rule__MulOpCallExp__Group_1__0__Impl : ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) ) ;
+    // InternalOcl.g:4342:1: rule__MulOpCallExp__Group_1__0__Impl : ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) ) ;
     public final void rule__MulOpCallExp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4315:1: ( ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) ) )
-            // InternalOcl.g:4316:1: ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4346:1: ( ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) ) )
+            // InternalOcl.g:4347:1: ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) )
             {
-            // InternalOcl.g:4316:1: ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) )
-            // InternalOcl.g:4317:2: ( rule__MulOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4347:1: ( ( rule__MulOpCallExp__OperationNamesAssignment_1_0 ) )
+            // InternalOcl.g:4348:2: ( rule__MulOpCallExp__OperationNamesAssignment_1_0 )
             {
              before(grammarAccess.getMulOpCallExpAccess().getOperationNamesAssignment_1_0()); 
-            // InternalOcl.g:4318:2: ( rule__MulOpCallExp__OperationNamesAssignment_1_0 )
-            // InternalOcl.g:4318:3: rule__MulOpCallExp__OperationNamesAssignment_1_0
+            // InternalOcl.g:4349:2: ( rule__MulOpCallExp__OperationNamesAssignment_1_0 )
+            // InternalOcl.g:4349:3: rule__MulOpCallExp__OperationNamesAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__MulOpCallExp__OperationNamesAssignment_1_0();
@@ -13691,14 +13793,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group_1__1"
-    // InternalOcl.g:4326:1: rule__MulOpCallExp__Group_1__1 : rule__MulOpCallExp__Group_1__1__Impl ;
+    // InternalOcl.g:4357:1: rule__MulOpCallExp__Group_1__1 : rule__MulOpCallExp__Group_1__1__Impl ;
     public final void rule__MulOpCallExp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4330:1: ( rule__MulOpCallExp__Group_1__1__Impl )
-            // InternalOcl.g:4331:2: rule__MulOpCallExp__Group_1__1__Impl
+            // InternalOcl.g:4361:1: ( rule__MulOpCallExp__Group_1__1__Impl )
+            // InternalOcl.g:4362:2: rule__MulOpCallExp__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MulOpCallExp__Group_1__1__Impl();
@@ -13724,21 +13826,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__Group_1__1__Impl"
-    // InternalOcl.g:4337:1: rule__MulOpCallExp__Group_1__1__Impl : ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) ) ;
+    // InternalOcl.g:4368:1: rule__MulOpCallExp__Group_1__1__Impl : ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) ) ;
     public final void rule__MulOpCallExp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4341:1: ( ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) ) )
-            // InternalOcl.g:4342:1: ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4372:1: ( ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) ) )
+            // InternalOcl.g:4373:1: ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) )
             {
-            // InternalOcl.g:4342:1: ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) )
-            // InternalOcl.g:4343:2: ( rule__MulOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4373:1: ( ( rule__MulOpCallExp__ArgsAssignment_1_1 ) )
+            // InternalOcl.g:4374:2: ( rule__MulOpCallExp__ArgsAssignment_1_1 )
             {
              before(grammarAccess.getMulOpCallExpAccess().getArgsAssignment_1_1()); 
-            // InternalOcl.g:4344:2: ( rule__MulOpCallExp__ArgsAssignment_1_1 )
-            // InternalOcl.g:4344:3: rule__MulOpCallExp__ArgsAssignment_1_1
+            // InternalOcl.g:4375:2: ( rule__MulOpCallExp__ArgsAssignment_1_1 )
+            // InternalOcl.g:4375:3: rule__MulOpCallExp__ArgsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__MulOpCallExp__ArgsAssignment_1_1();
@@ -13771,14 +13873,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NotOpCallExp__Group_0__0"
-    // InternalOcl.g:4353:1: rule__NotOpCallExp__Group_0__0 : rule__NotOpCallExp__Group_0__0__Impl rule__NotOpCallExp__Group_0__1 ;
+    // InternalOcl.g:4384:1: rule__NotOpCallExp__Group_0__0 : rule__NotOpCallExp__Group_0__0__Impl rule__NotOpCallExp__Group_0__1 ;
     public final void rule__NotOpCallExp__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4357:1: ( rule__NotOpCallExp__Group_0__0__Impl rule__NotOpCallExp__Group_0__1 )
-            // InternalOcl.g:4358:2: rule__NotOpCallExp__Group_0__0__Impl rule__NotOpCallExp__Group_0__1
+            // InternalOcl.g:4388:1: ( rule__NotOpCallExp__Group_0__0__Impl rule__NotOpCallExp__Group_0__1 )
+            // InternalOcl.g:4389:2: rule__NotOpCallExp__Group_0__0__Impl rule__NotOpCallExp__Group_0__1
             {
             pushFollow(FOLLOW_23);
             rule__NotOpCallExp__Group_0__0__Impl();
@@ -13809,21 +13911,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NotOpCallExp__Group_0__0__Impl"
-    // InternalOcl.g:4365:1: rule__NotOpCallExp__Group_0__0__Impl : ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) ) ;
+    // InternalOcl.g:4396:1: rule__NotOpCallExp__Group_0__0__Impl : ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) ) ;
     public final void rule__NotOpCallExp__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4369:1: ( ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) ) )
-            // InternalOcl.g:4370:1: ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) )
+            // InternalOcl.g:4400:1: ( ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) ) )
+            // InternalOcl.g:4401:1: ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) )
             {
-            // InternalOcl.g:4370:1: ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) )
-            // InternalOcl.g:4371:2: ( rule__NotOpCallExp__OperationNameAssignment_0_0 )
+            // InternalOcl.g:4401:1: ( ( rule__NotOpCallExp__OperationNameAssignment_0_0 ) )
+            // InternalOcl.g:4402:2: ( rule__NotOpCallExp__OperationNameAssignment_0_0 )
             {
              before(grammarAccess.getNotOpCallExpAccess().getOperationNameAssignment_0_0()); 
-            // InternalOcl.g:4372:2: ( rule__NotOpCallExp__OperationNameAssignment_0_0 )
-            // InternalOcl.g:4372:3: rule__NotOpCallExp__OperationNameAssignment_0_0
+            // InternalOcl.g:4403:2: ( rule__NotOpCallExp__OperationNameAssignment_0_0 )
+            // InternalOcl.g:4403:3: rule__NotOpCallExp__OperationNameAssignment_0_0
             {
             pushFollow(FOLLOW_2);
             rule__NotOpCallExp__OperationNameAssignment_0_0();
@@ -13856,14 +13958,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NotOpCallExp__Group_0__1"
-    // InternalOcl.g:4380:1: rule__NotOpCallExp__Group_0__1 : rule__NotOpCallExp__Group_0__1__Impl ;
+    // InternalOcl.g:4411:1: rule__NotOpCallExp__Group_0__1 : rule__NotOpCallExp__Group_0__1__Impl ;
     public final void rule__NotOpCallExp__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4384:1: ( rule__NotOpCallExp__Group_0__1__Impl )
-            // InternalOcl.g:4385:2: rule__NotOpCallExp__Group_0__1__Impl
+            // InternalOcl.g:4415:1: ( rule__NotOpCallExp__Group_0__1__Impl )
+            // InternalOcl.g:4416:2: rule__NotOpCallExp__Group_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NotOpCallExp__Group_0__1__Impl();
@@ -13889,21 +13991,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NotOpCallExp__Group_0__1__Impl"
-    // InternalOcl.g:4391:1: rule__NotOpCallExp__Group_0__1__Impl : ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) ) ;
+    // InternalOcl.g:4422:1: rule__NotOpCallExp__Group_0__1__Impl : ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) ) ;
     public final void rule__NotOpCallExp__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4395:1: ( ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) ) )
-            // InternalOcl.g:4396:1: ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) )
+            // InternalOcl.g:4426:1: ( ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) ) )
+            // InternalOcl.g:4427:1: ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) )
             {
-            // InternalOcl.g:4396:1: ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) )
-            // InternalOcl.g:4397:2: ( rule__NotOpCallExp__SourceAssignment_0_1 )
+            // InternalOcl.g:4427:1: ( ( rule__NotOpCallExp__SourceAssignment_0_1 ) )
+            // InternalOcl.g:4428:2: ( rule__NotOpCallExp__SourceAssignment_0_1 )
             {
              before(grammarAccess.getNotOpCallExpAccess().getSourceAssignment_0_1()); 
-            // InternalOcl.g:4398:2: ( rule__NotOpCallExp__SourceAssignment_0_1 )
-            // InternalOcl.g:4398:3: rule__NotOpCallExp__SourceAssignment_0_1
+            // InternalOcl.g:4429:2: ( rule__NotOpCallExp__SourceAssignment_0_1 )
+            // InternalOcl.g:4429:3: rule__NotOpCallExp__SourceAssignment_0_1
             {
             pushFollow(FOLLOW_2);
             rule__NotOpCallExp__SourceAssignment_0_1();
@@ -13936,14 +14038,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyCallExp__Group__0"
-    // InternalOcl.g:4407:1: rule__PropertyCallExp__Group__0 : rule__PropertyCallExp__Group__0__Impl rule__PropertyCallExp__Group__1 ;
+    // InternalOcl.g:4438:1: rule__PropertyCallExp__Group__0 : rule__PropertyCallExp__Group__0__Impl rule__PropertyCallExp__Group__1 ;
     public final void rule__PropertyCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4411:1: ( rule__PropertyCallExp__Group__0__Impl rule__PropertyCallExp__Group__1 )
-            // InternalOcl.g:4412:2: rule__PropertyCallExp__Group__0__Impl rule__PropertyCallExp__Group__1
+            // InternalOcl.g:4442:1: ( rule__PropertyCallExp__Group__0__Impl rule__PropertyCallExp__Group__1 )
+            // InternalOcl.g:4443:2: rule__PropertyCallExp__Group__0__Impl rule__PropertyCallExp__Group__1
             {
             pushFollow(FOLLOW_32);
             rule__PropertyCallExp__Group__0__Impl();
@@ -13974,21 +14076,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyCallExp__Group__0__Impl"
-    // InternalOcl.g:4419:1: rule__PropertyCallExp__Group__0__Impl : ( ( rule__PropertyCallExp__SourceAssignment_0 ) ) ;
+    // InternalOcl.g:4450:1: rule__PropertyCallExp__Group__0__Impl : ( ( rule__PropertyCallExp__SourceAssignment_0 ) ) ;
     public final void rule__PropertyCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4423:1: ( ( ( rule__PropertyCallExp__SourceAssignment_0 ) ) )
-            // InternalOcl.g:4424:1: ( ( rule__PropertyCallExp__SourceAssignment_0 ) )
+            // InternalOcl.g:4454:1: ( ( ( rule__PropertyCallExp__SourceAssignment_0 ) ) )
+            // InternalOcl.g:4455:1: ( ( rule__PropertyCallExp__SourceAssignment_0 ) )
             {
-            // InternalOcl.g:4424:1: ( ( rule__PropertyCallExp__SourceAssignment_0 ) )
-            // InternalOcl.g:4425:2: ( rule__PropertyCallExp__SourceAssignment_0 )
+            // InternalOcl.g:4455:1: ( ( rule__PropertyCallExp__SourceAssignment_0 ) )
+            // InternalOcl.g:4456:2: ( rule__PropertyCallExp__SourceAssignment_0 )
             {
              before(grammarAccess.getPropertyCallExpAccess().getSourceAssignment_0()); 
-            // InternalOcl.g:4426:2: ( rule__PropertyCallExp__SourceAssignment_0 )
-            // InternalOcl.g:4426:3: rule__PropertyCallExp__SourceAssignment_0
+            // InternalOcl.g:4457:2: ( rule__PropertyCallExp__SourceAssignment_0 )
+            // InternalOcl.g:4457:3: rule__PropertyCallExp__SourceAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__PropertyCallExp__SourceAssignment_0();
@@ -14021,14 +14123,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyCallExp__Group__1"
-    // InternalOcl.g:4434:1: rule__PropertyCallExp__Group__1 : rule__PropertyCallExp__Group__1__Impl ;
+    // InternalOcl.g:4465:1: rule__PropertyCallExp__Group__1 : rule__PropertyCallExp__Group__1__Impl ;
     public final void rule__PropertyCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4438:1: ( rule__PropertyCallExp__Group__1__Impl )
-            // InternalOcl.g:4439:2: rule__PropertyCallExp__Group__1__Impl
+            // InternalOcl.g:4469:1: ( rule__PropertyCallExp__Group__1__Impl )
+            // InternalOcl.g:4470:2: rule__PropertyCallExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PropertyCallExp__Group__1__Impl();
@@ -14054,20 +14156,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyCallExp__Group__1__Impl"
-    // InternalOcl.g:4445:1: rule__PropertyCallExp__Group__1__Impl : ( ( rule__PropertyCallExp__CallsAssignment_1 )* ) ;
+    // InternalOcl.g:4476:1: rule__PropertyCallExp__Group__1__Impl : ( ( rule__PropertyCallExp__CallsAssignment_1 )* ) ;
     public final void rule__PropertyCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4449:1: ( ( ( rule__PropertyCallExp__CallsAssignment_1 )* ) )
-            // InternalOcl.g:4450:1: ( ( rule__PropertyCallExp__CallsAssignment_1 )* )
+            // InternalOcl.g:4480:1: ( ( ( rule__PropertyCallExp__CallsAssignment_1 )* ) )
+            // InternalOcl.g:4481:1: ( ( rule__PropertyCallExp__CallsAssignment_1 )* )
             {
-            // InternalOcl.g:4450:1: ( ( rule__PropertyCallExp__CallsAssignment_1 )* )
-            // InternalOcl.g:4451:2: ( rule__PropertyCallExp__CallsAssignment_1 )*
+            // InternalOcl.g:4481:1: ( ( rule__PropertyCallExp__CallsAssignment_1 )* )
+            // InternalOcl.g:4482:2: ( rule__PropertyCallExp__CallsAssignment_1 )*
             {
              before(grammarAccess.getPropertyCallExpAccess().getCallsAssignment_1()); 
-            // InternalOcl.g:4452:2: ( rule__PropertyCallExp__CallsAssignment_1 )*
+            // InternalOcl.g:4483:2: ( rule__PropertyCallExp__CallsAssignment_1 )*
             loop34:
             do {
                 int alt34=2;
@@ -14080,7 +14182,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt34) {
             	case 1 :
-            	    // InternalOcl.g:4452:3: rule__PropertyCallExp__CallsAssignment_1
+            	    // InternalOcl.g:4483:3: rule__PropertyCallExp__CallsAssignment_1
             	    {
             	    pushFollow(FOLLOW_33);
             	    rule__PropertyCallExp__CallsAssignment_1();
@@ -14119,14 +14221,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfLiteralExp__Group__0"
-    // InternalOcl.g:4461:1: rule__SelfLiteralExp__Group__0 : rule__SelfLiteralExp__Group__0__Impl rule__SelfLiteralExp__Group__1 ;
+    // InternalOcl.g:4492:1: rule__SelfLiteralExp__Group__0 : rule__SelfLiteralExp__Group__0__Impl rule__SelfLiteralExp__Group__1 ;
     public final void rule__SelfLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4465:1: ( rule__SelfLiteralExp__Group__0__Impl rule__SelfLiteralExp__Group__1 )
-            // InternalOcl.g:4466:2: rule__SelfLiteralExp__Group__0__Impl rule__SelfLiteralExp__Group__1
+            // InternalOcl.g:4496:1: ( rule__SelfLiteralExp__Group__0__Impl rule__SelfLiteralExp__Group__1 )
+            // InternalOcl.g:4497:2: rule__SelfLiteralExp__Group__0__Impl rule__SelfLiteralExp__Group__1
             {
             pushFollow(FOLLOW_34);
             rule__SelfLiteralExp__Group__0__Impl();
@@ -14157,21 +14259,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfLiteralExp__Group__0__Impl"
-    // InternalOcl.g:4473:1: rule__SelfLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:4504:1: rule__SelfLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__SelfLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4477:1: ( ( () ) )
-            // InternalOcl.g:4478:1: ( () )
+            // InternalOcl.g:4508:1: ( ( () ) )
+            // InternalOcl.g:4509:1: ( () )
             {
-            // InternalOcl.g:4478:1: ( () )
-            // InternalOcl.g:4479:2: ()
+            // InternalOcl.g:4509:1: ( () )
+            // InternalOcl.g:4510:2: ()
             {
              before(grammarAccess.getSelfLiteralExpAccess().getSelfLiteralExpAction_0()); 
-            // InternalOcl.g:4480:2: ()
-            // InternalOcl.g:4480:3: 
+            // InternalOcl.g:4511:2: ()
+            // InternalOcl.g:4511:3: 
             {
             }
 
@@ -14194,14 +14296,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfLiteralExp__Group__1"
-    // InternalOcl.g:4488:1: rule__SelfLiteralExp__Group__1 : rule__SelfLiteralExp__Group__1__Impl ;
+    // InternalOcl.g:4519:1: rule__SelfLiteralExp__Group__1 : rule__SelfLiteralExp__Group__1__Impl ;
     public final void rule__SelfLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4492:1: ( rule__SelfLiteralExp__Group__1__Impl )
-            // InternalOcl.g:4493:2: rule__SelfLiteralExp__Group__1__Impl
+            // InternalOcl.g:4523:1: ( rule__SelfLiteralExp__Group__1__Impl )
+            // InternalOcl.g:4524:2: rule__SelfLiteralExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SelfLiteralExp__Group__1__Impl();
@@ -14227,17 +14329,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfLiteralExp__Group__1__Impl"
-    // InternalOcl.g:4499:1: rule__SelfLiteralExp__Group__1__Impl : ( 'self' ) ;
+    // InternalOcl.g:4530:1: rule__SelfLiteralExp__Group__1__Impl : ( 'self' ) ;
     public final void rule__SelfLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4503:1: ( ( 'self' ) )
-            // InternalOcl.g:4504:1: ( 'self' )
+            // InternalOcl.g:4534:1: ( ( 'self' ) )
+            // InternalOcl.g:4535:1: ( 'self' )
             {
-            // InternalOcl.g:4504:1: ( 'self' )
-            // InternalOcl.g:4505:2: 'self'
+            // InternalOcl.g:4535:1: ( 'self' )
+            // InternalOcl.g:4536:2: 'self'
             {
              before(grammarAccess.getSelfLiteralExpAccess().getSelfKeyword_1()); 
             match(input,39,FOLLOW_2); 
@@ -14264,14 +14366,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NullLiteralExp__Group__0"
-    // InternalOcl.g:4515:1: rule__NullLiteralExp__Group__0 : rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1 ;
+    // InternalOcl.g:4546:1: rule__NullLiteralExp__Group__0 : rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1 ;
     public final void rule__NullLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4519:1: ( rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1 )
-            // InternalOcl.g:4520:2: rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1
+            // InternalOcl.g:4550:1: ( rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1 )
+            // InternalOcl.g:4551:2: rule__NullLiteralExp__Group__0__Impl rule__NullLiteralExp__Group__1
             {
             pushFollow(FOLLOW_35);
             rule__NullLiteralExp__Group__0__Impl();
@@ -14302,21 +14404,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NullLiteralExp__Group__0__Impl"
-    // InternalOcl.g:4527:1: rule__NullLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:4558:1: rule__NullLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__NullLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4531:1: ( ( () ) )
-            // InternalOcl.g:4532:1: ( () )
+            // InternalOcl.g:4562:1: ( ( () ) )
+            // InternalOcl.g:4563:1: ( () )
             {
-            // InternalOcl.g:4532:1: ( () )
-            // InternalOcl.g:4533:2: ()
+            // InternalOcl.g:4563:1: ( () )
+            // InternalOcl.g:4564:2: ()
             {
              before(grammarAccess.getNullLiteralExpAccess().getNullLiteralExpAction_0()); 
-            // InternalOcl.g:4534:2: ()
-            // InternalOcl.g:4534:3: 
+            // InternalOcl.g:4565:2: ()
+            // InternalOcl.g:4565:3: 
             {
             }
 
@@ -14339,14 +14441,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NullLiteralExp__Group__1"
-    // InternalOcl.g:4542:1: rule__NullLiteralExp__Group__1 : rule__NullLiteralExp__Group__1__Impl ;
+    // InternalOcl.g:4573:1: rule__NullLiteralExp__Group__1 : rule__NullLiteralExp__Group__1__Impl ;
     public final void rule__NullLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4546:1: ( rule__NullLiteralExp__Group__1__Impl )
-            // InternalOcl.g:4547:2: rule__NullLiteralExp__Group__1__Impl
+            // InternalOcl.g:4577:1: ( rule__NullLiteralExp__Group__1__Impl )
+            // InternalOcl.g:4578:2: rule__NullLiteralExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NullLiteralExp__Group__1__Impl();
@@ -14372,17 +14474,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NullLiteralExp__Group__1__Impl"
-    // InternalOcl.g:4553:1: rule__NullLiteralExp__Group__1__Impl : ( 'null' ) ;
+    // InternalOcl.g:4584:1: rule__NullLiteralExp__Group__1__Impl : ( 'null' ) ;
     public final void rule__NullLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4557:1: ( ( 'null' ) )
-            // InternalOcl.g:4558:1: ( 'null' )
+            // InternalOcl.g:4588:1: ( ( 'null' ) )
+            // InternalOcl.g:4589:1: ( 'null' )
             {
-            // InternalOcl.g:4558:1: ( 'null' )
-            // InternalOcl.g:4559:2: 'null'
+            // InternalOcl.g:4589:1: ( 'null' )
+            // InternalOcl.g:4590:2: 'null'
             {
              before(grammarAccess.getNullLiteralExpAccess().getNullKeyword_1()); 
             match(input,40,FOLLOW_2); 
@@ -14409,14 +14511,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringLiteralExp__Group__0"
-    // InternalOcl.g:4569:1: rule__StringLiteralExp__Group__0 : rule__StringLiteralExp__Group__0__Impl rule__StringLiteralExp__Group__1 ;
+    // InternalOcl.g:4600:1: rule__StringLiteralExp__Group__0 : rule__StringLiteralExp__Group__0__Impl rule__StringLiteralExp__Group__1 ;
     public final void rule__StringLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4573:1: ( rule__StringLiteralExp__Group__0__Impl rule__StringLiteralExp__Group__1 )
-            // InternalOcl.g:4574:2: rule__StringLiteralExp__Group__0__Impl rule__StringLiteralExp__Group__1
+            // InternalOcl.g:4604:1: ( rule__StringLiteralExp__Group__0__Impl rule__StringLiteralExp__Group__1 )
+            // InternalOcl.g:4605:2: rule__StringLiteralExp__Group__0__Impl rule__StringLiteralExp__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__StringLiteralExp__Group__0__Impl();
@@ -14447,21 +14549,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringLiteralExp__Group__0__Impl"
-    // InternalOcl.g:4581:1: rule__StringLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:4612:1: rule__StringLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__StringLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4585:1: ( ( () ) )
-            // InternalOcl.g:4586:1: ( () )
+            // InternalOcl.g:4616:1: ( ( () ) )
+            // InternalOcl.g:4617:1: ( () )
             {
-            // InternalOcl.g:4586:1: ( () )
-            // InternalOcl.g:4587:2: ()
+            // InternalOcl.g:4617:1: ( () )
+            // InternalOcl.g:4618:2: ()
             {
              before(grammarAccess.getStringLiteralExpAccess().getStringLiteralExpAction_0()); 
-            // InternalOcl.g:4588:2: ()
-            // InternalOcl.g:4588:3: 
+            // InternalOcl.g:4619:2: ()
+            // InternalOcl.g:4619:3: 
             {
             }
 
@@ -14484,14 +14586,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringLiteralExp__Group__1"
-    // InternalOcl.g:4596:1: rule__StringLiteralExp__Group__1 : rule__StringLiteralExp__Group__1__Impl ;
+    // InternalOcl.g:4627:1: rule__StringLiteralExp__Group__1 : rule__StringLiteralExp__Group__1__Impl ;
     public final void rule__StringLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4600:1: ( rule__StringLiteralExp__Group__1__Impl )
-            // InternalOcl.g:4601:2: rule__StringLiteralExp__Group__1__Impl
+            // InternalOcl.g:4631:1: ( rule__StringLiteralExp__Group__1__Impl )
+            // InternalOcl.g:4632:2: rule__StringLiteralExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StringLiteralExp__Group__1__Impl();
@@ -14517,21 +14619,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringLiteralExp__Group__1__Impl"
-    // InternalOcl.g:4607:1: rule__StringLiteralExp__Group__1__Impl : ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) ) ;
+    // InternalOcl.g:4638:1: rule__StringLiteralExp__Group__1__Impl : ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) ) ;
     public final void rule__StringLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4611:1: ( ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) ) )
-            // InternalOcl.g:4612:1: ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) )
+            // InternalOcl.g:4642:1: ( ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) ) )
+            // InternalOcl.g:4643:1: ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) )
             {
-            // InternalOcl.g:4612:1: ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) )
-            // InternalOcl.g:4613:2: ( rule__StringLiteralExp__StringSymbolAssignment_1 )
+            // InternalOcl.g:4643:1: ( ( rule__StringLiteralExp__StringSymbolAssignment_1 ) )
+            // InternalOcl.g:4644:2: ( rule__StringLiteralExp__StringSymbolAssignment_1 )
             {
              before(grammarAccess.getStringLiteralExpAccess().getStringSymbolAssignment_1()); 
-            // InternalOcl.g:4614:2: ( rule__StringLiteralExp__StringSymbolAssignment_1 )
-            // InternalOcl.g:4614:3: rule__StringLiteralExp__StringSymbolAssignment_1
+            // InternalOcl.g:4645:2: ( rule__StringLiteralExp__StringSymbolAssignment_1 )
+            // InternalOcl.g:4645:3: rule__StringLiteralExp__StringSymbolAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__StringLiteralExp__StringSymbolAssignment_1();
@@ -14564,14 +14666,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerLiteralExp__Group__0"
-    // InternalOcl.g:4623:1: rule__IntegerLiteralExp__Group__0 : rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1 ;
+    // InternalOcl.g:4654:1: rule__IntegerLiteralExp__Group__0 : rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1 ;
     public final void rule__IntegerLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4627:1: ( rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1 )
-            // InternalOcl.g:4628:2: rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1
+            // InternalOcl.g:4658:1: ( rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1 )
+            // InternalOcl.g:4659:2: rule__IntegerLiteralExp__Group__0__Impl rule__IntegerLiteralExp__Group__1
             {
             pushFollow(FOLLOW_36);
             rule__IntegerLiteralExp__Group__0__Impl();
@@ -14602,21 +14704,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerLiteralExp__Group__0__Impl"
-    // InternalOcl.g:4635:1: rule__IntegerLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:4666:1: rule__IntegerLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__IntegerLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4639:1: ( ( () ) )
-            // InternalOcl.g:4640:1: ( () )
+            // InternalOcl.g:4670:1: ( ( () ) )
+            // InternalOcl.g:4671:1: ( () )
             {
-            // InternalOcl.g:4640:1: ( () )
-            // InternalOcl.g:4641:2: ()
+            // InternalOcl.g:4671:1: ( () )
+            // InternalOcl.g:4672:2: ()
             {
              before(grammarAccess.getIntegerLiteralExpAccess().getIntegerLiteralExpAction_0()); 
-            // InternalOcl.g:4642:2: ()
-            // InternalOcl.g:4642:3: 
+            // InternalOcl.g:4673:2: ()
+            // InternalOcl.g:4673:3: 
             {
             }
 
@@ -14639,14 +14741,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerLiteralExp__Group__1"
-    // InternalOcl.g:4650:1: rule__IntegerLiteralExp__Group__1 : rule__IntegerLiteralExp__Group__1__Impl ;
+    // InternalOcl.g:4681:1: rule__IntegerLiteralExp__Group__1 : rule__IntegerLiteralExp__Group__1__Impl ;
     public final void rule__IntegerLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4654:1: ( rule__IntegerLiteralExp__Group__1__Impl )
-            // InternalOcl.g:4655:2: rule__IntegerLiteralExp__Group__1__Impl
+            // InternalOcl.g:4685:1: ( rule__IntegerLiteralExp__Group__1__Impl )
+            // InternalOcl.g:4686:2: rule__IntegerLiteralExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IntegerLiteralExp__Group__1__Impl();
@@ -14672,21 +14774,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerLiteralExp__Group__1__Impl"
-    // InternalOcl.g:4661:1: rule__IntegerLiteralExp__Group__1__Impl : ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) ) ;
+    // InternalOcl.g:4692:1: rule__IntegerLiteralExp__Group__1__Impl : ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) ) ;
     public final void rule__IntegerLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4665:1: ( ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) ) )
-            // InternalOcl.g:4666:1: ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) )
+            // InternalOcl.g:4696:1: ( ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) ) )
+            // InternalOcl.g:4697:1: ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) )
             {
-            // InternalOcl.g:4666:1: ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) )
-            // InternalOcl.g:4667:2: ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 )
+            // InternalOcl.g:4697:1: ( ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 ) )
+            // InternalOcl.g:4698:2: ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 )
             {
              before(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolAssignment_1()); 
-            // InternalOcl.g:4668:2: ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 )
-            // InternalOcl.g:4668:3: rule__IntegerLiteralExp__IntegerSymbolAssignment_1
+            // InternalOcl.g:4699:2: ( rule__IntegerLiteralExp__IntegerSymbolAssignment_1 )
+            // InternalOcl.g:4699:3: rule__IntegerLiteralExp__IntegerSymbolAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__IntegerLiteralExp__IntegerSymbolAssignment_1();
@@ -14719,14 +14821,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__0"
-    // InternalOcl.g:4677:1: rule__BagLiteralExp__Group__0 : rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1 ;
+    // InternalOcl.g:4708:1: rule__BagLiteralExp__Group__0 : rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1 ;
     public final void rule__BagLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4681:1: ( rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1 )
-            // InternalOcl.g:4682:2: rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1
+            // InternalOcl.g:4712:1: ( rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1 )
+            // InternalOcl.g:4713:2: rule__BagLiteralExp__Group__0__Impl rule__BagLiteralExp__Group__1
             {
             pushFollow(FOLLOW_37);
             rule__BagLiteralExp__Group__0__Impl();
@@ -14757,21 +14859,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__0__Impl"
-    // InternalOcl.g:4689:1: rule__BagLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:4720:1: rule__BagLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__BagLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4693:1: ( ( () ) )
-            // InternalOcl.g:4694:1: ( () )
+            // InternalOcl.g:4724:1: ( ( () ) )
+            // InternalOcl.g:4725:1: ( () )
             {
-            // InternalOcl.g:4694:1: ( () )
-            // InternalOcl.g:4695:2: ()
+            // InternalOcl.g:4725:1: ( () )
+            // InternalOcl.g:4726:2: ()
             {
              before(grammarAccess.getBagLiteralExpAccess().getBagLiteralExpAction_0()); 
-            // InternalOcl.g:4696:2: ()
-            // InternalOcl.g:4696:3: 
+            // InternalOcl.g:4727:2: ()
+            // InternalOcl.g:4727:3: 
             {
             }
 
@@ -14794,14 +14896,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__1"
-    // InternalOcl.g:4704:1: rule__BagLiteralExp__Group__1 : rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2 ;
+    // InternalOcl.g:4735:1: rule__BagLiteralExp__Group__1 : rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2 ;
     public final void rule__BagLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4708:1: ( rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2 )
-            // InternalOcl.g:4709:2: rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2
+            // InternalOcl.g:4739:1: ( rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2 )
+            // InternalOcl.g:4740:2: rule__BagLiteralExp__Group__1__Impl rule__BagLiteralExp__Group__2
             {
             pushFollow(FOLLOW_38);
             rule__BagLiteralExp__Group__1__Impl();
@@ -14832,17 +14934,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__1__Impl"
-    // InternalOcl.g:4716:1: rule__BagLiteralExp__Group__1__Impl : ( 'Bag' ) ;
+    // InternalOcl.g:4747:1: rule__BagLiteralExp__Group__1__Impl : ( 'Bag' ) ;
     public final void rule__BagLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4720:1: ( ( 'Bag' ) )
-            // InternalOcl.g:4721:1: ( 'Bag' )
+            // InternalOcl.g:4751:1: ( ( 'Bag' ) )
+            // InternalOcl.g:4752:1: ( 'Bag' )
             {
-            // InternalOcl.g:4721:1: ( 'Bag' )
-            // InternalOcl.g:4722:2: 'Bag'
+            // InternalOcl.g:4752:1: ( 'Bag' )
+            // InternalOcl.g:4753:2: 'Bag'
             {
              before(grammarAccess.getBagLiteralExpAccess().getBagKeyword_1()); 
             match(input,41,FOLLOW_2); 
@@ -14869,14 +14971,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__2"
-    // InternalOcl.g:4731:1: rule__BagLiteralExp__Group__2 : rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3 ;
+    // InternalOcl.g:4762:1: rule__BagLiteralExp__Group__2 : rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3 ;
     public final void rule__BagLiteralExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4735:1: ( rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3 )
-            // InternalOcl.g:4736:2: rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3
+            // InternalOcl.g:4766:1: ( rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3 )
+            // InternalOcl.g:4767:2: rule__BagLiteralExp__Group__2__Impl rule__BagLiteralExp__Group__3
             {
             pushFollow(FOLLOW_39);
             rule__BagLiteralExp__Group__2__Impl();
@@ -14907,17 +15009,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__2__Impl"
-    // InternalOcl.g:4743:1: rule__BagLiteralExp__Group__2__Impl : ( '{' ) ;
+    // InternalOcl.g:4774:1: rule__BagLiteralExp__Group__2__Impl : ( '{' ) ;
     public final void rule__BagLiteralExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4747:1: ( ( '{' ) )
-            // InternalOcl.g:4748:1: ( '{' )
+            // InternalOcl.g:4778:1: ( ( '{' ) )
+            // InternalOcl.g:4779:1: ( '{' )
             {
-            // InternalOcl.g:4748:1: ( '{' )
-            // InternalOcl.g:4749:2: '{'
+            // InternalOcl.g:4779:1: ( '{' )
+            // InternalOcl.g:4780:2: '{'
             {
              before(grammarAccess.getBagLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,42,FOLLOW_2); 
@@ -14944,14 +15046,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__3"
-    // InternalOcl.g:4758:1: rule__BagLiteralExp__Group__3 : rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4 ;
+    // InternalOcl.g:4789:1: rule__BagLiteralExp__Group__3 : rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4 ;
     public final void rule__BagLiteralExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4762:1: ( rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4 )
-            // InternalOcl.g:4763:2: rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4
+            // InternalOcl.g:4793:1: ( rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4 )
+            // InternalOcl.g:4794:2: rule__BagLiteralExp__Group__3__Impl rule__BagLiteralExp__Group__4
             {
             pushFollow(FOLLOW_39);
             rule__BagLiteralExp__Group__3__Impl();
@@ -14982,29 +15084,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__3__Impl"
-    // InternalOcl.g:4770:1: rule__BagLiteralExp__Group__3__Impl : ( ( rule__BagLiteralExp__Group_3__0 )? ) ;
+    // InternalOcl.g:4801:1: rule__BagLiteralExp__Group__3__Impl : ( ( rule__BagLiteralExp__Group_3__0 )? ) ;
     public final void rule__BagLiteralExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4774:1: ( ( ( rule__BagLiteralExp__Group_3__0 )? ) )
-            // InternalOcl.g:4775:1: ( ( rule__BagLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:4805:1: ( ( ( rule__BagLiteralExp__Group_3__0 )? ) )
+            // InternalOcl.g:4806:1: ( ( rule__BagLiteralExp__Group_3__0 )? )
             {
-            // InternalOcl.g:4775:1: ( ( rule__BagLiteralExp__Group_3__0 )? )
-            // InternalOcl.g:4776:2: ( rule__BagLiteralExp__Group_3__0 )?
+            // InternalOcl.g:4806:1: ( ( rule__BagLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:4807:2: ( rule__BagLiteralExp__Group_3__0 )?
             {
              before(grammarAccess.getBagLiteralExpAccess().getGroup_3()); 
-            // InternalOcl.g:4777:2: ( rule__BagLiteralExp__Group_3__0 )?
+            // InternalOcl.g:4808:2: ( rule__BagLiteralExp__Group_3__0 )?
             int alt35=2;
             int LA35_0 = input.LA(1);
 
-            if ( ((LA35_0>=RULE_ID && LA35_0<=RULE_INT)||LA35_0==22||LA35_0==28||LA35_0==35||(LA35_0>=39 && LA35_0<=41)||(LA35_0>=44 && LA35_0<=50)||LA35_0==52||(LA35_0>=67 && LA35_0<=68)) ) {
+            if ( ((LA35_0>=RULE_ID && LA35_0<=RULE_INT)||LA35_0==22||LA35_0==28||LA35_0==35||(LA35_0>=39 && LA35_0<=41)||(LA35_0>=44 && LA35_0<=50)||LA35_0==52||(LA35_0>=68 && LA35_0<=69)) ) {
                 alt35=1;
             }
             switch (alt35) {
                 case 1 :
-                    // InternalOcl.g:4777:3: rule__BagLiteralExp__Group_3__0
+                    // InternalOcl.g:4808:3: rule__BagLiteralExp__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BagLiteralExp__Group_3__0();
@@ -15040,14 +15142,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__4"
-    // InternalOcl.g:4785:1: rule__BagLiteralExp__Group__4 : rule__BagLiteralExp__Group__4__Impl ;
+    // InternalOcl.g:4816:1: rule__BagLiteralExp__Group__4 : rule__BagLiteralExp__Group__4__Impl ;
     public final void rule__BagLiteralExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4789:1: ( rule__BagLiteralExp__Group__4__Impl )
-            // InternalOcl.g:4790:2: rule__BagLiteralExp__Group__4__Impl
+            // InternalOcl.g:4820:1: ( rule__BagLiteralExp__Group__4__Impl )
+            // InternalOcl.g:4821:2: rule__BagLiteralExp__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BagLiteralExp__Group__4__Impl();
@@ -15073,17 +15175,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group__4__Impl"
-    // InternalOcl.g:4796:1: rule__BagLiteralExp__Group__4__Impl : ( '}' ) ;
+    // InternalOcl.g:4827:1: rule__BagLiteralExp__Group__4__Impl : ( '}' ) ;
     public final void rule__BagLiteralExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4800:1: ( ( '}' ) )
-            // InternalOcl.g:4801:1: ( '}' )
+            // InternalOcl.g:4831:1: ( ( '}' ) )
+            // InternalOcl.g:4832:1: ( '}' )
             {
-            // InternalOcl.g:4801:1: ( '}' )
-            // InternalOcl.g:4802:2: '}'
+            // InternalOcl.g:4832:1: ( '}' )
+            // InternalOcl.g:4833:2: '}'
             {
              before(grammarAccess.getBagLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
             match(input,43,FOLLOW_2); 
@@ -15110,14 +15212,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3__0"
-    // InternalOcl.g:4812:1: rule__BagLiteralExp__Group_3__0 : rule__BagLiteralExp__Group_3__0__Impl rule__BagLiteralExp__Group_3__1 ;
+    // InternalOcl.g:4843:1: rule__BagLiteralExp__Group_3__0 : rule__BagLiteralExp__Group_3__0__Impl rule__BagLiteralExp__Group_3__1 ;
     public final void rule__BagLiteralExp__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4816:1: ( rule__BagLiteralExp__Group_3__0__Impl rule__BagLiteralExp__Group_3__1 )
-            // InternalOcl.g:4817:2: rule__BagLiteralExp__Group_3__0__Impl rule__BagLiteralExp__Group_3__1
+            // InternalOcl.g:4847:1: ( rule__BagLiteralExp__Group_3__0__Impl rule__BagLiteralExp__Group_3__1 )
+            // InternalOcl.g:4848:2: rule__BagLiteralExp__Group_3__0__Impl rule__BagLiteralExp__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__BagLiteralExp__Group_3__0__Impl();
@@ -15148,21 +15250,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3__0__Impl"
-    // InternalOcl.g:4824:1: rule__BagLiteralExp__Group_3__0__Impl : ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) ) ;
+    // InternalOcl.g:4855:1: rule__BagLiteralExp__Group_3__0__Impl : ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) ) ;
     public final void rule__BagLiteralExp__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4828:1: ( ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) ) )
-            // InternalOcl.g:4829:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:4859:1: ( ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) ) )
+            // InternalOcl.g:4860:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) )
             {
-            // InternalOcl.g:4829:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) )
-            // InternalOcl.g:4830:2: ( rule__BagLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:4860:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:4861:2: ( rule__BagLiteralExp__ElementsAssignment_3_0 )
             {
              before(grammarAccess.getBagLiteralExpAccess().getElementsAssignment_3_0()); 
-            // InternalOcl.g:4831:2: ( rule__BagLiteralExp__ElementsAssignment_3_0 )
-            // InternalOcl.g:4831:3: rule__BagLiteralExp__ElementsAssignment_3_0
+            // InternalOcl.g:4862:2: ( rule__BagLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:4862:3: rule__BagLiteralExp__ElementsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__BagLiteralExp__ElementsAssignment_3_0();
@@ -15195,14 +15297,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3__1"
-    // InternalOcl.g:4839:1: rule__BagLiteralExp__Group_3__1 : rule__BagLiteralExp__Group_3__1__Impl ;
+    // InternalOcl.g:4870:1: rule__BagLiteralExp__Group_3__1 : rule__BagLiteralExp__Group_3__1__Impl ;
     public final void rule__BagLiteralExp__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4843:1: ( rule__BagLiteralExp__Group_3__1__Impl )
-            // InternalOcl.g:4844:2: rule__BagLiteralExp__Group_3__1__Impl
+            // InternalOcl.g:4874:1: ( rule__BagLiteralExp__Group_3__1__Impl )
+            // InternalOcl.g:4875:2: rule__BagLiteralExp__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BagLiteralExp__Group_3__1__Impl();
@@ -15228,20 +15330,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3__1__Impl"
-    // InternalOcl.g:4850:1: rule__BagLiteralExp__Group_3__1__Impl : ( ( rule__BagLiteralExp__Group_3_1__0 )* ) ;
+    // InternalOcl.g:4881:1: rule__BagLiteralExp__Group_3__1__Impl : ( ( rule__BagLiteralExp__Group_3_1__0 )* ) ;
     public final void rule__BagLiteralExp__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4854:1: ( ( ( rule__BagLiteralExp__Group_3_1__0 )* ) )
-            // InternalOcl.g:4855:1: ( ( rule__BagLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:4885:1: ( ( ( rule__BagLiteralExp__Group_3_1__0 )* ) )
+            // InternalOcl.g:4886:1: ( ( rule__BagLiteralExp__Group_3_1__0 )* )
             {
-            // InternalOcl.g:4855:1: ( ( rule__BagLiteralExp__Group_3_1__0 )* )
-            // InternalOcl.g:4856:2: ( rule__BagLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:4886:1: ( ( rule__BagLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:4887:2: ( rule__BagLiteralExp__Group_3_1__0 )*
             {
              before(grammarAccess.getBagLiteralExpAccess().getGroup_3_1()); 
-            // InternalOcl.g:4857:2: ( rule__BagLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:4888:2: ( rule__BagLiteralExp__Group_3_1__0 )*
             loop36:
             do {
                 int alt36=2;
@@ -15254,7 +15356,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt36) {
             	case 1 :
-            	    // InternalOcl.g:4857:3: rule__BagLiteralExp__Group_3_1__0
+            	    // InternalOcl.g:4888:3: rule__BagLiteralExp__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__BagLiteralExp__Group_3_1__0();
@@ -15293,14 +15395,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3_1__0"
-    // InternalOcl.g:4866:1: rule__BagLiteralExp__Group_3_1__0 : rule__BagLiteralExp__Group_3_1__0__Impl rule__BagLiteralExp__Group_3_1__1 ;
+    // InternalOcl.g:4897:1: rule__BagLiteralExp__Group_3_1__0 : rule__BagLiteralExp__Group_3_1__0__Impl rule__BagLiteralExp__Group_3_1__1 ;
     public final void rule__BagLiteralExp__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4870:1: ( rule__BagLiteralExp__Group_3_1__0__Impl rule__BagLiteralExp__Group_3_1__1 )
-            // InternalOcl.g:4871:2: rule__BagLiteralExp__Group_3_1__0__Impl rule__BagLiteralExp__Group_3_1__1
+            // InternalOcl.g:4901:1: ( rule__BagLiteralExp__Group_3_1__0__Impl rule__BagLiteralExp__Group_3_1__1 )
+            // InternalOcl.g:4902:2: rule__BagLiteralExp__Group_3_1__0__Impl rule__BagLiteralExp__Group_3_1__1
             {
             pushFollow(FOLLOW_16);
             rule__BagLiteralExp__Group_3_1__0__Impl();
@@ -15331,17 +15433,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3_1__0__Impl"
-    // InternalOcl.g:4878:1: rule__BagLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:4909:1: rule__BagLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__BagLiteralExp__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4882:1: ( ( ',' ) )
-            // InternalOcl.g:4883:1: ( ',' )
+            // InternalOcl.g:4913:1: ( ( ',' ) )
+            // InternalOcl.g:4914:1: ( ',' )
             {
-            // InternalOcl.g:4883:1: ( ',' )
-            // InternalOcl.g:4884:2: ','
+            // InternalOcl.g:4914:1: ( ',' )
+            // InternalOcl.g:4915:2: ','
             {
              before(grammarAccess.getBagLiteralExpAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -15368,14 +15470,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3_1__1"
-    // InternalOcl.g:4893:1: rule__BagLiteralExp__Group_3_1__1 : rule__BagLiteralExp__Group_3_1__1__Impl ;
+    // InternalOcl.g:4924:1: rule__BagLiteralExp__Group_3_1__1 : rule__BagLiteralExp__Group_3_1__1__Impl ;
     public final void rule__BagLiteralExp__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4897:1: ( rule__BagLiteralExp__Group_3_1__1__Impl )
-            // InternalOcl.g:4898:2: rule__BagLiteralExp__Group_3_1__1__Impl
+            // InternalOcl.g:4928:1: ( rule__BagLiteralExp__Group_3_1__1__Impl )
+            // InternalOcl.g:4929:2: rule__BagLiteralExp__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BagLiteralExp__Group_3_1__1__Impl();
@@ -15401,21 +15503,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__Group_3_1__1__Impl"
-    // InternalOcl.g:4904:1: rule__BagLiteralExp__Group_3_1__1__Impl : ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:4935:1: rule__BagLiteralExp__Group_3_1__1__Impl : ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) ) ;
     public final void rule__BagLiteralExp__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4908:1: ( ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) ) )
-            // InternalOcl.g:4909:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:4939:1: ( ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) ) )
+            // InternalOcl.g:4940:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:4909:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) )
-            // InternalOcl.g:4910:2: ( rule__BagLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:4940:1: ( ( rule__BagLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:4941:2: ( rule__BagLiteralExp__ElementsAssignment_3_1_1 )
             {
              before(grammarAccess.getBagLiteralExpAccess().getElementsAssignment_3_1_1()); 
-            // InternalOcl.g:4911:2: ( rule__BagLiteralExp__ElementsAssignment_3_1_1 )
-            // InternalOcl.g:4911:3: rule__BagLiteralExp__ElementsAssignment_3_1_1
+            // InternalOcl.g:4942:2: ( rule__BagLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:4942:3: rule__BagLiteralExp__ElementsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__BagLiteralExp__ElementsAssignment_3_1_1();
@@ -15448,14 +15550,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__0"
-    // InternalOcl.g:4920:1: rule__OrderedSetLiteralExp__Group__0 : rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1 ;
+    // InternalOcl.g:4951:1: rule__OrderedSetLiteralExp__Group__0 : rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1 ;
     public final void rule__OrderedSetLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4924:1: ( rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1 )
-            // InternalOcl.g:4925:2: rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1
+            // InternalOcl.g:4955:1: ( rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1 )
+            // InternalOcl.g:4956:2: rule__OrderedSetLiteralExp__Group__0__Impl rule__OrderedSetLiteralExp__Group__1
             {
             pushFollow(FOLLOW_40);
             rule__OrderedSetLiteralExp__Group__0__Impl();
@@ -15486,21 +15588,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__0__Impl"
-    // InternalOcl.g:4932:1: rule__OrderedSetLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:4963:1: rule__OrderedSetLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__OrderedSetLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4936:1: ( ( () ) )
-            // InternalOcl.g:4937:1: ( () )
+            // InternalOcl.g:4967:1: ( ( () ) )
+            // InternalOcl.g:4968:1: ( () )
             {
-            // InternalOcl.g:4937:1: ( () )
-            // InternalOcl.g:4938:2: ()
+            // InternalOcl.g:4968:1: ( () )
+            // InternalOcl.g:4969:2: ()
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getOrderedSetLiteralExpAction_0()); 
-            // InternalOcl.g:4939:2: ()
-            // InternalOcl.g:4939:3: 
+            // InternalOcl.g:4970:2: ()
+            // InternalOcl.g:4970:3: 
             {
             }
 
@@ -15523,14 +15625,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__1"
-    // InternalOcl.g:4947:1: rule__OrderedSetLiteralExp__Group__1 : rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2 ;
+    // InternalOcl.g:4978:1: rule__OrderedSetLiteralExp__Group__1 : rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2 ;
     public final void rule__OrderedSetLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4951:1: ( rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2 )
-            // InternalOcl.g:4952:2: rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2
+            // InternalOcl.g:4982:1: ( rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2 )
+            // InternalOcl.g:4983:2: rule__OrderedSetLiteralExp__Group__1__Impl rule__OrderedSetLiteralExp__Group__2
             {
             pushFollow(FOLLOW_38);
             rule__OrderedSetLiteralExp__Group__1__Impl();
@@ -15561,17 +15663,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__1__Impl"
-    // InternalOcl.g:4959:1: rule__OrderedSetLiteralExp__Group__1__Impl : ( 'OrderedSet' ) ;
+    // InternalOcl.g:4990:1: rule__OrderedSetLiteralExp__Group__1__Impl : ( 'OrderedSet' ) ;
     public final void rule__OrderedSetLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4963:1: ( ( 'OrderedSet' ) )
-            // InternalOcl.g:4964:1: ( 'OrderedSet' )
+            // InternalOcl.g:4994:1: ( ( 'OrderedSet' ) )
+            // InternalOcl.g:4995:1: ( 'OrderedSet' )
             {
-            // InternalOcl.g:4964:1: ( 'OrderedSet' )
-            // InternalOcl.g:4965:2: 'OrderedSet'
+            // InternalOcl.g:4995:1: ( 'OrderedSet' )
+            // InternalOcl.g:4996:2: 'OrderedSet'
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getOrderedSetKeyword_1()); 
             match(input,44,FOLLOW_2); 
@@ -15598,14 +15700,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__2"
-    // InternalOcl.g:4974:1: rule__OrderedSetLiteralExp__Group__2 : rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3 ;
+    // InternalOcl.g:5005:1: rule__OrderedSetLiteralExp__Group__2 : rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3 ;
     public final void rule__OrderedSetLiteralExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4978:1: ( rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3 )
-            // InternalOcl.g:4979:2: rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3
+            // InternalOcl.g:5009:1: ( rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3 )
+            // InternalOcl.g:5010:2: rule__OrderedSetLiteralExp__Group__2__Impl rule__OrderedSetLiteralExp__Group__3
             {
             pushFollow(FOLLOW_39);
             rule__OrderedSetLiteralExp__Group__2__Impl();
@@ -15636,17 +15738,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__2__Impl"
-    // InternalOcl.g:4986:1: rule__OrderedSetLiteralExp__Group__2__Impl : ( '{' ) ;
+    // InternalOcl.g:5017:1: rule__OrderedSetLiteralExp__Group__2__Impl : ( '{' ) ;
     public final void rule__OrderedSetLiteralExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:4990:1: ( ( '{' ) )
-            // InternalOcl.g:4991:1: ( '{' )
+            // InternalOcl.g:5021:1: ( ( '{' ) )
+            // InternalOcl.g:5022:1: ( '{' )
             {
-            // InternalOcl.g:4991:1: ( '{' )
-            // InternalOcl.g:4992:2: '{'
+            // InternalOcl.g:5022:1: ( '{' )
+            // InternalOcl.g:5023:2: '{'
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,42,FOLLOW_2); 
@@ -15673,14 +15775,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__3"
-    // InternalOcl.g:5001:1: rule__OrderedSetLiteralExp__Group__3 : rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4 ;
+    // InternalOcl.g:5032:1: rule__OrderedSetLiteralExp__Group__3 : rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4 ;
     public final void rule__OrderedSetLiteralExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5005:1: ( rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4 )
-            // InternalOcl.g:5006:2: rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4
+            // InternalOcl.g:5036:1: ( rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4 )
+            // InternalOcl.g:5037:2: rule__OrderedSetLiteralExp__Group__3__Impl rule__OrderedSetLiteralExp__Group__4
             {
             pushFollow(FOLLOW_39);
             rule__OrderedSetLiteralExp__Group__3__Impl();
@@ -15711,29 +15813,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__3__Impl"
-    // InternalOcl.g:5013:1: rule__OrderedSetLiteralExp__Group__3__Impl : ( ( rule__OrderedSetLiteralExp__Group_3__0 )? ) ;
+    // InternalOcl.g:5044:1: rule__OrderedSetLiteralExp__Group__3__Impl : ( ( rule__OrderedSetLiteralExp__Group_3__0 )? ) ;
     public final void rule__OrderedSetLiteralExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5017:1: ( ( ( rule__OrderedSetLiteralExp__Group_3__0 )? ) )
-            // InternalOcl.g:5018:1: ( ( rule__OrderedSetLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5048:1: ( ( ( rule__OrderedSetLiteralExp__Group_3__0 )? ) )
+            // InternalOcl.g:5049:1: ( ( rule__OrderedSetLiteralExp__Group_3__0 )? )
             {
-            // InternalOcl.g:5018:1: ( ( rule__OrderedSetLiteralExp__Group_3__0 )? )
-            // InternalOcl.g:5019:2: ( rule__OrderedSetLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5049:1: ( ( rule__OrderedSetLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5050:2: ( rule__OrderedSetLiteralExp__Group_3__0 )?
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getGroup_3()); 
-            // InternalOcl.g:5020:2: ( rule__OrderedSetLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5051:2: ( rule__OrderedSetLiteralExp__Group_3__0 )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
-            if ( ((LA37_0>=RULE_ID && LA37_0<=RULE_INT)||LA37_0==22||LA37_0==28||LA37_0==35||(LA37_0>=39 && LA37_0<=41)||(LA37_0>=44 && LA37_0<=50)||LA37_0==52||(LA37_0>=67 && LA37_0<=68)) ) {
+            if ( ((LA37_0>=RULE_ID && LA37_0<=RULE_INT)||LA37_0==22||LA37_0==28||LA37_0==35||(LA37_0>=39 && LA37_0<=41)||(LA37_0>=44 && LA37_0<=50)||LA37_0==52||(LA37_0>=68 && LA37_0<=69)) ) {
                 alt37=1;
             }
             switch (alt37) {
                 case 1 :
-                    // InternalOcl.g:5020:3: rule__OrderedSetLiteralExp__Group_3__0
+                    // InternalOcl.g:5051:3: rule__OrderedSetLiteralExp__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__OrderedSetLiteralExp__Group_3__0();
@@ -15769,14 +15871,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__4"
-    // InternalOcl.g:5028:1: rule__OrderedSetLiteralExp__Group__4 : rule__OrderedSetLiteralExp__Group__4__Impl ;
+    // InternalOcl.g:5059:1: rule__OrderedSetLiteralExp__Group__4 : rule__OrderedSetLiteralExp__Group__4__Impl ;
     public final void rule__OrderedSetLiteralExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5032:1: ( rule__OrderedSetLiteralExp__Group__4__Impl )
-            // InternalOcl.g:5033:2: rule__OrderedSetLiteralExp__Group__4__Impl
+            // InternalOcl.g:5063:1: ( rule__OrderedSetLiteralExp__Group__4__Impl )
+            // InternalOcl.g:5064:2: rule__OrderedSetLiteralExp__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OrderedSetLiteralExp__Group__4__Impl();
@@ -15802,17 +15904,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group__4__Impl"
-    // InternalOcl.g:5039:1: rule__OrderedSetLiteralExp__Group__4__Impl : ( '}' ) ;
+    // InternalOcl.g:5070:1: rule__OrderedSetLiteralExp__Group__4__Impl : ( '}' ) ;
     public final void rule__OrderedSetLiteralExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5043:1: ( ( '}' ) )
-            // InternalOcl.g:5044:1: ( '}' )
+            // InternalOcl.g:5074:1: ( ( '}' ) )
+            // InternalOcl.g:5075:1: ( '}' )
             {
-            // InternalOcl.g:5044:1: ( '}' )
-            // InternalOcl.g:5045:2: '}'
+            // InternalOcl.g:5075:1: ( '}' )
+            // InternalOcl.g:5076:2: '}'
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
             match(input,43,FOLLOW_2); 
@@ -15839,14 +15941,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3__0"
-    // InternalOcl.g:5055:1: rule__OrderedSetLiteralExp__Group_3__0 : rule__OrderedSetLiteralExp__Group_3__0__Impl rule__OrderedSetLiteralExp__Group_3__1 ;
+    // InternalOcl.g:5086:1: rule__OrderedSetLiteralExp__Group_3__0 : rule__OrderedSetLiteralExp__Group_3__0__Impl rule__OrderedSetLiteralExp__Group_3__1 ;
     public final void rule__OrderedSetLiteralExp__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5059:1: ( rule__OrderedSetLiteralExp__Group_3__0__Impl rule__OrderedSetLiteralExp__Group_3__1 )
-            // InternalOcl.g:5060:2: rule__OrderedSetLiteralExp__Group_3__0__Impl rule__OrderedSetLiteralExp__Group_3__1
+            // InternalOcl.g:5090:1: ( rule__OrderedSetLiteralExp__Group_3__0__Impl rule__OrderedSetLiteralExp__Group_3__1 )
+            // InternalOcl.g:5091:2: rule__OrderedSetLiteralExp__Group_3__0__Impl rule__OrderedSetLiteralExp__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__OrderedSetLiteralExp__Group_3__0__Impl();
@@ -15877,21 +15979,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3__0__Impl"
-    // InternalOcl.g:5067:1: rule__OrderedSetLiteralExp__Group_3__0__Impl : ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) ) ;
+    // InternalOcl.g:5098:1: rule__OrderedSetLiteralExp__Group_3__0__Impl : ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) ) ;
     public final void rule__OrderedSetLiteralExp__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5071:1: ( ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) ) )
-            // InternalOcl.g:5072:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:5102:1: ( ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) ) )
+            // InternalOcl.g:5103:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) )
             {
-            // InternalOcl.g:5072:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) )
-            // InternalOcl.g:5073:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:5103:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:5104:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 )
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getElementsAssignment_3_0()); 
-            // InternalOcl.g:5074:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 )
-            // InternalOcl.g:5074:3: rule__OrderedSetLiteralExp__ElementsAssignment_3_0
+            // InternalOcl.g:5105:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:5105:3: rule__OrderedSetLiteralExp__ElementsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__OrderedSetLiteralExp__ElementsAssignment_3_0();
@@ -15924,14 +16026,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3__1"
-    // InternalOcl.g:5082:1: rule__OrderedSetLiteralExp__Group_3__1 : rule__OrderedSetLiteralExp__Group_3__1__Impl ;
+    // InternalOcl.g:5113:1: rule__OrderedSetLiteralExp__Group_3__1 : rule__OrderedSetLiteralExp__Group_3__1__Impl ;
     public final void rule__OrderedSetLiteralExp__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5086:1: ( rule__OrderedSetLiteralExp__Group_3__1__Impl )
-            // InternalOcl.g:5087:2: rule__OrderedSetLiteralExp__Group_3__1__Impl
+            // InternalOcl.g:5117:1: ( rule__OrderedSetLiteralExp__Group_3__1__Impl )
+            // InternalOcl.g:5118:2: rule__OrderedSetLiteralExp__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OrderedSetLiteralExp__Group_3__1__Impl();
@@ -15957,20 +16059,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3__1__Impl"
-    // InternalOcl.g:5093:1: rule__OrderedSetLiteralExp__Group_3__1__Impl : ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* ) ;
+    // InternalOcl.g:5124:1: rule__OrderedSetLiteralExp__Group_3__1__Impl : ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* ) ;
     public final void rule__OrderedSetLiteralExp__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5097:1: ( ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* ) )
-            // InternalOcl.g:5098:1: ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5128:1: ( ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* ) )
+            // InternalOcl.g:5129:1: ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* )
             {
-            // InternalOcl.g:5098:1: ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* )
-            // InternalOcl.g:5099:2: ( rule__OrderedSetLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5129:1: ( ( rule__OrderedSetLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5130:2: ( rule__OrderedSetLiteralExp__Group_3_1__0 )*
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getGroup_3_1()); 
-            // InternalOcl.g:5100:2: ( rule__OrderedSetLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5131:2: ( rule__OrderedSetLiteralExp__Group_3_1__0 )*
             loop38:
             do {
                 int alt38=2;
@@ -15983,7 +16085,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt38) {
             	case 1 :
-            	    // InternalOcl.g:5100:3: rule__OrderedSetLiteralExp__Group_3_1__0
+            	    // InternalOcl.g:5131:3: rule__OrderedSetLiteralExp__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__OrderedSetLiteralExp__Group_3_1__0();
@@ -16022,14 +16124,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3_1__0"
-    // InternalOcl.g:5109:1: rule__OrderedSetLiteralExp__Group_3_1__0 : rule__OrderedSetLiteralExp__Group_3_1__0__Impl rule__OrderedSetLiteralExp__Group_3_1__1 ;
+    // InternalOcl.g:5140:1: rule__OrderedSetLiteralExp__Group_3_1__0 : rule__OrderedSetLiteralExp__Group_3_1__0__Impl rule__OrderedSetLiteralExp__Group_3_1__1 ;
     public final void rule__OrderedSetLiteralExp__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5113:1: ( rule__OrderedSetLiteralExp__Group_3_1__0__Impl rule__OrderedSetLiteralExp__Group_3_1__1 )
-            // InternalOcl.g:5114:2: rule__OrderedSetLiteralExp__Group_3_1__0__Impl rule__OrderedSetLiteralExp__Group_3_1__1
+            // InternalOcl.g:5144:1: ( rule__OrderedSetLiteralExp__Group_3_1__0__Impl rule__OrderedSetLiteralExp__Group_3_1__1 )
+            // InternalOcl.g:5145:2: rule__OrderedSetLiteralExp__Group_3_1__0__Impl rule__OrderedSetLiteralExp__Group_3_1__1
             {
             pushFollow(FOLLOW_16);
             rule__OrderedSetLiteralExp__Group_3_1__0__Impl();
@@ -16060,17 +16162,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3_1__0__Impl"
-    // InternalOcl.g:5121:1: rule__OrderedSetLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:5152:1: rule__OrderedSetLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__OrderedSetLiteralExp__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5125:1: ( ( ',' ) )
-            // InternalOcl.g:5126:1: ( ',' )
+            // InternalOcl.g:5156:1: ( ( ',' ) )
+            // InternalOcl.g:5157:1: ( ',' )
             {
-            // InternalOcl.g:5126:1: ( ',' )
-            // InternalOcl.g:5127:2: ','
+            // InternalOcl.g:5157:1: ( ',' )
+            // InternalOcl.g:5158:2: ','
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -16097,14 +16199,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3_1__1"
-    // InternalOcl.g:5136:1: rule__OrderedSetLiteralExp__Group_3_1__1 : rule__OrderedSetLiteralExp__Group_3_1__1__Impl ;
+    // InternalOcl.g:5167:1: rule__OrderedSetLiteralExp__Group_3_1__1 : rule__OrderedSetLiteralExp__Group_3_1__1__Impl ;
     public final void rule__OrderedSetLiteralExp__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5140:1: ( rule__OrderedSetLiteralExp__Group_3_1__1__Impl )
-            // InternalOcl.g:5141:2: rule__OrderedSetLiteralExp__Group_3_1__1__Impl
+            // InternalOcl.g:5171:1: ( rule__OrderedSetLiteralExp__Group_3_1__1__Impl )
+            // InternalOcl.g:5172:2: rule__OrderedSetLiteralExp__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OrderedSetLiteralExp__Group_3_1__1__Impl();
@@ -16130,21 +16232,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__Group_3_1__1__Impl"
-    // InternalOcl.g:5147:1: rule__OrderedSetLiteralExp__Group_3_1__1__Impl : ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:5178:1: rule__OrderedSetLiteralExp__Group_3_1__1__Impl : ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) ) ;
     public final void rule__OrderedSetLiteralExp__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5151:1: ( ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) ) )
-            // InternalOcl.g:5152:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:5182:1: ( ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) ) )
+            // InternalOcl.g:5183:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:5152:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) )
-            // InternalOcl.g:5153:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:5183:1: ( ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:5184:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 )
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getElementsAssignment_3_1_1()); 
-            // InternalOcl.g:5154:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 )
-            // InternalOcl.g:5154:3: rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1
+            // InternalOcl.g:5185:2: ( rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:5185:3: rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1();
@@ -16177,14 +16279,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__0"
-    // InternalOcl.g:5163:1: rule__SequenceLiteralExp__Group__0 : rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1 ;
+    // InternalOcl.g:5194:1: rule__SequenceLiteralExp__Group__0 : rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1 ;
     public final void rule__SequenceLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5167:1: ( rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1 )
-            // InternalOcl.g:5168:2: rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1
+            // InternalOcl.g:5198:1: ( rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1 )
+            // InternalOcl.g:5199:2: rule__SequenceLiteralExp__Group__0__Impl rule__SequenceLiteralExp__Group__1
             {
             pushFollow(FOLLOW_41);
             rule__SequenceLiteralExp__Group__0__Impl();
@@ -16215,21 +16317,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__0__Impl"
-    // InternalOcl.g:5175:1: rule__SequenceLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:5206:1: rule__SequenceLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__SequenceLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5179:1: ( ( () ) )
-            // InternalOcl.g:5180:1: ( () )
+            // InternalOcl.g:5210:1: ( ( () ) )
+            // InternalOcl.g:5211:1: ( () )
             {
-            // InternalOcl.g:5180:1: ( () )
-            // InternalOcl.g:5181:2: ()
+            // InternalOcl.g:5211:1: ( () )
+            // InternalOcl.g:5212:2: ()
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getSequenceLiteralExpAction_0()); 
-            // InternalOcl.g:5182:2: ()
-            // InternalOcl.g:5182:3: 
+            // InternalOcl.g:5213:2: ()
+            // InternalOcl.g:5213:3: 
             {
             }
 
@@ -16252,14 +16354,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__1"
-    // InternalOcl.g:5190:1: rule__SequenceLiteralExp__Group__1 : rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2 ;
+    // InternalOcl.g:5221:1: rule__SequenceLiteralExp__Group__1 : rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2 ;
     public final void rule__SequenceLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5194:1: ( rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2 )
-            // InternalOcl.g:5195:2: rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2
+            // InternalOcl.g:5225:1: ( rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2 )
+            // InternalOcl.g:5226:2: rule__SequenceLiteralExp__Group__1__Impl rule__SequenceLiteralExp__Group__2
             {
             pushFollow(FOLLOW_38);
             rule__SequenceLiteralExp__Group__1__Impl();
@@ -16290,17 +16392,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__1__Impl"
-    // InternalOcl.g:5202:1: rule__SequenceLiteralExp__Group__1__Impl : ( 'Sequence' ) ;
+    // InternalOcl.g:5233:1: rule__SequenceLiteralExp__Group__1__Impl : ( 'Sequence' ) ;
     public final void rule__SequenceLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5206:1: ( ( 'Sequence' ) )
-            // InternalOcl.g:5207:1: ( 'Sequence' )
+            // InternalOcl.g:5237:1: ( ( 'Sequence' ) )
+            // InternalOcl.g:5238:1: ( 'Sequence' )
             {
-            // InternalOcl.g:5207:1: ( 'Sequence' )
-            // InternalOcl.g:5208:2: 'Sequence'
+            // InternalOcl.g:5238:1: ( 'Sequence' )
+            // InternalOcl.g:5239:2: 'Sequence'
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getSequenceKeyword_1()); 
             match(input,45,FOLLOW_2); 
@@ -16327,14 +16429,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__2"
-    // InternalOcl.g:5217:1: rule__SequenceLiteralExp__Group__2 : rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3 ;
+    // InternalOcl.g:5248:1: rule__SequenceLiteralExp__Group__2 : rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3 ;
     public final void rule__SequenceLiteralExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5221:1: ( rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3 )
-            // InternalOcl.g:5222:2: rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3
+            // InternalOcl.g:5252:1: ( rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3 )
+            // InternalOcl.g:5253:2: rule__SequenceLiteralExp__Group__2__Impl rule__SequenceLiteralExp__Group__3
             {
             pushFollow(FOLLOW_39);
             rule__SequenceLiteralExp__Group__2__Impl();
@@ -16365,17 +16467,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__2__Impl"
-    // InternalOcl.g:5229:1: rule__SequenceLiteralExp__Group__2__Impl : ( '{' ) ;
+    // InternalOcl.g:5260:1: rule__SequenceLiteralExp__Group__2__Impl : ( '{' ) ;
     public final void rule__SequenceLiteralExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5233:1: ( ( '{' ) )
-            // InternalOcl.g:5234:1: ( '{' )
+            // InternalOcl.g:5264:1: ( ( '{' ) )
+            // InternalOcl.g:5265:1: ( '{' )
             {
-            // InternalOcl.g:5234:1: ( '{' )
-            // InternalOcl.g:5235:2: '{'
+            // InternalOcl.g:5265:1: ( '{' )
+            // InternalOcl.g:5266:2: '{'
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,42,FOLLOW_2); 
@@ -16402,14 +16504,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__3"
-    // InternalOcl.g:5244:1: rule__SequenceLiteralExp__Group__3 : rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4 ;
+    // InternalOcl.g:5275:1: rule__SequenceLiteralExp__Group__3 : rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4 ;
     public final void rule__SequenceLiteralExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5248:1: ( rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4 )
-            // InternalOcl.g:5249:2: rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4
+            // InternalOcl.g:5279:1: ( rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4 )
+            // InternalOcl.g:5280:2: rule__SequenceLiteralExp__Group__3__Impl rule__SequenceLiteralExp__Group__4
             {
             pushFollow(FOLLOW_39);
             rule__SequenceLiteralExp__Group__3__Impl();
@@ -16440,29 +16542,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__3__Impl"
-    // InternalOcl.g:5256:1: rule__SequenceLiteralExp__Group__3__Impl : ( ( rule__SequenceLiteralExp__Group_3__0 )? ) ;
+    // InternalOcl.g:5287:1: rule__SequenceLiteralExp__Group__3__Impl : ( ( rule__SequenceLiteralExp__Group_3__0 )? ) ;
     public final void rule__SequenceLiteralExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5260:1: ( ( ( rule__SequenceLiteralExp__Group_3__0 )? ) )
-            // InternalOcl.g:5261:1: ( ( rule__SequenceLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5291:1: ( ( ( rule__SequenceLiteralExp__Group_3__0 )? ) )
+            // InternalOcl.g:5292:1: ( ( rule__SequenceLiteralExp__Group_3__0 )? )
             {
-            // InternalOcl.g:5261:1: ( ( rule__SequenceLiteralExp__Group_3__0 )? )
-            // InternalOcl.g:5262:2: ( rule__SequenceLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5292:1: ( ( rule__SequenceLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5293:2: ( rule__SequenceLiteralExp__Group_3__0 )?
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getGroup_3()); 
-            // InternalOcl.g:5263:2: ( rule__SequenceLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5294:2: ( rule__SequenceLiteralExp__Group_3__0 )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
-            if ( ((LA39_0>=RULE_ID && LA39_0<=RULE_INT)||LA39_0==22||LA39_0==28||LA39_0==35||(LA39_0>=39 && LA39_0<=41)||(LA39_0>=44 && LA39_0<=50)||LA39_0==52||(LA39_0>=67 && LA39_0<=68)) ) {
+            if ( ((LA39_0>=RULE_ID && LA39_0<=RULE_INT)||LA39_0==22||LA39_0==28||LA39_0==35||(LA39_0>=39 && LA39_0<=41)||(LA39_0>=44 && LA39_0<=50)||LA39_0==52||(LA39_0>=68 && LA39_0<=69)) ) {
                 alt39=1;
             }
             switch (alt39) {
                 case 1 :
-                    // InternalOcl.g:5263:3: rule__SequenceLiteralExp__Group_3__0
+                    // InternalOcl.g:5294:3: rule__SequenceLiteralExp__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__SequenceLiteralExp__Group_3__0();
@@ -16498,14 +16600,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__4"
-    // InternalOcl.g:5271:1: rule__SequenceLiteralExp__Group__4 : rule__SequenceLiteralExp__Group__4__Impl ;
+    // InternalOcl.g:5302:1: rule__SequenceLiteralExp__Group__4 : rule__SequenceLiteralExp__Group__4__Impl ;
     public final void rule__SequenceLiteralExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5275:1: ( rule__SequenceLiteralExp__Group__4__Impl )
-            // InternalOcl.g:5276:2: rule__SequenceLiteralExp__Group__4__Impl
+            // InternalOcl.g:5306:1: ( rule__SequenceLiteralExp__Group__4__Impl )
+            // InternalOcl.g:5307:2: rule__SequenceLiteralExp__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SequenceLiteralExp__Group__4__Impl();
@@ -16531,17 +16633,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group__4__Impl"
-    // InternalOcl.g:5282:1: rule__SequenceLiteralExp__Group__4__Impl : ( '}' ) ;
+    // InternalOcl.g:5313:1: rule__SequenceLiteralExp__Group__4__Impl : ( '}' ) ;
     public final void rule__SequenceLiteralExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5286:1: ( ( '}' ) )
-            // InternalOcl.g:5287:1: ( '}' )
+            // InternalOcl.g:5317:1: ( ( '}' ) )
+            // InternalOcl.g:5318:1: ( '}' )
             {
-            // InternalOcl.g:5287:1: ( '}' )
-            // InternalOcl.g:5288:2: '}'
+            // InternalOcl.g:5318:1: ( '}' )
+            // InternalOcl.g:5319:2: '}'
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
             match(input,43,FOLLOW_2); 
@@ -16568,14 +16670,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3__0"
-    // InternalOcl.g:5298:1: rule__SequenceLiteralExp__Group_3__0 : rule__SequenceLiteralExp__Group_3__0__Impl rule__SequenceLiteralExp__Group_3__1 ;
+    // InternalOcl.g:5329:1: rule__SequenceLiteralExp__Group_3__0 : rule__SequenceLiteralExp__Group_3__0__Impl rule__SequenceLiteralExp__Group_3__1 ;
     public final void rule__SequenceLiteralExp__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5302:1: ( rule__SequenceLiteralExp__Group_3__0__Impl rule__SequenceLiteralExp__Group_3__1 )
-            // InternalOcl.g:5303:2: rule__SequenceLiteralExp__Group_3__0__Impl rule__SequenceLiteralExp__Group_3__1
+            // InternalOcl.g:5333:1: ( rule__SequenceLiteralExp__Group_3__0__Impl rule__SequenceLiteralExp__Group_3__1 )
+            // InternalOcl.g:5334:2: rule__SequenceLiteralExp__Group_3__0__Impl rule__SequenceLiteralExp__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__SequenceLiteralExp__Group_3__0__Impl();
@@ -16606,21 +16708,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3__0__Impl"
-    // InternalOcl.g:5310:1: rule__SequenceLiteralExp__Group_3__0__Impl : ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) ) ;
+    // InternalOcl.g:5341:1: rule__SequenceLiteralExp__Group_3__0__Impl : ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) ) ;
     public final void rule__SequenceLiteralExp__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5314:1: ( ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) ) )
-            // InternalOcl.g:5315:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:5345:1: ( ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) ) )
+            // InternalOcl.g:5346:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) )
             {
-            // InternalOcl.g:5315:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) )
-            // InternalOcl.g:5316:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:5346:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:5347:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_0 )
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getElementsAssignment_3_0()); 
-            // InternalOcl.g:5317:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_0 )
-            // InternalOcl.g:5317:3: rule__SequenceLiteralExp__ElementsAssignment_3_0
+            // InternalOcl.g:5348:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:5348:3: rule__SequenceLiteralExp__ElementsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__SequenceLiteralExp__ElementsAssignment_3_0();
@@ -16653,14 +16755,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3__1"
-    // InternalOcl.g:5325:1: rule__SequenceLiteralExp__Group_3__1 : rule__SequenceLiteralExp__Group_3__1__Impl ;
+    // InternalOcl.g:5356:1: rule__SequenceLiteralExp__Group_3__1 : rule__SequenceLiteralExp__Group_3__1__Impl ;
     public final void rule__SequenceLiteralExp__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5329:1: ( rule__SequenceLiteralExp__Group_3__1__Impl )
-            // InternalOcl.g:5330:2: rule__SequenceLiteralExp__Group_3__1__Impl
+            // InternalOcl.g:5360:1: ( rule__SequenceLiteralExp__Group_3__1__Impl )
+            // InternalOcl.g:5361:2: rule__SequenceLiteralExp__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SequenceLiteralExp__Group_3__1__Impl();
@@ -16686,20 +16788,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3__1__Impl"
-    // InternalOcl.g:5336:1: rule__SequenceLiteralExp__Group_3__1__Impl : ( ( rule__SequenceLiteralExp__Group_3_1__0 )* ) ;
+    // InternalOcl.g:5367:1: rule__SequenceLiteralExp__Group_3__1__Impl : ( ( rule__SequenceLiteralExp__Group_3_1__0 )* ) ;
     public final void rule__SequenceLiteralExp__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5340:1: ( ( ( rule__SequenceLiteralExp__Group_3_1__0 )* ) )
-            // InternalOcl.g:5341:1: ( ( rule__SequenceLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5371:1: ( ( ( rule__SequenceLiteralExp__Group_3_1__0 )* ) )
+            // InternalOcl.g:5372:1: ( ( rule__SequenceLiteralExp__Group_3_1__0 )* )
             {
-            // InternalOcl.g:5341:1: ( ( rule__SequenceLiteralExp__Group_3_1__0 )* )
-            // InternalOcl.g:5342:2: ( rule__SequenceLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5372:1: ( ( rule__SequenceLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5373:2: ( rule__SequenceLiteralExp__Group_3_1__0 )*
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getGroup_3_1()); 
-            // InternalOcl.g:5343:2: ( rule__SequenceLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5374:2: ( rule__SequenceLiteralExp__Group_3_1__0 )*
             loop40:
             do {
                 int alt40=2;
@@ -16712,7 +16814,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt40) {
             	case 1 :
-            	    // InternalOcl.g:5343:3: rule__SequenceLiteralExp__Group_3_1__0
+            	    // InternalOcl.g:5374:3: rule__SequenceLiteralExp__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__SequenceLiteralExp__Group_3_1__0();
@@ -16751,14 +16853,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3_1__0"
-    // InternalOcl.g:5352:1: rule__SequenceLiteralExp__Group_3_1__0 : rule__SequenceLiteralExp__Group_3_1__0__Impl rule__SequenceLiteralExp__Group_3_1__1 ;
+    // InternalOcl.g:5383:1: rule__SequenceLiteralExp__Group_3_1__0 : rule__SequenceLiteralExp__Group_3_1__0__Impl rule__SequenceLiteralExp__Group_3_1__1 ;
     public final void rule__SequenceLiteralExp__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5356:1: ( rule__SequenceLiteralExp__Group_3_1__0__Impl rule__SequenceLiteralExp__Group_3_1__1 )
-            // InternalOcl.g:5357:2: rule__SequenceLiteralExp__Group_3_1__0__Impl rule__SequenceLiteralExp__Group_3_1__1
+            // InternalOcl.g:5387:1: ( rule__SequenceLiteralExp__Group_3_1__0__Impl rule__SequenceLiteralExp__Group_3_1__1 )
+            // InternalOcl.g:5388:2: rule__SequenceLiteralExp__Group_3_1__0__Impl rule__SequenceLiteralExp__Group_3_1__1
             {
             pushFollow(FOLLOW_16);
             rule__SequenceLiteralExp__Group_3_1__0__Impl();
@@ -16789,17 +16891,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3_1__0__Impl"
-    // InternalOcl.g:5364:1: rule__SequenceLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:5395:1: rule__SequenceLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__SequenceLiteralExp__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5368:1: ( ( ',' ) )
-            // InternalOcl.g:5369:1: ( ',' )
+            // InternalOcl.g:5399:1: ( ( ',' ) )
+            // InternalOcl.g:5400:1: ( ',' )
             {
-            // InternalOcl.g:5369:1: ( ',' )
-            // InternalOcl.g:5370:2: ','
+            // InternalOcl.g:5400:1: ( ',' )
+            // InternalOcl.g:5401:2: ','
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -16826,14 +16928,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3_1__1"
-    // InternalOcl.g:5379:1: rule__SequenceLiteralExp__Group_3_1__1 : rule__SequenceLiteralExp__Group_3_1__1__Impl ;
+    // InternalOcl.g:5410:1: rule__SequenceLiteralExp__Group_3_1__1 : rule__SequenceLiteralExp__Group_3_1__1__Impl ;
     public final void rule__SequenceLiteralExp__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5383:1: ( rule__SequenceLiteralExp__Group_3_1__1__Impl )
-            // InternalOcl.g:5384:2: rule__SequenceLiteralExp__Group_3_1__1__Impl
+            // InternalOcl.g:5414:1: ( rule__SequenceLiteralExp__Group_3_1__1__Impl )
+            // InternalOcl.g:5415:2: rule__SequenceLiteralExp__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SequenceLiteralExp__Group_3_1__1__Impl();
@@ -16859,21 +16961,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__Group_3_1__1__Impl"
-    // InternalOcl.g:5390:1: rule__SequenceLiteralExp__Group_3_1__1__Impl : ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:5421:1: rule__SequenceLiteralExp__Group_3_1__1__Impl : ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) ) ;
     public final void rule__SequenceLiteralExp__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5394:1: ( ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) ) )
-            // InternalOcl.g:5395:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:5425:1: ( ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) ) )
+            // InternalOcl.g:5426:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:5395:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) )
-            // InternalOcl.g:5396:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:5426:1: ( ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:5427:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 )
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getElementsAssignment_3_1_1()); 
-            // InternalOcl.g:5397:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 )
-            // InternalOcl.g:5397:3: rule__SequenceLiteralExp__ElementsAssignment_3_1_1
+            // InternalOcl.g:5428:2: ( rule__SequenceLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:5428:3: rule__SequenceLiteralExp__ElementsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__SequenceLiteralExp__ElementsAssignment_3_1_1();
@@ -16906,14 +17008,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__0"
-    // InternalOcl.g:5406:1: rule__SetLiteralExp__Group__0 : rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1 ;
+    // InternalOcl.g:5437:1: rule__SetLiteralExp__Group__0 : rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1 ;
     public final void rule__SetLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5410:1: ( rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1 )
-            // InternalOcl.g:5411:2: rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1
+            // InternalOcl.g:5441:1: ( rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1 )
+            // InternalOcl.g:5442:2: rule__SetLiteralExp__Group__0__Impl rule__SetLiteralExp__Group__1
             {
             pushFollow(FOLLOW_42);
             rule__SetLiteralExp__Group__0__Impl();
@@ -16944,21 +17046,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__0__Impl"
-    // InternalOcl.g:5418:1: rule__SetLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:5449:1: rule__SetLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__SetLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5422:1: ( ( () ) )
-            // InternalOcl.g:5423:1: ( () )
+            // InternalOcl.g:5453:1: ( ( () ) )
+            // InternalOcl.g:5454:1: ( () )
             {
-            // InternalOcl.g:5423:1: ( () )
-            // InternalOcl.g:5424:2: ()
+            // InternalOcl.g:5454:1: ( () )
+            // InternalOcl.g:5455:2: ()
             {
              before(grammarAccess.getSetLiteralExpAccess().getSetLiteralExpAction_0()); 
-            // InternalOcl.g:5425:2: ()
-            // InternalOcl.g:5425:3: 
+            // InternalOcl.g:5456:2: ()
+            // InternalOcl.g:5456:3: 
             {
             }
 
@@ -16981,14 +17083,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__1"
-    // InternalOcl.g:5433:1: rule__SetLiteralExp__Group__1 : rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2 ;
+    // InternalOcl.g:5464:1: rule__SetLiteralExp__Group__1 : rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2 ;
     public final void rule__SetLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5437:1: ( rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2 )
-            // InternalOcl.g:5438:2: rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2
+            // InternalOcl.g:5468:1: ( rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2 )
+            // InternalOcl.g:5469:2: rule__SetLiteralExp__Group__1__Impl rule__SetLiteralExp__Group__2
             {
             pushFollow(FOLLOW_38);
             rule__SetLiteralExp__Group__1__Impl();
@@ -17019,17 +17121,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__1__Impl"
-    // InternalOcl.g:5445:1: rule__SetLiteralExp__Group__1__Impl : ( 'Set' ) ;
+    // InternalOcl.g:5476:1: rule__SetLiteralExp__Group__1__Impl : ( 'Set' ) ;
     public final void rule__SetLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5449:1: ( ( 'Set' ) )
-            // InternalOcl.g:5450:1: ( 'Set' )
+            // InternalOcl.g:5480:1: ( ( 'Set' ) )
+            // InternalOcl.g:5481:1: ( 'Set' )
             {
-            // InternalOcl.g:5450:1: ( 'Set' )
-            // InternalOcl.g:5451:2: 'Set'
+            // InternalOcl.g:5481:1: ( 'Set' )
+            // InternalOcl.g:5482:2: 'Set'
             {
              before(grammarAccess.getSetLiteralExpAccess().getSetKeyword_1()); 
             match(input,46,FOLLOW_2); 
@@ -17056,14 +17158,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__2"
-    // InternalOcl.g:5460:1: rule__SetLiteralExp__Group__2 : rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3 ;
+    // InternalOcl.g:5491:1: rule__SetLiteralExp__Group__2 : rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3 ;
     public final void rule__SetLiteralExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5464:1: ( rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3 )
-            // InternalOcl.g:5465:2: rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3
+            // InternalOcl.g:5495:1: ( rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3 )
+            // InternalOcl.g:5496:2: rule__SetLiteralExp__Group__2__Impl rule__SetLiteralExp__Group__3
             {
             pushFollow(FOLLOW_39);
             rule__SetLiteralExp__Group__2__Impl();
@@ -17094,17 +17196,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__2__Impl"
-    // InternalOcl.g:5472:1: rule__SetLiteralExp__Group__2__Impl : ( '{' ) ;
+    // InternalOcl.g:5503:1: rule__SetLiteralExp__Group__2__Impl : ( '{' ) ;
     public final void rule__SetLiteralExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5476:1: ( ( '{' ) )
-            // InternalOcl.g:5477:1: ( '{' )
+            // InternalOcl.g:5507:1: ( ( '{' ) )
+            // InternalOcl.g:5508:1: ( '{' )
             {
-            // InternalOcl.g:5477:1: ( '{' )
-            // InternalOcl.g:5478:2: '{'
+            // InternalOcl.g:5508:1: ( '{' )
+            // InternalOcl.g:5509:2: '{'
             {
              before(grammarAccess.getSetLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,42,FOLLOW_2); 
@@ -17131,14 +17233,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__3"
-    // InternalOcl.g:5487:1: rule__SetLiteralExp__Group__3 : rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4 ;
+    // InternalOcl.g:5518:1: rule__SetLiteralExp__Group__3 : rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4 ;
     public final void rule__SetLiteralExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5491:1: ( rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4 )
-            // InternalOcl.g:5492:2: rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4
+            // InternalOcl.g:5522:1: ( rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4 )
+            // InternalOcl.g:5523:2: rule__SetLiteralExp__Group__3__Impl rule__SetLiteralExp__Group__4
             {
             pushFollow(FOLLOW_39);
             rule__SetLiteralExp__Group__3__Impl();
@@ -17169,29 +17271,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__3__Impl"
-    // InternalOcl.g:5499:1: rule__SetLiteralExp__Group__3__Impl : ( ( rule__SetLiteralExp__Group_3__0 )? ) ;
+    // InternalOcl.g:5530:1: rule__SetLiteralExp__Group__3__Impl : ( ( rule__SetLiteralExp__Group_3__0 )? ) ;
     public final void rule__SetLiteralExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5503:1: ( ( ( rule__SetLiteralExp__Group_3__0 )? ) )
-            // InternalOcl.g:5504:1: ( ( rule__SetLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5534:1: ( ( ( rule__SetLiteralExp__Group_3__0 )? ) )
+            // InternalOcl.g:5535:1: ( ( rule__SetLiteralExp__Group_3__0 )? )
             {
-            // InternalOcl.g:5504:1: ( ( rule__SetLiteralExp__Group_3__0 )? )
-            // InternalOcl.g:5505:2: ( rule__SetLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5535:1: ( ( rule__SetLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5536:2: ( rule__SetLiteralExp__Group_3__0 )?
             {
              before(grammarAccess.getSetLiteralExpAccess().getGroup_3()); 
-            // InternalOcl.g:5506:2: ( rule__SetLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5537:2: ( rule__SetLiteralExp__Group_3__0 )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
-            if ( ((LA41_0>=RULE_ID && LA41_0<=RULE_INT)||LA41_0==22||LA41_0==28||LA41_0==35||(LA41_0>=39 && LA41_0<=41)||(LA41_0>=44 && LA41_0<=50)||LA41_0==52||(LA41_0>=67 && LA41_0<=68)) ) {
+            if ( ((LA41_0>=RULE_ID && LA41_0<=RULE_INT)||LA41_0==22||LA41_0==28||LA41_0==35||(LA41_0>=39 && LA41_0<=41)||(LA41_0>=44 && LA41_0<=50)||LA41_0==52||(LA41_0>=68 && LA41_0<=69)) ) {
                 alt41=1;
             }
             switch (alt41) {
                 case 1 :
-                    // InternalOcl.g:5506:3: rule__SetLiteralExp__Group_3__0
+                    // InternalOcl.g:5537:3: rule__SetLiteralExp__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__SetLiteralExp__Group_3__0();
@@ -17227,14 +17329,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__4"
-    // InternalOcl.g:5514:1: rule__SetLiteralExp__Group__4 : rule__SetLiteralExp__Group__4__Impl ;
+    // InternalOcl.g:5545:1: rule__SetLiteralExp__Group__4 : rule__SetLiteralExp__Group__4__Impl ;
     public final void rule__SetLiteralExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5518:1: ( rule__SetLiteralExp__Group__4__Impl )
-            // InternalOcl.g:5519:2: rule__SetLiteralExp__Group__4__Impl
+            // InternalOcl.g:5549:1: ( rule__SetLiteralExp__Group__4__Impl )
+            // InternalOcl.g:5550:2: rule__SetLiteralExp__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SetLiteralExp__Group__4__Impl();
@@ -17260,17 +17362,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group__4__Impl"
-    // InternalOcl.g:5525:1: rule__SetLiteralExp__Group__4__Impl : ( '}' ) ;
+    // InternalOcl.g:5556:1: rule__SetLiteralExp__Group__4__Impl : ( '}' ) ;
     public final void rule__SetLiteralExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5529:1: ( ( '}' ) )
-            // InternalOcl.g:5530:1: ( '}' )
+            // InternalOcl.g:5560:1: ( ( '}' ) )
+            // InternalOcl.g:5561:1: ( '}' )
             {
-            // InternalOcl.g:5530:1: ( '}' )
-            // InternalOcl.g:5531:2: '}'
+            // InternalOcl.g:5561:1: ( '}' )
+            // InternalOcl.g:5562:2: '}'
             {
              before(grammarAccess.getSetLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
             match(input,43,FOLLOW_2); 
@@ -17297,14 +17399,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3__0"
-    // InternalOcl.g:5541:1: rule__SetLiteralExp__Group_3__0 : rule__SetLiteralExp__Group_3__0__Impl rule__SetLiteralExp__Group_3__1 ;
+    // InternalOcl.g:5572:1: rule__SetLiteralExp__Group_3__0 : rule__SetLiteralExp__Group_3__0__Impl rule__SetLiteralExp__Group_3__1 ;
     public final void rule__SetLiteralExp__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5545:1: ( rule__SetLiteralExp__Group_3__0__Impl rule__SetLiteralExp__Group_3__1 )
-            // InternalOcl.g:5546:2: rule__SetLiteralExp__Group_3__0__Impl rule__SetLiteralExp__Group_3__1
+            // InternalOcl.g:5576:1: ( rule__SetLiteralExp__Group_3__0__Impl rule__SetLiteralExp__Group_3__1 )
+            // InternalOcl.g:5577:2: rule__SetLiteralExp__Group_3__0__Impl rule__SetLiteralExp__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__SetLiteralExp__Group_3__0__Impl();
@@ -17335,21 +17437,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3__0__Impl"
-    // InternalOcl.g:5553:1: rule__SetLiteralExp__Group_3__0__Impl : ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) ) ;
+    // InternalOcl.g:5584:1: rule__SetLiteralExp__Group_3__0__Impl : ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) ) ;
     public final void rule__SetLiteralExp__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5557:1: ( ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) ) )
-            // InternalOcl.g:5558:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:5588:1: ( ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) ) )
+            // InternalOcl.g:5589:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) )
             {
-            // InternalOcl.g:5558:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) )
-            // InternalOcl.g:5559:2: ( rule__SetLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:5589:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:5590:2: ( rule__SetLiteralExp__ElementsAssignment_3_0 )
             {
              before(grammarAccess.getSetLiteralExpAccess().getElementsAssignment_3_0()); 
-            // InternalOcl.g:5560:2: ( rule__SetLiteralExp__ElementsAssignment_3_0 )
-            // InternalOcl.g:5560:3: rule__SetLiteralExp__ElementsAssignment_3_0
+            // InternalOcl.g:5591:2: ( rule__SetLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:5591:3: rule__SetLiteralExp__ElementsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__SetLiteralExp__ElementsAssignment_3_0();
@@ -17382,14 +17484,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3__1"
-    // InternalOcl.g:5568:1: rule__SetLiteralExp__Group_3__1 : rule__SetLiteralExp__Group_3__1__Impl ;
+    // InternalOcl.g:5599:1: rule__SetLiteralExp__Group_3__1 : rule__SetLiteralExp__Group_3__1__Impl ;
     public final void rule__SetLiteralExp__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5572:1: ( rule__SetLiteralExp__Group_3__1__Impl )
-            // InternalOcl.g:5573:2: rule__SetLiteralExp__Group_3__1__Impl
+            // InternalOcl.g:5603:1: ( rule__SetLiteralExp__Group_3__1__Impl )
+            // InternalOcl.g:5604:2: rule__SetLiteralExp__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SetLiteralExp__Group_3__1__Impl();
@@ -17415,20 +17517,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3__1__Impl"
-    // InternalOcl.g:5579:1: rule__SetLiteralExp__Group_3__1__Impl : ( ( rule__SetLiteralExp__Group_3_1__0 )* ) ;
+    // InternalOcl.g:5610:1: rule__SetLiteralExp__Group_3__1__Impl : ( ( rule__SetLiteralExp__Group_3_1__0 )* ) ;
     public final void rule__SetLiteralExp__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5583:1: ( ( ( rule__SetLiteralExp__Group_3_1__0 )* ) )
-            // InternalOcl.g:5584:1: ( ( rule__SetLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5614:1: ( ( ( rule__SetLiteralExp__Group_3_1__0 )* ) )
+            // InternalOcl.g:5615:1: ( ( rule__SetLiteralExp__Group_3_1__0 )* )
             {
-            // InternalOcl.g:5584:1: ( ( rule__SetLiteralExp__Group_3_1__0 )* )
-            // InternalOcl.g:5585:2: ( rule__SetLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5615:1: ( ( rule__SetLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5616:2: ( rule__SetLiteralExp__Group_3_1__0 )*
             {
              before(grammarAccess.getSetLiteralExpAccess().getGroup_3_1()); 
-            // InternalOcl.g:5586:2: ( rule__SetLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5617:2: ( rule__SetLiteralExp__Group_3_1__0 )*
             loop42:
             do {
                 int alt42=2;
@@ -17441,7 +17543,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt42) {
             	case 1 :
-            	    // InternalOcl.g:5586:3: rule__SetLiteralExp__Group_3_1__0
+            	    // InternalOcl.g:5617:3: rule__SetLiteralExp__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__SetLiteralExp__Group_3_1__0();
@@ -17480,14 +17582,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3_1__0"
-    // InternalOcl.g:5595:1: rule__SetLiteralExp__Group_3_1__0 : rule__SetLiteralExp__Group_3_1__0__Impl rule__SetLiteralExp__Group_3_1__1 ;
+    // InternalOcl.g:5626:1: rule__SetLiteralExp__Group_3_1__0 : rule__SetLiteralExp__Group_3_1__0__Impl rule__SetLiteralExp__Group_3_1__1 ;
     public final void rule__SetLiteralExp__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5599:1: ( rule__SetLiteralExp__Group_3_1__0__Impl rule__SetLiteralExp__Group_3_1__1 )
-            // InternalOcl.g:5600:2: rule__SetLiteralExp__Group_3_1__0__Impl rule__SetLiteralExp__Group_3_1__1
+            // InternalOcl.g:5630:1: ( rule__SetLiteralExp__Group_3_1__0__Impl rule__SetLiteralExp__Group_3_1__1 )
+            // InternalOcl.g:5631:2: rule__SetLiteralExp__Group_3_1__0__Impl rule__SetLiteralExp__Group_3_1__1
             {
             pushFollow(FOLLOW_16);
             rule__SetLiteralExp__Group_3_1__0__Impl();
@@ -17518,17 +17620,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3_1__0__Impl"
-    // InternalOcl.g:5607:1: rule__SetLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:5638:1: rule__SetLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__SetLiteralExp__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5611:1: ( ( ',' ) )
-            // InternalOcl.g:5612:1: ( ',' )
+            // InternalOcl.g:5642:1: ( ( ',' ) )
+            // InternalOcl.g:5643:1: ( ',' )
             {
-            // InternalOcl.g:5612:1: ( ',' )
-            // InternalOcl.g:5613:2: ','
+            // InternalOcl.g:5643:1: ( ',' )
+            // InternalOcl.g:5644:2: ','
             {
              before(grammarAccess.getSetLiteralExpAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -17555,14 +17657,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3_1__1"
-    // InternalOcl.g:5622:1: rule__SetLiteralExp__Group_3_1__1 : rule__SetLiteralExp__Group_3_1__1__Impl ;
+    // InternalOcl.g:5653:1: rule__SetLiteralExp__Group_3_1__1 : rule__SetLiteralExp__Group_3_1__1__Impl ;
     public final void rule__SetLiteralExp__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5626:1: ( rule__SetLiteralExp__Group_3_1__1__Impl )
-            // InternalOcl.g:5627:2: rule__SetLiteralExp__Group_3_1__1__Impl
+            // InternalOcl.g:5657:1: ( rule__SetLiteralExp__Group_3_1__1__Impl )
+            // InternalOcl.g:5658:2: rule__SetLiteralExp__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SetLiteralExp__Group_3_1__1__Impl();
@@ -17588,21 +17690,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__Group_3_1__1__Impl"
-    // InternalOcl.g:5633:1: rule__SetLiteralExp__Group_3_1__1__Impl : ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:5664:1: rule__SetLiteralExp__Group_3_1__1__Impl : ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) ) ;
     public final void rule__SetLiteralExp__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5637:1: ( ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) ) )
-            // InternalOcl.g:5638:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:5668:1: ( ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) ) )
+            // InternalOcl.g:5669:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:5638:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) )
-            // InternalOcl.g:5639:2: ( rule__SetLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:5669:1: ( ( rule__SetLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:5670:2: ( rule__SetLiteralExp__ElementsAssignment_3_1_1 )
             {
              before(grammarAccess.getSetLiteralExpAccess().getElementsAssignment_3_1_1()); 
-            // InternalOcl.g:5640:2: ( rule__SetLiteralExp__ElementsAssignment_3_1_1 )
-            // InternalOcl.g:5640:3: rule__SetLiteralExp__ElementsAssignment_3_1_1
+            // InternalOcl.g:5671:2: ( rule__SetLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:5671:3: rule__SetLiteralExp__ElementsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__SetLiteralExp__ElementsAssignment_3_1_1();
@@ -17635,14 +17737,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__0"
-    // InternalOcl.g:5649:1: rule__TupleLiteralExp__Group__0 : rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1 ;
+    // InternalOcl.g:5680:1: rule__TupleLiteralExp__Group__0 : rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1 ;
     public final void rule__TupleLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5653:1: ( rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1 )
-            // InternalOcl.g:5654:2: rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1
+            // InternalOcl.g:5684:1: ( rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1 )
+            // InternalOcl.g:5685:2: rule__TupleLiteralExp__Group__0__Impl rule__TupleLiteralExp__Group__1
             {
             pushFollow(FOLLOW_43);
             rule__TupleLiteralExp__Group__0__Impl();
@@ -17673,21 +17775,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__0__Impl"
-    // InternalOcl.g:5661:1: rule__TupleLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:5692:1: rule__TupleLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__TupleLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5665:1: ( ( () ) )
-            // InternalOcl.g:5666:1: ( () )
+            // InternalOcl.g:5696:1: ( ( () ) )
+            // InternalOcl.g:5697:1: ( () )
             {
-            // InternalOcl.g:5666:1: ( () )
-            // InternalOcl.g:5667:2: ()
+            // InternalOcl.g:5697:1: ( () )
+            // InternalOcl.g:5698:2: ()
             {
              before(grammarAccess.getTupleLiteralExpAccess().getTupleLiteralExpAction_0()); 
-            // InternalOcl.g:5668:2: ()
-            // InternalOcl.g:5668:3: 
+            // InternalOcl.g:5699:2: ()
+            // InternalOcl.g:5699:3: 
             {
             }
 
@@ -17710,14 +17812,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__1"
-    // InternalOcl.g:5676:1: rule__TupleLiteralExp__Group__1 : rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2 ;
+    // InternalOcl.g:5707:1: rule__TupleLiteralExp__Group__1 : rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2 ;
     public final void rule__TupleLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5680:1: ( rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2 )
-            // InternalOcl.g:5681:2: rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2
+            // InternalOcl.g:5711:1: ( rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2 )
+            // InternalOcl.g:5712:2: rule__TupleLiteralExp__Group__1__Impl rule__TupleLiteralExp__Group__2
             {
             pushFollow(FOLLOW_38);
             rule__TupleLiteralExp__Group__1__Impl();
@@ -17748,17 +17850,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__1__Impl"
-    // InternalOcl.g:5688:1: rule__TupleLiteralExp__Group__1__Impl : ( 'Tuple' ) ;
+    // InternalOcl.g:5719:1: rule__TupleLiteralExp__Group__1__Impl : ( 'Tuple' ) ;
     public final void rule__TupleLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5692:1: ( ( 'Tuple' ) )
-            // InternalOcl.g:5693:1: ( 'Tuple' )
+            // InternalOcl.g:5723:1: ( ( 'Tuple' ) )
+            // InternalOcl.g:5724:1: ( 'Tuple' )
             {
-            // InternalOcl.g:5693:1: ( 'Tuple' )
-            // InternalOcl.g:5694:2: 'Tuple'
+            // InternalOcl.g:5724:1: ( 'Tuple' )
+            // InternalOcl.g:5725:2: 'Tuple'
             {
              before(grammarAccess.getTupleLiteralExpAccess().getTupleKeyword_1()); 
             match(input,47,FOLLOW_2); 
@@ -17785,14 +17887,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__2"
-    // InternalOcl.g:5703:1: rule__TupleLiteralExp__Group__2 : rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3 ;
+    // InternalOcl.g:5734:1: rule__TupleLiteralExp__Group__2 : rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3 ;
     public final void rule__TupleLiteralExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5707:1: ( rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3 )
-            // InternalOcl.g:5708:2: rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3
+            // InternalOcl.g:5738:1: ( rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3 )
+            // InternalOcl.g:5739:2: rule__TupleLiteralExp__Group__2__Impl rule__TupleLiteralExp__Group__3
             {
             pushFollow(FOLLOW_44);
             rule__TupleLiteralExp__Group__2__Impl();
@@ -17823,17 +17925,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__2__Impl"
-    // InternalOcl.g:5715:1: rule__TupleLiteralExp__Group__2__Impl : ( '{' ) ;
+    // InternalOcl.g:5746:1: rule__TupleLiteralExp__Group__2__Impl : ( '{' ) ;
     public final void rule__TupleLiteralExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5719:1: ( ( '{' ) )
-            // InternalOcl.g:5720:1: ( '{' )
+            // InternalOcl.g:5750:1: ( ( '{' ) )
+            // InternalOcl.g:5751:1: ( '{' )
             {
-            // InternalOcl.g:5720:1: ( '{' )
-            // InternalOcl.g:5721:2: '{'
+            // InternalOcl.g:5751:1: ( '{' )
+            // InternalOcl.g:5752:2: '{'
             {
              before(grammarAccess.getTupleLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,42,FOLLOW_2); 
@@ -17860,14 +17962,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__3"
-    // InternalOcl.g:5730:1: rule__TupleLiteralExp__Group__3 : rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4 ;
+    // InternalOcl.g:5761:1: rule__TupleLiteralExp__Group__3 : rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4 ;
     public final void rule__TupleLiteralExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5734:1: ( rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4 )
-            // InternalOcl.g:5735:2: rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4
+            // InternalOcl.g:5765:1: ( rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4 )
+            // InternalOcl.g:5766:2: rule__TupleLiteralExp__Group__3__Impl rule__TupleLiteralExp__Group__4
             {
             pushFollow(FOLLOW_44);
             rule__TupleLiteralExp__Group__3__Impl();
@@ -17898,20 +18000,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__3__Impl"
-    // InternalOcl.g:5742:1: rule__TupleLiteralExp__Group__3__Impl : ( ( rule__TupleLiteralExp__Group_3__0 )? ) ;
+    // InternalOcl.g:5773:1: rule__TupleLiteralExp__Group__3__Impl : ( ( rule__TupleLiteralExp__Group_3__0 )? ) ;
     public final void rule__TupleLiteralExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5746:1: ( ( ( rule__TupleLiteralExp__Group_3__0 )? ) )
-            // InternalOcl.g:5747:1: ( ( rule__TupleLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5777:1: ( ( ( rule__TupleLiteralExp__Group_3__0 )? ) )
+            // InternalOcl.g:5778:1: ( ( rule__TupleLiteralExp__Group_3__0 )? )
             {
-            // InternalOcl.g:5747:1: ( ( rule__TupleLiteralExp__Group_3__0 )? )
-            // InternalOcl.g:5748:2: ( rule__TupleLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5778:1: ( ( rule__TupleLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:5779:2: ( rule__TupleLiteralExp__Group_3__0 )?
             {
              before(grammarAccess.getTupleLiteralExpAccess().getGroup_3()); 
-            // InternalOcl.g:5749:2: ( rule__TupleLiteralExp__Group_3__0 )?
+            // InternalOcl.g:5780:2: ( rule__TupleLiteralExp__Group_3__0 )?
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -17920,7 +18022,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt43) {
                 case 1 :
-                    // InternalOcl.g:5749:3: rule__TupleLiteralExp__Group_3__0
+                    // InternalOcl.g:5780:3: rule__TupleLiteralExp__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TupleLiteralExp__Group_3__0();
@@ -17956,14 +18058,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__4"
-    // InternalOcl.g:5757:1: rule__TupleLiteralExp__Group__4 : rule__TupleLiteralExp__Group__4__Impl ;
+    // InternalOcl.g:5788:1: rule__TupleLiteralExp__Group__4 : rule__TupleLiteralExp__Group__4__Impl ;
     public final void rule__TupleLiteralExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5761:1: ( rule__TupleLiteralExp__Group__4__Impl )
-            // InternalOcl.g:5762:2: rule__TupleLiteralExp__Group__4__Impl
+            // InternalOcl.g:5792:1: ( rule__TupleLiteralExp__Group__4__Impl )
+            // InternalOcl.g:5793:2: rule__TupleLiteralExp__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TupleLiteralExp__Group__4__Impl();
@@ -17989,17 +18091,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group__4__Impl"
-    // InternalOcl.g:5768:1: rule__TupleLiteralExp__Group__4__Impl : ( '}' ) ;
+    // InternalOcl.g:5799:1: rule__TupleLiteralExp__Group__4__Impl : ( '}' ) ;
     public final void rule__TupleLiteralExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5772:1: ( ( '}' ) )
-            // InternalOcl.g:5773:1: ( '}' )
+            // InternalOcl.g:5803:1: ( ( '}' ) )
+            // InternalOcl.g:5804:1: ( '}' )
             {
-            // InternalOcl.g:5773:1: ( '}' )
-            // InternalOcl.g:5774:2: '}'
+            // InternalOcl.g:5804:1: ( '}' )
+            // InternalOcl.g:5805:2: '}'
             {
              before(grammarAccess.getTupleLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
             match(input,43,FOLLOW_2); 
@@ -18026,14 +18128,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3__0"
-    // InternalOcl.g:5784:1: rule__TupleLiteralExp__Group_3__0 : rule__TupleLiteralExp__Group_3__0__Impl rule__TupleLiteralExp__Group_3__1 ;
+    // InternalOcl.g:5815:1: rule__TupleLiteralExp__Group_3__0 : rule__TupleLiteralExp__Group_3__0__Impl rule__TupleLiteralExp__Group_3__1 ;
     public final void rule__TupleLiteralExp__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5788:1: ( rule__TupleLiteralExp__Group_3__0__Impl rule__TupleLiteralExp__Group_3__1 )
-            // InternalOcl.g:5789:2: rule__TupleLiteralExp__Group_3__0__Impl rule__TupleLiteralExp__Group_3__1
+            // InternalOcl.g:5819:1: ( rule__TupleLiteralExp__Group_3__0__Impl rule__TupleLiteralExp__Group_3__1 )
+            // InternalOcl.g:5820:2: rule__TupleLiteralExp__Group_3__0__Impl rule__TupleLiteralExp__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__TupleLiteralExp__Group_3__0__Impl();
@@ -18064,21 +18166,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3__0__Impl"
-    // InternalOcl.g:5796:1: rule__TupleLiteralExp__Group_3__0__Impl : ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) ) ;
+    // InternalOcl.g:5827:1: rule__TupleLiteralExp__Group_3__0__Impl : ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) ) ;
     public final void rule__TupleLiteralExp__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5800:1: ( ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) ) )
-            // InternalOcl.g:5801:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) )
+            // InternalOcl.g:5831:1: ( ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) ) )
+            // InternalOcl.g:5832:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) )
             {
-            // InternalOcl.g:5801:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) )
-            // InternalOcl.g:5802:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_0 )
+            // InternalOcl.g:5832:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_0 ) )
+            // InternalOcl.g:5833:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_0 )
             {
              before(grammarAccess.getTupleLiteralExpAccess().getTuplePartAssignment_3_0()); 
-            // InternalOcl.g:5803:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_0 )
-            // InternalOcl.g:5803:3: rule__TupleLiteralExp__TuplePartAssignment_3_0
+            // InternalOcl.g:5834:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_0 )
+            // InternalOcl.g:5834:3: rule__TupleLiteralExp__TuplePartAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__TupleLiteralExp__TuplePartAssignment_3_0();
@@ -18111,14 +18213,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3__1"
-    // InternalOcl.g:5811:1: rule__TupleLiteralExp__Group_3__1 : rule__TupleLiteralExp__Group_3__1__Impl ;
+    // InternalOcl.g:5842:1: rule__TupleLiteralExp__Group_3__1 : rule__TupleLiteralExp__Group_3__1__Impl ;
     public final void rule__TupleLiteralExp__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5815:1: ( rule__TupleLiteralExp__Group_3__1__Impl )
-            // InternalOcl.g:5816:2: rule__TupleLiteralExp__Group_3__1__Impl
+            // InternalOcl.g:5846:1: ( rule__TupleLiteralExp__Group_3__1__Impl )
+            // InternalOcl.g:5847:2: rule__TupleLiteralExp__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TupleLiteralExp__Group_3__1__Impl();
@@ -18144,20 +18246,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3__1__Impl"
-    // InternalOcl.g:5822:1: rule__TupleLiteralExp__Group_3__1__Impl : ( ( rule__TupleLiteralExp__Group_3_1__0 )* ) ;
+    // InternalOcl.g:5853:1: rule__TupleLiteralExp__Group_3__1__Impl : ( ( rule__TupleLiteralExp__Group_3_1__0 )* ) ;
     public final void rule__TupleLiteralExp__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5826:1: ( ( ( rule__TupleLiteralExp__Group_3_1__0 )* ) )
-            // InternalOcl.g:5827:1: ( ( rule__TupleLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5857:1: ( ( ( rule__TupleLiteralExp__Group_3_1__0 )* ) )
+            // InternalOcl.g:5858:1: ( ( rule__TupleLiteralExp__Group_3_1__0 )* )
             {
-            // InternalOcl.g:5827:1: ( ( rule__TupleLiteralExp__Group_3_1__0 )* )
-            // InternalOcl.g:5828:2: ( rule__TupleLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5858:1: ( ( rule__TupleLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:5859:2: ( rule__TupleLiteralExp__Group_3_1__0 )*
             {
              before(grammarAccess.getTupleLiteralExpAccess().getGroup_3_1()); 
-            // InternalOcl.g:5829:2: ( rule__TupleLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:5860:2: ( rule__TupleLiteralExp__Group_3_1__0 )*
             loop44:
             do {
                 int alt44=2;
@@ -18170,7 +18272,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt44) {
             	case 1 :
-            	    // InternalOcl.g:5829:3: rule__TupleLiteralExp__Group_3_1__0
+            	    // InternalOcl.g:5860:3: rule__TupleLiteralExp__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__TupleLiteralExp__Group_3_1__0();
@@ -18209,14 +18311,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3_1__0"
-    // InternalOcl.g:5838:1: rule__TupleLiteralExp__Group_3_1__0 : rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1 ;
+    // InternalOcl.g:5869:1: rule__TupleLiteralExp__Group_3_1__0 : rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1 ;
     public final void rule__TupleLiteralExp__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5842:1: ( rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1 )
-            // InternalOcl.g:5843:2: rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1
+            // InternalOcl.g:5873:1: ( rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1 )
+            // InternalOcl.g:5874:2: rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1
             {
             pushFollow(FOLLOW_7);
             rule__TupleLiteralExp__Group_3_1__0__Impl();
@@ -18247,17 +18349,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3_1__0__Impl"
-    // InternalOcl.g:5850:1: rule__TupleLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:5881:1: rule__TupleLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__TupleLiteralExp__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5854:1: ( ( ',' ) )
-            // InternalOcl.g:5855:1: ( ',' )
+            // InternalOcl.g:5885:1: ( ( ',' ) )
+            // InternalOcl.g:5886:1: ( ',' )
             {
-            // InternalOcl.g:5855:1: ( ',' )
-            // InternalOcl.g:5856:2: ','
+            // InternalOcl.g:5886:1: ( ',' )
+            // InternalOcl.g:5887:2: ','
             {
              before(grammarAccess.getTupleLiteralExpAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -18284,14 +18386,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3_1__1"
-    // InternalOcl.g:5865:1: rule__TupleLiteralExp__Group_3_1__1 : rule__TupleLiteralExp__Group_3_1__1__Impl ;
+    // InternalOcl.g:5896:1: rule__TupleLiteralExp__Group_3_1__1 : rule__TupleLiteralExp__Group_3_1__1__Impl ;
     public final void rule__TupleLiteralExp__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5869:1: ( rule__TupleLiteralExp__Group_3_1__1__Impl )
-            // InternalOcl.g:5870:2: rule__TupleLiteralExp__Group_3_1__1__Impl
+            // InternalOcl.g:5900:1: ( rule__TupleLiteralExp__Group_3_1__1__Impl )
+            // InternalOcl.g:5901:2: rule__TupleLiteralExp__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TupleLiteralExp__Group_3_1__1__Impl();
@@ -18317,21 +18419,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__Group_3_1__1__Impl"
-    // InternalOcl.g:5876:1: rule__TupleLiteralExp__Group_3_1__1__Impl : ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:5907:1: rule__TupleLiteralExp__Group_3_1__1__Impl : ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) ) ;
     public final void rule__TupleLiteralExp__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5880:1: ( ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) ) )
-            // InternalOcl.g:5881:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) )
+            // InternalOcl.g:5911:1: ( ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) ) )
+            // InternalOcl.g:5912:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:5881:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) )
-            // InternalOcl.g:5882:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 )
+            // InternalOcl.g:5912:1: ( ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 ) )
+            // InternalOcl.g:5913:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 )
             {
              before(grammarAccess.getTupleLiteralExpAccess().getTuplePartAssignment_3_1_1()); 
-            // InternalOcl.g:5883:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 )
-            // InternalOcl.g:5883:3: rule__TupleLiteralExp__TuplePartAssignment_3_1_1
+            // InternalOcl.g:5914:2: ( rule__TupleLiteralExp__TuplePartAssignment_3_1_1 )
+            // InternalOcl.g:5914:3: rule__TupleLiteralExp__TuplePartAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__TupleLiteralExp__TuplePartAssignment_3_1_1();
@@ -18364,14 +18466,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__0"
-    // InternalOcl.g:5892:1: rule__TuplePart__Group__0 : rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1 ;
+    // InternalOcl.g:5923:1: rule__TuplePart__Group__0 : rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1 ;
     public final void rule__TuplePart__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5896:1: ( rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1 )
-            // InternalOcl.g:5897:2: rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1
+            // InternalOcl.g:5927:1: ( rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1 )
+            // InternalOcl.g:5928:2: rule__TuplePart__Group__0__Impl rule__TuplePart__Group__1
             {
             pushFollow(FOLLOW_45);
             rule__TuplePart__Group__0__Impl();
@@ -18402,21 +18504,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__0__Impl"
-    // InternalOcl.g:5904:1: rule__TuplePart__Group__0__Impl : ( ( rule__TuplePart__VarNameAssignment_0 ) ) ;
+    // InternalOcl.g:5935:1: rule__TuplePart__Group__0__Impl : ( ( rule__TuplePart__VarNameAssignment_0 ) ) ;
     public final void rule__TuplePart__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5908:1: ( ( ( rule__TuplePart__VarNameAssignment_0 ) ) )
-            // InternalOcl.g:5909:1: ( ( rule__TuplePart__VarNameAssignment_0 ) )
+            // InternalOcl.g:5939:1: ( ( ( rule__TuplePart__VarNameAssignment_0 ) ) )
+            // InternalOcl.g:5940:1: ( ( rule__TuplePart__VarNameAssignment_0 ) )
             {
-            // InternalOcl.g:5909:1: ( ( rule__TuplePart__VarNameAssignment_0 ) )
-            // InternalOcl.g:5910:2: ( rule__TuplePart__VarNameAssignment_0 )
+            // InternalOcl.g:5940:1: ( ( rule__TuplePart__VarNameAssignment_0 ) )
+            // InternalOcl.g:5941:2: ( rule__TuplePart__VarNameAssignment_0 )
             {
              before(grammarAccess.getTuplePartAccess().getVarNameAssignment_0()); 
-            // InternalOcl.g:5911:2: ( rule__TuplePart__VarNameAssignment_0 )
-            // InternalOcl.g:5911:3: rule__TuplePart__VarNameAssignment_0
+            // InternalOcl.g:5942:2: ( rule__TuplePart__VarNameAssignment_0 )
+            // InternalOcl.g:5942:3: rule__TuplePart__VarNameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__TuplePart__VarNameAssignment_0();
@@ -18449,14 +18551,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__1"
-    // InternalOcl.g:5919:1: rule__TuplePart__Group__1 : rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2 ;
+    // InternalOcl.g:5950:1: rule__TuplePart__Group__1 : rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2 ;
     public final void rule__TuplePart__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5923:1: ( rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2 )
-            // InternalOcl.g:5924:2: rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2
+            // InternalOcl.g:5954:1: ( rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2 )
+            // InternalOcl.g:5955:2: rule__TuplePart__Group__1__Impl rule__TuplePart__Group__2
             {
             pushFollow(FOLLOW_45);
             rule__TuplePart__Group__1__Impl();
@@ -18487,20 +18589,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__1__Impl"
-    // InternalOcl.g:5931:1: rule__TuplePart__Group__1__Impl : ( ( rule__TuplePart__Group_1__0 )? ) ;
+    // InternalOcl.g:5962:1: rule__TuplePart__Group__1__Impl : ( ( rule__TuplePart__Group_1__0 )? ) ;
     public final void rule__TuplePart__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5935:1: ( ( ( rule__TuplePart__Group_1__0 )? ) )
-            // InternalOcl.g:5936:1: ( ( rule__TuplePart__Group_1__0 )? )
+            // InternalOcl.g:5966:1: ( ( ( rule__TuplePart__Group_1__0 )? ) )
+            // InternalOcl.g:5967:1: ( ( rule__TuplePart__Group_1__0 )? )
             {
-            // InternalOcl.g:5936:1: ( ( rule__TuplePart__Group_1__0 )? )
-            // InternalOcl.g:5937:2: ( rule__TuplePart__Group_1__0 )?
+            // InternalOcl.g:5967:1: ( ( rule__TuplePart__Group_1__0 )? )
+            // InternalOcl.g:5968:2: ( rule__TuplePart__Group_1__0 )?
             {
              before(grammarAccess.getTuplePartAccess().getGroup_1()); 
-            // InternalOcl.g:5938:2: ( rule__TuplePart__Group_1__0 )?
+            // InternalOcl.g:5969:2: ( rule__TuplePart__Group_1__0 )?
             int alt45=2;
             int LA45_0 = input.LA(1);
 
@@ -18509,7 +18611,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt45) {
                 case 1 :
-                    // InternalOcl.g:5938:3: rule__TuplePart__Group_1__0
+                    // InternalOcl.g:5969:3: rule__TuplePart__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TuplePart__Group_1__0();
@@ -18545,14 +18647,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__2"
-    // InternalOcl.g:5946:1: rule__TuplePart__Group__2 : rule__TuplePart__Group__2__Impl rule__TuplePart__Group__3 ;
+    // InternalOcl.g:5977:1: rule__TuplePart__Group__2 : rule__TuplePart__Group__2__Impl rule__TuplePart__Group__3 ;
     public final void rule__TuplePart__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5950:1: ( rule__TuplePart__Group__2__Impl rule__TuplePart__Group__3 )
-            // InternalOcl.g:5951:2: rule__TuplePart__Group__2__Impl rule__TuplePart__Group__3
+            // InternalOcl.g:5981:1: ( rule__TuplePart__Group__2__Impl rule__TuplePart__Group__3 )
+            // InternalOcl.g:5982:2: rule__TuplePart__Group__2__Impl rule__TuplePart__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__TuplePart__Group__2__Impl();
@@ -18583,17 +18685,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__2__Impl"
-    // InternalOcl.g:5958:1: rule__TuplePart__Group__2__Impl : ( '=' ) ;
+    // InternalOcl.g:5989:1: rule__TuplePart__Group__2__Impl : ( '=' ) ;
     public final void rule__TuplePart__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5962:1: ( ( '=' ) )
-            // InternalOcl.g:5963:1: ( '=' )
+            // InternalOcl.g:5993:1: ( ( '=' ) )
+            // InternalOcl.g:5994:1: ( '=' )
             {
-            // InternalOcl.g:5963:1: ( '=' )
-            // InternalOcl.g:5964:2: '='
+            // InternalOcl.g:5994:1: ( '=' )
+            // InternalOcl.g:5995:2: '='
             {
              before(grammarAccess.getTuplePartAccess().getEqualsSignKeyword_2()); 
             match(input,16,FOLLOW_2); 
@@ -18620,14 +18722,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__3"
-    // InternalOcl.g:5973:1: rule__TuplePart__Group__3 : rule__TuplePart__Group__3__Impl ;
+    // InternalOcl.g:6004:1: rule__TuplePart__Group__3 : rule__TuplePart__Group__3__Impl ;
     public final void rule__TuplePart__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5977:1: ( rule__TuplePart__Group__3__Impl )
-            // InternalOcl.g:5978:2: rule__TuplePart__Group__3__Impl
+            // InternalOcl.g:6008:1: ( rule__TuplePart__Group__3__Impl )
+            // InternalOcl.g:6009:2: rule__TuplePart__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TuplePart__Group__3__Impl();
@@ -18653,21 +18755,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group__3__Impl"
-    // InternalOcl.g:5984:1: rule__TuplePart__Group__3__Impl : ( ( rule__TuplePart__InitExpressionAssignment_3 ) ) ;
+    // InternalOcl.g:6015:1: rule__TuplePart__Group__3__Impl : ( ( rule__TuplePart__InitExpressionAssignment_3 ) ) ;
     public final void rule__TuplePart__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:5988:1: ( ( ( rule__TuplePart__InitExpressionAssignment_3 ) ) )
-            // InternalOcl.g:5989:1: ( ( rule__TuplePart__InitExpressionAssignment_3 ) )
+            // InternalOcl.g:6019:1: ( ( ( rule__TuplePart__InitExpressionAssignment_3 ) ) )
+            // InternalOcl.g:6020:1: ( ( rule__TuplePart__InitExpressionAssignment_3 ) )
             {
-            // InternalOcl.g:5989:1: ( ( rule__TuplePart__InitExpressionAssignment_3 ) )
-            // InternalOcl.g:5990:2: ( rule__TuplePart__InitExpressionAssignment_3 )
+            // InternalOcl.g:6020:1: ( ( rule__TuplePart__InitExpressionAssignment_3 ) )
+            // InternalOcl.g:6021:2: ( rule__TuplePart__InitExpressionAssignment_3 )
             {
              before(grammarAccess.getTuplePartAccess().getInitExpressionAssignment_3()); 
-            // InternalOcl.g:5991:2: ( rule__TuplePart__InitExpressionAssignment_3 )
-            // InternalOcl.g:5991:3: rule__TuplePart__InitExpressionAssignment_3
+            // InternalOcl.g:6022:2: ( rule__TuplePart__InitExpressionAssignment_3 )
+            // InternalOcl.g:6022:3: rule__TuplePart__InitExpressionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__TuplePart__InitExpressionAssignment_3();
@@ -18700,14 +18802,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group_1__0"
-    // InternalOcl.g:6000:1: rule__TuplePart__Group_1__0 : rule__TuplePart__Group_1__0__Impl rule__TuplePart__Group_1__1 ;
+    // InternalOcl.g:6031:1: rule__TuplePart__Group_1__0 : rule__TuplePart__Group_1__0__Impl rule__TuplePart__Group_1__1 ;
     public final void rule__TuplePart__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6004:1: ( rule__TuplePart__Group_1__0__Impl rule__TuplePart__Group_1__1 )
-            // InternalOcl.g:6005:2: rule__TuplePart__Group_1__0__Impl rule__TuplePart__Group_1__1
+            // InternalOcl.g:6035:1: ( rule__TuplePart__Group_1__0__Impl rule__TuplePart__Group_1__1 )
+            // InternalOcl.g:6036:2: rule__TuplePart__Group_1__0__Impl rule__TuplePart__Group_1__1
             {
             pushFollow(FOLLOW_14);
             rule__TuplePart__Group_1__0__Impl();
@@ -18738,17 +18840,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group_1__0__Impl"
-    // InternalOcl.g:6012:1: rule__TuplePart__Group_1__0__Impl : ( ':' ) ;
+    // InternalOcl.g:6043:1: rule__TuplePart__Group_1__0__Impl : ( ':' ) ;
     public final void rule__TuplePart__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6016:1: ( ( ':' ) )
-            // InternalOcl.g:6017:1: ( ':' )
+            // InternalOcl.g:6047:1: ( ( ':' ) )
+            // InternalOcl.g:6048:1: ( ':' )
             {
-            // InternalOcl.g:6017:1: ( ':' )
-            // InternalOcl.g:6018:2: ':'
+            // InternalOcl.g:6048:1: ( ':' )
+            // InternalOcl.g:6049:2: ':'
             {
              before(grammarAccess.getTuplePartAccess().getColonKeyword_1_0()); 
             match(input,34,FOLLOW_2); 
@@ -18775,14 +18877,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group_1__1"
-    // InternalOcl.g:6027:1: rule__TuplePart__Group_1__1 : rule__TuplePart__Group_1__1__Impl ;
+    // InternalOcl.g:6058:1: rule__TuplePart__Group_1__1 : rule__TuplePart__Group_1__1__Impl ;
     public final void rule__TuplePart__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6031:1: ( rule__TuplePart__Group_1__1__Impl )
-            // InternalOcl.g:6032:2: rule__TuplePart__Group_1__1__Impl
+            // InternalOcl.g:6062:1: ( rule__TuplePart__Group_1__1__Impl )
+            // InternalOcl.g:6063:2: rule__TuplePart__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TuplePart__Group_1__1__Impl();
@@ -18808,21 +18910,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__Group_1__1__Impl"
-    // InternalOcl.g:6038:1: rule__TuplePart__Group_1__1__Impl : ( ( rule__TuplePart__TypeAssignment_1_1 ) ) ;
+    // InternalOcl.g:6069:1: rule__TuplePart__Group_1__1__Impl : ( ( rule__TuplePart__TypeAssignment_1_1 ) ) ;
     public final void rule__TuplePart__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6042:1: ( ( ( rule__TuplePart__TypeAssignment_1_1 ) ) )
-            // InternalOcl.g:6043:1: ( ( rule__TuplePart__TypeAssignment_1_1 ) )
+            // InternalOcl.g:6073:1: ( ( ( rule__TuplePart__TypeAssignment_1_1 ) ) )
+            // InternalOcl.g:6074:1: ( ( rule__TuplePart__TypeAssignment_1_1 ) )
             {
-            // InternalOcl.g:6043:1: ( ( rule__TuplePart__TypeAssignment_1_1 ) )
-            // InternalOcl.g:6044:2: ( rule__TuplePart__TypeAssignment_1_1 )
+            // InternalOcl.g:6074:1: ( ( rule__TuplePart__TypeAssignment_1_1 ) )
+            // InternalOcl.g:6075:2: ( rule__TuplePart__TypeAssignment_1_1 )
             {
              before(grammarAccess.getTuplePartAccess().getTypeAssignment_1_1()); 
-            // InternalOcl.g:6045:2: ( rule__TuplePart__TypeAssignment_1_1 )
-            // InternalOcl.g:6045:3: rule__TuplePart__TypeAssignment_1_1
+            // InternalOcl.g:6076:2: ( rule__TuplePart__TypeAssignment_1_1 )
+            // InternalOcl.g:6076:3: rule__TuplePart__TypeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__TuplePart__TypeAssignment_1_1();
@@ -18855,14 +18957,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__0"
-    // InternalOcl.g:6054:1: rule__MapLiteralExp__Group__0 : rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1 ;
+    // InternalOcl.g:6085:1: rule__MapLiteralExp__Group__0 : rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1 ;
     public final void rule__MapLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6058:1: ( rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1 )
-            // InternalOcl.g:6059:2: rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1
+            // InternalOcl.g:6089:1: ( rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1 )
+            // InternalOcl.g:6090:2: rule__MapLiteralExp__Group__0__Impl rule__MapLiteralExp__Group__1
             {
             pushFollow(FOLLOW_46);
             rule__MapLiteralExp__Group__0__Impl();
@@ -18893,21 +18995,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__0__Impl"
-    // InternalOcl.g:6066:1: rule__MapLiteralExp__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:6097:1: rule__MapLiteralExp__Group__0__Impl : ( () ) ;
     public final void rule__MapLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6070:1: ( ( () ) )
-            // InternalOcl.g:6071:1: ( () )
+            // InternalOcl.g:6101:1: ( ( () ) )
+            // InternalOcl.g:6102:1: ( () )
             {
-            // InternalOcl.g:6071:1: ( () )
-            // InternalOcl.g:6072:2: ()
+            // InternalOcl.g:6102:1: ( () )
+            // InternalOcl.g:6103:2: ()
             {
              before(grammarAccess.getMapLiteralExpAccess().getMapLiteralExpAction_0()); 
-            // InternalOcl.g:6073:2: ()
-            // InternalOcl.g:6073:3: 
+            // InternalOcl.g:6104:2: ()
+            // InternalOcl.g:6104:3: 
             {
             }
 
@@ -18930,14 +19032,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__1"
-    // InternalOcl.g:6081:1: rule__MapLiteralExp__Group__1 : rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2 ;
+    // InternalOcl.g:6112:1: rule__MapLiteralExp__Group__1 : rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2 ;
     public final void rule__MapLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6085:1: ( rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2 )
-            // InternalOcl.g:6086:2: rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2
+            // InternalOcl.g:6116:1: ( rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2 )
+            // InternalOcl.g:6117:2: rule__MapLiteralExp__Group__1__Impl rule__MapLiteralExp__Group__2
             {
             pushFollow(FOLLOW_38);
             rule__MapLiteralExp__Group__1__Impl();
@@ -18968,17 +19070,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__1__Impl"
-    // InternalOcl.g:6093:1: rule__MapLiteralExp__Group__1__Impl : ( 'Map' ) ;
+    // InternalOcl.g:6124:1: rule__MapLiteralExp__Group__1__Impl : ( 'Map' ) ;
     public final void rule__MapLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6097:1: ( ( 'Map' ) )
-            // InternalOcl.g:6098:1: ( 'Map' )
+            // InternalOcl.g:6128:1: ( ( 'Map' ) )
+            // InternalOcl.g:6129:1: ( 'Map' )
             {
-            // InternalOcl.g:6098:1: ( 'Map' )
-            // InternalOcl.g:6099:2: 'Map'
+            // InternalOcl.g:6129:1: ( 'Map' )
+            // InternalOcl.g:6130:2: 'Map'
             {
              before(grammarAccess.getMapLiteralExpAccess().getMapKeyword_1()); 
             match(input,48,FOLLOW_2); 
@@ -19005,14 +19107,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__2"
-    // InternalOcl.g:6108:1: rule__MapLiteralExp__Group__2 : rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3 ;
+    // InternalOcl.g:6139:1: rule__MapLiteralExp__Group__2 : rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3 ;
     public final void rule__MapLiteralExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6112:1: ( rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3 )
-            // InternalOcl.g:6113:2: rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3
+            // InternalOcl.g:6143:1: ( rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3 )
+            // InternalOcl.g:6144:2: rule__MapLiteralExp__Group__2__Impl rule__MapLiteralExp__Group__3
             {
             pushFollow(FOLLOW_47);
             rule__MapLiteralExp__Group__2__Impl();
@@ -19043,17 +19145,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__2__Impl"
-    // InternalOcl.g:6120:1: rule__MapLiteralExp__Group__2__Impl : ( '{' ) ;
+    // InternalOcl.g:6151:1: rule__MapLiteralExp__Group__2__Impl : ( '{' ) ;
     public final void rule__MapLiteralExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6124:1: ( ( '{' ) )
-            // InternalOcl.g:6125:1: ( '{' )
+            // InternalOcl.g:6155:1: ( ( '{' ) )
+            // InternalOcl.g:6156:1: ( '{' )
             {
-            // InternalOcl.g:6125:1: ( '{' )
-            // InternalOcl.g:6126:2: '{'
+            // InternalOcl.g:6156:1: ( '{' )
+            // InternalOcl.g:6157:2: '{'
             {
              before(grammarAccess.getMapLiteralExpAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,42,FOLLOW_2); 
@@ -19080,14 +19182,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__3"
-    // InternalOcl.g:6135:1: rule__MapLiteralExp__Group__3 : rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4 ;
+    // InternalOcl.g:6166:1: rule__MapLiteralExp__Group__3 : rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4 ;
     public final void rule__MapLiteralExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6139:1: ( rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4 )
-            // InternalOcl.g:6140:2: rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4
+            // InternalOcl.g:6170:1: ( rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4 )
+            // InternalOcl.g:6171:2: rule__MapLiteralExp__Group__3__Impl rule__MapLiteralExp__Group__4
             {
             pushFollow(FOLLOW_47);
             rule__MapLiteralExp__Group__3__Impl();
@@ -19118,20 +19220,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__3__Impl"
-    // InternalOcl.g:6147:1: rule__MapLiteralExp__Group__3__Impl : ( ( rule__MapLiteralExp__Group_3__0 )? ) ;
+    // InternalOcl.g:6178:1: rule__MapLiteralExp__Group__3__Impl : ( ( rule__MapLiteralExp__Group_3__0 )? ) ;
     public final void rule__MapLiteralExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6151:1: ( ( ( rule__MapLiteralExp__Group_3__0 )? ) )
-            // InternalOcl.g:6152:1: ( ( rule__MapLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:6182:1: ( ( ( rule__MapLiteralExp__Group_3__0 )? ) )
+            // InternalOcl.g:6183:1: ( ( rule__MapLiteralExp__Group_3__0 )? )
             {
-            // InternalOcl.g:6152:1: ( ( rule__MapLiteralExp__Group_3__0 )? )
-            // InternalOcl.g:6153:2: ( rule__MapLiteralExp__Group_3__0 )?
+            // InternalOcl.g:6183:1: ( ( rule__MapLiteralExp__Group_3__0 )? )
+            // InternalOcl.g:6184:2: ( rule__MapLiteralExp__Group_3__0 )?
             {
              before(grammarAccess.getMapLiteralExpAccess().getGroup_3()); 
-            // InternalOcl.g:6154:2: ( rule__MapLiteralExp__Group_3__0 )?
+            // InternalOcl.g:6185:2: ( rule__MapLiteralExp__Group_3__0 )?
             int alt46=2;
             int LA46_0 = input.LA(1);
 
@@ -19140,7 +19242,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt46) {
                 case 1 :
-                    // InternalOcl.g:6154:3: rule__MapLiteralExp__Group_3__0
+                    // InternalOcl.g:6185:3: rule__MapLiteralExp__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__MapLiteralExp__Group_3__0();
@@ -19176,14 +19278,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__4"
-    // InternalOcl.g:6162:1: rule__MapLiteralExp__Group__4 : rule__MapLiteralExp__Group__4__Impl ;
+    // InternalOcl.g:6193:1: rule__MapLiteralExp__Group__4 : rule__MapLiteralExp__Group__4__Impl ;
     public final void rule__MapLiteralExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6166:1: ( rule__MapLiteralExp__Group__4__Impl )
-            // InternalOcl.g:6167:2: rule__MapLiteralExp__Group__4__Impl
+            // InternalOcl.g:6197:1: ( rule__MapLiteralExp__Group__4__Impl )
+            // InternalOcl.g:6198:2: rule__MapLiteralExp__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MapLiteralExp__Group__4__Impl();
@@ -19209,17 +19311,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group__4__Impl"
-    // InternalOcl.g:6173:1: rule__MapLiteralExp__Group__4__Impl : ( '}' ) ;
+    // InternalOcl.g:6204:1: rule__MapLiteralExp__Group__4__Impl : ( '}' ) ;
     public final void rule__MapLiteralExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6177:1: ( ( '}' ) )
-            // InternalOcl.g:6178:1: ( '}' )
+            // InternalOcl.g:6208:1: ( ( '}' ) )
+            // InternalOcl.g:6209:1: ( '}' )
             {
-            // InternalOcl.g:6178:1: ( '}' )
-            // InternalOcl.g:6179:2: '}'
+            // InternalOcl.g:6209:1: ( '}' )
+            // InternalOcl.g:6210:2: '}'
             {
              before(grammarAccess.getMapLiteralExpAccess().getRightCurlyBracketKeyword_4()); 
             match(input,43,FOLLOW_2); 
@@ -19246,14 +19348,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3__0"
-    // InternalOcl.g:6189:1: rule__MapLiteralExp__Group_3__0 : rule__MapLiteralExp__Group_3__0__Impl rule__MapLiteralExp__Group_3__1 ;
+    // InternalOcl.g:6220:1: rule__MapLiteralExp__Group_3__0 : rule__MapLiteralExp__Group_3__0__Impl rule__MapLiteralExp__Group_3__1 ;
     public final void rule__MapLiteralExp__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6193:1: ( rule__MapLiteralExp__Group_3__0__Impl rule__MapLiteralExp__Group_3__1 )
-            // InternalOcl.g:6194:2: rule__MapLiteralExp__Group_3__0__Impl rule__MapLiteralExp__Group_3__1
+            // InternalOcl.g:6224:1: ( rule__MapLiteralExp__Group_3__0__Impl rule__MapLiteralExp__Group_3__1 )
+            // InternalOcl.g:6225:2: rule__MapLiteralExp__Group_3__0__Impl rule__MapLiteralExp__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__MapLiteralExp__Group_3__0__Impl();
@@ -19284,21 +19386,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3__0__Impl"
-    // InternalOcl.g:6201:1: rule__MapLiteralExp__Group_3__0__Impl : ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) ) ;
+    // InternalOcl.g:6232:1: rule__MapLiteralExp__Group_3__0__Impl : ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) ) ;
     public final void rule__MapLiteralExp__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6205:1: ( ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) ) )
-            // InternalOcl.g:6206:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:6236:1: ( ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) ) )
+            // InternalOcl.g:6237:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) )
             {
-            // InternalOcl.g:6206:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) )
-            // InternalOcl.g:6207:2: ( rule__MapLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:6237:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_0 ) )
+            // InternalOcl.g:6238:2: ( rule__MapLiteralExp__ElementsAssignment_3_0 )
             {
              before(grammarAccess.getMapLiteralExpAccess().getElementsAssignment_3_0()); 
-            // InternalOcl.g:6208:2: ( rule__MapLiteralExp__ElementsAssignment_3_0 )
-            // InternalOcl.g:6208:3: rule__MapLiteralExp__ElementsAssignment_3_0
+            // InternalOcl.g:6239:2: ( rule__MapLiteralExp__ElementsAssignment_3_0 )
+            // InternalOcl.g:6239:3: rule__MapLiteralExp__ElementsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__MapLiteralExp__ElementsAssignment_3_0();
@@ -19331,14 +19433,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3__1"
-    // InternalOcl.g:6216:1: rule__MapLiteralExp__Group_3__1 : rule__MapLiteralExp__Group_3__1__Impl ;
+    // InternalOcl.g:6247:1: rule__MapLiteralExp__Group_3__1 : rule__MapLiteralExp__Group_3__1__Impl ;
     public final void rule__MapLiteralExp__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6220:1: ( rule__MapLiteralExp__Group_3__1__Impl )
-            // InternalOcl.g:6221:2: rule__MapLiteralExp__Group_3__1__Impl
+            // InternalOcl.g:6251:1: ( rule__MapLiteralExp__Group_3__1__Impl )
+            // InternalOcl.g:6252:2: rule__MapLiteralExp__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MapLiteralExp__Group_3__1__Impl();
@@ -19364,20 +19466,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3__1__Impl"
-    // InternalOcl.g:6227:1: rule__MapLiteralExp__Group_3__1__Impl : ( ( rule__MapLiteralExp__Group_3_1__0 )* ) ;
+    // InternalOcl.g:6258:1: rule__MapLiteralExp__Group_3__1__Impl : ( ( rule__MapLiteralExp__Group_3_1__0 )* ) ;
     public final void rule__MapLiteralExp__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6231:1: ( ( ( rule__MapLiteralExp__Group_3_1__0 )* ) )
-            // InternalOcl.g:6232:1: ( ( rule__MapLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:6262:1: ( ( ( rule__MapLiteralExp__Group_3_1__0 )* ) )
+            // InternalOcl.g:6263:1: ( ( rule__MapLiteralExp__Group_3_1__0 )* )
             {
-            // InternalOcl.g:6232:1: ( ( rule__MapLiteralExp__Group_3_1__0 )* )
-            // InternalOcl.g:6233:2: ( rule__MapLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:6263:1: ( ( rule__MapLiteralExp__Group_3_1__0 )* )
+            // InternalOcl.g:6264:2: ( rule__MapLiteralExp__Group_3_1__0 )*
             {
              before(grammarAccess.getMapLiteralExpAccess().getGroup_3_1()); 
-            // InternalOcl.g:6234:2: ( rule__MapLiteralExp__Group_3_1__0 )*
+            // InternalOcl.g:6265:2: ( rule__MapLiteralExp__Group_3_1__0 )*
             loop47:
             do {
                 int alt47=2;
@@ -19390,7 +19492,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt47) {
             	case 1 :
-            	    // InternalOcl.g:6234:3: rule__MapLiteralExp__Group_3_1__0
+            	    // InternalOcl.g:6265:3: rule__MapLiteralExp__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__MapLiteralExp__Group_3_1__0();
@@ -19429,14 +19531,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3_1__0"
-    // InternalOcl.g:6243:1: rule__MapLiteralExp__Group_3_1__0 : rule__MapLiteralExp__Group_3_1__0__Impl rule__MapLiteralExp__Group_3_1__1 ;
+    // InternalOcl.g:6274:1: rule__MapLiteralExp__Group_3_1__0 : rule__MapLiteralExp__Group_3_1__0__Impl rule__MapLiteralExp__Group_3_1__1 ;
     public final void rule__MapLiteralExp__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6247:1: ( rule__MapLiteralExp__Group_3_1__0__Impl rule__MapLiteralExp__Group_3_1__1 )
-            // InternalOcl.g:6248:2: rule__MapLiteralExp__Group_3_1__0__Impl rule__MapLiteralExp__Group_3_1__1
+            // InternalOcl.g:6278:1: ( rule__MapLiteralExp__Group_3_1__0__Impl rule__MapLiteralExp__Group_3_1__1 )
+            // InternalOcl.g:6279:2: rule__MapLiteralExp__Group_3_1__0__Impl rule__MapLiteralExp__Group_3_1__1
             {
             pushFollow(FOLLOW_17);
             rule__MapLiteralExp__Group_3_1__0__Impl();
@@ -19467,17 +19569,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3_1__0__Impl"
-    // InternalOcl.g:6255:1: rule__MapLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:6286:1: rule__MapLiteralExp__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__MapLiteralExp__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6259:1: ( ( ',' ) )
-            // InternalOcl.g:6260:1: ( ',' )
+            // InternalOcl.g:6290:1: ( ( ',' ) )
+            // InternalOcl.g:6291:1: ( ',' )
             {
-            // InternalOcl.g:6260:1: ( ',' )
-            // InternalOcl.g:6261:2: ','
+            // InternalOcl.g:6291:1: ( ',' )
+            // InternalOcl.g:6292:2: ','
             {
              before(grammarAccess.getMapLiteralExpAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -19504,14 +19606,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3_1__1"
-    // InternalOcl.g:6270:1: rule__MapLiteralExp__Group_3_1__1 : rule__MapLiteralExp__Group_3_1__1__Impl ;
+    // InternalOcl.g:6301:1: rule__MapLiteralExp__Group_3_1__1 : rule__MapLiteralExp__Group_3_1__1__Impl ;
     public final void rule__MapLiteralExp__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6274:1: ( rule__MapLiteralExp__Group_3_1__1__Impl )
-            // InternalOcl.g:6275:2: rule__MapLiteralExp__Group_3_1__1__Impl
+            // InternalOcl.g:6305:1: ( rule__MapLiteralExp__Group_3_1__1__Impl )
+            // InternalOcl.g:6306:2: rule__MapLiteralExp__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MapLiteralExp__Group_3_1__1__Impl();
@@ -19537,21 +19639,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__Group_3_1__1__Impl"
-    // InternalOcl.g:6281:1: rule__MapLiteralExp__Group_3_1__1__Impl : ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:6312:1: rule__MapLiteralExp__Group_3_1__1__Impl : ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) ) ;
     public final void rule__MapLiteralExp__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6285:1: ( ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) ) )
-            // InternalOcl.g:6286:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:6316:1: ( ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) ) )
+            // InternalOcl.g:6317:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:6286:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) )
-            // InternalOcl.g:6287:2: ( rule__MapLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:6317:1: ( ( rule__MapLiteralExp__ElementsAssignment_3_1_1 ) )
+            // InternalOcl.g:6318:2: ( rule__MapLiteralExp__ElementsAssignment_3_1_1 )
             {
              before(grammarAccess.getMapLiteralExpAccess().getElementsAssignment_3_1_1()); 
-            // InternalOcl.g:6288:2: ( rule__MapLiteralExp__ElementsAssignment_3_1_1 )
-            // InternalOcl.g:6288:3: rule__MapLiteralExp__ElementsAssignment_3_1_1
+            // InternalOcl.g:6319:2: ( rule__MapLiteralExp__ElementsAssignment_3_1_1 )
+            // InternalOcl.g:6319:3: rule__MapLiteralExp__ElementsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__MapLiteralExp__ElementsAssignment_3_1_1();
@@ -19584,14 +19686,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__0"
-    // InternalOcl.g:6297:1: rule__MapElement__Group__0 : rule__MapElement__Group__0__Impl rule__MapElement__Group__1 ;
+    // InternalOcl.g:6328:1: rule__MapElement__Group__0 : rule__MapElement__Group__0__Impl rule__MapElement__Group__1 ;
     public final void rule__MapElement__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6301:1: ( rule__MapElement__Group__0__Impl rule__MapElement__Group__1 )
-            // InternalOcl.g:6302:2: rule__MapElement__Group__0__Impl rule__MapElement__Group__1
+            // InternalOcl.g:6332:1: ( rule__MapElement__Group__0__Impl rule__MapElement__Group__1 )
+            // InternalOcl.g:6333:2: rule__MapElement__Group__0__Impl rule__MapElement__Group__1
             {
             pushFollow(FOLLOW_16);
             rule__MapElement__Group__0__Impl();
@@ -19622,17 +19724,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__0__Impl"
-    // InternalOcl.g:6309:1: rule__MapElement__Group__0__Impl : ( '(' ) ;
+    // InternalOcl.g:6340:1: rule__MapElement__Group__0__Impl : ( '(' ) ;
     public final void rule__MapElement__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6313:1: ( ( '(' ) )
-            // InternalOcl.g:6314:1: ( '(' )
+            // InternalOcl.g:6344:1: ( ( '(' ) )
+            // InternalOcl.g:6345:1: ( '(' )
             {
-            // InternalOcl.g:6314:1: ( '(' )
-            // InternalOcl.g:6315:2: '('
+            // InternalOcl.g:6345:1: ( '(' )
+            // InternalOcl.g:6346:2: '('
             {
              before(grammarAccess.getMapElementAccess().getLeftParenthesisKeyword_0()); 
             match(input,35,FOLLOW_2); 
@@ -19659,14 +19761,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__1"
-    // InternalOcl.g:6324:1: rule__MapElement__Group__1 : rule__MapElement__Group__1__Impl rule__MapElement__Group__2 ;
+    // InternalOcl.g:6355:1: rule__MapElement__Group__1 : rule__MapElement__Group__1__Impl rule__MapElement__Group__2 ;
     public final void rule__MapElement__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6328:1: ( rule__MapElement__Group__1__Impl rule__MapElement__Group__2 )
-            // InternalOcl.g:6329:2: rule__MapElement__Group__1__Impl rule__MapElement__Group__2
+            // InternalOcl.g:6359:1: ( rule__MapElement__Group__1__Impl rule__MapElement__Group__2 )
+            // InternalOcl.g:6360:2: rule__MapElement__Group__1__Impl rule__MapElement__Group__2
             {
             pushFollow(FOLLOW_19);
             rule__MapElement__Group__1__Impl();
@@ -19697,21 +19799,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__1__Impl"
-    // InternalOcl.g:6336:1: rule__MapElement__Group__1__Impl : ( ( rule__MapElement__KeyAssignment_1 ) ) ;
+    // InternalOcl.g:6367:1: rule__MapElement__Group__1__Impl : ( ( rule__MapElement__KeyAssignment_1 ) ) ;
     public final void rule__MapElement__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6340:1: ( ( ( rule__MapElement__KeyAssignment_1 ) ) )
-            // InternalOcl.g:6341:1: ( ( rule__MapElement__KeyAssignment_1 ) )
+            // InternalOcl.g:6371:1: ( ( ( rule__MapElement__KeyAssignment_1 ) ) )
+            // InternalOcl.g:6372:1: ( ( rule__MapElement__KeyAssignment_1 ) )
             {
-            // InternalOcl.g:6341:1: ( ( rule__MapElement__KeyAssignment_1 ) )
-            // InternalOcl.g:6342:2: ( rule__MapElement__KeyAssignment_1 )
+            // InternalOcl.g:6372:1: ( ( rule__MapElement__KeyAssignment_1 ) )
+            // InternalOcl.g:6373:2: ( rule__MapElement__KeyAssignment_1 )
             {
              before(grammarAccess.getMapElementAccess().getKeyAssignment_1()); 
-            // InternalOcl.g:6343:2: ( rule__MapElement__KeyAssignment_1 )
-            // InternalOcl.g:6343:3: rule__MapElement__KeyAssignment_1
+            // InternalOcl.g:6374:2: ( rule__MapElement__KeyAssignment_1 )
+            // InternalOcl.g:6374:3: rule__MapElement__KeyAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__MapElement__KeyAssignment_1();
@@ -19744,14 +19846,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__2"
-    // InternalOcl.g:6351:1: rule__MapElement__Group__2 : rule__MapElement__Group__2__Impl rule__MapElement__Group__3 ;
+    // InternalOcl.g:6382:1: rule__MapElement__Group__2 : rule__MapElement__Group__2__Impl rule__MapElement__Group__3 ;
     public final void rule__MapElement__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6355:1: ( rule__MapElement__Group__2__Impl rule__MapElement__Group__3 )
-            // InternalOcl.g:6356:2: rule__MapElement__Group__2__Impl rule__MapElement__Group__3
+            // InternalOcl.g:6386:1: ( rule__MapElement__Group__2__Impl rule__MapElement__Group__3 )
+            // InternalOcl.g:6387:2: rule__MapElement__Group__2__Impl rule__MapElement__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__MapElement__Group__2__Impl();
@@ -19782,17 +19884,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__2__Impl"
-    // InternalOcl.g:6363:1: rule__MapElement__Group__2__Impl : ( ',' ) ;
+    // InternalOcl.g:6394:1: rule__MapElement__Group__2__Impl : ( ',' ) ;
     public final void rule__MapElement__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6367:1: ( ( ',' ) )
-            // InternalOcl.g:6368:1: ( ',' )
+            // InternalOcl.g:6398:1: ( ( ',' ) )
+            // InternalOcl.g:6399:1: ( ',' )
             {
-            // InternalOcl.g:6368:1: ( ',' )
-            // InternalOcl.g:6369:2: ','
+            // InternalOcl.g:6399:1: ( ',' )
+            // InternalOcl.g:6400:2: ','
             {
              before(grammarAccess.getMapElementAccess().getCommaKeyword_2()); 
             match(input,37,FOLLOW_2); 
@@ -19819,14 +19921,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__3"
-    // InternalOcl.g:6378:1: rule__MapElement__Group__3 : rule__MapElement__Group__3__Impl rule__MapElement__Group__4 ;
+    // InternalOcl.g:6409:1: rule__MapElement__Group__3 : rule__MapElement__Group__3__Impl rule__MapElement__Group__4 ;
     public final void rule__MapElement__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6382:1: ( rule__MapElement__Group__3__Impl rule__MapElement__Group__4 )
-            // InternalOcl.g:6383:2: rule__MapElement__Group__3__Impl rule__MapElement__Group__4
+            // InternalOcl.g:6413:1: ( rule__MapElement__Group__3__Impl rule__MapElement__Group__4 )
+            // InternalOcl.g:6414:2: rule__MapElement__Group__3__Impl rule__MapElement__Group__4
             {
             pushFollow(FOLLOW_48);
             rule__MapElement__Group__3__Impl();
@@ -19857,21 +19959,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__3__Impl"
-    // InternalOcl.g:6390:1: rule__MapElement__Group__3__Impl : ( ( rule__MapElement__ValueAssignment_3 ) ) ;
+    // InternalOcl.g:6421:1: rule__MapElement__Group__3__Impl : ( ( rule__MapElement__ValueAssignment_3 ) ) ;
     public final void rule__MapElement__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6394:1: ( ( ( rule__MapElement__ValueAssignment_3 ) ) )
-            // InternalOcl.g:6395:1: ( ( rule__MapElement__ValueAssignment_3 ) )
+            // InternalOcl.g:6425:1: ( ( ( rule__MapElement__ValueAssignment_3 ) ) )
+            // InternalOcl.g:6426:1: ( ( rule__MapElement__ValueAssignment_3 ) )
             {
-            // InternalOcl.g:6395:1: ( ( rule__MapElement__ValueAssignment_3 ) )
-            // InternalOcl.g:6396:2: ( rule__MapElement__ValueAssignment_3 )
+            // InternalOcl.g:6426:1: ( ( rule__MapElement__ValueAssignment_3 ) )
+            // InternalOcl.g:6427:2: ( rule__MapElement__ValueAssignment_3 )
             {
              before(grammarAccess.getMapElementAccess().getValueAssignment_3()); 
-            // InternalOcl.g:6397:2: ( rule__MapElement__ValueAssignment_3 )
-            // InternalOcl.g:6397:3: rule__MapElement__ValueAssignment_3
+            // InternalOcl.g:6428:2: ( rule__MapElement__ValueAssignment_3 )
+            // InternalOcl.g:6428:3: rule__MapElement__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__MapElement__ValueAssignment_3();
@@ -19904,14 +20006,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__4"
-    // InternalOcl.g:6405:1: rule__MapElement__Group__4 : rule__MapElement__Group__4__Impl ;
+    // InternalOcl.g:6436:1: rule__MapElement__Group__4 : rule__MapElement__Group__4__Impl ;
     public final void rule__MapElement__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6409:1: ( rule__MapElement__Group__4__Impl )
-            // InternalOcl.g:6410:2: rule__MapElement__Group__4__Impl
+            // InternalOcl.g:6440:1: ( rule__MapElement__Group__4__Impl )
+            // InternalOcl.g:6441:2: rule__MapElement__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MapElement__Group__4__Impl();
@@ -19937,17 +20039,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__Group__4__Impl"
-    // InternalOcl.g:6416:1: rule__MapElement__Group__4__Impl : ( ')' ) ;
+    // InternalOcl.g:6447:1: rule__MapElement__Group__4__Impl : ( ')' ) ;
     public final void rule__MapElement__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6420:1: ( ( ')' ) )
-            // InternalOcl.g:6421:1: ( ')' )
+            // InternalOcl.g:6451:1: ( ( ')' ) )
+            // InternalOcl.g:6452:1: ( ')' )
             {
-            // InternalOcl.g:6421:1: ( ')' )
-            // InternalOcl.g:6422:2: ')'
+            // InternalOcl.g:6452:1: ( ')' )
+            // InternalOcl.g:6453:2: ')'
             {
              before(grammarAccess.getMapElementAccess().getRightParenthesisKeyword_4()); 
             match(input,36,FOLLOW_2); 
@@ -19974,14 +20076,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumLiteralExp__Group__0"
-    // InternalOcl.g:6432:1: rule__EnumLiteralExp__Group__0 : rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1 ;
+    // InternalOcl.g:6463:1: rule__EnumLiteralExp__Group__0 : rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1 ;
     public final void rule__EnumLiteralExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6436:1: ( rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1 )
-            // InternalOcl.g:6437:2: rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1
+            // InternalOcl.g:6467:1: ( rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1 )
+            // InternalOcl.g:6468:2: rule__EnumLiteralExp__Group__0__Impl rule__EnumLiteralExp__Group__1
             {
             pushFollow(FOLLOW_49);
             rule__EnumLiteralExp__Group__0__Impl();
@@ -20012,17 +20114,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumLiteralExp__Group__0__Impl"
-    // InternalOcl.g:6444:1: rule__EnumLiteralExp__Group__0__Impl : ( '#' ) ;
+    // InternalOcl.g:6475:1: rule__EnumLiteralExp__Group__0__Impl : ( '#' ) ;
     public final void rule__EnumLiteralExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6448:1: ( ( '#' ) )
-            // InternalOcl.g:6449:1: ( '#' )
+            // InternalOcl.g:6479:1: ( ( '#' ) )
+            // InternalOcl.g:6480:1: ( '#' )
             {
-            // InternalOcl.g:6449:1: ( '#' )
-            // InternalOcl.g:6450:2: '#'
+            // InternalOcl.g:6480:1: ( '#' )
+            // InternalOcl.g:6481:2: '#'
             {
              before(grammarAccess.getEnumLiteralExpAccess().getNumberSignKeyword_0()); 
             match(input,49,FOLLOW_2); 
@@ -20049,14 +20151,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumLiteralExp__Group__1"
-    // InternalOcl.g:6459:1: rule__EnumLiteralExp__Group__1 : rule__EnumLiteralExp__Group__1__Impl ;
+    // InternalOcl.g:6490:1: rule__EnumLiteralExp__Group__1 : rule__EnumLiteralExp__Group__1__Impl ;
     public final void rule__EnumLiteralExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6463:1: ( rule__EnumLiteralExp__Group__1__Impl )
-            // InternalOcl.g:6464:2: rule__EnumLiteralExp__Group__1__Impl
+            // InternalOcl.g:6494:1: ( rule__EnumLiteralExp__Group__1__Impl )
+            // InternalOcl.g:6495:2: rule__EnumLiteralExp__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumLiteralExp__Group__1__Impl();
@@ -20082,21 +20184,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumLiteralExp__Group__1__Impl"
-    // InternalOcl.g:6470:1: rule__EnumLiteralExp__Group__1__Impl : ( ( rule__EnumLiteralExp__Alternatives_1 ) ) ;
+    // InternalOcl.g:6501:1: rule__EnumLiteralExp__Group__1__Impl : ( ( rule__EnumLiteralExp__Alternatives_1 ) ) ;
     public final void rule__EnumLiteralExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6474:1: ( ( ( rule__EnumLiteralExp__Alternatives_1 ) ) )
-            // InternalOcl.g:6475:1: ( ( rule__EnumLiteralExp__Alternatives_1 ) )
+            // InternalOcl.g:6505:1: ( ( ( rule__EnumLiteralExp__Alternatives_1 ) ) )
+            // InternalOcl.g:6506:1: ( ( rule__EnumLiteralExp__Alternatives_1 ) )
             {
-            // InternalOcl.g:6475:1: ( ( rule__EnumLiteralExp__Alternatives_1 ) )
-            // InternalOcl.g:6476:2: ( rule__EnumLiteralExp__Alternatives_1 )
+            // InternalOcl.g:6506:1: ( ( rule__EnumLiteralExp__Alternatives_1 ) )
+            // InternalOcl.g:6507:2: ( rule__EnumLiteralExp__Alternatives_1 )
             {
              before(grammarAccess.getEnumLiteralExpAccess().getAlternatives_1()); 
-            // InternalOcl.g:6477:2: ( rule__EnumLiteralExp__Alternatives_1 )
-            // InternalOcl.g:6477:3: rule__EnumLiteralExp__Alternatives_1
+            // InternalOcl.g:6508:2: ( rule__EnumLiteralExp__Alternatives_1 )
+            // InternalOcl.g:6508:3: rule__EnumLiteralExp__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__EnumLiteralExp__Alternatives_1();
@@ -20129,14 +20231,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__0"
-    // InternalOcl.g:6486:1: rule__LetExp__Group__0 : rule__LetExp__Group__0__Impl rule__LetExp__Group__1 ;
+    // InternalOcl.g:6517:1: rule__LetExp__Group__0 : rule__LetExp__Group__0__Impl rule__LetExp__Group__1 ;
     public final void rule__LetExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6490:1: ( rule__LetExp__Group__0__Impl rule__LetExp__Group__1 )
-            // InternalOcl.g:6491:2: rule__LetExp__Group__0__Impl rule__LetExp__Group__1
+            // InternalOcl.g:6521:1: ( rule__LetExp__Group__0__Impl rule__LetExp__Group__1 )
+            // InternalOcl.g:6522:2: rule__LetExp__Group__0__Impl rule__LetExp__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__LetExp__Group__0__Impl();
@@ -20167,17 +20269,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__0__Impl"
-    // InternalOcl.g:6498:1: rule__LetExp__Group__0__Impl : ( 'let' ) ;
+    // InternalOcl.g:6529:1: rule__LetExp__Group__0__Impl : ( 'let' ) ;
     public final void rule__LetExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6502:1: ( ( 'let' ) )
-            // InternalOcl.g:6503:1: ( 'let' )
+            // InternalOcl.g:6533:1: ( ( 'let' ) )
+            // InternalOcl.g:6534:1: ( 'let' )
             {
-            // InternalOcl.g:6503:1: ( 'let' )
-            // InternalOcl.g:6504:2: 'let'
+            // InternalOcl.g:6534:1: ( 'let' )
+            // InternalOcl.g:6535:2: 'let'
             {
              before(grammarAccess.getLetExpAccess().getLetKeyword_0()); 
             match(input,50,FOLLOW_2); 
@@ -20204,14 +20306,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__1"
-    // InternalOcl.g:6513:1: rule__LetExp__Group__1 : rule__LetExp__Group__1__Impl rule__LetExp__Group__2 ;
+    // InternalOcl.g:6544:1: rule__LetExp__Group__1 : rule__LetExp__Group__1__Impl rule__LetExp__Group__2 ;
     public final void rule__LetExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6517:1: ( rule__LetExp__Group__1__Impl rule__LetExp__Group__2 )
-            // InternalOcl.g:6518:2: rule__LetExp__Group__1__Impl rule__LetExp__Group__2
+            // InternalOcl.g:6548:1: ( rule__LetExp__Group__1__Impl rule__LetExp__Group__2 )
+            // InternalOcl.g:6549:2: rule__LetExp__Group__1__Impl rule__LetExp__Group__2
             {
             pushFollow(FOLLOW_50);
             rule__LetExp__Group__1__Impl();
@@ -20242,21 +20344,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__1__Impl"
-    // InternalOcl.g:6525:1: rule__LetExp__Group__1__Impl : ( ( rule__LetExp__VariableAssignment_1 ) ) ;
+    // InternalOcl.g:6556:1: rule__LetExp__Group__1__Impl : ( ( rule__LetExp__VariableAssignment_1 ) ) ;
     public final void rule__LetExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6529:1: ( ( ( rule__LetExp__VariableAssignment_1 ) ) )
-            // InternalOcl.g:6530:1: ( ( rule__LetExp__VariableAssignment_1 ) )
+            // InternalOcl.g:6560:1: ( ( ( rule__LetExp__VariableAssignment_1 ) ) )
+            // InternalOcl.g:6561:1: ( ( rule__LetExp__VariableAssignment_1 ) )
             {
-            // InternalOcl.g:6530:1: ( ( rule__LetExp__VariableAssignment_1 ) )
-            // InternalOcl.g:6531:2: ( rule__LetExp__VariableAssignment_1 )
+            // InternalOcl.g:6561:1: ( ( rule__LetExp__VariableAssignment_1 ) )
+            // InternalOcl.g:6562:2: ( rule__LetExp__VariableAssignment_1 )
             {
              before(grammarAccess.getLetExpAccess().getVariableAssignment_1()); 
-            // InternalOcl.g:6532:2: ( rule__LetExp__VariableAssignment_1 )
-            // InternalOcl.g:6532:3: rule__LetExp__VariableAssignment_1
+            // InternalOcl.g:6563:2: ( rule__LetExp__VariableAssignment_1 )
+            // InternalOcl.g:6563:3: rule__LetExp__VariableAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__LetExp__VariableAssignment_1();
@@ -20289,14 +20391,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__2"
-    // InternalOcl.g:6540:1: rule__LetExp__Group__2 : rule__LetExp__Group__2__Impl rule__LetExp__Group__3 ;
+    // InternalOcl.g:6571:1: rule__LetExp__Group__2 : rule__LetExp__Group__2__Impl rule__LetExp__Group__3 ;
     public final void rule__LetExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6544:1: ( rule__LetExp__Group__2__Impl rule__LetExp__Group__3 )
-            // InternalOcl.g:6545:2: rule__LetExp__Group__2__Impl rule__LetExp__Group__3
+            // InternalOcl.g:6575:1: ( rule__LetExp__Group__2__Impl rule__LetExp__Group__3 )
+            // InternalOcl.g:6576:2: rule__LetExp__Group__2__Impl rule__LetExp__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__LetExp__Group__2__Impl();
@@ -20327,17 +20429,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__2__Impl"
-    // InternalOcl.g:6552:1: rule__LetExp__Group__2__Impl : ( 'in' ) ;
+    // InternalOcl.g:6583:1: rule__LetExp__Group__2__Impl : ( 'in' ) ;
     public final void rule__LetExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6556:1: ( ( 'in' ) )
-            // InternalOcl.g:6557:1: ( 'in' )
+            // InternalOcl.g:6587:1: ( ( 'in' ) )
+            // InternalOcl.g:6588:1: ( 'in' )
             {
-            // InternalOcl.g:6557:1: ( 'in' )
-            // InternalOcl.g:6558:2: 'in'
+            // InternalOcl.g:6588:1: ( 'in' )
+            // InternalOcl.g:6589:2: 'in'
             {
              before(grammarAccess.getLetExpAccess().getInKeyword_2()); 
             match(input,51,FOLLOW_2); 
@@ -20364,14 +20466,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__3"
-    // InternalOcl.g:6567:1: rule__LetExp__Group__3 : rule__LetExp__Group__3__Impl ;
+    // InternalOcl.g:6598:1: rule__LetExp__Group__3 : rule__LetExp__Group__3__Impl ;
     public final void rule__LetExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6571:1: ( rule__LetExp__Group__3__Impl )
-            // InternalOcl.g:6572:2: rule__LetExp__Group__3__Impl
+            // InternalOcl.g:6602:1: ( rule__LetExp__Group__3__Impl )
+            // InternalOcl.g:6603:2: rule__LetExp__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LetExp__Group__3__Impl();
@@ -20397,21 +20499,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__Group__3__Impl"
-    // InternalOcl.g:6578:1: rule__LetExp__Group__3__Impl : ( ( rule__LetExp__In_Assignment_3 ) ) ;
+    // InternalOcl.g:6609:1: rule__LetExp__Group__3__Impl : ( ( rule__LetExp__In_Assignment_3 ) ) ;
     public final void rule__LetExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6582:1: ( ( ( rule__LetExp__In_Assignment_3 ) ) )
-            // InternalOcl.g:6583:1: ( ( rule__LetExp__In_Assignment_3 ) )
+            // InternalOcl.g:6613:1: ( ( ( rule__LetExp__In_Assignment_3 ) ) )
+            // InternalOcl.g:6614:1: ( ( rule__LetExp__In_Assignment_3 ) )
             {
-            // InternalOcl.g:6583:1: ( ( rule__LetExp__In_Assignment_3 ) )
-            // InternalOcl.g:6584:2: ( rule__LetExp__In_Assignment_3 )
+            // InternalOcl.g:6614:1: ( ( rule__LetExp__In_Assignment_3 ) )
+            // InternalOcl.g:6615:2: ( rule__LetExp__In_Assignment_3 )
             {
              before(grammarAccess.getLetExpAccess().getIn_Assignment_3()); 
-            // InternalOcl.g:6585:2: ( rule__LetExp__In_Assignment_3 )
-            // InternalOcl.g:6585:3: rule__LetExp__In_Assignment_3
+            // InternalOcl.g:6616:2: ( rule__LetExp__In_Assignment_3 )
+            // InternalOcl.g:6616:3: rule__LetExp__In_Assignment_3
             {
             pushFollow(FOLLOW_2);
             rule__LetExp__In_Assignment_3();
@@ -20444,14 +20546,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__0"
-    // InternalOcl.g:6594:1: rule__IfExp__Group__0 : rule__IfExp__Group__0__Impl rule__IfExp__Group__1 ;
+    // InternalOcl.g:6625:1: rule__IfExp__Group__0 : rule__IfExp__Group__0__Impl rule__IfExp__Group__1 ;
     public final void rule__IfExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6598:1: ( rule__IfExp__Group__0__Impl rule__IfExp__Group__1 )
-            // InternalOcl.g:6599:2: rule__IfExp__Group__0__Impl rule__IfExp__Group__1
+            // InternalOcl.g:6629:1: ( rule__IfExp__Group__0__Impl rule__IfExp__Group__1 )
+            // InternalOcl.g:6630:2: rule__IfExp__Group__0__Impl rule__IfExp__Group__1
             {
             pushFollow(FOLLOW_16);
             rule__IfExp__Group__0__Impl();
@@ -20482,17 +20584,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__0__Impl"
-    // InternalOcl.g:6606:1: rule__IfExp__Group__0__Impl : ( 'if' ) ;
+    // InternalOcl.g:6637:1: rule__IfExp__Group__0__Impl : ( 'if' ) ;
     public final void rule__IfExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6610:1: ( ( 'if' ) )
-            // InternalOcl.g:6611:1: ( 'if' )
+            // InternalOcl.g:6641:1: ( ( 'if' ) )
+            // InternalOcl.g:6642:1: ( 'if' )
             {
-            // InternalOcl.g:6611:1: ( 'if' )
-            // InternalOcl.g:6612:2: 'if'
+            // InternalOcl.g:6642:1: ( 'if' )
+            // InternalOcl.g:6643:2: 'if'
             {
              before(grammarAccess.getIfExpAccess().getIfKeyword_0()); 
             match(input,52,FOLLOW_2); 
@@ -20519,14 +20621,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__1"
-    // InternalOcl.g:6621:1: rule__IfExp__Group__1 : rule__IfExp__Group__1__Impl rule__IfExp__Group__2 ;
+    // InternalOcl.g:6652:1: rule__IfExp__Group__1 : rule__IfExp__Group__1__Impl rule__IfExp__Group__2 ;
     public final void rule__IfExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6625:1: ( rule__IfExp__Group__1__Impl rule__IfExp__Group__2 )
-            // InternalOcl.g:6626:2: rule__IfExp__Group__1__Impl rule__IfExp__Group__2
+            // InternalOcl.g:6656:1: ( rule__IfExp__Group__1__Impl rule__IfExp__Group__2 )
+            // InternalOcl.g:6657:2: rule__IfExp__Group__1__Impl rule__IfExp__Group__2
             {
             pushFollow(FOLLOW_51);
             rule__IfExp__Group__1__Impl();
@@ -20557,21 +20659,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__1__Impl"
-    // InternalOcl.g:6633:1: rule__IfExp__Group__1__Impl : ( ( rule__IfExp__ConditionAssignment_1 ) ) ;
+    // InternalOcl.g:6664:1: rule__IfExp__Group__1__Impl : ( ( rule__IfExp__ConditionAssignment_1 ) ) ;
     public final void rule__IfExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6637:1: ( ( ( rule__IfExp__ConditionAssignment_1 ) ) )
-            // InternalOcl.g:6638:1: ( ( rule__IfExp__ConditionAssignment_1 ) )
+            // InternalOcl.g:6668:1: ( ( ( rule__IfExp__ConditionAssignment_1 ) ) )
+            // InternalOcl.g:6669:1: ( ( rule__IfExp__ConditionAssignment_1 ) )
             {
-            // InternalOcl.g:6638:1: ( ( rule__IfExp__ConditionAssignment_1 ) )
-            // InternalOcl.g:6639:2: ( rule__IfExp__ConditionAssignment_1 )
+            // InternalOcl.g:6669:1: ( ( rule__IfExp__ConditionAssignment_1 ) )
+            // InternalOcl.g:6670:2: ( rule__IfExp__ConditionAssignment_1 )
             {
              before(grammarAccess.getIfExpAccess().getConditionAssignment_1()); 
-            // InternalOcl.g:6640:2: ( rule__IfExp__ConditionAssignment_1 )
-            // InternalOcl.g:6640:3: rule__IfExp__ConditionAssignment_1
+            // InternalOcl.g:6671:2: ( rule__IfExp__ConditionAssignment_1 )
+            // InternalOcl.g:6671:3: rule__IfExp__ConditionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__IfExp__ConditionAssignment_1();
@@ -20604,14 +20706,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__2"
-    // InternalOcl.g:6648:1: rule__IfExp__Group__2 : rule__IfExp__Group__2__Impl rule__IfExp__Group__3 ;
+    // InternalOcl.g:6679:1: rule__IfExp__Group__2 : rule__IfExp__Group__2__Impl rule__IfExp__Group__3 ;
     public final void rule__IfExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6652:1: ( rule__IfExp__Group__2__Impl rule__IfExp__Group__3 )
-            // InternalOcl.g:6653:2: rule__IfExp__Group__2__Impl rule__IfExp__Group__3
+            // InternalOcl.g:6683:1: ( rule__IfExp__Group__2__Impl rule__IfExp__Group__3 )
+            // InternalOcl.g:6684:2: rule__IfExp__Group__2__Impl rule__IfExp__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__IfExp__Group__2__Impl();
@@ -20642,17 +20744,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__2__Impl"
-    // InternalOcl.g:6660:1: rule__IfExp__Group__2__Impl : ( 'then' ) ;
+    // InternalOcl.g:6691:1: rule__IfExp__Group__2__Impl : ( 'then' ) ;
     public final void rule__IfExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6664:1: ( ( 'then' ) )
-            // InternalOcl.g:6665:1: ( 'then' )
+            // InternalOcl.g:6695:1: ( ( 'then' ) )
+            // InternalOcl.g:6696:1: ( 'then' )
             {
-            // InternalOcl.g:6665:1: ( 'then' )
-            // InternalOcl.g:6666:2: 'then'
+            // InternalOcl.g:6696:1: ( 'then' )
+            // InternalOcl.g:6697:2: 'then'
             {
              before(grammarAccess.getIfExpAccess().getThenKeyword_2()); 
             match(input,53,FOLLOW_2); 
@@ -20679,14 +20781,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__3"
-    // InternalOcl.g:6675:1: rule__IfExp__Group__3 : rule__IfExp__Group__3__Impl rule__IfExp__Group__4 ;
+    // InternalOcl.g:6706:1: rule__IfExp__Group__3 : rule__IfExp__Group__3__Impl rule__IfExp__Group__4 ;
     public final void rule__IfExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6679:1: ( rule__IfExp__Group__3__Impl rule__IfExp__Group__4 )
-            // InternalOcl.g:6680:2: rule__IfExp__Group__3__Impl rule__IfExp__Group__4
+            // InternalOcl.g:6710:1: ( rule__IfExp__Group__3__Impl rule__IfExp__Group__4 )
+            // InternalOcl.g:6711:2: rule__IfExp__Group__3__Impl rule__IfExp__Group__4
             {
             pushFollow(FOLLOW_52);
             rule__IfExp__Group__3__Impl();
@@ -20717,21 +20819,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__3__Impl"
-    // InternalOcl.g:6687:1: rule__IfExp__Group__3__Impl : ( ( rule__IfExp__ThenExpressionAssignment_3 ) ) ;
+    // InternalOcl.g:6718:1: rule__IfExp__Group__3__Impl : ( ( rule__IfExp__ThenExpressionAssignment_3 ) ) ;
     public final void rule__IfExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6691:1: ( ( ( rule__IfExp__ThenExpressionAssignment_3 ) ) )
-            // InternalOcl.g:6692:1: ( ( rule__IfExp__ThenExpressionAssignment_3 ) )
+            // InternalOcl.g:6722:1: ( ( ( rule__IfExp__ThenExpressionAssignment_3 ) ) )
+            // InternalOcl.g:6723:1: ( ( rule__IfExp__ThenExpressionAssignment_3 ) )
             {
-            // InternalOcl.g:6692:1: ( ( rule__IfExp__ThenExpressionAssignment_3 ) )
-            // InternalOcl.g:6693:2: ( rule__IfExp__ThenExpressionAssignment_3 )
+            // InternalOcl.g:6723:1: ( ( rule__IfExp__ThenExpressionAssignment_3 ) )
+            // InternalOcl.g:6724:2: ( rule__IfExp__ThenExpressionAssignment_3 )
             {
              before(grammarAccess.getIfExpAccess().getThenExpressionAssignment_3()); 
-            // InternalOcl.g:6694:2: ( rule__IfExp__ThenExpressionAssignment_3 )
-            // InternalOcl.g:6694:3: rule__IfExp__ThenExpressionAssignment_3
+            // InternalOcl.g:6725:2: ( rule__IfExp__ThenExpressionAssignment_3 )
+            // InternalOcl.g:6725:3: rule__IfExp__ThenExpressionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__IfExp__ThenExpressionAssignment_3();
@@ -20764,14 +20866,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__4"
-    // InternalOcl.g:6702:1: rule__IfExp__Group__4 : rule__IfExp__Group__4__Impl rule__IfExp__Group__5 ;
+    // InternalOcl.g:6733:1: rule__IfExp__Group__4 : rule__IfExp__Group__4__Impl rule__IfExp__Group__5 ;
     public final void rule__IfExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6706:1: ( rule__IfExp__Group__4__Impl rule__IfExp__Group__5 )
-            // InternalOcl.g:6707:2: rule__IfExp__Group__4__Impl rule__IfExp__Group__5
+            // InternalOcl.g:6737:1: ( rule__IfExp__Group__4__Impl rule__IfExp__Group__5 )
+            // InternalOcl.g:6738:2: rule__IfExp__Group__4__Impl rule__IfExp__Group__5
             {
             pushFollow(FOLLOW_16);
             rule__IfExp__Group__4__Impl();
@@ -20802,17 +20904,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__4__Impl"
-    // InternalOcl.g:6714:1: rule__IfExp__Group__4__Impl : ( 'else' ) ;
+    // InternalOcl.g:6745:1: rule__IfExp__Group__4__Impl : ( 'else' ) ;
     public final void rule__IfExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6718:1: ( ( 'else' ) )
-            // InternalOcl.g:6719:1: ( 'else' )
+            // InternalOcl.g:6749:1: ( ( 'else' ) )
+            // InternalOcl.g:6750:1: ( 'else' )
             {
-            // InternalOcl.g:6719:1: ( 'else' )
-            // InternalOcl.g:6720:2: 'else'
+            // InternalOcl.g:6750:1: ( 'else' )
+            // InternalOcl.g:6751:2: 'else'
             {
              before(grammarAccess.getIfExpAccess().getElseKeyword_4()); 
             match(input,54,FOLLOW_2); 
@@ -20839,14 +20941,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__5"
-    // InternalOcl.g:6729:1: rule__IfExp__Group__5 : rule__IfExp__Group__5__Impl rule__IfExp__Group__6 ;
+    // InternalOcl.g:6760:1: rule__IfExp__Group__5 : rule__IfExp__Group__5__Impl rule__IfExp__Group__6 ;
     public final void rule__IfExp__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6733:1: ( rule__IfExp__Group__5__Impl rule__IfExp__Group__6 )
-            // InternalOcl.g:6734:2: rule__IfExp__Group__5__Impl rule__IfExp__Group__6
+            // InternalOcl.g:6764:1: ( rule__IfExp__Group__5__Impl rule__IfExp__Group__6 )
+            // InternalOcl.g:6765:2: rule__IfExp__Group__5__Impl rule__IfExp__Group__6
             {
             pushFollow(FOLLOW_53);
             rule__IfExp__Group__5__Impl();
@@ -20877,21 +20979,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__5__Impl"
-    // InternalOcl.g:6741:1: rule__IfExp__Group__5__Impl : ( ( rule__IfExp__ElseExpressionAssignment_5 ) ) ;
+    // InternalOcl.g:6772:1: rule__IfExp__Group__5__Impl : ( ( rule__IfExp__ElseExpressionAssignment_5 ) ) ;
     public final void rule__IfExp__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6745:1: ( ( ( rule__IfExp__ElseExpressionAssignment_5 ) ) )
-            // InternalOcl.g:6746:1: ( ( rule__IfExp__ElseExpressionAssignment_5 ) )
+            // InternalOcl.g:6776:1: ( ( ( rule__IfExp__ElseExpressionAssignment_5 ) ) )
+            // InternalOcl.g:6777:1: ( ( rule__IfExp__ElseExpressionAssignment_5 ) )
             {
-            // InternalOcl.g:6746:1: ( ( rule__IfExp__ElseExpressionAssignment_5 ) )
-            // InternalOcl.g:6747:2: ( rule__IfExp__ElseExpressionAssignment_5 )
+            // InternalOcl.g:6777:1: ( ( rule__IfExp__ElseExpressionAssignment_5 ) )
+            // InternalOcl.g:6778:2: ( rule__IfExp__ElseExpressionAssignment_5 )
             {
              before(grammarAccess.getIfExpAccess().getElseExpressionAssignment_5()); 
-            // InternalOcl.g:6748:2: ( rule__IfExp__ElseExpressionAssignment_5 )
-            // InternalOcl.g:6748:3: rule__IfExp__ElseExpressionAssignment_5
+            // InternalOcl.g:6779:2: ( rule__IfExp__ElseExpressionAssignment_5 )
+            // InternalOcl.g:6779:3: rule__IfExp__ElseExpressionAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__IfExp__ElseExpressionAssignment_5();
@@ -20924,14 +21026,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__6"
-    // InternalOcl.g:6756:1: rule__IfExp__Group__6 : rule__IfExp__Group__6__Impl ;
+    // InternalOcl.g:6787:1: rule__IfExp__Group__6 : rule__IfExp__Group__6__Impl ;
     public final void rule__IfExp__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6760:1: ( rule__IfExp__Group__6__Impl )
-            // InternalOcl.g:6761:2: rule__IfExp__Group__6__Impl
+            // InternalOcl.g:6791:1: ( rule__IfExp__Group__6__Impl )
+            // InternalOcl.g:6792:2: rule__IfExp__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IfExp__Group__6__Impl();
@@ -20957,17 +21059,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__Group__6__Impl"
-    // InternalOcl.g:6767:1: rule__IfExp__Group__6__Impl : ( 'endif' ) ;
+    // InternalOcl.g:6798:1: rule__IfExp__Group__6__Impl : ( 'endif' ) ;
     public final void rule__IfExp__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6771:1: ( ( 'endif' ) )
-            // InternalOcl.g:6772:1: ( 'endif' )
+            // InternalOcl.g:6802:1: ( ( 'endif' ) )
+            // InternalOcl.g:6803:1: ( 'endif' )
             {
-            // InternalOcl.g:6772:1: ( 'endif' )
-            // InternalOcl.g:6773:2: 'endif'
+            // InternalOcl.g:6803:1: ( 'endif' )
+            // InternalOcl.g:6804:2: 'endif'
             {
              before(grammarAccess.getIfExpAccess().getEndifKeyword_6()); 
             match(input,55,FOLLOW_2); 
@@ -20994,14 +21096,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BraceExp__Group__0"
-    // InternalOcl.g:6783:1: rule__BraceExp__Group__0 : rule__BraceExp__Group__0__Impl rule__BraceExp__Group__1 ;
+    // InternalOcl.g:6814:1: rule__BraceExp__Group__0 : rule__BraceExp__Group__0__Impl rule__BraceExp__Group__1 ;
     public final void rule__BraceExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6787:1: ( rule__BraceExp__Group__0__Impl rule__BraceExp__Group__1 )
-            // InternalOcl.g:6788:2: rule__BraceExp__Group__0__Impl rule__BraceExp__Group__1
+            // InternalOcl.g:6818:1: ( rule__BraceExp__Group__0__Impl rule__BraceExp__Group__1 )
+            // InternalOcl.g:6819:2: rule__BraceExp__Group__0__Impl rule__BraceExp__Group__1
             {
             pushFollow(FOLLOW_16);
             rule__BraceExp__Group__0__Impl();
@@ -21032,17 +21134,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BraceExp__Group__0__Impl"
-    // InternalOcl.g:6795:1: rule__BraceExp__Group__0__Impl : ( '(' ) ;
+    // InternalOcl.g:6826:1: rule__BraceExp__Group__0__Impl : ( '(' ) ;
     public final void rule__BraceExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6799:1: ( ( '(' ) )
-            // InternalOcl.g:6800:1: ( '(' )
+            // InternalOcl.g:6830:1: ( ( '(' ) )
+            // InternalOcl.g:6831:1: ( '(' )
             {
-            // InternalOcl.g:6800:1: ( '(' )
-            // InternalOcl.g:6801:2: '('
+            // InternalOcl.g:6831:1: ( '(' )
+            // InternalOcl.g:6832:2: '('
             {
              before(grammarAccess.getBraceExpAccess().getLeftParenthesisKeyword_0()); 
             match(input,35,FOLLOW_2); 
@@ -21069,14 +21171,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BraceExp__Group__1"
-    // InternalOcl.g:6810:1: rule__BraceExp__Group__1 : rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2 ;
+    // InternalOcl.g:6841:1: rule__BraceExp__Group__1 : rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2 ;
     public final void rule__BraceExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6814:1: ( rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2 )
-            // InternalOcl.g:6815:2: rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2
+            // InternalOcl.g:6845:1: ( rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2 )
+            // InternalOcl.g:6846:2: rule__BraceExp__Group__1__Impl rule__BraceExp__Group__2
             {
             pushFollow(FOLLOW_48);
             rule__BraceExp__Group__1__Impl();
@@ -21107,21 +21209,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BraceExp__Group__1__Impl"
-    // InternalOcl.g:6822:1: rule__BraceExp__Group__1__Impl : ( ( rule__BraceExp__ExpAssignment_1 ) ) ;
+    // InternalOcl.g:6853:1: rule__BraceExp__Group__1__Impl : ( ( rule__BraceExp__ExpAssignment_1 ) ) ;
     public final void rule__BraceExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6826:1: ( ( ( rule__BraceExp__ExpAssignment_1 ) ) )
-            // InternalOcl.g:6827:1: ( ( rule__BraceExp__ExpAssignment_1 ) )
+            // InternalOcl.g:6857:1: ( ( ( rule__BraceExp__ExpAssignment_1 ) ) )
+            // InternalOcl.g:6858:1: ( ( rule__BraceExp__ExpAssignment_1 ) )
             {
-            // InternalOcl.g:6827:1: ( ( rule__BraceExp__ExpAssignment_1 ) )
-            // InternalOcl.g:6828:2: ( rule__BraceExp__ExpAssignment_1 )
+            // InternalOcl.g:6858:1: ( ( rule__BraceExp__ExpAssignment_1 ) )
+            // InternalOcl.g:6859:2: ( rule__BraceExp__ExpAssignment_1 )
             {
              before(grammarAccess.getBraceExpAccess().getExpAssignment_1()); 
-            // InternalOcl.g:6829:2: ( rule__BraceExp__ExpAssignment_1 )
-            // InternalOcl.g:6829:3: rule__BraceExp__ExpAssignment_1
+            // InternalOcl.g:6860:2: ( rule__BraceExp__ExpAssignment_1 )
+            // InternalOcl.g:6860:3: rule__BraceExp__ExpAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__BraceExp__ExpAssignment_1();
@@ -21154,14 +21256,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BraceExp__Group__2"
-    // InternalOcl.g:6837:1: rule__BraceExp__Group__2 : rule__BraceExp__Group__2__Impl ;
+    // InternalOcl.g:6868:1: rule__BraceExp__Group__2 : rule__BraceExp__Group__2__Impl ;
     public final void rule__BraceExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6841:1: ( rule__BraceExp__Group__2__Impl )
-            // InternalOcl.g:6842:2: rule__BraceExp__Group__2__Impl
+            // InternalOcl.g:6872:1: ( rule__BraceExp__Group__2__Impl )
+            // InternalOcl.g:6873:2: rule__BraceExp__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BraceExp__Group__2__Impl();
@@ -21187,17 +21289,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BraceExp__Group__2__Impl"
-    // InternalOcl.g:6848:1: rule__BraceExp__Group__2__Impl : ( ')' ) ;
+    // InternalOcl.g:6879:1: rule__BraceExp__Group__2__Impl : ( ')' ) ;
     public final void rule__BraceExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6852:1: ( ( ')' ) )
-            // InternalOcl.g:6853:1: ( ')' )
+            // InternalOcl.g:6883:1: ( ( ')' ) )
+            // InternalOcl.g:6884:1: ( ')' )
             {
-            // InternalOcl.g:6853:1: ( ')' )
-            // InternalOcl.g:6854:2: ')'
+            // InternalOcl.g:6884:1: ( ')' )
+            // InternalOcl.g:6885:2: ')'
             {
              before(grammarAccess.getBraceExpAccess().getRightParenthesisKeyword_2()); 
             match(input,36,FOLLOW_2); 
@@ -21224,14 +21326,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__0"
-    // InternalOcl.g:6864:1: rule__ContextlessCallExp__Group__0 : rule__ContextlessCallExp__Group__0__Impl rule__ContextlessCallExp__Group__1 ;
+    // InternalOcl.g:6895:1: rule__ContextlessCallExp__Group__0 : rule__ContextlessCallExp__Group__0__Impl rule__ContextlessCallExp__Group__1 ;
     public final void rule__ContextlessCallExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6868:1: ( rule__ContextlessCallExp__Group__0__Impl rule__ContextlessCallExp__Group__1 )
-            // InternalOcl.g:6869:2: rule__ContextlessCallExp__Group__0__Impl rule__ContextlessCallExp__Group__1
+            // InternalOcl.g:6899:1: ( rule__ContextlessCallExp__Group__0__Impl rule__ContextlessCallExp__Group__1 )
+            // InternalOcl.g:6900:2: rule__ContextlessCallExp__Group__0__Impl rule__ContextlessCallExp__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__ContextlessCallExp__Group__0__Impl();
@@ -21262,21 +21364,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__0__Impl"
-    // InternalOcl.g:6876:1: rule__ContextlessCallExp__Group__0__Impl : ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) ) ;
+    // InternalOcl.g:6907:1: rule__ContextlessCallExp__Group__0__Impl : ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) ) ;
     public final void rule__ContextlessCallExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6880:1: ( ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) ) )
-            // InternalOcl.g:6881:1: ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) )
+            // InternalOcl.g:6911:1: ( ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) ) )
+            // InternalOcl.g:6912:1: ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) )
             {
-            // InternalOcl.g:6881:1: ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) )
-            // InternalOcl.g:6882:2: ( rule__ContextlessCallExp__OperationNameAssignment_0 )
+            // InternalOcl.g:6912:1: ( ( rule__ContextlessCallExp__OperationNameAssignment_0 ) )
+            // InternalOcl.g:6913:2: ( rule__ContextlessCallExp__OperationNameAssignment_0 )
             {
              before(grammarAccess.getContextlessCallExpAccess().getOperationNameAssignment_0()); 
-            // InternalOcl.g:6883:2: ( rule__ContextlessCallExp__OperationNameAssignment_0 )
-            // InternalOcl.g:6883:3: rule__ContextlessCallExp__OperationNameAssignment_0
+            // InternalOcl.g:6914:2: ( rule__ContextlessCallExp__OperationNameAssignment_0 )
+            // InternalOcl.g:6914:3: rule__ContextlessCallExp__OperationNameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__ContextlessCallExp__OperationNameAssignment_0();
@@ -21309,14 +21411,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__1"
-    // InternalOcl.g:6891:1: rule__ContextlessCallExp__Group__1 : rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2 ;
+    // InternalOcl.g:6922:1: rule__ContextlessCallExp__Group__1 : rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2 ;
     public final void rule__ContextlessCallExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6895:1: ( rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2 )
-            // InternalOcl.g:6896:2: rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2
+            // InternalOcl.g:6926:1: ( rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2 )
+            // InternalOcl.g:6927:2: rule__ContextlessCallExp__Group__1__Impl rule__ContextlessCallExp__Group__2
             {
             pushFollow(FOLLOW_54);
             rule__ContextlessCallExp__Group__1__Impl();
@@ -21347,17 +21449,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__1__Impl"
-    // InternalOcl.g:6903:1: rule__ContextlessCallExp__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:6934:1: rule__ContextlessCallExp__Group__1__Impl : ( '(' ) ;
     public final void rule__ContextlessCallExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6907:1: ( ( '(' ) )
-            // InternalOcl.g:6908:1: ( '(' )
+            // InternalOcl.g:6938:1: ( ( '(' ) )
+            // InternalOcl.g:6939:1: ( '(' )
             {
-            // InternalOcl.g:6908:1: ( '(' )
-            // InternalOcl.g:6909:2: '('
+            // InternalOcl.g:6939:1: ( '(' )
+            // InternalOcl.g:6940:2: '('
             {
              before(grammarAccess.getContextlessCallExpAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -21384,14 +21486,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__2"
-    // InternalOcl.g:6918:1: rule__ContextlessCallExp__Group__2 : rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3 ;
+    // InternalOcl.g:6949:1: rule__ContextlessCallExp__Group__2 : rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3 ;
     public final void rule__ContextlessCallExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6922:1: ( rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3 )
-            // InternalOcl.g:6923:2: rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3
+            // InternalOcl.g:6953:1: ( rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3 )
+            // InternalOcl.g:6954:2: rule__ContextlessCallExp__Group__2__Impl rule__ContextlessCallExp__Group__3
             {
             pushFollow(FOLLOW_54);
             rule__ContextlessCallExp__Group__2__Impl();
@@ -21422,29 +21524,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__2__Impl"
-    // InternalOcl.g:6930:1: rule__ContextlessCallExp__Group__2__Impl : ( ( rule__ContextlessCallExp__Group_2__0 )? ) ;
+    // InternalOcl.g:6961:1: rule__ContextlessCallExp__Group__2__Impl : ( ( rule__ContextlessCallExp__Group_2__0 )? ) ;
     public final void rule__ContextlessCallExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6934:1: ( ( ( rule__ContextlessCallExp__Group_2__0 )? ) )
-            // InternalOcl.g:6935:1: ( ( rule__ContextlessCallExp__Group_2__0 )? )
+            // InternalOcl.g:6965:1: ( ( ( rule__ContextlessCallExp__Group_2__0 )? ) )
+            // InternalOcl.g:6966:1: ( ( rule__ContextlessCallExp__Group_2__0 )? )
             {
-            // InternalOcl.g:6935:1: ( ( rule__ContextlessCallExp__Group_2__0 )? )
-            // InternalOcl.g:6936:2: ( rule__ContextlessCallExp__Group_2__0 )?
+            // InternalOcl.g:6966:1: ( ( rule__ContextlessCallExp__Group_2__0 )? )
+            // InternalOcl.g:6967:2: ( rule__ContextlessCallExp__Group_2__0 )?
             {
              before(grammarAccess.getContextlessCallExpAccess().getGroup_2()); 
-            // InternalOcl.g:6937:2: ( rule__ContextlessCallExp__Group_2__0 )?
+            // InternalOcl.g:6968:2: ( rule__ContextlessCallExp__Group_2__0 )?
             int alt48=2;
             int LA48_0 = input.LA(1);
 
-            if ( ((LA48_0>=RULE_ID && LA48_0<=RULE_INT)||LA48_0==22||LA48_0==28||LA48_0==35||(LA48_0>=39 && LA48_0<=41)||(LA48_0>=44 && LA48_0<=50)||LA48_0==52||(LA48_0>=67 && LA48_0<=68)) ) {
+            if ( ((LA48_0>=RULE_ID && LA48_0<=RULE_INT)||LA48_0==22||LA48_0==28||LA48_0==35||(LA48_0>=39 && LA48_0<=41)||(LA48_0>=44 && LA48_0<=50)||LA48_0==52||(LA48_0>=68 && LA48_0<=69)) ) {
                 alt48=1;
             }
             switch (alt48) {
                 case 1 :
-                    // InternalOcl.g:6937:3: rule__ContextlessCallExp__Group_2__0
+                    // InternalOcl.g:6968:3: rule__ContextlessCallExp__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ContextlessCallExp__Group_2__0();
@@ -21480,14 +21582,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__3"
-    // InternalOcl.g:6945:1: rule__ContextlessCallExp__Group__3 : rule__ContextlessCallExp__Group__3__Impl ;
+    // InternalOcl.g:6976:1: rule__ContextlessCallExp__Group__3 : rule__ContextlessCallExp__Group__3__Impl ;
     public final void rule__ContextlessCallExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6949:1: ( rule__ContextlessCallExp__Group__3__Impl )
-            // InternalOcl.g:6950:2: rule__ContextlessCallExp__Group__3__Impl
+            // InternalOcl.g:6980:1: ( rule__ContextlessCallExp__Group__3__Impl )
+            // InternalOcl.g:6981:2: rule__ContextlessCallExp__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ContextlessCallExp__Group__3__Impl();
@@ -21513,17 +21615,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group__3__Impl"
-    // InternalOcl.g:6956:1: rule__ContextlessCallExp__Group__3__Impl : ( ')' ) ;
+    // InternalOcl.g:6987:1: rule__ContextlessCallExp__Group__3__Impl : ( ')' ) ;
     public final void rule__ContextlessCallExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6960:1: ( ( ')' ) )
-            // InternalOcl.g:6961:1: ( ')' )
+            // InternalOcl.g:6991:1: ( ( ')' ) )
+            // InternalOcl.g:6992:1: ( ')' )
             {
-            // InternalOcl.g:6961:1: ( ')' )
-            // InternalOcl.g:6962:2: ')'
+            // InternalOcl.g:6992:1: ( ')' )
+            // InternalOcl.g:6993:2: ')'
             {
              before(grammarAccess.getContextlessCallExpAccess().getRightParenthesisKeyword_3()); 
             match(input,36,FOLLOW_2); 
@@ -21550,14 +21652,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2__0"
-    // InternalOcl.g:6972:1: rule__ContextlessCallExp__Group_2__0 : rule__ContextlessCallExp__Group_2__0__Impl rule__ContextlessCallExp__Group_2__1 ;
+    // InternalOcl.g:7003:1: rule__ContextlessCallExp__Group_2__0 : rule__ContextlessCallExp__Group_2__0__Impl rule__ContextlessCallExp__Group_2__1 ;
     public final void rule__ContextlessCallExp__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6976:1: ( rule__ContextlessCallExp__Group_2__0__Impl rule__ContextlessCallExp__Group_2__1 )
-            // InternalOcl.g:6977:2: rule__ContextlessCallExp__Group_2__0__Impl rule__ContextlessCallExp__Group_2__1
+            // InternalOcl.g:7007:1: ( rule__ContextlessCallExp__Group_2__0__Impl rule__ContextlessCallExp__Group_2__1 )
+            // InternalOcl.g:7008:2: rule__ContextlessCallExp__Group_2__0__Impl rule__ContextlessCallExp__Group_2__1
             {
             pushFollow(FOLLOW_19);
             rule__ContextlessCallExp__Group_2__0__Impl();
@@ -21588,21 +21690,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2__0__Impl"
-    // InternalOcl.g:6984:1: rule__ContextlessCallExp__Group_2__0__Impl : ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) ) ;
+    // InternalOcl.g:7015:1: rule__ContextlessCallExp__Group_2__0__Impl : ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) ) ;
     public final void rule__ContextlessCallExp__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:6988:1: ( ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) ) )
-            // InternalOcl.g:6989:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) )
+            // InternalOcl.g:7019:1: ( ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) ) )
+            // InternalOcl.g:7020:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) )
             {
-            // InternalOcl.g:6989:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) )
-            // InternalOcl.g:6990:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 )
+            // InternalOcl.g:7020:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 ) )
+            // InternalOcl.g:7021:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 )
             {
              before(grammarAccess.getContextlessCallExpAccess().getArgumentsAssignment_2_0()); 
-            // InternalOcl.g:6991:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 )
-            // InternalOcl.g:6991:3: rule__ContextlessCallExp__ArgumentsAssignment_2_0
+            // InternalOcl.g:7022:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_0 )
+            // InternalOcl.g:7022:3: rule__ContextlessCallExp__ArgumentsAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__ContextlessCallExp__ArgumentsAssignment_2_0();
@@ -21635,14 +21737,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2__1"
-    // InternalOcl.g:6999:1: rule__ContextlessCallExp__Group_2__1 : rule__ContextlessCallExp__Group_2__1__Impl ;
+    // InternalOcl.g:7030:1: rule__ContextlessCallExp__Group_2__1 : rule__ContextlessCallExp__Group_2__1__Impl ;
     public final void rule__ContextlessCallExp__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7003:1: ( rule__ContextlessCallExp__Group_2__1__Impl )
-            // InternalOcl.g:7004:2: rule__ContextlessCallExp__Group_2__1__Impl
+            // InternalOcl.g:7034:1: ( rule__ContextlessCallExp__Group_2__1__Impl )
+            // InternalOcl.g:7035:2: rule__ContextlessCallExp__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ContextlessCallExp__Group_2__1__Impl();
@@ -21668,20 +21770,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2__1__Impl"
-    // InternalOcl.g:7010:1: rule__ContextlessCallExp__Group_2__1__Impl : ( ( rule__ContextlessCallExp__Group_2_1__0 )* ) ;
+    // InternalOcl.g:7041:1: rule__ContextlessCallExp__Group_2__1__Impl : ( ( rule__ContextlessCallExp__Group_2_1__0 )* ) ;
     public final void rule__ContextlessCallExp__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7014:1: ( ( ( rule__ContextlessCallExp__Group_2_1__0 )* ) )
-            // InternalOcl.g:7015:1: ( ( rule__ContextlessCallExp__Group_2_1__0 )* )
+            // InternalOcl.g:7045:1: ( ( ( rule__ContextlessCallExp__Group_2_1__0 )* ) )
+            // InternalOcl.g:7046:1: ( ( rule__ContextlessCallExp__Group_2_1__0 )* )
             {
-            // InternalOcl.g:7015:1: ( ( rule__ContextlessCallExp__Group_2_1__0 )* )
-            // InternalOcl.g:7016:2: ( rule__ContextlessCallExp__Group_2_1__0 )*
+            // InternalOcl.g:7046:1: ( ( rule__ContextlessCallExp__Group_2_1__0 )* )
+            // InternalOcl.g:7047:2: ( rule__ContextlessCallExp__Group_2_1__0 )*
             {
              before(grammarAccess.getContextlessCallExpAccess().getGroup_2_1()); 
-            // InternalOcl.g:7017:2: ( rule__ContextlessCallExp__Group_2_1__0 )*
+            // InternalOcl.g:7048:2: ( rule__ContextlessCallExp__Group_2_1__0 )*
             loop49:
             do {
                 int alt49=2;
@@ -21694,7 +21796,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt49) {
             	case 1 :
-            	    // InternalOcl.g:7017:3: rule__ContextlessCallExp__Group_2_1__0
+            	    // InternalOcl.g:7048:3: rule__ContextlessCallExp__Group_2_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__ContextlessCallExp__Group_2_1__0();
@@ -21733,14 +21835,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2_1__0"
-    // InternalOcl.g:7026:1: rule__ContextlessCallExp__Group_2_1__0 : rule__ContextlessCallExp__Group_2_1__0__Impl rule__ContextlessCallExp__Group_2_1__1 ;
+    // InternalOcl.g:7057:1: rule__ContextlessCallExp__Group_2_1__0 : rule__ContextlessCallExp__Group_2_1__0__Impl rule__ContextlessCallExp__Group_2_1__1 ;
     public final void rule__ContextlessCallExp__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7030:1: ( rule__ContextlessCallExp__Group_2_1__0__Impl rule__ContextlessCallExp__Group_2_1__1 )
-            // InternalOcl.g:7031:2: rule__ContextlessCallExp__Group_2_1__0__Impl rule__ContextlessCallExp__Group_2_1__1
+            // InternalOcl.g:7061:1: ( rule__ContextlessCallExp__Group_2_1__0__Impl rule__ContextlessCallExp__Group_2_1__1 )
+            // InternalOcl.g:7062:2: rule__ContextlessCallExp__Group_2_1__0__Impl rule__ContextlessCallExp__Group_2_1__1
             {
             pushFollow(FOLLOW_16);
             rule__ContextlessCallExp__Group_2_1__0__Impl();
@@ -21771,17 +21873,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2_1__0__Impl"
-    // InternalOcl.g:7038:1: rule__ContextlessCallExp__Group_2_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:7069:1: rule__ContextlessCallExp__Group_2_1__0__Impl : ( ',' ) ;
     public final void rule__ContextlessCallExp__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7042:1: ( ( ',' ) )
-            // InternalOcl.g:7043:1: ( ',' )
+            // InternalOcl.g:7073:1: ( ( ',' ) )
+            // InternalOcl.g:7074:1: ( ',' )
             {
-            // InternalOcl.g:7043:1: ( ',' )
-            // InternalOcl.g:7044:2: ','
+            // InternalOcl.g:7074:1: ( ',' )
+            // InternalOcl.g:7075:2: ','
             {
              before(grammarAccess.getContextlessCallExpAccess().getCommaKeyword_2_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -21808,14 +21910,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2_1__1"
-    // InternalOcl.g:7053:1: rule__ContextlessCallExp__Group_2_1__1 : rule__ContextlessCallExp__Group_2_1__1__Impl ;
+    // InternalOcl.g:7084:1: rule__ContextlessCallExp__Group_2_1__1 : rule__ContextlessCallExp__Group_2_1__1__Impl ;
     public final void rule__ContextlessCallExp__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7057:1: ( rule__ContextlessCallExp__Group_2_1__1__Impl )
-            // InternalOcl.g:7058:2: rule__ContextlessCallExp__Group_2_1__1__Impl
+            // InternalOcl.g:7088:1: ( rule__ContextlessCallExp__Group_2_1__1__Impl )
+            // InternalOcl.g:7089:2: rule__ContextlessCallExp__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ContextlessCallExp__Group_2_1__1__Impl();
@@ -21841,21 +21943,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__Group_2_1__1__Impl"
-    // InternalOcl.g:7064:1: rule__ContextlessCallExp__Group_2_1__1__Impl : ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) ) ;
+    // InternalOcl.g:7095:1: rule__ContextlessCallExp__Group_2_1__1__Impl : ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) ) ;
     public final void rule__ContextlessCallExp__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7068:1: ( ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) ) )
-            // InternalOcl.g:7069:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) )
+            // InternalOcl.g:7099:1: ( ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) ) )
+            // InternalOcl.g:7100:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) )
             {
-            // InternalOcl.g:7069:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) )
-            // InternalOcl.g:7070:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 )
+            // InternalOcl.g:7100:1: ( ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 ) )
+            // InternalOcl.g:7101:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 )
             {
              before(grammarAccess.getContextlessCallExpAccess().getArgumentsAssignment_2_1_1()); 
-            // InternalOcl.g:7071:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 )
-            // InternalOcl.g:7071:3: rule__ContextlessCallExp__ArgumentsAssignment_2_1_1
+            // InternalOcl.g:7102:2: ( rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 )
+            // InternalOcl.g:7102:3: rule__ContextlessCallExp__ArgumentsAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__ContextlessCallExp__ArgumentsAssignment_2_1_1();
@@ -21888,14 +21990,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__0"
-    // InternalOcl.g:7080:1: rule__OperationCall__Group__0 : rule__OperationCall__Group__0__Impl rule__OperationCall__Group__1 ;
+    // InternalOcl.g:7111:1: rule__OperationCall__Group__0 : rule__OperationCall__Group__0__Impl rule__OperationCall__Group__1 ;
     public final void rule__OperationCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7084:1: ( rule__OperationCall__Group__0__Impl rule__OperationCall__Group__1 )
-            // InternalOcl.g:7085:2: rule__OperationCall__Group__0__Impl rule__OperationCall__Group__1
+            // InternalOcl.g:7115:1: ( rule__OperationCall__Group__0__Impl rule__OperationCall__Group__1 )
+            // InternalOcl.g:7116:2: rule__OperationCall__Group__0__Impl rule__OperationCall__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__OperationCall__Group__0__Impl();
@@ -21926,17 +22028,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__0__Impl"
-    // InternalOcl.g:7092:1: rule__OperationCall__Group__0__Impl : ( '.' ) ;
+    // InternalOcl.g:7123:1: rule__OperationCall__Group__0__Impl : ( '.' ) ;
     public final void rule__OperationCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7096:1: ( ( '.' ) )
-            // InternalOcl.g:7097:1: ( '.' )
+            // InternalOcl.g:7127:1: ( ( '.' ) )
+            // InternalOcl.g:7128:1: ( '.' )
             {
-            // InternalOcl.g:7097:1: ( '.' )
-            // InternalOcl.g:7098:2: '.'
+            // InternalOcl.g:7128:1: ( '.' )
+            // InternalOcl.g:7129:2: '.'
             {
              before(grammarAccess.getOperationCallAccess().getFullStopKeyword_0()); 
             match(input,56,FOLLOW_2); 
@@ -21963,14 +22065,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__1"
-    // InternalOcl.g:7107:1: rule__OperationCall__Group__1 : rule__OperationCall__Group__1__Impl rule__OperationCall__Group__2 ;
+    // InternalOcl.g:7138:1: rule__OperationCall__Group__1 : rule__OperationCall__Group__1__Impl rule__OperationCall__Group__2 ;
     public final void rule__OperationCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7111:1: ( rule__OperationCall__Group__1__Impl rule__OperationCall__Group__2 )
-            // InternalOcl.g:7112:2: rule__OperationCall__Group__1__Impl rule__OperationCall__Group__2
+            // InternalOcl.g:7142:1: ( rule__OperationCall__Group__1__Impl rule__OperationCall__Group__2 )
+            // InternalOcl.g:7143:2: rule__OperationCall__Group__1__Impl rule__OperationCall__Group__2
             {
             pushFollow(FOLLOW_17);
             rule__OperationCall__Group__1__Impl();
@@ -22001,21 +22103,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__1__Impl"
-    // InternalOcl.g:7119:1: rule__OperationCall__Group__1__Impl : ( ( rule__OperationCall__OperationNameAssignment_1 ) ) ;
+    // InternalOcl.g:7150:1: rule__OperationCall__Group__1__Impl : ( ( rule__OperationCall__OperationNameAssignment_1 ) ) ;
     public final void rule__OperationCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7123:1: ( ( ( rule__OperationCall__OperationNameAssignment_1 ) ) )
-            // InternalOcl.g:7124:1: ( ( rule__OperationCall__OperationNameAssignment_1 ) )
+            // InternalOcl.g:7154:1: ( ( ( rule__OperationCall__OperationNameAssignment_1 ) ) )
+            // InternalOcl.g:7155:1: ( ( rule__OperationCall__OperationNameAssignment_1 ) )
             {
-            // InternalOcl.g:7124:1: ( ( rule__OperationCall__OperationNameAssignment_1 ) )
-            // InternalOcl.g:7125:2: ( rule__OperationCall__OperationNameAssignment_1 )
+            // InternalOcl.g:7155:1: ( ( rule__OperationCall__OperationNameAssignment_1 ) )
+            // InternalOcl.g:7156:2: ( rule__OperationCall__OperationNameAssignment_1 )
             {
              before(grammarAccess.getOperationCallAccess().getOperationNameAssignment_1()); 
-            // InternalOcl.g:7126:2: ( rule__OperationCall__OperationNameAssignment_1 )
-            // InternalOcl.g:7126:3: rule__OperationCall__OperationNameAssignment_1
+            // InternalOcl.g:7157:2: ( rule__OperationCall__OperationNameAssignment_1 )
+            // InternalOcl.g:7157:3: rule__OperationCall__OperationNameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__OperationCall__OperationNameAssignment_1();
@@ -22048,14 +22150,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__2"
-    // InternalOcl.g:7134:1: rule__OperationCall__Group__2 : rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3 ;
+    // InternalOcl.g:7165:1: rule__OperationCall__Group__2 : rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3 ;
     public final void rule__OperationCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7138:1: ( rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3 )
-            // InternalOcl.g:7139:2: rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3
+            // InternalOcl.g:7169:1: ( rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3 )
+            // InternalOcl.g:7170:2: rule__OperationCall__Group__2__Impl rule__OperationCall__Group__3
             {
             pushFollow(FOLLOW_54);
             rule__OperationCall__Group__2__Impl();
@@ -22086,17 +22188,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__2__Impl"
-    // InternalOcl.g:7146:1: rule__OperationCall__Group__2__Impl : ( '(' ) ;
+    // InternalOcl.g:7177:1: rule__OperationCall__Group__2__Impl : ( '(' ) ;
     public final void rule__OperationCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7150:1: ( ( '(' ) )
-            // InternalOcl.g:7151:1: ( '(' )
+            // InternalOcl.g:7181:1: ( ( '(' ) )
+            // InternalOcl.g:7182:1: ( '(' )
             {
-            // InternalOcl.g:7151:1: ( '(' )
-            // InternalOcl.g:7152:2: '('
+            // InternalOcl.g:7182:1: ( '(' )
+            // InternalOcl.g:7183:2: '('
             {
              before(grammarAccess.getOperationCallAccess().getLeftParenthesisKeyword_2()); 
             match(input,35,FOLLOW_2); 
@@ -22123,14 +22225,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__3"
-    // InternalOcl.g:7161:1: rule__OperationCall__Group__3 : rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4 ;
+    // InternalOcl.g:7192:1: rule__OperationCall__Group__3 : rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4 ;
     public final void rule__OperationCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7165:1: ( rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4 )
-            // InternalOcl.g:7166:2: rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4
+            // InternalOcl.g:7196:1: ( rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4 )
+            // InternalOcl.g:7197:2: rule__OperationCall__Group__3__Impl rule__OperationCall__Group__4
             {
             pushFollow(FOLLOW_54);
             rule__OperationCall__Group__3__Impl();
@@ -22161,29 +22263,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__3__Impl"
-    // InternalOcl.g:7173:1: rule__OperationCall__Group__3__Impl : ( ( rule__OperationCall__Group_3__0 )? ) ;
+    // InternalOcl.g:7204:1: rule__OperationCall__Group__3__Impl : ( ( rule__OperationCall__Group_3__0 )? ) ;
     public final void rule__OperationCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7177:1: ( ( ( rule__OperationCall__Group_3__0 )? ) )
-            // InternalOcl.g:7178:1: ( ( rule__OperationCall__Group_3__0 )? )
+            // InternalOcl.g:7208:1: ( ( ( rule__OperationCall__Group_3__0 )? ) )
+            // InternalOcl.g:7209:1: ( ( rule__OperationCall__Group_3__0 )? )
             {
-            // InternalOcl.g:7178:1: ( ( rule__OperationCall__Group_3__0 )? )
-            // InternalOcl.g:7179:2: ( rule__OperationCall__Group_3__0 )?
+            // InternalOcl.g:7209:1: ( ( rule__OperationCall__Group_3__0 )? )
+            // InternalOcl.g:7210:2: ( rule__OperationCall__Group_3__0 )?
             {
              before(grammarAccess.getOperationCallAccess().getGroup_3()); 
-            // InternalOcl.g:7180:2: ( rule__OperationCall__Group_3__0 )?
+            // InternalOcl.g:7211:2: ( rule__OperationCall__Group_3__0 )?
             int alt50=2;
             int LA50_0 = input.LA(1);
 
-            if ( ((LA50_0>=RULE_ID && LA50_0<=RULE_INT)||LA50_0==22||LA50_0==28||LA50_0==35||(LA50_0>=39 && LA50_0<=41)||(LA50_0>=44 && LA50_0<=50)||LA50_0==52||(LA50_0>=67 && LA50_0<=68)) ) {
+            if ( ((LA50_0>=RULE_ID && LA50_0<=RULE_INT)||LA50_0==22||LA50_0==28||LA50_0==35||(LA50_0>=39 && LA50_0<=41)||(LA50_0>=44 && LA50_0<=50)||LA50_0==52||(LA50_0>=68 && LA50_0<=69)) ) {
                 alt50=1;
             }
             switch (alt50) {
                 case 1 :
-                    // InternalOcl.g:7180:3: rule__OperationCall__Group_3__0
+                    // InternalOcl.g:7211:3: rule__OperationCall__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__OperationCall__Group_3__0();
@@ -22219,14 +22321,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__4"
-    // InternalOcl.g:7188:1: rule__OperationCall__Group__4 : rule__OperationCall__Group__4__Impl ;
+    // InternalOcl.g:7219:1: rule__OperationCall__Group__4 : rule__OperationCall__Group__4__Impl ;
     public final void rule__OperationCall__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7192:1: ( rule__OperationCall__Group__4__Impl )
-            // InternalOcl.g:7193:2: rule__OperationCall__Group__4__Impl
+            // InternalOcl.g:7223:1: ( rule__OperationCall__Group__4__Impl )
+            // InternalOcl.g:7224:2: rule__OperationCall__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OperationCall__Group__4__Impl();
@@ -22252,17 +22354,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group__4__Impl"
-    // InternalOcl.g:7199:1: rule__OperationCall__Group__4__Impl : ( ')' ) ;
+    // InternalOcl.g:7230:1: rule__OperationCall__Group__4__Impl : ( ')' ) ;
     public final void rule__OperationCall__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7203:1: ( ( ')' ) )
-            // InternalOcl.g:7204:1: ( ')' )
+            // InternalOcl.g:7234:1: ( ( ')' ) )
+            // InternalOcl.g:7235:1: ( ')' )
             {
-            // InternalOcl.g:7204:1: ( ')' )
-            // InternalOcl.g:7205:2: ')'
+            // InternalOcl.g:7235:1: ( ')' )
+            // InternalOcl.g:7236:2: ')'
             {
              before(grammarAccess.getOperationCallAccess().getRightParenthesisKeyword_4()); 
             match(input,36,FOLLOW_2); 
@@ -22289,14 +22391,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3__0"
-    // InternalOcl.g:7215:1: rule__OperationCall__Group_3__0 : rule__OperationCall__Group_3__0__Impl rule__OperationCall__Group_3__1 ;
+    // InternalOcl.g:7246:1: rule__OperationCall__Group_3__0 : rule__OperationCall__Group_3__0__Impl rule__OperationCall__Group_3__1 ;
     public final void rule__OperationCall__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7219:1: ( rule__OperationCall__Group_3__0__Impl rule__OperationCall__Group_3__1 )
-            // InternalOcl.g:7220:2: rule__OperationCall__Group_3__0__Impl rule__OperationCall__Group_3__1
+            // InternalOcl.g:7250:1: ( rule__OperationCall__Group_3__0__Impl rule__OperationCall__Group_3__1 )
+            // InternalOcl.g:7251:2: rule__OperationCall__Group_3__0__Impl rule__OperationCall__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__OperationCall__Group_3__0__Impl();
@@ -22327,21 +22429,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3__0__Impl"
-    // InternalOcl.g:7227:1: rule__OperationCall__Group_3__0__Impl : ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) ) ;
+    // InternalOcl.g:7258:1: rule__OperationCall__Group_3__0__Impl : ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) ) ;
     public final void rule__OperationCall__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7231:1: ( ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) ) )
-            // InternalOcl.g:7232:1: ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) )
+            // InternalOcl.g:7262:1: ( ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) ) )
+            // InternalOcl.g:7263:1: ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) )
             {
-            // InternalOcl.g:7232:1: ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) )
-            // InternalOcl.g:7233:2: ( rule__OperationCall__ArgumentsAssignment_3_0 )
+            // InternalOcl.g:7263:1: ( ( rule__OperationCall__ArgumentsAssignment_3_0 ) )
+            // InternalOcl.g:7264:2: ( rule__OperationCall__ArgumentsAssignment_3_0 )
             {
              before(grammarAccess.getOperationCallAccess().getArgumentsAssignment_3_0()); 
-            // InternalOcl.g:7234:2: ( rule__OperationCall__ArgumentsAssignment_3_0 )
-            // InternalOcl.g:7234:3: rule__OperationCall__ArgumentsAssignment_3_0
+            // InternalOcl.g:7265:2: ( rule__OperationCall__ArgumentsAssignment_3_0 )
+            // InternalOcl.g:7265:3: rule__OperationCall__ArgumentsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__OperationCall__ArgumentsAssignment_3_0();
@@ -22374,14 +22476,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3__1"
-    // InternalOcl.g:7242:1: rule__OperationCall__Group_3__1 : rule__OperationCall__Group_3__1__Impl ;
+    // InternalOcl.g:7273:1: rule__OperationCall__Group_3__1 : rule__OperationCall__Group_3__1__Impl ;
     public final void rule__OperationCall__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7246:1: ( rule__OperationCall__Group_3__1__Impl )
-            // InternalOcl.g:7247:2: rule__OperationCall__Group_3__1__Impl
+            // InternalOcl.g:7277:1: ( rule__OperationCall__Group_3__1__Impl )
+            // InternalOcl.g:7278:2: rule__OperationCall__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OperationCall__Group_3__1__Impl();
@@ -22407,20 +22509,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3__1__Impl"
-    // InternalOcl.g:7253:1: rule__OperationCall__Group_3__1__Impl : ( ( rule__OperationCall__Group_3_1__0 )* ) ;
+    // InternalOcl.g:7284:1: rule__OperationCall__Group_3__1__Impl : ( ( rule__OperationCall__Group_3_1__0 )* ) ;
     public final void rule__OperationCall__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7257:1: ( ( ( rule__OperationCall__Group_3_1__0 )* ) )
-            // InternalOcl.g:7258:1: ( ( rule__OperationCall__Group_3_1__0 )* )
+            // InternalOcl.g:7288:1: ( ( ( rule__OperationCall__Group_3_1__0 )* ) )
+            // InternalOcl.g:7289:1: ( ( rule__OperationCall__Group_3_1__0 )* )
             {
-            // InternalOcl.g:7258:1: ( ( rule__OperationCall__Group_3_1__0 )* )
-            // InternalOcl.g:7259:2: ( rule__OperationCall__Group_3_1__0 )*
+            // InternalOcl.g:7289:1: ( ( rule__OperationCall__Group_3_1__0 )* )
+            // InternalOcl.g:7290:2: ( rule__OperationCall__Group_3_1__0 )*
             {
              before(grammarAccess.getOperationCallAccess().getGroup_3_1()); 
-            // InternalOcl.g:7260:2: ( rule__OperationCall__Group_3_1__0 )*
+            // InternalOcl.g:7291:2: ( rule__OperationCall__Group_3_1__0 )*
             loop51:
             do {
                 int alt51=2;
@@ -22433,7 +22535,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt51) {
             	case 1 :
-            	    // InternalOcl.g:7260:3: rule__OperationCall__Group_3_1__0
+            	    // InternalOcl.g:7291:3: rule__OperationCall__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__OperationCall__Group_3_1__0();
@@ -22472,14 +22574,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3_1__0"
-    // InternalOcl.g:7269:1: rule__OperationCall__Group_3_1__0 : rule__OperationCall__Group_3_1__0__Impl rule__OperationCall__Group_3_1__1 ;
+    // InternalOcl.g:7300:1: rule__OperationCall__Group_3_1__0 : rule__OperationCall__Group_3_1__0__Impl rule__OperationCall__Group_3_1__1 ;
     public final void rule__OperationCall__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7273:1: ( rule__OperationCall__Group_3_1__0__Impl rule__OperationCall__Group_3_1__1 )
-            // InternalOcl.g:7274:2: rule__OperationCall__Group_3_1__0__Impl rule__OperationCall__Group_3_1__1
+            // InternalOcl.g:7304:1: ( rule__OperationCall__Group_3_1__0__Impl rule__OperationCall__Group_3_1__1 )
+            // InternalOcl.g:7305:2: rule__OperationCall__Group_3_1__0__Impl rule__OperationCall__Group_3_1__1
             {
             pushFollow(FOLLOW_16);
             rule__OperationCall__Group_3_1__0__Impl();
@@ -22510,17 +22612,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3_1__0__Impl"
-    // InternalOcl.g:7281:1: rule__OperationCall__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:7312:1: rule__OperationCall__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__OperationCall__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7285:1: ( ( ',' ) )
-            // InternalOcl.g:7286:1: ( ',' )
+            // InternalOcl.g:7316:1: ( ( ',' ) )
+            // InternalOcl.g:7317:1: ( ',' )
             {
-            // InternalOcl.g:7286:1: ( ',' )
-            // InternalOcl.g:7287:2: ','
+            // InternalOcl.g:7317:1: ( ',' )
+            // InternalOcl.g:7318:2: ','
             {
              before(grammarAccess.getOperationCallAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -22547,14 +22649,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3_1__1"
-    // InternalOcl.g:7296:1: rule__OperationCall__Group_3_1__1 : rule__OperationCall__Group_3_1__1__Impl ;
+    // InternalOcl.g:7327:1: rule__OperationCall__Group_3_1__1 : rule__OperationCall__Group_3_1__1__Impl ;
     public final void rule__OperationCall__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7300:1: ( rule__OperationCall__Group_3_1__1__Impl )
-            // InternalOcl.g:7301:2: rule__OperationCall__Group_3_1__1__Impl
+            // InternalOcl.g:7331:1: ( rule__OperationCall__Group_3_1__1__Impl )
+            // InternalOcl.g:7332:2: rule__OperationCall__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OperationCall__Group_3_1__1__Impl();
@@ -22580,21 +22682,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__Group_3_1__1__Impl"
-    // InternalOcl.g:7307:1: rule__OperationCall__Group_3_1__1__Impl : ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:7338:1: rule__OperationCall__Group_3_1__1__Impl : ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) ) ;
     public final void rule__OperationCall__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7311:1: ( ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) ) )
-            // InternalOcl.g:7312:1: ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) )
+            // InternalOcl.g:7342:1: ( ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) ) )
+            // InternalOcl.g:7343:1: ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:7312:1: ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) )
-            // InternalOcl.g:7313:2: ( rule__OperationCall__ArgumentsAssignment_3_1_1 )
+            // InternalOcl.g:7343:1: ( ( rule__OperationCall__ArgumentsAssignment_3_1_1 ) )
+            // InternalOcl.g:7344:2: ( rule__OperationCall__ArgumentsAssignment_3_1_1 )
             {
              before(grammarAccess.getOperationCallAccess().getArgumentsAssignment_3_1_1()); 
-            // InternalOcl.g:7314:2: ( rule__OperationCall__ArgumentsAssignment_3_1_1 )
-            // InternalOcl.g:7314:3: rule__OperationCall__ArgumentsAssignment_3_1_1
+            // InternalOcl.g:7345:2: ( rule__OperationCall__ArgumentsAssignment_3_1_1 )
+            // InternalOcl.g:7345:3: rule__OperationCall__ArgumentsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__OperationCall__ArgumentsAssignment_3_1_1();
@@ -22627,14 +22729,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigationOrAttributeCall__Group__0"
-    // InternalOcl.g:7323:1: rule__NavigationOrAttributeCall__Group__0 : rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1 ;
+    // InternalOcl.g:7354:1: rule__NavigationOrAttributeCall__Group__0 : rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1 ;
     public final void rule__NavigationOrAttributeCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7327:1: ( rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1 )
-            // InternalOcl.g:7328:2: rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1
+            // InternalOcl.g:7358:1: ( rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1 )
+            // InternalOcl.g:7359:2: rule__NavigationOrAttributeCall__Group__0__Impl rule__NavigationOrAttributeCall__Group__1
             {
             pushFollow(FOLLOW_49);
             rule__NavigationOrAttributeCall__Group__0__Impl();
@@ -22665,17 +22767,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigationOrAttributeCall__Group__0__Impl"
-    // InternalOcl.g:7335:1: rule__NavigationOrAttributeCall__Group__0__Impl : ( '.' ) ;
+    // InternalOcl.g:7366:1: rule__NavigationOrAttributeCall__Group__0__Impl : ( '.' ) ;
     public final void rule__NavigationOrAttributeCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7339:1: ( ( '.' ) )
-            // InternalOcl.g:7340:1: ( '.' )
+            // InternalOcl.g:7370:1: ( ( '.' ) )
+            // InternalOcl.g:7371:1: ( '.' )
             {
-            // InternalOcl.g:7340:1: ( '.' )
-            // InternalOcl.g:7341:2: '.'
+            // InternalOcl.g:7371:1: ( '.' )
+            // InternalOcl.g:7372:2: '.'
             {
              before(grammarAccess.getNavigationOrAttributeCallAccess().getFullStopKeyword_0()); 
             match(input,56,FOLLOW_2); 
@@ -22702,14 +22804,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigationOrAttributeCall__Group__1"
-    // InternalOcl.g:7350:1: rule__NavigationOrAttributeCall__Group__1 : rule__NavigationOrAttributeCall__Group__1__Impl ;
+    // InternalOcl.g:7381:1: rule__NavigationOrAttributeCall__Group__1 : rule__NavigationOrAttributeCall__Group__1__Impl ;
     public final void rule__NavigationOrAttributeCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7354:1: ( rule__NavigationOrAttributeCall__Group__1__Impl )
-            // InternalOcl.g:7355:2: rule__NavigationOrAttributeCall__Group__1__Impl
+            // InternalOcl.g:7385:1: ( rule__NavigationOrAttributeCall__Group__1__Impl )
+            // InternalOcl.g:7386:2: rule__NavigationOrAttributeCall__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NavigationOrAttributeCall__Group__1__Impl();
@@ -22735,21 +22837,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigationOrAttributeCall__Group__1__Impl"
-    // InternalOcl.g:7361:1: rule__NavigationOrAttributeCall__Group__1__Impl : ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) ) ;
+    // InternalOcl.g:7392:1: rule__NavigationOrAttributeCall__Group__1__Impl : ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) ) ;
     public final void rule__NavigationOrAttributeCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7365:1: ( ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) ) )
-            // InternalOcl.g:7366:1: ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) )
+            // InternalOcl.g:7396:1: ( ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) ) )
+            // InternalOcl.g:7397:1: ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) )
             {
-            // InternalOcl.g:7366:1: ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) )
-            // InternalOcl.g:7367:2: ( rule__NavigationOrAttributeCall__Alternatives_1 )
+            // InternalOcl.g:7397:1: ( ( rule__NavigationOrAttributeCall__Alternatives_1 ) )
+            // InternalOcl.g:7398:2: ( rule__NavigationOrAttributeCall__Alternatives_1 )
             {
              before(grammarAccess.getNavigationOrAttributeCallAccess().getAlternatives_1()); 
-            // InternalOcl.g:7368:2: ( rule__NavigationOrAttributeCall__Alternatives_1 )
-            // InternalOcl.g:7368:3: rule__NavigationOrAttributeCall__Alternatives_1
+            // InternalOcl.g:7399:2: ( rule__NavigationOrAttributeCall__Alternatives_1 )
+            // InternalOcl.g:7399:3: rule__NavigationOrAttributeCall__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__NavigationOrAttributeCall__Alternatives_1();
@@ -22782,14 +22884,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__0"
-    // InternalOcl.g:7377:1: rule__IterateExp__Group__0 : rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1 ;
+    // InternalOcl.g:7408:1: rule__IterateExp__Group__0 : rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1 ;
     public final void rule__IterateExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7381:1: ( rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1 )
-            // InternalOcl.g:7382:2: rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1
+            // InternalOcl.g:7412:1: ( rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1 )
+            // InternalOcl.g:7413:2: rule__IterateExp__Group__0__Impl rule__IterateExp__Group__1
             {
             pushFollow(FOLLOW_55);
             rule__IterateExp__Group__0__Impl();
@@ -22820,17 +22922,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__0__Impl"
-    // InternalOcl.g:7389:1: rule__IterateExp__Group__0__Impl : ( '->' ) ;
+    // InternalOcl.g:7420:1: rule__IterateExp__Group__0__Impl : ( '->' ) ;
     public final void rule__IterateExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7393:1: ( ( '->' ) )
-            // InternalOcl.g:7394:1: ( '->' )
+            // InternalOcl.g:7424:1: ( ( '->' ) )
+            // InternalOcl.g:7425:1: ( '->' )
             {
-            // InternalOcl.g:7394:1: ( '->' )
-            // InternalOcl.g:7395:2: '->'
+            // InternalOcl.g:7425:1: ( '->' )
+            // InternalOcl.g:7426:2: '->'
             {
              before(grammarAccess.getIterateExpAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
             match(input,57,FOLLOW_2); 
@@ -22857,14 +22959,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__1"
-    // InternalOcl.g:7404:1: rule__IterateExp__Group__1 : rule__IterateExp__Group__1__Impl rule__IterateExp__Group__2 ;
+    // InternalOcl.g:7435:1: rule__IterateExp__Group__1 : rule__IterateExp__Group__1__Impl rule__IterateExp__Group__2 ;
     public final void rule__IterateExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7408:1: ( rule__IterateExp__Group__1__Impl rule__IterateExp__Group__2 )
-            // InternalOcl.g:7409:2: rule__IterateExp__Group__1__Impl rule__IterateExp__Group__2
+            // InternalOcl.g:7439:1: ( rule__IterateExp__Group__1__Impl rule__IterateExp__Group__2 )
+            // InternalOcl.g:7440:2: rule__IterateExp__Group__1__Impl rule__IterateExp__Group__2
             {
             pushFollow(FOLLOW_17);
             rule__IterateExp__Group__1__Impl();
@@ -22895,17 +22997,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__1__Impl"
-    // InternalOcl.g:7416:1: rule__IterateExp__Group__1__Impl : ( 'iterate' ) ;
+    // InternalOcl.g:7447:1: rule__IterateExp__Group__1__Impl : ( 'iterate' ) ;
     public final void rule__IterateExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7420:1: ( ( 'iterate' ) )
-            // InternalOcl.g:7421:1: ( 'iterate' )
+            // InternalOcl.g:7451:1: ( ( 'iterate' ) )
+            // InternalOcl.g:7452:1: ( 'iterate' )
             {
-            // InternalOcl.g:7421:1: ( 'iterate' )
-            // InternalOcl.g:7422:2: 'iterate'
+            // InternalOcl.g:7452:1: ( 'iterate' )
+            // InternalOcl.g:7453:2: 'iterate'
             {
              before(grammarAccess.getIterateExpAccess().getIterateKeyword_1()); 
             match(input,58,FOLLOW_2); 
@@ -22932,14 +23034,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__2"
-    // InternalOcl.g:7431:1: rule__IterateExp__Group__2 : rule__IterateExp__Group__2__Impl rule__IterateExp__Group__3 ;
+    // InternalOcl.g:7462:1: rule__IterateExp__Group__2 : rule__IterateExp__Group__2__Impl rule__IterateExp__Group__3 ;
     public final void rule__IterateExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7435:1: ( rule__IterateExp__Group__2__Impl rule__IterateExp__Group__3 )
-            // InternalOcl.g:7436:2: rule__IterateExp__Group__2__Impl rule__IterateExp__Group__3
+            // InternalOcl.g:7466:1: ( rule__IterateExp__Group__2__Impl rule__IterateExp__Group__3 )
+            // InternalOcl.g:7467:2: rule__IterateExp__Group__2__Impl rule__IterateExp__Group__3
             {
             pushFollow(FOLLOW_9);
             rule__IterateExp__Group__2__Impl();
@@ -22970,17 +23072,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__2__Impl"
-    // InternalOcl.g:7443:1: rule__IterateExp__Group__2__Impl : ( '(' ) ;
+    // InternalOcl.g:7474:1: rule__IterateExp__Group__2__Impl : ( '(' ) ;
     public final void rule__IterateExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7447:1: ( ( '(' ) )
-            // InternalOcl.g:7448:1: ( '(' )
+            // InternalOcl.g:7478:1: ( ( '(' ) )
+            // InternalOcl.g:7479:1: ( '(' )
             {
-            // InternalOcl.g:7448:1: ( '(' )
-            // InternalOcl.g:7449:2: '('
+            // InternalOcl.g:7479:1: ( '(' )
+            // InternalOcl.g:7480:2: '('
             {
              before(grammarAccess.getIterateExpAccess().getLeftParenthesisKeyword_2()); 
             match(input,35,FOLLOW_2); 
@@ -23007,14 +23109,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__3"
-    // InternalOcl.g:7458:1: rule__IterateExp__Group__3 : rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4 ;
+    // InternalOcl.g:7489:1: rule__IterateExp__Group__3 : rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4 ;
     public final void rule__IterateExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7462:1: ( rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4 )
-            // InternalOcl.g:7463:2: rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4
+            // InternalOcl.g:7493:1: ( rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4 )
+            // InternalOcl.g:7494:2: rule__IterateExp__Group__3__Impl rule__IterateExp__Group__4
             {
             pushFollow(FOLLOW_56);
             rule__IterateExp__Group__3__Impl();
@@ -23045,21 +23147,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__3__Impl"
-    // InternalOcl.g:7470:1: rule__IterateExp__Group__3__Impl : ( ( rule__IterateExp__IteratorsAssignment_3 ) ) ;
+    // InternalOcl.g:7501:1: rule__IterateExp__Group__3__Impl : ( ( rule__IterateExp__IteratorsAssignment_3 ) ) ;
     public final void rule__IterateExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7474:1: ( ( ( rule__IterateExp__IteratorsAssignment_3 ) ) )
-            // InternalOcl.g:7475:1: ( ( rule__IterateExp__IteratorsAssignment_3 ) )
+            // InternalOcl.g:7505:1: ( ( ( rule__IterateExp__IteratorsAssignment_3 ) ) )
+            // InternalOcl.g:7506:1: ( ( rule__IterateExp__IteratorsAssignment_3 ) )
             {
-            // InternalOcl.g:7475:1: ( ( rule__IterateExp__IteratorsAssignment_3 ) )
-            // InternalOcl.g:7476:2: ( rule__IterateExp__IteratorsAssignment_3 )
+            // InternalOcl.g:7506:1: ( ( rule__IterateExp__IteratorsAssignment_3 ) )
+            // InternalOcl.g:7507:2: ( rule__IterateExp__IteratorsAssignment_3 )
             {
              before(grammarAccess.getIterateExpAccess().getIteratorsAssignment_3()); 
-            // InternalOcl.g:7477:2: ( rule__IterateExp__IteratorsAssignment_3 )
-            // InternalOcl.g:7477:3: rule__IterateExp__IteratorsAssignment_3
+            // InternalOcl.g:7508:2: ( rule__IterateExp__IteratorsAssignment_3 )
+            // InternalOcl.g:7508:3: rule__IterateExp__IteratorsAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__IterateExp__IteratorsAssignment_3();
@@ -23092,14 +23194,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__4"
-    // InternalOcl.g:7485:1: rule__IterateExp__Group__4 : rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5 ;
+    // InternalOcl.g:7516:1: rule__IterateExp__Group__4 : rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5 ;
     public final void rule__IterateExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7489:1: ( rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5 )
-            // InternalOcl.g:7490:2: rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5
+            // InternalOcl.g:7520:1: ( rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5 )
+            // InternalOcl.g:7521:2: rule__IterateExp__Group__4__Impl rule__IterateExp__Group__5
             {
             pushFollow(FOLLOW_56);
             rule__IterateExp__Group__4__Impl();
@@ -23130,20 +23232,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__4__Impl"
-    // InternalOcl.g:7497:1: rule__IterateExp__Group__4__Impl : ( ( rule__IterateExp__Group_4__0 )* ) ;
+    // InternalOcl.g:7528:1: rule__IterateExp__Group__4__Impl : ( ( rule__IterateExp__Group_4__0 )* ) ;
     public final void rule__IterateExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7501:1: ( ( ( rule__IterateExp__Group_4__0 )* ) )
-            // InternalOcl.g:7502:1: ( ( rule__IterateExp__Group_4__0 )* )
+            // InternalOcl.g:7532:1: ( ( ( rule__IterateExp__Group_4__0 )* ) )
+            // InternalOcl.g:7533:1: ( ( rule__IterateExp__Group_4__0 )* )
             {
-            // InternalOcl.g:7502:1: ( ( rule__IterateExp__Group_4__0 )* )
-            // InternalOcl.g:7503:2: ( rule__IterateExp__Group_4__0 )*
+            // InternalOcl.g:7533:1: ( ( rule__IterateExp__Group_4__0 )* )
+            // InternalOcl.g:7534:2: ( rule__IterateExp__Group_4__0 )*
             {
              before(grammarAccess.getIterateExpAccess().getGroup_4()); 
-            // InternalOcl.g:7504:2: ( rule__IterateExp__Group_4__0 )*
+            // InternalOcl.g:7535:2: ( rule__IterateExp__Group_4__0 )*
             loop52:
             do {
                 int alt52=2;
@@ -23156,7 +23258,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt52) {
             	case 1 :
-            	    // InternalOcl.g:7504:3: rule__IterateExp__Group_4__0
+            	    // InternalOcl.g:7535:3: rule__IterateExp__Group_4__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__IterateExp__Group_4__0();
@@ -23195,14 +23297,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__5"
-    // InternalOcl.g:7512:1: rule__IterateExp__Group__5 : rule__IterateExp__Group__5__Impl rule__IterateExp__Group__6 ;
+    // InternalOcl.g:7543:1: rule__IterateExp__Group__5 : rule__IterateExp__Group__5__Impl rule__IterateExp__Group__6 ;
     public final void rule__IterateExp__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7516:1: ( rule__IterateExp__Group__5__Impl rule__IterateExp__Group__6 )
-            // InternalOcl.g:7517:2: rule__IterateExp__Group__5__Impl rule__IterateExp__Group__6
+            // InternalOcl.g:7547:1: ( rule__IterateExp__Group__5__Impl rule__IterateExp__Group__6 )
+            // InternalOcl.g:7548:2: rule__IterateExp__Group__5__Impl rule__IterateExp__Group__6
             {
             pushFollow(FOLLOW_9);
             rule__IterateExp__Group__5__Impl();
@@ -23233,17 +23335,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__5__Impl"
-    // InternalOcl.g:7524:1: rule__IterateExp__Group__5__Impl : ( ';' ) ;
+    // InternalOcl.g:7555:1: rule__IterateExp__Group__5__Impl : ( ';' ) ;
     public final void rule__IterateExp__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7528:1: ( ( ';' ) )
-            // InternalOcl.g:7529:1: ( ';' )
+            // InternalOcl.g:7559:1: ( ( ';' ) )
+            // InternalOcl.g:7560:1: ( ';' )
             {
-            // InternalOcl.g:7529:1: ( ';' )
-            // InternalOcl.g:7530:2: ';'
+            // InternalOcl.g:7560:1: ( ';' )
+            // InternalOcl.g:7561:2: ';'
             {
              before(grammarAccess.getIterateExpAccess().getSemicolonKeyword_5()); 
             match(input,59,FOLLOW_2); 
@@ -23270,14 +23372,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__6"
-    // InternalOcl.g:7539:1: rule__IterateExp__Group__6 : rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7 ;
+    // InternalOcl.g:7570:1: rule__IterateExp__Group__6 : rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7 ;
     public final void rule__IterateExp__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7543:1: ( rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7 )
-            // InternalOcl.g:7544:2: rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7
+            // InternalOcl.g:7574:1: ( rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7 )
+            // InternalOcl.g:7575:2: rule__IterateExp__Group__6__Impl rule__IterateExp__Group__7
             {
             pushFollow(FOLLOW_57);
             rule__IterateExp__Group__6__Impl();
@@ -23308,21 +23410,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__6__Impl"
-    // InternalOcl.g:7551:1: rule__IterateExp__Group__6__Impl : ( ( rule__IterateExp__ResultAssignment_6 ) ) ;
+    // InternalOcl.g:7582:1: rule__IterateExp__Group__6__Impl : ( ( rule__IterateExp__ResultAssignment_6 ) ) ;
     public final void rule__IterateExp__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7555:1: ( ( ( rule__IterateExp__ResultAssignment_6 ) ) )
-            // InternalOcl.g:7556:1: ( ( rule__IterateExp__ResultAssignment_6 ) )
+            // InternalOcl.g:7586:1: ( ( ( rule__IterateExp__ResultAssignment_6 ) ) )
+            // InternalOcl.g:7587:1: ( ( rule__IterateExp__ResultAssignment_6 ) )
             {
-            // InternalOcl.g:7556:1: ( ( rule__IterateExp__ResultAssignment_6 ) )
-            // InternalOcl.g:7557:2: ( rule__IterateExp__ResultAssignment_6 )
+            // InternalOcl.g:7587:1: ( ( rule__IterateExp__ResultAssignment_6 ) )
+            // InternalOcl.g:7588:2: ( rule__IterateExp__ResultAssignment_6 )
             {
              before(grammarAccess.getIterateExpAccess().getResultAssignment_6()); 
-            // InternalOcl.g:7558:2: ( rule__IterateExp__ResultAssignment_6 )
-            // InternalOcl.g:7558:3: rule__IterateExp__ResultAssignment_6
+            // InternalOcl.g:7589:2: ( rule__IterateExp__ResultAssignment_6 )
+            // InternalOcl.g:7589:3: rule__IterateExp__ResultAssignment_6
             {
             pushFollow(FOLLOW_2);
             rule__IterateExp__ResultAssignment_6();
@@ -23355,14 +23457,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__7"
-    // InternalOcl.g:7566:1: rule__IterateExp__Group__7 : rule__IterateExp__Group__7__Impl rule__IterateExp__Group__8 ;
+    // InternalOcl.g:7597:1: rule__IterateExp__Group__7 : rule__IterateExp__Group__7__Impl rule__IterateExp__Group__8 ;
     public final void rule__IterateExp__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7570:1: ( rule__IterateExp__Group__7__Impl rule__IterateExp__Group__8 )
-            // InternalOcl.g:7571:2: rule__IterateExp__Group__7__Impl rule__IterateExp__Group__8
+            // InternalOcl.g:7601:1: ( rule__IterateExp__Group__7__Impl rule__IterateExp__Group__8 )
+            // InternalOcl.g:7602:2: rule__IterateExp__Group__7__Impl rule__IterateExp__Group__8
             {
             pushFollow(FOLLOW_16);
             rule__IterateExp__Group__7__Impl();
@@ -23393,17 +23495,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__7__Impl"
-    // InternalOcl.g:7578:1: rule__IterateExp__Group__7__Impl : ( '|' ) ;
+    // InternalOcl.g:7609:1: rule__IterateExp__Group__7__Impl : ( '|' ) ;
     public final void rule__IterateExp__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7582:1: ( ( '|' ) )
-            // InternalOcl.g:7583:1: ( '|' )
+            // InternalOcl.g:7613:1: ( ( '|' ) )
+            // InternalOcl.g:7614:1: ( '|' )
             {
-            // InternalOcl.g:7583:1: ( '|' )
-            // InternalOcl.g:7584:2: '|'
+            // InternalOcl.g:7614:1: ( '|' )
+            // InternalOcl.g:7615:2: '|'
             {
              before(grammarAccess.getIterateExpAccess().getVerticalLineKeyword_7()); 
             match(input,60,FOLLOW_2); 
@@ -23430,14 +23532,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__8"
-    // InternalOcl.g:7593:1: rule__IterateExp__Group__8 : rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9 ;
+    // InternalOcl.g:7624:1: rule__IterateExp__Group__8 : rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9 ;
     public final void rule__IterateExp__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7597:1: ( rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9 )
-            // InternalOcl.g:7598:2: rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9
+            // InternalOcl.g:7628:1: ( rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9 )
+            // InternalOcl.g:7629:2: rule__IterateExp__Group__8__Impl rule__IterateExp__Group__9
             {
             pushFollow(FOLLOW_48);
             rule__IterateExp__Group__8__Impl();
@@ -23468,21 +23570,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__8__Impl"
-    // InternalOcl.g:7605:1: rule__IterateExp__Group__8__Impl : ( ( rule__IterateExp__BodyAssignment_8 ) ) ;
+    // InternalOcl.g:7636:1: rule__IterateExp__Group__8__Impl : ( ( rule__IterateExp__BodyAssignment_8 ) ) ;
     public final void rule__IterateExp__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7609:1: ( ( ( rule__IterateExp__BodyAssignment_8 ) ) )
-            // InternalOcl.g:7610:1: ( ( rule__IterateExp__BodyAssignment_8 ) )
+            // InternalOcl.g:7640:1: ( ( ( rule__IterateExp__BodyAssignment_8 ) ) )
+            // InternalOcl.g:7641:1: ( ( rule__IterateExp__BodyAssignment_8 ) )
             {
-            // InternalOcl.g:7610:1: ( ( rule__IterateExp__BodyAssignment_8 ) )
-            // InternalOcl.g:7611:2: ( rule__IterateExp__BodyAssignment_8 )
+            // InternalOcl.g:7641:1: ( ( rule__IterateExp__BodyAssignment_8 ) )
+            // InternalOcl.g:7642:2: ( rule__IterateExp__BodyAssignment_8 )
             {
              before(grammarAccess.getIterateExpAccess().getBodyAssignment_8()); 
-            // InternalOcl.g:7612:2: ( rule__IterateExp__BodyAssignment_8 )
-            // InternalOcl.g:7612:3: rule__IterateExp__BodyAssignment_8
+            // InternalOcl.g:7643:2: ( rule__IterateExp__BodyAssignment_8 )
+            // InternalOcl.g:7643:3: rule__IterateExp__BodyAssignment_8
             {
             pushFollow(FOLLOW_2);
             rule__IterateExp__BodyAssignment_8();
@@ -23515,14 +23617,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__9"
-    // InternalOcl.g:7620:1: rule__IterateExp__Group__9 : rule__IterateExp__Group__9__Impl ;
+    // InternalOcl.g:7651:1: rule__IterateExp__Group__9 : rule__IterateExp__Group__9__Impl ;
     public final void rule__IterateExp__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7624:1: ( rule__IterateExp__Group__9__Impl )
-            // InternalOcl.g:7625:2: rule__IterateExp__Group__9__Impl
+            // InternalOcl.g:7655:1: ( rule__IterateExp__Group__9__Impl )
+            // InternalOcl.g:7656:2: rule__IterateExp__Group__9__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IterateExp__Group__9__Impl();
@@ -23548,17 +23650,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group__9__Impl"
-    // InternalOcl.g:7631:1: rule__IterateExp__Group__9__Impl : ( ')' ) ;
+    // InternalOcl.g:7662:1: rule__IterateExp__Group__9__Impl : ( ')' ) ;
     public final void rule__IterateExp__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7635:1: ( ( ')' ) )
-            // InternalOcl.g:7636:1: ( ')' )
+            // InternalOcl.g:7666:1: ( ( ')' ) )
+            // InternalOcl.g:7667:1: ( ')' )
             {
-            // InternalOcl.g:7636:1: ( ')' )
-            // InternalOcl.g:7637:2: ')'
+            // InternalOcl.g:7667:1: ( ')' )
+            // InternalOcl.g:7668:2: ')'
             {
              before(grammarAccess.getIterateExpAccess().getRightParenthesisKeyword_9()); 
             match(input,36,FOLLOW_2); 
@@ -23585,14 +23687,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group_4__0"
-    // InternalOcl.g:7647:1: rule__IterateExp__Group_4__0 : rule__IterateExp__Group_4__0__Impl rule__IterateExp__Group_4__1 ;
+    // InternalOcl.g:7678:1: rule__IterateExp__Group_4__0 : rule__IterateExp__Group_4__0__Impl rule__IterateExp__Group_4__1 ;
     public final void rule__IterateExp__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7651:1: ( rule__IterateExp__Group_4__0__Impl rule__IterateExp__Group_4__1 )
-            // InternalOcl.g:7652:2: rule__IterateExp__Group_4__0__Impl rule__IterateExp__Group_4__1
+            // InternalOcl.g:7682:1: ( rule__IterateExp__Group_4__0__Impl rule__IterateExp__Group_4__1 )
+            // InternalOcl.g:7683:2: rule__IterateExp__Group_4__0__Impl rule__IterateExp__Group_4__1
             {
             pushFollow(FOLLOW_9);
             rule__IterateExp__Group_4__0__Impl();
@@ -23623,17 +23725,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group_4__0__Impl"
-    // InternalOcl.g:7659:1: rule__IterateExp__Group_4__0__Impl : ( ',' ) ;
+    // InternalOcl.g:7690:1: rule__IterateExp__Group_4__0__Impl : ( ',' ) ;
     public final void rule__IterateExp__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7663:1: ( ( ',' ) )
-            // InternalOcl.g:7664:1: ( ',' )
+            // InternalOcl.g:7694:1: ( ( ',' ) )
+            // InternalOcl.g:7695:1: ( ',' )
             {
-            // InternalOcl.g:7664:1: ( ',' )
-            // InternalOcl.g:7665:2: ','
+            // InternalOcl.g:7695:1: ( ',' )
+            // InternalOcl.g:7696:2: ','
             {
              before(grammarAccess.getIterateExpAccess().getCommaKeyword_4_0()); 
             match(input,37,FOLLOW_2); 
@@ -23660,14 +23762,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group_4__1"
-    // InternalOcl.g:7674:1: rule__IterateExp__Group_4__1 : rule__IterateExp__Group_4__1__Impl ;
+    // InternalOcl.g:7705:1: rule__IterateExp__Group_4__1 : rule__IterateExp__Group_4__1__Impl ;
     public final void rule__IterateExp__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7678:1: ( rule__IterateExp__Group_4__1__Impl )
-            // InternalOcl.g:7679:2: rule__IterateExp__Group_4__1__Impl
+            // InternalOcl.g:7709:1: ( rule__IterateExp__Group_4__1__Impl )
+            // InternalOcl.g:7710:2: rule__IterateExp__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IterateExp__Group_4__1__Impl();
@@ -23693,21 +23795,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__Group_4__1__Impl"
-    // InternalOcl.g:7685:1: rule__IterateExp__Group_4__1__Impl : ( ( rule__IterateExp__IteratorsAssignment_4_1 ) ) ;
+    // InternalOcl.g:7716:1: rule__IterateExp__Group_4__1__Impl : ( ( rule__IterateExp__IteratorsAssignment_4_1 ) ) ;
     public final void rule__IterateExp__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7689:1: ( ( ( rule__IterateExp__IteratorsAssignment_4_1 ) ) )
-            // InternalOcl.g:7690:1: ( ( rule__IterateExp__IteratorsAssignment_4_1 ) )
+            // InternalOcl.g:7720:1: ( ( ( rule__IterateExp__IteratorsAssignment_4_1 ) ) )
+            // InternalOcl.g:7721:1: ( ( rule__IterateExp__IteratorsAssignment_4_1 ) )
             {
-            // InternalOcl.g:7690:1: ( ( rule__IterateExp__IteratorsAssignment_4_1 ) )
-            // InternalOcl.g:7691:2: ( rule__IterateExp__IteratorsAssignment_4_1 )
+            // InternalOcl.g:7721:1: ( ( rule__IterateExp__IteratorsAssignment_4_1 ) )
+            // InternalOcl.g:7722:2: ( rule__IterateExp__IteratorsAssignment_4_1 )
             {
              before(grammarAccess.getIterateExpAccess().getIteratorsAssignment_4_1()); 
-            // InternalOcl.g:7692:2: ( rule__IterateExp__IteratorsAssignment_4_1 )
-            // InternalOcl.g:7692:3: rule__IterateExp__IteratorsAssignment_4_1
+            // InternalOcl.g:7723:2: ( rule__IterateExp__IteratorsAssignment_4_1 )
+            // InternalOcl.g:7723:3: rule__IterateExp__IteratorsAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__IterateExp__IteratorsAssignment_4_1();
@@ -23740,14 +23842,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group__0"
-    // InternalOcl.g:7701:1: rule__Iterator__Group__0 : rule__Iterator__Group__0__Impl rule__Iterator__Group__1 ;
+    // InternalOcl.g:7732:1: rule__Iterator__Group__0 : rule__Iterator__Group__0__Impl rule__Iterator__Group__1 ;
     public final void rule__Iterator__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7705:1: ( rule__Iterator__Group__0__Impl rule__Iterator__Group__1 )
-            // InternalOcl.g:7706:2: rule__Iterator__Group__0__Impl rule__Iterator__Group__1
+            // InternalOcl.g:7736:1: ( rule__Iterator__Group__0__Impl rule__Iterator__Group__1 )
+            // InternalOcl.g:7737:2: rule__Iterator__Group__0__Impl rule__Iterator__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__Iterator__Group__0__Impl();
@@ -23778,21 +23880,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group__0__Impl"
-    // InternalOcl.g:7713:1: rule__Iterator__Group__0__Impl : ( ( rule__Iterator__NameAssignment_0 ) ) ;
+    // InternalOcl.g:7744:1: rule__Iterator__Group__0__Impl : ( ( rule__Iterator__NameAssignment_0 ) ) ;
     public final void rule__Iterator__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7717:1: ( ( ( rule__Iterator__NameAssignment_0 ) ) )
-            // InternalOcl.g:7718:1: ( ( rule__Iterator__NameAssignment_0 ) )
+            // InternalOcl.g:7748:1: ( ( ( rule__Iterator__NameAssignment_0 ) ) )
+            // InternalOcl.g:7749:1: ( ( rule__Iterator__NameAssignment_0 ) )
             {
-            // InternalOcl.g:7718:1: ( ( rule__Iterator__NameAssignment_0 ) )
-            // InternalOcl.g:7719:2: ( rule__Iterator__NameAssignment_0 )
+            // InternalOcl.g:7749:1: ( ( rule__Iterator__NameAssignment_0 ) )
+            // InternalOcl.g:7750:2: ( rule__Iterator__NameAssignment_0 )
             {
              before(grammarAccess.getIteratorAccess().getNameAssignment_0()); 
-            // InternalOcl.g:7720:2: ( rule__Iterator__NameAssignment_0 )
-            // InternalOcl.g:7720:3: rule__Iterator__NameAssignment_0
+            // InternalOcl.g:7751:2: ( rule__Iterator__NameAssignment_0 )
+            // InternalOcl.g:7751:3: rule__Iterator__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Iterator__NameAssignment_0();
@@ -23825,14 +23927,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group__1"
-    // InternalOcl.g:7728:1: rule__Iterator__Group__1 : rule__Iterator__Group__1__Impl ;
+    // InternalOcl.g:7759:1: rule__Iterator__Group__1 : rule__Iterator__Group__1__Impl ;
     public final void rule__Iterator__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7732:1: ( rule__Iterator__Group__1__Impl )
-            // InternalOcl.g:7733:2: rule__Iterator__Group__1__Impl
+            // InternalOcl.g:7763:1: ( rule__Iterator__Group__1__Impl )
+            // InternalOcl.g:7764:2: rule__Iterator__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Iterator__Group__1__Impl();
@@ -23858,20 +23960,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group__1__Impl"
-    // InternalOcl.g:7739:1: rule__Iterator__Group__1__Impl : ( ( rule__Iterator__Group_1__0 )? ) ;
+    // InternalOcl.g:7770:1: rule__Iterator__Group__1__Impl : ( ( rule__Iterator__Group_1__0 )? ) ;
     public final void rule__Iterator__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7743:1: ( ( ( rule__Iterator__Group_1__0 )? ) )
-            // InternalOcl.g:7744:1: ( ( rule__Iterator__Group_1__0 )? )
+            // InternalOcl.g:7774:1: ( ( ( rule__Iterator__Group_1__0 )? ) )
+            // InternalOcl.g:7775:1: ( ( rule__Iterator__Group_1__0 )? )
             {
-            // InternalOcl.g:7744:1: ( ( rule__Iterator__Group_1__0 )? )
-            // InternalOcl.g:7745:2: ( rule__Iterator__Group_1__0 )?
+            // InternalOcl.g:7775:1: ( ( rule__Iterator__Group_1__0 )? )
+            // InternalOcl.g:7776:2: ( rule__Iterator__Group_1__0 )?
             {
              before(grammarAccess.getIteratorAccess().getGroup_1()); 
-            // InternalOcl.g:7746:2: ( rule__Iterator__Group_1__0 )?
+            // InternalOcl.g:7777:2: ( rule__Iterator__Group_1__0 )?
             int alt53=2;
             int LA53_0 = input.LA(1);
 
@@ -23880,7 +23982,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt53) {
                 case 1 :
-                    // InternalOcl.g:7746:3: rule__Iterator__Group_1__0
+                    // InternalOcl.g:7777:3: rule__Iterator__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Iterator__Group_1__0();
@@ -23916,14 +24018,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group_1__0"
-    // InternalOcl.g:7755:1: rule__Iterator__Group_1__0 : rule__Iterator__Group_1__0__Impl rule__Iterator__Group_1__1 ;
+    // InternalOcl.g:7786:1: rule__Iterator__Group_1__0 : rule__Iterator__Group_1__0__Impl rule__Iterator__Group_1__1 ;
     public final void rule__Iterator__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7759:1: ( rule__Iterator__Group_1__0__Impl rule__Iterator__Group_1__1 )
-            // InternalOcl.g:7760:2: rule__Iterator__Group_1__0__Impl rule__Iterator__Group_1__1
+            // InternalOcl.g:7790:1: ( rule__Iterator__Group_1__0__Impl rule__Iterator__Group_1__1 )
+            // InternalOcl.g:7791:2: rule__Iterator__Group_1__0__Impl rule__Iterator__Group_1__1
             {
             pushFollow(FOLLOW_14);
             rule__Iterator__Group_1__0__Impl();
@@ -23954,17 +24056,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group_1__0__Impl"
-    // InternalOcl.g:7767:1: rule__Iterator__Group_1__0__Impl : ( ':' ) ;
+    // InternalOcl.g:7798:1: rule__Iterator__Group_1__0__Impl : ( ':' ) ;
     public final void rule__Iterator__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7771:1: ( ( ':' ) )
-            // InternalOcl.g:7772:1: ( ':' )
+            // InternalOcl.g:7802:1: ( ( ':' ) )
+            // InternalOcl.g:7803:1: ( ':' )
             {
-            // InternalOcl.g:7772:1: ( ':' )
-            // InternalOcl.g:7773:2: ':'
+            // InternalOcl.g:7803:1: ( ':' )
+            // InternalOcl.g:7804:2: ':'
             {
              before(grammarAccess.getIteratorAccess().getColonKeyword_1_0()); 
             match(input,34,FOLLOW_2); 
@@ -23991,14 +24093,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group_1__1"
-    // InternalOcl.g:7782:1: rule__Iterator__Group_1__1 : rule__Iterator__Group_1__1__Impl ;
+    // InternalOcl.g:7813:1: rule__Iterator__Group_1__1 : rule__Iterator__Group_1__1__Impl ;
     public final void rule__Iterator__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7786:1: ( rule__Iterator__Group_1__1__Impl )
-            // InternalOcl.g:7787:2: rule__Iterator__Group_1__1__Impl
+            // InternalOcl.g:7817:1: ( rule__Iterator__Group_1__1__Impl )
+            // InternalOcl.g:7818:2: rule__Iterator__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Iterator__Group_1__1__Impl();
@@ -24024,21 +24126,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__Group_1__1__Impl"
-    // InternalOcl.g:7793:1: rule__Iterator__Group_1__1__Impl : ( ( rule__Iterator__TypeAssignment_1_1 ) ) ;
+    // InternalOcl.g:7824:1: rule__Iterator__Group_1__1__Impl : ( ( rule__Iterator__TypeAssignment_1_1 ) ) ;
     public final void rule__Iterator__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7797:1: ( ( ( rule__Iterator__TypeAssignment_1_1 ) ) )
-            // InternalOcl.g:7798:1: ( ( rule__Iterator__TypeAssignment_1_1 ) )
+            // InternalOcl.g:7828:1: ( ( ( rule__Iterator__TypeAssignment_1_1 ) ) )
+            // InternalOcl.g:7829:1: ( ( rule__Iterator__TypeAssignment_1_1 ) )
             {
-            // InternalOcl.g:7798:1: ( ( rule__Iterator__TypeAssignment_1_1 ) )
-            // InternalOcl.g:7799:2: ( rule__Iterator__TypeAssignment_1_1 )
+            // InternalOcl.g:7829:1: ( ( rule__Iterator__TypeAssignment_1_1 ) )
+            // InternalOcl.g:7830:2: ( rule__Iterator__TypeAssignment_1_1 )
             {
              before(grammarAccess.getIteratorAccess().getTypeAssignment_1_1()); 
-            // InternalOcl.g:7800:2: ( rule__Iterator__TypeAssignment_1_1 )
-            // InternalOcl.g:7800:3: rule__Iterator__TypeAssignment_1_1
+            // InternalOcl.g:7831:2: ( rule__Iterator__TypeAssignment_1_1 )
+            // InternalOcl.g:7831:3: rule__Iterator__TypeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Iterator__TypeAssignment_1_1();
@@ -24071,14 +24173,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__0"
-    // InternalOcl.g:7809:1: rule__IteratorExp__Group__0 : rule__IteratorExp__Group__0__Impl rule__IteratorExp__Group__1 ;
+    // InternalOcl.g:7840:1: rule__IteratorExp__Group__0 : rule__IteratorExp__Group__0__Impl rule__IteratorExp__Group__1 ;
     public final void rule__IteratorExp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7813:1: ( rule__IteratorExp__Group__0__Impl rule__IteratorExp__Group__1 )
-            // InternalOcl.g:7814:2: rule__IteratorExp__Group__0__Impl rule__IteratorExp__Group__1
+            // InternalOcl.g:7844:1: ( rule__IteratorExp__Group__0__Impl rule__IteratorExp__Group__1 )
+            // InternalOcl.g:7845:2: rule__IteratorExp__Group__0__Impl rule__IteratorExp__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__IteratorExp__Group__0__Impl();
@@ -24109,17 +24211,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__0__Impl"
-    // InternalOcl.g:7821:1: rule__IteratorExp__Group__0__Impl : ( '->' ) ;
+    // InternalOcl.g:7852:1: rule__IteratorExp__Group__0__Impl : ( '->' ) ;
     public final void rule__IteratorExp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7825:1: ( ( '->' ) )
-            // InternalOcl.g:7826:1: ( '->' )
+            // InternalOcl.g:7856:1: ( ( '->' ) )
+            // InternalOcl.g:7857:1: ( '->' )
             {
-            // InternalOcl.g:7826:1: ( '->' )
-            // InternalOcl.g:7827:2: '->'
+            // InternalOcl.g:7857:1: ( '->' )
+            // InternalOcl.g:7858:2: '->'
             {
              before(grammarAccess.getIteratorExpAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
             match(input,57,FOLLOW_2); 
@@ -24146,14 +24248,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__1"
-    // InternalOcl.g:7836:1: rule__IteratorExp__Group__1 : rule__IteratorExp__Group__1__Impl rule__IteratorExp__Group__2 ;
+    // InternalOcl.g:7867:1: rule__IteratorExp__Group__1 : rule__IteratorExp__Group__1__Impl rule__IteratorExp__Group__2 ;
     public final void rule__IteratorExp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7840:1: ( rule__IteratorExp__Group__1__Impl rule__IteratorExp__Group__2 )
-            // InternalOcl.g:7841:2: rule__IteratorExp__Group__1__Impl rule__IteratorExp__Group__2
+            // InternalOcl.g:7871:1: ( rule__IteratorExp__Group__1__Impl rule__IteratorExp__Group__2 )
+            // InternalOcl.g:7872:2: rule__IteratorExp__Group__1__Impl rule__IteratorExp__Group__2
             {
             pushFollow(FOLLOW_17);
             rule__IteratorExp__Group__1__Impl();
@@ -24184,21 +24286,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__1__Impl"
-    // InternalOcl.g:7848:1: rule__IteratorExp__Group__1__Impl : ( ( rule__IteratorExp__NameAssignment_1 ) ) ;
+    // InternalOcl.g:7879:1: rule__IteratorExp__Group__1__Impl : ( ( rule__IteratorExp__NameAssignment_1 ) ) ;
     public final void rule__IteratorExp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7852:1: ( ( ( rule__IteratorExp__NameAssignment_1 ) ) )
-            // InternalOcl.g:7853:1: ( ( rule__IteratorExp__NameAssignment_1 ) )
+            // InternalOcl.g:7883:1: ( ( ( rule__IteratorExp__NameAssignment_1 ) ) )
+            // InternalOcl.g:7884:1: ( ( rule__IteratorExp__NameAssignment_1 ) )
             {
-            // InternalOcl.g:7853:1: ( ( rule__IteratorExp__NameAssignment_1 ) )
-            // InternalOcl.g:7854:2: ( rule__IteratorExp__NameAssignment_1 )
+            // InternalOcl.g:7884:1: ( ( rule__IteratorExp__NameAssignment_1 ) )
+            // InternalOcl.g:7885:2: ( rule__IteratorExp__NameAssignment_1 )
             {
              before(grammarAccess.getIteratorExpAccess().getNameAssignment_1()); 
-            // InternalOcl.g:7855:2: ( rule__IteratorExp__NameAssignment_1 )
-            // InternalOcl.g:7855:3: rule__IteratorExp__NameAssignment_1
+            // InternalOcl.g:7886:2: ( rule__IteratorExp__NameAssignment_1 )
+            // InternalOcl.g:7886:3: rule__IteratorExp__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__IteratorExp__NameAssignment_1();
@@ -24231,14 +24333,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__2"
-    // InternalOcl.g:7863:1: rule__IteratorExp__Group__2 : rule__IteratorExp__Group__2__Impl rule__IteratorExp__Group__3 ;
+    // InternalOcl.g:7894:1: rule__IteratorExp__Group__2 : rule__IteratorExp__Group__2__Impl rule__IteratorExp__Group__3 ;
     public final void rule__IteratorExp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7867:1: ( rule__IteratorExp__Group__2__Impl rule__IteratorExp__Group__3 )
-            // InternalOcl.g:7868:2: rule__IteratorExp__Group__2__Impl rule__IteratorExp__Group__3
+            // InternalOcl.g:7898:1: ( rule__IteratorExp__Group__2__Impl rule__IteratorExp__Group__3 )
+            // InternalOcl.g:7899:2: rule__IteratorExp__Group__2__Impl rule__IteratorExp__Group__3
             {
             pushFollow(FOLLOW_9);
             rule__IteratorExp__Group__2__Impl();
@@ -24269,17 +24371,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__2__Impl"
-    // InternalOcl.g:7875:1: rule__IteratorExp__Group__2__Impl : ( '(' ) ;
+    // InternalOcl.g:7906:1: rule__IteratorExp__Group__2__Impl : ( '(' ) ;
     public final void rule__IteratorExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7879:1: ( ( '(' ) )
-            // InternalOcl.g:7880:1: ( '(' )
+            // InternalOcl.g:7910:1: ( ( '(' ) )
+            // InternalOcl.g:7911:1: ( '(' )
             {
-            // InternalOcl.g:7880:1: ( '(' )
-            // InternalOcl.g:7881:2: '('
+            // InternalOcl.g:7911:1: ( '(' )
+            // InternalOcl.g:7912:2: '('
             {
              before(grammarAccess.getIteratorExpAccess().getLeftParenthesisKeyword_2()); 
             match(input,35,FOLLOW_2); 
@@ -24306,14 +24408,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__3"
-    // InternalOcl.g:7890:1: rule__IteratorExp__Group__3 : rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4 ;
+    // InternalOcl.g:7921:1: rule__IteratorExp__Group__3 : rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4 ;
     public final void rule__IteratorExp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7894:1: ( rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4 )
-            // InternalOcl.g:7895:2: rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4
+            // InternalOcl.g:7925:1: ( rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4 )
+            // InternalOcl.g:7926:2: rule__IteratorExp__Group__3__Impl rule__IteratorExp__Group__4
             {
             pushFollow(FOLLOW_58);
             rule__IteratorExp__Group__3__Impl();
@@ -24344,21 +24446,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__3__Impl"
-    // InternalOcl.g:7902:1: rule__IteratorExp__Group__3__Impl : ( ( rule__IteratorExp__IteratorsAssignment_3 ) ) ;
+    // InternalOcl.g:7933:1: rule__IteratorExp__Group__3__Impl : ( ( rule__IteratorExp__IteratorsAssignment_3 ) ) ;
     public final void rule__IteratorExp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7906:1: ( ( ( rule__IteratorExp__IteratorsAssignment_3 ) ) )
-            // InternalOcl.g:7907:1: ( ( rule__IteratorExp__IteratorsAssignment_3 ) )
+            // InternalOcl.g:7937:1: ( ( ( rule__IteratorExp__IteratorsAssignment_3 ) ) )
+            // InternalOcl.g:7938:1: ( ( rule__IteratorExp__IteratorsAssignment_3 ) )
             {
-            // InternalOcl.g:7907:1: ( ( rule__IteratorExp__IteratorsAssignment_3 ) )
-            // InternalOcl.g:7908:2: ( rule__IteratorExp__IteratorsAssignment_3 )
+            // InternalOcl.g:7938:1: ( ( rule__IteratorExp__IteratorsAssignment_3 ) )
+            // InternalOcl.g:7939:2: ( rule__IteratorExp__IteratorsAssignment_3 )
             {
              before(grammarAccess.getIteratorExpAccess().getIteratorsAssignment_3()); 
-            // InternalOcl.g:7909:2: ( rule__IteratorExp__IteratorsAssignment_3 )
-            // InternalOcl.g:7909:3: rule__IteratorExp__IteratorsAssignment_3
+            // InternalOcl.g:7940:2: ( rule__IteratorExp__IteratorsAssignment_3 )
+            // InternalOcl.g:7940:3: rule__IteratorExp__IteratorsAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__IteratorExp__IteratorsAssignment_3();
@@ -24391,14 +24493,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__4"
-    // InternalOcl.g:7917:1: rule__IteratorExp__Group__4 : rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5 ;
+    // InternalOcl.g:7948:1: rule__IteratorExp__Group__4 : rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5 ;
     public final void rule__IteratorExp__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7921:1: ( rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5 )
-            // InternalOcl.g:7922:2: rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5
+            // InternalOcl.g:7952:1: ( rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5 )
+            // InternalOcl.g:7953:2: rule__IteratorExp__Group__4__Impl rule__IteratorExp__Group__5
             {
             pushFollow(FOLLOW_58);
             rule__IteratorExp__Group__4__Impl();
@@ -24429,20 +24531,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__4__Impl"
-    // InternalOcl.g:7929:1: rule__IteratorExp__Group__4__Impl : ( ( rule__IteratorExp__Group_4__0 )* ) ;
+    // InternalOcl.g:7960:1: rule__IteratorExp__Group__4__Impl : ( ( rule__IteratorExp__Group_4__0 )* ) ;
     public final void rule__IteratorExp__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7933:1: ( ( ( rule__IteratorExp__Group_4__0 )* ) )
-            // InternalOcl.g:7934:1: ( ( rule__IteratorExp__Group_4__0 )* )
+            // InternalOcl.g:7964:1: ( ( ( rule__IteratorExp__Group_4__0 )* ) )
+            // InternalOcl.g:7965:1: ( ( rule__IteratorExp__Group_4__0 )* )
             {
-            // InternalOcl.g:7934:1: ( ( rule__IteratorExp__Group_4__0 )* )
-            // InternalOcl.g:7935:2: ( rule__IteratorExp__Group_4__0 )*
+            // InternalOcl.g:7965:1: ( ( rule__IteratorExp__Group_4__0 )* )
+            // InternalOcl.g:7966:2: ( rule__IteratorExp__Group_4__0 )*
             {
              before(grammarAccess.getIteratorExpAccess().getGroup_4()); 
-            // InternalOcl.g:7936:2: ( rule__IteratorExp__Group_4__0 )*
+            // InternalOcl.g:7967:2: ( rule__IteratorExp__Group_4__0 )*
             loop54:
             do {
                 int alt54=2;
@@ -24455,7 +24557,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt54) {
             	case 1 :
-            	    // InternalOcl.g:7936:3: rule__IteratorExp__Group_4__0
+            	    // InternalOcl.g:7967:3: rule__IteratorExp__Group_4__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__IteratorExp__Group_4__0();
@@ -24494,14 +24596,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__5"
-    // InternalOcl.g:7944:1: rule__IteratorExp__Group__5 : rule__IteratorExp__Group__5__Impl rule__IteratorExp__Group__6 ;
+    // InternalOcl.g:7975:1: rule__IteratorExp__Group__5 : rule__IteratorExp__Group__5__Impl rule__IteratorExp__Group__6 ;
     public final void rule__IteratorExp__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7948:1: ( rule__IteratorExp__Group__5__Impl rule__IteratorExp__Group__6 )
-            // InternalOcl.g:7949:2: rule__IteratorExp__Group__5__Impl rule__IteratorExp__Group__6
+            // InternalOcl.g:7979:1: ( rule__IteratorExp__Group__5__Impl rule__IteratorExp__Group__6 )
+            // InternalOcl.g:7980:2: rule__IteratorExp__Group__5__Impl rule__IteratorExp__Group__6
             {
             pushFollow(FOLLOW_16);
             rule__IteratorExp__Group__5__Impl();
@@ -24532,17 +24634,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__5__Impl"
-    // InternalOcl.g:7956:1: rule__IteratorExp__Group__5__Impl : ( '|' ) ;
+    // InternalOcl.g:7987:1: rule__IteratorExp__Group__5__Impl : ( '|' ) ;
     public final void rule__IteratorExp__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7960:1: ( ( '|' ) )
-            // InternalOcl.g:7961:1: ( '|' )
+            // InternalOcl.g:7991:1: ( ( '|' ) )
+            // InternalOcl.g:7992:1: ( '|' )
             {
-            // InternalOcl.g:7961:1: ( '|' )
-            // InternalOcl.g:7962:2: '|'
+            // InternalOcl.g:7992:1: ( '|' )
+            // InternalOcl.g:7993:2: '|'
             {
              before(grammarAccess.getIteratorExpAccess().getVerticalLineKeyword_5()); 
             match(input,60,FOLLOW_2); 
@@ -24569,14 +24671,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__6"
-    // InternalOcl.g:7971:1: rule__IteratorExp__Group__6 : rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7 ;
+    // InternalOcl.g:8002:1: rule__IteratorExp__Group__6 : rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7 ;
     public final void rule__IteratorExp__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7975:1: ( rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7 )
-            // InternalOcl.g:7976:2: rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7
+            // InternalOcl.g:8006:1: ( rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7 )
+            // InternalOcl.g:8007:2: rule__IteratorExp__Group__6__Impl rule__IteratorExp__Group__7
             {
             pushFollow(FOLLOW_48);
             rule__IteratorExp__Group__6__Impl();
@@ -24607,21 +24709,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__6__Impl"
-    // InternalOcl.g:7983:1: rule__IteratorExp__Group__6__Impl : ( ( rule__IteratorExp__BodyAssignment_6 ) ) ;
+    // InternalOcl.g:8014:1: rule__IteratorExp__Group__6__Impl : ( ( rule__IteratorExp__BodyAssignment_6 ) ) ;
     public final void rule__IteratorExp__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:7987:1: ( ( ( rule__IteratorExp__BodyAssignment_6 ) ) )
-            // InternalOcl.g:7988:1: ( ( rule__IteratorExp__BodyAssignment_6 ) )
+            // InternalOcl.g:8018:1: ( ( ( rule__IteratorExp__BodyAssignment_6 ) ) )
+            // InternalOcl.g:8019:1: ( ( rule__IteratorExp__BodyAssignment_6 ) )
             {
-            // InternalOcl.g:7988:1: ( ( rule__IteratorExp__BodyAssignment_6 ) )
-            // InternalOcl.g:7989:2: ( rule__IteratorExp__BodyAssignment_6 )
+            // InternalOcl.g:8019:1: ( ( rule__IteratorExp__BodyAssignment_6 ) )
+            // InternalOcl.g:8020:2: ( rule__IteratorExp__BodyAssignment_6 )
             {
              before(grammarAccess.getIteratorExpAccess().getBodyAssignment_6()); 
-            // InternalOcl.g:7990:2: ( rule__IteratorExp__BodyAssignment_6 )
-            // InternalOcl.g:7990:3: rule__IteratorExp__BodyAssignment_6
+            // InternalOcl.g:8021:2: ( rule__IteratorExp__BodyAssignment_6 )
+            // InternalOcl.g:8021:3: rule__IteratorExp__BodyAssignment_6
             {
             pushFollow(FOLLOW_2);
             rule__IteratorExp__BodyAssignment_6();
@@ -24654,14 +24756,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__7"
-    // InternalOcl.g:7998:1: rule__IteratorExp__Group__7 : rule__IteratorExp__Group__7__Impl ;
+    // InternalOcl.g:8029:1: rule__IteratorExp__Group__7 : rule__IteratorExp__Group__7__Impl ;
     public final void rule__IteratorExp__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8002:1: ( rule__IteratorExp__Group__7__Impl )
-            // InternalOcl.g:8003:2: rule__IteratorExp__Group__7__Impl
+            // InternalOcl.g:8033:1: ( rule__IteratorExp__Group__7__Impl )
+            // InternalOcl.g:8034:2: rule__IteratorExp__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IteratorExp__Group__7__Impl();
@@ -24687,17 +24789,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group__7__Impl"
-    // InternalOcl.g:8009:1: rule__IteratorExp__Group__7__Impl : ( ')' ) ;
+    // InternalOcl.g:8040:1: rule__IteratorExp__Group__7__Impl : ( ')' ) ;
     public final void rule__IteratorExp__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8013:1: ( ( ')' ) )
-            // InternalOcl.g:8014:1: ( ')' )
+            // InternalOcl.g:8044:1: ( ( ')' ) )
+            // InternalOcl.g:8045:1: ( ')' )
             {
-            // InternalOcl.g:8014:1: ( ')' )
-            // InternalOcl.g:8015:2: ')'
+            // InternalOcl.g:8045:1: ( ')' )
+            // InternalOcl.g:8046:2: ')'
             {
              before(grammarAccess.getIteratorExpAccess().getRightParenthesisKeyword_7()); 
             match(input,36,FOLLOW_2); 
@@ -24724,14 +24826,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group_4__0"
-    // InternalOcl.g:8025:1: rule__IteratorExp__Group_4__0 : rule__IteratorExp__Group_4__0__Impl rule__IteratorExp__Group_4__1 ;
+    // InternalOcl.g:8056:1: rule__IteratorExp__Group_4__0 : rule__IteratorExp__Group_4__0__Impl rule__IteratorExp__Group_4__1 ;
     public final void rule__IteratorExp__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8029:1: ( rule__IteratorExp__Group_4__0__Impl rule__IteratorExp__Group_4__1 )
-            // InternalOcl.g:8030:2: rule__IteratorExp__Group_4__0__Impl rule__IteratorExp__Group_4__1
+            // InternalOcl.g:8060:1: ( rule__IteratorExp__Group_4__0__Impl rule__IteratorExp__Group_4__1 )
+            // InternalOcl.g:8061:2: rule__IteratorExp__Group_4__0__Impl rule__IteratorExp__Group_4__1
             {
             pushFollow(FOLLOW_9);
             rule__IteratorExp__Group_4__0__Impl();
@@ -24762,17 +24864,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group_4__0__Impl"
-    // InternalOcl.g:8037:1: rule__IteratorExp__Group_4__0__Impl : ( ',' ) ;
+    // InternalOcl.g:8068:1: rule__IteratorExp__Group_4__0__Impl : ( ',' ) ;
     public final void rule__IteratorExp__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8041:1: ( ( ',' ) )
-            // InternalOcl.g:8042:1: ( ',' )
+            // InternalOcl.g:8072:1: ( ( ',' ) )
+            // InternalOcl.g:8073:1: ( ',' )
             {
-            // InternalOcl.g:8042:1: ( ',' )
-            // InternalOcl.g:8043:2: ','
+            // InternalOcl.g:8073:1: ( ',' )
+            // InternalOcl.g:8074:2: ','
             {
              before(grammarAccess.getIteratorExpAccess().getCommaKeyword_4_0()); 
             match(input,37,FOLLOW_2); 
@@ -24799,14 +24901,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group_4__1"
-    // InternalOcl.g:8052:1: rule__IteratorExp__Group_4__1 : rule__IteratorExp__Group_4__1__Impl ;
+    // InternalOcl.g:8083:1: rule__IteratorExp__Group_4__1 : rule__IteratorExp__Group_4__1__Impl ;
     public final void rule__IteratorExp__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8056:1: ( rule__IteratorExp__Group_4__1__Impl )
-            // InternalOcl.g:8057:2: rule__IteratorExp__Group_4__1__Impl
+            // InternalOcl.g:8087:1: ( rule__IteratorExp__Group_4__1__Impl )
+            // InternalOcl.g:8088:2: rule__IteratorExp__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IteratorExp__Group_4__1__Impl();
@@ -24832,21 +24934,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__Group_4__1__Impl"
-    // InternalOcl.g:8063:1: rule__IteratorExp__Group_4__1__Impl : ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) ) ;
+    // InternalOcl.g:8094:1: rule__IteratorExp__Group_4__1__Impl : ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) ) ;
     public final void rule__IteratorExp__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8067:1: ( ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) ) )
-            // InternalOcl.g:8068:1: ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) )
+            // InternalOcl.g:8098:1: ( ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) ) )
+            // InternalOcl.g:8099:1: ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) )
             {
-            // InternalOcl.g:8068:1: ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) )
-            // InternalOcl.g:8069:2: ( rule__IteratorExp__IteratorsAssignment_4_1 )
+            // InternalOcl.g:8099:1: ( ( rule__IteratorExp__IteratorsAssignment_4_1 ) )
+            // InternalOcl.g:8100:2: ( rule__IteratorExp__IteratorsAssignment_4_1 )
             {
              before(grammarAccess.getIteratorExpAccess().getIteratorsAssignment_4_1()); 
-            // InternalOcl.g:8070:2: ( rule__IteratorExp__IteratorsAssignment_4_1 )
-            // InternalOcl.g:8070:3: rule__IteratorExp__IteratorsAssignment_4_1
+            // InternalOcl.g:8101:2: ( rule__IteratorExp__IteratorsAssignment_4_1 )
+            // InternalOcl.g:8101:3: rule__IteratorExp__IteratorsAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__IteratorExp__IteratorsAssignment_4_1();
@@ -24879,14 +24981,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__0"
-    // InternalOcl.g:8079:1: rule__CollectionOperationCall__Group__0 : rule__CollectionOperationCall__Group__0__Impl rule__CollectionOperationCall__Group__1 ;
+    // InternalOcl.g:8110:1: rule__CollectionOperationCall__Group__0 : rule__CollectionOperationCall__Group__0__Impl rule__CollectionOperationCall__Group__1 ;
     public final void rule__CollectionOperationCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8083:1: ( rule__CollectionOperationCall__Group__0__Impl rule__CollectionOperationCall__Group__1 )
-            // InternalOcl.g:8084:2: rule__CollectionOperationCall__Group__0__Impl rule__CollectionOperationCall__Group__1
+            // InternalOcl.g:8114:1: ( rule__CollectionOperationCall__Group__0__Impl rule__CollectionOperationCall__Group__1 )
+            // InternalOcl.g:8115:2: rule__CollectionOperationCall__Group__0__Impl rule__CollectionOperationCall__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__CollectionOperationCall__Group__0__Impl();
@@ -24917,17 +25019,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__0__Impl"
-    // InternalOcl.g:8091:1: rule__CollectionOperationCall__Group__0__Impl : ( '->' ) ;
+    // InternalOcl.g:8122:1: rule__CollectionOperationCall__Group__0__Impl : ( '->' ) ;
     public final void rule__CollectionOperationCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8095:1: ( ( '->' ) )
-            // InternalOcl.g:8096:1: ( '->' )
+            // InternalOcl.g:8126:1: ( ( '->' ) )
+            // InternalOcl.g:8127:1: ( '->' )
             {
-            // InternalOcl.g:8096:1: ( '->' )
-            // InternalOcl.g:8097:2: '->'
+            // InternalOcl.g:8127:1: ( '->' )
+            // InternalOcl.g:8128:2: '->'
             {
              before(grammarAccess.getCollectionOperationCallAccess().getHyphenMinusGreaterThanSignKeyword_0()); 
             match(input,57,FOLLOW_2); 
@@ -24954,14 +25056,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__1"
-    // InternalOcl.g:8106:1: rule__CollectionOperationCall__Group__1 : rule__CollectionOperationCall__Group__1__Impl rule__CollectionOperationCall__Group__2 ;
+    // InternalOcl.g:8137:1: rule__CollectionOperationCall__Group__1 : rule__CollectionOperationCall__Group__1__Impl rule__CollectionOperationCall__Group__2 ;
     public final void rule__CollectionOperationCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8110:1: ( rule__CollectionOperationCall__Group__1__Impl rule__CollectionOperationCall__Group__2 )
-            // InternalOcl.g:8111:2: rule__CollectionOperationCall__Group__1__Impl rule__CollectionOperationCall__Group__2
+            // InternalOcl.g:8141:1: ( rule__CollectionOperationCall__Group__1__Impl rule__CollectionOperationCall__Group__2 )
+            // InternalOcl.g:8142:2: rule__CollectionOperationCall__Group__1__Impl rule__CollectionOperationCall__Group__2
             {
             pushFollow(FOLLOW_17);
             rule__CollectionOperationCall__Group__1__Impl();
@@ -24992,21 +25094,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__1__Impl"
-    // InternalOcl.g:8118:1: rule__CollectionOperationCall__Group__1__Impl : ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) ) ;
+    // InternalOcl.g:8149:1: rule__CollectionOperationCall__Group__1__Impl : ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) ) ;
     public final void rule__CollectionOperationCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8122:1: ( ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) ) )
-            // InternalOcl.g:8123:1: ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) )
+            // InternalOcl.g:8153:1: ( ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) ) )
+            // InternalOcl.g:8154:1: ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) )
             {
-            // InternalOcl.g:8123:1: ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) )
-            // InternalOcl.g:8124:2: ( rule__CollectionOperationCall__OperationNameAssignment_1 )
+            // InternalOcl.g:8154:1: ( ( rule__CollectionOperationCall__OperationNameAssignment_1 ) )
+            // InternalOcl.g:8155:2: ( rule__CollectionOperationCall__OperationNameAssignment_1 )
             {
              before(grammarAccess.getCollectionOperationCallAccess().getOperationNameAssignment_1()); 
-            // InternalOcl.g:8125:2: ( rule__CollectionOperationCall__OperationNameAssignment_1 )
-            // InternalOcl.g:8125:3: rule__CollectionOperationCall__OperationNameAssignment_1
+            // InternalOcl.g:8156:2: ( rule__CollectionOperationCall__OperationNameAssignment_1 )
+            // InternalOcl.g:8156:3: rule__CollectionOperationCall__OperationNameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__CollectionOperationCall__OperationNameAssignment_1();
@@ -25039,14 +25141,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__2"
-    // InternalOcl.g:8133:1: rule__CollectionOperationCall__Group__2 : rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3 ;
+    // InternalOcl.g:8164:1: rule__CollectionOperationCall__Group__2 : rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3 ;
     public final void rule__CollectionOperationCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8137:1: ( rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3 )
-            // InternalOcl.g:8138:2: rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3
+            // InternalOcl.g:8168:1: ( rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3 )
+            // InternalOcl.g:8169:2: rule__CollectionOperationCall__Group__2__Impl rule__CollectionOperationCall__Group__3
             {
             pushFollow(FOLLOW_54);
             rule__CollectionOperationCall__Group__2__Impl();
@@ -25077,17 +25179,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__2__Impl"
-    // InternalOcl.g:8145:1: rule__CollectionOperationCall__Group__2__Impl : ( '(' ) ;
+    // InternalOcl.g:8176:1: rule__CollectionOperationCall__Group__2__Impl : ( '(' ) ;
     public final void rule__CollectionOperationCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8149:1: ( ( '(' ) )
-            // InternalOcl.g:8150:1: ( '(' )
+            // InternalOcl.g:8180:1: ( ( '(' ) )
+            // InternalOcl.g:8181:1: ( '(' )
             {
-            // InternalOcl.g:8150:1: ( '(' )
-            // InternalOcl.g:8151:2: '('
+            // InternalOcl.g:8181:1: ( '(' )
+            // InternalOcl.g:8182:2: '('
             {
              before(grammarAccess.getCollectionOperationCallAccess().getLeftParenthesisKeyword_2()); 
             match(input,35,FOLLOW_2); 
@@ -25114,14 +25216,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__3"
-    // InternalOcl.g:8160:1: rule__CollectionOperationCall__Group__3 : rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4 ;
+    // InternalOcl.g:8191:1: rule__CollectionOperationCall__Group__3 : rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4 ;
     public final void rule__CollectionOperationCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8164:1: ( rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4 )
-            // InternalOcl.g:8165:2: rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4
+            // InternalOcl.g:8195:1: ( rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4 )
+            // InternalOcl.g:8196:2: rule__CollectionOperationCall__Group__3__Impl rule__CollectionOperationCall__Group__4
             {
             pushFollow(FOLLOW_54);
             rule__CollectionOperationCall__Group__3__Impl();
@@ -25152,29 +25254,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__3__Impl"
-    // InternalOcl.g:8172:1: rule__CollectionOperationCall__Group__3__Impl : ( ( rule__CollectionOperationCall__Group_3__0 )? ) ;
+    // InternalOcl.g:8203:1: rule__CollectionOperationCall__Group__3__Impl : ( ( rule__CollectionOperationCall__Group_3__0 )? ) ;
     public final void rule__CollectionOperationCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8176:1: ( ( ( rule__CollectionOperationCall__Group_3__0 )? ) )
-            // InternalOcl.g:8177:1: ( ( rule__CollectionOperationCall__Group_3__0 )? )
+            // InternalOcl.g:8207:1: ( ( ( rule__CollectionOperationCall__Group_3__0 )? ) )
+            // InternalOcl.g:8208:1: ( ( rule__CollectionOperationCall__Group_3__0 )? )
             {
-            // InternalOcl.g:8177:1: ( ( rule__CollectionOperationCall__Group_3__0 )? )
-            // InternalOcl.g:8178:2: ( rule__CollectionOperationCall__Group_3__0 )?
+            // InternalOcl.g:8208:1: ( ( rule__CollectionOperationCall__Group_3__0 )? )
+            // InternalOcl.g:8209:2: ( rule__CollectionOperationCall__Group_3__0 )?
             {
              before(grammarAccess.getCollectionOperationCallAccess().getGroup_3()); 
-            // InternalOcl.g:8179:2: ( rule__CollectionOperationCall__Group_3__0 )?
+            // InternalOcl.g:8210:2: ( rule__CollectionOperationCall__Group_3__0 )?
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( ((LA55_0>=RULE_ID && LA55_0<=RULE_INT)||LA55_0==22||LA55_0==28||LA55_0==35||(LA55_0>=39 && LA55_0<=41)||(LA55_0>=44 && LA55_0<=50)||LA55_0==52||(LA55_0>=67 && LA55_0<=68)) ) {
+            if ( ((LA55_0>=RULE_ID && LA55_0<=RULE_INT)||LA55_0==22||LA55_0==28||LA55_0==35||(LA55_0>=39 && LA55_0<=41)||(LA55_0>=44 && LA55_0<=50)||LA55_0==52||(LA55_0>=68 && LA55_0<=69)) ) {
                 alt55=1;
             }
             switch (alt55) {
                 case 1 :
-                    // InternalOcl.g:8179:3: rule__CollectionOperationCall__Group_3__0
+                    // InternalOcl.g:8210:3: rule__CollectionOperationCall__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__CollectionOperationCall__Group_3__0();
@@ -25210,14 +25312,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__4"
-    // InternalOcl.g:8187:1: rule__CollectionOperationCall__Group__4 : rule__CollectionOperationCall__Group__4__Impl ;
+    // InternalOcl.g:8218:1: rule__CollectionOperationCall__Group__4 : rule__CollectionOperationCall__Group__4__Impl ;
     public final void rule__CollectionOperationCall__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8191:1: ( rule__CollectionOperationCall__Group__4__Impl )
-            // InternalOcl.g:8192:2: rule__CollectionOperationCall__Group__4__Impl
+            // InternalOcl.g:8222:1: ( rule__CollectionOperationCall__Group__4__Impl )
+            // InternalOcl.g:8223:2: rule__CollectionOperationCall__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CollectionOperationCall__Group__4__Impl();
@@ -25243,17 +25345,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group__4__Impl"
-    // InternalOcl.g:8198:1: rule__CollectionOperationCall__Group__4__Impl : ( ')' ) ;
+    // InternalOcl.g:8229:1: rule__CollectionOperationCall__Group__4__Impl : ( ')' ) ;
     public final void rule__CollectionOperationCall__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8202:1: ( ( ')' ) )
-            // InternalOcl.g:8203:1: ( ')' )
+            // InternalOcl.g:8233:1: ( ( ')' ) )
+            // InternalOcl.g:8234:1: ( ')' )
             {
-            // InternalOcl.g:8203:1: ( ')' )
-            // InternalOcl.g:8204:2: ')'
+            // InternalOcl.g:8234:1: ( ')' )
+            // InternalOcl.g:8235:2: ')'
             {
              before(grammarAccess.getCollectionOperationCallAccess().getRightParenthesisKeyword_4()); 
             match(input,36,FOLLOW_2); 
@@ -25280,14 +25382,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3__0"
-    // InternalOcl.g:8214:1: rule__CollectionOperationCall__Group_3__0 : rule__CollectionOperationCall__Group_3__0__Impl rule__CollectionOperationCall__Group_3__1 ;
+    // InternalOcl.g:8245:1: rule__CollectionOperationCall__Group_3__0 : rule__CollectionOperationCall__Group_3__0__Impl rule__CollectionOperationCall__Group_3__1 ;
     public final void rule__CollectionOperationCall__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8218:1: ( rule__CollectionOperationCall__Group_3__0__Impl rule__CollectionOperationCall__Group_3__1 )
-            // InternalOcl.g:8219:2: rule__CollectionOperationCall__Group_3__0__Impl rule__CollectionOperationCall__Group_3__1
+            // InternalOcl.g:8249:1: ( rule__CollectionOperationCall__Group_3__0__Impl rule__CollectionOperationCall__Group_3__1 )
+            // InternalOcl.g:8250:2: rule__CollectionOperationCall__Group_3__0__Impl rule__CollectionOperationCall__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__CollectionOperationCall__Group_3__0__Impl();
@@ -25318,21 +25420,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3__0__Impl"
-    // InternalOcl.g:8226:1: rule__CollectionOperationCall__Group_3__0__Impl : ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) ) ;
+    // InternalOcl.g:8257:1: rule__CollectionOperationCall__Group_3__0__Impl : ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) ) ;
     public final void rule__CollectionOperationCall__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8230:1: ( ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) ) )
-            // InternalOcl.g:8231:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) )
+            // InternalOcl.g:8261:1: ( ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) ) )
+            // InternalOcl.g:8262:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) )
             {
-            // InternalOcl.g:8231:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) )
-            // InternalOcl.g:8232:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 )
+            // InternalOcl.g:8262:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 ) )
+            // InternalOcl.g:8263:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 )
             {
              before(grammarAccess.getCollectionOperationCallAccess().getArgumentsAssignment_3_0()); 
-            // InternalOcl.g:8233:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 )
-            // InternalOcl.g:8233:3: rule__CollectionOperationCall__ArgumentsAssignment_3_0
+            // InternalOcl.g:8264:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_0 )
+            // InternalOcl.g:8264:3: rule__CollectionOperationCall__ArgumentsAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__CollectionOperationCall__ArgumentsAssignment_3_0();
@@ -25365,14 +25467,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3__1"
-    // InternalOcl.g:8241:1: rule__CollectionOperationCall__Group_3__1 : rule__CollectionOperationCall__Group_3__1__Impl ;
+    // InternalOcl.g:8272:1: rule__CollectionOperationCall__Group_3__1 : rule__CollectionOperationCall__Group_3__1__Impl ;
     public final void rule__CollectionOperationCall__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8245:1: ( rule__CollectionOperationCall__Group_3__1__Impl )
-            // InternalOcl.g:8246:2: rule__CollectionOperationCall__Group_3__1__Impl
+            // InternalOcl.g:8276:1: ( rule__CollectionOperationCall__Group_3__1__Impl )
+            // InternalOcl.g:8277:2: rule__CollectionOperationCall__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CollectionOperationCall__Group_3__1__Impl();
@@ -25398,20 +25500,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3__1__Impl"
-    // InternalOcl.g:8252:1: rule__CollectionOperationCall__Group_3__1__Impl : ( ( rule__CollectionOperationCall__Group_3_1__0 )* ) ;
+    // InternalOcl.g:8283:1: rule__CollectionOperationCall__Group_3__1__Impl : ( ( rule__CollectionOperationCall__Group_3_1__0 )* ) ;
     public final void rule__CollectionOperationCall__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8256:1: ( ( ( rule__CollectionOperationCall__Group_3_1__0 )* ) )
-            // InternalOcl.g:8257:1: ( ( rule__CollectionOperationCall__Group_3_1__0 )* )
+            // InternalOcl.g:8287:1: ( ( ( rule__CollectionOperationCall__Group_3_1__0 )* ) )
+            // InternalOcl.g:8288:1: ( ( rule__CollectionOperationCall__Group_3_1__0 )* )
             {
-            // InternalOcl.g:8257:1: ( ( rule__CollectionOperationCall__Group_3_1__0 )* )
-            // InternalOcl.g:8258:2: ( rule__CollectionOperationCall__Group_3_1__0 )*
+            // InternalOcl.g:8288:1: ( ( rule__CollectionOperationCall__Group_3_1__0 )* )
+            // InternalOcl.g:8289:2: ( rule__CollectionOperationCall__Group_3_1__0 )*
             {
              before(grammarAccess.getCollectionOperationCallAccess().getGroup_3_1()); 
-            // InternalOcl.g:8259:2: ( rule__CollectionOperationCall__Group_3_1__0 )*
+            // InternalOcl.g:8290:2: ( rule__CollectionOperationCall__Group_3_1__0 )*
             loop56:
             do {
                 int alt56=2;
@@ -25424,7 +25526,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt56) {
             	case 1 :
-            	    // InternalOcl.g:8259:3: rule__CollectionOperationCall__Group_3_1__0
+            	    // InternalOcl.g:8290:3: rule__CollectionOperationCall__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__CollectionOperationCall__Group_3_1__0();
@@ -25463,14 +25565,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3_1__0"
-    // InternalOcl.g:8268:1: rule__CollectionOperationCall__Group_3_1__0 : rule__CollectionOperationCall__Group_3_1__0__Impl rule__CollectionOperationCall__Group_3_1__1 ;
+    // InternalOcl.g:8299:1: rule__CollectionOperationCall__Group_3_1__0 : rule__CollectionOperationCall__Group_3_1__0__Impl rule__CollectionOperationCall__Group_3_1__1 ;
     public final void rule__CollectionOperationCall__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8272:1: ( rule__CollectionOperationCall__Group_3_1__0__Impl rule__CollectionOperationCall__Group_3_1__1 )
-            // InternalOcl.g:8273:2: rule__CollectionOperationCall__Group_3_1__0__Impl rule__CollectionOperationCall__Group_3_1__1
+            // InternalOcl.g:8303:1: ( rule__CollectionOperationCall__Group_3_1__0__Impl rule__CollectionOperationCall__Group_3_1__1 )
+            // InternalOcl.g:8304:2: rule__CollectionOperationCall__Group_3_1__0__Impl rule__CollectionOperationCall__Group_3_1__1
             {
             pushFollow(FOLLOW_16);
             rule__CollectionOperationCall__Group_3_1__0__Impl();
@@ -25501,17 +25603,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3_1__0__Impl"
-    // InternalOcl.g:8280:1: rule__CollectionOperationCall__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:8311:1: rule__CollectionOperationCall__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__CollectionOperationCall__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8284:1: ( ( ',' ) )
-            // InternalOcl.g:8285:1: ( ',' )
+            // InternalOcl.g:8315:1: ( ( ',' ) )
+            // InternalOcl.g:8316:1: ( ',' )
             {
-            // InternalOcl.g:8285:1: ( ',' )
-            // InternalOcl.g:8286:2: ','
+            // InternalOcl.g:8316:1: ( ',' )
+            // InternalOcl.g:8317:2: ','
             {
              before(grammarAccess.getCollectionOperationCallAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -25538,14 +25640,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3_1__1"
-    // InternalOcl.g:8295:1: rule__CollectionOperationCall__Group_3_1__1 : rule__CollectionOperationCall__Group_3_1__1__Impl ;
+    // InternalOcl.g:8326:1: rule__CollectionOperationCall__Group_3_1__1 : rule__CollectionOperationCall__Group_3_1__1__Impl ;
     public final void rule__CollectionOperationCall__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8299:1: ( rule__CollectionOperationCall__Group_3_1__1__Impl )
-            // InternalOcl.g:8300:2: rule__CollectionOperationCall__Group_3_1__1__Impl
+            // InternalOcl.g:8330:1: ( rule__CollectionOperationCall__Group_3_1__1__Impl )
+            // InternalOcl.g:8331:2: rule__CollectionOperationCall__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CollectionOperationCall__Group_3_1__1__Impl();
@@ -25571,21 +25673,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__Group_3_1__1__Impl"
-    // InternalOcl.g:8306:1: rule__CollectionOperationCall__Group_3_1__1__Impl : ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:8337:1: rule__CollectionOperationCall__Group_3_1__1__Impl : ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) ) ;
     public final void rule__CollectionOperationCall__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8310:1: ( ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) ) )
-            // InternalOcl.g:8311:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) )
+            // InternalOcl.g:8341:1: ( ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) ) )
+            // InternalOcl.g:8342:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:8311:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) )
-            // InternalOcl.g:8312:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 )
+            // InternalOcl.g:8342:1: ( ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 ) )
+            // InternalOcl.g:8343:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 )
             {
              before(grammarAccess.getCollectionOperationCallAccess().getArgumentsAssignment_3_1_1()); 
-            // InternalOcl.g:8313:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 )
-            // InternalOcl.g:8313:3: rule__CollectionOperationCall__ArgumentsAssignment_3_1_1
+            // InternalOcl.g:8344:2: ( rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 )
+            // InternalOcl.g:8344:3: rule__CollectionOperationCall__ArgumentsAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__CollectionOperationCall__ArgumentsAssignment_3_1_1();
@@ -25618,14 +25720,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__0"
-    // InternalOcl.g:8322:1: rule__LocalVariable__Group__0 : rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1 ;
+    // InternalOcl.g:8353:1: rule__LocalVariable__Group__0 : rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1 ;
     public final void rule__LocalVariable__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8326:1: ( rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1 )
-            // InternalOcl.g:8327:2: rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1
+            // InternalOcl.g:8357:1: ( rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1 )
+            // InternalOcl.g:8358:2: rule__LocalVariable__Group__0__Impl rule__LocalVariable__Group__1
             {
             pushFollow(FOLLOW_45);
             rule__LocalVariable__Group__0__Impl();
@@ -25656,21 +25758,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__0__Impl"
-    // InternalOcl.g:8334:1: rule__LocalVariable__Group__0__Impl : ( ( rule__LocalVariable__NameAssignment_0 ) ) ;
+    // InternalOcl.g:8365:1: rule__LocalVariable__Group__0__Impl : ( ( rule__LocalVariable__NameAssignment_0 ) ) ;
     public final void rule__LocalVariable__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8338:1: ( ( ( rule__LocalVariable__NameAssignment_0 ) ) )
-            // InternalOcl.g:8339:1: ( ( rule__LocalVariable__NameAssignment_0 ) )
+            // InternalOcl.g:8369:1: ( ( ( rule__LocalVariable__NameAssignment_0 ) ) )
+            // InternalOcl.g:8370:1: ( ( rule__LocalVariable__NameAssignment_0 ) )
             {
-            // InternalOcl.g:8339:1: ( ( rule__LocalVariable__NameAssignment_0 ) )
-            // InternalOcl.g:8340:2: ( rule__LocalVariable__NameAssignment_0 )
+            // InternalOcl.g:8370:1: ( ( rule__LocalVariable__NameAssignment_0 ) )
+            // InternalOcl.g:8371:2: ( rule__LocalVariable__NameAssignment_0 )
             {
              before(grammarAccess.getLocalVariableAccess().getNameAssignment_0()); 
-            // InternalOcl.g:8341:2: ( rule__LocalVariable__NameAssignment_0 )
-            // InternalOcl.g:8341:3: rule__LocalVariable__NameAssignment_0
+            // InternalOcl.g:8372:2: ( rule__LocalVariable__NameAssignment_0 )
+            // InternalOcl.g:8372:3: rule__LocalVariable__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__LocalVariable__NameAssignment_0();
@@ -25703,14 +25805,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__1"
-    // InternalOcl.g:8349:1: rule__LocalVariable__Group__1 : rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2 ;
+    // InternalOcl.g:8380:1: rule__LocalVariable__Group__1 : rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2 ;
     public final void rule__LocalVariable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8353:1: ( rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2 )
-            // InternalOcl.g:8354:2: rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2
+            // InternalOcl.g:8384:1: ( rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2 )
+            // InternalOcl.g:8385:2: rule__LocalVariable__Group__1__Impl rule__LocalVariable__Group__2
             {
             pushFollow(FOLLOW_45);
             rule__LocalVariable__Group__1__Impl();
@@ -25741,20 +25843,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__1__Impl"
-    // InternalOcl.g:8361:1: rule__LocalVariable__Group__1__Impl : ( ( rule__LocalVariable__Group_1__0 )? ) ;
+    // InternalOcl.g:8392:1: rule__LocalVariable__Group__1__Impl : ( ( rule__LocalVariable__Group_1__0 )? ) ;
     public final void rule__LocalVariable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8365:1: ( ( ( rule__LocalVariable__Group_1__0 )? ) )
-            // InternalOcl.g:8366:1: ( ( rule__LocalVariable__Group_1__0 )? )
+            // InternalOcl.g:8396:1: ( ( ( rule__LocalVariable__Group_1__0 )? ) )
+            // InternalOcl.g:8397:1: ( ( rule__LocalVariable__Group_1__0 )? )
             {
-            // InternalOcl.g:8366:1: ( ( rule__LocalVariable__Group_1__0 )? )
-            // InternalOcl.g:8367:2: ( rule__LocalVariable__Group_1__0 )?
+            // InternalOcl.g:8397:1: ( ( rule__LocalVariable__Group_1__0 )? )
+            // InternalOcl.g:8398:2: ( rule__LocalVariable__Group_1__0 )?
             {
              before(grammarAccess.getLocalVariableAccess().getGroup_1()); 
-            // InternalOcl.g:8368:2: ( rule__LocalVariable__Group_1__0 )?
+            // InternalOcl.g:8399:2: ( rule__LocalVariable__Group_1__0 )?
             int alt57=2;
             int LA57_0 = input.LA(1);
 
@@ -25763,7 +25865,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt57) {
                 case 1 :
-                    // InternalOcl.g:8368:3: rule__LocalVariable__Group_1__0
+                    // InternalOcl.g:8399:3: rule__LocalVariable__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LocalVariable__Group_1__0();
@@ -25799,14 +25901,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__2"
-    // InternalOcl.g:8376:1: rule__LocalVariable__Group__2 : rule__LocalVariable__Group__2__Impl rule__LocalVariable__Group__3 ;
+    // InternalOcl.g:8407:1: rule__LocalVariable__Group__2 : rule__LocalVariable__Group__2__Impl rule__LocalVariable__Group__3 ;
     public final void rule__LocalVariable__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8380:1: ( rule__LocalVariable__Group__2__Impl rule__LocalVariable__Group__3 )
-            // InternalOcl.g:8381:2: rule__LocalVariable__Group__2__Impl rule__LocalVariable__Group__3
+            // InternalOcl.g:8411:1: ( rule__LocalVariable__Group__2__Impl rule__LocalVariable__Group__3 )
+            // InternalOcl.g:8412:2: rule__LocalVariable__Group__2__Impl rule__LocalVariable__Group__3
             {
             pushFollow(FOLLOW_16);
             rule__LocalVariable__Group__2__Impl();
@@ -25837,17 +25939,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__2__Impl"
-    // InternalOcl.g:8388:1: rule__LocalVariable__Group__2__Impl : ( '=' ) ;
+    // InternalOcl.g:8419:1: rule__LocalVariable__Group__2__Impl : ( '=' ) ;
     public final void rule__LocalVariable__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8392:1: ( ( '=' ) )
-            // InternalOcl.g:8393:1: ( '=' )
+            // InternalOcl.g:8423:1: ( ( '=' ) )
+            // InternalOcl.g:8424:1: ( '=' )
             {
-            // InternalOcl.g:8393:1: ( '=' )
-            // InternalOcl.g:8394:2: '='
+            // InternalOcl.g:8424:1: ( '=' )
+            // InternalOcl.g:8425:2: '='
             {
              before(grammarAccess.getLocalVariableAccess().getEqualsSignKeyword_2()); 
             match(input,16,FOLLOW_2); 
@@ -25874,14 +25976,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__3"
-    // InternalOcl.g:8403:1: rule__LocalVariable__Group__3 : rule__LocalVariable__Group__3__Impl ;
+    // InternalOcl.g:8434:1: rule__LocalVariable__Group__3 : rule__LocalVariable__Group__3__Impl ;
     public final void rule__LocalVariable__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8407:1: ( rule__LocalVariable__Group__3__Impl )
-            // InternalOcl.g:8408:2: rule__LocalVariable__Group__3__Impl
+            // InternalOcl.g:8438:1: ( rule__LocalVariable__Group__3__Impl )
+            // InternalOcl.g:8439:2: rule__LocalVariable__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LocalVariable__Group__3__Impl();
@@ -25907,21 +26009,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group__3__Impl"
-    // InternalOcl.g:8414:1: rule__LocalVariable__Group__3__Impl : ( ( rule__LocalVariable__InitExpressionAssignment_3 ) ) ;
+    // InternalOcl.g:8445:1: rule__LocalVariable__Group__3__Impl : ( ( rule__LocalVariable__InitExpressionAssignment_3 ) ) ;
     public final void rule__LocalVariable__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8418:1: ( ( ( rule__LocalVariable__InitExpressionAssignment_3 ) ) )
-            // InternalOcl.g:8419:1: ( ( rule__LocalVariable__InitExpressionAssignment_3 ) )
+            // InternalOcl.g:8449:1: ( ( ( rule__LocalVariable__InitExpressionAssignment_3 ) ) )
+            // InternalOcl.g:8450:1: ( ( rule__LocalVariable__InitExpressionAssignment_3 ) )
             {
-            // InternalOcl.g:8419:1: ( ( rule__LocalVariable__InitExpressionAssignment_3 ) )
-            // InternalOcl.g:8420:2: ( rule__LocalVariable__InitExpressionAssignment_3 )
+            // InternalOcl.g:8450:1: ( ( rule__LocalVariable__InitExpressionAssignment_3 ) )
+            // InternalOcl.g:8451:2: ( rule__LocalVariable__InitExpressionAssignment_3 )
             {
              before(grammarAccess.getLocalVariableAccess().getInitExpressionAssignment_3()); 
-            // InternalOcl.g:8421:2: ( rule__LocalVariable__InitExpressionAssignment_3 )
-            // InternalOcl.g:8421:3: rule__LocalVariable__InitExpressionAssignment_3
+            // InternalOcl.g:8452:2: ( rule__LocalVariable__InitExpressionAssignment_3 )
+            // InternalOcl.g:8452:3: rule__LocalVariable__InitExpressionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__LocalVariable__InitExpressionAssignment_3();
@@ -25954,14 +26056,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group_1__0"
-    // InternalOcl.g:8430:1: rule__LocalVariable__Group_1__0 : rule__LocalVariable__Group_1__0__Impl rule__LocalVariable__Group_1__1 ;
+    // InternalOcl.g:8461:1: rule__LocalVariable__Group_1__0 : rule__LocalVariable__Group_1__0__Impl rule__LocalVariable__Group_1__1 ;
     public final void rule__LocalVariable__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8434:1: ( rule__LocalVariable__Group_1__0__Impl rule__LocalVariable__Group_1__1 )
-            // InternalOcl.g:8435:2: rule__LocalVariable__Group_1__0__Impl rule__LocalVariable__Group_1__1
+            // InternalOcl.g:8465:1: ( rule__LocalVariable__Group_1__0__Impl rule__LocalVariable__Group_1__1 )
+            // InternalOcl.g:8466:2: rule__LocalVariable__Group_1__0__Impl rule__LocalVariable__Group_1__1
             {
             pushFollow(FOLLOW_14);
             rule__LocalVariable__Group_1__0__Impl();
@@ -25992,17 +26094,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group_1__0__Impl"
-    // InternalOcl.g:8442:1: rule__LocalVariable__Group_1__0__Impl : ( ':' ) ;
+    // InternalOcl.g:8473:1: rule__LocalVariable__Group_1__0__Impl : ( ':' ) ;
     public final void rule__LocalVariable__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8446:1: ( ( ':' ) )
-            // InternalOcl.g:8447:1: ( ':' )
+            // InternalOcl.g:8477:1: ( ( ':' ) )
+            // InternalOcl.g:8478:1: ( ':' )
             {
-            // InternalOcl.g:8447:1: ( ':' )
-            // InternalOcl.g:8448:2: ':'
+            // InternalOcl.g:8478:1: ( ':' )
+            // InternalOcl.g:8479:2: ':'
             {
              before(grammarAccess.getLocalVariableAccess().getColonKeyword_1_0()); 
             match(input,34,FOLLOW_2); 
@@ -26029,14 +26131,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group_1__1"
-    // InternalOcl.g:8457:1: rule__LocalVariable__Group_1__1 : rule__LocalVariable__Group_1__1__Impl ;
+    // InternalOcl.g:8488:1: rule__LocalVariable__Group_1__1 : rule__LocalVariable__Group_1__1__Impl ;
     public final void rule__LocalVariable__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8461:1: ( rule__LocalVariable__Group_1__1__Impl )
-            // InternalOcl.g:8462:2: rule__LocalVariable__Group_1__1__Impl
+            // InternalOcl.g:8492:1: ( rule__LocalVariable__Group_1__1__Impl )
+            // InternalOcl.g:8493:2: rule__LocalVariable__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LocalVariable__Group_1__1__Impl();
@@ -26062,21 +26164,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__Group_1__1__Impl"
-    // InternalOcl.g:8468:1: rule__LocalVariable__Group_1__1__Impl : ( ( rule__LocalVariable__TypeAssignment_1_1 ) ) ;
+    // InternalOcl.g:8499:1: rule__LocalVariable__Group_1__1__Impl : ( ( rule__LocalVariable__TypeAssignment_1_1 ) ) ;
     public final void rule__LocalVariable__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8472:1: ( ( ( rule__LocalVariable__TypeAssignment_1_1 ) ) )
-            // InternalOcl.g:8473:1: ( ( rule__LocalVariable__TypeAssignment_1_1 ) )
+            // InternalOcl.g:8503:1: ( ( ( rule__LocalVariable__TypeAssignment_1_1 ) ) )
+            // InternalOcl.g:8504:1: ( ( rule__LocalVariable__TypeAssignment_1_1 ) )
             {
-            // InternalOcl.g:8473:1: ( ( rule__LocalVariable__TypeAssignment_1_1 ) )
-            // InternalOcl.g:8474:2: ( rule__LocalVariable__TypeAssignment_1_1 )
+            // InternalOcl.g:8504:1: ( ( rule__LocalVariable__TypeAssignment_1_1 ) )
+            // InternalOcl.g:8505:2: ( rule__LocalVariable__TypeAssignment_1_1 )
             {
              before(grammarAccess.getLocalVariableAccess().getTypeAssignment_1_1()); 
-            // InternalOcl.g:8475:2: ( rule__LocalVariable__TypeAssignment_1_1 )
-            // InternalOcl.g:8475:3: rule__LocalVariable__TypeAssignment_1_1
+            // InternalOcl.g:8506:2: ( rule__LocalVariable__TypeAssignment_1_1 )
+            // InternalOcl.g:8506:3: rule__LocalVariable__TypeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__LocalVariable__TypeAssignment_1_1();
@@ -26109,14 +26211,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__0"
-    // InternalOcl.g:8484:1: rule__CollectionType__Group__0 : rule__CollectionType__Group__0__Impl rule__CollectionType__Group__1 ;
+    // InternalOcl.g:8515:1: rule__CollectionType__Group__0 : rule__CollectionType__Group__0__Impl rule__CollectionType__Group__1 ;
     public final void rule__CollectionType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8488:1: ( rule__CollectionType__Group__0__Impl rule__CollectionType__Group__1 )
-            // InternalOcl.g:8489:2: rule__CollectionType__Group__0__Impl rule__CollectionType__Group__1
+            // InternalOcl.g:8519:1: ( rule__CollectionType__Group__0__Impl rule__CollectionType__Group__1 )
+            // InternalOcl.g:8520:2: rule__CollectionType__Group__0__Impl rule__CollectionType__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__CollectionType__Group__0__Impl();
@@ -26147,17 +26249,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__0__Impl"
-    // InternalOcl.g:8496:1: rule__CollectionType__Group__0__Impl : ( 'Collection' ) ;
+    // InternalOcl.g:8527:1: rule__CollectionType__Group__0__Impl : ( 'Collection' ) ;
     public final void rule__CollectionType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8500:1: ( ( 'Collection' ) )
-            // InternalOcl.g:8501:1: ( 'Collection' )
+            // InternalOcl.g:8531:1: ( ( 'Collection' ) )
+            // InternalOcl.g:8532:1: ( 'Collection' )
             {
-            // InternalOcl.g:8501:1: ( 'Collection' )
-            // InternalOcl.g:8502:2: 'Collection'
+            // InternalOcl.g:8532:1: ( 'Collection' )
+            // InternalOcl.g:8533:2: 'Collection'
             {
              before(grammarAccess.getCollectionTypeAccess().getCollectionKeyword_0()); 
             match(input,61,FOLLOW_2); 
@@ -26184,14 +26286,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__1"
-    // InternalOcl.g:8511:1: rule__CollectionType__Group__1 : rule__CollectionType__Group__1__Impl rule__CollectionType__Group__2 ;
+    // InternalOcl.g:8542:1: rule__CollectionType__Group__1 : rule__CollectionType__Group__1__Impl rule__CollectionType__Group__2 ;
     public final void rule__CollectionType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8515:1: ( rule__CollectionType__Group__1__Impl rule__CollectionType__Group__2 )
-            // InternalOcl.g:8516:2: rule__CollectionType__Group__1__Impl rule__CollectionType__Group__2
+            // InternalOcl.g:8546:1: ( rule__CollectionType__Group__1__Impl rule__CollectionType__Group__2 )
+            // InternalOcl.g:8547:2: rule__CollectionType__Group__1__Impl rule__CollectionType__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__CollectionType__Group__1__Impl();
@@ -26222,17 +26324,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__1__Impl"
-    // InternalOcl.g:8523:1: rule__CollectionType__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:8554:1: rule__CollectionType__Group__1__Impl : ( '(' ) ;
     public final void rule__CollectionType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8527:1: ( ( '(' ) )
-            // InternalOcl.g:8528:1: ( '(' )
+            // InternalOcl.g:8558:1: ( ( '(' ) )
+            // InternalOcl.g:8559:1: ( '(' )
             {
-            // InternalOcl.g:8528:1: ( '(' )
-            // InternalOcl.g:8529:2: '('
+            // InternalOcl.g:8559:1: ( '(' )
+            // InternalOcl.g:8560:2: '('
             {
              before(grammarAccess.getCollectionTypeAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -26259,14 +26361,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__2"
-    // InternalOcl.g:8538:1: rule__CollectionType__Group__2 : rule__CollectionType__Group__2__Impl rule__CollectionType__Group__3 ;
+    // InternalOcl.g:8569:1: rule__CollectionType__Group__2 : rule__CollectionType__Group__2__Impl rule__CollectionType__Group__3 ;
     public final void rule__CollectionType__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8542:1: ( rule__CollectionType__Group__2__Impl rule__CollectionType__Group__3 )
-            // InternalOcl.g:8543:2: rule__CollectionType__Group__2__Impl rule__CollectionType__Group__3
+            // InternalOcl.g:8573:1: ( rule__CollectionType__Group__2__Impl rule__CollectionType__Group__3 )
+            // InternalOcl.g:8574:2: rule__CollectionType__Group__2__Impl rule__CollectionType__Group__3
             {
             pushFollow(FOLLOW_48);
             rule__CollectionType__Group__2__Impl();
@@ -26297,21 +26399,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__2__Impl"
-    // InternalOcl.g:8550:1: rule__CollectionType__Group__2__Impl : ( ( rule__CollectionType__ElementTypeAssignment_2 ) ) ;
+    // InternalOcl.g:8581:1: rule__CollectionType__Group__2__Impl : ( ( rule__CollectionType__ElementTypeAssignment_2 ) ) ;
     public final void rule__CollectionType__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8554:1: ( ( ( rule__CollectionType__ElementTypeAssignment_2 ) ) )
-            // InternalOcl.g:8555:1: ( ( rule__CollectionType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8585:1: ( ( ( rule__CollectionType__ElementTypeAssignment_2 ) ) )
+            // InternalOcl.g:8586:1: ( ( rule__CollectionType__ElementTypeAssignment_2 ) )
             {
-            // InternalOcl.g:8555:1: ( ( rule__CollectionType__ElementTypeAssignment_2 ) )
-            // InternalOcl.g:8556:2: ( rule__CollectionType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8586:1: ( ( rule__CollectionType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8587:2: ( rule__CollectionType__ElementTypeAssignment_2 )
             {
              before(grammarAccess.getCollectionTypeAccess().getElementTypeAssignment_2()); 
-            // InternalOcl.g:8557:2: ( rule__CollectionType__ElementTypeAssignment_2 )
-            // InternalOcl.g:8557:3: rule__CollectionType__ElementTypeAssignment_2
+            // InternalOcl.g:8588:2: ( rule__CollectionType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8588:3: rule__CollectionType__ElementTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__CollectionType__ElementTypeAssignment_2();
@@ -26344,14 +26446,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__3"
-    // InternalOcl.g:8565:1: rule__CollectionType__Group__3 : rule__CollectionType__Group__3__Impl ;
+    // InternalOcl.g:8596:1: rule__CollectionType__Group__3 : rule__CollectionType__Group__3__Impl ;
     public final void rule__CollectionType__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8569:1: ( rule__CollectionType__Group__3__Impl )
-            // InternalOcl.g:8570:2: rule__CollectionType__Group__3__Impl
+            // InternalOcl.g:8600:1: ( rule__CollectionType__Group__3__Impl )
+            // InternalOcl.g:8601:2: rule__CollectionType__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CollectionType__Group__3__Impl();
@@ -26377,17 +26479,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__Group__3__Impl"
-    // InternalOcl.g:8576:1: rule__CollectionType__Group__3__Impl : ( ')' ) ;
+    // InternalOcl.g:8607:1: rule__CollectionType__Group__3__Impl : ( ')' ) ;
     public final void rule__CollectionType__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8580:1: ( ( ')' ) )
-            // InternalOcl.g:8581:1: ( ')' )
+            // InternalOcl.g:8611:1: ( ( ')' ) )
+            // InternalOcl.g:8612:1: ( ')' )
             {
-            // InternalOcl.g:8581:1: ( ')' )
-            // InternalOcl.g:8582:2: ')'
+            // InternalOcl.g:8612:1: ( ')' )
+            // InternalOcl.g:8613:2: ')'
             {
              before(grammarAccess.getCollectionTypeAccess().getRightParenthesisKeyword_3()); 
             match(input,36,FOLLOW_2); 
@@ -26414,14 +26516,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__0"
-    // InternalOcl.g:8592:1: rule__BagType__Group__0 : rule__BagType__Group__0__Impl rule__BagType__Group__1 ;
+    // InternalOcl.g:8623:1: rule__BagType__Group__0 : rule__BagType__Group__0__Impl rule__BagType__Group__1 ;
     public final void rule__BagType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8596:1: ( rule__BagType__Group__0__Impl rule__BagType__Group__1 )
-            // InternalOcl.g:8597:2: rule__BagType__Group__0__Impl rule__BagType__Group__1
+            // InternalOcl.g:8627:1: ( rule__BagType__Group__0__Impl rule__BagType__Group__1 )
+            // InternalOcl.g:8628:2: rule__BagType__Group__0__Impl rule__BagType__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__BagType__Group__0__Impl();
@@ -26452,17 +26554,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__0__Impl"
-    // InternalOcl.g:8604:1: rule__BagType__Group__0__Impl : ( 'Bag' ) ;
+    // InternalOcl.g:8635:1: rule__BagType__Group__0__Impl : ( 'Bag' ) ;
     public final void rule__BagType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8608:1: ( ( 'Bag' ) )
-            // InternalOcl.g:8609:1: ( 'Bag' )
+            // InternalOcl.g:8639:1: ( ( 'Bag' ) )
+            // InternalOcl.g:8640:1: ( 'Bag' )
             {
-            // InternalOcl.g:8609:1: ( 'Bag' )
-            // InternalOcl.g:8610:2: 'Bag'
+            // InternalOcl.g:8640:1: ( 'Bag' )
+            // InternalOcl.g:8641:2: 'Bag'
             {
              before(grammarAccess.getBagTypeAccess().getBagKeyword_0()); 
             match(input,41,FOLLOW_2); 
@@ -26489,14 +26591,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__1"
-    // InternalOcl.g:8619:1: rule__BagType__Group__1 : rule__BagType__Group__1__Impl rule__BagType__Group__2 ;
+    // InternalOcl.g:8650:1: rule__BagType__Group__1 : rule__BagType__Group__1__Impl rule__BagType__Group__2 ;
     public final void rule__BagType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8623:1: ( rule__BagType__Group__1__Impl rule__BagType__Group__2 )
-            // InternalOcl.g:8624:2: rule__BagType__Group__1__Impl rule__BagType__Group__2
+            // InternalOcl.g:8654:1: ( rule__BagType__Group__1__Impl rule__BagType__Group__2 )
+            // InternalOcl.g:8655:2: rule__BagType__Group__1__Impl rule__BagType__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__BagType__Group__1__Impl();
@@ -26527,17 +26629,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__1__Impl"
-    // InternalOcl.g:8631:1: rule__BagType__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:8662:1: rule__BagType__Group__1__Impl : ( '(' ) ;
     public final void rule__BagType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8635:1: ( ( '(' ) )
-            // InternalOcl.g:8636:1: ( '(' )
+            // InternalOcl.g:8666:1: ( ( '(' ) )
+            // InternalOcl.g:8667:1: ( '(' )
             {
-            // InternalOcl.g:8636:1: ( '(' )
-            // InternalOcl.g:8637:2: '('
+            // InternalOcl.g:8667:1: ( '(' )
+            // InternalOcl.g:8668:2: '('
             {
              before(grammarAccess.getBagTypeAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -26564,14 +26666,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__2"
-    // InternalOcl.g:8646:1: rule__BagType__Group__2 : rule__BagType__Group__2__Impl rule__BagType__Group__3 ;
+    // InternalOcl.g:8677:1: rule__BagType__Group__2 : rule__BagType__Group__2__Impl rule__BagType__Group__3 ;
     public final void rule__BagType__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8650:1: ( rule__BagType__Group__2__Impl rule__BagType__Group__3 )
-            // InternalOcl.g:8651:2: rule__BagType__Group__2__Impl rule__BagType__Group__3
+            // InternalOcl.g:8681:1: ( rule__BagType__Group__2__Impl rule__BagType__Group__3 )
+            // InternalOcl.g:8682:2: rule__BagType__Group__2__Impl rule__BagType__Group__3
             {
             pushFollow(FOLLOW_48);
             rule__BagType__Group__2__Impl();
@@ -26602,21 +26704,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__2__Impl"
-    // InternalOcl.g:8658:1: rule__BagType__Group__2__Impl : ( ( rule__BagType__ElementTypeAssignment_2 ) ) ;
+    // InternalOcl.g:8689:1: rule__BagType__Group__2__Impl : ( ( rule__BagType__ElementTypeAssignment_2 ) ) ;
     public final void rule__BagType__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8662:1: ( ( ( rule__BagType__ElementTypeAssignment_2 ) ) )
-            // InternalOcl.g:8663:1: ( ( rule__BagType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8693:1: ( ( ( rule__BagType__ElementTypeAssignment_2 ) ) )
+            // InternalOcl.g:8694:1: ( ( rule__BagType__ElementTypeAssignment_2 ) )
             {
-            // InternalOcl.g:8663:1: ( ( rule__BagType__ElementTypeAssignment_2 ) )
-            // InternalOcl.g:8664:2: ( rule__BagType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8694:1: ( ( rule__BagType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8695:2: ( rule__BagType__ElementTypeAssignment_2 )
             {
              before(grammarAccess.getBagTypeAccess().getElementTypeAssignment_2()); 
-            // InternalOcl.g:8665:2: ( rule__BagType__ElementTypeAssignment_2 )
-            // InternalOcl.g:8665:3: rule__BagType__ElementTypeAssignment_2
+            // InternalOcl.g:8696:2: ( rule__BagType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8696:3: rule__BagType__ElementTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__BagType__ElementTypeAssignment_2();
@@ -26649,14 +26751,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__3"
-    // InternalOcl.g:8673:1: rule__BagType__Group__3 : rule__BagType__Group__3__Impl ;
+    // InternalOcl.g:8704:1: rule__BagType__Group__3 : rule__BagType__Group__3__Impl ;
     public final void rule__BagType__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8677:1: ( rule__BagType__Group__3__Impl )
-            // InternalOcl.g:8678:2: rule__BagType__Group__3__Impl
+            // InternalOcl.g:8708:1: ( rule__BagType__Group__3__Impl )
+            // InternalOcl.g:8709:2: rule__BagType__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BagType__Group__3__Impl();
@@ -26682,17 +26784,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__Group__3__Impl"
-    // InternalOcl.g:8684:1: rule__BagType__Group__3__Impl : ( ')' ) ;
+    // InternalOcl.g:8715:1: rule__BagType__Group__3__Impl : ( ')' ) ;
     public final void rule__BagType__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8688:1: ( ( ')' ) )
-            // InternalOcl.g:8689:1: ( ')' )
+            // InternalOcl.g:8719:1: ( ( ')' ) )
+            // InternalOcl.g:8720:1: ( ')' )
             {
-            // InternalOcl.g:8689:1: ( ')' )
-            // InternalOcl.g:8690:2: ')'
+            // InternalOcl.g:8720:1: ( ')' )
+            // InternalOcl.g:8721:2: ')'
             {
              before(grammarAccess.getBagTypeAccess().getRightParenthesisKeyword_3()); 
             match(input,36,FOLLOW_2); 
@@ -26719,14 +26821,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__0"
-    // InternalOcl.g:8700:1: rule__OrderedSetType__Group__0 : rule__OrderedSetType__Group__0__Impl rule__OrderedSetType__Group__1 ;
+    // InternalOcl.g:8731:1: rule__OrderedSetType__Group__0 : rule__OrderedSetType__Group__0__Impl rule__OrderedSetType__Group__1 ;
     public final void rule__OrderedSetType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8704:1: ( rule__OrderedSetType__Group__0__Impl rule__OrderedSetType__Group__1 )
-            // InternalOcl.g:8705:2: rule__OrderedSetType__Group__0__Impl rule__OrderedSetType__Group__1
+            // InternalOcl.g:8735:1: ( rule__OrderedSetType__Group__0__Impl rule__OrderedSetType__Group__1 )
+            // InternalOcl.g:8736:2: rule__OrderedSetType__Group__0__Impl rule__OrderedSetType__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__OrderedSetType__Group__0__Impl();
@@ -26757,17 +26859,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__0__Impl"
-    // InternalOcl.g:8712:1: rule__OrderedSetType__Group__0__Impl : ( 'OrderedSet' ) ;
+    // InternalOcl.g:8743:1: rule__OrderedSetType__Group__0__Impl : ( 'OrderedSet' ) ;
     public final void rule__OrderedSetType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8716:1: ( ( 'OrderedSet' ) )
-            // InternalOcl.g:8717:1: ( 'OrderedSet' )
+            // InternalOcl.g:8747:1: ( ( 'OrderedSet' ) )
+            // InternalOcl.g:8748:1: ( 'OrderedSet' )
             {
-            // InternalOcl.g:8717:1: ( 'OrderedSet' )
-            // InternalOcl.g:8718:2: 'OrderedSet'
+            // InternalOcl.g:8748:1: ( 'OrderedSet' )
+            // InternalOcl.g:8749:2: 'OrderedSet'
             {
              before(grammarAccess.getOrderedSetTypeAccess().getOrderedSetKeyword_0()); 
             match(input,44,FOLLOW_2); 
@@ -26794,14 +26896,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__1"
-    // InternalOcl.g:8727:1: rule__OrderedSetType__Group__1 : rule__OrderedSetType__Group__1__Impl rule__OrderedSetType__Group__2 ;
+    // InternalOcl.g:8758:1: rule__OrderedSetType__Group__1 : rule__OrderedSetType__Group__1__Impl rule__OrderedSetType__Group__2 ;
     public final void rule__OrderedSetType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8731:1: ( rule__OrderedSetType__Group__1__Impl rule__OrderedSetType__Group__2 )
-            // InternalOcl.g:8732:2: rule__OrderedSetType__Group__1__Impl rule__OrderedSetType__Group__2
+            // InternalOcl.g:8762:1: ( rule__OrderedSetType__Group__1__Impl rule__OrderedSetType__Group__2 )
+            // InternalOcl.g:8763:2: rule__OrderedSetType__Group__1__Impl rule__OrderedSetType__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__OrderedSetType__Group__1__Impl();
@@ -26832,17 +26934,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__1__Impl"
-    // InternalOcl.g:8739:1: rule__OrderedSetType__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:8770:1: rule__OrderedSetType__Group__1__Impl : ( '(' ) ;
     public final void rule__OrderedSetType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8743:1: ( ( '(' ) )
-            // InternalOcl.g:8744:1: ( '(' )
+            // InternalOcl.g:8774:1: ( ( '(' ) )
+            // InternalOcl.g:8775:1: ( '(' )
             {
-            // InternalOcl.g:8744:1: ( '(' )
-            // InternalOcl.g:8745:2: '('
+            // InternalOcl.g:8775:1: ( '(' )
+            // InternalOcl.g:8776:2: '('
             {
              before(grammarAccess.getOrderedSetTypeAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -26869,14 +26971,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__2"
-    // InternalOcl.g:8754:1: rule__OrderedSetType__Group__2 : rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3 ;
+    // InternalOcl.g:8785:1: rule__OrderedSetType__Group__2 : rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3 ;
     public final void rule__OrderedSetType__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8758:1: ( rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3 )
-            // InternalOcl.g:8759:2: rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3
+            // InternalOcl.g:8789:1: ( rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3 )
+            // InternalOcl.g:8790:2: rule__OrderedSetType__Group__2__Impl rule__OrderedSetType__Group__3
             {
             pushFollow(FOLLOW_48);
             rule__OrderedSetType__Group__2__Impl();
@@ -26907,21 +27009,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__2__Impl"
-    // InternalOcl.g:8766:1: rule__OrderedSetType__Group__2__Impl : ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) ) ;
+    // InternalOcl.g:8797:1: rule__OrderedSetType__Group__2__Impl : ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) ) ;
     public final void rule__OrderedSetType__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8770:1: ( ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) ) )
-            // InternalOcl.g:8771:1: ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8801:1: ( ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) ) )
+            // InternalOcl.g:8802:1: ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) )
             {
-            // InternalOcl.g:8771:1: ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) )
-            // InternalOcl.g:8772:2: ( rule__OrderedSetType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8802:1: ( ( rule__OrderedSetType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8803:2: ( rule__OrderedSetType__ElementTypeAssignment_2 )
             {
              before(grammarAccess.getOrderedSetTypeAccess().getElementTypeAssignment_2()); 
-            // InternalOcl.g:8773:2: ( rule__OrderedSetType__ElementTypeAssignment_2 )
-            // InternalOcl.g:8773:3: rule__OrderedSetType__ElementTypeAssignment_2
+            // InternalOcl.g:8804:2: ( rule__OrderedSetType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8804:3: rule__OrderedSetType__ElementTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__OrderedSetType__ElementTypeAssignment_2();
@@ -26954,14 +27056,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__3"
-    // InternalOcl.g:8781:1: rule__OrderedSetType__Group__3 : rule__OrderedSetType__Group__3__Impl ;
+    // InternalOcl.g:8812:1: rule__OrderedSetType__Group__3 : rule__OrderedSetType__Group__3__Impl ;
     public final void rule__OrderedSetType__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8785:1: ( rule__OrderedSetType__Group__3__Impl )
-            // InternalOcl.g:8786:2: rule__OrderedSetType__Group__3__Impl
+            // InternalOcl.g:8816:1: ( rule__OrderedSetType__Group__3__Impl )
+            // InternalOcl.g:8817:2: rule__OrderedSetType__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OrderedSetType__Group__3__Impl();
@@ -26987,17 +27089,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__Group__3__Impl"
-    // InternalOcl.g:8792:1: rule__OrderedSetType__Group__3__Impl : ( ')' ) ;
+    // InternalOcl.g:8823:1: rule__OrderedSetType__Group__3__Impl : ( ')' ) ;
     public final void rule__OrderedSetType__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8796:1: ( ( ')' ) )
-            // InternalOcl.g:8797:1: ( ')' )
+            // InternalOcl.g:8827:1: ( ( ')' ) )
+            // InternalOcl.g:8828:1: ( ')' )
             {
-            // InternalOcl.g:8797:1: ( ')' )
-            // InternalOcl.g:8798:2: ')'
+            // InternalOcl.g:8828:1: ( ')' )
+            // InternalOcl.g:8829:2: ')'
             {
              before(grammarAccess.getOrderedSetTypeAccess().getRightParenthesisKeyword_3()); 
             match(input,36,FOLLOW_2); 
@@ -27024,14 +27126,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__0"
-    // InternalOcl.g:8808:1: rule__SequenceType__Group__0 : rule__SequenceType__Group__0__Impl rule__SequenceType__Group__1 ;
+    // InternalOcl.g:8839:1: rule__SequenceType__Group__0 : rule__SequenceType__Group__0__Impl rule__SequenceType__Group__1 ;
     public final void rule__SequenceType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8812:1: ( rule__SequenceType__Group__0__Impl rule__SequenceType__Group__1 )
-            // InternalOcl.g:8813:2: rule__SequenceType__Group__0__Impl rule__SequenceType__Group__1
+            // InternalOcl.g:8843:1: ( rule__SequenceType__Group__0__Impl rule__SequenceType__Group__1 )
+            // InternalOcl.g:8844:2: rule__SequenceType__Group__0__Impl rule__SequenceType__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__SequenceType__Group__0__Impl();
@@ -27062,17 +27164,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__0__Impl"
-    // InternalOcl.g:8820:1: rule__SequenceType__Group__0__Impl : ( 'Sequence' ) ;
+    // InternalOcl.g:8851:1: rule__SequenceType__Group__0__Impl : ( 'Sequence' ) ;
     public final void rule__SequenceType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8824:1: ( ( 'Sequence' ) )
-            // InternalOcl.g:8825:1: ( 'Sequence' )
+            // InternalOcl.g:8855:1: ( ( 'Sequence' ) )
+            // InternalOcl.g:8856:1: ( 'Sequence' )
             {
-            // InternalOcl.g:8825:1: ( 'Sequence' )
-            // InternalOcl.g:8826:2: 'Sequence'
+            // InternalOcl.g:8856:1: ( 'Sequence' )
+            // InternalOcl.g:8857:2: 'Sequence'
             {
              before(grammarAccess.getSequenceTypeAccess().getSequenceKeyword_0()); 
             match(input,45,FOLLOW_2); 
@@ -27099,14 +27201,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__1"
-    // InternalOcl.g:8835:1: rule__SequenceType__Group__1 : rule__SequenceType__Group__1__Impl rule__SequenceType__Group__2 ;
+    // InternalOcl.g:8866:1: rule__SequenceType__Group__1 : rule__SequenceType__Group__1__Impl rule__SequenceType__Group__2 ;
     public final void rule__SequenceType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8839:1: ( rule__SequenceType__Group__1__Impl rule__SequenceType__Group__2 )
-            // InternalOcl.g:8840:2: rule__SequenceType__Group__1__Impl rule__SequenceType__Group__2
+            // InternalOcl.g:8870:1: ( rule__SequenceType__Group__1__Impl rule__SequenceType__Group__2 )
+            // InternalOcl.g:8871:2: rule__SequenceType__Group__1__Impl rule__SequenceType__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__SequenceType__Group__1__Impl();
@@ -27137,17 +27239,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__1__Impl"
-    // InternalOcl.g:8847:1: rule__SequenceType__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:8878:1: rule__SequenceType__Group__1__Impl : ( '(' ) ;
     public final void rule__SequenceType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8851:1: ( ( '(' ) )
-            // InternalOcl.g:8852:1: ( '(' )
+            // InternalOcl.g:8882:1: ( ( '(' ) )
+            // InternalOcl.g:8883:1: ( '(' )
             {
-            // InternalOcl.g:8852:1: ( '(' )
-            // InternalOcl.g:8853:2: '('
+            // InternalOcl.g:8883:1: ( '(' )
+            // InternalOcl.g:8884:2: '('
             {
              before(grammarAccess.getSequenceTypeAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -27174,14 +27276,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__2"
-    // InternalOcl.g:8862:1: rule__SequenceType__Group__2 : rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3 ;
+    // InternalOcl.g:8893:1: rule__SequenceType__Group__2 : rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3 ;
     public final void rule__SequenceType__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8866:1: ( rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3 )
-            // InternalOcl.g:8867:2: rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3
+            // InternalOcl.g:8897:1: ( rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3 )
+            // InternalOcl.g:8898:2: rule__SequenceType__Group__2__Impl rule__SequenceType__Group__3
             {
             pushFollow(FOLLOW_48);
             rule__SequenceType__Group__2__Impl();
@@ -27212,21 +27314,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__2__Impl"
-    // InternalOcl.g:8874:1: rule__SequenceType__Group__2__Impl : ( ( rule__SequenceType__ElementTypeAssignment_2 ) ) ;
+    // InternalOcl.g:8905:1: rule__SequenceType__Group__2__Impl : ( ( rule__SequenceType__ElementTypeAssignment_2 ) ) ;
     public final void rule__SequenceType__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8878:1: ( ( ( rule__SequenceType__ElementTypeAssignment_2 ) ) )
-            // InternalOcl.g:8879:1: ( ( rule__SequenceType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8909:1: ( ( ( rule__SequenceType__ElementTypeAssignment_2 ) ) )
+            // InternalOcl.g:8910:1: ( ( rule__SequenceType__ElementTypeAssignment_2 ) )
             {
-            // InternalOcl.g:8879:1: ( ( rule__SequenceType__ElementTypeAssignment_2 ) )
-            // InternalOcl.g:8880:2: ( rule__SequenceType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8910:1: ( ( rule__SequenceType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:8911:2: ( rule__SequenceType__ElementTypeAssignment_2 )
             {
              before(grammarAccess.getSequenceTypeAccess().getElementTypeAssignment_2()); 
-            // InternalOcl.g:8881:2: ( rule__SequenceType__ElementTypeAssignment_2 )
-            // InternalOcl.g:8881:3: rule__SequenceType__ElementTypeAssignment_2
+            // InternalOcl.g:8912:2: ( rule__SequenceType__ElementTypeAssignment_2 )
+            // InternalOcl.g:8912:3: rule__SequenceType__ElementTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__SequenceType__ElementTypeAssignment_2();
@@ -27259,14 +27361,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__3"
-    // InternalOcl.g:8889:1: rule__SequenceType__Group__3 : rule__SequenceType__Group__3__Impl ;
+    // InternalOcl.g:8920:1: rule__SequenceType__Group__3 : rule__SequenceType__Group__3__Impl ;
     public final void rule__SequenceType__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8893:1: ( rule__SequenceType__Group__3__Impl )
-            // InternalOcl.g:8894:2: rule__SequenceType__Group__3__Impl
+            // InternalOcl.g:8924:1: ( rule__SequenceType__Group__3__Impl )
+            // InternalOcl.g:8925:2: rule__SequenceType__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SequenceType__Group__3__Impl();
@@ -27292,17 +27394,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__Group__3__Impl"
-    // InternalOcl.g:8900:1: rule__SequenceType__Group__3__Impl : ( ')' ) ;
+    // InternalOcl.g:8931:1: rule__SequenceType__Group__3__Impl : ( ')' ) ;
     public final void rule__SequenceType__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8904:1: ( ( ')' ) )
-            // InternalOcl.g:8905:1: ( ')' )
+            // InternalOcl.g:8935:1: ( ( ')' ) )
+            // InternalOcl.g:8936:1: ( ')' )
             {
-            // InternalOcl.g:8905:1: ( ')' )
-            // InternalOcl.g:8906:2: ')'
+            // InternalOcl.g:8936:1: ( ')' )
+            // InternalOcl.g:8937:2: ')'
             {
              before(grammarAccess.getSequenceTypeAccess().getRightParenthesisKeyword_3()); 
             match(input,36,FOLLOW_2); 
@@ -27329,14 +27431,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__0"
-    // InternalOcl.g:8916:1: rule__SetType__Group__0 : rule__SetType__Group__0__Impl rule__SetType__Group__1 ;
+    // InternalOcl.g:8947:1: rule__SetType__Group__0 : rule__SetType__Group__0__Impl rule__SetType__Group__1 ;
     public final void rule__SetType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8920:1: ( rule__SetType__Group__0__Impl rule__SetType__Group__1 )
-            // InternalOcl.g:8921:2: rule__SetType__Group__0__Impl rule__SetType__Group__1
+            // InternalOcl.g:8951:1: ( rule__SetType__Group__0__Impl rule__SetType__Group__1 )
+            // InternalOcl.g:8952:2: rule__SetType__Group__0__Impl rule__SetType__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__SetType__Group__0__Impl();
@@ -27367,17 +27469,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__0__Impl"
-    // InternalOcl.g:8928:1: rule__SetType__Group__0__Impl : ( 'Set' ) ;
+    // InternalOcl.g:8959:1: rule__SetType__Group__0__Impl : ( 'Set' ) ;
     public final void rule__SetType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8932:1: ( ( 'Set' ) )
-            // InternalOcl.g:8933:1: ( 'Set' )
+            // InternalOcl.g:8963:1: ( ( 'Set' ) )
+            // InternalOcl.g:8964:1: ( 'Set' )
             {
-            // InternalOcl.g:8933:1: ( 'Set' )
-            // InternalOcl.g:8934:2: 'Set'
+            // InternalOcl.g:8964:1: ( 'Set' )
+            // InternalOcl.g:8965:2: 'Set'
             {
              before(grammarAccess.getSetTypeAccess().getSetKeyword_0()); 
             match(input,46,FOLLOW_2); 
@@ -27404,14 +27506,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__1"
-    // InternalOcl.g:8943:1: rule__SetType__Group__1 : rule__SetType__Group__1__Impl rule__SetType__Group__2 ;
+    // InternalOcl.g:8974:1: rule__SetType__Group__1 : rule__SetType__Group__1__Impl rule__SetType__Group__2 ;
     public final void rule__SetType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8947:1: ( rule__SetType__Group__1__Impl rule__SetType__Group__2 )
-            // InternalOcl.g:8948:2: rule__SetType__Group__1__Impl rule__SetType__Group__2
+            // InternalOcl.g:8978:1: ( rule__SetType__Group__1__Impl rule__SetType__Group__2 )
+            // InternalOcl.g:8979:2: rule__SetType__Group__1__Impl rule__SetType__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__SetType__Group__1__Impl();
@@ -27442,17 +27544,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__1__Impl"
-    // InternalOcl.g:8955:1: rule__SetType__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:8986:1: rule__SetType__Group__1__Impl : ( '(' ) ;
     public final void rule__SetType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8959:1: ( ( '(' ) )
-            // InternalOcl.g:8960:1: ( '(' )
+            // InternalOcl.g:8990:1: ( ( '(' ) )
+            // InternalOcl.g:8991:1: ( '(' )
             {
-            // InternalOcl.g:8960:1: ( '(' )
-            // InternalOcl.g:8961:2: '('
+            // InternalOcl.g:8991:1: ( '(' )
+            // InternalOcl.g:8992:2: '('
             {
              before(grammarAccess.getSetTypeAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -27479,14 +27581,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__2"
-    // InternalOcl.g:8970:1: rule__SetType__Group__2 : rule__SetType__Group__2__Impl rule__SetType__Group__3 ;
+    // InternalOcl.g:9001:1: rule__SetType__Group__2 : rule__SetType__Group__2__Impl rule__SetType__Group__3 ;
     public final void rule__SetType__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8974:1: ( rule__SetType__Group__2__Impl rule__SetType__Group__3 )
-            // InternalOcl.g:8975:2: rule__SetType__Group__2__Impl rule__SetType__Group__3
+            // InternalOcl.g:9005:1: ( rule__SetType__Group__2__Impl rule__SetType__Group__3 )
+            // InternalOcl.g:9006:2: rule__SetType__Group__2__Impl rule__SetType__Group__3
             {
             pushFollow(FOLLOW_48);
             rule__SetType__Group__2__Impl();
@@ -27517,21 +27619,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__2__Impl"
-    // InternalOcl.g:8982:1: rule__SetType__Group__2__Impl : ( ( rule__SetType__ElementTypeAssignment_2 ) ) ;
+    // InternalOcl.g:9013:1: rule__SetType__Group__2__Impl : ( ( rule__SetType__ElementTypeAssignment_2 ) ) ;
     public final void rule__SetType__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:8986:1: ( ( ( rule__SetType__ElementTypeAssignment_2 ) ) )
-            // InternalOcl.g:8987:1: ( ( rule__SetType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:9017:1: ( ( ( rule__SetType__ElementTypeAssignment_2 ) ) )
+            // InternalOcl.g:9018:1: ( ( rule__SetType__ElementTypeAssignment_2 ) )
             {
-            // InternalOcl.g:8987:1: ( ( rule__SetType__ElementTypeAssignment_2 ) )
-            // InternalOcl.g:8988:2: ( rule__SetType__ElementTypeAssignment_2 )
+            // InternalOcl.g:9018:1: ( ( rule__SetType__ElementTypeAssignment_2 ) )
+            // InternalOcl.g:9019:2: ( rule__SetType__ElementTypeAssignment_2 )
             {
              before(grammarAccess.getSetTypeAccess().getElementTypeAssignment_2()); 
-            // InternalOcl.g:8989:2: ( rule__SetType__ElementTypeAssignment_2 )
-            // InternalOcl.g:8989:3: rule__SetType__ElementTypeAssignment_2
+            // InternalOcl.g:9020:2: ( rule__SetType__ElementTypeAssignment_2 )
+            // InternalOcl.g:9020:3: rule__SetType__ElementTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__SetType__ElementTypeAssignment_2();
@@ -27564,14 +27666,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__3"
-    // InternalOcl.g:8997:1: rule__SetType__Group__3 : rule__SetType__Group__3__Impl ;
+    // InternalOcl.g:9028:1: rule__SetType__Group__3 : rule__SetType__Group__3__Impl ;
     public final void rule__SetType__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9001:1: ( rule__SetType__Group__3__Impl )
-            // InternalOcl.g:9002:2: rule__SetType__Group__3__Impl
+            // InternalOcl.g:9032:1: ( rule__SetType__Group__3__Impl )
+            // InternalOcl.g:9033:2: rule__SetType__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SetType__Group__3__Impl();
@@ -27597,17 +27699,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__Group__3__Impl"
-    // InternalOcl.g:9008:1: rule__SetType__Group__3__Impl : ( ')' ) ;
+    // InternalOcl.g:9039:1: rule__SetType__Group__3__Impl : ( ')' ) ;
     public final void rule__SetType__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9012:1: ( ( ')' ) )
-            // InternalOcl.g:9013:1: ( ')' )
+            // InternalOcl.g:9043:1: ( ( ')' ) )
+            // InternalOcl.g:9044:1: ( ')' )
             {
-            // InternalOcl.g:9013:1: ( ')' )
-            // InternalOcl.g:9014:2: ')'
+            // InternalOcl.g:9044:1: ( ')' )
+            // InternalOcl.g:9045:2: ')'
             {
              before(grammarAccess.getSetTypeAccess().getRightParenthesisKeyword_3()); 
             match(input,36,FOLLOW_2); 
@@ -27634,14 +27736,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringType__Group__0"
-    // InternalOcl.g:9024:1: rule__StringType__Group__0 : rule__StringType__Group__0__Impl rule__StringType__Group__1 ;
+    // InternalOcl.g:9055:1: rule__StringType__Group__0 : rule__StringType__Group__0__Impl rule__StringType__Group__1 ;
     public final void rule__StringType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9028:1: ( rule__StringType__Group__0__Impl rule__StringType__Group__1 )
-            // InternalOcl.g:9029:2: rule__StringType__Group__0__Impl rule__StringType__Group__1
+            // InternalOcl.g:9059:1: ( rule__StringType__Group__0__Impl rule__StringType__Group__1 )
+            // InternalOcl.g:9060:2: rule__StringType__Group__0__Impl rule__StringType__Group__1
             {
             pushFollow(FOLLOW_59);
             rule__StringType__Group__0__Impl();
@@ -27672,21 +27774,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringType__Group__0__Impl"
-    // InternalOcl.g:9036:1: rule__StringType__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:9067:1: rule__StringType__Group__0__Impl : ( () ) ;
     public final void rule__StringType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9040:1: ( ( () ) )
-            // InternalOcl.g:9041:1: ( () )
+            // InternalOcl.g:9071:1: ( ( () ) )
+            // InternalOcl.g:9072:1: ( () )
             {
-            // InternalOcl.g:9041:1: ( () )
-            // InternalOcl.g:9042:2: ()
+            // InternalOcl.g:9072:1: ( () )
+            // InternalOcl.g:9073:2: ()
             {
              before(grammarAccess.getStringTypeAccess().getStringTypeAction_0()); 
-            // InternalOcl.g:9043:2: ()
-            // InternalOcl.g:9043:3: 
+            // InternalOcl.g:9074:2: ()
+            // InternalOcl.g:9074:3: 
             {
             }
 
@@ -27709,14 +27811,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringType__Group__1"
-    // InternalOcl.g:9051:1: rule__StringType__Group__1 : rule__StringType__Group__1__Impl ;
+    // InternalOcl.g:9082:1: rule__StringType__Group__1 : rule__StringType__Group__1__Impl ;
     public final void rule__StringType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9055:1: ( rule__StringType__Group__1__Impl )
-            // InternalOcl.g:9056:2: rule__StringType__Group__1__Impl
+            // InternalOcl.g:9086:1: ( rule__StringType__Group__1__Impl )
+            // InternalOcl.g:9087:2: rule__StringType__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StringType__Group__1__Impl();
@@ -27742,17 +27844,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringType__Group__1__Impl"
-    // InternalOcl.g:9062:1: rule__StringType__Group__1__Impl : ( 'String' ) ;
+    // InternalOcl.g:9093:1: rule__StringType__Group__1__Impl : ( 'String' ) ;
     public final void rule__StringType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9066:1: ( ( 'String' ) )
-            // InternalOcl.g:9067:1: ( 'String' )
+            // InternalOcl.g:9097:1: ( ( 'String' ) )
+            // InternalOcl.g:9098:1: ( 'String' )
             {
-            // InternalOcl.g:9067:1: ( 'String' )
-            // InternalOcl.g:9068:2: 'String'
+            // InternalOcl.g:9098:1: ( 'String' )
+            // InternalOcl.g:9099:2: 'String'
             {
              before(grammarAccess.getStringTypeAccess().getStringKeyword_1()); 
             match(input,62,FOLLOW_2); 
@@ -27779,14 +27881,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanType__Group__0"
-    // InternalOcl.g:9078:1: rule__BooleanType__Group__0 : rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1 ;
+    // InternalOcl.g:9109:1: rule__BooleanType__Group__0 : rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1 ;
     public final void rule__BooleanType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9082:1: ( rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1 )
-            // InternalOcl.g:9083:2: rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1
+            // InternalOcl.g:9113:1: ( rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1 )
+            // InternalOcl.g:9114:2: rule__BooleanType__Group__0__Impl rule__BooleanType__Group__1
             {
             pushFollow(FOLLOW_60);
             rule__BooleanType__Group__0__Impl();
@@ -27817,21 +27919,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanType__Group__0__Impl"
-    // InternalOcl.g:9090:1: rule__BooleanType__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:9121:1: rule__BooleanType__Group__0__Impl : ( () ) ;
     public final void rule__BooleanType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9094:1: ( ( () ) )
-            // InternalOcl.g:9095:1: ( () )
+            // InternalOcl.g:9125:1: ( ( () ) )
+            // InternalOcl.g:9126:1: ( () )
             {
-            // InternalOcl.g:9095:1: ( () )
-            // InternalOcl.g:9096:2: ()
+            // InternalOcl.g:9126:1: ( () )
+            // InternalOcl.g:9127:2: ()
             {
              before(grammarAccess.getBooleanTypeAccess().getBooleanTypeAction_0()); 
-            // InternalOcl.g:9097:2: ()
-            // InternalOcl.g:9097:3: 
+            // InternalOcl.g:9128:2: ()
+            // InternalOcl.g:9128:3: 
             {
             }
 
@@ -27854,14 +27956,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanType__Group__1"
-    // InternalOcl.g:9105:1: rule__BooleanType__Group__1 : rule__BooleanType__Group__1__Impl ;
+    // InternalOcl.g:9136:1: rule__BooleanType__Group__1 : rule__BooleanType__Group__1__Impl ;
     public final void rule__BooleanType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9109:1: ( rule__BooleanType__Group__1__Impl )
-            // InternalOcl.g:9110:2: rule__BooleanType__Group__1__Impl
+            // InternalOcl.g:9140:1: ( rule__BooleanType__Group__1__Impl )
+            // InternalOcl.g:9141:2: rule__BooleanType__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BooleanType__Group__1__Impl();
@@ -27887,17 +27989,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanType__Group__1__Impl"
-    // InternalOcl.g:9116:1: rule__BooleanType__Group__1__Impl : ( 'Boolean' ) ;
+    // InternalOcl.g:9147:1: rule__BooleanType__Group__1__Impl : ( 'Boolean' ) ;
     public final void rule__BooleanType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9120:1: ( ( 'Boolean' ) )
-            // InternalOcl.g:9121:1: ( 'Boolean' )
+            // InternalOcl.g:9151:1: ( ( 'Boolean' ) )
+            // InternalOcl.g:9152:1: ( 'Boolean' )
             {
-            // InternalOcl.g:9121:1: ( 'Boolean' )
-            // InternalOcl.g:9122:2: 'Boolean'
+            // InternalOcl.g:9152:1: ( 'Boolean' )
+            // InternalOcl.g:9153:2: 'Boolean'
             {
              before(grammarAccess.getBooleanTypeAccess().getBooleanKeyword_1()); 
             match(input,63,FOLLOW_2); 
@@ -27924,14 +28026,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerType__Group__0"
-    // InternalOcl.g:9132:1: rule__IntegerType__Group__0 : rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1 ;
+    // InternalOcl.g:9163:1: rule__IntegerType__Group__0 : rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1 ;
     public final void rule__IntegerType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9136:1: ( rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1 )
-            // InternalOcl.g:9137:2: rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1
+            // InternalOcl.g:9167:1: ( rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1 )
+            // InternalOcl.g:9168:2: rule__IntegerType__Group__0__Impl rule__IntegerType__Group__1
             {
             pushFollow(FOLLOW_61);
             rule__IntegerType__Group__0__Impl();
@@ -27962,21 +28064,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerType__Group__0__Impl"
-    // InternalOcl.g:9144:1: rule__IntegerType__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:9175:1: rule__IntegerType__Group__0__Impl : ( () ) ;
     public final void rule__IntegerType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9148:1: ( ( () ) )
-            // InternalOcl.g:9149:1: ( () )
+            // InternalOcl.g:9179:1: ( ( () ) )
+            // InternalOcl.g:9180:1: ( () )
             {
-            // InternalOcl.g:9149:1: ( () )
-            // InternalOcl.g:9150:2: ()
+            // InternalOcl.g:9180:1: ( () )
+            // InternalOcl.g:9181:2: ()
             {
              before(grammarAccess.getIntegerTypeAccess().getIntegerTypeAction_0()); 
-            // InternalOcl.g:9151:2: ()
-            // InternalOcl.g:9151:3: 
+            // InternalOcl.g:9182:2: ()
+            // InternalOcl.g:9182:3: 
             {
             }
 
@@ -27999,14 +28101,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerType__Group__1"
-    // InternalOcl.g:9159:1: rule__IntegerType__Group__1 : rule__IntegerType__Group__1__Impl ;
+    // InternalOcl.g:9190:1: rule__IntegerType__Group__1 : rule__IntegerType__Group__1__Impl ;
     public final void rule__IntegerType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9163:1: ( rule__IntegerType__Group__1__Impl )
-            // InternalOcl.g:9164:2: rule__IntegerType__Group__1__Impl
+            // InternalOcl.g:9194:1: ( rule__IntegerType__Group__1__Impl )
+            // InternalOcl.g:9195:2: rule__IntegerType__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IntegerType__Group__1__Impl();
@@ -28032,17 +28134,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerType__Group__1__Impl"
-    // InternalOcl.g:9170:1: rule__IntegerType__Group__1__Impl : ( 'Integer' ) ;
+    // InternalOcl.g:9201:1: rule__IntegerType__Group__1__Impl : ( 'Integer' ) ;
     public final void rule__IntegerType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9174:1: ( ( 'Integer' ) )
-            // InternalOcl.g:9175:1: ( 'Integer' )
+            // InternalOcl.g:9205:1: ( ( 'Integer' ) )
+            // InternalOcl.g:9206:1: ( 'Integer' )
             {
-            // InternalOcl.g:9175:1: ( 'Integer' )
-            // InternalOcl.g:9176:2: 'Integer'
+            // InternalOcl.g:9206:1: ( 'Integer' )
+            // InternalOcl.g:9207:2: 'Integer'
             {
              before(grammarAccess.getIntegerTypeAccess().getIntegerKeyword_1()); 
             match(input,64,FOLLOW_2); 
@@ -28069,14 +28171,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RealType__Group__0"
-    // InternalOcl.g:9186:1: rule__RealType__Group__0 : rule__RealType__Group__0__Impl rule__RealType__Group__1 ;
+    // InternalOcl.g:9217:1: rule__RealType__Group__0 : rule__RealType__Group__0__Impl rule__RealType__Group__1 ;
     public final void rule__RealType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9190:1: ( rule__RealType__Group__0__Impl rule__RealType__Group__1 )
-            // InternalOcl.g:9191:2: rule__RealType__Group__0__Impl rule__RealType__Group__1
+            // InternalOcl.g:9221:1: ( rule__RealType__Group__0__Impl rule__RealType__Group__1 )
+            // InternalOcl.g:9222:2: rule__RealType__Group__0__Impl rule__RealType__Group__1
             {
             pushFollow(FOLLOW_62);
             rule__RealType__Group__0__Impl();
@@ -28107,21 +28209,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RealType__Group__0__Impl"
-    // InternalOcl.g:9198:1: rule__RealType__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:9229:1: rule__RealType__Group__0__Impl : ( () ) ;
     public final void rule__RealType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9202:1: ( ( () ) )
-            // InternalOcl.g:9203:1: ( () )
+            // InternalOcl.g:9233:1: ( ( () ) )
+            // InternalOcl.g:9234:1: ( () )
             {
-            // InternalOcl.g:9203:1: ( () )
-            // InternalOcl.g:9204:2: ()
+            // InternalOcl.g:9234:1: ( () )
+            // InternalOcl.g:9235:2: ()
             {
              before(grammarAccess.getRealTypeAccess().getRealTypeAction_0()); 
-            // InternalOcl.g:9205:2: ()
-            // InternalOcl.g:9205:3: 
+            // InternalOcl.g:9236:2: ()
+            // InternalOcl.g:9236:3: 
             {
             }
 
@@ -28144,14 +28246,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RealType__Group__1"
-    // InternalOcl.g:9213:1: rule__RealType__Group__1 : rule__RealType__Group__1__Impl ;
+    // InternalOcl.g:9244:1: rule__RealType__Group__1 : rule__RealType__Group__1__Impl ;
     public final void rule__RealType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9217:1: ( rule__RealType__Group__1__Impl )
-            // InternalOcl.g:9218:2: rule__RealType__Group__1__Impl
+            // InternalOcl.g:9248:1: ( rule__RealType__Group__1__Impl )
+            // InternalOcl.g:9249:2: rule__RealType__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RealType__Group__1__Impl();
@@ -28177,17 +28279,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RealType__Group__1__Impl"
-    // InternalOcl.g:9224:1: rule__RealType__Group__1__Impl : ( 'Real' ) ;
+    // InternalOcl.g:9255:1: rule__RealType__Group__1__Impl : ( 'Real' ) ;
     public final void rule__RealType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9228:1: ( ( 'Real' ) )
-            // InternalOcl.g:9229:1: ( 'Real' )
+            // InternalOcl.g:9259:1: ( ( 'Real' ) )
+            // InternalOcl.g:9260:1: ( 'Real' )
             {
-            // InternalOcl.g:9229:1: ( 'Real' )
-            // InternalOcl.g:9230:2: 'Real'
+            // InternalOcl.g:9260:1: ( 'Real' )
+            // InternalOcl.g:9261:2: 'Real'
             {
              before(grammarAccess.getRealTypeAccess().getRealKeyword_1()); 
             match(input,65,FOLLOW_2); 
@@ -28214,14 +28316,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclAnyType__Group__0"
-    // InternalOcl.g:9240:1: rule__OclAnyType__Group__0 : rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1 ;
+    // InternalOcl.g:9271:1: rule__OclAnyType__Group__0 : rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1 ;
     public final void rule__OclAnyType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9244:1: ( rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1 )
-            // InternalOcl.g:9245:2: rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1
+            // InternalOcl.g:9275:1: ( rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1 )
+            // InternalOcl.g:9276:2: rule__OclAnyType__Group__0__Impl rule__OclAnyType__Group__1
             {
             pushFollow(FOLLOW_63);
             rule__OclAnyType__Group__0__Impl();
@@ -28252,21 +28354,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclAnyType__Group__0__Impl"
-    // InternalOcl.g:9252:1: rule__OclAnyType__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:9283:1: rule__OclAnyType__Group__0__Impl : ( () ) ;
     public final void rule__OclAnyType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9256:1: ( ( () ) )
-            // InternalOcl.g:9257:1: ( () )
+            // InternalOcl.g:9287:1: ( ( () ) )
+            // InternalOcl.g:9288:1: ( () )
             {
-            // InternalOcl.g:9257:1: ( () )
-            // InternalOcl.g:9258:2: ()
+            // InternalOcl.g:9288:1: ( () )
+            // InternalOcl.g:9289:2: ()
             {
              before(grammarAccess.getOclAnyTypeAccess().getOclAnyTypeAction_0()); 
-            // InternalOcl.g:9259:2: ()
-            // InternalOcl.g:9259:3: 
+            // InternalOcl.g:9290:2: ()
+            // InternalOcl.g:9290:3: 
             {
             }
 
@@ -28289,14 +28391,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclAnyType__Group__1"
-    // InternalOcl.g:9267:1: rule__OclAnyType__Group__1 : rule__OclAnyType__Group__1__Impl ;
+    // InternalOcl.g:9298:1: rule__OclAnyType__Group__1 : rule__OclAnyType__Group__1__Impl ;
     public final void rule__OclAnyType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9271:1: ( rule__OclAnyType__Group__1__Impl )
-            // InternalOcl.g:9272:2: rule__OclAnyType__Group__1__Impl
+            // InternalOcl.g:9302:1: ( rule__OclAnyType__Group__1__Impl )
+            // InternalOcl.g:9303:2: rule__OclAnyType__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OclAnyType__Group__1__Impl();
@@ -28322,17 +28424,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclAnyType__Group__1__Impl"
-    // InternalOcl.g:9278:1: rule__OclAnyType__Group__1__Impl : ( 'OclAny' ) ;
+    // InternalOcl.g:9309:1: rule__OclAnyType__Group__1__Impl : ( 'OclAny' ) ;
     public final void rule__OclAnyType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9282:1: ( ( 'OclAny' ) )
-            // InternalOcl.g:9283:1: ( 'OclAny' )
+            // InternalOcl.g:9313:1: ( ( 'OclAny' ) )
+            // InternalOcl.g:9314:1: ( 'OclAny' )
             {
-            // InternalOcl.g:9283:1: ( 'OclAny' )
-            // InternalOcl.g:9284:2: 'OclAny'
+            // InternalOcl.g:9314:1: ( 'OclAny' )
+            // InternalOcl.g:9315:2: 'OclAny'
             {
              before(grammarAccess.getOclAnyTypeAccess().getOclAnyKeyword_1()); 
             match(input,66,FOLLOW_2); 
@@ -28358,15 +28460,160 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__OclAnyType__Group__1__Impl"
 
 
+    // $ANTLR start "rule__OclVoidType__Group__0"
+    // InternalOcl.g:9325:1: rule__OclVoidType__Group__0 : rule__OclVoidType__Group__0__Impl rule__OclVoidType__Group__1 ;
+    public final void rule__OclVoidType__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalOcl.g:9329:1: ( rule__OclVoidType__Group__0__Impl rule__OclVoidType__Group__1 )
+            // InternalOcl.g:9330:2: rule__OclVoidType__Group__0__Impl rule__OclVoidType__Group__1
+            {
+            pushFollow(FOLLOW_64);
+            rule__OclVoidType__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__OclVoidType__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__OclVoidType__Group__0"
+
+
+    // $ANTLR start "rule__OclVoidType__Group__0__Impl"
+    // InternalOcl.g:9337:1: rule__OclVoidType__Group__0__Impl : ( () ) ;
+    public final void rule__OclVoidType__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalOcl.g:9341:1: ( ( () ) )
+            // InternalOcl.g:9342:1: ( () )
+            {
+            // InternalOcl.g:9342:1: ( () )
+            // InternalOcl.g:9343:2: ()
+            {
+             before(grammarAccess.getOclVoidTypeAccess().getOclVoidTypeAction_0()); 
+            // InternalOcl.g:9344:2: ()
+            // InternalOcl.g:9344:3: 
+            {
+            }
+
+             after(grammarAccess.getOclVoidTypeAccess().getOclVoidTypeAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__OclVoidType__Group__0__Impl"
+
+
+    // $ANTLR start "rule__OclVoidType__Group__1"
+    // InternalOcl.g:9352:1: rule__OclVoidType__Group__1 : rule__OclVoidType__Group__1__Impl ;
+    public final void rule__OclVoidType__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalOcl.g:9356:1: ( rule__OclVoidType__Group__1__Impl )
+            // InternalOcl.g:9357:2: rule__OclVoidType__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__OclVoidType__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__OclVoidType__Group__1"
+
+
+    // $ANTLR start "rule__OclVoidType__Group__1__Impl"
+    // InternalOcl.g:9363:1: rule__OclVoidType__Group__1__Impl : ( 'OclVoid' ) ;
+    public final void rule__OclVoidType__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalOcl.g:9367:1: ( ( 'OclVoid' ) )
+            // InternalOcl.g:9368:1: ( 'OclVoid' )
+            {
+            // InternalOcl.g:9368:1: ( 'OclVoid' )
+            // InternalOcl.g:9369:2: 'OclVoid'
+            {
+             before(grammarAccess.getOclVoidTypeAccess().getOclVoidKeyword_1()); 
+            match(input,67,FOLLOW_2); 
+             after(grammarAccess.getOclVoidTypeAccess().getOclVoidKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__OclVoidType__Group__1__Impl"
+
+
     // $ANTLR start "rule__TupleType__Group__0"
-    // InternalOcl.g:9294:1: rule__TupleType__Group__0 : rule__TupleType__Group__0__Impl rule__TupleType__Group__1 ;
+    // InternalOcl.g:9379:1: rule__TupleType__Group__0 : rule__TupleType__Group__0__Impl rule__TupleType__Group__1 ;
     public final void rule__TupleType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9298:1: ( rule__TupleType__Group__0__Impl rule__TupleType__Group__1 )
-            // InternalOcl.g:9299:2: rule__TupleType__Group__0__Impl rule__TupleType__Group__1
+            // InternalOcl.g:9383:1: ( rule__TupleType__Group__0__Impl rule__TupleType__Group__1 )
+            // InternalOcl.g:9384:2: rule__TupleType__Group__0__Impl rule__TupleType__Group__1
             {
             pushFollow(FOLLOW_43);
             rule__TupleType__Group__0__Impl();
@@ -28397,21 +28644,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__0__Impl"
-    // InternalOcl.g:9306:1: rule__TupleType__Group__0__Impl : ( () ) ;
+    // InternalOcl.g:9391:1: rule__TupleType__Group__0__Impl : ( () ) ;
     public final void rule__TupleType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9310:1: ( ( () ) )
-            // InternalOcl.g:9311:1: ( () )
+            // InternalOcl.g:9395:1: ( ( () ) )
+            // InternalOcl.g:9396:1: ( () )
             {
-            // InternalOcl.g:9311:1: ( () )
-            // InternalOcl.g:9312:2: ()
+            // InternalOcl.g:9396:1: ( () )
+            // InternalOcl.g:9397:2: ()
             {
              before(grammarAccess.getTupleTypeAccess().getTupleTypeAction_0()); 
-            // InternalOcl.g:9313:2: ()
-            // InternalOcl.g:9313:3: 
+            // InternalOcl.g:9398:2: ()
+            // InternalOcl.g:9398:3: 
             {
             }
 
@@ -28434,14 +28681,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__1"
-    // InternalOcl.g:9321:1: rule__TupleType__Group__1 : rule__TupleType__Group__1__Impl rule__TupleType__Group__2 ;
+    // InternalOcl.g:9406:1: rule__TupleType__Group__1 : rule__TupleType__Group__1__Impl rule__TupleType__Group__2 ;
     public final void rule__TupleType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9325:1: ( rule__TupleType__Group__1__Impl rule__TupleType__Group__2 )
-            // InternalOcl.g:9326:2: rule__TupleType__Group__1__Impl rule__TupleType__Group__2
+            // InternalOcl.g:9410:1: ( rule__TupleType__Group__1__Impl rule__TupleType__Group__2 )
+            // InternalOcl.g:9411:2: rule__TupleType__Group__1__Impl rule__TupleType__Group__2
             {
             pushFollow(FOLLOW_17);
             rule__TupleType__Group__1__Impl();
@@ -28472,17 +28719,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__1__Impl"
-    // InternalOcl.g:9333:1: rule__TupleType__Group__1__Impl : ( 'Tuple' ) ;
+    // InternalOcl.g:9418:1: rule__TupleType__Group__1__Impl : ( 'Tuple' ) ;
     public final void rule__TupleType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9337:1: ( ( 'Tuple' ) )
-            // InternalOcl.g:9338:1: ( 'Tuple' )
+            // InternalOcl.g:9422:1: ( ( 'Tuple' ) )
+            // InternalOcl.g:9423:1: ( 'Tuple' )
             {
-            // InternalOcl.g:9338:1: ( 'Tuple' )
-            // InternalOcl.g:9339:2: 'Tuple'
+            // InternalOcl.g:9423:1: ( 'Tuple' )
+            // InternalOcl.g:9424:2: 'Tuple'
             {
              before(grammarAccess.getTupleTypeAccess().getTupleKeyword_1()); 
             match(input,47,FOLLOW_2); 
@@ -28509,14 +28756,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__2"
-    // InternalOcl.g:9348:1: rule__TupleType__Group__2 : rule__TupleType__Group__2__Impl rule__TupleType__Group__3 ;
+    // InternalOcl.g:9433:1: rule__TupleType__Group__2 : rule__TupleType__Group__2__Impl rule__TupleType__Group__3 ;
     public final void rule__TupleType__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9352:1: ( rule__TupleType__Group__2__Impl rule__TupleType__Group__3 )
-            // InternalOcl.g:9353:2: rule__TupleType__Group__2__Impl rule__TupleType__Group__3
+            // InternalOcl.g:9437:1: ( rule__TupleType__Group__2__Impl rule__TupleType__Group__3 )
+            // InternalOcl.g:9438:2: rule__TupleType__Group__2__Impl rule__TupleType__Group__3
             {
             pushFollow(FOLLOW_18);
             rule__TupleType__Group__2__Impl();
@@ -28547,17 +28794,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__2__Impl"
-    // InternalOcl.g:9360:1: rule__TupleType__Group__2__Impl : ( '(' ) ;
+    // InternalOcl.g:9445:1: rule__TupleType__Group__2__Impl : ( '(' ) ;
     public final void rule__TupleType__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9364:1: ( ( '(' ) )
-            // InternalOcl.g:9365:1: ( '(' )
+            // InternalOcl.g:9449:1: ( ( '(' ) )
+            // InternalOcl.g:9450:1: ( '(' )
             {
-            // InternalOcl.g:9365:1: ( '(' )
-            // InternalOcl.g:9366:2: '('
+            // InternalOcl.g:9450:1: ( '(' )
+            // InternalOcl.g:9451:2: '('
             {
              before(grammarAccess.getTupleTypeAccess().getLeftParenthesisKeyword_2()); 
             match(input,35,FOLLOW_2); 
@@ -28584,14 +28831,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__3"
-    // InternalOcl.g:9375:1: rule__TupleType__Group__3 : rule__TupleType__Group__3__Impl rule__TupleType__Group__4 ;
+    // InternalOcl.g:9460:1: rule__TupleType__Group__3 : rule__TupleType__Group__3__Impl rule__TupleType__Group__4 ;
     public final void rule__TupleType__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9379:1: ( rule__TupleType__Group__3__Impl rule__TupleType__Group__4 )
-            // InternalOcl.g:9380:2: rule__TupleType__Group__3__Impl rule__TupleType__Group__4
+            // InternalOcl.g:9464:1: ( rule__TupleType__Group__3__Impl rule__TupleType__Group__4 )
+            // InternalOcl.g:9465:2: rule__TupleType__Group__3__Impl rule__TupleType__Group__4
             {
             pushFollow(FOLLOW_18);
             rule__TupleType__Group__3__Impl();
@@ -28622,20 +28869,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__3__Impl"
-    // InternalOcl.g:9387:1: rule__TupleType__Group__3__Impl : ( ( rule__TupleType__Group_3__0 )? ) ;
+    // InternalOcl.g:9472:1: rule__TupleType__Group__3__Impl : ( ( rule__TupleType__Group_3__0 )? ) ;
     public final void rule__TupleType__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9391:1: ( ( ( rule__TupleType__Group_3__0 )? ) )
-            // InternalOcl.g:9392:1: ( ( rule__TupleType__Group_3__0 )? )
+            // InternalOcl.g:9476:1: ( ( ( rule__TupleType__Group_3__0 )? ) )
+            // InternalOcl.g:9477:1: ( ( rule__TupleType__Group_3__0 )? )
             {
-            // InternalOcl.g:9392:1: ( ( rule__TupleType__Group_3__0 )? )
-            // InternalOcl.g:9393:2: ( rule__TupleType__Group_3__0 )?
+            // InternalOcl.g:9477:1: ( ( rule__TupleType__Group_3__0 )? )
+            // InternalOcl.g:9478:2: ( rule__TupleType__Group_3__0 )?
             {
              before(grammarAccess.getTupleTypeAccess().getGroup_3()); 
-            // InternalOcl.g:9394:2: ( rule__TupleType__Group_3__0 )?
+            // InternalOcl.g:9479:2: ( rule__TupleType__Group_3__0 )?
             int alt58=2;
             int LA58_0 = input.LA(1);
 
@@ -28644,7 +28891,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             }
             switch (alt58) {
                 case 1 :
-                    // InternalOcl.g:9394:3: rule__TupleType__Group_3__0
+                    // InternalOcl.g:9479:3: rule__TupleType__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TupleType__Group_3__0();
@@ -28680,14 +28927,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__4"
-    // InternalOcl.g:9402:1: rule__TupleType__Group__4 : rule__TupleType__Group__4__Impl ;
+    // InternalOcl.g:9487:1: rule__TupleType__Group__4 : rule__TupleType__Group__4__Impl ;
     public final void rule__TupleType__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9406:1: ( rule__TupleType__Group__4__Impl )
-            // InternalOcl.g:9407:2: rule__TupleType__Group__4__Impl
+            // InternalOcl.g:9491:1: ( rule__TupleType__Group__4__Impl )
+            // InternalOcl.g:9492:2: rule__TupleType__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TupleType__Group__4__Impl();
@@ -28713,17 +28960,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group__4__Impl"
-    // InternalOcl.g:9413:1: rule__TupleType__Group__4__Impl : ( ')' ) ;
+    // InternalOcl.g:9498:1: rule__TupleType__Group__4__Impl : ( ')' ) ;
     public final void rule__TupleType__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9417:1: ( ( ')' ) )
-            // InternalOcl.g:9418:1: ( ')' )
+            // InternalOcl.g:9502:1: ( ( ')' ) )
+            // InternalOcl.g:9503:1: ( ')' )
             {
-            // InternalOcl.g:9418:1: ( ')' )
-            // InternalOcl.g:9419:2: ')'
+            // InternalOcl.g:9503:1: ( ')' )
+            // InternalOcl.g:9504:2: ')'
             {
              before(grammarAccess.getTupleTypeAccess().getRightParenthesisKeyword_4()); 
             match(input,36,FOLLOW_2); 
@@ -28750,14 +28997,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3__0"
-    // InternalOcl.g:9429:1: rule__TupleType__Group_3__0 : rule__TupleType__Group_3__0__Impl rule__TupleType__Group_3__1 ;
+    // InternalOcl.g:9514:1: rule__TupleType__Group_3__0 : rule__TupleType__Group_3__0__Impl rule__TupleType__Group_3__1 ;
     public final void rule__TupleType__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9433:1: ( rule__TupleType__Group_3__0__Impl rule__TupleType__Group_3__1 )
-            // InternalOcl.g:9434:2: rule__TupleType__Group_3__0__Impl rule__TupleType__Group_3__1
+            // InternalOcl.g:9518:1: ( rule__TupleType__Group_3__0__Impl rule__TupleType__Group_3__1 )
+            // InternalOcl.g:9519:2: rule__TupleType__Group_3__0__Impl rule__TupleType__Group_3__1
             {
             pushFollow(FOLLOW_19);
             rule__TupleType__Group_3__0__Impl();
@@ -28788,21 +29035,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3__0__Impl"
-    // InternalOcl.g:9441:1: rule__TupleType__Group_3__0__Impl : ( ( rule__TupleType__AttributesAssignment_3_0 ) ) ;
+    // InternalOcl.g:9526:1: rule__TupleType__Group_3__0__Impl : ( ( rule__TupleType__AttributesAssignment_3_0 ) ) ;
     public final void rule__TupleType__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9445:1: ( ( ( rule__TupleType__AttributesAssignment_3_0 ) ) )
-            // InternalOcl.g:9446:1: ( ( rule__TupleType__AttributesAssignment_3_0 ) )
+            // InternalOcl.g:9530:1: ( ( ( rule__TupleType__AttributesAssignment_3_0 ) ) )
+            // InternalOcl.g:9531:1: ( ( rule__TupleType__AttributesAssignment_3_0 ) )
             {
-            // InternalOcl.g:9446:1: ( ( rule__TupleType__AttributesAssignment_3_0 ) )
-            // InternalOcl.g:9447:2: ( rule__TupleType__AttributesAssignment_3_0 )
+            // InternalOcl.g:9531:1: ( ( rule__TupleType__AttributesAssignment_3_0 ) )
+            // InternalOcl.g:9532:2: ( rule__TupleType__AttributesAssignment_3_0 )
             {
              before(grammarAccess.getTupleTypeAccess().getAttributesAssignment_3_0()); 
-            // InternalOcl.g:9448:2: ( rule__TupleType__AttributesAssignment_3_0 )
-            // InternalOcl.g:9448:3: rule__TupleType__AttributesAssignment_3_0
+            // InternalOcl.g:9533:2: ( rule__TupleType__AttributesAssignment_3_0 )
+            // InternalOcl.g:9533:3: rule__TupleType__AttributesAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__TupleType__AttributesAssignment_3_0();
@@ -28835,14 +29082,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3__1"
-    // InternalOcl.g:9456:1: rule__TupleType__Group_3__1 : rule__TupleType__Group_3__1__Impl ;
+    // InternalOcl.g:9541:1: rule__TupleType__Group_3__1 : rule__TupleType__Group_3__1__Impl ;
     public final void rule__TupleType__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9460:1: ( rule__TupleType__Group_3__1__Impl )
-            // InternalOcl.g:9461:2: rule__TupleType__Group_3__1__Impl
+            // InternalOcl.g:9545:1: ( rule__TupleType__Group_3__1__Impl )
+            // InternalOcl.g:9546:2: rule__TupleType__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TupleType__Group_3__1__Impl();
@@ -28868,20 +29115,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3__1__Impl"
-    // InternalOcl.g:9467:1: rule__TupleType__Group_3__1__Impl : ( ( rule__TupleType__Group_3_1__0 )* ) ;
+    // InternalOcl.g:9552:1: rule__TupleType__Group_3__1__Impl : ( ( rule__TupleType__Group_3_1__0 )* ) ;
     public final void rule__TupleType__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9471:1: ( ( ( rule__TupleType__Group_3_1__0 )* ) )
-            // InternalOcl.g:9472:1: ( ( rule__TupleType__Group_3_1__0 )* )
+            // InternalOcl.g:9556:1: ( ( ( rule__TupleType__Group_3_1__0 )* ) )
+            // InternalOcl.g:9557:1: ( ( rule__TupleType__Group_3_1__0 )* )
             {
-            // InternalOcl.g:9472:1: ( ( rule__TupleType__Group_3_1__0 )* )
-            // InternalOcl.g:9473:2: ( rule__TupleType__Group_3_1__0 )*
+            // InternalOcl.g:9557:1: ( ( rule__TupleType__Group_3_1__0 )* )
+            // InternalOcl.g:9558:2: ( rule__TupleType__Group_3_1__0 )*
             {
              before(grammarAccess.getTupleTypeAccess().getGroup_3_1()); 
-            // InternalOcl.g:9474:2: ( rule__TupleType__Group_3_1__0 )*
+            // InternalOcl.g:9559:2: ( rule__TupleType__Group_3_1__0 )*
             loop59:
             do {
                 int alt59=2;
@@ -28894,7 +29141,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt59) {
             	case 1 :
-            	    // InternalOcl.g:9474:3: rule__TupleType__Group_3_1__0
+            	    // InternalOcl.g:9559:3: rule__TupleType__Group_3_1__0
             	    {
             	    pushFollow(FOLLOW_20);
             	    rule__TupleType__Group_3_1__0();
@@ -28933,14 +29180,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3_1__0"
-    // InternalOcl.g:9483:1: rule__TupleType__Group_3_1__0 : rule__TupleType__Group_3_1__0__Impl rule__TupleType__Group_3_1__1 ;
+    // InternalOcl.g:9568:1: rule__TupleType__Group_3_1__0 : rule__TupleType__Group_3_1__0__Impl rule__TupleType__Group_3_1__1 ;
     public final void rule__TupleType__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9487:1: ( rule__TupleType__Group_3_1__0__Impl rule__TupleType__Group_3_1__1 )
-            // InternalOcl.g:9488:2: rule__TupleType__Group_3_1__0__Impl rule__TupleType__Group_3_1__1
+            // InternalOcl.g:9572:1: ( rule__TupleType__Group_3_1__0__Impl rule__TupleType__Group_3_1__1 )
+            // InternalOcl.g:9573:2: rule__TupleType__Group_3_1__0__Impl rule__TupleType__Group_3_1__1
             {
             pushFollow(FOLLOW_9);
             rule__TupleType__Group_3_1__0__Impl();
@@ -28971,17 +29218,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3_1__0__Impl"
-    // InternalOcl.g:9495:1: rule__TupleType__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalOcl.g:9580:1: rule__TupleType__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__TupleType__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9499:1: ( ( ',' ) )
-            // InternalOcl.g:9500:1: ( ',' )
+            // InternalOcl.g:9584:1: ( ( ',' ) )
+            // InternalOcl.g:9585:1: ( ',' )
             {
-            // InternalOcl.g:9500:1: ( ',' )
-            // InternalOcl.g:9501:2: ','
+            // InternalOcl.g:9585:1: ( ',' )
+            // InternalOcl.g:9586:2: ','
             {
              before(grammarAccess.getTupleTypeAccess().getCommaKeyword_3_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -29008,14 +29255,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3_1__1"
-    // InternalOcl.g:9510:1: rule__TupleType__Group_3_1__1 : rule__TupleType__Group_3_1__1__Impl ;
+    // InternalOcl.g:9595:1: rule__TupleType__Group_3_1__1 : rule__TupleType__Group_3_1__1__Impl ;
     public final void rule__TupleType__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9514:1: ( rule__TupleType__Group_3_1__1__Impl )
-            // InternalOcl.g:9515:2: rule__TupleType__Group_3_1__1__Impl
+            // InternalOcl.g:9599:1: ( rule__TupleType__Group_3_1__1__Impl )
+            // InternalOcl.g:9600:2: rule__TupleType__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TupleType__Group_3_1__1__Impl();
@@ -29041,21 +29288,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__Group_3_1__1__Impl"
-    // InternalOcl.g:9521:1: rule__TupleType__Group_3_1__1__Impl : ( ( rule__TupleType__AttributesAssignment_3_1_1 ) ) ;
+    // InternalOcl.g:9606:1: rule__TupleType__Group_3_1__1__Impl : ( ( rule__TupleType__AttributesAssignment_3_1_1 ) ) ;
     public final void rule__TupleType__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9525:1: ( ( ( rule__TupleType__AttributesAssignment_3_1_1 ) ) )
-            // InternalOcl.g:9526:1: ( ( rule__TupleType__AttributesAssignment_3_1_1 ) )
+            // InternalOcl.g:9610:1: ( ( ( rule__TupleType__AttributesAssignment_3_1_1 ) ) )
+            // InternalOcl.g:9611:1: ( ( rule__TupleType__AttributesAssignment_3_1_1 ) )
             {
-            // InternalOcl.g:9526:1: ( ( rule__TupleType__AttributesAssignment_3_1_1 ) )
-            // InternalOcl.g:9527:2: ( rule__TupleType__AttributesAssignment_3_1_1 )
+            // InternalOcl.g:9611:1: ( ( rule__TupleType__AttributesAssignment_3_1_1 ) )
+            // InternalOcl.g:9612:2: ( rule__TupleType__AttributesAssignment_3_1_1 )
             {
              before(grammarAccess.getTupleTypeAccess().getAttributesAssignment_3_1_1()); 
-            // InternalOcl.g:9528:2: ( rule__TupleType__AttributesAssignment_3_1_1 )
-            // InternalOcl.g:9528:3: rule__TupleType__AttributesAssignment_3_1_1
+            // InternalOcl.g:9613:2: ( rule__TupleType__AttributesAssignment_3_1_1 )
+            // InternalOcl.g:9613:3: rule__TupleType__AttributesAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__TupleType__AttributesAssignment_3_1_1();
@@ -29088,14 +29335,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__Group__0"
-    // InternalOcl.g:9537:1: rule__TupleTypeAttribute__Group__0 : rule__TupleTypeAttribute__Group__0__Impl rule__TupleTypeAttribute__Group__1 ;
+    // InternalOcl.g:9622:1: rule__TupleTypeAttribute__Group__0 : rule__TupleTypeAttribute__Group__0__Impl rule__TupleTypeAttribute__Group__1 ;
     public final void rule__TupleTypeAttribute__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9541:1: ( rule__TupleTypeAttribute__Group__0__Impl rule__TupleTypeAttribute__Group__1 )
-            // InternalOcl.g:9542:2: rule__TupleTypeAttribute__Group__0__Impl rule__TupleTypeAttribute__Group__1
+            // InternalOcl.g:9626:1: ( rule__TupleTypeAttribute__Group__0__Impl rule__TupleTypeAttribute__Group__1 )
+            // InternalOcl.g:9627:2: rule__TupleTypeAttribute__Group__0__Impl rule__TupleTypeAttribute__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__TupleTypeAttribute__Group__0__Impl();
@@ -29126,21 +29373,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__Group__0__Impl"
-    // InternalOcl.g:9549:1: rule__TupleTypeAttribute__Group__0__Impl : ( ( rule__TupleTypeAttribute__NameAssignment_0 ) ) ;
+    // InternalOcl.g:9634:1: rule__TupleTypeAttribute__Group__0__Impl : ( ( rule__TupleTypeAttribute__NameAssignment_0 ) ) ;
     public final void rule__TupleTypeAttribute__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9553:1: ( ( ( rule__TupleTypeAttribute__NameAssignment_0 ) ) )
-            // InternalOcl.g:9554:1: ( ( rule__TupleTypeAttribute__NameAssignment_0 ) )
+            // InternalOcl.g:9638:1: ( ( ( rule__TupleTypeAttribute__NameAssignment_0 ) ) )
+            // InternalOcl.g:9639:1: ( ( rule__TupleTypeAttribute__NameAssignment_0 ) )
             {
-            // InternalOcl.g:9554:1: ( ( rule__TupleTypeAttribute__NameAssignment_0 ) )
-            // InternalOcl.g:9555:2: ( rule__TupleTypeAttribute__NameAssignment_0 )
+            // InternalOcl.g:9639:1: ( ( rule__TupleTypeAttribute__NameAssignment_0 ) )
+            // InternalOcl.g:9640:2: ( rule__TupleTypeAttribute__NameAssignment_0 )
             {
              before(grammarAccess.getTupleTypeAttributeAccess().getNameAssignment_0()); 
-            // InternalOcl.g:9556:2: ( rule__TupleTypeAttribute__NameAssignment_0 )
-            // InternalOcl.g:9556:3: rule__TupleTypeAttribute__NameAssignment_0
+            // InternalOcl.g:9641:2: ( rule__TupleTypeAttribute__NameAssignment_0 )
+            // InternalOcl.g:9641:3: rule__TupleTypeAttribute__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__TupleTypeAttribute__NameAssignment_0();
@@ -29173,14 +29420,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__Group__1"
-    // InternalOcl.g:9564:1: rule__TupleTypeAttribute__Group__1 : rule__TupleTypeAttribute__Group__1__Impl rule__TupleTypeAttribute__Group__2 ;
+    // InternalOcl.g:9649:1: rule__TupleTypeAttribute__Group__1 : rule__TupleTypeAttribute__Group__1__Impl rule__TupleTypeAttribute__Group__2 ;
     public final void rule__TupleTypeAttribute__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9568:1: ( rule__TupleTypeAttribute__Group__1__Impl rule__TupleTypeAttribute__Group__2 )
-            // InternalOcl.g:9569:2: rule__TupleTypeAttribute__Group__1__Impl rule__TupleTypeAttribute__Group__2
+            // InternalOcl.g:9653:1: ( rule__TupleTypeAttribute__Group__1__Impl rule__TupleTypeAttribute__Group__2 )
+            // InternalOcl.g:9654:2: rule__TupleTypeAttribute__Group__1__Impl rule__TupleTypeAttribute__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__TupleTypeAttribute__Group__1__Impl();
@@ -29211,17 +29458,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__Group__1__Impl"
-    // InternalOcl.g:9576:1: rule__TupleTypeAttribute__Group__1__Impl : ( ':' ) ;
+    // InternalOcl.g:9661:1: rule__TupleTypeAttribute__Group__1__Impl : ( ':' ) ;
     public final void rule__TupleTypeAttribute__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9580:1: ( ( ':' ) )
-            // InternalOcl.g:9581:1: ( ':' )
+            // InternalOcl.g:9665:1: ( ( ':' ) )
+            // InternalOcl.g:9666:1: ( ':' )
             {
-            // InternalOcl.g:9581:1: ( ':' )
-            // InternalOcl.g:9582:2: ':'
+            // InternalOcl.g:9666:1: ( ':' )
+            // InternalOcl.g:9667:2: ':'
             {
              before(grammarAccess.getTupleTypeAttributeAccess().getColonKeyword_1()); 
             match(input,34,FOLLOW_2); 
@@ -29248,14 +29495,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__Group__2"
-    // InternalOcl.g:9591:1: rule__TupleTypeAttribute__Group__2 : rule__TupleTypeAttribute__Group__2__Impl ;
+    // InternalOcl.g:9676:1: rule__TupleTypeAttribute__Group__2 : rule__TupleTypeAttribute__Group__2__Impl ;
     public final void rule__TupleTypeAttribute__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9595:1: ( rule__TupleTypeAttribute__Group__2__Impl )
-            // InternalOcl.g:9596:2: rule__TupleTypeAttribute__Group__2__Impl
+            // InternalOcl.g:9680:1: ( rule__TupleTypeAttribute__Group__2__Impl )
+            // InternalOcl.g:9681:2: rule__TupleTypeAttribute__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TupleTypeAttribute__Group__2__Impl();
@@ -29281,21 +29528,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__Group__2__Impl"
-    // InternalOcl.g:9602:1: rule__TupleTypeAttribute__Group__2__Impl : ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) ) ;
+    // InternalOcl.g:9687:1: rule__TupleTypeAttribute__Group__2__Impl : ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) ) ;
     public final void rule__TupleTypeAttribute__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9606:1: ( ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) ) )
-            // InternalOcl.g:9607:1: ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) )
+            // InternalOcl.g:9691:1: ( ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) ) )
+            // InternalOcl.g:9692:1: ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) )
             {
-            // InternalOcl.g:9607:1: ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) )
-            // InternalOcl.g:9608:2: ( rule__TupleTypeAttribute__TypeAssignment_2 )
+            // InternalOcl.g:9692:1: ( ( rule__TupleTypeAttribute__TypeAssignment_2 ) )
+            // InternalOcl.g:9693:2: ( rule__TupleTypeAttribute__TypeAssignment_2 )
             {
              before(grammarAccess.getTupleTypeAttributeAccess().getTypeAssignment_2()); 
-            // InternalOcl.g:9609:2: ( rule__TupleTypeAttribute__TypeAssignment_2 )
-            // InternalOcl.g:9609:3: rule__TupleTypeAttribute__TypeAssignment_2
+            // InternalOcl.g:9694:2: ( rule__TupleTypeAttribute__TypeAssignment_2 )
+            // InternalOcl.g:9694:3: rule__TupleTypeAttribute__TypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__TupleTypeAttribute__TypeAssignment_2();
@@ -29328,14 +29575,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__Group__0"
-    // InternalOcl.g:9618:1: rule__OclModelElementClass__Group__0 : rule__OclModelElementClass__Group__0__Impl rule__OclModelElementClass__Group__1 ;
+    // InternalOcl.g:9703:1: rule__OclModelElementClass__Group__0 : rule__OclModelElementClass__Group__0__Impl rule__OclModelElementClass__Group__1 ;
     public final void rule__OclModelElementClass__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9622:1: ( rule__OclModelElementClass__Group__0__Impl rule__OclModelElementClass__Group__1 )
-            // InternalOcl.g:9623:2: rule__OclModelElementClass__Group__0__Impl rule__OclModelElementClass__Group__1
+            // InternalOcl.g:9707:1: ( rule__OclModelElementClass__Group__0__Impl rule__OclModelElementClass__Group__1 )
+            // InternalOcl.g:9708:2: rule__OclModelElementClass__Group__0__Impl rule__OclModelElementClass__Group__1
             {
             pushFollow(FOLLOW_12);
             rule__OclModelElementClass__Group__0__Impl();
@@ -29366,21 +29613,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__Group__0__Impl"
-    // InternalOcl.g:9630:1: rule__OclModelElementClass__Group__0__Impl : ( ( rule__OclModelElementClass__ModelAssignment_0 ) ) ;
+    // InternalOcl.g:9715:1: rule__OclModelElementClass__Group__0__Impl : ( ( rule__OclModelElementClass__ModelAssignment_0 ) ) ;
     public final void rule__OclModelElementClass__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9634:1: ( ( ( rule__OclModelElementClass__ModelAssignment_0 ) ) )
-            // InternalOcl.g:9635:1: ( ( rule__OclModelElementClass__ModelAssignment_0 ) )
+            // InternalOcl.g:9719:1: ( ( ( rule__OclModelElementClass__ModelAssignment_0 ) ) )
+            // InternalOcl.g:9720:1: ( ( rule__OclModelElementClass__ModelAssignment_0 ) )
             {
-            // InternalOcl.g:9635:1: ( ( rule__OclModelElementClass__ModelAssignment_0 ) )
-            // InternalOcl.g:9636:2: ( rule__OclModelElementClass__ModelAssignment_0 )
+            // InternalOcl.g:9720:1: ( ( rule__OclModelElementClass__ModelAssignment_0 ) )
+            // InternalOcl.g:9721:2: ( rule__OclModelElementClass__ModelAssignment_0 )
             {
              before(grammarAccess.getOclModelElementClassAccess().getModelAssignment_0()); 
-            // InternalOcl.g:9637:2: ( rule__OclModelElementClass__ModelAssignment_0 )
-            // InternalOcl.g:9637:3: rule__OclModelElementClass__ModelAssignment_0
+            // InternalOcl.g:9722:2: ( rule__OclModelElementClass__ModelAssignment_0 )
+            // InternalOcl.g:9722:3: rule__OclModelElementClass__ModelAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__OclModelElementClass__ModelAssignment_0();
@@ -29413,14 +29660,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__Group__1"
-    // InternalOcl.g:9645:1: rule__OclModelElementClass__Group__1 : rule__OclModelElementClass__Group__1__Impl rule__OclModelElementClass__Group__2 ;
+    // InternalOcl.g:9730:1: rule__OclModelElementClass__Group__1 : rule__OclModelElementClass__Group__1__Impl rule__OclModelElementClass__Group__2 ;
     public final void rule__OclModelElementClass__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9649:1: ( rule__OclModelElementClass__Group__1__Impl rule__OclModelElementClass__Group__2 )
-            // InternalOcl.g:9650:2: rule__OclModelElementClass__Group__1__Impl rule__OclModelElementClass__Group__2
+            // InternalOcl.g:9734:1: ( rule__OclModelElementClass__Group__1__Impl rule__OclModelElementClass__Group__2 )
+            // InternalOcl.g:9735:2: rule__OclModelElementClass__Group__1__Impl rule__OclModelElementClass__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__OclModelElementClass__Group__1__Impl();
@@ -29451,17 +29698,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__Group__1__Impl"
-    // InternalOcl.g:9657:1: rule__OclModelElementClass__Group__1__Impl : ( '!' ) ;
+    // InternalOcl.g:9742:1: rule__OclModelElementClass__Group__1__Impl : ( '!' ) ;
     public final void rule__OclModelElementClass__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9661:1: ( ( '!' ) )
-            // InternalOcl.g:9662:1: ( '!' )
+            // InternalOcl.g:9746:1: ( ( '!' ) )
+            // InternalOcl.g:9747:1: ( '!' )
             {
-            // InternalOcl.g:9662:1: ( '!' )
-            // InternalOcl.g:9663:2: '!'
+            // InternalOcl.g:9747:1: ( '!' )
+            // InternalOcl.g:9748:2: '!'
             {
              before(grammarAccess.getOclModelElementClassAccess().getExclamationMarkKeyword_1()); 
             match(input,32,FOLLOW_2); 
@@ -29488,14 +29735,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__Group__2"
-    // InternalOcl.g:9672:1: rule__OclModelElementClass__Group__2 : rule__OclModelElementClass__Group__2__Impl ;
+    // InternalOcl.g:9757:1: rule__OclModelElementClass__Group__2 : rule__OclModelElementClass__Group__2__Impl ;
     public final void rule__OclModelElementClass__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9676:1: ( rule__OclModelElementClass__Group__2__Impl )
-            // InternalOcl.g:9677:2: rule__OclModelElementClass__Group__2__Impl
+            // InternalOcl.g:9761:1: ( rule__OclModelElementClass__Group__2__Impl )
+            // InternalOcl.g:9762:2: rule__OclModelElementClass__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OclModelElementClass__Group__2__Impl();
@@ -29521,21 +29768,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__Group__2__Impl"
-    // InternalOcl.g:9683:1: rule__OclModelElementClass__Group__2__Impl : ( ( rule__OclModelElementClass__NameAssignment_2 ) ) ;
+    // InternalOcl.g:9768:1: rule__OclModelElementClass__Group__2__Impl : ( ( rule__OclModelElementClass__NameAssignment_2 ) ) ;
     public final void rule__OclModelElementClass__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9687:1: ( ( ( rule__OclModelElementClass__NameAssignment_2 ) ) )
-            // InternalOcl.g:9688:1: ( ( rule__OclModelElementClass__NameAssignment_2 ) )
+            // InternalOcl.g:9772:1: ( ( ( rule__OclModelElementClass__NameAssignment_2 ) ) )
+            // InternalOcl.g:9773:1: ( ( rule__OclModelElementClass__NameAssignment_2 ) )
             {
-            // InternalOcl.g:9688:1: ( ( rule__OclModelElementClass__NameAssignment_2 ) )
-            // InternalOcl.g:9689:2: ( rule__OclModelElementClass__NameAssignment_2 )
+            // InternalOcl.g:9773:1: ( ( rule__OclModelElementClass__NameAssignment_2 ) )
+            // InternalOcl.g:9774:2: ( rule__OclModelElementClass__NameAssignment_2 )
             {
              before(grammarAccess.getOclModelElementClassAccess().getNameAssignment_2()); 
-            // InternalOcl.g:9690:2: ( rule__OclModelElementClass__NameAssignment_2 )
-            // InternalOcl.g:9690:3: rule__OclModelElementClass__NameAssignment_2
+            // InternalOcl.g:9775:2: ( rule__OclModelElementClass__NameAssignment_2 )
+            // InternalOcl.g:9775:3: rule__OclModelElementClass__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__OclModelElementClass__NameAssignment_2();
@@ -29568,14 +29815,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__0"
-    // InternalOcl.g:9699:1: rule__MapType__Group__0 : rule__MapType__Group__0__Impl rule__MapType__Group__1 ;
+    // InternalOcl.g:9784:1: rule__MapType__Group__0 : rule__MapType__Group__0__Impl rule__MapType__Group__1 ;
     public final void rule__MapType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9703:1: ( rule__MapType__Group__0__Impl rule__MapType__Group__1 )
-            // InternalOcl.g:9704:2: rule__MapType__Group__0__Impl rule__MapType__Group__1
+            // InternalOcl.g:9788:1: ( rule__MapType__Group__0__Impl rule__MapType__Group__1 )
+            // InternalOcl.g:9789:2: rule__MapType__Group__0__Impl rule__MapType__Group__1
             {
             pushFollow(FOLLOW_17);
             rule__MapType__Group__0__Impl();
@@ -29606,17 +29853,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__0__Impl"
-    // InternalOcl.g:9711:1: rule__MapType__Group__0__Impl : ( 'Map' ) ;
+    // InternalOcl.g:9796:1: rule__MapType__Group__0__Impl : ( 'Map' ) ;
     public final void rule__MapType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9715:1: ( ( 'Map' ) )
-            // InternalOcl.g:9716:1: ( 'Map' )
+            // InternalOcl.g:9800:1: ( ( 'Map' ) )
+            // InternalOcl.g:9801:1: ( 'Map' )
             {
-            // InternalOcl.g:9716:1: ( 'Map' )
-            // InternalOcl.g:9717:2: 'Map'
+            // InternalOcl.g:9801:1: ( 'Map' )
+            // InternalOcl.g:9802:2: 'Map'
             {
              before(grammarAccess.getMapTypeAccess().getMapKeyword_0()); 
             match(input,48,FOLLOW_2); 
@@ -29643,14 +29890,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__1"
-    // InternalOcl.g:9726:1: rule__MapType__Group__1 : rule__MapType__Group__1__Impl rule__MapType__Group__2 ;
+    // InternalOcl.g:9811:1: rule__MapType__Group__1 : rule__MapType__Group__1__Impl rule__MapType__Group__2 ;
     public final void rule__MapType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9730:1: ( rule__MapType__Group__1__Impl rule__MapType__Group__2 )
-            // InternalOcl.g:9731:2: rule__MapType__Group__1__Impl rule__MapType__Group__2
+            // InternalOcl.g:9815:1: ( rule__MapType__Group__1__Impl rule__MapType__Group__2 )
+            // InternalOcl.g:9816:2: rule__MapType__Group__1__Impl rule__MapType__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__MapType__Group__1__Impl();
@@ -29681,17 +29928,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__1__Impl"
-    // InternalOcl.g:9738:1: rule__MapType__Group__1__Impl : ( '(' ) ;
+    // InternalOcl.g:9823:1: rule__MapType__Group__1__Impl : ( '(' ) ;
     public final void rule__MapType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9742:1: ( ( '(' ) )
-            // InternalOcl.g:9743:1: ( '(' )
+            // InternalOcl.g:9827:1: ( ( '(' ) )
+            // InternalOcl.g:9828:1: ( '(' )
             {
-            // InternalOcl.g:9743:1: ( '(' )
-            // InternalOcl.g:9744:2: '('
+            // InternalOcl.g:9828:1: ( '(' )
+            // InternalOcl.g:9829:2: '('
             {
              before(grammarAccess.getMapTypeAccess().getLeftParenthesisKeyword_1()); 
             match(input,35,FOLLOW_2); 
@@ -29718,14 +29965,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__2"
-    // InternalOcl.g:9753:1: rule__MapType__Group__2 : rule__MapType__Group__2__Impl rule__MapType__Group__3 ;
+    // InternalOcl.g:9838:1: rule__MapType__Group__2 : rule__MapType__Group__2__Impl rule__MapType__Group__3 ;
     public final void rule__MapType__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9757:1: ( rule__MapType__Group__2__Impl rule__MapType__Group__3 )
-            // InternalOcl.g:9758:2: rule__MapType__Group__2__Impl rule__MapType__Group__3
+            // InternalOcl.g:9842:1: ( rule__MapType__Group__2__Impl rule__MapType__Group__3 )
+            // InternalOcl.g:9843:2: rule__MapType__Group__2__Impl rule__MapType__Group__3
             {
             pushFollow(FOLLOW_19);
             rule__MapType__Group__2__Impl();
@@ -29756,21 +30003,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__2__Impl"
-    // InternalOcl.g:9765:1: rule__MapType__Group__2__Impl : ( ( rule__MapType__KeyTypeAssignment_2 ) ) ;
+    // InternalOcl.g:9850:1: rule__MapType__Group__2__Impl : ( ( rule__MapType__KeyTypeAssignment_2 ) ) ;
     public final void rule__MapType__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9769:1: ( ( ( rule__MapType__KeyTypeAssignment_2 ) ) )
-            // InternalOcl.g:9770:1: ( ( rule__MapType__KeyTypeAssignment_2 ) )
+            // InternalOcl.g:9854:1: ( ( ( rule__MapType__KeyTypeAssignment_2 ) ) )
+            // InternalOcl.g:9855:1: ( ( rule__MapType__KeyTypeAssignment_2 ) )
             {
-            // InternalOcl.g:9770:1: ( ( rule__MapType__KeyTypeAssignment_2 ) )
-            // InternalOcl.g:9771:2: ( rule__MapType__KeyTypeAssignment_2 )
+            // InternalOcl.g:9855:1: ( ( rule__MapType__KeyTypeAssignment_2 ) )
+            // InternalOcl.g:9856:2: ( rule__MapType__KeyTypeAssignment_2 )
             {
              before(grammarAccess.getMapTypeAccess().getKeyTypeAssignment_2()); 
-            // InternalOcl.g:9772:2: ( rule__MapType__KeyTypeAssignment_2 )
-            // InternalOcl.g:9772:3: rule__MapType__KeyTypeAssignment_2
+            // InternalOcl.g:9857:2: ( rule__MapType__KeyTypeAssignment_2 )
+            // InternalOcl.g:9857:3: rule__MapType__KeyTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MapType__KeyTypeAssignment_2();
@@ -29803,14 +30050,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__3"
-    // InternalOcl.g:9780:1: rule__MapType__Group__3 : rule__MapType__Group__3__Impl rule__MapType__Group__4 ;
+    // InternalOcl.g:9865:1: rule__MapType__Group__3 : rule__MapType__Group__3__Impl rule__MapType__Group__4 ;
     public final void rule__MapType__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9784:1: ( rule__MapType__Group__3__Impl rule__MapType__Group__4 )
-            // InternalOcl.g:9785:2: rule__MapType__Group__3__Impl rule__MapType__Group__4
+            // InternalOcl.g:9869:1: ( rule__MapType__Group__3__Impl rule__MapType__Group__4 )
+            // InternalOcl.g:9870:2: rule__MapType__Group__3__Impl rule__MapType__Group__4
             {
             pushFollow(FOLLOW_14);
             rule__MapType__Group__3__Impl();
@@ -29841,17 +30088,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__3__Impl"
-    // InternalOcl.g:9792:1: rule__MapType__Group__3__Impl : ( ',' ) ;
+    // InternalOcl.g:9877:1: rule__MapType__Group__3__Impl : ( ',' ) ;
     public final void rule__MapType__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9796:1: ( ( ',' ) )
-            // InternalOcl.g:9797:1: ( ',' )
+            // InternalOcl.g:9881:1: ( ( ',' ) )
+            // InternalOcl.g:9882:1: ( ',' )
             {
-            // InternalOcl.g:9797:1: ( ',' )
-            // InternalOcl.g:9798:2: ','
+            // InternalOcl.g:9882:1: ( ',' )
+            // InternalOcl.g:9883:2: ','
             {
              before(grammarAccess.getMapTypeAccess().getCommaKeyword_3()); 
             match(input,37,FOLLOW_2); 
@@ -29878,14 +30125,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__4"
-    // InternalOcl.g:9807:1: rule__MapType__Group__4 : rule__MapType__Group__4__Impl rule__MapType__Group__5 ;
+    // InternalOcl.g:9892:1: rule__MapType__Group__4 : rule__MapType__Group__4__Impl rule__MapType__Group__5 ;
     public final void rule__MapType__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9811:1: ( rule__MapType__Group__4__Impl rule__MapType__Group__5 )
-            // InternalOcl.g:9812:2: rule__MapType__Group__4__Impl rule__MapType__Group__5
+            // InternalOcl.g:9896:1: ( rule__MapType__Group__4__Impl rule__MapType__Group__5 )
+            // InternalOcl.g:9897:2: rule__MapType__Group__4__Impl rule__MapType__Group__5
             {
             pushFollow(FOLLOW_48);
             rule__MapType__Group__4__Impl();
@@ -29916,21 +30163,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__4__Impl"
-    // InternalOcl.g:9819:1: rule__MapType__Group__4__Impl : ( ( rule__MapType__ValueTypeAssignment_4 ) ) ;
+    // InternalOcl.g:9904:1: rule__MapType__Group__4__Impl : ( ( rule__MapType__ValueTypeAssignment_4 ) ) ;
     public final void rule__MapType__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9823:1: ( ( ( rule__MapType__ValueTypeAssignment_4 ) ) )
-            // InternalOcl.g:9824:1: ( ( rule__MapType__ValueTypeAssignment_4 ) )
+            // InternalOcl.g:9908:1: ( ( ( rule__MapType__ValueTypeAssignment_4 ) ) )
+            // InternalOcl.g:9909:1: ( ( rule__MapType__ValueTypeAssignment_4 ) )
             {
-            // InternalOcl.g:9824:1: ( ( rule__MapType__ValueTypeAssignment_4 ) )
-            // InternalOcl.g:9825:2: ( rule__MapType__ValueTypeAssignment_4 )
+            // InternalOcl.g:9909:1: ( ( rule__MapType__ValueTypeAssignment_4 ) )
+            // InternalOcl.g:9910:2: ( rule__MapType__ValueTypeAssignment_4 )
             {
              before(grammarAccess.getMapTypeAccess().getValueTypeAssignment_4()); 
-            // InternalOcl.g:9826:2: ( rule__MapType__ValueTypeAssignment_4 )
-            // InternalOcl.g:9826:3: rule__MapType__ValueTypeAssignment_4
+            // InternalOcl.g:9911:2: ( rule__MapType__ValueTypeAssignment_4 )
+            // InternalOcl.g:9911:3: rule__MapType__ValueTypeAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__MapType__ValueTypeAssignment_4();
@@ -29963,14 +30210,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__5"
-    // InternalOcl.g:9834:1: rule__MapType__Group__5 : rule__MapType__Group__5__Impl ;
+    // InternalOcl.g:9919:1: rule__MapType__Group__5 : rule__MapType__Group__5__Impl ;
     public final void rule__MapType__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9838:1: ( rule__MapType__Group__5__Impl )
-            // InternalOcl.g:9839:2: rule__MapType__Group__5__Impl
+            // InternalOcl.g:9923:1: ( rule__MapType__Group__5__Impl )
+            // InternalOcl.g:9924:2: rule__MapType__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MapType__Group__5__Impl();
@@ -29996,17 +30243,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__Group__5__Impl"
-    // InternalOcl.g:9845:1: rule__MapType__Group__5__Impl : ( ')' ) ;
+    // InternalOcl.g:9930:1: rule__MapType__Group__5__Impl : ( ')' ) ;
     public final void rule__MapType__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9849:1: ( ( ')' ) )
-            // InternalOcl.g:9850:1: ( ')' )
+            // InternalOcl.g:9934:1: ( ( ')' ) )
+            // InternalOcl.g:9935:1: ( ')' )
             {
-            // InternalOcl.g:9850:1: ( ')' )
-            // InternalOcl.g:9851:2: ')'
+            // InternalOcl.g:9935:1: ( ')' )
+            // InternalOcl.g:9936:2: ')'
             {
              before(grammarAccess.getMapTypeAccess().getRightParenthesisKeyword_5()); 
             match(input,36,FOLLOW_2); 
@@ -30033,16 +30280,16 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group__0"
-    // InternalOcl.g:9861:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    // InternalOcl.g:9946:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
     public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9865:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // InternalOcl.g:9866:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // InternalOcl.g:9950:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // InternalOcl.g:9951:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
-            pushFollow(FOLLOW_64);
+            pushFollow(FOLLOW_65);
             rule__QualifiedName__Group__0__Impl();
 
             state._fsp--;
@@ -30071,17 +30318,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // InternalOcl.g:9873:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    // InternalOcl.g:9958:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9877:1: ( ( RULE_ID ) )
-            // InternalOcl.g:9878:1: ( RULE_ID )
+            // InternalOcl.g:9962:1: ( ( RULE_ID ) )
+            // InternalOcl.g:9963:1: ( RULE_ID )
             {
-            // InternalOcl.g:9878:1: ( RULE_ID )
-            // InternalOcl.g:9879:2: RULE_ID
+            // InternalOcl.g:9963:1: ( RULE_ID )
+            // InternalOcl.g:9964:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -30108,14 +30355,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group__1"
-    // InternalOcl.g:9888:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    // InternalOcl.g:9973:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
     public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9892:1: ( rule__QualifiedName__Group__1__Impl )
-            // InternalOcl.g:9893:2: rule__QualifiedName__Group__1__Impl
+            // InternalOcl.g:9977:1: ( rule__QualifiedName__Group__1__Impl )
+            // InternalOcl.g:9978:2: rule__QualifiedName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group__1__Impl();
@@ -30141,20 +30388,20 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // InternalOcl.g:9899:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    // InternalOcl.g:9984:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
     public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9903:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // InternalOcl.g:9904:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalOcl.g:9988:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // InternalOcl.g:9989:1: ( ( rule__QualifiedName__Group_1__0 )* )
             {
-            // InternalOcl.g:9904:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // InternalOcl.g:9905:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalOcl.g:9989:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalOcl.g:9990:2: ( rule__QualifiedName__Group_1__0 )*
             {
              before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
-            // InternalOcl.g:9906:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalOcl.g:9991:2: ( rule__QualifiedName__Group_1__0 )*
             loop60:
             do {
                 int alt60=2;
@@ -30167,9 +30414,9 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
                 switch (alt60) {
             	case 1 :
-            	    // InternalOcl.g:9906:3: rule__QualifiedName__Group_1__0
+            	    // InternalOcl.g:9991:3: rule__QualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_65);
+            	    pushFollow(FOLLOW_66);
             	    rule__QualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -30206,14 +30453,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // InternalOcl.g:9915:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    // InternalOcl.g:10000:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
     public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9919:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // InternalOcl.g:9920:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            // InternalOcl.g:10004:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // InternalOcl.g:10005:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
             {
             pushFollow(FOLLOW_9);
             rule__QualifiedName__Group_1__0__Impl();
@@ -30244,17 +30491,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // InternalOcl.g:9927:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // InternalOcl.g:10012:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9931:1: ( ( '.' ) )
-            // InternalOcl.g:9932:1: ( '.' )
+            // InternalOcl.g:10016:1: ( ( '.' ) )
+            // InternalOcl.g:10017:1: ( '.' )
             {
-            // InternalOcl.g:9932:1: ( '.' )
-            // InternalOcl.g:9933:2: '.'
+            // InternalOcl.g:10017:1: ( '.' )
+            // InternalOcl.g:10018:2: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             match(input,56,FOLLOW_2); 
@@ -30281,14 +30528,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // InternalOcl.g:9942:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    // InternalOcl.g:10027:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
     public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9946:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // InternalOcl.g:9947:2: rule__QualifiedName__Group_1__1__Impl
+            // InternalOcl.g:10031:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // InternalOcl.g:10032:2: rule__QualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group_1__1__Impl();
@@ -30314,17 +30561,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // InternalOcl.g:9953:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    // InternalOcl.g:10038:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9957:1: ( ( RULE_ID ) )
-            // InternalOcl.g:9958:1: ( RULE_ID )
+            // InternalOcl.g:10042:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10043:1: ( RULE_ID )
             {
-            // InternalOcl.g:9958:1: ( RULE_ID )
-            // InternalOcl.g:9959:2: RULE_ID
+            // InternalOcl.g:10043:1: ( RULE_ID )
+            // InternalOcl.g:10044:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -30351,17 +30598,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__ImportsAssignment_0"
-    // InternalOcl.g:9969:1: rule__Module__ImportsAssignment_0 : ( ruleImport ) ;
+    // InternalOcl.g:10054:1: rule__Module__ImportsAssignment_0 : ( ruleImport ) ;
     public final void rule__Module__ImportsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9973:1: ( ( ruleImport ) )
-            // InternalOcl.g:9974:2: ( ruleImport )
+            // InternalOcl.g:10058:1: ( ( ruleImport ) )
+            // InternalOcl.g:10059:2: ( ruleImport )
             {
-            // InternalOcl.g:9974:2: ( ruleImport )
-            // InternalOcl.g:9975:3: ruleImport
+            // InternalOcl.g:10059:2: ( ruleImport )
+            // InternalOcl.g:10060:3: ruleImport
             {
              before(grammarAccess.getModuleAccess().getImportsImportParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -30392,17 +30639,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__ContextlessFeaturesAssignment_1"
-    // InternalOcl.g:9984:1: rule__Module__ContextlessFeaturesAssignment_1 : ( ruleOclFeatureDefinition ) ;
+    // InternalOcl.g:10069:1: rule__Module__ContextlessFeaturesAssignment_1 : ( ruleOclFeatureDefinition ) ;
     public final void rule__Module__ContextlessFeaturesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:9988:1: ( ( ruleOclFeatureDefinition ) )
-            // InternalOcl.g:9989:2: ( ruleOclFeatureDefinition )
+            // InternalOcl.g:10073:1: ( ( ruleOclFeatureDefinition ) )
+            // InternalOcl.g:10074:2: ( ruleOclFeatureDefinition )
             {
-            // InternalOcl.g:9989:2: ( ruleOclFeatureDefinition )
-            // InternalOcl.g:9990:3: ruleOclFeatureDefinition
+            // InternalOcl.g:10074:2: ( ruleOclFeatureDefinition )
+            // InternalOcl.g:10075:3: ruleOclFeatureDefinition
             {
              before(grammarAccess.getModuleAccess().getContextlessFeaturesOclFeatureDefinitionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30433,17 +30680,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Module__ContextBlocksAssignment_2"
-    // InternalOcl.g:9999:1: rule__Module__ContextBlocksAssignment_2 : ( ruleOclContextBlock ) ;
+    // InternalOcl.g:10084:1: rule__Module__ContextBlocksAssignment_2 : ( ruleOclContextBlock ) ;
     public final void rule__Module__ContextBlocksAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10003:1: ( ( ruleOclContextBlock ) )
-            // InternalOcl.g:10004:2: ( ruleOclContextBlock )
+            // InternalOcl.g:10088:1: ( ( ruleOclContextBlock ) )
+            // InternalOcl.g:10089:2: ( ruleOclContextBlock )
             {
-            // InternalOcl.g:10004:2: ( ruleOclContextBlock )
-            // InternalOcl.g:10005:3: ruleOclContextBlock
+            // InternalOcl.g:10089:2: ( ruleOclContextBlock )
+            // InternalOcl.g:10090:3: ruleOclContextBlock
             {
              before(grammarAccess.getModuleAccess().getContextBlocksOclContextBlockParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -30474,21 +30721,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__PackageAssignment_1"
-    // InternalOcl.g:10014:1: rule__Import__PackageAssignment_1 : ( ( RULE_STRING ) ) ;
+    // InternalOcl.g:10099:1: rule__Import__PackageAssignment_1 : ( ( RULE_STRING ) ) ;
     public final void rule__Import__PackageAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10018:1: ( ( ( RULE_STRING ) ) )
-            // InternalOcl.g:10019:2: ( ( RULE_STRING ) )
+            // InternalOcl.g:10103:1: ( ( ( RULE_STRING ) ) )
+            // InternalOcl.g:10104:2: ( ( RULE_STRING ) )
             {
-            // InternalOcl.g:10019:2: ( ( RULE_STRING ) )
-            // InternalOcl.g:10020:3: ( RULE_STRING )
+            // InternalOcl.g:10104:2: ( ( RULE_STRING ) )
+            // InternalOcl.g:10105:3: ( RULE_STRING )
             {
              before(grammarAccess.getImportAccess().getPackageEPackageCrossReference_1_0()); 
-            // InternalOcl.g:10021:3: ( RULE_STRING )
-            // InternalOcl.g:10022:4: RULE_STRING
+            // InternalOcl.g:10106:3: ( RULE_STRING )
+            // InternalOcl.g:10107:4: RULE_STRING
             {
              before(grammarAccess.getImportAccess().getPackageEPackageSTRINGTerminalRuleCall_1_0_1()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -30519,17 +30766,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Import__NameAssignment_3"
-    // InternalOcl.g:10033:1: rule__Import__NameAssignment_3 : ( RULE_ID ) ;
+    // InternalOcl.g:10118:1: rule__Import__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__Import__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10037:1: ( ( RULE_ID ) )
-            // InternalOcl.g:10038:2: ( RULE_ID )
+            // InternalOcl.g:10122:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10123:2: ( RULE_ID )
             {
-            // InternalOcl.g:10038:2: ( RULE_ID )
-            // InternalOcl.g:10039:3: RULE_ID
+            // InternalOcl.g:10123:2: ( RULE_ID )
+            // InternalOcl.g:10124:3: RULE_ID
             {
              before(grammarAccess.getImportAccess().getNameIDTerminalRuleCall_3_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -30556,21 +30803,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__EcoreTypesAssignment_0_1"
-    // InternalOcl.g:10048:1: rule__OclContextBlock__EcoreTypesAssignment_0_1 : ( ( RULE_ID ) ) ;
+    // InternalOcl.g:10133:1: rule__OclContextBlock__EcoreTypesAssignment_0_1 : ( ( RULE_ID ) ) ;
     public final void rule__OclContextBlock__EcoreTypesAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10052:1: ( ( ( RULE_ID ) ) )
-            // InternalOcl.g:10053:2: ( ( RULE_ID ) )
+            // InternalOcl.g:10137:1: ( ( ( RULE_ID ) ) )
+            // InternalOcl.g:10138:2: ( ( RULE_ID ) )
             {
-            // InternalOcl.g:10053:2: ( ( RULE_ID ) )
-            // InternalOcl.g:10054:3: ( RULE_ID )
+            // InternalOcl.g:10138:2: ( ( RULE_ID ) )
+            // InternalOcl.g:10139:3: ( RULE_ID )
             {
              before(grammarAccess.getOclContextBlockAccess().getEcoreTypesImportCrossReference_0_1_0()); 
-            // InternalOcl.g:10055:3: ( RULE_ID )
-            // InternalOcl.g:10056:4: RULE_ID
+            // InternalOcl.g:10140:3: ( RULE_ID )
+            // InternalOcl.g:10141:4: RULE_ID
             {
              before(grammarAccess.getOclContextBlockAccess().getEcoreTypesImportIDTerminalRuleCall_0_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -30601,21 +30848,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__ClassAssignment_0_3"
-    // InternalOcl.g:10067:1: rule__OclContextBlock__ClassAssignment_0_3 : ( ( ruleQualifiedName ) ) ;
+    // InternalOcl.g:10152:1: rule__OclContextBlock__ClassAssignment_0_3 : ( ( ruleQualifiedName ) ) ;
     public final void rule__OclContextBlock__ClassAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10071:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalOcl.g:10072:2: ( ( ruleQualifiedName ) )
+            // InternalOcl.g:10156:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalOcl.g:10157:2: ( ( ruleQualifiedName ) )
             {
-            // InternalOcl.g:10072:2: ( ( ruleQualifiedName ) )
-            // InternalOcl.g:10073:3: ( ruleQualifiedName )
+            // InternalOcl.g:10157:2: ( ( ruleQualifiedName ) )
+            // InternalOcl.g:10158:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getOclContextBlockAccess().getClassEClassCrossReference_0_3_0()); 
-            // InternalOcl.g:10074:3: ( ruleQualifiedName )
-            // InternalOcl.g:10075:4: ruleQualifiedName
+            // InternalOcl.g:10159:3: ( ruleQualifiedName )
+            // InternalOcl.g:10160:4: ruleQualifiedName
             {
              before(grammarAccess.getOclContextBlockAccess().getClassEClassQualifiedNameParserRuleCall_0_3_0_1()); 
             pushFollow(FOLLOW_2);
@@ -30650,21 +30897,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclContextBlock__MembersAssignment_1"
-    // InternalOcl.g:10086:1: rule__OclContextBlock__MembersAssignment_1 : ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) ) ;
+    // InternalOcl.g:10171:1: rule__OclContextBlock__MembersAssignment_1 : ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) ) ;
     public final void rule__OclContextBlock__MembersAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10090:1: ( ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) ) )
-            // InternalOcl.g:10091:2: ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) )
+            // InternalOcl.g:10175:1: ( ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) ) )
+            // InternalOcl.g:10176:2: ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) )
             {
-            // InternalOcl.g:10091:2: ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) )
-            // InternalOcl.g:10092:3: ( rule__OclContextBlock__MembersAlternatives_1_0 )
+            // InternalOcl.g:10176:2: ( ( rule__OclContextBlock__MembersAlternatives_1_0 ) )
+            // InternalOcl.g:10177:3: ( rule__OclContextBlock__MembersAlternatives_1_0 )
             {
              before(grammarAccess.getOclContextBlockAccess().getMembersAlternatives_1_0()); 
-            // InternalOcl.g:10093:3: ( rule__OclContextBlock__MembersAlternatives_1_0 )
-            // InternalOcl.g:10093:4: rule__OclContextBlock__MembersAlternatives_1_0
+            // InternalOcl.g:10178:3: ( rule__OclContextBlock__MembersAlternatives_1_0 )
+            // InternalOcl.g:10178:4: rule__OclContextBlock__MembersAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__OclContextBlock__MembersAlternatives_1_0();
@@ -30697,21 +30944,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclFeatureDefinition__FeatureAssignment_2"
-    // InternalOcl.g:10101:1: rule__OclFeatureDefinition__FeatureAssignment_2 : ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) ) ;
+    // InternalOcl.g:10186:1: rule__OclFeatureDefinition__FeatureAssignment_2 : ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) ) ;
     public final void rule__OclFeatureDefinition__FeatureAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10105:1: ( ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) ) )
-            // InternalOcl.g:10106:2: ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) )
+            // InternalOcl.g:10190:1: ( ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) ) )
+            // InternalOcl.g:10191:2: ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) )
             {
-            // InternalOcl.g:10106:2: ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) )
-            // InternalOcl.g:10107:3: ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 )
+            // InternalOcl.g:10191:2: ( ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 ) )
+            // InternalOcl.g:10192:3: ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 )
             {
              before(grammarAccess.getOclFeatureDefinitionAccess().getFeatureAlternatives_2_0()); 
-            // InternalOcl.g:10108:3: ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 )
-            // InternalOcl.g:10108:4: rule__OclFeatureDefinition__FeatureAlternatives_2_0
+            // InternalOcl.g:10193:3: ( rule__OclFeatureDefinition__FeatureAlternatives_2_0 )
+            // InternalOcl.g:10193:4: rule__OclFeatureDefinition__FeatureAlternatives_2_0
             {
             pushFollow(FOLLOW_2);
             rule__OclFeatureDefinition__FeatureAlternatives_2_0();
@@ -30744,17 +30991,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_0"
-    // InternalOcl.g:10116:1: rule__Attribute__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalOcl.g:10201:1: rule__Attribute__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Attribute__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10120:1: ( ( RULE_ID ) )
-            // InternalOcl.g:10121:2: ( RULE_ID )
+            // InternalOcl.g:10205:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10206:2: ( RULE_ID )
             {
-            // InternalOcl.g:10121:2: ( RULE_ID )
-            // InternalOcl.g:10122:3: RULE_ID
+            // InternalOcl.g:10206:2: ( RULE_ID )
+            // InternalOcl.g:10207:3: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -30781,17 +31028,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__TypeAssignment_2"
-    // InternalOcl.g:10131:1: rule__Attribute__TypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:10216:1: rule__Attribute__TypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__Attribute__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10135:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:10136:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10220:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:10221:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:10136:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:10137:3: ruleOclTypeLiteral
+            // InternalOcl.g:10221:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10222:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getAttributeAccess().getTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -30822,17 +31069,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Attribute__InitExpressionAssignment_4"
-    // InternalOcl.g:10146:1: rule__Attribute__InitExpressionAssignment_4 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10231:1: rule__Attribute__InitExpressionAssignment_4 : ( ruleOclExpression ) ;
     public final void rule__Attribute__InitExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10150:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10151:2: ( ruleOclExpression )
+            // InternalOcl.g:10235:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10236:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10151:2: ( ruleOclExpression )
-            // InternalOcl.g:10152:3: ruleOclExpression
+            // InternalOcl.g:10236:2: ( ruleOclExpression )
+            // InternalOcl.g:10237:3: ruleOclExpression
             {
              before(grammarAccess.getAttributeAccess().getInitExpressionOclExpressionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -30863,17 +31110,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__NameAssignment_0"
-    // InternalOcl.g:10161:1: rule__Operation__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalOcl.g:10246:1: rule__Operation__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Operation__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10165:1: ( ( RULE_ID ) )
-            // InternalOcl.g:10166:2: ( RULE_ID )
+            // InternalOcl.g:10250:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10251:2: ( RULE_ID )
             {
-            // InternalOcl.g:10166:2: ( RULE_ID )
-            // InternalOcl.g:10167:3: RULE_ID
+            // InternalOcl.g:10251:2: ( RULE_ID )
+            // InternalOcl.g:10252:3: RULE_ID
             {
              before(grammarAccess.getOperationAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -30900,17 +31147,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__ParametersAssignment_2_0"
-    // InternalOcl.g:10176:1: rule__Operation__ParametersAssignment_2_0 : ( ruleParameter ) ;
+    // InternalOcl.g:10261:1: rule__Operation__ParametersAssignment_2_0 : ( ruleParameter ) ;
     public final void rule__Operation__ParametersAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10180:1: ( ( ruleParameter ) )
-            // InternalOcl.g:10181:2: ( ruleParameter )
+            // InternalOcl.g:10265:1: ( ( ruleParameter ) )
+            // InternalOcl.g:10266:2: ( ruleParameter )
             {
-            // InternalOcl.g:10181:2: ( ruleParameter )
-            // InternalOcl.g:10182:3: ruleParameter
+            // InternalOcl.g:10266:2: ( ruleParameter )
+            // InternalOcl.g:10267:3: ruleParameter
             {
              before(grammarAccess.getOperationAccess().getParametersParameterParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -30941,17 +31188,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__ParametersAssignment_2_1_1"
-    // InternalOcl.g:10191:1: rule__Operation__ParametersAssignment_2_1_1 : ( ruleParameter ) ;
+    // InternalOcl.g:10276:1: rule__Operation__ParametersAssignment_2_1_1 : ( ruleParameter ) ;
     public final void rule__Operation__ParametersAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10195:1: ( ( ruleParameter ) )
-            // InternalOcl.g:10196:2: ( ruleParameter )
+            // InternalOcl.g:10280:1: ( ( ruleParameter ) )
+            // InternalOcl.g:10281:2: ( ruleParameter )
             {
-            // InternalOcl.g:10196:2: ( ruleParameter )
-            // InternalOcl.g:10197:3: ruleParameter
+            // InternalOcl.g:10281:2: ( ruleParameter )
+            // InternalOcl.g:10282:3: ruleParameter
             {
              before(grammarAccess.getOperationAccess().getParametersParameterParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -30982,17 +31229,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__ReturnTypeAssignment_5"
-    // InternalOcl.g:10206:1: rule__Operation__ReturnTypeAssignment_5 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:10291:1: rule__Operation__ReturnTypeAssignment_5 : ( ruleOclTypeLiteral ) ;
     public final void rule__Operation__ReturnTypeAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10210:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:10211:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10295:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:10296:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:10211:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:10212:3: ruleOclTypeLiteral
+            // InternalOcl.g:10296:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10297:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getOperationAccess().getReturnTypeOclTypeLiteralParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -31023,17 +31270,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Operation__BodyAssignment_7"
-    // InternalOcl.g:10221:1: rule__Operation__BodyAssignment_7 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10306:1: rule__Operation__BodyAssignment_7 : ( ruleOclExpression ) ;
     public final void rule__Operation__BodyAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10225:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10226:2: ( ruleOclExpression )
+            // InternalOcl.g:10310:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10311:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10226:2: ( ruleOclExpression )
-            // InternalOcl.g:10227:3: ruleOclExpression
+            // InternalOcl.g:10311:2: ( ruleOclExpression )
+            // InternalOcl.g:10312:3: ruleOclExpression
             {
              before(grammarAccess.getOperationAccess().getBodyOclExpressionParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -31064,17 +31311,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__NameAssignment_0"
-    // InternalOcl.g:10236:1: rule__Parameter__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalOcl.g:10321:1: rule__Parameter__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Parameter__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10240:1: ( ( RULE_ID ) )
-            // InternalOcl.g:10241:2: ( RULE_ID )
+            // InternalOcl.g:10325:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10326:2: ( RULE_ID )
             {
-            // InternalOcl.g:10241:2: ( RULE_ID )
-            // InternalOcl.g:10242:3: RULE_ID
+            // InternalOcl.g:10326:2: ( RULE_ID )
+            // InternalOcl.g:10327:3: RULE_ID
             {
              before(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -31101,17 +31348,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__TypeAssignment_2"
-    // InternalOcl.g:10251:1: rule__Parameter__TypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:10336:1: rule__Parameter__TypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__Parameter__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10255:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:10256:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10340:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:10341:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:10256:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:10257:3: ruleOclTypeLiteral
+            // InternalOcl.g:10341:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10342:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getParameterAccess().getTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -31142,17 +31389,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__NameAssignment_1"
-    // InternalOcl.g:10266:1: rule__OclInvariant__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalOcl.g:10351:1: rule__OclInvariant__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__OclInvariant__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10270:1: ( ( RULE_ID ) )
-            // InternalOcl.g:10271:2: ( RULE_ID )
+            // InternalOcl.g:10355:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10356:2: ( RULE_ID )
             {
-            // InternalOcl.g:10271:2: ( RULE_ID )
-            // InternalOcl.g:10272:3: RULE_ID
+            // InternalOcl.g:10356:2: ( RULE_ID )
+            // InternalOcl.g:10357:3: RULE_ID
             {
              before(grammarAccess.getOclInvariantAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -31179,17 +31426,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclInvariant__BodyAssignment_3"
-    // InternalOcl.g:10281:1: rule__OclInvariant__BodyAssignment_3 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10366:1: rule__OclInvariant__BodyAssignment_3 : ( ruleOclExpression ) ;
     public final void rule__OclInvariant__BodyAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10285:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10286:2: ( ruleOclExpression )
+            // InternalOcl.g:10370:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10371:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10286:2: ( ruleOclExpression )
-            // InternalOcl.g:10287:3: ruleOclExpression
+            // InternalOcl.g:10371:2: ( ruleOclExpression )
+            // InternalOcl.g:10372:3: ruleOclExpression
             {
              before(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -31220,21 +31467,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__ModelAssignment_0"
-    // InternalOcl.g:10296:1: rule__OclModelElementExp__ModelAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalOcl.g:10381:1: rule__OclModelElementExp__ModelAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__OclModelElementExp__ModelAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10300:1: ( ( ( RULE_ID ) ) )
-            // InternalOcl.g:10301:2: ( ( RULE_ID ) )
+            // InternalOcl.g:10385:1: ( ( ( RULE_ID ) ) )
+            // InternalOcl.g:10386:2: ( ( RULE_ID ) )
             {
-            // InternalOcl.g:10301:2: ( ( RULE_ID ) )
-            // InternalOcl.g:10302:3: ( RULE_ID )
+            // InternalOcl.g:10386:2: ( ( RULE_ID ) )
+            // InternalOcl.g:10387:3: ( RULE_ID )
             {
              before(grammarAccess.getOclModelElementExpAccess().getModelImportCrossReference_0_0()); 
-            // InternalOcl.g:10303:3: ( RULE_ID )
-            // InternalOcl.g:10304:4: RULE_ID
+            // InternalOcl.g:10388:3: ( RULE_ID )
+            // InternalOcl.g:10389:4: RULE_ID
             {
              before(grammarAccess.getOclModelElementExpAccess().getModelImportIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -31265,17 +31512,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__NameAssignment_2"
-    // InternalOcl.g:10315:1: rule__OclModelElementExp__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalOcl.g:10400:1: rule__OclModelElementExp__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__OclModelElementExp__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10319:1: ( ( RULE_ID ) )
-            // InternalOcl.g:10320:2: ( RULE_ID )
+            // InternalOcl.g:10404:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10405:2: ( RULE_ID )
             {
-            // InternalOcl.g:10320:2: ( RULE_ID )
-            // InternalOcl.g:10321:3: RULE_ID
+            // InternalOcl.g:10405:2: ( RULE_ID )
+            // InternalOcl.g:10406:3: RULE_ID
             {
              before(grammarAccess.getOclModelElementExpAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -31302,17 +31549,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__ArgsAssignment_0"
-    // InternalOcl.g:10330:1: rule__OperatorCallExp__ArgsAssignment_0 : ( ruleEqOpCallExp ) ;
+    // InternalOcl.g:10415:1: rule__OperatorCallExp__ArgsAssignment_0 : ( ruleEqOpCallExp ) ;
     public final void rule__OperatorCallExp__ArgsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10334:1: ( ( ruleEqOpCallExp ) )
-            // InternalOcl.g:10335:2: ( ruleEqOpCallExp )
+            // InternalOcl.g:10419:1: ( ( ruleEqOpCallExp ) )
+            // InternalOcl.g:10420:2: ( ruleEqOpCallExp )
             {
-            // InternalOcl.g:10335:2: ( ruleEqOpCallExp )
-            // InternalOcl.g:10336:3: ruleEqOpCallExp
+            // InternalOcl.g:10420:2: ( ruleEqOpCallExp )
+            // InternalOcl.g:10421:3: ruleEqOpCallExp
             {
              before(grammarAccess.getOperatorCallExpAccess().getArgsEqOpCallExpParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31343,17 +31590,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__OperationNamesAssignment_1_0"
-    // InternalOcl.g:10345:1: rule__OperatorCallExp__OperationNamesAssignment_1_0 : ( ruleBOOLOP ) ;
+    // InternalOcl.g:10430:1: rule__OperatorCallExp__OperationNamesAssignment_1_0 : ( ruleBOOLOP ) ;
     public final void rule__OperatorCallExp__OperationNamesAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10349:1: ( ( ruleBOOLOP ) )
-            // InternalOcl.g:10350:2: ( ruleBOOLOP )
+            // InternalOcl.g:10434:1: ( ( ruleBOOLOP ) )
+            // InternalOcl.g:10435:2: ( ruleBOOLOP )
             {
-            // InternalOcl.g:10350:2: ( ruleBOOLOP )
-            // InternalOcl.g:10351:3: ruleBOOLOP
+            // InternalOcl.g:10435:2: ( ruleBOOLOP )
+            // InternalOcl.g:10436:3: ruleBOOLOP
             {
              before(grammarAccess.getOperatorCallExpAccess().getOperationNamesBOOLOPParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31384,17 +31631,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperatorCallExp__ArgsAssignment_1_1"
-    // InternalOcl.g:10360:1: rule__OperatorCallExp__ArgsAssignment_1_1 : ( ruleEqOpCallExp ) ;
+    // InternalOcl.g:10445:1: rule__OperatorCallExp__ArgsAssignment_1_1 : ( ruleEqOpCallExp ) ;
     public final void rule__OperatorCallExp__ArgsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10364:1: ( ( ruleEqOpCallExp ) )
-            // InternalOcl.g:10365:2: ( ruleEqOpCallExp )
+            // InternalOcl.g:10449:1: ( ( ruleEqOpCallExp ) )
+            // InternalOcl.g:10450:2: ( ruleEqOpCallExp )
             {
-            // InternalOcl.g:10365:2: ( ruleEqOpCallExp )
-            // InternalOcl.g:10366:3: ruleEqOpCallExp
+            // InternalOcl.g:10450:2: ( ruleEqOpCallExp )
+            // InternalOcl.g:10451:3: ruleEqOpCallExp
             {
              before(grammarAccess.getOperatorCallExpAccess().getArgsEqOpCallExpParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -31425,17 +31672,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__ArgsAssignment_0"
-    // InternalOcl.g:10375:1: rule__EqOpCallExp__ArgsAssignment_0 : ( ruleRelOpCallExp ) ;
+    // InternalOcl.g:10460:1: rule__EqOpCallExp__ArgsAssignment_0 : ( ruleRelOpCallExp ) ;
     public final void rule__EqOpCallExp__ArgsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10379:1: ( ( ruleRelOpCallExp ) )
-            // InternalOcl.g:10380:2: ( ruleRelOpCallExp )
+            // InternalOcl.g:10464:1: ( ( ruleRelOpCallExp ) )
+            // InternalOcl.g:10465:2: ( ruleRelOpCallExp )
             {
-            // InternalOcl.g:10380:2: ( ruleRelOpCallExp )
-            // InternalOcl.g:10381:3: ruleRelOpCallExp
+            // InternalOcl.g:10465:2: ( ruleRelOpCallExp )
+            // InternalOcl.g:10466:3: ruleRelOpCallExp
             {
              before(grammarAccess.getEqOpCallExpAccess().getArgsRelOpCallExpParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31466,17 +31713,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__OperationNamesAssignment_1_0"
-    // InternalOcl.g:10390:1: rule__EqOpCallExp__OperationNamesAssignment_1_0 : ( ruleEQOP ) ;
+    // InternalOcl.g:10475:1: rule__EqOpCallExp__OperationNamesAssignment_1_0 : ( ruleEQOP ) ;
     public final void rule__EqOpCallExp__OperationNamesAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10394:1: ( ( ruleEQOP ) )
-            // InternalOcl.g:10395:2: ( ruleEQOP )
+            // InternalOcl.g:10479:1: ( ( ruleEQOP ) )
+            // InternalOcl.g:10480:2: ( ruleEQOP )
             {
-            // InternalOcl.g:10395:2: ( ruleEQOP )
-            // InternalOcl.g:10396:3: ruleEQOP
+            // InternalOcl.g:10480:2: ( ruleEQOP )
+            // InternalOcl.g:10481:3: ruleEQOP
             {
              before(grammarAccess.getEqOpCallExpAccess().getOperationNamesEQOPParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31507,17 +31754,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EqOpCallExp__ArgsAssignment_1_1"
-    // InternalOcl.g:10405:1: rule__EqOpCallExp__ArgsAssignment_1_1 : ( ruleRelOpCallExp ) ;
+    // InternalOcl.g:10490:1: rule__EqOpCallExp__ArgsAssignment_1_1 : ( ruleRelOpCallExp ) ;
     public final void rule__EqOpCallExp__ArgsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10409:1: ( ( ruleRelOpCallExp ) )
-            // InternalOcl.g:10410:2: ( ruleRelOpCallExp )
+            // InternalOcl.g:10494:1: ( ( ruleRelOpCallExp ) )
+            // InternalOcl.g:10495:2: ( ruleRelOpCallExp )
             {
-            // InternalOcl.g:10410:2: ( ruleRelOpCallExp )
-            // InternalOcl.g:10411:3: ruleRelOpCallExp
+            // InternalOcl.g:10495:2: ( ruleRelOpCallExp )
+            // InternalOcl.g:10496:3: ruleRelOpCallExp
             {
              before(grammarAccess.getEqOpCallExpAccess().getArgsRelOpCallExpParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -31548,17 +31795,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__ArgsAssignment_0"
-    // InternalOcl.g:10420:1: rule__RelOpCallExp__ArgsAssignment_0 : ( ruleAddOpCallExp ) ;
+    // InternalOcl.g:10505:1: rule__RelOpCallExp__ArgsAssignment_0 : ( ruleAddOpCallExp ) ;
     public final void rule__RelOpCallExp__ArgsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10424:1: ( ( ruleAddOpCallExp ) )
-            // InternalOcl.g:10425:2: ( ruleAddOpCallExp )
+            // InternalOcl.g:10509:1: ( ( ruleAddOpCallExp ) )
+            // InternalOcl.g:10510:2: ( ruleAddOpCallExp )
             {
-            // InternalOcl.g:10425:2: ( ruleAddOpCallExp )
-            // InternalOcl.g:10426:3: ruleAddOpCallExp
+            // InternalOcl.g:10510:2: ( ruleAddOpCallExp )
+            // InternalOcl.g:10511:3: ruleAddOpCallExp
             {
              before(grammarAccess.getRelOpCallExpAccess().getArgsAddOpCallExpParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31589,17 +31836,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__OperationNamesAssignment_1_0"
-    // InternalOcl.g:10435:1: rule__RelOpCallExp__OperationNamesAssignment_1_0 : ( ruleRELOP ) ;
+    // InternalOcl.g:10520:1: rule__RelOpCallExp__OperationNamesAssignment_1_0 : ( ruleRELOP ) ;
     public final void rule__RelOpCallExp__OperationNamesAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10439:1: ( ( ruleRELOP ) )
-            // InternalOcl.g:10440:2: ( ruleRELOP )
+            // InternalOcl.g:10524:1: ( ( ruleRELOP ) )
+            // InternalOcl.g:10525:2: ( ruleRELOP )
             {
-            // InternalOcl.g:10440:2: ( ruleRELOP )
-            // InternalOcl.g:10441:3: ruleRELOP
+            // InternalOcl.g:10525:2: ( ruleRELOP )
+            // InternalOcl.g:10526:3: ruleRELOP
             {
              before(grammarAccess.getRelOpCallExpAccess().getOperationNamesRELOPParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31630,17 +31877,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RelOpCallExp__ArgsAssignment_1_1"
-    // InternalOcl.g:10450:1: rule__RelOpCallExp__ArgsAssignment_1_1 : ( ruleAddOpCallExp ) ;
+    // InternalOcl.g:10535:1: rule__RelOpCallExp__ArgsAssignment_1_1 : ( ruleAddOpCallExp ) ;
     public final void rule__RelOpCallExp__ArgsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10454:1: ( ( ruleAddOpCallExp ) )
-            // InternalOcl.g:10455:2: ( ruleAddOpCallExp )
+            // InternalOcl.g:10539:1: ( ( ruleAddOpCallExp ) )
+            // InternalOcl.g:10540:2: ( ruleAddOpCallExp )
             {
-            // InternalOcl.g:10455:2: ( ruleAddOpCallExp )
-            // InternalOcl.g:10456:3: ruleAddOpCallExp
+            // InternalOcl.g:10540:2: ( ruleAddOpCallExp )
+            // InternalOcl.g:10541:3: ruleAddOpCallExp
             {
              before(grammarAccess.getRelOpCallExpAccess().getArgsAddOpCallExpParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -31671,17 +31918,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__ArgsAssignment_0"
-    // InternalOcl.g:10465:1: rule__AddOpCallExp__ArgsAssignment_0 : ( ruleIntOpCallExp ) ;
+    // InternalOcl.g:10550:1: rule__AddOpCallExp__ArgsAssignment_0 : ( ruleIntOpCallExp ) ;
     public final void rule__AddOpCallExp__ArgsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10469:1: ( ( ruleIntOpCallExp ) )
-            // InternalOcl.g:10470:2: ( ruleIntOpCallExp )
+            // InternalOcl.g:10554:1: ( ( ruleIntOpCallExp ) )
+            // InternalOcl.g:10555:2: ( ruleIntOpCallExp )
             {
-            // InternalOcl.g:10470:2: ( ruleIntOpCallExp )
-            // InternalOcl.g:10471:3: ruleIntOpCallExp
+            // InternalOcl.g:10555:2: ( ruleIntOpCallExp )
+            // InternalOcl.g:10556:3: ruleIntOpCallExp
             {
              before(grammarAccess.getAddOpCallExpAccess().getArgsIntOpCallExpParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31712,17 +31959,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__OperationNamesAssignment_1_0"
-    // InternalOcl.g:10480:1: rule__AddOpCallExp__OperationNamesAssignment_1_0 : ( ruleADDOP ) ;
+    // InternalOcl.g:10565:1: rule__AddOpCallExp__OperationNamesAssignment_1_0 : ( ruleADDOP ) ;
     public final void rule__AddOpCallExp__OperationNamesAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10484:1: ( ( ruleADDOP ) )
-            // InternalOcl.g:10485:2: ( ruleADDOP )
+            // InternalOcl.g:10569:1: ( ( ruleADDOP ) )
+            // InternalOcl.g:10570:2: ( ruleADDOP )
             {
-            // InternalOcl.g:10485:2: ( ruleADDOP )
-            // InternalOcl.g:10486:3: ruleADDOP
+            // InternalOcl.g:10570:2: ( ruleADDOP )
+            // InternalOcl.g:10571:3: ruleADDOP
             {
              before(grammarAccess.getAddOpCallExpAccess().getOperationNamesADDOPParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31753,17 +32000,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AddOpCallExp__ArgsAssignment_1_1"
-    // InternalOcl.g:10495:1: rule__AddOpCallExp__ArgsAssignment_1_1 : ( ruleIntOpCallExp ) ;
+    // InternalOcl.g:10580:1: rule__AddOpCallExp__ArgsAssignment_1_1 : ( ruleIntOpCallExp ) ;
     public final void rule__AddOpCallExp__ArgsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10499:1: ( ( ruleIntOpCallExp ) )
-            // InternalOcl.g:10500:2: ( ruleIntOpCallExp )
+            // InternalOcl.g:10584:1: ( ( ruleIntOpCallExp ) )
+            // InternalOcl.g:10585:2: ( ruleIntOpCallExp )
             {
-            // InternalOcl.g:10500:2: ( ruleIntOpCallExp )
-            // InternalOcl.g:10501:3: ruleIntOpCallExp
+            // InternalOcl.g:10585:2: ( ruleIntOpCallExp )
+            // InternalOcl.g:10586:3: ruleIntOpCallExp
             {
              before(grammarAccess.getAddOpCallExpAccess().getArgsIntOpCallExpParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -31794,17 +32041,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__ArgsAssignment_0"
-    // InternalOcl.g:10510:1: rule__IntOpCallExp__ArgsAssignment_0 : ( ruleMulOpCallExp ) ;
+    // InternalOcl.g:10595:1: rule__IntOpCallExp__ArgsAssignment_0 : ( ruleMulOpCallExp ) ;
     public final void rule__IntOpCallExp__ArgsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10514:1: ( ( ruleMulOpCallExp ) )
-            // InternalOcl.g:10515:2: ( ruleMulOpCallExp )
+            // InternalOcl.g:10599:1: ( ( ruleMulOpCallExp ) )
+            // InternalOcl.g:10600:2: ( ruleMulOpCallExp )
             {
-            // InternalOcl.g:10515:2: ( ruleMulOpCallExp )
-            // InternalOcl.g:10516:3: ruleMulOpCallExp
+            // InternalOcl.g:10600:2: ( ruleMulOpCallExp )
+            // InternalOcl.g:10601:3: ruleMulOpCallExp
             {
              before(grammarAccess.getIntOpCallExpAccess().getArgsMulOpCallExpParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31835,17 +32082,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__OperationNamesAssignment_1_0"
-    // InternalOcl.g:10525:1: rule__IntOpCallExp__OperationNamesAssignment_1_0 : ( ruleINTOP ) ;
+    // InternalOcl.g:10610:1: rule__IntOpCallExp__OperationNamesAssignment_1_0 : ( ruleINTOP ) ;
     public final void rule__IntOpCallExp__OperationNamesAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10529:1: ( ( ruleINTOP ) )
-            // InternalOcl.g:10530:2: ( ruleINTOP )
+            // InternalOcl.g:10614:1: ( ( ruleINTOP ) )
+            // InternalOcl.g:10615:2: ( ruleINTOP )
             {
-            // InternalOcl.g:10530:2: ( ruleINTOP )
-            // InternalOcl.g:10531:3: ruleINTOP
+            // InternalOcl.g:10615:2: ( ruleINTOP )
+            // InternalOcl.g:10616:3: ruleINTOP
             {
              before(grammarAccess.getIntOpCallExpAccess().getOperationNamesINTOPParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31876,17 +32123,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntOpCallExp__ArgsAssignment_1_1"
-    // InternalOcl.g:10540:1: rule__IntOpCallExp__ArgsAssignment_1_1 : ( ruleMulOpCallExp ) ;
+    // InternalOcl.g:10625:1: rule__IntOpCallExp__ArgsAssignment_1_1 : ( ruleMulOpCallExp ) ;
     public final void rule__IntOpCallExp__ArgsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10544:1: ( ( ruleMulOpCallExp ) )
-            // InternalOcl.g:10545:2: ( ruleMulOpCallExp )
+            // InternalOcl.g:10629:1: ( ( ruleMulOpCallExp ) )
+            // InternalOcl.g:10630:2: ( ruleMulOpCallExp )
             {
-            // InternalOcl.g:10545:2: ( ruleMulOpCallExp )
-            // InternalOcl.g:10546:3: ruleMulOpCallExp
+            // InternalOcl.g:10630:2: ( ruleMulOpCallExp )
+            // InternalOcl.g:10631:3: ruleMulOpCallExp
             {
              before(grammarAccess.getIntOpCallExpAccess().getArgsMulOpCallExpParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -31917,17 +32164,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__ArgsAssignment_0"
-    // InternalOcl.g:10555:1: rule__MulOpCallExp__ArgsAssignment_0 : ( ruleNotOpCallExp ) ;
+    // InternalOcl.g:10640:1: rule__MulOpCallExp__ArgsAssignment_0 : ( ruleNotOpCallExp ) ;
     public final void rule__MulOpCallExp__ArgsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10559:1: ( ( ruleNotOpCallExp ) )
-            // InternalOcl.g:10560:2: ( ruleNotOpCallExp )
+            // InternalOcl.g:10644:1: ( ( ruleNotOpCallExp ) )
+            // InternalOcl.g:10645:2: ( ruleNotOpCallExp )
             {
-            // InternalOcl.g:10560:2: ( ruleNotOpCallExp )
-            // InternalOcl.g:10561:3: ruleNotOpCallExp
+            // InternalOcl.g:10645:2: ( ruleNotOpCallExp )
+            // InternalOcl.g:10646:3: ruleNotOpCallExp
             {
              before(grammarAccess.getMulOpCallExpAccess().getArgsNotOpCallExpParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31958,17 +32205,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__OperationNamesAssignment_1_0"
-    // InternalOcl.g:10570:1: rule__MulOpCallExp__OperationNamesAssignment_1_0 : ( ruleMULOP ) ;
+    // InternalOcl.g:10655:1: rule__MulOpCallExp__OperationNamesAssignment_1_0 : ( ruleMULOP ) ;
     public final void rule__MulOpCallExp__OperationNamesAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10574:1: ( ( ruleMULOP ) )
-            // InternalOcl.g:10575:2: ( ruleMULOP )
+            // InternalOcl.g:10659:1: ( ( ruleMULOP ) )
+            // InternalOcl.g:10660:2: ( ruleMULOP )
             {
-            // InternalOcl.g:10575:2: ( ruleMULOP )
-            // InternalOcl.g:10576:3: ruleMULOP
+            // InternalOcl.g:10660:2: ( ruleMULOP )
+            // InternalOcl.g:10661:3: ruleMULOP
             {
              before(grammarAccess.getMulOpCallExpAccess().getOperationNamesMULOPParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -31999,17 +32246,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MulOpCallExp__ArgsAssignment_1_1"
-    // InternalOcl.g:10585:1: rule__MulOpCallExp__ArgsAssignment_1_1 : ( ruleNotOpCallExp ) ;
+    // InternalOcl.g:10670:1: rule__MulOpCallExp__ArgsAssignment_1_1 : ( ruleNotOpCallExp ) ;
     public final void rule__MulOpCallExp__ArgsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10589:1: ( ( ruleNotOpCallExp ) )
-            // InternalOcl.g:10590:2: ( ruleNotOpCallExp )
+            // InternalOcl.g:10674:1: ( ( ruleNotOpCallExp ) )
+            // InternalOcl.g:10675:2: ( ruleNotOpCallExp )
             {
-            // InternalOcl.g:10590:2: ( ruleNotOpCallExp )
-            // InternalOcl.g:10591:3: ruleNotOpCallExp
+            // InternalOcl.g:10675:2: ( ruleNotOpCallExp )
+            // InternalOcl.g:10676:3: ruleNotOpCallExp
             {
              before(grammarAccess.getMulOpCallExpAccess().getArgsNotOpCallExpParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32040,17 +32287,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NotOpCallExp__OperationNameAssignment_0_0"
-    // InternalOcl.g:10600:1: rule__NotOpCallExp__OperationNameAssignment_0_0 : ( ruleUNARYOP ) ;
+    // InternalOcl.g:10685:1: rule__NotOpCallExp__OperationNameAssignment_0_0 : ( ruleUNARYOP ) ;
     public final void rule__NotOpCallExp__OperationNameAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10604:1: ( ( ruleUNARYOP ) )
-            // InternalOcl.g:10605:2: ( ruleUNARYOP )
+            // InternalOcl.g:10689:1: ( ( ruleUNARYOP ) )
+            // InternalOcl.g:10690:2: ( ruleUNARYOP )
             {
-            // InternalOcl.g:10605:2: ( ruleUNARYOP )
-            // InternalOcl.g:10606:3: ruleUNARYOP
+            // InternalOcl.g:10690:2: ( ruleUNARYOP )
+            // InternalOcl.g:10691:3: ruleUNARYOP
             {
              before(grammarAccess.getNotOpCallExpAccess().getOperationNameUNARYOPParserRuleCall_0_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32081,17 +32328,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NotOpCallExp__SourceAssignment_0_1"
-    // InternalOcl.g:10615:1: rule__NotOpCallExp__SourceAssignment_0_1 : ( ruleNotOpCallExp ) ;
+    // InternalOcl.g:10700:1: rule__NotOpCallExp__SourceAssignment_0_1 : ( ruleNotOpCallExp ) ;
     public final void rule__NotOpCallExp__SourceAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10619:1: ( ( ruleNotOpCallExp ) )
-            // InternalOcl.g:10620:2: ( ruleNotOpCallExp )
+            // InternalOcl.g:10704:1: ( ( ruleNotOpCallExp ) )
+            // InternalOcl.g:10705:2: ( ruleNotOpCallExp )
             {
-            // InternalOcl.g:10620:2: ( ruleNotOpCallExp )
-            // InternalOcl.g:10621:3: ruleNotOpCallExp
+            // InternalOcl.g:10705:2: ( ruleNotOpCallExp )
+            // InternalOcl.g:10706:3: ruleNotOpCallExp
             {
              before(grammarAccess.getNotOpCallExpAccess().getSourceNotOpCallExpParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32122,17 +32369,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyCallExp__SourceAssignment_0"
-    // InternalOcl.g:10630:1: rule__PropertyCallExp__SourceAssignment_0 : ( rulePrimary_OclExpression ) ;
+    // InternalOcl.g:10715:1: rule__PropertyCallExp__SourceAssignment_0 : ( rulePrimary_OclExpression ) ;
     public final void rule__PropertyCallExp__SourceAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10634:1: ( ( rulePrimary_OclExpression ) )
-            // InternalOcl.g:10635:2: ( rulePrimary_OclExpression )
+            // InternalOcl.g:10719:1: ( ( rulePrimary_OclExpression ) )
+            // InternalOcl.g:10720:2: ( rulePrimary_OclExpression )
             {
-            // InternalOcl.g:10635:2: ( rulePrimary_OclExpression )
-            // InternalOcl.g:10636:3: rulePrimary_OclExpression
+            // InternalOcl.g:10720:2: ( rulePrimary_OclExpression )
+            // InternalOcl.g:10721:3: rulePrimary_OclExpression
             {
              before(grammarAccess.getPropertyCallExpAccess().getSourcePrimary_OclExpressionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32163,17 +32410,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyCallExp__CallsAssignment_1"
-    // InternalOcl.g:10645:1: rule__PropertyCallExp__CallsAssignment_1 : ( rulePropertyCall ) ;
+    // InternalOcl.g:10730:1: rule__PropertyCallExp__CallsAssignment_1 : ( rulePropertyCall ) ;
     public final void rule__PropertyCallExp__CallsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10649:1: ( ( rulePropertyCall ) )
-            // InternalOcl.g:10650:2: ( rulePropertyCall )
+            // InternalOcl.g:10734:1: ( ( rulePropertyCall ) )
+            // InternalOcl.g:10735:2: ( rulePropertyCall )
             {
-            // InternalOcl.g:10650:2: ( rulePropertyCall )
-            // InternalOcl.g:10651:3: rulePropertyCall
+            // InternalOcl.g:10735:2: ( rulePropertyCall )
+            // InternalOcl.g:10736:3: rulePropertyCall
             {
              before(grammarAccess.getPropertyCallExpAccess().getCallsPropertyCallParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32204,21 +32451,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableExp__ReferredVariableAssignment"
-    // InternalOcl.g:10660:1: rule__VariableExp__ReferredVariableAssignment : ( ( RULE_ID ) ) ;
+    // InternalOcl.g:10745:1: rule__VariableExp__ReferredVariableAssignment : ( ( RULE_ID ) ) ;
     public final void rule__VariableExp__ReferredVariableAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10664:1: ( ( ( RULE_ID ) ) )
-            // InternalOcl.g:10665:2: ( ( RULE_ID ) )
+            // InternalOcl.g:10749:1: ( ( ( RULE_ID ) ) )
+            // InternalOcl.g:10750:2: ( ( RULE_ID ) )
             {
-            // InternalOcl.g:10665:2: ( ( RULE_ID ) )
-            // InternalOcl.g:10666:3: ( RULE_ID )
+            // InternalOcl.g:10750:2: ( ( RULE_ID ) )
+            // InternalOcl.g:10751:3: ( RULE_ID )
             {
              before(grammarAccess.getVariableExpAccess().getReferredVariableAuxiliaryCrossReference_0()); 
-            // InternalOcl.g:10667:3: ( RULE_ID )
-            // InternalOcl.g:10668:4: RULE_ID
+            // InternalOcl.g:10752:3: ( RULE_ID )
+            // InternalOcl.g:10753:4: RULE_ID
             {
              before(grammarAccess.getVariableExpAccess().getReferredVariableAuxiliaryIDTerminalRuleCall_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -32249,17 +32496,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringLiteralExp__StringSymbolAssignment_1"
-    // InternalOcl.g:10679:1: rule__StringLiteralExp__StringSymbolAssignment_1 : ( RULE_STRING ) ;
+    // InternalOcl.g:10764:1: rule__StringLiteralExp__StringSymbolAssignment_1 : ( RULE_STRING ) ;
     public final void rule__StringLiteralExp__StringSymbolAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10683:1: ( ( RULE_STRING ) )
-            // InternalOcl.g:10684:2: ( RULE_STRING )
+            // InternalOcl.g:10768:1: ( ( RULE_STRING ) )
+            // InternalOcl.g:10769:2: ( RULE_STRING )
             {
-            // InternalOcl.g:10684:2: ( RULE_STRING )
-            // InternalOcl.g:10685:3: RULE_STRING
+            // InternalOcl.g:10769:2: ( RULE_STRING )
+            // InternalOcl.g:10770:3: RULE_STRING
             {
              before(grammarAccess.getStringLiteralExpAccess().getStringSymbolSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -32286,17 +32533,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RealLiteralExp__RealSymbolAssignment"
-    // InternalOcl.g:10694:1: rule__RealLiteralExp__RealSymbolAssignment : ( RULE_DOUBLE ) ;
+    // InternalOcl.g:10779:1: rule__RealLiteralExp__RealSymbolAssignment : ( RULE_DOUBLE ) ;
     public final void rule__RealLiteralExp__RealSymbolAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10698:1: ( ( RULE_DOUBLE ) )
-            // InternalOcl.g:10699:2: ( RULE_DOUBLE )
+            // InternalOcl.g:10783:1: ( ( RULE_DOUBLE ) )
+            // InternalOcl.g:10784:2: ( RULE_DOUBLE )
             {
-            // InternalOcl.g:10699:2: ( RULE_DOUBLE )
-            // InternalOcl.g:10700:3: RULE_DOUBLE
+            // InternalOcl.g:10784:2: ( RULE_DOUBLE )
+            // InternalOcl.g:10785:3: RULE_DOUBLE
             {
              before(grammarAccess.getRealLiteralExpAccess().getRealSymbolDOUBLETerminalRuleCall_0()); 
             match(input,RULE_DOUBLE,FOLLOW_2); 
@@ -32323,17 +32570,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IntegerLiteralExp__IntegerSymbolAssignment_1"
-    // InternalOcl.g:10709:1: rule__IntegerLiteralExp__IntegerSymbolAssignment_1 : ( RULE_INT ) ;
+    // InternalOcl.g:10794:1: rule__IntegerLiteralExp__IntegerSymbolAssignment_1 : ( RULE_INT ) ;
     public final void rule__IntegerLiteralExp__IntegerSymbolAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10713:1: ( ( RULE_INT ) )
-            // InternalOcl.g:10714:2: ( RULE_INT )
+            // InternalOcl.g:10798:1: ( ( RULE_INT ) )
+            // InternalOcl.g:10799:2: ( RULE_INT )
             {
-            // InternalOcl.g:10714:2: ( RULE_INT )
-            // InternalOcl.g:10715:3: RULE_INT
+            // InternalOcl.g:10799:2: ( RULE_INT )
+            // InternalOcl.g:10800:3: RULE_INT
             {
              before(grammarAccess.getIntegerLiteralExpAccess().getIntegerSymbolINTTerminalRuleCall_1_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -32360,17 +32607,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__ElementsAssignment_3_0"
-    // InternalOcl.g:10724:1: rule__BagLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10809:1: rule__BagLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
     public final void rule__BagLiteralExp__ElementsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10728:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10729:2: ( ruleOclExpression )
+            // InternalOcl.g:10813:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10814:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10729:2: ( ruleOclExpression )
-            // InternalOcl.g:10730:3: ruleOclExpression
+            // InternalOcl.g:10814:2: ( ruleOclExpression )
+            // InternalOcl.g:10815:3: ruleOclExpression
             {
              before(grammarAccess.getBagLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32401,17 +32648,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagLiteralExp__ElementsAssignment_3_1_1"
-    // InternalOcl.g:10739:1: rule__BagLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10824:1: rule__BagLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
     public final void rule__BagLiteralExp__ElementsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10743:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10744:2: ( ruleOclExpression )
+            // InternalOcl.g:10828:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10829:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10744:2: ( ruleOclExpression )
-            // InternalOcl.g:10745:3: ruleOclExpression
+            // InternalOcl.g:10829:2: ( ruleOclExpression )
+            // InternalOcl.g:10830:3: ruleOclExpression
             {
              before(grammarAccess.getBagLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32442,17 +32689,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__ElementsAssignment_3_0"
-    // InternalOcl.g:10754:1: rule__OrderedSetLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10839:1: rule__OrderedSetLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
     public final void rule__OrderedSetLiteralExp__ElementsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10758:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10759:2: ( ruleOclExpression )
+            // InternalOcl.g:10843:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10844:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10759:2: ( ruleOclExpression )
-            // InternalOcl.g:10760:3: ruleOclExpression
+            // InternalOcl.g:10844:2: ( ruleOclExpression )
+            // InternalOcl.g:10845:3: ruleOclExpression
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32483,17 +32730,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1"
-    // InternalOcl.g:10769:1: rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10854:1: rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
     public final void rule__OrderedSetLiteralExp__ElementsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10773:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10774:2: ( ruleOclExpression )
+            // InternalOcl.g:10858:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10859:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10774:2: ( ruleOclExpression )
-            // InternalOcl.g:10775:3: ruleOclExpression
+            // InternalOcl.g:10859:2: ( ruleOclExpression )
+            // InternalOcl.g:10860:3: ruleOclExpression
             {
              before(grammarAccess.getOrderedSetLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32524,17 +32771,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__ElementsAssignment_3_0"
-    // InternalOcl.g:10784:1: rule__SequenceLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10869:1: rule__SequenceLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
     public final void rule__SequenceLiteralExp__ElementsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10788:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10789:2: ( ruleOclExpression )
+            // InternalOcl.g:10873:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10874:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10789:2: ( ruleOclExpression )
-            // InternalOcl.g:10790:3: ruleOclExpression
+            // InternalOcl.g:10874:2: ( ruleOclExpression )
+            // InternalOcl.g:10875:3: ruleOclExpression
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32565,17 +32812,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceLiteralExp__ElementsAssignment_3_1_1"
-    // InternalOcl.g:10799:1: rule__SequenceLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10884:1: rule__SequenceLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
     public final void rule__SequenceLiteralExp__ElementsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10803:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10804:2: ( ruleOclExpression )
+            // InternalOcl.g:10888:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10889:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10804:2: ( ruleOclExpression )
-            // InternalOcl.g:10805:3: ruleOclExpression
+            // InternalOcl.g:10889:2: ( ruleOclExpression )
+            // InternalOcl.g:10890:3: ruleOclExpression
             {
              before(grammarAccess.getSequenceLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32606,17 +32853,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__ElementsAssignment_3_0"
-    // InternalOcl.g:10814:1: rule__SetLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10899:1: rule__SetLiteralExp__ElementsAssignment_3_0 : ( ruleOclExpression ) ;
     public final void rule__SetLiteralExp__ElementsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10818:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10819:2: ( ruleOclExpression )
+            // InternalOcl.g:10903:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10904:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10819:2: ( ruleOclExpression )
-            // InternalOcl.g:10820:3: ruleOclExpression
+            // InternalOcl.g:10904:2: ( ruleOclExpression )
+            // InternalOcl.g:10905:3: ruleOclExpression
             {
              before(grammarAccess.getSetLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32647,17 +32894,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetLiteralExp__ElementsAssignment_3_1_1"
-    // InternalOcl.g:10829:1: rule__SetLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10914:1: rule__SetLiteralExp__ElementsAssignment_3_1_1 : ( ruleOclExpression ) ;
     public final void rule__SetLiteralExp__ElementsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10833:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10834:2: ( ruleOclExpression )
+            // InternalOcl.g:10918:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10919:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10834:2: ( ruleOclExpression )
-            // InternalOcl.g:10835:3: ruleOclExpression
+            // InternalOcl.g:10919:2: ( ruleOclExpression )
+            // InternalOcl.g:10920:3: ruleOclExpression
             {
              before(grammarAccess.getSetLiteralExpAccess().getElementsOclExpressionParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32688,17 +32935,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__TuplePartAssignment_3_0"
-    // InternalOcl.g:10844:1: rule__TupleLiteralExp__TuplePartAssignment_3_0 : ( ruleTuplePart ) ;
+    // InternalOcl.g:10929:1: rule__TupleLiteralExp__TuplePartAssignment_3_0 : ( ruleTuplePart ) ;
     public final void rule__TupleLiteralExp__TuplePartAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10848:1: ( ( ruleTuplePart ) )
-            // InternalOcl.g:10849:2: ( ruleTuplePart )
+            // InternalOcl.g:10933:1: ( ( ruleTuplePart ) )
+            // InternalOcl.g:10934:2: ( ruleTuplePart )
             {
-            // InternalOcl.g:10849:2: ( ruleTuplePart )
-            // InternalOcl.g:10850:3: ruleTuplePart
+            // InternalOcl.g:10934:2: ( ruleTuplePart )
+            // InternalOcl.g:10935:3: ruleTuplePart
             {
              before(grammarAccess.getTupleLiteralExpAccess().getTuplePartTuplePartParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32729,17 +32976,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExp__TuplePartAssignment_3_1_1"
-    // InternalOcl.g:10859:1: rule__TupleLiteralExp__TuplePartAssignment_3_1_1 : ( ruleTuplePart ) ;
+    // InternalOcl.g:10944:1: rule__TupleLiteralExp__TuplePartAssignment_3_1_1 : ( ruleTuplePart ) ;
     public final void rule__TupleLiteralExp__TuplePartAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10863:1: ( ( ruleTuplePart ) )
-            // InternalOcl.g:10864:2: ( ruleTuplePart )
+            // InternalOcl.g:10948:1: ( ( ruleTuplePart ) )
+            // InternalOcl.g:10949:2: ( ruleTuplePart )
             {
-            // InternalOcl.g:10864:2: ( ruleTuplePart )
-            // InternalOcl.g:10865:3: ruleTuplePart
+            // InternalOcl.g:10949:2: ( ruleTuplePart )
+            // InternalOcl.g:10950:3: ruleTuplePart
             {
              before(grammarAccess.getTupleLiteralExpAccess().getTuplePartTuplePartParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32770,17 +33017,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__VarNameAssignment_0"
-    // InternalOcl.g:10874:1: rule__TuplePart__VarNameAssignment_0 : ( RULE_STRING ) ;
+    // InternalOcl.g:10959:1: rule__TuplePart__VarNameAssignment_0 : ( RULE_STRING ) ;
     public final void rule__TuplePart__VarNameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10878:1: ( ( RULE_STRING ) )
-            // InternalOcl.g:10879:2: ( RULE_STRING )
+            // InternalOcl.g:10963:1: ( ( RULE_STRING ) )
+            // InternalOcl.g:10964:2: ( RULE_STRING )
             {
-            // InternalOcl.g:10879:2: ( RULE_STRING )
-            // InternalOcl.g:10880:3: RULE_STRING
+            // InternalOcl.g:10964:2: ( RULE_STRING )
+            // InternalOcl.g:10965:3: RULE_STRING
             {
              before(grammarAccess.getTuplePartAccess().getVarNameSTRINGTerminalRuleCall_0_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -32807,17 +33054,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__TypeAssignment_1_1"
-    // InternalOcl.g:10889:1: rule__TuplePart__TypeAssignment_1_1 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:10974:1: rule__TuplePart__TypeAssignment_1_1 : ( ruleOclTypeLiteral ) ;
     public final void rule__TuplePart__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10893:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:10894:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10978:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:10979:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:10894:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:10895:3: ruleOclTypeLiteral
+            // InternalOcl.g:10979:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:10980:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getTuplePartAccess().getTypeOclTypeLiteralParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32848,17 +33095,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__InitExpressionAssignment_3"
-    // InternalOcl.g:10904:1: rule__TuplePart__InitExpressionAssignment_3 : ( ruleOclExpression ) ;
+    // InternalOcl.g:10989:1: rule__TuplePart__InitExpressionAssignment_3 : ( ruleOclExpression ) ;
     public final void rule__TuplePart__InitExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10908:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10909:2: ( ruleOclExpression )
+            // InternalOcl.g:10993:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:10994:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10909:2: ( ruleOclExpression )
-            // InternalOcl.g:10910:3: ruleOclExpression
+            // InternalOcl.g:10994:2: ( ruleOclExpression )
+            // InternalOcl.g:10995:3: ruleOclExpression
             {
              before(grammarAccess.getTuplePartAccess().getInitExpressionOclExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -32889,17 +33136,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__ElementsAssignment_3_0"
-    // InternalOcl.g:10919:1: rule__MapLiteralExp__ElementsAssignment_3_0 : ( ruleMapElement ) ;
+    // InternalOcl.g:11004:1: rule__MapLiteralExp__ElementsAssignment_3_0 : ( ruleMapElement ) ;
     public final void rule__MapLiteralExp__ElementsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10923:1: ( ( ruleMapElement ) )
-            // InternalOcl.g:10924:2: ( ruleMapElement )
+            // InternalOcl.g:11008:1: ( ( ruleMapElement ) )
+            // InternalOcl.g:11009:2: ( ruleMapElement )
             {
-            // InternalOcl.g:10924:2: ( ruleMapElement )
-            // InternalOcl.g:10925:3: ruleMapElement
+            // InternalOcl.g:11009:2: ( ruleMapElement )
+            // InternalOcl.g:11010:3: ruleMapElement
             {
              before(grammarAccess.getMapLiteralExpAccess().getElementsMapElementParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -32930,17 +33177,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExp__ElementsAssignment_3_1_1"
-    // InternalOcl.g:10934:1: rule__MapLiteralExp__ElementsAssignment_3_1_1 : ( ruleMapElement ) ;
+    // InternalOcl.g:11019:1: rule__MapLiteralExp__ElementsAssignment_3_1_1 : ( ruleMapElement ) ;
     public final void rule__MapLiteralExp__ElementsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10938:1: ( ( ruleMapElement ) )
-            // InternalOcl.g:10939:2: ( ruleMapElement )
+            // InternalOcl.g:11023:1: ( ( ruleMapElement ) )
+            // InternalOcl.g:11024:2: ( ruleMapElement )
             {
-            // InternalOcl.g:10939:2: ( ruleMapElement )
-            // InternalOcl.g:10940:3: ruleMapElement
+            // InternalOcl.g:11024:2: ( ruleMapElement )
+            // InternalOcl.g:11025:3: ruleMapElement
             {
              before(grammarAccess.getMapLiteralExpAccess().getElementsMapElementParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -32971,17 +33218,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__KeyAssignment_1"
-    // InternalOcl.g:10949:1: rule__MapElement__KeyAssignment_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11034:1: rule__MapElement__KeyAssignment_1 : ( ruleOclExpression ) ;
     public final void rule__MapElement__KeyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10953:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10954:2: ( ruleOclExpression )
+            // InternalOcl.g:11038:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11039:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10954:2: ( ruleOclExpression )
-            // InternalOcl.g:10955:3: ruleOclExpression
+            // InternalOcl.g:11039:2: ( ruleOclExpression )
+            // InternalOcl.g:11040:3: ruleOclExpression
             {
              before(grammarAccess.getMapElementAccess().getKeyOclExpressionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -33012,17 +33259,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapElement__ValueAssignment_3"
-    // InternalOcl.g:10964:1: rule__MapElement__ValueAssignment_3 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11049:1: rule__MapElement__ValueAssignment_3 : ( ruleOclExpression ) ;
     public final void rule__MapElement__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10968:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:10969:2: ( ruleOclExpression )
+            // InternalOcl.g:11053:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11054:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:10969:2: ( ruleOclExpression )
-            // InternalOcl.g:10970:3: ruleOclExpression
+            // InternalOcl.g:11054:2: ( ruleOclExpression )
+            // InternalOcl.g:11055:3: ruleOclExpression
             {
              before(grammarAccess.getMapElementAccess().getValueOclExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -33053,17 +33300,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumLiteralExp__NameAssignment_1_0"
-    // InternalOcl.g:10979:1: rule__EnumLiteralExp__NameAssignment_1_0 : ( RULE_STRING ) ;
+    // InternalOcl.g:11064:1: rule__EnumLiteralExp__NameAssignment_1_0 : ( RULE_STRING ) ;
     public final void rule__EnumLiteralExp__NameAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10983:1: ( ( RULE_STRING ) )
-            // InternalOcl.g:10984:2: ( RULE_STRING )
+            // InternalOcl.g:11068:1: ( ( RULE_STRING ) )
+            // InternalOcl.g:11069:2: ( RULE_STRING )
             {
-            // InternalOcl.g:10984:2: ( RULE_STRING )
-            // InternalOcl.g:10985:3: RULE_STRING
+            // InternalOcl.g:11069:2: ( RULE_STRING )
+            // InternalOcl.g:11070:3: RULE_STRING
             {
              before(grammarAccess.getEnumLiteralExpAccess().getNameSTRINGTerminalRuleCall_1_0_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -33090,17 +33337,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumLiteralExp__NameAssignment_1_1"
-    // InternalOcl.g:10994:1: rule__EnumLiteralExp__NameAssignment_1_1 : ( RULE_ID ) ;
+    // InternalOcl.g:11079:1: rule__EnumLiteralExp__NameAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__EnumLiteralExp__NameAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10998:1: ( ( RULE_ID ) )
-            // InternalOcl.g:10999:2: ( RULE_ID )
+            // InternalOcl.g:11083:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11084:2: ( RULE_ID )
             {
-            // InternalOcl.g:10999:2: ( RULE_ID )
-            // InternalOcl.g:11000:3: RULE_ID
+            // InternalOcl.g:11084:2: ( RULE_ID )
+            // InternalOcl.g:11085:3: RULE_ID
             {
              before(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_1_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -33127,17 +33374,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__VariableAssignment_1"
-    // InternalOcl.g:11009:1: rule__LetExp__VariableAssignment_1 : ( ruleLocalVariable ) ;
+    // InternalOcl.g:11094:1: rule__LetExp__VariableAssignment_1 : ( ruleLocalVariable ) ;
     public final void rule__LetExp__VariableAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11013:1: ( ( ruleLocalVariable ) )
-            // InternalOcl.g:11014:2: ( ruleLocalVariable )
+            // InternalOcl.g:11098:1: ( ( ruleLocalVariable ) )
+            // InternalOcl.g:11099:2: ( ruleLocalVariable )
             {
-            // InternalOcl.g:11014:2: ( ruleLocalVariable )
-            // InternalOcl.g:11015:3: ruleLocalVariable
+            // InternalOcl.g:11099:2: ( ruleLocalVariable )
+            // InternalOcl.g:11100:3: ruleLocalVariable
             {
              before(grammarAccess.getLetExpAccess().getVariableLocalVariableParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -33168,17 +33415,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExp__In_Assignment_3"
-    // InternalOcl.g:11024:1: rule__LetExp__In_Assignment_3 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11109:1: rule__LetExp__In_Assignment_3 : ( ruleOclExpression ) ;
     public final void rule__LetExp__In_Assignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11028:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11029:2: ( ruleOclExpression )
+            // InternalOcl.g:11113:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11114:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11029:2: ( ruleOclExpression )
-            // InternalOcl.g:11030:3: ruleOclExpression
+            // InternalOcl.g:11114:2: ( ruleOclExpression )
+            // InternalOcl.g:11115:3: ruleOclExpression
             {
              before(grammarAccess.getLetExpAccess().getIn_OclExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -33209,17 +33456,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__ConditionAssignment_1"
-    // InternalOcl.g:11039:1: rule__IfExp__ConditionAssignment_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11124:1: rule__IfExp__ConditionAssignment_1 : ( ruleOclExpression ) ;
     public final void rule__IfExp__ConditionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11043:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11044:2: ( ruleOclExpression )
+            // InternalOcl.g:11128:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11129:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11044:2: ( ruleOclExpression )
-            // InternalOcl.g:11045:3: ruleOclExpression
+            // InternalOcl.g:11129:2: ( ruleOclExpression )
+            // InternalOcl.g:11130:3: ruleOclExpression
             {
              before(grammarAccess.getIfExpAccess().getConditionOclExpressionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -33250,17 +33497,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__ThenExpressionAssignment_3"
-    // InternalOcl.g:11054:1: rule__IfExp__ThenExpressionAssignment_3 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11139:1: rule__IfExp__ThenExpressionAssignment_3 : ( ruleOclExpression ) ;
     public final void rule__IfExp__ThenExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11058:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11059:2: ( ruleOclExpression )
+            // InternalOcl.g:11143:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11144:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11059:2: ( ruleOclExpression )
-            // InternalOcl.g:11060:3: ruleOclExpression
+            // InternalOcl.g:11144:2: ( ruleOclExpression )
+            // InternalOcl.g:11145:3: ruleOclExpression
             {
              before(grammarAccess.getIfExpAccess().getThenExpressionOclExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -33291,17 +33538,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExp__ElseExpressionAssignment_5"
-    // InternalOcl.g:11069:1: rule__IfExp__ElseExpressionAssignment_5 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11154:1: rule__IfExp__ElseExpressionAssignment_5 : ( ruleOclExpression ) ;
     public final void rule__IfExp__ElseExpressionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11073:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11074:2: ( ruleOclExpression )
+            // InternalOcl.g:11158:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11159:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11074:2: ( ruleOclExpression )
-            // InternalOcl.g:11075:3: ruleOclExpression
+            // InternalOcl.g:11159:2: ( ruleOclExpression )
+            // InternalOcl.g:11160:3: ruleOclExpression
             {
              before(grammarAccess.getIfExpAccess().getElseExpressionOclExpressionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -33332,17 +33579,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BraceExp__ExpAssignment_1"
-    // InternalOcl.g:11084:1: rule__BraceExp__ExpAssignment_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11169:1: rule__BraceExp__ExpAssignment_1 : ( ruleOclExpression ) ;
     public final void rule__BraceExp__ExpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11088:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11089:2: ( ruleOclExpression )
+            // InternalOcl.g:11173:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11174:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11089:2: ( ruleOclExpression )
-            // InternalOcl.g:11090:3: ruleOclExpression
+            // InternalOcl.g:11174:2: ( ruleOclExpression )
+            // InternalOcl.g:11175:3: ruleOclExpression
             {
              before(grammarAccess.getBraceExpAccess().getExpOclExpressionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -33373,17 +33620,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__OperationNameAssignment_0"
-    // InternalOcl.g:11099:1: rule__ContextlessCallExp__OperationNameAssignment_0 : ( RULE_ID ) ;
+    // InternalOcl.g:11184:1: rule__ContextlessCallExp__OperationNameAssignment_0 : ( RULE_ID ) ;
     public final void rule__ContextlessCallExp__OperationNameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11103:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11104:2: ( RULE_ID )
+            // InternalOcl.g:11188:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11189:2: ( RULE_ID )
             {
-            // InternalOcl.g:11104:2: ( RULE_ID )
-            // InternalOcl.g:11105:3: RULE_ID
+            // InternalOcl.g:11189:2: ( RULE_ID )
+            // InternalOcl.g:11190:3: RULE_ID
             {
              before(grammarAccess.getContextlessCallExpAccess().getOperationNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -33410,17 +33657,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__ArgumentsAssignment_2_0"
-    // InternalOcl.g:11114:1: rule__ContextlessCallExp__ArgumentsAssignment_2_0 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11199:1: rule__ContextlessCallExp__ArgumentsAssignment_2_0 : ( ruleOclExpression ) ;
     public final void rule__ContextlessCallExp__ArgumentsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11118:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11119:2: ( ruleOclExpression )
+            // InternalOcl.g:11203:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11204:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11119:2: ( ruleOclExpression )
-            // InternalOcl.g:11120:3: ruleOclExpression
+            // InternalOcl.g:11204:2: ( ruleOclExpression )
+            // InternalOcl.g:11205:3: ruleOclExpression
             {
              before(grammarAccess.getContextlessCallExpAccess().getArgumentsOclExpressionParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -33451,17 +33698,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ContextlessCallExp__ArgumentsAssignment_2_1_1"
-    // InternalOcl.g:11129:1: rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11214:1: rule__ContextlessCallExp__ArgumentsAssignment_2_1_1 : ( ruleOclExpression ) ;
     public final void rule__ContextlessCallExp__ArgumentsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11133:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11134:2: ( ruleOclExpression )
+            // InternalOcl.g:11218:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11219:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11134:2: ( ruleOclExpression )
-            // InternalOcl.g:11135:3: ruleOclExpression
+            // InternalOcl.g:11219:2: ( ruleOclExpression )
+            // InternalOcl.g:11220:3: ruleOclExpression
             {
              before(grammarAccess.getContextlessCallExpAccess().getArgumentsOclExpressionParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -33492,24 +33739,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanLiteralExp__BooleanSymbolAssignment_0"
-    // InternalOcl.g:11144:1: rule__BooleanLiteralExp__BooleanSymbolAssignment_0 : ( ( 'true' ) ) ;
+    // InternalOcl.g:11229:1: rule__BooleanLiteralExp__BooleanSymbolAssignment_0 : ( ( 'true' ) ) ;
     public final void rule__BooleanLiteralExp__BooleanSymbolAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11148:1: ( ( ( 'true' ) ) )
-            // InternalOcl.g:11149:2: ( ( 'true' ) )
+            // InternalOcl.g:11233:1: ( ( ( 'true' ) ) )
+            // InternalOcl.g:11234:2: ( ( 'true' ) )
             {
-            // InternalOcl.g:11149:2: ( ( 'true' ) )
-            // InternalOcl.g:11150:3: ( 'true' )
-            {
-             before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolTrueKeyword_0_0()); 
-            // InternalOcl.g:11151:3: ( 'true' )
-            // InternalOcl.g:11152:4: 'true'
+            // InternalOcl.g:11234:2: ( ( 'true' ) )
+            // InternalOcl.g:11235:3: ( 'true' )
             {
              before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolTrueKeyword_0_0()); 
-            match(input,67,FOLLOW_2); 
+            // InternalOcl.g:11236:3: ( 'true' )
+            // InternalOcl.g:11237:4: 'true'
+            {
+             before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolTrueKeyword_0_0()); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolTrueKeyword_0_0()); 
 
             }
@@ -33537,24 +33784,24 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanLiteralExp__BooleanSymbolAssignment_1"
-    // InternalOcl.g:11163:1: rule__BooleanLiteralExp__BooleanSymbolAssignment_1 : ( ( 'false' ) ) ;
+    // InternalOcl.g:11248:1: rule__BooleanLiteralExp__BooleanSymbolAssignment_1 : ( ( 'false' ) ) ;
     public final void rule__BooleanLiteralExp__BooleanSymbolAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11167:1: ( ( ( 'false' ) ) )
-            // InternalOcl.g:11168:2: ( ( 'false' ) )
+            // InternalOcl.g:11252:1: ( ( ( 'false' ) ) )
+            // InternalOcl.g:11253:2: ( ( 'false' ) )
             {
-            // InternalOcl.g:11168:2: ( ( 'false' ) )
-            // InternalOcl.g:11169:3: ( 'false' )
-            {
-             before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolFalseKeyword_1_0()); 
-            // InternalOcl.g:11170:3: ( 'false' )
-            // InternalOcl.g:11171:4: 'false'
+            // InternalOcl.g:11253:2: ( ( 'false' ) )
+            // InternalOcl.g:11254:3: ( 'false' )
             {
              before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolFalseKeyword_1_0()); 
-            match(input,68,FOLLOW_2); 
+            // InternalOcl.g:11255:3: ( 'false' )
+            // InternalOcl.g:11256:4: 'false'
+            {
+             before(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolFalseKeyword_1_0()); 
+            match(input,69,FOLLOW_2); 
              after(grammarAccess.getBooleanLiteralExpAccess().getBooleanSymbolFalseKeyword_1_0()); 
 
             }
@@ -33582,17 +33829,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__OperationNameAssignment_1"
-    // InternalOcl.g:11182:1: rule__OperationCall__OperationNameAssignment_1 : ( RULE_ID ) ;
+    // InternalOcl.g:11267:1: rule__OperationCall__OperationNameAssignment_1 : ( RULE_ID ) ;
     public final void rule__OperationCall__OperationNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11186:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11187:2: ( RULE_ID )
+            // InternalOcl.g:11271:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11272:2: ( RULE_ID )
             {
-            // InternalOcl.g:11187:2: ( RULE_ID )
-            // InternalOcl.g:11188:3: RULE_ID
+            // InternalOcl.g:11272:2: ( RULE_ID )
+            // InternalOcl.g:11273:3: RULE_ID
             {
              before(grammarAccess.getOperationCallAccess().getOperationNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -33619,17 +33866,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__ArgumentsAssignment_3_0"
-    // InternalOcl.g:11197:1: rule__OperationCall__ArgumentsAssignment_3_0 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11282:1: rule__OperationCall__ArgumentsAssignment_3_0 : ( ruleOclExpression ) ;
     public final void rule__OperationCall__ArgumentsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11201:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11202:2: ( ruleOclExpression )
+            // InternalOcl.g:11286:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11287:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11202:2: ( ruleOclExpression )
-            // InternalOcl.g:11203:3: ruleOclExpression
+            // InternalOcl.g:11287:2: ( ruleOclExpression )
+            // InternalOcl.g:11288:3: ruleOclExpression
             {
              before(grammarAccess.getOperationCallAccess().getArgumentsOclExpressionParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -33660,17 +33907,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationCall__ArgumentsAssignment_3_1_1"
-    // InternalOcl.g:11212:1: rule__OperationCall__ArgumentsAssignment_3_1_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11297:1: rule__OperationCall__ArgumentsAssignment_3_1_1 : ( ruleOclExpression ) ;
     public final void rule__OperationCall__ArgumentsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11216:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11217:2: ( ruleOclExpression )
+            // InternalOcl.g:11301:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11302:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11217:2: ( ruleOclExpression )
-            // InternalOcl.g:11218:3: ruleOclExpression
+            // InternalOcl.g:11302:2: ( ruleOclExpression )
+            // InternalOcl.g:11303:3: ruleOclExpression
             {
              before(grammarAccess.getOperationCallAccess().getArgumentsOclExpressionParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -33701,17 +33948,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigationOrAttributeCall__NameAssignment_1_0"
-    // InternalOcl.g:11227:1: rule__NavigationOrAttributeCall__NameAssignment_1_0 : ( RULE_STRING ) ;
+    // InternalOcl.g:11312:1: rule__NavigationOrAttributeCall__NameAssignment_1_0 : ( RULE_STRING ) ;
     public final void rule__NavigationOrAttributeCall__NameAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11231:1: ( ( RULE_STRING ) )
-            // InternalOcl.g:11232:2: ( RULE_STRING )
+            // InternalOcl.g:11316:1: ( ( RULE_STRING ) )
+            // InternalOcl.g:11317:2: ( RULE_STRING )
             {
-            // InternalOcl.g:11232:2: ( RULE_STRING )
-            // InternalOcl.g:11233:3: RULE_STRING
+            // InternalOcl.g:11317:2: ( RULE_STRING )
+            // InternalOcl.g:11318:3: RULE_STRING
             {
              before(grammarAccess.getNavigationOrAttributeCallAccess().getNameSTRINGTerminalRuleCall_1_0_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -33738,17 +33985,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigationOrAttributeCall__NameAssignment_1_1"
-    // InternalOcl.g:11242:1: rule__NavigationOrAttributeCall__NameAssignment_1_1 : ( RULE_ID ) ;
+    // InternalOcl.g:11327:1: rule__NavigationOrAttributeCall__NameAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__NavigationOrAttributeCall__NameAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11246:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11247:2: ( RULE_ID )
+            // InternalOcl.g:11331:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11332:2: ( RULE_ID )
             {
-            // InternalOcl.g:11247:2: ( RULE_ID )
-            // InternalOcl.g:11248:3: RULE_ID
+            // InternalOcl.g:11332:2: ( RULE_ID )
+            // InternalOcl.g:11333:3: RULE_ID
             {
              before(grammarAccess.getNavigationOrAttributeCallAccess().getNameIDTerminalRuleCall_1_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -33775,17 +34022,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__IteratorsAssignment_3"
-    // InternalOcl.g:11257:1: rule__IterateExp__IteratorsAssignment_3 : ( ruleIterator ) ;
+    // InternalOcl.g:11342:1: rule__IterateExp__IteratorsAssignment_3 : ( ruleIterator ) ;
     public final void rule__IterateExp__IteratorsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11261:1: ( ( ruleIterator ) )
-            // InternalOcl.g:11262:2: ( ruleIterator )
+            // InternalOcl.g:11346:1: ( ( ruleIterator ) )
+            // InternalOcl.g:11347:2: ( ruleIterator )
             {
-            // InternalOcl.g:11262:2: ( ruleIterator )
-            // InternalOcl.g:11263:3: ruleIterator
+            // InternalOcl.g:11347:2: ( ruleIterator )
+            // InternalOcl.g:11348:3: ruleIterator
             {
              before(grammarAccess.getIterateExpAccess().getIteratorsIteratorParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -33816,17 +34063,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__IteratorsAssignment_4_1"
-    // InternalOcl.g:11272:1: rule__IterateExp__IteratorsAssignment_4_1 : ( ruleIterator ) ;
+    // InternalOcl.g:11357:1: rule__IterateExp__IteratorsAssignment_4_1 : ( ruleIterator ) ;
     public final void rule__IterateExp__IteratorsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11276:1: ( ( ruleIterator ) )
-            // InternalOcl.g:11277:2: ( ruleIterator )
+            // InternalOcl.g:11361:1: ( ( ruleIterator ) )
+            // InternalOcl.g:11362:2: ( ruleIterator )
             {
-            // InternalOcl.g:11277:2: ( ruleIterator )
-            // InternalOcl.g:11278:3: ruleIterator
+            // InternalOcl.g:11362:2: ( ruleIterator )
+            // InternalOcl.g:11363:3: ruleIterator
             {
              before(grammarAccess.getIterateExpAccess().getIteratorsIteratorParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -33857,17 +34104,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__ResultAssignment_6"
-    // InternalOcl.g:11287:1: rule__IterateExp__ResultAssignment_6 : ( ruleLocalVariable ) ;
+    // InternalOcl.g:11372:1: rule__IterateExp__ResultAssignment_6 : ( ruleLocalVariable ) ;
     public final void rule__IterateExp__ResultAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11291:1: ( ( ruleLocalVariable ) )
-            // InternalOcl.g:11292:2: ( ruleLocalVariable )
+            // InternalOcl.g:11376:1: ( ( ruleLocalVariable ) )
+            // InternalOcl.g:11377:2: ( ruleLocalVariable )
             {
-            // InternalOcl.g:11292:2: ( ruleLocalVariable )
-            // InternalOcl.g:11293:3: ruleLocalVariable
+            // InternalOcl.g:11377:2: ( ruleLocalVariable )
+            // InternalOcl.g:11378:3: ruleLocalVariable
             {
              before(grammarAccess.getIterateExpAccess().getResultLocalVariableParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -33898,17 +34145,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IterateExp__BodyAssignment_8"
-    // InternalOcl.g:11302:1: rule__IterateExp__BodyAssignment_8 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11387:1: rule__IterateExp__BodyAssignment_8 : ( ruleOclExpression ) ;
     public final void rule__IterateExp__BodyAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11306:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11307:2: ( ruleOclExpression )
+            // InternalOcl.g:11391:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11392:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11307:2: ( ruleOclExpression )
-            // InternalOcl.g:11308:3: ruleOclExpression
+            // InternalOcl.g:11392:2: ( ruleOclExpression )
+            // InternalOcl.g:11393:3: ruleOclExpression
             {
              before(grammarAccess.getIterateExpAccess().getBodyOclExpressionParserRuleCall_8_0()); 
             pushFollow(FOLLOW_2);
@@ -33939,17 +34186,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__NameAssignment_0"
-    // InternalOcl.g:11317:1: rule__Iterator__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalOcl.g:11402:1: rule__Iterator__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Iterator__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11321:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11322:2: ( RULE_ID )
+            // InternalOcl.g:11406:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11407:2: ( RULE_ID )
             {
-            // InternalOcl.g:11322:2: ( RULE_ID )
-            // InternalOcl.g:11323:3: RULE_ID
+            // InternalOcl.g:11407:2: ( RULE_ID )
+            // InternalOcl.g:11408:3: RULE_ID
             {
              before(grammarAccess.getIteratorAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -33976,17 +34223,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Iterator__TypeAssignment_1_1"
-    // InternalOcl.g:11332:1: rule__Iterator__TypeAssignment_1_1 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11417:1: rule__Iterator__TypeAssignment_1_1 : ( ruleOclTypeLiteral ) ;
     public final void rule__Iterator__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11336:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11337:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11421:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11422:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11337:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11338:3: ruleOclTypeLiteral
+            // InternalOcl.g:11422:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11423:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getIteratorAccess().getTypeOclTypeLiteralParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -34017,17 +34264,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__NameAssignment_1"
-    // InternalOcl.g:11347:1: rule__IteratorExp__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalOcl.g:11432:1: rule__IteratorExp__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__IteratorExp__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11351:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11352:2: ( RULE_ID )
+            // InternalOcl.g:11436:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11437:2: ( RULE_ID )
             {
-            // InternalOcl.g:11352:2: ( RULE_ID )
-            // InternalOcl.g:11353:3: RULE_ID
+            // InternalOcl.g:11437:2: ( RULE_ID )
+            // InternalOcl.g:11438:3: RULE_ID
             {
              before(grammarAccess.getIteratorExpAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -34054,17 +34301,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__IteratorsAssignment_3"
-    // InternalOcl.g:11362:1: rule__IteratorExp__IteratorsAssignment_3 : ( ruleIterator ) ;
+    // InternalOcl.g:11447:1: rule__IteratorExp__IteratorsAssignment_3 : ( ruleIterator ) ;
     public final void rule__IteratorExp__IteratorsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11366:1: ( ( ruleIterator ) )
-            // InternalOcl.g:11367:2: ( ruleIterator )
+            // InternalOcl.g:11451:1: ( ( ruleIterator ) )
+            // InternalOcl.g:11452:2: ( ruleIterator )
             {
-            // InternalOcl.g:11367:2: ( ruleIterator )
-            // InternalOcl.g:11368:3: ruleIterator
+            // InternalOcl.g:11452:2: ( ruleIterator )
+            // InternalOcl.g:11453:3: ruleIterator
             {
              before(grammarAccess.getIteratorExpAccess().getIteratorsIteratorParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -34095,17 +34342,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__IteratorsAssignment_4_1"
-    // InternalOcl.g:11377:1: rule__IteratorExp__IteratorsAssignment_4_1 : ( ruleIterator ) ;
+    // InternalOcl.g:11462:1: rule__IteratorExp__IteratorsAssignment_4_1 : ( ruleIterator ) ;
     public final void rule__IteratorExp__IteratorsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11381:1: ( ( ruleIterator ) )
-            // InternalOcl.g:11382:2: ( ruleIterator )
+            // InternalOcl.g:11466:1: ( ( ruleIterator ) )
+            // InternalOcl.g:11467:2: ( ruleIterator )
             {
-            // InternalOcl.g:11382:2: ( ruleIterator )
-            // InternalOcl.g:11383:3: ruleIterator
+            // InternalOcl.g:11467:2: ( ruleIterator )
+            // InternalOcl.g:11468:3: ruleIterator
             {
              before(grammarAccess.getIteratorExpAccess().getIteratorsIteratorParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -34136,17 +34383,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IteratorExp__BodyAssignment_6"
-    // InternalOcl.g:11392:1: rule__IteratorExp__BodyAssignment_6 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11477:1: rule__IteratorExp__BodyAssignment_6 : ( ruleOclExpression ) ;
     public final void rule__IteratorExp__BodyAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11396:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11397:2: ( ruleOclExpression )
+            // InternalOcl.g:11481:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11482:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11397:2: ( ruleOclExpression )
-            // InternalOcl.g:11398:3: ruleOclExpression
+            // InternalOcl.g:11482:2: ( ruleOclExpression )
+            // InternalOcl.g:11483:3: ruleOclExpression
             {
              before(grammarAccess.getIteratorExpAccess().getBodyOclExpressionParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -34177,17 +34424,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__OperationNameAssignment_1"
-    // InternalOcl.g:11407:1: rule__CollectionOperationCall__OperationNameAssignment_1 : ( RULE_ID ) ;
+    // InternalOcl.g:11492:1: rule__CollectionOperationCall__OperationNameAssignment_1 : ( RULE_ID ) ;
     public final void rule__CollectionOperationCall__OperationNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11411:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11412:2: ( RULE_ID )
+            // InternalOcl.g:11496:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11497:2: ( RULE_ID )
             {
-            // InternalOcl.g:11412:2: ( RULE_ID )
-            // InternalOcl.g:11413:3: RULE_ID
+            // InternalOcl.g:11497:2: ( RULE_ID )
+            // InternalOcl.g:11498:3: RULE_ID
             {
              before(grammarAccess.getCollectionOperationCallAccess().getOperationNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -34214,17 +34461,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__ArgumentsAssignment_3_0"
-    // InternalOcl.g:11422:1: rule__CollectionOperationCall__ArgumentsAssignment_3_0 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11507:1: rule__CollectionOperationCall__ArgumentsAssignment_3_0 : ( ruleOclExpression ) ;
     public final void rule__CollectionOperationCall__ArgumentsAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11426:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11427:2: ( ruleOclExpression )
+            // InternalOcl.g:11511:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11512:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11427:2: ( ruleOclExpression )
-            // InternalOcl.g:11428:3: ruleOclExpression
+            // InternalOcl.g:11512:2: ( ruleOclExpression )
+            // InternalOcl.g:11513:3: ruleOclExpression
             {
              before(grammarAccess.getCollectionOperationCallAccess().getArgumentsOclExpressionParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -34255,17 +34502,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionOperationCall__ArgumentsAssignment_3_1_1"
-    // InternalOcl.g:11437:1: rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11522:1: rule__CollectionOperationCall__ArgumentsAssignment_3_1_1 : ( ruleOclExpression ) ;
     public final void rule__CollectionOperationCall__ArgumentsAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11441:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11442:2: ( ruleOclExpression )
+            // InternalOcl.g:11526:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11527:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11442:2: ( ruleOclExpression )
-            // InternalOcl.g:11443:3: ruleOclExpression
+            // InternalOcl.g:11527:2: ( ruleOclExpression )
+            // InternalOcl.g:11528:3: ruleOclExpression
             {
              before(grammarAccess.getCollectionOperationCallAccess().getArgumentsOclExpressionParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -34296,17 +34543,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__NameAssignment_0"
-    // InternalOcl.g:11452:1: rule__LocalVariable__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalOcl.g:11537:1: rule__LocalVariable__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__LocalVariable__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11456:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11457:2: ( RULE_ID )
+            // InternalOcl.g:11541:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11542:2: ( RULE_ID )
             {
-            // InternalOcl.g:11457:2: ( RULE_ID )
-            // InternalOcl.g:11458:3: RULE_ID
+            // InternalOcl.g:11542:2: ( RULE_ID )
+            // InternalOcl.g:11543:3: RULE_ID
             {
              before(grammarAccess.getLocalVariableAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -34333,17 +34580,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__TypeAssignment_1_1"
-    // InternalOcl.g:11467:1: rule__LocalVariable__TypeAssignment_1_1 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11552:1: rule__LocalVariable__TypeAssignment_1_1 : ( ruleOclTypeLiteral ) ;
     public final void rule__LocalVariable__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11471:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11472:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11556:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11557:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11472:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11473:3: ruleOclTypeLiteral
+            // InternalOcl.g:11557:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11558:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getLocalVariableAccess().getTypeOclTypeLiteralParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -34374,17 +34621,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LocalVariable__InitExpressionAssignment_3"
-    // InternalOcl.g:11482:1: rule__LocalVariable__InitExpressionAssignment_3 : ( ruleOclExpression ) ;
+    // InternalOcl.g:11567:1: rule__LocalVariable__InitExpressionAssignment_3 : ( ruleOclExpression ) ;
     public final void rule__LocalVariable__InitExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11486:1: ( ( ruleOclExpression ) )
-            // InternalOcl.g:11487:2: ( ruleOclExpression )
+            // InternalOcl.g:11571:1: ( ( ruleOclExpression ) )
+            // InternalOcl.g:11572:2: ( ruleOclExpression )
             {
-            // InternalOcl.g:11487:2: ( ruleOclExpression )
-            // InternalOcl.g:11488:3: ruleOclExpression
+            // InternalOcl.g:11572:2: ( ruleOclExpression )
+            // InternalOcl.g:11573:3: ruleOclExpression
             {
              before(grammarAccess.getLocalVariableAccess().getInitExpressionOclExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -34415,17 +34662,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionType__ElementTypeAssignment_2"
-    // InternalOcl.g:11497:1: rule__CollectionType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11582:1: rule__CollectionType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__CollectionType__ElementTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11501:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11502:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11586:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11587:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11502:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11503:3: ruleOclTypeLiteral
+            // InternalOcl.g:11587:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11588:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getCollectionTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -34456,17 +34703,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BagType__ElementTypeAssignment_2"
-    // InternalOcl.g:11512:1: rule__BagType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11597:1: rule__BagType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__BagType__ElementTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11516:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11517:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11601:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11602:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11517:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11518:3: ruleOclTypeLiteral
+            // InternalOcl.g:11602:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11603:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getBagTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -34497,17 +34744,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OrderedSetType__ElementTypeAssignment_2"
-    // InternalOcl.g:11527:1: rule__OrderedSetType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11612:1: rule__OrderedSetType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__OrderedSetType__ElementTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11531:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11532:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11616:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11617:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11532:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11533:3: ruleOclTypeLiteral
+            // InternalOcl.g:11617:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11618:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getOrderedSetTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -34538,17 +34785,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SequenceType__ElementTypeAssignment_2"
-    // InternalOcl.g:11542:1: rule__SequenceType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11627:1: rule__SequenceType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__SequenceType__ElementTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11546:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11547:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11631:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11632:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11547:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11548:3: ruleOclTypeLiteral
+            // InternalOcl.g:11632:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11633:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getSequenceTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -34579,17 +34826,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SetType__ElementTypeAssignment_2"
-    // InternalOcl.g:11557:1: rule__SetType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11642:1: rule__SetType__ElementTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__SetType__ElementTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11561:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11562:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11646:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11647:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11562:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11563:3: ruleOclTypeLiteral
+            // InternalOcl.g:11647:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11648:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getSetTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -34620,17 +34867,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__AttributesAssignment_3_0"
-    // InternalOcl.g:11572:1: rule__TupleType__AttributesAssignment_3_0 : ( ruleTupleTypeAttribute ) ;
+    // InternalOcl.g:11657:1: rule__TupleType__AttributesAssignment_3_0 : ( ruleTupleTypeAttribute ) ;
     public final void rule__TupleType__AttributesAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11576:1: ( ( ruleTupleTypeAttribute ) )
-            // InternalOcl.g:11577:2: ( ruleTupleTypeAttribute )
+            // InternalOcl.g:11661:1: ( ( ruleTupleTypeAttribute ) )
+            // InternalOcl.g:11662:2: ( ruleTupleTypeAttribute )
             {
-            // InternalOcl.g:11577:2: ( ruleTupleTypeAttribute )
-            // InternalOcl.g:11578:3: ruleTupleTypeAttribute
+            // InternalOcl.g:11662:2: ( ruleTupleTypeAttribute )
+            // InternalOcl.g:11663:3: ruleTupleTypeAttribute
             {
              before(grammarAccess.getTupleTypeAccess().getAttributesTupleTypeAttributeParserRuleCall_3_0_0()); 
             pushFollow(FOLLOW_2);
@@ -34661,17 +34908,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleType__AttributesAssignment_3_1_1"
-    // InternalOcl.g:11587:1: rule__TupleType__AttributesAssignment_3_1_1 : ( ruleTupleTypeAttribute ) ;
+    // InternalOcl.g:11672:1: rule__TupleType__AttributesAssignment_3_1_1 : ( ruleTupleTypeAttribute ) ;
     public final void rule__TupleType__AttributesAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11591:1: ( ( ruleTupleTypeAttribute ) )
-            // InternalOcl.g:11592:2: ( ruleTupleTypeAttribute )
+            // InternalOcl.g:11676:1: ( ( ruleTupleTypeAttribute ) )
+            // InternalOcl.g:11677:2: ( ruleTupleTypeAttribute )
             {
-            // InternalOcl.g:11592:2: ( ruleTupleTypeAttribute )
-            // InternalOcl.g:11593:3: ruleTupleTypeAttribute
+            // InternalOcl.g:11677:2: ( ruleTupleTypeAttribute )
+            // InternalOcl.g:11678:3: ruleTupleTypeAttribute
             {
              before(grammarAccess.getTupleTypeAccess().getAttributesTupleTypeAttributeParserRuleCall_3_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -34702,17 +34949,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__NameAssignment_0"
-    // InternalOcl.g:11602:1: rule__TupleTypeAttribute__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalOcl.g:11687:1: rule__TupleTypeAttribute__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__TupleTypeAttribute__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11606:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11607:2: ( RULE_ID )
+            // InternalOcl.g:11691:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11692:2: ( RULE_ID )
             {
-            // InternalOcl.g:11607:2: ( RULE_ID )
-            // InternalOcl.g:11608:3: RULE_ID
+            // InternalOcl.g:11692:2: ( RULE_ID )
+            // InternalOcl.g:11693:3: RULE_ID
             {
              before(grammarAccess.getTupleTypeAttributeAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -34739,17 +34986,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleTypeAttribute__TypeAssignment_2"
-    // InternalOcl.g:11617:1: rule__TupleTypeAttribute__TypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11702:1: rule__TupleTypeAttribute__TypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__TupleTypeAttribute__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11621:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11622:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11706:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11707:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11622:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11623:3: ruleOclTypeLiteral
+            // InternalOcl.g:11707:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11708:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getTupleTypeAttributeAccess().getTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -34780,21 +35027,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__ModelAssignment_0"
-    // InternalOcl.g:11632:1: rule__OclModelElementClass__ModelAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalOcl.g:11717:1: rule__OclModelElementClass__ModelAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__OclModelElementClass__ModelAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11636:1: ( ( ( RULE_ID ) ) )
-            // InternalOcl.g:11637:2: ( ( RULE_ID ) )
+            // InternalOcl.g:11721:1: ( ( ( RULE_ID ) ) )
+            // InternalOcl.g:11722:2: ( ( RULE_ID ) )
             {
-            // InternalOcl.g:11637:2: ( ( RULE_ID ) )
-            // InternalOcl.g:11638:3: ( RULE_ID )
+            // InternalOcl.g:11722:2: ( ( RULE_ID ) )
+            // InternalOcl.g:11723:3: ( RULE_ID )
             {
              before(grammarAccess.getOclModelElementClassAccess().getModelImportCrossReference_0_0()); 
-            // InternalOcl.g:11639:3: ( RULE_ID )
-            // InternalOcl.g:11640:4: RULE_ID
+            // InternalOcl.g:11724:3: ( RULE_ID )
+            // InternalOcl.g:11725:4: RULE_ID
             {
              before(grammarAccess.getOclModelElementClassAccess().getModelImportIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -34825,17 +35072,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__NameAssignment_2"
-    // InternalOcl.g:11651:1: rule__OclModelElementClass__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalOcl.g:11736:1: rule__OclModelElementClass__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__OclModelElementClass__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11655:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11656:2: ( RULE_ID )
+            // InternalOcl.g:11740:1: ( ( RULE_ID ) )
+            // InternalOcl.g:11741:2: ( RULE_ID )
             {
-            // InternalOcl.g:11656:2: ( RULE_ID )
-            // InternalOcl.g:11657:3: RULE_ID
+            // InternalOcl.g:11741:2: ( RULE_ID )
+            // InternalOcl.g:11742:3: RULE_ID
             {
              before(grammarAccess.getOclModelElementClassAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -34862,17 +35109,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__KeyTypeAssignment_2"
-    // InternalOcl.g:11666:1: rule__MapType__KeyTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11751:1: rule__MapType__KeyTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__MapType__KeyTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11670:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11671:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11755:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11756:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11671:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11672:3: ruleOclTypeLiteral
+            // InternalOcl.g:11756:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11757:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getMapTypeAccess().getKeyTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -34903,17 +35150,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__ValueTypeAssignment_4"
-    // InternalOcl.g:11681:1: rule__MapType__ValueTypeAssignment_4 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11766:1: rule__MapType__ValueTypeAssignment_4 : ( ruleOclTypeLiteral ) ;
     public final void rule__MapType__ValueTypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11685:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11686:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11770:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11771:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11686:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11687:3: ruleOclTypeLiteral
+            // InternalOcl.g:11771:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11772:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getMapTypeAccess().getValueTypeOclTypeLiteralParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -34948,14 +35195,14 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     protected DFA12 dfa12 = new DFA12(this);
     protected DFA16 dfa16 = new DFA16(this);
     static final String dfa_1s = "\23\uffff";
-    static final String dfa_2s = "\1\uffff\1\20\21\uffff";
+    static final String dfa_2s = "\1\uffff\1\22\21\uffff";
     static final String dfa_3s = "\1\4\1\14\21\uffff";
-    static final String dfa_4s = "\1\104\1\74\21\uffff";
-    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\1\1\20\1\21";
+    static final String dfa_4s = "\1\105\1\74\21\uffff";
+    static final String dfa_5s = "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\1";
     static final String dfa_6s = "\23\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\1\3\2\5\33\uffff\1\17\3\uffff\1\2\1\6\1\7\2\uffff\1\10\1\11\1\12\1\13\1\14\1\15\2\uffff\1\16\16\uffff\2\4",
-            "\20\20\3\uffff\1\20\1\21\1\20\1\uffff\1\22\3\20\4\uffff\1\20\7\uffff\1\20\1\uffff\5\20\2\uffff\1\20",
+            "\1\1\1\3\2\5\33\uffff\1\17\3\uffff\1\2\1\6\1\7\2\uffff\1\10\1\11\1\12\1\13\1\14\1\15\2\uffff\1\16\17\uffff\2\4",
+            "\20\22\3\uffff\1\22\1\20\1\22\1\uffff\1\21\3\22\4\uffff\1\22\7\uffff\1\22\1\uffff\5\22\2\uffff\1\22",
             "",
             "",
             "",
@@ -34997,30 +35244,30 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_7;
         }
         public String getDescription() {
-            return "2157:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleNullLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) );";
+            return "2182:1: rule__Primary_OclExpression__Alternatives : ( ( ruleVariableExp ) | ( ruleSelfLiteralExp ) | ( ruleStringLiteralExp ) | ( ruleBooleanLiteralExp ) | ( ruleNumericLiteralExp ) | ( ruleNullLiteralExp ) | ( ruleBagLiteralExp ) | ( ruleOrderedSetLiteralExp ) | ( ruleSequenceLiteralExp ) | ( ruleSetLiteralExp ) | ( ruleTupleLiteralExp ) | ( ruleMapLiteralExp ) | ( ruleEnumLiteralExp ) | ( ruleIfExp ) | ( ruleBraceExp ) | ( ruleOclModelElementExp ) | ( ruleContextlessCallExp ) );";
         }
     }
     static final String dfa_8s = "\16\uffff";
-    static final String dfa_9s = "\4\uffff\1\3\11\uffff";
-    static final String dfa_10s = "\1\70\2\4\1\uffff\1\14\1\43\2\uffff\1\4\1\14\1\uffff\1\4\1\uffff\1\14";
-    static final String dfa_11s = "\1\71\1\5\1\72\1\uffff\1\74\1\43\2\uffff\1\104\1\74\1\uffff\1\104\1\uffff\1\74";
-    static final String dfa_12s = "\3\uffff\1\2\2\uffff\1\3\1\1\2\uffff\1\5\1\uffff\1\4\1\uffff";
+    static final String dfa_9s = "\3\uffff\1\4\12\uffff";
+    static final String dfa_10s = "\1\70\2\4\1\14\1\uffff\1\43\2\uffff\1\4\1\14\2\uffff\1\4\1\14";
+    static final String dfa_11s = "\1\71\1\5\1\72\1\74\1\uffff\1\43\2\uffff\1\105\1\74\2\uffff\1\105\1\74";
+    static final String dfa_12s = "\4\uffff\1\2\1\uffff\1\3\1\1\2\uffff\1\5\1\4\2\uffff";
     static final String dfa_13s = "\16\uffff}>";
     static final String[] dfa_14s = {
             "\1\1\1\2",
-            "\1\4\1\3",
+            "\1\3\1\4",
             "\1\5\65\uffff\1\6",
+            "\20\4\3\uffff\1\4\1\uffff\1\4\1\uffff\1\7\3\4\4\uffff\1\4\7\uffff\1\4\1\uffff\5\4\2\uffff\1\4",
             "",
-            "\20\3\3\uffff\1\3\1\uffff\1\3\1\uffff\1\7\3\3\4\uffff\1\3\7\uffff\1\3\1\uffff\5\3\2\uffff\1\3",
             "\1\10",
             "",
             "",
-            "\1\11\3\12\16\uffff\1\12\5\uffff\1\12\6\uffff\2\12\2\uffff\3\12\2\uffff\7\12\1\uffff\1\12\16\uffff\2\12",
-            "\20\12\4\uffff\1\12\1\uffff\1\14\2\12\1\13\22\uffff\2\12\2\uffff\1\14",
+            "\1\11\3\12\16\uffff\1\12\5\uffff\1\12\6\uffff\2\12\2\uffff\3\12\2\uffff\7\12\1\uffff\1\12\17\uffff\2\12",
+            "\20\12\4\uffff\1\12\1\uffff\1\13\2\12\1\14\22\uffff\2\12\2\uffff\1\13",
             "",
-            "\1\15\3\12\16\uffff\1\12\5\uffff\1\12\6\uffff\1\12\3\uffff\3\12\2\uffff\7\12\1\uffff\1\12\16\uffff\2\12",
             "",
-            "\20\12\4\uffff\1\12\1\uffff\1\14\2\12\1\13\22\uffff\2\12\2\uffff\1\14"
+            "\1\15\3\12\16\uffff\1\12\5\uffff\1\12\6\uffff\1\12\3\uffff\3\12\2\uffff\7\12\1\uffff\1\12\17\uffff\2\12",
+            "\20\12\4\uffff\1\12\1\uffff\1\13\2\12\1\14\22\uffff\2\12\2\uffff\1\13"
     };
 
     static final short[] dfa_8 = DFA.unpackEncodedString(dfa_8s);
@@ -35045,7 +35292,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             this.transition = dfa_14;
         }
         public String getDescription() {
-            return "2331:1: rule__PropertyCall__Alternatives : ( ( ruleOperationCall ) | ( ruleNavigationOrAttributeCall ) | ( ruleIterateExp ) | ( ruleIteratorExp ) | ( ruleCollectionOperationCall ) );";
+            return "2356:1: rule__PropertyCall__Alternatives : ( ( ruleOperationCall ) | ( ruleNavigationOrAttributeCall ) | ( ruleIterateExp ) | ( ruleIteratorExp ) | ( ruleCollectionOperationCall ) );";
         }
     }
  
@@ -35063,16 +35310,16 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000004200000002L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0xE001F20000000010L,0x0000000000000007L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0xE001F20000000010L,0x000000000000000FL});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0017F388104000F0L,0x0000000000000018L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0017F388104000F0L,0x0000000000000030L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000800000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000001000000010L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000002000000002L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x000000000000F000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000000000000F002L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0013F388104000F0L,0x0000000000000018L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0013F388104000F0L,0x0000000000000030L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000030000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000000003C0000L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000C00000L});
@@ -35088,7 +35335,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x00000000000000C0L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000020000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0017FB88104000F0L,0x0000000000000018L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0017FB88104000F0L,0x0000000000000030L});
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000400000000000L});
@@ -35103,7 +35350,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0020000000000000L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0040000000000000L});
     public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0017F398104000F0L,0x0000000000000018L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0017F398104000F0L,0x0000000000000030L});
     public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0400000000000000L});
     public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0800002000000000L});
     public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x1000000000000000L});
@@ -35113,7 +35360,8 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
     public static final BitSet FOLLOW_62 = new BitSet(new long[]{0xC000000000000000L,0x0000000000000003L});
     public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0100000000000002L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0100000000000002L});
 
 }

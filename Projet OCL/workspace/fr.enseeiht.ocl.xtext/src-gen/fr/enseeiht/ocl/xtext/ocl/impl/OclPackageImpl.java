@@ -46,6 +46,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -519,6 +520,13 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass oclAnyTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass oclVoidTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2123,6 +2131,17 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
+  public EClass getOclVoidType()
+  {
+    return oclVoidTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTupleType()
   {
     return tupleTypeEClass;
@@ -2468,6 +2487,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclAnyTypeEClass = createEClass(OCL_ANY_TYPE);
 
+    oclVoidTypeEClass = createEClass(OCL_VOID_TYPE);
+
     tupleTypeEClass = createEClass(TUPLE_TYPE);
     createEReference(tupleTypeEClass, TUPLE_TYPE__ATTRIBUTES);
 
@@ -2556,6 +2577,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     integerTypeEClass.getESuperTypes().add(this.getNumericType());
     realTypeEClass.getESuperTypes().add(this.getNumericType());
     oclAnyTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
+    oclVoidTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
     tupleTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
     oclModelElementClassEClass.getESuperTypes().add(this.getOclTypeLiteral());
     mapTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
@@ -2759,6 +2781,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEClass(realTypeEClass, RealType.class, "RealType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(oclAnyTypeEClass, OclAnyType.class, "OclAnyType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(oclVoidTypeEClass, OclVoidType.class, "OclVoidType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(tupleTypeEClass, TupleType.class, "TupleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTupleType_Attributes(), this.getTupleTypeAttribute(), null, "attributes", null, 0, -1, TupleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

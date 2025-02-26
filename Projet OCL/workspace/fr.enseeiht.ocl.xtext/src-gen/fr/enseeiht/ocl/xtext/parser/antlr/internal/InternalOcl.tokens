@@ -23,6 +23,7 @@
 'Integer'=66
 'Map'=48
 'OclAny'=68
+'OclVoid'=69
 'OrderedSet'=44
 'Real'=67
 'Sequence'=45
@@ -120,3 +121,4 @@ T__65=65
 T__66=66
 T__67=67
 T__68=68
+T__69=69

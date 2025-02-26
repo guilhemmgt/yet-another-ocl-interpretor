@@ -232,6 +232,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="IntegerType" eSuperTypes="#//NumericType"/>
   <eClassifiers xsi:type="ecore:EClass" name="RealType" eSuperTypes="#//NumericType"/>
   <eClassifiers xsi:type="ecore:EClass" name="OclAnyType" eSuperTypes="#//OclTypeLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OclVoidType" eSuperTypes="#//OclTypeLiteral"/>
   <eClassifiers xsi:type="ecore:EClass" name="TupleType" eSuperTypes="#//OclTypeLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//TupleTypeAttribute" containment="true"/>

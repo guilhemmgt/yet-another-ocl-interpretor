@@ -2028,6 +2028,25 @@ public interface OclPackage extends EPackage
   int OCL_ANY_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl <em>Void Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclVoidType()
+   * @generated
+   */
+  int OCL_VOID_TYPE = 62;
+
+  /**
+   * The number of structural features of the '<em>Void Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCL_VOID_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleTypeImpl <em>Tuple Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2035,7 +2054,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleType()
    * @generated
    */
-  int TUPLE_TYPE = 62;
+  int TUPLE_TYPE = 63;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -2063,7 +2082,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleTypeAttribute()
    * @generated
    */
-  int TUPLE_TYPE_ATTRIBUTE = 63;
+  int TUPLE_TYPE_ATTRIBUTE = 64;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2100,7 +2119,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElementClass()
    * @generated
    */
-  int OCL_MODEL_ELEMENT_CLASS = 64;
+  int OCL_MODEL_ELEMENT_CLASS = 65;
 
   /**
    * The feature id for the '<em><b>Model</b></em>' reference.
@@ -2137,7 +2156,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapType()
    * @generated
    */
-  int MAP_TYPE = 65;
+  int MAP_TYPE = 66;
 
   /**
    * The feature id for the '<em><b>Key Type</b></em>' containment reference.
@@ -3613,6 +3632,16 @@ public interface OclPackage extends EPackage
   EClass getOclAnyType();
 
   /**
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclVoidType <em>Void Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Void Type</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclVoidType
+   * @generated
+   */
+  EClass getOclVoidType();
+
+  /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.TupleType <em>Tuple Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4971,6 +5000,16 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EClass OCL_ANY_TYPE = eINSTANCE.getOclAnyType();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl <em>Void Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclVoidType()
+     * @generated
+     */
+    EClass OCL_VOID_TYPE = eINSTANCE.getOclVoidType();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleTypeImpl <em>Tuple Type</em>}' class.

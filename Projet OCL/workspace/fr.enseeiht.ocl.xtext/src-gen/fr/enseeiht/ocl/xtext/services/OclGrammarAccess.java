@@ -2290,14 +2290,16 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cCollectionTypeLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cPrimitiveParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cOclAnyTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cTupleTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cOclModelElementClassParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cMapTypeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cOclVoidTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cTupleTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cOclModelElementClassParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cMapTypeParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//OclTypeLiteral :
 		//    CollectionTypeLiteral
 		//    | Primitive
 		//    | OclAnyType
+		//    | OclVoidType
 		//    | TupleType
 		//    | OclModelElementClass
 		//    | MapType
@@ -2307,6 +2309,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CollectionTypeLiteral
 		//| Primitive
 		//| OclAnyType
+		//| OclVoidType
 		//| TupleType
 		//| OclModelElementClass
 		//| MapType
@@ -2321,14 +2324,17 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//OclAnyType
 		public RuleCall getOclAnyTypeParserRuleCall_2() { return cOclAnyTypeParserRuleCall_2; }
 		
+		//OclVoidType
+		public RuleCall getOclVoidTypeParserRuleCall_3() { return cOclVoidTypeParserRuleCall_3; }
+		
 		//TupleType
-		public RuleCall getTupleTypeParserRuleCall_3() { return cTupleTypeParserRuleCall_3; }
+		public RuleCall getTupleTypeParserRuleCall_4() { return cTupleTypeParserRuleCall_4; }
 		
 		//OclModelElementClass
-		public RuleCall getOclModelElementClassParserRuleCall_4() { return cOclModelElementClassParserRuleCall_4; }
+		public RuleCall getOclModelElementClassParserRuleCall_5() { return cOclModelElementClassParserRuleCall_5; }
 		
 		//MapType
-		public RuleCall getMapTypeParserRuleCall_5() { return cMapTypeParserRuleCall_5; }
+		public RuleCall getMapTypeParserRuleCall_6() { return cMapTypeParserRuleCall_6; }
 	}
 	public class CollectionTypeLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.CollectionTypeLiteral");
@@ -2680,6 +2686,26 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'OclAny'
 		public Keyword getOclAnyKeyword_1() { return cOclAnyKeyword_1; }
 	}
+	public class OclVoidTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclVoidType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cOclVoidTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cOclVoidKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//OclVoidType :
+		//    {OclVoidType}'OclVoid'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{OclVoidType}'OclVoid'
+		public Group getGroup() { return cGroup; }
+		
+		//{OclVoidType}
+		public Action getOclVoidTypeAction_0() { return cOclVoidTypeAction_0; }
+		
+		//'OclVoid'
+		public Keyword getOclVoidKeyword_1() { return cOclVoidKeyword_1; }
+	}
 	public class TupleTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.TupleType");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2944,6 +2970,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final IntegerTypeElements pIntegerType;
 	private final RealTypeElements pRealType;
 	private final OclAnyTypeElements pOclAnyType;
+	private final OclVoidTypeElements pOclVoidType;
 	private final TupleTypeElements pTupleType;
 	private final TupleTypeAttributeElements pTupleTypeAttribute;
 	private final OclModelElementClassElements pOclModelElementClass;
@@ -3031,6 +3058,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pIntegerType = new IntegerTypeElements();
 		this.pRealType = new RealTypeElements();
 		this.pOclAnyType = new OclAnyTypeElements();
+		this.pOclVoidType = new OclVoidTypeElements();
 		this.pTupleType = new TupleTypeElements();
 		this.pTupleTypeAttribute = new TupleTypeAttributeElements();
 		this.pOclModelElementClass = new OclModelElementClassElements();
@@ -3701,6 +3729,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    CollectionTypeLiteral
 	//    | Primitive
 	//    | OclAnyType
+	//    | OclVoidType
 	//    | TupleType
 	//    | OclModelElementClass
 	//    | MapType
@@ -3861,6 +3890,17 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getOclAnyTypeRule() {
 		return getOclAnyTypeAccess().getRule();
+	}
+	
+	//OclVoidType :
+	//    {OclVoidType}'OclVoid'
+	//;
+	public OclVoidTypeElements getOclVoidTypeAccess() {
+		return pOclVoidType;
+	}
+	
+	public ParserRule getOclVoidTypeRule() {
+		return getOclVoidTypeAccess().getRule();
 	}
 	
 	//TupleType :

@@ -46,6 +46,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -193,6 +194,7 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.INTEGER_TYPE: return createIntegerType();
       case OclPackage.REAL_TYPE: return createRealType();
       case OclPackage.OCL_ANY_TYPE: return createOclAnyType();
+      case OclPackage.OCL_VOID_TYPE: return createOclVoidType();
       case OclPackage.TUPLE_TYPE: return createTupleType();
       case OclPackage.TUPLE_TYPE_ATTRIBUTE: return createTupleTypeAttribute();
       case OclPackage.OCL_MODEL_ELEMENT_CLASS: return createOclModelElementClass();
@@ -944,6 +946,18 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     OclAnyTypeImpl oclAnyType = new OclAnyTypeImpl();
     return oclAnyType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OclVoidType createOclVoidType()
+  {
+    OclVoidTypeImpl oclVoidType = new OclVoidTypeImpl();
+    return oclVoidType;
   }
 
   /**

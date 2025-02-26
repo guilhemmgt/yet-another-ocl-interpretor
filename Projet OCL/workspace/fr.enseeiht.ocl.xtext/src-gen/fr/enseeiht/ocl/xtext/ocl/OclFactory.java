@@ -582,6 +582,15 @@ public interface OclFactory extends EFactory
   OclAnyType createOclAnyType();
 
   /**
+   * Returns a new object of class '<em>Void Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Void Type</em>'.
+   * @generated
+   */
+  OclVoidType createOclVoidType();
+
+  /**
    * Returns a new object of class '<em>Tuple Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

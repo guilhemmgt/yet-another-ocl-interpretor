@@ -62,6 +62,7 @@ import fr.enseeiht.ocl.xtext.ocl.NumericType;
 import fr.enseeiht.ocl.xtext.ocl.IntegerType;
 import fr.enseeiht.ocl.xtext.ocl.RealType;
 import fr.enseeiht.ocl.xtext.ocl.OclAnyType;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.ocl.TupleType;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
@@ -128,6 +129,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NumericTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IntegerTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.RealTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclAnyTypeValidationAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclVoidTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.TupleTypeAttributeValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModelElementClassValidationAdapter;
@@ -510,6 +512,11 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseOclAnyType(OclAnyType object)
       {
         return createOclAnyTypeValidationAdapter(object);
+      }
+      @Override
+      public OCLAdapter caseOclVoidType(OclVoidType object)
+      {
+        return createOclVoidTypeValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseTupleType(TupleType object)
@@ -1433,6 +1440,20 @@ public class OCLValidationAdapterFactory
   {
 	
     return new OclAnyTypeValidationAdapter(target);
+  }
+
+  /**
+   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.OclVoidType <em>OclVoidType</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclVoidType
+   * @generated
+   */
+  public OCLAdapter createOclVoidTypeValidationAdapter(OclVoidType target)
+  {
+	
+    return new OclVoidTypeValidationAdapter(target);
   }
 
   /**

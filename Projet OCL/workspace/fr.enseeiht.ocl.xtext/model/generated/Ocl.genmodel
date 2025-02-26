@@ -185,6 +185,7 @@
     <genClasses ecoreClass="Ocl.ecore#//IntegerType"/>
     <genClasses ecoreClass="Ocl.ecore#//RealType"/>
     <genClasses ecoreClass="Ocl.ecore#//OclAnyType"/>
+    <genClasses ecoreClass="Ocl.ecore#//OclVoidType"/>
     <genClasses ecoreClass="Ocl.ecore#//TupleType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//TupleType/attributes"/>
     </genClasses>

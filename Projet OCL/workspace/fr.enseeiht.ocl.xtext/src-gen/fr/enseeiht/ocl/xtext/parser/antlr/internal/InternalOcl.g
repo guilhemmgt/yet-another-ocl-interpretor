@@ -3843,29 +3843,38 @@ ruleOclTypeLiteral returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getOclTypeLiteralAccess().getTupleTypeParserRuleCall_3());
+			newCompositeNode(grammarAccess.getOclTypeLiteralAccess().getOclVoidTypeParserRuleCall_3());
 		}
-		this_TupleType_3=ruleTupleType
+		this_OclVoidType_3=ruleOclVoidType
 		{
-			$current = $this_TupleType_3.current;
+			$current = $this_OclVoidType_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getOclTypeLiteralAccess().getOclModelElementClassParserRuleCall_4());
+			newCompositeNode(grammarAccess.getOclTypeLiteralAccess().getTupleTypeParserRuleCall_4());
 		}
-		this_OclModelElementClass_4=ruleOclModelElementClass
+		this_TupleType_4=ruleTupleType
 		{
-			$current = $this_OclModelElementClass_4.current;
+			$current = $this_TupleType_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getOclTypeLiteralAccess().getMapTypeParserRuleCall_5());
+			newCompositeNode(grammarAccess.getOclTypeLiteralAccess().getOclModelElementClassParserRuleCall_5());
 		}
-		this_MapType_5=ruleMapType
+		this_OclModelElementClass_5=ruleOclModelElementClass
 		{
-			$current = $this_MapType_5.current;
+			$current = $this_OclModelElementClass_5.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getOclTypeLiteralAccess().getMapTypeParserRuleCall_6());
+		}
+		this_MapType_6=ruleMapType
+		{
+			$current = $this_MapType_6.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -4411,6 +4420,36 @@ ruleOclAnyType returns [EObject current=null]
 		otherlv_1='OclAny'
 		{
 			newLeafNode(otherlv_1, grammarAccess.getOclAnyTypeAccess().getOclAnyKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleOclVoidType
+entryRuleOclVoidType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getOclVoidTypeRule()); }
+	iv_ruleOclVoidType=ruleOclVoidType
+	{ $current=$iv_ruleOclVoidType.current; }
+	EOF;
+
+// Rule OclVoidType
+ruleOclVoidType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getOclVoidTypeAccess().getOclVoidTypeAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='OclVoid'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getOclVoidTypeAccess().getOclVoidKeyword_1());
 		}
 	)
 ;
