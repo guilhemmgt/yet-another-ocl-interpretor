@@ -42,6 +42,14 @@ public final class OclAnyTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "OclAny";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

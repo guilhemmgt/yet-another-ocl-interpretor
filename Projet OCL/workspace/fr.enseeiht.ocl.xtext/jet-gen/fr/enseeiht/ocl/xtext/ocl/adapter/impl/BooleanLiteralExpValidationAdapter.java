@@ -2,9 +2,9 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
-import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -49,6 +49,14 @@ public final class BooleanLiteralExpValidationAdapter implements OCLAdapter {
   public OclType getType() {
     return new OclBoolean();
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return this.target.getBooleanSymbol();
+	}
 
   /**
    * Get adapted element

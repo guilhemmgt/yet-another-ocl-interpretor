@@ -8,10 +8,14 @@ inv mod2:
 	15 mod 6 = 3
 inv mod3:
 	7 mod 2 = 1.
+inv mod4:
+	15 mod 8 mod 2 = 1
 	
 inv div1:
 	5 div 15 = 0
 inv div2:
 	15 div 7 = 2
-inv mod3:
+inv div3:
 	7 div 2 = 3.
+inv div4:
+	15 div 2 div 3 = 2

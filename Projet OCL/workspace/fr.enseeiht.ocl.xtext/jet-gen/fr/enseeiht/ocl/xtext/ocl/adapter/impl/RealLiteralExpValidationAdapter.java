@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.RealLiteralExp;
@@ -30,7 +29,7 @@ public final class RealLiteralExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  return (Number)this.target.getRealSymbol();
+	  return (Double)this.target.getRealSymbol();
   }
 
   /**
@@ -41,6 +40,14 @@ public final class RealLiteralExpValidationAdapter implements OCLAdapter {
   public OclType getType() {
 	  return new OclReal();
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return Double.toString(this.target.getRealSymbol());
+	}
 
   /**
    * Get adapted element

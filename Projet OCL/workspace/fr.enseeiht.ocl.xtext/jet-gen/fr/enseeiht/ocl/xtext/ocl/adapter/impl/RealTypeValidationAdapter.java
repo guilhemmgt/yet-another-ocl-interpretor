@@ -42,6 +42,14 @@ public final class RealTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "Real";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

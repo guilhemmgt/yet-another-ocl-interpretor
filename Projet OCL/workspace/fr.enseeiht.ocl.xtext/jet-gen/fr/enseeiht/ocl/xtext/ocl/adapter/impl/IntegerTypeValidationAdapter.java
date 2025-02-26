@@ -43,6 +43,14 @@ public final class IntegerTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "Integer";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

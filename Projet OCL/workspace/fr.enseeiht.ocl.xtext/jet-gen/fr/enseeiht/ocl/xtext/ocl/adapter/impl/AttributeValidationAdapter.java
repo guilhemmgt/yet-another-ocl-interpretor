@@ -3,6 +3,8 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -35,11 +37,28 @@ public final class AttributeValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  // name : returnType = expressionType
+	  OclType returnType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
+	  OclType expressionType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getInitExpression()).getType();
+	  if (expressionType.conformsTo(returnType)) {
+		  return returnType;
+	  }
+	  else {
+		  String message = "Type mismatch in attribute declaration : got " + expressionType + ", expected " + returnType + ".";
+		  return new OclInvalid(target, message);
+	  }
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return ":" + this.target.getName() + "=" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getInitExpression());
+	}
 
   /**
    * Get adapted element

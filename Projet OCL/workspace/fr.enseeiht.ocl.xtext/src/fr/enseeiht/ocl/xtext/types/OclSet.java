@@ -4,7 +4,7 @@ import fr.enseeiht.ocl.xtext.OclType;
 
 public class OclSet extends OclCollection {
 	
-	public OclSet(OclAny subtype) {
+	public OclSet(OclType subtype) {
 		super(subtype);
 	}
 	
@@ -25,8 +25,12 @@ public class OclSet extends OclCollection {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// TODO Auto-generated method stub
-		return null;
+		if (oclType instanceof OclSet) {
+			return new OclSet(((OclCollection) oclType).subtype.unifyWith(subtype));
+		}
+		else {
+			return super.unifyWith(oclType);
+		}
 	}
 	
 

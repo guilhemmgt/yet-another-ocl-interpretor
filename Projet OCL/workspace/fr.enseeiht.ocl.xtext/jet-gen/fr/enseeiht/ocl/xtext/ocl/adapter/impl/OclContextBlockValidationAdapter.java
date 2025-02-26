@@ -1,8 +1,11 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -35,11 +38,24 @@ public final class OclContextBlockValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	return new OclEClass(target.getClass_());
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "context " + this.target.getEcoreTypes().getName() + "!" + this.target.getClass_().getName() + "\n";
+		EList<EObject> members = this.target.getMembers();
+		for (int i = 0; i < members.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(members.get(i)) + "\n";
+		}
+		return res;
+	}
 
   /**
    * Get adapted element

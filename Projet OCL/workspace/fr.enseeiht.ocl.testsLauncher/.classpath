@@ -15,6 +15,5 @@
 	<classpathentry kind="var" path="ECLIPSE_PLUGINS/org.eclipse.xtext.util_2.32.0.v20230827-1315.jar"/>
 	<classpathentry kind="var" path="ECLIPSE_PLUGINS/org.eclipse.xtext.testing_2.32.0.v20230827-1315.jar"/>
 	<classpathentry kind="var" path="ECLIPSE_PLUGINS/com.google.inject_7.0.0.jar"/>
-	<classpathentry kind="var" path="ECLIPSE_PLUGINS"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

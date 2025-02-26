@@ -41,7 +41,7 @@ OclModelElementExp :
 
 OperatorCallExp:
 	// args+=EqOpCallExp (({OperatorCallExp.source=current} operationNames+=BOOLOP) 	args+=EqOpCallExp )*
-	args+=EqOpCallExp (operationNames+=BOOLOP args+=OperatorCallExp)*
+	args+=EqOpCallExp (operationNames+=BOOLOP args+=EqOpCallExp)*
 ;
 BOOLOP  		: 'and'|'or'|'xor'|'implies';
 
@@ -59,19 +59,19 @@ RELOP  		: '>'|'<'|'>='|'<=' ;
 
 AddOpCallExp:
 	//args+=IntOpCallExp (({AddOpCallExp.source=current} operationNames+=ADDOP) 	args+=IntOpCallExp )*
-	args+=IntOpCallExp (operationNames+=ADDOP args+=AddOpCallExp)*
+	args+=IntOpCallExp (operationNames+=ADDOP args+=IntOpCallExp)*
 ;
 ADDOP : '-'|'+';
 
 IntOpCallExp :
 	//args+=MulOpCallExp (({IntOpCallExp.source=current} operationNames+=INTOP) 	args+=MulOpCallExp )*
-	args+=MulOpCallExp (operationNames+=INTOP args+=IntOpCallExp)*
+	args+=MulOpCallExp (operationNames+=INTOP args+=MulOpCallExp)*
 ;
 INTOP : 'div'|'mod';
 
 MulOpCallExp:
 	//args+=NotOpCallExp (({MulOpCallExp.source=current} operationNames+=MULOP) 	args+=NotOpCallExp )*
-	args+=NotOpCallExp (operationNames+=MULOP args+=MulOpCallExp)*
+	args+=NotOpCallExp (operationNames+=MULOP args+=NotOpCallExp)*
 ;
 MULOP: '*'|'/';
 
@@ -103,8 +103,8 @@ Primary_OclExpression returns OclExpression :
 	|IfExp
 	|BraceExp
 	|OclModelElementExp
-	|NullLiteralExp
-	|ContextlessCallExp;
+	|ContextlessCallExp
+	|NullLiteralExp;
 
 Auxiliary :Iterator|LocalVariable|Parameter;
 VariableExp:

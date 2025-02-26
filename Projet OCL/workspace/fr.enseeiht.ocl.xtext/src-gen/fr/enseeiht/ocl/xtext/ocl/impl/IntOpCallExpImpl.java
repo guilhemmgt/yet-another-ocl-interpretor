@@ -7,14 +7,20 @@ import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,9 +30,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.IntOpCallExpImpl#getArgumentGauche <em>Argument Gauche</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.IntOpCallExpImpl#getOperationName <em>Operation Name</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.IntOpCallExpImpl#getArgumentDroite <em>Argument Droite</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.IntOpCallExpImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.IntOpCallExpImpl#getOperationNames <em>Operation Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,44 +39,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements IntOpCallExp
 {
   /**
-   * The cached value of the '{@link #getArgumentGauche() <em>Argument Gauche</em>}' containment reference.
+   * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArgumentGauche()
+   * @see #getArgs()
    * @generated
    * @ordered
    */
-  protected MulOpCallExp argumentGauche;
+  protected EList<MulOpCallExp> args;
 
   /**
-   * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
+   * The cached value of the '{@link #getOperationNames() <em>Operation Names</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperationName()
+   * @see #getOperationNames()
    * @generated
    * @ordered
    */
-  protected static final String OPERATION_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperationName()
-   * @generated
-   * @ordered
-   */
-  protected String operationName = OPERATION_NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getArgumentDroite() <em>Argument Droite</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArgumentDroite()
-   * @generated
-   * @ordered
-   */
-  protected IntOpCallExp argumentDroite;
+  protected EList<String> operationNames;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,26 +85,13 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
    * @generated
    */
   @Override
-  public MulOpCallExp getArgumentGauche()
+  public EList<MulOpCallExp> getArgs()
   {
-    return argumentGauche;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetArgumentGauche(MulOpCallExp newArgumentGauche, NotificationChain msgs)
-  {
-    MulOpCallExp oldArgumentGauche = argumentGauche;
-    argumentGauche = newArgumentGauche;
-    if (eNotificationRequired())
+    if (args == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE, oldArgumentGauche, newArgumentGauche);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      args = new EObjectContainmentEList<MulOpCallExp>(MulOpCallExp.class, this, OclPackage.INT_OP_CALL_EXP__ARGS);
     }
-    return msgs;
+    return args;
   }
 
   /**
@@ -128,95 +100,13 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
    * @generated
    */
   @Override
-  public void setArgumentGauche(MulOpCallExp newArgumentGauche)
+  public EList<String> getOperationNames()
   {
-    if (newArgumentGauche != argumentGauche)
+    if (operationNames == null)
     {
-      NotificationChain msgs = null;
-      if (argumentGauche != null)
-        msgs = ((InternalEObject)argumentGauche).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE, null, msgs);
-      if (newArgumentGauche != null)
-        msgs = ((InternalEObject)newArgumentGauche).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE, null, msgs);
-      msgs = basicSetArgumentGauche(newArgumentGauche, msgs);
-      if (msgs != null) msgs.dispatch();
+      operationNames = new EDataTypeEList<String>(String.class, this, OclPackage.INT_OP_CALL_EXP__OPERATION_NAMES);
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE, newArgumentGauche, newArgumentGauche));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getOperationName()
-  {
-    return operationName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setOperationName(String newOperationName)
-  {
-    String oldOperationName = operationName;
-    operationName = newOperationName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.INT_OP_CALL_EXP__OPERATION_NAME, oldOperationName, operationName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntOpCallExp getArgumentDroite()
-  {
-    return argumentDroite;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetArgumentDroite(IntOpCallExp newArgumentDroite, NotificationChain msgs)
-  {
-    IntOpCallExp oldArgumentDroite = argumentDroite;
-    argumentDroite = newArgumentDroite;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE, oldArgumentDroite, newArgumentDroite);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setArgumentDroite(IntOpCallExp newArgumentDroite)
-  {
-    if (newArgumentDroite != argumentDroite)
-    {
-      NotificationChain msgs = null;
-      if (argumentDroite != null)
-        msgs = ((InternalEObject)argumentDroite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE, null, msgs);
-      if (newArgumentDroite != null)
-        msgs = ((InternalEObject)newArgumentDroite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE, null, msgs);
-      msgs = basicSetArgumentDroite(newArgumentDroite, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE, newArgumentDroite, newArgumentDroite));
+    return operationNames;
   }
 
   /**
@@ -229,10 +119,8 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE:
-        return basicSetArgumentGauche(null, msgs);
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE:
-        return basicSetArgumentDroite(null, msgs);
+      case OclPackage.INT_OP_CALL_EXP__ARGS:
+        return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -247,12 +135,10 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE:
-        return getArgumentGauche();
-      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAME:
-        return getOperationName();
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE:
-        return getArgumentDroite();
+      case OclPackage.INT_OP_CALL_EXP__ARGS:
+        return getArgs();
+      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAMES:
+        return getOperationNames();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -262,19 +148,19 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE:
-        setArgumentGauche((MulOpCallExp)newValue);
+      case OclPackage.INT_OP_CALL_EXP__ARGS:
+        getArgs().clear();
+        getArgs().addAll((Collection<? extends MulOpCallExp>)newValue);
         return;
-      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAME:
-        setOperationName((String)newValue);
-        return;
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE:
-        setArgumentDroite((IntOpCallExp)newValue);
+      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAMES:
+        getOperationNames().clear();
+        getOperationNames().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -290,14 +176,11 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE:
-        setArgumentGauche((MulOpCallExp)null);
+      case OclPackage.INT_OP_CALL_EXP__ARGS:
+        getArgs().clear();
         return;
-      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAME:
-        setOperationName(OPERATION_NAME_EDEFAULT);
-        return;
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE:
-        setArgumentDroite((IntOpCallExp)null);
+      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAMES:
+        getOperationNames().clear();
         return;
     }
     super.eUnset(featureID);
@@ -313,12 +196,10 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
   {
     switch (featureID)
     {
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_GAUCHE:
-        return argumentGauche != null;
-      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAME:
-        return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
-      case OclPackage.INT_OP_CALL_EXP__ARGUMENT_DROITE:
-        return argumentDroite != null;
+      case OclPackage.INT_OP_CALL_EXP__ARGS:
+        return args != null && !args.isEmpty();
+      case OclPackage.INT_OP_CALL_EXP__OPERATION_NAMES:
+        return operationNames != null && !operationNames.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -334,8 +215,8 @@ public class IntOpCallExpImpl extends MinimalEObjectImpl.Container implements In
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operationName: ");
-    result.append(operationName);
+    result.append(" (operationNames: ");
+    result.append(operationNames);
     result.append(')');
     return result.toString();
   }

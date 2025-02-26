@@ -4,9 +4,17 @@ import fr.enseeiht.ocl.xtext.OclType;
 
 public class OclCollection extends OclAny {
 	 
-	public OclAny subtype;
+	protected OclType subtype;
 	
-	public OclCollection(OclAny subtype) {
+	public OclType getSubtype() {
+		return subtype;
+	}
+
+	public void setSubtype(OclType subtype) {
+		this.subtype = subtype;
+	}
+
+	public OclCollection(OclType subtype) {
 		this.subtype = subtype;
 	}
 
@@ -14,7 +22,7 @@ public class OclCollection extends OclAny {
 	public boolean conformsTo(OclType oclType) {
 		// Conformance à OclAny
 		// La conformance à une autre collection est conditionnée : 
-		//		il y a conformance ssi le type des éléments se conforme à celui des éléments de l'autre collection.
+		// Il y a conformance ssi le type des éléments se conforme à celui des éléments de l'autre collection.
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean collectionType = false;
 		if (oclType.getClass().equals(OclCollection.class)) {
@@ -27,8 +35,13 @@ public class OclCollection extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// TODO Auto-generated method stub
-		return null;
+		// S'unifie avec une autre collection en une collection avec pour sous-type l'unification des sous-types.
+		if (oclType instanceof OclCollection) {
+			return new OclCollection(((OclCollection) oclType).subtype.unifyWith(subtype));
+		}
+		else {
+			return new OclAny();
+		}
 	}
 	
 

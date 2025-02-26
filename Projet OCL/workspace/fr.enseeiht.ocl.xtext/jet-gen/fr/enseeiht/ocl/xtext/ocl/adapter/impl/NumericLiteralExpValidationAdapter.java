@@ -42,6 +42,14 @@ public final class NumericLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    return super.toString();
+  }
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

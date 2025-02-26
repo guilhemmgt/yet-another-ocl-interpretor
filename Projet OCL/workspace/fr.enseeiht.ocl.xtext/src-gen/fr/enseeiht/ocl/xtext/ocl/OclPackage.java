@@ -493,31 +493,22 @@ public interface OclPackage extends EPackage
   int OPERATOR_CALL_EXP = 10;
 
   /**
-   * The feature id for the '<em><b>Argument Gauche</b></em>' containment reference.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATOR_CALL_EXP__ARGUMENT_GAUCHE = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int OPERATOR_CALL_EXP__ARGS = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+   * The feature id for the '<em><b>Operation Names</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATOR_CALL_EXP__OPERATION_NAME = OCL_EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATOR_CALL_EXP__ARGUMENT_DROITE = OCL_EXPRESSION_FEATURE_COUNT + 2;
+  int OPERATOR_CALL_EXP__OPERATION_NAMES = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Operator Call Exp</em>' class.
@@ -526,7 +517,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATOR_CALL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 3;
+  int OPERATOR_CALL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.EqOpCallExpImpl <em>Eq Op Call Exp</em>}' class.
@@ -539,31 +530,22 @@ public interface OclPackage extends EPackage
   int EQ_OP_CALL_EXP = 11;
 
   /**
-   * The feature id for the '<em><b>Argument Gauche</b></em>' containment reference.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQ_OP_CALL_EXP__ARGUMENT_GAUCHE = 0;
+  int EQ_OP_CALL_EXP__ARGS = 0;
 
   /**
-   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+   * The feature id for the '<em><b>Operation Names</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EQ_OP_CALL_EXP__OPERATION_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EQ_OP_CALL_EXP__ARGUMENT_DROITE = 2;
+  int EQ_OP_CALL_EXP__OPERATION_NAMES = 1;
 
   /**
    * The number of structural features of the '<em>Eq Op Call Exp</em>' class.
@@ -572,7 +554,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EQ_OP_CALL_EXP_FEATURE_COUNT = 3;
+  int EQ_OP_CALL_EXP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RelOpCallExpImpl <em>Rel Op Call Exp</em>}' class.
@@ -585,31 +567,22 @@ public interface OclPackage extends EPackage
   int REL_OP_CALL_EXP = 12;
 
   /**
-   * The feature id for the '<em><b>Argument Gauche</b></em>' containment reference.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REL_OP_CALL_EXP__ARGUMENT_GAUCHE = 0;
+  int REL_OP_CALL_EXP__ARGS = 0;
 
   /**
-   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+   * The feature id for the '<em><b>Operation Names</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REL_OP_CALL_EXP__OPERATION_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REL_OP_CALL_EXP__ARGUMENT_DROITE = 2;
+  int REL_OP_CALL_EXP__OPERATION_NAMES = 1;
 
   /**
    * The number of structural features of the '<em>Rel Op Call Exp</em>' class.
@@ -618,7 +591,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REL_OP_CALL_EXP_FEATURE_COUNT = 3;
+  int REL_OP_CALL_EXP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AddOpCallExpImpl <em>Add Op Call Exp</em>}' class.
@@ -631,31 +604,22 @@ public interface OclPackage extends EPackage
   int ADD_OP_CALL_EXP = 13;
 
   /**
-   * The feature id for the '<em><b>Argument Gauche</b></em>' containment reference.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_OP_CALL_EXP__ARGUMENT_GAUCHE = 0;
+  int ADD_OP_CALL_EXP__ARGS = 0;
 
   /**
-   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+   * The feature id for the '<em><b>Operation Names</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_OP_CALL_EXP__OPERATION_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADD_OP_CALL_EXP__ARGUMENT_DROITE = 2;
+  int ADD_OP_CALL_EXP__OPERATION_NAMES = 1;
 
   /**
    * The number of structural features of the '<em>Add Op Call Exp</em>' class.
@@ -664,7 +628,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ADD_OP_CALL_EXP_FEATURE_COUNT = 3;
+  int ADD_OP_CALL_EXP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.IntOpCallExpImpl <em>Int Op Call Exp</em>}' class.
@@ -677,31 +641,22 @@ public interface OclPackage extends EPackage
   int INT_OP_CALL_EXP = 14;
 
   /**
-   * The feature id for the '<em><b>Argument Gauche</b></em>' containment reference.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INT_OP_CALL_EXP__ARGUMENT_GAUCHE = 0;
+  int INT_OP_CALL_EXP__ARGS = 0;
 
   /**
-   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+   * The feature id for the '<em><b>Operation Names</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INT_OP_CALL_EXP__OPERATION_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_OP_CALL_EXP__ARGUMENT_DROITE = 2;
+  int INT_OP_CALL_EXP__OPERATION_NAMES = 1;
 
   /**
    * The number of structural features of the '<em>Int Op Call Exp</em>' class.
@@ -710,7 +665,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INT_OP_CALL_EXP_FEATURE_COUNT = 3;
+  int INT_OP_CALL_EXP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MulOpCallExpImpl <em>Mul Op Call Exp</em>}' class.
@@ -723,31 +678,22 @@ public interface OclPackage extends EPackage
   int MUL_OP_CALL_EXP = 15;
 
   /**
-   * The feature id for the '<em><b>Argument Gauche</b></em>' containment reference.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_OP_CALL_EXP__ARGUMENT_GAUCHE = 0;
+  int MUL_OP_CALL_EXP__ARGS = 0;
 
   /**
-   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+   * The feature id for the '<em><b>Operation Names</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MUL_OP_CALL_EXP__OPERATION_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MUL_OP_CALL_EXP__ARGUMENT_DROITE = 2;
+  int MUL_OP_CALL_EXP__OPERATION_NAMES = 1;
 
   /**
    * The number of structural features of the '<em>Mul Op Call Exp</em>' class.
@@ -756,7 +702,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MUL_OP_CALL_EXP_FEATURE_COUNT = 3;
+  int MUL_OP_CALL_EXP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.NotOpCallExpImpl <em>Not Op Call Exp</em>}' class.
@@ -1401,6 +1347,43 @@ public interface OclPackage extends EPackage
   int BRACE_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.ContextlessCallExpImpl <em>Contextless Call Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.ContextlessCallExpImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getContextlessCallExp()
+   * @generated
+   */
+  int CONTEXTLESS_CALL_EXP = 38;
+
+  /**
+   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXTLESS_CALL_EXP__OPERATION_NAME = OCL_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXTLESS_CALL_EXP__ARGUMENTS = OCL_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Contextless Call Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXTLESS_CALL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BooleanLiteralExpImpl <em>Boolean Literal Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1408,7 +1391,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanLiteralExp()
    * @generated
    */
-  int BOOLEAN_LITERAL_EXP = 38;
+  int BOOLEAN_LITERAL_EXP = 39;
 
   /**
    * The feature id for the '<em><b>Boolean Symbol</b></em>' attribute.
@@ -1436,7 +1419,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getPropertyCall()
    * @generated
    */
-  int PROPERTY_CALL = 39;
+  int PROPERTY_CALL = 40;
 
   /**
    * The number of structural features of the '<em>Property Call</em>' class.
@@ -1455,7 +1438,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOperationCall()
    * @generated
    */
-  int OPERATION_CALL = 40;
+  int OPERATION_CALL = 41;
 
   /**
    * The feature id for the '<em><b>Operation Name</b></em>' attribute.
@@ -1492,7 +1475,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNavigationOrAttributeCall()
    * @generated
    */
-  int NAVIGATION_OR_ATTRIBUTE_CALL = 41;
+  int NAVIGATION_OR_ATTRIBUTE_CALL = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1520,7 +1503,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIterateExp()
    * @generated
    */
-  int ITERATE_EXP = 42;
+  int ITERATE_EXP = 43;
 
   /**
    * The feature id for the '<em><b>Iterators</b></em>' containment reference list.
@@ -1566,7 +1549,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIterator()
    * @generated
    */
-  int ITERATOR = 43;
+  int ITERATOR = 44;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1603,7 +1586,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIteratorExp()
    * @generated
    */
-  int ITERATOR_EXP = 44;
+  int ITERATOR_EXP = 45;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1649,7 +1632,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionOperationCall()
    * @generated
    */
-  int COLLECTION_OPERATION_CALL = 45;
+  int COLLECTION_OPERATION_CALL = 46;
 
   /**
    * The feature id for the '<em><b>Operation Name</b></em>' attribute.
@@ -1686,7 +1669,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getLocalVariable()
    * @generated
    */
-  int LOCAL_VARIABLE = 46;
+  int LOCAL_VARIABLE = 47;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1732,7 +1715,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclTypeLiteral()
    * @generated
    */
-  int OCL_TYPE_LITERAL = 47;
+  int OCL_TYPE_LITERAL = 48;
 
   /**
    * The number of structural features of the '<em>Type Literal</em>' class.
@@ -1751,7 +1734,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionType()
    * @generated
    */
-  int COLLECTION_TYPE = 48;
+  int COLLECTION_TYPE = 49;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1779,7 +1762,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBagType()
    * @generated
    */
-  int BAG_TYPE = 49;
+  int BAG_TYPE = 50;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1807,7 +1790,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOrderedSetType()
    * @generated
    */
-  int ORDERED_SET_TYPE = 50;
+  int ORDERED_SET_TYPE = 51;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1835,7 +1818,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSequenceType()
    * @generated
    */
-  int SEQUENCE_TYPE = 51;
+  int SEQUENCE_TYPE = 52;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1863,7 +1846,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSetType()
    * @generated
    */
-  int SET_TYPE = 52;
+  int SET_TYPE = 53;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1891,7 +1874,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 53;
+  int PRIMITIVE = 54;
 
   /**
    * The number of structural features of the '<em>Primitive</em>' class.
@@ -1910,7 +1893,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getStringType()
    * @generated
    */
-  int STRING_TYPE = 54;
+  int STRING_TYPE = 55;
 
   /**
    * The number of structural features of the '<em>String Type</em>' class.
@@ -1929,7 +1912,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanType()
    * @generated
    */
-  int BOOLEAN_TYPE = 55;
+  int BOOLEAN_TYPE = 56;
 
   /**
    * The number of structural features of the '<em>Boolean Type</em>' class.
@@ -1948,7 +1931,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNumericType()
    * @generated
    */
-  int NUMERIC_TYPE = 56;
+  int NUMERIC_TYPE = 57;
 
   /**
    * The number of structural features of the '<em>Numeric Type</em>' class.
@@ -1967,7 +1950,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIntegerType()
    * @generated
    */
-  int INTEGER_TYPE = 57;
+  int INTEGER_TYPE = 58;
 
   /**
    * The number of structural features of the '<em>Integer Type</em>' class.
@@ -1986,7 +1969,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getRealType()
    * @generated
    */
-  int REAL_TYPE = 58;
+  int REAL_TYPE = 59;
 
   /**
    * The number of structural features of the '<em>Real Type</em>' class.
@@ -2005,7 +1988,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclAnyType()
    * @generated
    */
-  int OCL_ANY_TYPE = 59;
+  int OCL_ANY_TYPE = 60;
 
   /**
    * The number of structural features of the '<em>Any Type</em>' class.
@@ -2024,7 +2007,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleType()
    * @generated
    */
-  int TUPLE_TYPE = 60;
+  int TUPLE_TYPE = 61;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -2052,7 +2035,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleTypeAttribute()
    * @generated
    */
-  int TUPLE_TYPE_ATTRIBUTE = 61;
+  int TUPLE_TYPE_ATTRIBUTE = 62;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2089,7 +2072,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElementClass()
    * @generated
    */
-  int OCL_MODEL_ELEMENT_CLASS = 62;
+  int OCL_MODEL_ELEMENT_CLASS = 63;
 
   /**
    * The feature id for the '<em><b>Model</b></em>' reference.
@@ -2126,7 +2109,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapType()
    * @generated
    */
-  int MAP_TYPE = 63;
+  int MAP_TYPE = 64;
 
   /**
    * The feature id for the '<em><b>Key Type</b></em>' containment reference.
@@ -2487,37 +2470,26 @@ public interface OclPackage extends EPackage
   EClass getOperatorCallExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentGauche <em>Argument Gauche</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Gauche</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentGauche()
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgs()
    * @see #getOperatorCallExp()
    * @generated
    */
-  EReference getOperatorCallExp_ArgumentGauche();
+  EReference getOperatorCallExp_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationName <em>Operation Name</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationNames <em>Operation Names</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationName()
+   * @return the meta object for the attribute list '<em>Operation Names</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getOperationNames()
    * @see #getOperatorCallExp()
    * @generated
    */
-  EAttribute getOperatorCallExp_OperationName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentDroite <em>Argument Droite</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Droite</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OperatorCallExp#getArgumentDroite()
-   * @see #getOperatorCallExp()
-   * @generated
-   */
-  EReference getOperatorCallExp_ArgumentDroite();
+  EAttribute getOperatorCallExp_OperationNames();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp <em>Eq Op Call Exp</em>}'.
@@ -2530,37 +2502,26 @@ public interface OclPackage extends EPackage
   EClass getEqOpCallExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentGauche <em>Argument Gauche</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Gauche</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentGauche()
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgs()
    * @see #getEqOpCallExp()
    * @generated
    */
-  EReference getEqOpCallExp_ArgumentGauche();
+  EReference getEqOpCallExp_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getOperationName <em>Operation Name</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getOperationNames <em>Operation Names</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getOperationName()
+   * @return the meta object for the attribute list '<em>Operation Names</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getOperationNames()
    * @see #getEqOpCallExp()
    * @generated
    */
-  EAttribute getEqOpCallExp_OperationName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentDroite <em>Argument Droite</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Droite</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentDroite()
-   * @see #getEqOpCallExp()
-   * @generated
-   */
-  EReference getEqOpCallExp_ArgumentDroite();
+  EAttribute getEqOpCallExp_OperationNames();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp <em>Rel Op Call Exp</em>}'.
@@ -2573,37 +2534,26 @@ public interface OclPackage extends EPackage
   EClass getRelOpCallExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getArgumentGauche <em>Argument Gauche</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Gauche</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getArgumentGauche()
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getArgs()
    * @see #getRelOpCallExp()
    * @generated
    */
-  EReference getRelOpCallExp_ArgumentGauche();
+  EReference getRelOpCallExp_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getOperationName <em>Operation Name</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getOperationNames <em>Operation Names</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getOperationName()
+   * @return the meta object for the attribute list '<em>Operation Names</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getOperationNames()
    * @see #getRelOpCallExp()
    * @generated
    */
-  EAttribute getRelOpCallExp_OperationName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getArgumentDroite <em>Argument Droite</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Droite</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.RelOpCallExp#getArgumentDroite()
-   * @see #getRelOpCallExp()
-   * @generated
-   */
-  EReference getRelOpCallExp_ArgumentDroite();
+  EAttribute getRelOpCallExp_OperationNames();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp <em>Add Op Call Exp</em>}'.
@@ -2616,37 +2566,26 @@ public interface OclPackage extends EPackage
   EClass getAddOpCallExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getArgumentGauche <em>Argument Gauche</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Gauche</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getArgumentGauche()
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getArgs()
    * @see #getAddOpCallExp()
    * @generated
    */
-  EReference getAddOpCallExp_ArgumentGauche();
+  EReference getAddOpCallExp_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getOperationName <em>Operation Name</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getOperationNames <em>Operation Names</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getOperationName()
+   * @return the meta object for the attribute list '<em>Operation Names</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getOperationNames()
    * @see #getAddOpCallExp()
    * @generated
    */
-  EAttribute getAddOpCallExp_OperationName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getArgumentDroite <em>Argument Droite</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Droite</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.AddOpCallExp#getArgumentDroite()
-   * @see #getAddOpCallExp()
-   * @generated
-   */
-  EReference getAddOpCallExp_ArgumentDroite();
+  EAttribute getAddOpCallExp_OperationNames();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp <em>Int Op Call Exp</em>}'.
@@ -2659,37 +2598,26 @@ public interface OclPackage extends EPackage
   EClass getIntOpCallExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getArgumentGauche <em>Argument Gauche</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Gauche</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getArgumentGauche()
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getArgs()
    * @see #getIntOpCallExp()
    * @generated
    */
-  EReference getIntOpCallExp_ArgumentGauche();
+  EReference getIntOpCallExp_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getOperationName <em>Operation Name</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getOperationNames <em>Operation Names</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getOperationName()
+   * @return the meta object for the attribute list '<em>Operation Names</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getOperationNames()
    * @see #getIntOpCallExp()
    * @generated
    */
-  EAttribute getIntOpCallExp_OperationName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getArgumentDroite <em>Argument Droite</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Droite</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.IntOpCallExp#getArgumentDroite()
-   * @see #getIntOpCallExp()
-   * @generated
-   */
-  EReference getIntOpCallExp_ArgumentDroite();
+  EAttribute getIntOpCallExp_OperationNames();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp <em>Mul Op Call Exp</em>}'.
@@ -2702,37 +2630,26 @@ public interface OclPackage extends EPackage
   EClass getMulOpCallExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentGauche <em>Argument Gauche</em>}'.
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Gauche</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentGauche()
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgs()
    * @see #getMulOpCallExp()
    * @generated
    */
-  EReference getMulOpCallExp_ArgumentGauche();
+  EReference getMulOpCallExp_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getOperationName <em>Operation Name</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getOperationNames <em>Operation Names</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getOperationName()
+   * @return the meta object for the attribute list '<em>Operation Names</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getOperationNames()
    * @see #getMulOpCallExp()
    * @generated
    */
-  EAttribute getMulOpCallExp_OperationName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentDroite <em>Argument Droite</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Argument Droite</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.MulOpCallExp#getArgumentDroite()
-   * @see #getMulOpCallExp()
-   * @generated
-   */
-  EReference getMulOpCallExp_ArgumentDroite();
+  EAttribute getMulOpCallExp_OperationNames();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.NotOpCallExp <em>Not Op Call Exp</em>}'.
@@ -3250,6 +3167,38 @@ public interface OclPackage extends EPackage
    * @generated
    */
   EReference getBraceExp_Exp();
+
+  /**
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp <em>Contextless Call Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Contextless Call Exp</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp
+   * @generated
+   */
+  EClass getContextlessCallExp();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp#getOperationName <em>Operation Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operation Name</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp#getOperationName()
+   * @see #getContextlessCallExp()
+   * @generated
+   */
+  EAttribute getContextlessCallExp_OperationName();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp#getArguments <em>Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Arguments</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp#getArguments()
+   * @see #getContextlessCallExp()
+   * @generated
+   */
+  EReference getContextlessCallExp_Arguments();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp <em>Boolean Literal Exp</em>}'.
@@ -4036,28 +3985,20 @@ public interface OclPackage extends EPackage
     EClass OPERATOR_CALL_EXP = eINSTANCE.getOperatorCallExp();
 
     /**
-     * The meta object literal for the '<em><b>Argument Gauche</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OPERATOR_CALL_EXP__ARGUMENT_GAUCHE = eINSTANCE.getOperatorCallExp_ArgumentGauche();
+    EReference OPERATOR_CALL_EXP__ARGS = eINSTANCE.getOperatorCallExp_Args();
 
     /**
-     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operation Names</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATOR_CALL_EXP__OPERATION_NAME = eINSTANCE.getOperatorCallExp_OperationName();
-
-    /**
-     * The meta object literal for the '<em><b>Argument Droite</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OPERATOR_CALL_EXP__ARGUMENT_DROITE = eINSTANCE.getOperatorCallExp_ArgumentDroite();
+    EAttribute OPERATOR_CALL_EXP__OPERATION_NAMES = eINSTANCE.getOperatorCallExp_OperationNames();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.EqOpCallExpImpl <em>Eq Op Call Exp</em>}' class.
@@ -4070,28 +4011,20 @@ public interface OclPackage extends EPackage
     EClass EQ_OP_CALL_EXP = eINSTANCE.getEqOpCallExp();
 
     /**
-     * The meta object literal for the '<em><b>Argument Gauche</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EQ_OP_CALL_EXP__ARGUMENT_GAUCHE = eINSTANCE.getEqOpCallExp_ArgumentGauche();
+    EReference EQ_OP_CALL_EXP__ARGS = eINSTANCE.getEqOpCallExp_Args();
 
     /**
-     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operation Names</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EQ_OP_CALL_EXP__OPERATION_NAME = eINSTANCE.getEqOpCallExp_OperationName();
-
-    /**
-     * The meta object literal for the '<em><b>Argument Droite</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EQ_OP_CALL_EXP__ARGUMENT_DROITE = eINSTANCE.getEqOpCallExp_ArgumentDroite();
+    EAttribute EQ_OP_CALL_EXP__OPERATION_NAMES = eINSTANCE.getEqOpCallExp_OperationNames();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.RelOpCallExpImpl <em>Rel Op Call Exp</em>}' class.
@@ -4104,28 +4037,20 @@ public interface OclPackage extends EPackage
     EClass REL_OP_CALL_EXP = eINSTANCE.getRelOpCallExp();
 
     /**
-     * The meta object literal for the '<em><b>Argument Gauche</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REL_OP_CALL_EXP__ARGUMENT_GAUCHE = eINSTANCE.getRelOpCallExp_ArgumentGauche();
+    EReference REL_OP_CALL_EXP__ARGS = eINSTANCE.getRelOpCallExp_Args();
 
     /**
-     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operation Names</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REL_OP_CALL_EXP__OPERATION_NAME = eINSTANCE.getRelOpCallExp_OperationName();
-
-    /**
-     * The meta object literal for the '<em><b>Argument Droite</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REL_OP_CALL_EXP__ARGUMENT_DROITE = eINSTANCE.getRelOpCallExp_ArgumentDroite();
+    EAttribute REL_OP_CALL_EXP__OPERATION_NAMES = eINSTANCE.getRelOpCallExp_OperationNames();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AddOpCallExpImpl <em>Add Op Call Exp</em>}' class.
@@ -4138,28 +4063,20 @@ public interface OclPackage extends EPackage
     EClass ADD_OP_CALL_EXP = eINSTANCE.getAddOpCallExp();
 
     /**
-     * The meta object literal for the '<em><b>Argument Gauche</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ADD_OP_CALL_EXP__ARGUMENT_GAUCHE = eINSTANCE.getAddOpCallExp_ArgumentGauche();
+    EReference ADD_OP_CALL_EXP__ARGS = eINSTANCE.getAddOpCallExp_Args();
 
     /**
-     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operation Names</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ADD_OP_CALL_EXP__OPERATION_NAME = eINSTANCE.getAddOpCallExp_OperationName();
-
-    /**
-     * The meta object literal for the '<em><b>Argument Droite</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ADD_OP_CALL_EXP__ARGUMENT_DROITE = eINSTANCE.getAddOpCallExp_ArgumentDroite();
+    EAttribute ADD_OP_CALL_EXP__OPERATION_NAMES = eINSTANCE.getAddOpCallExp_OperationNames();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.IntOpCallExpImpl <em>Int Op Call Exp</em>}' class.
@@ -4172,28 +4089,20 @@ public interface OclPackage extends EPackage
     EClass INT_OP_CALL_EXP = eINSTANCE.getIntOpCallExp();
 
     /**
-     * The meta object literal for the '<em><b>Argument Gauche</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference INT_OP_CALL_EXP__ARGUMENT_GAUCHE = eINSTANCE.getIntOpCallExp_ArgumentGauche();
+    EReference INT_OP_CALL_EXP__ARGS = eINSTANCE.getIntOpCallExp_Args();
 
     /**
-     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operation Names</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INT_OP_CALL_EXP__OPERATION_NAME = eINSTANCE.getIntOpCallExp_OperationName();
-
-    /**
-     * The meta object literal for the '<em><b>Argument Droite</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INT_OP_CALL_EXP__ARGUMENT_DROITE = eINSTANCE.getIntOpCallExp_ArgumentDroite();
+    EAttribute INT_OP_CALL_EXP__OPERATION_NAMES = eINSTANCE.getIntOpCallExp_OperationNames();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MulOpCallExpImpl <em>Mul Op Call Exp</em>}' class.
@@ -4206,28 +4115,20 @@ public interface OclPackage extends EPackage
     EClass MUL_OP_CALL_EXP = eINSTANCE.getMulOpCallExp();
 
     /**
-     * The meta object literal for the '<em><b>Argument Gauche</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MUL_OP_CALL_EXP__ARGUMENT_GAUCHE = eINSTANCE.getMulOpCallExp_ArgumentGauche();
+    EReference MUL_OP_CALL_EXP__ARGS = eINSTANCE.getMulOpCallExp_Args();
 
     /**
-     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operation Names</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MUL_OP_CALL_EXP__OPERATION_NAME = eINSTANCE.getMulOpCallExp_OperationName();
-
-    /**
-     * The meta object literal for the '<em><b>Argument Droite</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MUL_OP_CALL_EXP__ARGUMENT_DROITE = eINSTANCE.getMulOpCallExp_ArgumentDroite();
+    EAttribute MUL_OP_CALL_EXP__OPERATION_NAMES = eINSTANCE.getMulOpCallExp_OperationNames();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.NotOpCallExpImpl <em>Not Op Call Exp</em>}' class.
@@ -4664,6 +4565,32 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EReference BRACE_EXP__EXP = eINSTANCE.getBraceExp_Exp();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.ContextlessCallExpImpl <em>Contextless Call Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.ContextlessCallExpImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getContextlessCallExp()
+     * @generated
+     */
+    EClass CONTEXTLESS_CALL_EXP = eINSTANCE.getContextlessCallExp();
+
+    /**
+     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTEXTLESS_CALL_EXP__OPERATION_NAME = eINSTANCE.getContextlessCallExp_OperationName();
+
+    /**
+     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXTLESS_CALL_EXP__ARGUMENTS = eINSTANCE.getContextlessCallExp_Arguments();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BooleanLiteralExpImpl <em>Boolean Literal Exp</em>}' class.

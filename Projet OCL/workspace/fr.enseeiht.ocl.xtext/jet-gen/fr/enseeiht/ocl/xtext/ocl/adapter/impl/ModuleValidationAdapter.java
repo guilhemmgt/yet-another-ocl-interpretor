@@ -1,10 +1,17 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.Module;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -14,7 +21,7 @@ import fr.enseeiht.ocl.xtext.OclType;
 public final class ModuleValidationAdapter implements OCLAdapter {
 
   private Module target;
-
+  private List<OclFeatureDefinition> localDefinitions; 
   /**
    * @generated
    */
@@ -42,11 +49,38 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "";
+		// Ajout des imports
+		EList<Import> imports = this.target.getImports();
+		for (int i = 0; i < imports.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(imports.get(i)) + "\n";
+		}
+		// Ajout des contextless features
+		EList<OclFeatureDefinition> contextlessFeatures = this.target.getContextlessFeatures();
+		for (int i = 0; i < contextlessFeatures.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(contextlessFeatures.get(i)) + "\n";
+		}
+		// Ajout des contexts
+		EList<OclContextBlock> contextBlocks = this.target.getContextBlocks();
+		for (int i = 0; i < contextBlocks.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(contextBlocks.get(i)) + "\n";
+		}
+		return res;
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+    public List<OclFeatureDefinition> getAllDefinition() {
+	  return this.localDefinitions;
   }
  }

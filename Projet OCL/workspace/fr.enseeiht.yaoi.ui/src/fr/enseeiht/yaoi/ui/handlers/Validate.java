@@ -1,29 +1,24 @@
 package fr.enseeiht.yaoi.ui.handlers;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -33,7 +28,7 @@ import fr.enseeiht.yaoi.OclInterpretor;
 import fr.enseeiht.yaoi.ValidationError;
 import fr.enseeiht.yaoi.ValidationResult;
 
-public class LoadValidate extends AbstractHandler {
+public class Validate extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		System.out.println("executing yaoi...");
@@ -41,27 +36,25 @@ public class LoadValidate extends AbstractHandler {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		IEditorPart editor = HandlerUtil.getActiveEditorChecked(event);
+		if (!(editor instanceof IEditingDomainProvider)) {
+			throw new RuntimeException("???");
+		}
+		EditingDomain editorDomain = ((IEditingDomainProvider) editor).getEditingDomain();
+		ResourceSet resourceSet = editorDomain.getResourceSet();
+		Resource moclResource = null;
+		for (Resource r : resourceSet.getResources()) {
+			if (r.getURI().fileExtension().equals("mocl")) {
+				moclResource = r;
+			}
+		}
+		if (moclResource == null) {
+			// TODO : popup error (load mocl first)
+			return null;
+		}
 
 		//// MOCL
 
-		// Récupérer le .mocl (via fenêtre de dialogue)
-		FileDialog fileDialog = new FileDialog(shell, SWT.OPEN);
-		fileDialog.setText("Sélectionner un fichier de contraintes");
-		fileDialog.setFilterExtensions(new String[] { "*.mocl" });
-		String moclPath = fileDialog.open();
-		// En cas d'annulation de la sélection par l'user
-		if (moclPath == null)
-			return null;
-
-		// Récupérer l'URI du .mocl
-		File moclFile = new File(moclPath);
-		IFile moclIFile = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(moclFile.toURI())[0];
-		URI moclUri = URI.createPlatformResourceURI(moclIFile.getFullPath().toString(), true);
-//        URI moclUri = URI.createFileURI(moclPath);
-		// Récupérer la Resource du .mocl
-		Resource moclResource = resourceSet.getResource(moclUri, true);
 		EcoreUtil.resolveAll(moclResource);
 		// Récupérer le Module MOCL
 		Module moclModule = (Module) moclResource.getContents().get(0);
@@ -97,15 +90,21 @@ public class LoadValidate extends AbstractHandler {
 		//// RESULTS
 
 		ValidationResult res = OclInterpretor.validate(xmiResource, moclModule);
-        boolean hasSkillIssues = res.hasNoError();
-        System.out.println("Skill issues ? " + (hasSkillIssues ? "No" : "Yes"));
-        if (!hasSkillIssues) {
-                Set<ValidationError> errors = res.getErrors();
-                for (ValidationError error : errors) {
-                        System.out.println("        Error: " + error);
-                }
-        }
-        
+		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		StringBuilder sb = new StringBuilder("Validation Errors:\n");
+		for (ValidationError error : res.getErrors()) {
+		    String invName = error.getFailedInvariant() != null 
+		                     ? error.getFailedInvariant().getName() 
+		                     : "Unknown Invariant";
+		    String objName = error.getTestedObject() != null 
+		                     ? error.getTestedObject().toString() 
+		                     : "Unknown Object";
+		    sb.append("  Invariant \"").append(invName)
+		      .append("\" is violated by \"").append(objName).append("\"\n");
+		}
+		MessageDialog.openError(shell, "Validation Results", sb.toString());
+
+
 		return null;
 	}
 }

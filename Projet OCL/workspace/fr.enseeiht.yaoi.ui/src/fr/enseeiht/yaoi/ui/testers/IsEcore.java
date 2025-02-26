@@ -2,7 +2,6 @@ package fr.enseeiht.yaoi.ui.testers;
 
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.emf.ecore.impl.DynamicEObjectImpl;
-import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.jface.viewers.StructuredSelection;
 
