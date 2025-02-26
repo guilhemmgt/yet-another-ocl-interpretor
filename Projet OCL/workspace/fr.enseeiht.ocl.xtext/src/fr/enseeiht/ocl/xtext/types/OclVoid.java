@@ -17,8 +17,11 @@ public class OclVoid extends OclAny {
 		if (oclType instanceof OclInvalid) {
 			return oclType;
 		}
-		else {
+		else if (oclType instanceof OclVoid){
 			return new OclVoid();
+		}
+		else {
+			return new OclAny();
 		}
 	}
 

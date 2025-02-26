@@ -37,7 +37,7 @@ public final class MapElementValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
 	  OclType key = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getKey()).getType();

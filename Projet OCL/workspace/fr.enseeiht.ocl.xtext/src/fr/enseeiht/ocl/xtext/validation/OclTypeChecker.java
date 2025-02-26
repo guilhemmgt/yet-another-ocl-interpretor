@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -28,30 +29,34 @@ public class OclTypeChecker {
 		List<OclInvalid> invalidList = new LinkedList<OclInvalid>();
 		// La liste des invariants dans le fichier mocl.
 		List<OclInvariant> invs = new ArrayList<OclInvariant>();
+		//La liste des feature definitions dans le fichier mocl.
+		List<OclFeatureDefinition> defs = new ArrayList<OclFeatureDefinition>();
 		// Remplissage de la liste des invariants
 		for (OclContextBlock contextBlock : mocl.getContextBlocks()) {
 			for (EObject member : contextBlock.getMembers()) {
 				if (member instanceof OclInvariant) {
-					invs.add(((OclInvariant) member));
+					invs.add((OclInvariant) member);
+				}
+				else {
+					defs.add((OclFeatureDefinition) member);
 				}
 			}
 		}
+		for (OclFeatureDefinition def : mocl.getContextlessFeatures()) {
+			defs.add(def);
+		}
 		// Vérification des invariants à partir de leur liste.
 		for (OclInvariant inv : invs) {
-			// Récupération de l'expression dans l'invariant
-			OCLAdapter exp = OCLValidationAdapterFactory.INSTANCE.createAdapter(inv.getBody());
-			OclType type = exp.getType();
-			// L'expression dans l'invariant doit nécessairement avoir un type Boolean
-			boolean isCorrect = type.conformsTo(new OclBoolean());
-			boolean isInvalid = type.conformsTo(new OclInvalid());
-			if (!isCorrect && !isInvalid) {
-				String message = "Invariant does not have the required type Boolean (it has the type " + type + " instead)";
-				invalidList.add(new OclInvalid(inv, message));
+			OclType invType = OCLValidationAdapterFactory.INSTANCE.createAdapter(inv).getType();
+			if (invType instanceof OclInvalid) {
+				invalidList.add(new OclInvalid(invType));
 			}
-			else if (isInvalid) {
-				invalidList.add(new OclInvalid(type));
+		}// Vérification des feature defs à partir de leur liste.
+		for (OclFeatureDefinition def : defs) {
+			OclType invType = OCLValidationAdapterFactory.INSTANCE.createAdapter(def).getType();
+			if (invType instanceof OclInvalid) {
+				invalidList.add(new OclInvalid(invType));
 			}
-			
 		}
 		return flattenInvalid(invalidList);
 		

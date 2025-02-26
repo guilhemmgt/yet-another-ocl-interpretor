@@ -3,6 +3,10 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclBag;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -38,7 +42,8 @@ public final class CollectionTypeValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  OclClassifier elementClassifier  = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getElementType()).getType();
+	  return new OclClassifier(new OclCollection(elementClassifier.getRepresentedType()));
   }
 
   /**

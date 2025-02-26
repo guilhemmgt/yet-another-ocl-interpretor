@@ -8,6 +8,9 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
@@ -42,10 +45,29 @@ public final class OperationValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+		OCLAdapter exp = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getBody());
+		OclClassifier returntype = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getReturnType());
+		OclType type = exp.getType();
+		// L'expression dans l'invariant doit nécessairement avoir e bon type de retour
+		boolean isCorrect = type.conformsTo(returntype.getRepresentedType());
+		boolean isInvalid = type.conformsTo(new OclInvalid());
+		for (Parameter param : target.getParameters()) {
+			OclClassifier paramType = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType();
+			isInvalid = isInvalid || paramType.getRepresentedType() instanceof OclInvalid;
+		}
+		if (!isCorrect && !isInvalid) {
+			String message = "Feature definition type mismatch : expected "+ returntype.getRepresentedType() + ", got " + type;
+			return new OclInvalid(target, message);
+		}
+		else if (isInvalid) {
+			return new OclInvalid(type);
+		}
+		else {
+			return returntype.getRepresentedType();
+		}
   }
 
   /**
@@ -63,6 +85,9 @@ public final class OperationValidationAdapter implements OCLAdapter {
 		  return /*((OclContextBlock)this.target.eContainer()).getClass_()*/ new OclAny();
 	  }
 	  return null;
+		  
+
+		// Récupération de l'expression dans la def
   }
   
   public List<OclType> getArgumentsType() {

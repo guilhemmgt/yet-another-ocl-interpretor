@@ -35,7 +35,7 @@ public final class AuxiliaryValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated NoT
+   * @generated NOT
    */
   public OclType getType() {
 	  // Xtext passe au travers, pas d'implémentation nécessaire
