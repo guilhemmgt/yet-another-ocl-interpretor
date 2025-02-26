@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.scope.Scoper;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -27,10 +28,13 @@ public final class VariableExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException(this.getClass(),"getValue");
+	  if (!Scoper.contains(this.target.getReferredVariable())) {
+		  // TODO return new Invalid
+	  }
+	  return Scoper.get(this.target.getReferredVariable());
   }
 
   /**
