@@ -2,12 +2,14 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -120,8 +122,8 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		}
 		if (operations != null ) {
 			for (IOclOperation operation : operations) {
-				if (true /*&& OperationResolutionUtils.isCorrectImplementation(source.getType(), operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())*/ ) {
-					// Compute args value 
+				// Type check the call!
+				if (OperationResolutionUtils.isCorrectImplementation(source.getType(), operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
 					List<Object> args = new ArrayList<Object>();
 					for (EObject arg : this.target.getArguments()) {
 						OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
@@ -131,6 +133,12 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 										
 				}
 			}
+			// No correct operation was found
+			List<String> messageStr = new LinkedList<String>(); 
+			for (OclType typ : paramTypes) {
+				messageStr.add(typ.toString());
+			}
+			return new OclInvalid(target, "The operation '" + this.target.getOperationName() + "' cannot be called with arguments of types: " + String.join(", ", messageStr) + ".");
 		}
 	} else {
 		return new OclInvalid(sourceType);

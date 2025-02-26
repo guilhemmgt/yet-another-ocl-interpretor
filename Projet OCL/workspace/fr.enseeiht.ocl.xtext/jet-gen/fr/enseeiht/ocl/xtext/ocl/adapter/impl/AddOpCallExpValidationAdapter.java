@@ -98,8 +98,6 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  return t0;
 	  }
 	  else {
-		  // On boucle sur les opérations
-		  int itr = 1;
 		  // String, supportant "+"
 		  boolean isString = t0.conformsTo(new OclString());
 		  // Real / Integer, supportant "+-"
@@ -113,7 +111,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  // Pour le report des erreurs: stocke les types uniques
 		  List<OclType> uniqueTypes = new LinkedList<OclType>();
 		  
-		  while (target.getArgs().get(itr) != null) {
+		  for (int itr = 1; itr < target.getArgs().size(); itr++) {
 			  OclType titr = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(itr)).getType();
 			  
 			  isString = isString && titr.conformsTo(new OclString());
@@ -140,14 +138,13 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 			  if (!isUnique) {
 				  uniqueTypes.add(titr);
 			  }
-			  itr++;
 		  }
 		  
-		  if ((isString || isReal) && operatorIsAddition ){
+		  if ((isString || isReal) && operatorIsAddition && fail_collector == null){
 			  // Rappel : Puisque Integer s'unifie avec Real, on a : Real + Integer : Real
 			  return unifyResult;
 		  }
-		  else if (isReal && !operatorIsAddition){
+		  else if (isReal && !operatorIsAddition && fail_collector == null){
 			  return unifyResult;
 		  }
 		  else if (anyVoid && fail_collector == null) {
