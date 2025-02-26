@@ -3,6 +3,8 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,9 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentGauche <em>Argument Gauche</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getOperationName <em>Operation Name</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentDroite <em>Argument Droite</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgs <em>Args</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getOperationNames <em>Operation Names</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getEqOpCallExp()
@@ -26,69 +27,27 @@ import org.eclipse.emf.ecore.EObject;
 public interface EqOpCallExp extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Argument Gauche</b></em>' containment reference.
+   * Returns the value of the '<em><b>Args</b></em>' containment reference list.
+   * The list contents are of type {@link fr.enseeiht.ocl.xtext.ocl.RelOpCallExp}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Argument Gauche</em>' containment reference.
-   * @see #setArgumentGauche(RelOpCallExp)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getEqOpCallExp_ArgumentGauche()
+   * @return the value of the '<em>Args</em>' containment reference list.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getEqOpCallExp_Args()
    * @model containment="true"
    * @generated
    */
-  RelOpCallExp getArgumentGauche();
+  EList<RelOpCallExp> getArgs();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentGauche <em>Argument Gauche</em>}' containment reference.
+   * Returns the value of the '<em><b>Operation Names</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Argument Gauche</em>' containment reference.
-   * @see #getArgumentGauche()
+   * @return the value of the '<em>Operation Names</em>' attribute list.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getEqOpCallExp_OperationNames()
+   * @model unique="false"
    * @generated
    */
-  void setArgumentGauche(RelOpCallExp value);
-
-  /**
-   * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operation Name</em>' attribute.
-   * @see #setOperationName(String)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getEqOpCallExp_OperationName()
-   * @model
-   * @generated
-   */
-  String getOperationName();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getOperationName <em>Operation Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operation Name</em>' attribute.
-   * @see #getOperationName()
-   * @generated
-   */
-  void setOperationName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Argument Droite</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Argument Droite</em>' containment reference.
-   * @see #setArgumentDroite(RelOpCallExp)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getEqOpCallExp_ArgumentDroite()
-   * @model containment="true"
-   * @generated
-   */
-  RelOpCallExp getArgumentDroite();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.EqOpCallExp#getArgumentDroite <em>Argument Droite</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Argument Droite</em>' containment reference.
-   * @see #getArgumentDroite()
-   * @generated
-   */
-  void setArgumentDroite(RelOpCallExp value);
+  EList<String> getOperationNames();
 
 } // EqOpCallExp

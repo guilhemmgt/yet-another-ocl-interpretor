@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -97,8 +98,22 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-	  throw new UnimplementedException(getClass(), null);
+    throw new UnimplementedException(this.getClass(),"getType");
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "." + this.target.getOperationName() + "(";
+		EList<OclExpression> args = this.target.getArguments();
+		for (int i = 0; i < args.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(i)) + (i==args.size()-1 ? "" : ",");
+		}
+		res += ")";
+		return res;
+	}
 
   /**
    * Get adapted element

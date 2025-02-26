@@ -45,34 +45,28 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclModelElementExp/name"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OperatorCallExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/argumentGauche"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OperatorCallExp/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/argumentDroite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OperatorCallExp/operationNames"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//EqOpCallExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//EqOpCallExp/argumentGauche"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//EqOpCallExp/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//EqOpCallExp/argumentDroite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//EqOpCallExp/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//EqOpCallExp/operationNames"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//RelOpCallExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//RelOpCallExp/argumentGauche"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//RelOpCallExp/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//RelOpCallExp/argumentDroite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//RelOpCallExp/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//RelOpCallExp/operationNames"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//AddOpCallExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//AddOpCallExp/argumentGauche"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//AddOpCallExp/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//AddOpCallExp/argumentDroite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//AddOpCallExp/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//AddOpCallExp/operationNames"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//IntOpCallExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//IntOpCallExp/argumentGauche"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//IntOpCallExp/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//IntOpCallExp/argumentDroite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//IntOpCallExp/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//IntOpCallExp/operationNames"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//MulOpCallExp">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MulOpCallExp/argumentGauche"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//MulOpCallExp/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MulOpCallExp/argumentDroite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MulOpCallExp/args"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//MulOpCallExp/operationNames"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//NotOpCallExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//NotOpCallExp/operationName"/>
@@ -141,6 +135,10 @@
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//BraceExp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//BraceExp/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//ContextlessCallExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//ContextlessCallExp/operationName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//ContextlessCallExp/arguments"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//BooleanLiteralExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//BooleanLiteralExp/booleanSymbol"/>

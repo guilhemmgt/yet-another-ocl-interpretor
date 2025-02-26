@@ -43,6 +43,14 @@ public final class BooleanTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "Boolean";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

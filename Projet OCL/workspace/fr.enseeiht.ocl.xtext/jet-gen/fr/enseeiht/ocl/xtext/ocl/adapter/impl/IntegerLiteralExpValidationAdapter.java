@@ -42,6 +42,14 @@ public final class IntegerLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return Integer.toString(target.getIntegerSymbol());
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

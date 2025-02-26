@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -49,6 +50,20 @@ public final class OperationValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = this.target.getName() + "(";
+		EList<Parameter> params = this.target.getParameters();
+		for (int i = 0; i < params.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(params.get(i)) + (i==params.size()-1 ? "" : ",");
+		}
+		res += "):" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReturnType()) + "=" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody());
+		return res;
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
@@ -56,8 +71,7 @@ public final class OperationValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-  
-  public OclType getSourceType() {
+    public OclType getSourceType() {
 	  if (this.target.eContainer() instanceof OclContextBlock) {
 		  // TODO : Adapt this with answer from Paul
 		  return /*((OclContextBlock)this.target.eContainer()).getClass_()*/ new OclAny();

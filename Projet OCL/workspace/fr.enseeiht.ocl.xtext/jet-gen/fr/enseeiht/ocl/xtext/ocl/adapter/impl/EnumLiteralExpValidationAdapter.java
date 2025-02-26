@@ -42,6 +42,14 @@ public final class EnumLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "#" + this.target.getName();
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

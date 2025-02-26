@@ -42,6 +42,14 @@ public final class StringTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "String";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

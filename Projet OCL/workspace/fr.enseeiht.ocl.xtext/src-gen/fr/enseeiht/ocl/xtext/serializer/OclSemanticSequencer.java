@@ -12,6 +12,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
+import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
@@ -108,6 +109,9 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case OclPackage.COLLECTION_OPERATION_CALL:
 				sequence_CollectionOperationCall(context, (CollectionOperationCall) semanticObject); 
+				return; 
+			case OclPackage.CONTEXTLESS_CALL_EXP:
+				sequence_ContextlessCallExp(context, (ContextlessCallExp) semanticObject); 
 				return; 
 			case OclPackage.ENUM_LITERAL_EXP:
 				sequence_EnumLiteralExp(context, (EnumLiteralExp) semanticObject); 
@@ -264,7 +268,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AddOpCallExp returns AddOpCallExp
 	 *
 	 * Constraint:
-	 *     (argumentGauche=IntOpCallExp (operationName=ADDOP argumentDroite=AddOpCallExp)?)
+	 *     (args+=IntOpCallExp (operationNames+=ADDOP args+=IntOpCallExp)*)
 	 * </pre>
 	 */
 	protected void sequence_AddOpCallExp(ISerializationContext context, AddOpCallExp semanticObject) {
@@ -405,6 +409,21 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Primary_OclExpression returns ContextlessCallExp
+	 *     ContextlessCallExp returns ContextlessCallExp
+	 *
+	 * Constraint:
+	 *     (operationName=ID (arguments+=OclExpression arguments+=OclExpression*)?)
+	 * </pre>
+	 */
+	protected void sequence_ContextlessCallExp(ISerializationContext context, ContextlessCallExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Primary_OclExpression returns EnumLiteralExp
 	 *     EnumLiteralExp returns EnumLiteralExp
 	 *
@@ -423,7 +442,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EqOpCallExp returns EqOpCallExp
 	 *
 	 * Constraint:
-	 *     (argumentGauche=RelOpCallExp (operationName=EQOP argumentDroite=RelOpCallExp)?)
+	 *     (args+=RelOpCallExp (operationNames+=EQOP args+=RelOpCallExp)?)
 	 * </pre>
 	 */
 	protected void sequence_EqOpCallExp(ISerializationContext context, EqOpCallExp semanticObject) {
@@ -487,7 +506,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IntOpCallExp returns IntOpCallExp
 	 *
 	 * Constraint:
-	 *     (argumentGauche=MulOpCallExp (operationName=INTOP argumentDroite=IntOpCallExp)?)
+	 *     (args+=MulOpCallExp (operationNames+=INTOP args+=MulOpCallExp)*)
 	 * </pre>
 	 */
 	protected void sequence_IntOpCallExp(ISerializationContext context, IntOpCallExp semanticObject) {
@@ -700,7 +719,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MulOpCallExp returns MulOpCallExp
 	 *
 	 * Constraint:
-	 *     (argumentGauche=NotOpCallExp (operationName=MULOP argumentDroite=MulOpCallExp)?)
+	 *     (args+=NotOpCallExp (operationNames+=MULOP args+=NotOpCallExp)*)
 	 * </pre>
 	 */
 	protected void sequence_MulOpCallExp(ISerializationContext context, MulOpCallExp semanticObject) {
@@ -882,7 +901,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OperationCall returns OperationCall
 	 *
 	 * Constraint:
-	 *     ((operationName=STRING | operationName=ID) (arguments+=OclExpression arguments+=OclExpression*)?)
+	 *     (operationName=ID (arguments+=OclExpression arguments+=OclExpression*)?)
 	 * </pre>
 	 */
 	protected void sequence_OperationCall(ISerializationContext context, OperationCall semanticObject) {
@@ -896,7 +915,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     (name=ID (parameters+=Parameter parameters+=Parameter+)? returnType=OclTypeLiteral body=OclExpression)
+	 *     (name=ID (parameters+=Parameter parameters+=Parameter*)? returnType=OclTypeLiteral body=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
@@ -911,7 +930,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OperatorCallExp returns OperatorCallExp
 	 *
 	 * Constraint:
-	 *     (argumentGauche=EqOpCallExp (operationName=BOOLOP argumentDroite=OperatorCallExp)?)
+	 *     (args+=EqOpCallExp (operationNames+=BOOLOP args+=EqOpCallExp)*)
 	 * </pre>
 	 */
 	protected void sequence_OperatorCallExp(ISerializationContext context, OperatorCallExp semanticObject) {
@@ -1040,7 +1059,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     RelOpCallExp returns RelOpCallExp
 	 *
 	 * Constraint:
-	 *     (argumentGauche=AddOpCallExp (operationName=RELOP argumentDroite=AddOpCallExp)?)
+	 *     (args+=AddOpCallExp (operationNames+=RELOP args+=AddOpCallExp)?)
 	 * </pre>
 	 */
 	protected void sequence_RelOpCallExp(ISerializationContext context, RelOpCallExp semanticObject) {

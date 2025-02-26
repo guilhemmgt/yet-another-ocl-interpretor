@@ -101,6 +101,15 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String opName = this.target.getOperationName();
+		return opName + (opName.equals("-") ? "" : " ") + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

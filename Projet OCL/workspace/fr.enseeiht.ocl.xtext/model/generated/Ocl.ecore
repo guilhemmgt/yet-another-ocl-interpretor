@@ -51,46 +51,40 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperatorCallExp" eSuperTypes="#//OclExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentGauche" eType="#//EqOpCallExp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//EqOpCallExp"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentDroite" eType="#//OperatorCallExp"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationNames" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EqOpCallExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentGauche" eType="#//RelOpCallExp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//RelOpCallExp"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentDroite" eType="#//RelOpCallExp"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationNames" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RelOpCallExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentGauche" eType="#//AddOpCallExp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//AddOpCallExp"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentDroite" eType="#//AddOpCallExp"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationNames" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddOpCallExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentGauche" eType="#//IntOpCallExp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//IntOpCallExp"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentDroite" eType="#//AddOpCallExp"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationNames" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntOpCallExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentGauche" eType="#//MulOpCallExp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//MulOpCallExp"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentDroite" eType="#//IntOpCallExp"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationNames" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MulOpCallExp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentGauche" eType="#//NotOpCallExp"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//NotOpCallExp"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argumentDroite" eType="#//MulOpCallExp"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationNames" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NotOpCallExp">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -178,6 +172,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="BraceExp" eSuperTypes="#//OclExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//OclExpression"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextlessCallExp" eSuperTypes="#//OclExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//OclExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanLiteralExp" eSuperTypes="#//OclExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="booleanSymbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

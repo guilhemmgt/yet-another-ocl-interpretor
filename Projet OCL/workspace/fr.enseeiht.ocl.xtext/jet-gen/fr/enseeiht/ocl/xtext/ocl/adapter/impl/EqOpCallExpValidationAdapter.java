@@ -1,6 +1,7 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
@@ -10,6 +11,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -34,30 +36,30 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  if (this.target.getOperationName() == null) {
+	  Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getValue(contextTarget);
+	  if (this.target.getOperationNames().size() == 0) {
 		  // Passage au rang suivant
-		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
+		  return result;
 	  }
 	  
-	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
-	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1)).getValue(contextTarget);
 	  
-	  Boolean equal = (left instanceof Number && right instanceof Number && ((Number)left).doubleValue() == ((Number)right).doubleValue()) ||
-			  		  (left != null && left.equals(right)) || 
-			  		  (left == right);
+	  Boolean equal = (result instanceof Number && right instanceof Number && ((Number)result).doubleValue() == ((Number)right).doubleValue()) ||
+			  		  (result != null && result.equals(right)) || 
+			  		  (result == right);
 	  
-	  if (left instanceof Invalid || right instanceof Invalid) {
-		  return left instanceof Invalid ? left : right;
+	  if (result instanceof Invalid || right instanceof Invalid) {
+		  result = result instanceof Invalid ? result : right;
 	  }
 
 	  // Traitement des opérations
-	  switch(this.target.getOperationName()) {
+	  switch(this.target.getOperationNames().get(0)) {
 	  	case "=": 
 	  		return equal;
 	  	case "<>":
 	  		return !equal;
   		default:
-			  throw new UnsupportedFeatureException(this.target.getOperationName());
+			  throw new UnsupportedFeatureException(this.target.getOperationNames().get(0));
 	  }
   }
 
@@ -68,13 +70,13 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OCLAdapter arg1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
-	  if (this.target.getArgumentDroite() == null) {
+	  OCLAdapter arg1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0));
+	  if (this.target.getOperationNames().size() == 0) {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
 		  return arg1.getType();
 	  }
 	  else {
-		  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
+		  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1));
 		  OclType type1 = arg1.getType();
 		  OclType type2 = arg2.getType();
 		  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide ou vide.
@@ -89,7 +91,7 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 		  else if (anyInvalid){
 			  // Opération invalide
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationName() + "')";
+			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationNames().get(0) + "')";
 			  return new OclInvalid(target, message, type1, type2);
 		  }
 		  else {
@@ -97,6 +99,21 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 	  }
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "";
+		EList<RelOpCallExp> args = this.target.getArgs();
+		EList<String> ops = this.target.getOperationNames();
+		for (int i = 0; i < ops.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(i)) + ops.get(i);
+		}
+		res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(args.size()-1));
+		return res;
+	}
 
   /**
    * Get adapted element

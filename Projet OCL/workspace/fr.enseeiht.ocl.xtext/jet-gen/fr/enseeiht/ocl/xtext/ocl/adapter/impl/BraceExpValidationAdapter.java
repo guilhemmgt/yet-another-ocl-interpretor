@@ -45,6 +45,14 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "(" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp()) + ")";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

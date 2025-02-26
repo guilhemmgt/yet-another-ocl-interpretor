@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -40,6 +41,14 @@ public final class LetExpValidationAdapter implements OCLAdapter {
   public OclType getType() {
     throw new UnimplementedException(this.getClass(),"getType");
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "let " + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getVariable()) + " in " + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getIn_());
+	}
 
   /**
    * Get adapted element

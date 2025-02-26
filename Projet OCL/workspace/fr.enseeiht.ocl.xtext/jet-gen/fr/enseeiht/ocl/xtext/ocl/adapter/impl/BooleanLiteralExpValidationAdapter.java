@@ -51,6 +51,14 @@ public final class BooleanLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return this.target.getBooleanSymbol();
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated

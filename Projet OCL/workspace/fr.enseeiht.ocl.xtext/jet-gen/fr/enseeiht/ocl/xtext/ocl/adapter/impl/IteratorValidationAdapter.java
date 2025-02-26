@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -40,6 +41,17 @@ public final class IteratorValidationAdapter implements OCLAdapter {
   public OclType getType() {
     throw new UnimplementedException(this.getClass(),"getType");
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+	   String res = this.target.getName();
+	   if (this.target.getType() != null)
+		   res += ":" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType());
+	   return res;
+	}
 
   /**
    * Get adapted element
