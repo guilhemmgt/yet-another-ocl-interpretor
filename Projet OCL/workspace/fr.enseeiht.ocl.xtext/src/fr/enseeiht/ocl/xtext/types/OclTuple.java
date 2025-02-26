@@ -42,7 +42,10 @@ public class OclTuple extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre tuple en une tuple avec pour sous-type l'unification des sous-types.
-		if (oclType instanceof OclTuple) {
+		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclTuple) {
 			OclTuple OclTupleType = (OclTuple) oclType; 
 			if (!subtypes.keySet().equals(OclTupleType.subtypes.keySet())) {
 				// Les ensembles de clé doivent être identiques.
@@ -62,17 +65,17 @@ public class OclTuple extends OclAny {
 	
 	@Override
 	public String toString() {
-		String str = "Ocltuple<";
+		String str = "Ocltuple(";
 		if (!subtypes.keySet().isEmpty()) {
 			// Cas où il n'y a pas d'éléments.
-			return str + ">";
+			return str + ")";
 		}
 		List<String> elements = new LinkedList<String>();
 		for (String key : subtypes.keySet()) {
 			// Ajout des éléments de la forme "key:type"
 			elements.add(key + ":"+ subtypes.get(key));
 		}
-		return str + String.join(", ", elements) + ">" ;
+		return str + String.join(", ", elements) + ")" ;
 	}
 	
 }

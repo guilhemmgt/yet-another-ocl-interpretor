@@ -17,7 +17,10 @@ public class OclInteger extends OclReal {
 		// OclInteger s'unifie en Real avec Real,
 		// en OclInteger avec lui-même,
 		// en OclAny avec tous les autres types.
-		if (oclType instanceof OclReal) {
+		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclReal) {
 			return oclType;
 		}
 		else {

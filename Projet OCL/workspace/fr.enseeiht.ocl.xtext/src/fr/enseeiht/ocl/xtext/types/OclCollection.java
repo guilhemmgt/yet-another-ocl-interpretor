@@ -26,6 +26,9 @@ public class OclCollection extends OclAny {
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean collectionType = false;
 		if (oclType.getClass().equals(OclCollection.class)) {
+			if (subtype == null) {
+				return true;
+			}
 			// Vérification de la conformance des types des éléments
 			OclCollection oclCollectionType = (OclCollection) oclType; 
 			collectionType = subtype.conformsTo(oclCollectionType.subtype);
@@ -36,7 +39,14 @@ public class OclCollection extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre collection en une collection avec pour sous-type l'unification des sous-types.
-		if (oclType instanceof OclCollection) {
+		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclCollection) {
+			if (subtype == null) {
+				// Collection vide
+				return oclType;
+			}
 			return new OclCollection(((OclCollection) oclType).subtype.unifyWith(subtype));
 		}
 		else {
@@ -48,7 +58,10 @@ public class OclCollection extends OclAny {
 	
 	@Override
 	public String toString() {
-		return "OclCollection<" + subtype.toString() + ">";
+		if (subtype == null) {
+			return "Collection()";
+		}
+		return "Collection(" + subtype.toString() + ")";
 	}
 
 }

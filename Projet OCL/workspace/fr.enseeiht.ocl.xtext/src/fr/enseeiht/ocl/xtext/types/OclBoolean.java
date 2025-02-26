@@ -15,7 +15,10 @@ public class OclBoolean extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// OclBoolean s'unifie en OclBoolean avec lui-même, en OclAny avec tous les autres types.
-		if (oclType instanceof OclBoolean) {
+		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclBoolean) {
 			return new OclBoolean();
 		}
 		else {
