@@ -1,0 +1,14 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv substring:
+ 	"(-2.3)".substring(1,5) = "(-2.3"
+
+inv substringSurfer:
+ 	"(-2.3)".substring(1,1) = "("
+
+inv substringMAx:
+ 	"(-2.3)".substring(1,6) = "(-2.3)"
+
+inv substringSurfer2:
+ 	"(-2.3)".substring(1,2) = "(-"

@@ -1,25 +1,23 @@
 package fr.enseeiht.ocl.xtext.ocl.operation.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclSet;
+import fr.enseeiht.ocl.xtext.types.OclInteger;
+import fr.enseeiht.ocl.xtext.types.OclReal;
 
-public class OclOclAsSet implements IOclOperation {
+public class OclRound implements IOclOperation {
 
 	@Override
 	public Object getValue(Object source, List<Object> args) {
-		return new HashSet<Object>(Arrays.asList(source));
+		return Math.round((Double)source);
 	}
 
 	@Override
 	public OclType getReturnType(OclType sourceType, List<OclType> argsType) {
-		return new OclSet(sourceType);
+		return new OclInteger();
 	}
 
 	@Override
@@ -34,12 +32,12 @@ public class OclOclAsSet implements IOclOperation {
 
 	@Override
 	public OclType getSourceType() {
-		return new OclAny();
+		return new OclReal();
 	}
 
 	@Override
 	public String getName() {
-		return "oclAsSet";
+		return "round";
 	}
 
 }

@@ -1,45 +1,42 @@
 package fr.enseeiht.ocl.xtext.ocl.operation.impl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclSet;
+import fr.enseeiht.ocl.xtext.types.OclString;
 
-public class OclOclAsSet implements IOclOperation {
+public class OclConcat implements IOclOperation {
 
 	@Override
 	public Object getValue(Object source, List<Object> args) {
-		return new HashSet<Object>(Arrays.asList(source));
+		return ((String)source) + ((String)args.get(0));
 	}
 
 	@Override
-	public OclType getReturnType(OclType sourceType, List<OclType> argsType) {
-		return new OclSet(sourceType);
+	public OclType getReturnType(OclType sourceType, List<OclType> argsType) { 
+		return new OclString();
 	}
 
 	@Override
 	public List<OclType> getArgsType() {
-		return new ArrayList<OclType>();
+		return Arrays.asList(new OclString());
 	}
 
 	@Override
 	public int getArgsAmount() {
-		return 0;
+		return 1;
 	}
 
 	@Override
 	public OclType getSourceType() {
-		return new OclAny();
+		return new OclString();
 	}
 
 	@Override
 	public String getName() {
-		return "oclAsSet";
+		return "concat";
 	}
 
 }
