@@ -56,7 +56,11 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 			  }
 		  case "-":
 			  if (arg instanceof Number) {
-				  return -(arg instanceof Integer ? (Integer)arg : (Double)arg);
+				  if (arg instanceof Integer integ) {
+					  return (Integer) (-integ);
+				  } else {
+					  return -((Double)arg);
+				  }
 			  } else {
 				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), arg.getClass());
 			  }
