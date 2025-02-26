@@ -13,16 +13,8 @@ public class OclVoid extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// OclVoid s'unifie en OclInvalid avec OclInvalid, en OclVoid sinon.
-		if (oclType instanceof OclInvalid) {
-			return oclType;
-		}
-		else if (oclType instanceof OclVoid){
-			return new OclVoid();
-		}
-		else {
-			return new OclAny();
-		}
+		// OclVoid s'unifie en tout avec tout.
+		return oclType;
 	}
 
 

@@ -54,8 +54,11 @@ public class OclMap extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre map en une map avec pour sous-type l'unification des sous-types.
-		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+		if (oclType instanceof OclInvalid) {
 			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
 		}
 		else if (oclType instanceof OclMap) {
 			if (keyType == null || valueType == null) {

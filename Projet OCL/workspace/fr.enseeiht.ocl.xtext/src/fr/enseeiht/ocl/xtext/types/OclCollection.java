@@ -39,8 +39,11 @@ public class OclCollection extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre collection en une collection avec pour sous-type l'unification des sous-types.
-		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+		if (oclType instanceof OclInvalid) {
 			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
 		}
 		else if (oclType instanceof OclCollection) {
 			if (subtype == null) {

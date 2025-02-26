@@ -28,8 +28,11 @@ public class OclClassifier extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+		if (oclType instanceof OclInvalid) {
 			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
 		}
 		else if (oclType instanceof OclClassifier) {
 			return new OclClassifier(((OclClassifier) oclType).representedType.unifyWith(representedType));

@@ -42,8 +42,11 @@ public class OclTuple extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre tuple en une tuple avec pour sous-type l'unification des sous-types.
-		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+		if (oclType instanceof OclInvalid) {
 			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
 		}
 		else if (oclType instanceof OclTuple) {
 			OclTuple OclTupleType = (OclTuple) oclType; 

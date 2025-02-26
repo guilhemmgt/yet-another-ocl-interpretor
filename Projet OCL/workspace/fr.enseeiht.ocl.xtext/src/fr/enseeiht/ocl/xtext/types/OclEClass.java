@@ -28,8 +28,11 @@ public class OclEClass implements OclType {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+		if (oclType instanceof OclInvalid) {
 			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
 		}
 		else if (oclType instanceof OclEClass) {
 			return findLowestSupertype((OclEClass) oclType);

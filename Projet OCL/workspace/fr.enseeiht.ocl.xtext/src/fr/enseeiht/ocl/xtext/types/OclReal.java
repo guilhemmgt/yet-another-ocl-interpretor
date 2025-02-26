@@ -15,8 +15,11 @@ public class OclReal extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// OclReal s'unifie en OclReal avec lui-même, en OclAny avec tous les autres types.
-		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
+		if (oclType instanceof OclInvalid) {
 			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
 		}
 		else if (oclType instanceof OclReal) {
 			return new OclReal();

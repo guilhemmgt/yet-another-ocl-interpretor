@@ -28,10 +28,7 @@ public class OclSequence extends OclCollection {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		if (oclType instanceof OclVoid || oclType instanceof OclInvalid) {
-			return oclType;
-		}
-		else if (oclType instanceof OclSequence) {
+		if (oclType instanceof OclSequence) {
 			if (subtype == null) {
 				// Sequence vide
 				return oclType;
