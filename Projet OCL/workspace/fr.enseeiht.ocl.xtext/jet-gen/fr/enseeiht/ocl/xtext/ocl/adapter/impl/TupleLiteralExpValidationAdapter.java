@@ -1,10 +1,19 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.types.OclTuple;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.TuplePart;
+import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -35,10 +44,18 @@ public final class TupleLiteralExpValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  Map<String, OclType> map = new HashMap<String, OclType>();
+	  for (TuplePart part : target.getTuplePart()) {
+		  TuplePartValidationAdapter pt = (TuplePartValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(part);
+		  if (pt.getType() instanceof OclInvalid) {
+			  return new OclInvalid(pt.getType());
+		  }
+		  map.put(pt.getName(), pt.getType());
+	  }
+	  return new OclTuple(map);
   }
 
   /**
