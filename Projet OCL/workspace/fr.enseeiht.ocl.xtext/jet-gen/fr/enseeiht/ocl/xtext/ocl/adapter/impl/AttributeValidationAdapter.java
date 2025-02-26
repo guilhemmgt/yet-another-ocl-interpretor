@@ -49,7 +49,7 @@ public final class AttributeValidationAdapter implements OCLAdapter {
 		  return returnType;
 	  }
 	  else {
-		  String message = "Type mismatch in attribute declaration : got " + expressionType + ", expected " + returnType + ".";
+		  String message = "Feature definition type mismatch : expected " + returnType + ", got " + expressionType +  ".";
 		  return new OclInvalid(target, message);
 	  }
   }

@@ -34,14 +34,14 @@ inv multiplestring:
 def : nulltest : OclVoid =
 	null + null 
 
-def : nullint : OclInteger =
+def : nullint : Integer =
 	null + 1
 	
-def : nullreal : OclReal =
+def : nullreal : Real =
 	null + 1.0
 	
-def : nullstring : OclString =
+def : nullstring : String =
 	null + "a"
 	
-def : nullintreal : OclReal =
+def : nullintreal : Real =
 	null + 1 + 1.0
