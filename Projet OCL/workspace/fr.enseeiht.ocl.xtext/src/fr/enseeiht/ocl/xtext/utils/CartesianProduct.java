@@ -20,7 +20,7 @@ public class CartesianProduct {
 	
 	private static <T> void aux(List<T> list, int n, List<T> current, List<List<T>> acc) {
 		if (current.size() == n) {
-			acc.add(current);
+			acc.add(new ArrayList<>(current));
 			return;
 		}
 
