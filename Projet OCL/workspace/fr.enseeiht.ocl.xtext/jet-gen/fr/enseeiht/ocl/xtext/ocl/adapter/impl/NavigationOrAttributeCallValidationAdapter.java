@@ -9,10 +9,12 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.types.OclTuple;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
+import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -70,12 +72,22 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 	  // On remonte la pile des accès
 	  int pos = container.getCalls().indexOf(this.target);
-	  OclEClass source;
+	  OclEClass source = null;
 	  if (pos == 0) {
 		  // root call
-		  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+		  if (container.getSource() instanceof TupleLiteralExp) {
+			  OclTuple tuple = (OclTuple) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+			  return tuple.getTypeOf(target, target.getName());
+		  } else if (container.getSource() != null) {
+			  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+		  }
 	  } else {
-		  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
+		  if (container.getSource() instanceof TupleLiteralExp) {
+			  OclTuple tuple = (OclTuple) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
+			  return tuple.getTypeOf(target, target.getName());
+		  } else if (container.getCalls().get(pos-1) != null) {
+			  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
+		  }
 	  }
 	  // On a le type parent! On récupère son sous-type.
 	  
@@ -97,7 +109,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-             public boolean conformsTo(OclType oclType) {
+               public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

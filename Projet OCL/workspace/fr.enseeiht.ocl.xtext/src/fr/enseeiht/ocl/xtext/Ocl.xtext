@@ -152,7 +152,7 @@ TupleLiteralExp:
 	'Tuple' '{' (tuplePart+=TuplePart ("," tuplePart+=TuplePart)*)? '}'
 ;
 TuplePart:
-	varName=STRING (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
+	varName=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
 MapLiteralExp : 
 	{MapLiteralExp}

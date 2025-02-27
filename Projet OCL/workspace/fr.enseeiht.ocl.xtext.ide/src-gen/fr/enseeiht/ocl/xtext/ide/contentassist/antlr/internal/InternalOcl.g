@@ -10962,9 +10962,9 @@ rule__TuplePart__VarNameAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getTuplePartAccess().getVarNameSTRINGTerminalRuleCall_0_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getTuplePartAccess().getVarNameSTRINGTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getTuplePartAccess().getVarNameIDTerminalRuleCall_0_0()); }
+		RULE_ID
+		{ after(grammarAccess.getTuplePartAccess().getVarNameIDTerminalRuleCall_0_0()); }
 	)
 ;
 finally {

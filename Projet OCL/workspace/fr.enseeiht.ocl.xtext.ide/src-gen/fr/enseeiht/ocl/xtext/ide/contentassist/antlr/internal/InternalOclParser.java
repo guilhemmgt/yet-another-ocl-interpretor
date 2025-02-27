@@ -18017,7 +18017,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             int alt43=2;
             int LA43_0 = input.LA(1);
 
-            if ( (LA43_0==RULE_STRING) ) {
+            if ( (LA43_0==RULE_ID) ) {
                 alt43=1;
             }
             switch (alt43) {
@@ -18320,7 +18320,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:5873:1: ( rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1 )
             // InternalOcl.g:5874:2: rule__TupleLiteralExp__Group_3_1__0__Impl rule__TupleLiteralExp__Group_3_1__1
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_9);
             rule__TupleLiteralExp__Group_3_1__0__Impl();
 
             state._fsp--;
@@ -33017,21 +33017,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TuplePart__VarNameAssignment_0"
-    // InternalOcl.g:10959:1: rule__TuplePart__VarNameAssignment_0 : ( RULE_STRING ) ;
+    // InternalOcl.g:10959:1: rule__TuplePart__VarNameAssignment_0 : ( RULE_ID ) ;
     public final void rule__TuplePart__VarNameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:10963:1: ( ( RULE_STRING ) )
-            // InternalOcl.g:10964:2: ( RULE_STRING )
+            // InternalOcl.g:10963:1: ( ( RULE_ID ) )
+            // InternalOcl.g:10964:2: ( RULE_ID )
             {
-            // InternalOcl.g:10964:2: ( RULE_STRING )
-            // InternalOcl.g:10965:3: RULE_STRING
+            // InternalOcl.g:10964:2: ( RULE_ID )
+            // InternalOcl.g:10965:3: RULE_ID
             {
-             before(grammarAccess.getTuplePartAccess().getVarNameSTRINGTerminalRuleCall_0_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getTuplePartAccess().getVarNameSTRINGTerminalRuleCall_0_0()); 
+             before(grammarAccess.getTuplePartAccess().getVarNameIDTerminalRuleCall_0_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getTuplePartAccess().getVarNameIDTerminalRuleCall_0_0()); 
 
             }
 
@@ -35340,7 +35340,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000400000000000L});
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000080000000020L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000080000000010L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000400010000L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0001000000000000L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000080800000000L});

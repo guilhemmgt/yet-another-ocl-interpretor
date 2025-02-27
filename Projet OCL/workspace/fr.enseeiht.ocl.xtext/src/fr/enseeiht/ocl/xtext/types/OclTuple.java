@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
+
 import fr.enseeiht.ocl.xtext.OclType;
 
 public class OclTuple extends OclAny {
@@ -15,6 +17,16 @@ public class OclTuple extends OclAny {
 	public OclTuple(Map<String, OclType> map) {
 		this.subtypes = map;
 	}
+	
+	public OclType getTypeOf(EObject target, String name) {
+		OclType type = subtypes.get(name);
+		if (type == null) {
+			return new OclInvalid(target, "Tuple " + this + " has no attribute " + name);
+		}
+		else {
+			return type;
+		}
+	}
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
@@ -23,7 +35,7 @@ public class OclTuple extends OclAny {
 		// Il y a conformance ssi le type des éléments se conforme à celui des éléments de l'autre tuple.
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean subtypeConformance = false;
-		if (oclType.getClass().equals(OclTuple.class)) {
+		if (oclType instanceof OclType) {
 			// Vérification de la conformance des types des éléments
 			OclTuple OclTupleType = (OclTuple) oclType; 
 			if (!subtypes.keySet().equals(OclTupleType.subtypes.keySet())) {
@@ -68,8 +80,8 @@ public class OclTuple extends OclAny {
 	
 	@Override
 	public String toString() {
-		String str = "Ocltuple(";
-		if (!subtypes.keySet().isEmpty()) {
+		String str = "OclTuple(";
+		if (subtypes.keySet().isEmpty()) {
 			// Cas où il n'y a pas d'éléments.
 			return str + ")";
 		}

@@ -48,7 +48,8 @@ public final class TupleTypeValidationAdapter implements OCLAdapter {
 	  Map<String, OclType> map = new HashMap<String, OclType>();
 	  for (TupleTypeAttribute attribute : target.getAttributes()) {
 		  TupleTypeAttributeValidationAdapter att = (TupleTypeAttributeValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(attribute);
-		  map.put(att.getName(), att.getType());
+		  OclClassifier classi = (OclClassifier) att.getType();
+		  map.put(att.getName(), classi.getRepresentedType());
 	  }
 	  return new OclClassifier(new OclTuple(map));
   }
