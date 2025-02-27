@@ -2,20 +2,20 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 
-inv iterate-forall1:
+inv iterate_forall1:
 	self.subliar->iterate(sl; result:Boolean=true | result and (sl.name <> "impossible"))
 	
-inv iterate-forall2:
+inv iterate_forall2:
 	self.subliar->iterate(sl1, sl2; result:Boolean=true | result and (sl1.name <> sl2.name))
 	
-inv iterate-exists1:
-	self.subliar->iterate(sl; result:Boolean=false | result or (sl1.name.size() > 5))
+inv iterate_exists1:
+	self.subliar->iterate(sl; result:Boolean=false | result or (sl.name.size() > 5))
 	
-inv iterate-exists2:
+inv iterate_exists2:
 	self.subliar->iterate(sl1, sl2; result:Boolean=false | result or (sl1.name.size() = sl2.name.size()))
 	
-inv iterate-count:
+inv iterate_count:
 	self.subliar->iterate(sl; result:Integer=0 | result + 1) = 4
 	
-inv iterate-multicount:
+inv iterate_multicount:
 	self.subliar->iterate(sl1, sl2, sl3; result:Integer=0 | result + 1) = 64
