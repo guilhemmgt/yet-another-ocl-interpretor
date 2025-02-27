@@ -1,6 +1,9 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
@@ -29,10 +32,15 @@ public final class SequenceLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException(this.getClass(),"getValue");
+	  EList<OclExpression> elts = this.target.getElements();
+	  ArrayList<Object> sequence = new ArrayList<>();
+	  for(OclExpression e : elts) {
+		  sequence.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
+	  }
+	  return sequence;
   }
 
   /**
