@@ -77,7 +77,7 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
   /**
    * Return the string visible in the outline
    * @return outline name
-   * @generated
+   * @generated NOT
    */
    @Override
   public String getOutlineString() {
