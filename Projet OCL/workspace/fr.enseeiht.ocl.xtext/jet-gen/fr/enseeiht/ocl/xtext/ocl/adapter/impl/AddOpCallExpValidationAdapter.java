@@ -5,14 +5,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclString;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -105,7 +103,6 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 		  boolean isReal = t0.conformsTo(new OclReal());
 		  // operator = '+' | '-'. Utile pour string
 		  boolean operatorIsAddition = true;
-		  OclInvalid fail_collector = null;
 		  // Le résultat de l'unification des types
 		  OclType unifyResult = t0;
 		  // Pour le report des erreurs: stocke les types uniques
@@ -118,14 +115,6 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 			  isReal = isReal && titr.conformsTo(new OclReal());
 			  operatorIsAddition = operatorIsAddition && this.target.getOperationNames().get(itr-1).equals("+");
 			  
-			  if (titr.conformsTo(new OclInvalid())) {
-				  if (fail_collector == null) {
-					  fail_collector = new OclInvalid(titr);
-				  } else {
-					  fail_collector = new OclInvalid(fail_collector, titr);
-				  }
-			  }
-			  
 			  if (isString || isReal) {
 				  unifyResult = unifyResult.unifyWith(titr);
 			  }
@@ -134,19 +123,13 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 			  for (OclType typ : uniqueTypes) {
 				  isUnique = isUnique && typ.getClass().equals(titr.getClass());
 			  }
-			  if (!isUnique) {
-				  uniqueTypes.add(titr);
-			  }
+			  if (!isUnique) uniqueTypes.add(titr);
 		  }
 		  
-		  if ((isString || isReal) && operatorIsAddition && fail_collector == null){
+		  if (isString && operatorIsAddition || isReal){
 			  // Rappel : Puisque Integer s'unifie avec Real, on a : Real + Integer : Real
 			  return unifyResult;
-		  }
-		  else if (isReal && !operatorIsAddition && fail_collector == null){
-			  return unifyResult;
-		  }
-		  else {
+		  } else {
 			  // Opération invalide
 			  String message = "Invalid operation '" + (operatorIsAddition ? "+" : "-") + "' with types ";
 			  List<String> messageStr = new LinkedList<String>(); 
@@ -154,8 +137,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 				  messageStr.add(typ.toString());
 			  }
 			  message += String.join(", ", messageStr) + ".";
-			  if (fail_collector != null) return new OclInvalid(target, message, fail_collector);
-			  else return new OclInvalid(target, message);
+			  return new OclInvalid(target, message, unifyResult);
 		  }
 		}
   }

@@ -2,12 +2,10 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -100,12 +98,9 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 			  OclType type2 = arg2.getType();
 			  // Boolean + Boolean : Boolean
 			  boolean isBoolean = resultType.conformsTo(new OclBoolean()) && type2.conformsTo(new OclBoolean());
-			  // Invalid + ... : Invalid
-			  boolean anyInvalid = resultType.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-			  if (isBoolean && !anyInvalid) {
-				  resultType = new OclBoolean();
-			  }
-			  else {
+			  if (isBoolean) {
+				  resultType = resultType.unifyWith(type2);
+			  } else {
 				  // Opération invalide
 				  String message = "Invalid operation between types " + resultType + " and " + type2 + " (operation : '" + target.getOperationNames().get(i) + "')";
 				  resultType = new OclInvalid(target, message, resultType, type2);
