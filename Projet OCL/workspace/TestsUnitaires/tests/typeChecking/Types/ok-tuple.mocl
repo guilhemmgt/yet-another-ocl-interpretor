@@ -17,5 +17,3 @@ def: acces1: String = Tuple{y="a", x=1}.y
 def: acces2: String = Tuple{y=Tuple{x="a"}, x=1}.y.x
 
 def: voidling: Tuple() = Tuple{}
-
-inv eiuhge: self.name + 1 = "efh"

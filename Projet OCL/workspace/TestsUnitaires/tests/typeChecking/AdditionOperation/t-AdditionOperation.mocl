@@ -13,6 +13,5 @@ inv stringsous : "a" - "b" = "échec"
 inv whatever1: 1 + Bag{} = "échec"
  	
 inv whatever2: 1.0 + "s" = 2 -- + Tuple{x: String = "a"} = "échec"
- 	
  
 def: intreal : Integer = 1+1.0
