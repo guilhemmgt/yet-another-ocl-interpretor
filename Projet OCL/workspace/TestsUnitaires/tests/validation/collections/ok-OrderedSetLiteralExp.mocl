@@ -1,0 +1,17 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv inv1: -- ordre
+	OrderedSet{1,2,3} <> OrderedSet{3,2,1}
+inv inv2: -- duplicats
+	OrderedSet{1,1,2,1,1} = OrderedSet{1,2}
+	
+inv inv3:
+	OrderedSet{} = OrderedSet{}
+inv inv4:
+	OrderedSet{"hello", "world"} = OrderedSet{"hello", "world"}
+inv inv5:
+	OrderedSet{null} = OrderedSet{null}
+inv inv6:
+	OrderedSet{0} <> OrderedSet{1}

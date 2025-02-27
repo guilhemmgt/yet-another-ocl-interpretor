@@ -3,6 +3,9 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+
+import org.apache.commons.collections.bag.HashBag;
+
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -29,11 +32,16 @@ public final class BagLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException(this.getClass(),"getValue");
-  }
+	  EList<OclExpression> elts = this.target.getElements();
+	  HashBag bag = new HashBag();
+	  for(OclExpression e : elts) {
+		  bag.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
+	  }
+	  return bag;
+ }
 
   /**
    * Get the type of the element
@@ -65,5 +73,15 @@ public final class BagLiteralExpValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

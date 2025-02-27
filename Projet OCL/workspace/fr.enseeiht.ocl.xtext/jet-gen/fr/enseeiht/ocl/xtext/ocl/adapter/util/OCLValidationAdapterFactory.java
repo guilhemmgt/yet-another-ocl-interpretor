@@ -39,7 +39,6 @@ import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
-import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCall;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
@@ -104,7 +103,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.EnumLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.LetExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IfExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BraceExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ContextlessCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.ContextlessCallExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.BooleanLiteralExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.PropertyCallValidationAdapter;
@@ -568,6 +566,7 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createModuleValidationAdapter(Module target)
   {
+	
 	if (this.moduleAdapter == null) {
 		this.moduleAdapter = new ModuleValidationAdapter(target);
 	}

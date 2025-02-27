@@ -65,4 +65,14 @@ public final class OclContextBlockValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated NOT
+   */
+   @Override
+  public String getOutlineString() {
+    return this.target.getClass_().getName();
+  }
  }
