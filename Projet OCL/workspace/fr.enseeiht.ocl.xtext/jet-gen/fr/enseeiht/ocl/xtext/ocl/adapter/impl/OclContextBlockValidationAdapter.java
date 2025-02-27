@@ -73,6 +73,6 @@ public final class OclContextBlockValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return this.target.getClass_().getName();
   }
  }

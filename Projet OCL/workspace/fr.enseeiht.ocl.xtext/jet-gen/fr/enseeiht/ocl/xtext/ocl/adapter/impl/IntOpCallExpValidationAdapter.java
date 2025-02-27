@@ -157,6 +157,6 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+	   return String.join(".", this.target.getOperationNames());
   }
  }

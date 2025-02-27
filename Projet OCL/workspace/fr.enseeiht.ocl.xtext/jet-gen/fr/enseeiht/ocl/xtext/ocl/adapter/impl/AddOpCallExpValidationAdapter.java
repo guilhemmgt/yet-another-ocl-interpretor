@@ -207,6 +207,6 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return String.join(".", this.target.getOperationNames());
   }
  }

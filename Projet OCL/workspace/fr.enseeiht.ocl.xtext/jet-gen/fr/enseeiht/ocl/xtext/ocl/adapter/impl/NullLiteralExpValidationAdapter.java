@@ -64,6 +64,6 @@ public final class NullLiteralExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return "null";
   }
  }

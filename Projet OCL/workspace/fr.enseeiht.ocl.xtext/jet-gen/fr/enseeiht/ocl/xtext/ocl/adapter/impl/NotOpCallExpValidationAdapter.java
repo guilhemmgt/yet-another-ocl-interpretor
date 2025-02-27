@@ -130,6 +130,6 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return String.join(".", this.target.getOperationName());
   }
  }

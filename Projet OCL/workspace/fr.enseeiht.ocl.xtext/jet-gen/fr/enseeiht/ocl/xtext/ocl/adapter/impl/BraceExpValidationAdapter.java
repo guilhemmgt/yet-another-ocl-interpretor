@@ -69,6 +69,6 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return "()";
   }
  }

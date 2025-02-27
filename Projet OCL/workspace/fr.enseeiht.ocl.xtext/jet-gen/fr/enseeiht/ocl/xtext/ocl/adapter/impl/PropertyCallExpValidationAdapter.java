@@ -81,6 +81,6 @@ public final class PropertyCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return ".";
   }
  }

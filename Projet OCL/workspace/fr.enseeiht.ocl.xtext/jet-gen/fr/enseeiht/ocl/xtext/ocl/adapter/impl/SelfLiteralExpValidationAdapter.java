@@ -72,6 +72,6 @@ public final class SelfLiteralExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return "self";
   }
  }

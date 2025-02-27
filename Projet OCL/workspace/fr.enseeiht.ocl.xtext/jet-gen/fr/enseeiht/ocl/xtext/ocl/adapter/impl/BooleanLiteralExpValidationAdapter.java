@@ -74,6 +74,6 @@ public final class BooleanLiteralExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return this.target.getBooleanSymbol();
   }
  }

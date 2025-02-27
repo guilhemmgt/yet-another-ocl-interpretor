@@ -66,6 +66,6 @@ public final class StringLiteralExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return "\"" + this.target.getStringSymbol() + "\"";
   }
  }
