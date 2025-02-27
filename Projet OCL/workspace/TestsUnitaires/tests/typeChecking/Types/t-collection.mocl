@@ -1,0 +1,15 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+def: definition1 : Collection(Integer) = Bag{1, 2.0, 3, 4}
+
+def: definition2 : Sequence(Integer) = Bag{}
+
+def: definition3 : Bag(OclVoid) = Set{null}
+
+def : definition4 : Set(Real) = OrderedSet{1}
+
+def : definition5 : OrderedSet(OclAny) = Sequence{1, "s"}
+
+def : definition6 : Collection(Integer) = Set{null, 1, 2.0}
