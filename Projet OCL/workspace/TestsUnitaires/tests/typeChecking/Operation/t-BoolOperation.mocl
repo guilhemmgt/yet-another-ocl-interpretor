@@ -1,0 +1,11 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv test1: 1 and true
+
+inv test2: 1.0 or false
+
+inv test3: Bag{} xor null
+
+inv test4: Tuple{x:OclAny=2}.x implies false

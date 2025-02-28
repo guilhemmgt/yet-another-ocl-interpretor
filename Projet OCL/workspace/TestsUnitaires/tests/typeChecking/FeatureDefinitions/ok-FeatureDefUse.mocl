@@ -45,6 +45,10 @@ def: defcoll(a:String, b:String, c:String) : Collection(String) = Bag{a, b, c}
 def: defself(a:String) : String = self.name + a
 
 
+
+def: deftuple(x:Integer) : Tuple(x:Integer) = Tuple{x:Integer=x} -- A voir comment ça finit
+
+
 -- Now checking for use
 
 
@@ -81,3 +85,6 @@ def : defrealparamuse : Real = 3.0
 def: defintparamuse : Integer = defintparam(2)
 
 def: defcolluse : Collection(String) = defcoll("a", "a", "c")
+
+
+def: deftupleuse : Integer = deftuple(1).x
