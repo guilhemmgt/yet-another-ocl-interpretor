@@ -18,7 +18,12 @@ import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToInteger;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToReal;
 
 public class OclOperationFactory {
-
+	
+	/**
+	 * Get all default OCL operation named this way.
+	 * @param name name of the operation
+	 * @return List of all operation, null if none exist
+	 */
 	public static List<IOclOperation> getOperations(String name) {
 		return switch (name) {
 		// OclAny,Void,Invalid
