@@ -10,7 +10,7 @@ import fr.enseeiht.ocl.xtext.types.OclString;
 public class OclBooleanToString implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		return source.toString();
 	}
 

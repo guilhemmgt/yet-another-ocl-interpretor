@@ -13,7 +13,7 @@ import fr.enseeiht.ocl.xtext.types.OclSet;
 public class OclOclAsSet implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		return new HashSet<Object>(Arrays.asList(source));
 	}
 

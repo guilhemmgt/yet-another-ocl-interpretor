@@ -12,7 +12,7 @@ import fr.enseeiht.ocl.xtext.types.OclString;
 public class OclToReal implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		String sourceStr = (String)source;
 		if (!sourceStr.matches("([-]?[\\d]*\\.[\\d]*)|(-?\\d+)")) {
 			return new NumberFormatInvalid(source,getName());

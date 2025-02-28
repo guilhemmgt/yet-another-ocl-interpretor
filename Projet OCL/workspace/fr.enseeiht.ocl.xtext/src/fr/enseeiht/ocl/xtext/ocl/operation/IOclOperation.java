@@ -6,7 +6,7 @@ import fr.enseeiht.ocl.xtext.OclType;
 
 public interface IOclOperation {
 
-	public Object getValue(Object source, List<Object> args);
+	public Object getReturnValue(Object source, List<Object> args);
 	
 	public OclType getReturnType(OclType sourceType, List<OclType> argsType);
 	

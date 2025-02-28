@@ -83,7 +83,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 							OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
 							args.add(argAdapter.getValue(contextTarget));
 						}
-						return operation.getValue(sourceValue, args);					
+						return operation.getReturnValue(sourceValue, args);					
 					}
 				}
 			}
