@@ -3,7 +3,6 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,8 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getName <em>Name</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getInitExpression <em>Init Expression</em>}</li>
  * </ul>
  *
@@ -23,52 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Attribute extends EObject
+public interface Attribute extends Auxiliary
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getAttribute_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(OclTypeLiteral)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getAttribute_Type()
-   * @model containment="true"
-   * @generated
-   */
-  OclTypeLiteral getType();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getType <em>Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
-   * @see #getType()
-   * @generated
-   */
-  void setType(OclTypeLiteral value);
-
   /**
    * Returns the value of the '<em><b>Init Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->

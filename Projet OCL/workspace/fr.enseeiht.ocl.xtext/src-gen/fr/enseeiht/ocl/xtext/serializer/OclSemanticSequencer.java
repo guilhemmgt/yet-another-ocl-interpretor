@@ -288,6 +288,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Attribute returns Attribute
+	 *     Auxiliary returns Attribute
 	 *
 	 * Constraint:
 	 *     (name=ID type=OclTypeLiteral initExpression=OclExpression)
@@ -295,10 +296,10 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ATTRIBUTE__NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ATTRIBUTE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.AUXILIARY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.AUXILIARY__NAME));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.AUXILIARY__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.AUXILIARY__TYPE));
 			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ATTRIBUTE__INIT_EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ATTRIBUTE__INIT_EXPRESSION));
 		}
