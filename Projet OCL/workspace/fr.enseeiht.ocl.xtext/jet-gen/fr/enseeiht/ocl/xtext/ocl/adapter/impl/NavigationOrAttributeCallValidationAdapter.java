@@ -2,6 +2,8 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -80,12 +82,11 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  // On a le type parent! On récupère son sous-type.
 	  
 	  if (source != null) {
-		for (EStructuralFeature feat : source.classtype.getEAllStructuralFeatures()) {
-			if (this.target.getName().equals(feat.getName())) {
-				return new OclEClass(feat.eClass());
-			}
+			EClassifier eType = source.classtype.getEStructuralFeature(this.target.getName()).getEType();
+			System.out.println(eType);
+			System.out.println(eType.eClass());
+			return new OclEClass(eType.eClass());
 		}
-	  }
 	  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
   }
 

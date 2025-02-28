@@ -2,4 +2,4 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 inv nomInterdit:
-  self.name <> "Feur"
+  self.name + "Feur" = true
