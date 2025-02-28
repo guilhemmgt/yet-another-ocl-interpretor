@@ -9,7 +9,7 @@ def :att3 : OclAny = 1 + "b"
 
 def: att4: Bag(Integer) = Bag{1.0}
 
-def: att5 :Collection() = Bag{1, "s"}
+def: att5 :Collection(String) = Bag{1, "s"}
 
 
 def : att6() : OclVoid = 1
