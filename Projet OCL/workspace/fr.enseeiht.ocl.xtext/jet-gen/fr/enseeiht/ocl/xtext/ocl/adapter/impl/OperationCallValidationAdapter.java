@@ -125,13 +125,13 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 			for (IOclOperation operation : operations) {
 				// Type check the call!
 				if (OperationResolutionUtils.isCorrectImplementation(source.getType(), operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
-					List<Object> args = new ArrayList<Object>();
-					for (EObject arg : this.target.getArguments()) {
-						OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
-						args.add(argAdapter.getType());
-					}
+//					List<Object> args = new ArrayList<Object>();
+//					for (EObject arg : this.target.getArguments()) {
+//						OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
+//						args.add(argAdapter.getType());
+//					}
 					// TODO
-										
+					return operation.getReturnType(sourceType, paramTypes);
 				}
 			}
 			// No correct operation was found

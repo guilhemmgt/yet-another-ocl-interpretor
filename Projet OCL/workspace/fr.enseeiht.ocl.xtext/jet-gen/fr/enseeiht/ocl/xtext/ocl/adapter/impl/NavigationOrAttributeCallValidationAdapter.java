@@ -4,12 +4,15 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclTuple;
@@ -95,12 +98,33 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  // On a le type parent! On récupère son sous-type.
 	  
 	  if (source != null) {
+		  	EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
 			EClassifier eType = source.classtype.getEStructuralFeature(this.target.getName()).getEType();
-			if(eType instanceof EClass eClass)
-				return new OclEClass(eClass);
+			System.out.println(feature);
+			System.out.println(eType);
+			OclType type; 
+			if(eType instanceof EClass eClass) {
+				type = new OclEClass(eClass);
+			}
+			else if(eType instanceof EDataType eDataType) {
+				System.out.println(eDataType.getInstanceClassName());
+				System.out.println(eDataType.getInstanceClass());
+				System.out.println(eDataType.getInstanceTypeName());
+				type = null;
+			}
+			else if(eType instanceof EEnum eEnum) {
+				type = null;
+			}
+			else {
+				type = null;
+			}
 			System.out.println(eType);
 			System.out.println(eType.eClass());
-			return new OclEClass(eType.eClass());
+			
+			if(feature.getUpperBound() == 1)
+				return type;
+			
+			return new OclCollection(type);
 		}
 	  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
   }
