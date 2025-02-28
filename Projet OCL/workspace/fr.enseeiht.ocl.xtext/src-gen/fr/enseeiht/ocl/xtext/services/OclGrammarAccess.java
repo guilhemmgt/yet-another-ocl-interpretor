@@ -1635,26 +1635,38 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class EnumLiteralExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.EnumLiteralExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cEnum_Assignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cEnum_EEnumCrossReference_0_0 = (CrossReference)cEnum_Assignment_0.eContents().get(0);
+		private final RuleCall cEnum_EEnumQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cEnum_EEnumCrossReference_0_0.eContents().get(1);
+		private final Keyword cNumberSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//EnumLiteralExp :
-		//    "#" name=ID
+		//    enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"#" name=ID
+		//enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 		public Group getGroup() { return cGroup; }
 		
+		//enum_=[ecore::EEnum|QualifiedName]
+		public Assignment getEnum_Assignment_0() { return cEnum_Assignment_0; }
+		
+		//[ecore::EEnum|QualifiedName]
+		public CrossReference getEnum_EEnumCrossReference_0_0() { return cEnum_EEnumCrossReference_0_0; }
+		
+		//QualifiedName
+		public RuleCall getEnum_EEnumQualifiedNameParserRuleCall_0_0_1() { return cEnum_EEnumQualifiedNameParserRuleCall_0_0_1; }
+		
 		//"#"
-		public Keyword getNumberSignKeyword_0() { return cNumberSignKeyword_0; }
+		public Keyword getNumberSignKeyword_1() { return cNumberSignKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 	}
 	public class LetExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.LetExp");
@@ -3560,7 +3572,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//EnumLiteralExp :
-	//    "#" name=ID
+	//    enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 	//;
 	public EnumLiteralExpElements getEnumLiteralExpAccess() {
 		return pEnumLiteralExp;

@@ -1581,9 +1581,20 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
+  public EReference getEnumLiteralExp_Enum_()
+  {
+    return (EReference)enumLiteralExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getEnumLiteralExp_Name()
   {
-    return (EAttribute)enumLiteralExpEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)enumLiteralExpEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2409,6 +2420,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     createEReference(mapElementEClass, MAP_ELEMENT__VALUE);
 
     enumLiteralExpEClass = createEClass(ENUM_LITERAL_EXP);
+    createEReference(enumLiteralExpEClass, ENUM_LITERAL_EXP__ENUM_);
     createEAttribute(enumLiteralExpEClass, ENUM_LITERAL_EXP__NAME);
 
     letExpEClass = createEClass(LET_EXP);
@@ -2704,6 +2716,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEReference(getMapElement_Value(), this.getOclExpression(), null, "value", null, 0, 1, MapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLiteralExpEClass, EnumLiteralExp.class, "EnumLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnumLiteralExp_Enum_(), ecorePackage.getEEnum(), null, "enum_", null, 0, 1, EnumLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEnumLiteralExp_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(letExpEClass, LetExp.class, "LetExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

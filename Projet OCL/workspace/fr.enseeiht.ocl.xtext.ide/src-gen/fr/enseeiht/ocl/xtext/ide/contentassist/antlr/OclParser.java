@@ -210,7 +210,8 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMapLiteralExpAccess().getElementsAssignment_3_1_1(), "rule__MapLiteralExp__ElementsAssignment_3_1_1");
 			builder.put(grammarAccess.getMapElementAccess().getKeyAssignment_1(), "rule__MapElement__KeyAssignment_1");
 			builder.put(grammarAccess.getMapElementAccess().getValueAssignment_3(), "rule__MapElement__ValueAssignment_3");
-			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1(), "rule__EnumLiteralExp__NameAssignment_1");
+			builder.put(grammarAccess.getEnumLiteralExpAccess().getEnum_Assignment_0(), "rule__EnumLiteralExp__Enum_Assignment_0");
+			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_2(), "rule__EnumLiteralExp__NameAssignment_2");
 			builder.put(grammarAccess.getLetExpAccess().getVariableAssignment_1(), "rule__LetExp__VariableAssignment_1");
 			builder.put(grammarAccess.getLetExpAccess().getIn_Assignment_3(), "rule__LetExp__In_Assignment_3");
 			builder.put(grammarAccess.getIfExpAccess().getConditionAssignment_1(), "rule__IfExp__ConditionAssignment_1");

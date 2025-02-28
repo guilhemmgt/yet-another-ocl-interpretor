@@ -9,6 +9,8 @@ import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -20,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.EnumLiteralExpImpl#getEnum_ <em>Enum </em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.EnumLiteralExpImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -27,6 +30,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteralExp
 {
+  /**
+   * The cached value of the '{@link #getEnum_() <em>Enum </em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEnum_()
+   * @generated
+   * @ordered
+   */
+  protected EEnum enum_;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -74,6 +87,51 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
    * @generated
    */
   @Override
+  public EEnum getEnum_()
+  {
+    if (enum_ != null && enum_.eIsProxy())
+    {
+      InternalEObject oldEnum_ = (InternalEObject)enum_;
+      enum_ = (EEnum)eResolveProxy(oldEnum_);
+      if (enum_ != oldEnum_)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.ENUM_LITERAL_EXP__ENUM_, oldEnum_, enum_));
+      }
+    }
+    return enum_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum basicGetEnum_()
+  {
+    return enum_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setEnum_(EEnum newEnum_)
+  {
+    EEnum oldEnum_ = enum_;
+    enum_ = newEnum_;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.ENUM_LITERAL_EXP__ENUM_, oldEnum_, enum_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String getName()
   {
     return name;
@@ -103,6 +161,9 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ENUM_:
+        if (resolve) return getEnum_();
+        return basicGetEnum_();
       case OclPackage.ENUM_LITERAL_EXP__NAME:
         return getName();
     }
@@ -119,6 +180,9 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ENUM_:
+        setEnum_((EEnum)newValue);
+        return;
       case OclPackage.ENUM_LITERAL_EXP__NAME:
         setName((String)newValue);
         return;
@@ -136,6 +200,9 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ENUM_:
+        setEnum_((EEnum)null);
+        return;
       case OclPackage.ENUM_LITERAL_EXP__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -153,6 +220,8 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ENUM_:
+        return enum_ != null;
       case OclPackage.ENUM_LITERAL_EXP__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }

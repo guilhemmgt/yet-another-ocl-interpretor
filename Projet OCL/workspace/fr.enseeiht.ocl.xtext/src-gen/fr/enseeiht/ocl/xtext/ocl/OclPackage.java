@@ -1218,13 +1218,22 @@ public interface OclPackage extends EPackage
   int ENUM_LITERAL_EXP = 34;
 
   /**
+   * The feature id for the '<em><b>Enum </b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_LITERAL_EXP__ENUM_ = OCL_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_LITERAL_EXP__NAME = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int ENUM_LITERAL_EXP__NAME = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Enum Literal Exp</em>' class.
@@ -1233,7 +1242,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int ENUM_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.LetExpImpl <em>Let Exp</em>}' class.
@@ -3109,6 +3118,17 @@ public interface OclPackage extends EPackage
   EClass getEnumLiteralExp();
 
   /**
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEnum_ <em>Enum </em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Enum </em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEnum_()
+   * @see #getEnumLiteralExp()
+   * @generated
+   */
+  EReference getEnumLiteralExp_Enum_();
+
+  /**
    * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4546,6 +4566,14 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EClass ENUM_LITERAL_EXP = eINSTANCE.getEnumLiteralExp();
+
+    /**
+     * The meta object literal for the '<em><b>Enum </b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_LITERAL_EXP__ENUM_ = eINSTANCE.getEnumLiteralExp_Enum_();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
