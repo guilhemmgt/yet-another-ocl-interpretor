@@ -24,8 +24,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclFeatureDefinition/feature"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//Attribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//Attribute/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Attribute/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Attribute/initExpression"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//Operation">

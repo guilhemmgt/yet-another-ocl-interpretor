@@ -54,7 +54,7 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-          public List<OclFeatureDefinition> getAllDefinition() {
+           public List<OclFeatureDefinition> getAllDefinition() {
 	  return this.localDefinitions;
   }
  }

@@ -1,0 +1,23 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+def: test1 : Boolean = 1 = 1
+
+def: test2: Boolean = 1 = "a"
+
+def: test3: Boolean = Bag{1} = 1
+
+def: test4: Boolean = 1 = null
+
+def: test5 : Boolean = 1 <> 1
+
+def: test6: Boolean = 1 <> "a"
+
+def: test7: Boolean = Bag{1} <> 1
+
+def: test8: Boolean = 1 <> null
+
+def: testdatatype: Boolean = self.name = "a"
+
+def: testdatatype: Boolean = self.name <> 9

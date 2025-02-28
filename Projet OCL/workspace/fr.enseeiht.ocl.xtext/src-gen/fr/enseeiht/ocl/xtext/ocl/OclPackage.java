@@ -215,6 +215,43 @@ public interface OclPackage extends EPackage
   int OCL_FEATURE_DEFINITION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl <em>Auxiliary</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getAuxiliary()
+   * @generated
+   */
+  int AUXILIARY = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AUXILIARY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AUXILIARY__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Auxiliary</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AUXILIARY_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AttributeImpl <em>Attribute</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -231,7 +268,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__NAME = 0;
+  int ATTRIBUTE__NAME = AUXILIARY__NAME;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -240,7 +277,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE = 1;
+  int ATTRIBUTE__TYPE = AUXILIARY__TYPE;
 
   /**
    * The feature id for the '<em><b>Init Expression</b></em>' containment reference.
@@ -249,7 +286,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__INIT_EXPRESSION = 2;
+  int ATTRIBUTE__INIT_EXPRESSION = AUXILIARY_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Attribute</em>' class.
@@ -258,7 +295,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 3;
+  int ATTRIBUTE_FEATURE_COUNT = AUXILIARY_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OperationImpl <em>Operation</em>}' class.
@@ -314,43 +351,6 @@ public interface OclPackage extends EPackage
    * @ordered
    */
   int OPERATION_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl <em>Auxiliary</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getAuxiliary()
-   * @generated
-   */
-  int AUXILIARY = 18;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AUXILIARY__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AUXILIARY__TYPE = 1;
-
-  /**
-   * The number of structural features of the '<em>Auxiliary</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AUXILIARY_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -2345,28 +2345,6 @@ public interface OclPackage extends EPackage
   EClass getAttribute();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.Attribute#getName()
-   * @see #getAttribute()
-   * @generated
-   */
-  EAttribute getAttribute_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.Attribute#getType()
-   * @see #getAttribute()
-   * @generated
-   */
-  EReference getAttribute_Type();
-
-  /**
    * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getInitExpression <em>Init Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3922,22 +3900,6 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EClass ATTRIBUTE = eINSTANCE.getAttribute();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
 
     /**
      * The meta object literal for the '<em><b>Init Expression</b></em>' containment reference feature.

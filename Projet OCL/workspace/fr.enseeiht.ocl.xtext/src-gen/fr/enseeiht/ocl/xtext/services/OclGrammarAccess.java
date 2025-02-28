@@ -1034,11 +1034,12 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cIteratorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLocalVariableParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cParameterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cAttributeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//Auxiliary :Iterator|LocalVariable|Parameter;
+		//Auxiliary :Iterator|LocalVariable|Parameter|Attribute;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Iterator|LocalVariable|Parameter
+		//Iterator|LocalVariable|Parameter|Attribute
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Iterator
@@ -1049,6 +1050,9 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//Parameter
 		public RuleCall getParameterParserRuleCall_2() { return cParameterParserRuleCall_2; }
+		
+		//Attribute
+		public RuleCall getAttributeParserRuleCall_3() { return cAttributeParserRuleCall_3; }
 	}
 	public class VariableExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.VariableExp");
@@ -3391,7 +3395,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getPrimary_OclExpressionAccess().getRule();
 	}
 	
-	//Auxiliary :Iterator|LocalVariable|Parameter;
+	//Auxiliary :Iterator|LocalVariable|Parameter|Attribute;
 	public AuxiliaryElements getAuxiliaryAccess() {
 		return pAuxiliary;
 	}

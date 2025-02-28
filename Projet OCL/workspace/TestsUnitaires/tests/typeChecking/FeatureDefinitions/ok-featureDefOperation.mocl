@@ -6,6 +6,8 @@ def : att1() : OclVoid = null
 
 def: att4 (): Bag(Integer) = Bag{}
 
+def : attx(x:Integer) : Integer = 3
+
 def: att2(x:Integer) : Integer = x
 
 def :att3(x:Integer, y:String) : Boolean = x = 1 and y = "a"

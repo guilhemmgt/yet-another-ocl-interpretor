@@ -106,7 +106,7 @@ Primary_OclExpression returns OclExpression :
 	|OclModelElementExp
 	|ContextlessCallExp;
 
-Auxiliary :Iterator|LocalVariable|Parameter;
+Auxiliary :Iterator|LocalVariable|Parameter|Attribute;
 VariableExp:
 	referredVariable=[Auxiliary]
 ;
