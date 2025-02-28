@@ -4,7 +4,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -40,7 +39,7 @@ public final class ParameterValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-    return new OclClassifier(OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType());
+    return OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
   }
 
   /**
