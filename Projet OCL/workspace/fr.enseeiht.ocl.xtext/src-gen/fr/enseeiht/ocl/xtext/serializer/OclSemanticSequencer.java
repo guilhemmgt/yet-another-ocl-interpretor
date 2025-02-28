@@ -458,16 +458,19 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EnumLiteralExp returns EnumLiteralExp
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (enum_=[EEnum|QualifiedName] name=ID)
 	 * </pre>
 	 */
 	protected void sequence_EnumLiteralExp(ISerializationContext context, EnumLiteralExp semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__ENUM_) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__ENUM_));
 			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getEnumLiteralExpAccess().getEnum_EEnumQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(OclPackage.Literals.ENUM_LITERAL_EXP__ENUM_, false));
+		feeder.accept(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
