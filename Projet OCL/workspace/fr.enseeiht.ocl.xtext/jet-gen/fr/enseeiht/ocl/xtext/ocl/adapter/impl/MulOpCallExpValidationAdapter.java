@@ -2,13 +2,11 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -88,7 +86,7 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 	  OclType resultType = arg1.getType();
 	  if (this.target.getOperationNames()  == null) {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
-		  return arg1.getType();
+		  return resultType;
 	  }
 	  else {
 		  for(int i=0; i < this.target.getOperationNames().size();i++) {
@@ -96,14 +94,11 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 			  OclType argType = arg.getType();
 			  // Real * Real : Real
 			  boolean isReal = resultType.conformsTo(new OclReal()) && argType.conformsTo(new OclReal());
-			  // Invalid * ... : Invalid
-			  boolean anyInvalid = resultType.conformsTo(new OclInvalid()) || argType.conformsTo(new OclInvalid());
 			  
-			  if (isReal && !anyInvalid) {
+			  if (isReal) {
 				  // Rappel : Puisque Integer s'unifie avec Real, on a : Real + Integer : Real
 				  resultType = resultType.unifyWith(argType);
-			  }
-			  else {
+			  } else {
 				  // Opération invalide
 				  String message = "Invalid operation between types " + resultType + " and " + argType + " (operation : '" + target.getOperationNames().get(i) + "')";
 				  resultType =  new OclInvalid(target, message, resultType, argType);

@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclTypePair;
 import fr.enseeiht.ocl.xtext.types.OclVoid;
@@ -43,18 +44,18 @@ public final class TuplePartValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
     OclType expType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getInitExpression()).getType();
-    OclType returnType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
+    if (target.getType() == null) {
+    	return expType;
+    }
+    OclClassifier returnType = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
     if (expType instanceof OclInvalid) {
     	return new OclInvalid(expType);
     }
-    else if (expType instanceof OclVoid) {
-    	return new OclVoid();
-    }
-    else if (expType.conformsTo(returnType)) {
-    	return expType.unifyWith(returnType);
+    else if (expType.conformsTo(returnType.getRepresentedType())) {
+    	return expType.unifyWith(returnType.getRepresentedType());
     }
     else {
-    	String message = "type mismatch : expected " + returnType + ", got " + expType;
+    	String message = "type mismatch : expected " + returnType.getRepresentedType() + ", got " + expType;
     	return new OclInvalid(target, message);
     }
   }

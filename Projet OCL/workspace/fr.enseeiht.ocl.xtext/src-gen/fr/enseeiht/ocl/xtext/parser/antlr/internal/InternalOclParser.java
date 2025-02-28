@@ -6368,7 +6368,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( (LA36_0==RULE_STRING) ) {
+            if ( (LA36_0==RULE_ID) ) {
                 alt36=1;
             }
             switch (alt36) {
@@ -6421,7 +6421,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalOcl.g:2425:5: otherlv_4= ',' ( (lv_tuplePart_5_0= ruleTuplePart ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,20,FOLLOW_6); 
+                    	    otherlv_4=(Token)match(input,20,FOLLOW_8); 
 
                     	    					newLeafNode(otherlv_4, grammarAccess.getTupleLiteralExpAccess().getCommaKeyword_3_1_0());
                     	    				
@@ -6534,7 +6534,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTuplePart"
-    // InternalOcl.g:2465:1: ruleTuplePart returns [EObject current=null] : ( ( (lv_varName_0_0= RULE_STRING ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) ) ;
+    // InternalOcl.g:2465:1: ruleTuplePart returns [EObject current=null] : ( ( (lv_varName_0_0= RULE_ID ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) ) ;
     public final EObject ruleTuplePart() throws RecognitionException {
         EObject current = null;
 
@@ -6550,21 +6550,21 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOcl.g:2471:2: ( ( ( (lv_varName_0_0= RULE_STRING ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) ) )
-            // InternalOcl.g:2472:2: ( ( (lv_varName_0_0= RULE_STRING ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) )
+            // InternalOcl.g:2471:2: ( ( ( (lv_varName_0_0= RULE_ID ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) ) )
+            // InternalOcl.g:2472:2: ( ( (lv_varName_0_0= RULE_ID ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) )
             {
-            // InternalOcl.g:2472:2: ( ( (lv_varName_0_0= RULE_STRING ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) )
-            // InternalOcl.g:2473:3: ( (lv_varName_0_0= RULE_STRING ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) )
+            // InternalOcl.g:2472:2: ( ( (lv_varName_0_0= RULE_ID ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) ) )
+            // InternalOcl.g:2473:3: ( (lv_varName_0_0= RULE_ID ) ) (otherlv_1= ':' ( (lv_type_2_0= ruleOclTypeLiteral ) ) )? otherlv_3= '=' ( (lv_initExpression_4_0= ruleOclExpression ) )
             {
-            // InternalOcl.g:2473:3: ( (lv_varName_0_0= RULE_STRING ) )
-            // InternalOcl.g:2474:4: (lv_varName_0_0= RULE_STRING )
+            // InternalOcl.g:2473:3: ( (lv_varName_0_0= RULE_ID ) )
+            // InternalOcl.g:2474:4: (lv_varName_0_0= RULE_ID )
             {
-            // InternalOcl.g:2474:4: (lv_varName_0_0= RULE_STRING )
-            // InternalOcl.g:2475:5: lv_varName_0_0= RULE_STRING
+            // InternalOcl.g:2474:4: (lv_varName_0_0= RULE_ID )
+            // InternalOcl.g:2475:5: lv_varName_0_0= RULE_ID
             {
-            lv_varName_0_0=(Token)match(input,RULE_STRING,FOLLOW_31); 
+            lv_varName_0_0=(Token)match(input,RULE_ID,FOLLOW_31); 
 
-            					newLeafNode(lv_varName_0_0, grammarAccess.getTuplePartAccess().getVarNameSTRINGTerminalRuleCall_0_0());
+            					newLeafNode(lv_varName_0_0, grammarAccess.getTuplePartAccess().getVarNameIDTerminalRuleCall_0_0());
             				
 
             					if (current==null) {
@@ -6574,7 +6574,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
             						current,
             						"varName",
             						lv_varName_0_0,
-            						"org.eclipse.xtext.common.Terminals.STRING");
+            						"org.eclipse.xtext.common.Terminals.ID");
             				
 
             }
@@ -12514,7 +12514,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0317FBC1000800F0L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000080000100000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000080000000010L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000080000000020L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000060000L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000080000080000L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000100000L});

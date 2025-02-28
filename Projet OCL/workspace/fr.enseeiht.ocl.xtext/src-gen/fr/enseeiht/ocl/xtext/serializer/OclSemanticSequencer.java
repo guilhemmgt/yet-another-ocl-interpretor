@@ -1259,7 +1259,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TuplePart returns TuplePart
 	 *
 	 * Constraint:
-	 *     (varName=STRING type=OclTypeLiteral? initExpression=OclExpression)
+	 *     (varName=ID type=OclTypeLiteral? initExpression=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_TuplePart(ISerializationContext context, TuplePart semanticObject) {

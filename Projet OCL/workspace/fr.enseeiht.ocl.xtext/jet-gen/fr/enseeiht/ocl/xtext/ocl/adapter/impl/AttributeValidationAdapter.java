@@ -45,7 +45,10 @@ public final class AttributeValidationAdapter implements OCLAdapter {
 	  OclClassifier returnClassifier = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
 	  OclType expressionType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getInitExpression()).getType();
 	  OclType returnType = returnClassifier.getRepresentedType();
-	  if (expressionType.conformsTo(returnType)) {
+	  if (expressionType instanceof OclInvalid) {
+		  return expressionType;
+	  }
+	  else if (expressionType.conformsTo(returnType)) {
 		  return returnType;
 	  }
 	  else {

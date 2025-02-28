@@ -2,14 +2,12 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclReal;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -80,16 +78,11 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  boolean isReal = type.conformsTo(new OclReal());
 	  // operator = 'not' | '-'
 	  boolean operationIsNot = this.target.getOperationName().equals("not");
-	  // Invalid + ... : Invalid
-	  boolean isInvalid = type.conformsTo(new OclInvalid());
+
 	  
-	  if (isBoolean && operationIsNot && !isInvalid) {
+	  if (isBoolean && operationIsNot || isReal && !operationIsNot) {
 		  return type;
-	  }
-	  else if (isReal && !operationIsNot && !isInvalid) {
-		  return type;
-	  }
-	  else {
+	  } else {
 		  // Opération invalide
 		  String message = "Invalid operation for type " + type + " (operation : '" + target.getOperationName() + "')";
 		  return new OclInvalid(target, message, type);

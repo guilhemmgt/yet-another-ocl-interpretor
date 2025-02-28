@@ -1490,7 +1490,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.TuplePart");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVarNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cVarNameSTRINGTerminalRuleCall_0_0 = (RuleCall)cVarNameAssignment_0.eContents().get(0);
+		private final RuleCall cVarNameIDTerminalRuleCall_0_0 = (RuleCall)cVarNameAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cColonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cTypeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -1500,18 +1500,18 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cInitExpressionOclExpressionParserRuleCall_3_0 = (RuleCall)cInitExpressionAssignment_3.eContents().get(0);
 		
 		//TuplePart:
-		//    varName=STRING (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
+		//    varName=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//varName=STRING (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
+		//varName=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 		public Group getGroup() { return cGroup; }
 		
-		//varName=STRING
+		//varName=ID
 		public Assignment getVarNameAssignment_0() { return cVarNameAssignment_0; }
 		
-		//STRING
-		public RuleCall getVarNameSTRINGTerminalRuleCall_0_0() { return cVarNameSTRINGTerminalRuleCall_0_0; }
+		//ID
+		public RuleCall getVarNameIDTerminalRuleCall_0_0() { return cVarNameIDTerminalRuleCall_0_0; }
 		
 		//(':' type=OclTypeLiteral)?
 		public Group getGroup_1() { return cGroup_1; }
@@ -3538,7 +3538,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//TuplePart:
-	//    varName=STRING (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
+	//    varName=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 	//;
 	public TuplePartElements getTuplePartAccess() {
 		return pTuplePart;

@@ -2472,9 +2472,9 @@ ruleTuplePart returns [EObject current=null]
 	(
 		(
 			(
-				lv_varName_0_0=RULE_STRING
+				lv_varName_0_0=RULE_ID
 				{
-					newLeafNode(lv_varName_0_0, grammarAccess.getTuplePartAccess().getVarNameSTRINGTerminalRuleCall_0_0());
+					newLeafNode(lv_varName_0_0, grammarAccess.getTuplePartAccess().getVarNameIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -2484,7 +2484,7 @@ ruleTuplePart returns [EObject current=null]
 						$current,
 						"varName",
 						lv_varName_0_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
