@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TupleTypeAttribute;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -35,10 +36,18 @@ public final class TupleTypeAttributeValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  OclType type = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType()).getType();
+	  return type;
+  }
+  
+  /** Get the name of the element
+ * @return name of the element
+ */
+public String getName() {
+	  return target.getName();
   }
 
   /**

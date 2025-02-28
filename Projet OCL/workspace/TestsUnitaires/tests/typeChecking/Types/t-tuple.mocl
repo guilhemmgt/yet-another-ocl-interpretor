@@ -1,0 +1,23 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+def: declaration1: Tuple(x:Integer) = Tuple{x="s"}
+
+def: declaration2: Tuple(x:Integer) = Tuple{x=1.0}
+
+def: declaration3: Tuple(y:Real) = Tuple{x:Integer=1}
+
+def: declaration4: Tuple(x:Real) = Tuple{x:Real=1, y=2}
+
+def: declaration5: Tuple(x:Real, y:Real) = Tuple{x:Real=1}
+
+def: declaration6: Tuple(x:Real) = Tuple{x:Real="a"}
+
+def: invdeclaration: Tuple(x:Real, y:String) = Tuple{x="a", y=1}
+
+def: acces1: String = Tuple{y="a", x=1}.z
+
+def: acces2: String = Tuple{y=Tuple{x="a"}, x=1}.y.y
+
+def: voidling: Tuple(x:Integer) = Tuple{}

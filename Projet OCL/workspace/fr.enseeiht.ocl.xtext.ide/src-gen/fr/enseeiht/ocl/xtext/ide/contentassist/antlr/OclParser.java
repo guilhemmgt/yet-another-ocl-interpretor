@@ -45,12 +45,11 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimary_OclExpressionAccess().getAlternatives(), "rule__Primary_OclExpression__Alternatives");
 			builder.put(grammarAccess.getAuxiliaryAccess().getAlternatives(), "rule__Auxiliary__Alternatives");
 			builder.put(grammarAccess.getNumericLiteralExpAccess().getAlternatives(), "rule__NumericLiteralExp__Alternatives");
-			builder.put(grammarAccess.getEnumLiteralExpAccess().getAlternatives_1(), "rule__EnumLiteralExp__Alternatives_1");
 			builder.put(grammarAccess.getBooleanLiteralExpAccess().getAlternatives(), "rule__BooleanLiteralExp__Alternatives");
 			builder.put(grammarAccess.getPropertyCallAccess().getAlternatives(), "rule__PropertyCall__Alternatives");
 			builder.put(grammarAccess.getNavigationOrAttributeCallAccess().getAlternatives_1(), "rule__NavigationOrAttributeCall__Alternatives_1");
 			builder.put(grammarAccess.getOclTypeLiteralAccess().getAlternatives(), "rule__OclTypeLiteral__Alternatives");
-			builder.put(grammarAccess.getCollectionTypeAccess().getAlternatives(), "rule__CollectionType__Alternatives");
+			builder.put(grammarAccess.getCollectionTypeLiteralAccess().getAlternatives(), "rule__CollectionTypeLiteral__Alternatives");
 			builder.put(grammarAccess.getPrimitiveAccess().getAlternatives(), "rule__Primitive__Alternatives");
 			builder.put(grammarAccess.getNumericTypeAccess().getAlternatives(), "rule__NumericType__Alternatives");
 			builder.put(grammarAccess.getModuleAccess().getGroup(), "rule__Module__Group__0");
@@ -126,6 +125,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCollectionOperationCallAccess().getGroup_3_1(), "rule__CollectionOperationCall__Group_3_1__0");
 			builder.put(grammarAccess.getLocalVariableAccess().getGroup(), "rule__LocalVariable__Group__0");
 			builder.put(grammarAccess.getLocalVariableAccess().getGroup_1(), "rule__LocalVariable__Group_1__0");
+			builder.put(grammarAccess.getCollectionTypeAccess().getGroup(), "rule__CollectionType__Group__0");
 			builder.put(grammarAccess.getBagTypeAccess().getGroup(), "rule__BagType__Group__0");
 			builder.put(grammarAccess.getOrderedSetTypeAccess().getGroup(), "rule__OrderedSetType__Group__0");
 			builder.put(grammarAccess.getSequenceTypeAccess().getGroup(), "rule__SequenceType__Group__0");
@@ -135,6 +135,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIntegerTypeAccess().getGroup(), "rule__IntegerType__Group__0");
 			builder.put(grammarAccess.getRealTypeAccess().getGroup(), "rule__RealType__Group__0");
 			builder.put(grammarAccess.getOclAnyTypeAccess().getGroup(), "rule__OclAnyType__Group__0");
+			builder.put(grammarAccess.getOclVoidTypeAccess().getGroup(), "rule__OclVoidType__Group__0");
 			builder.put(grammarAccess.getTupleTypeAccess().getGroup(), "rule__TupleType__Group__0");
 			builder.put(grammarAccess.getTupleTypeAccess().getGroup_3(), "rule__TupleType__Group_3__0");
 			builder.put(grammarAccess.getTupleTypeAccess().getGroup_3_1(), "rule__TupleType__Group_3_1__0");
@@ -209,8 +210,8 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMapLiteralExpAccess().getElementsAssignment_3_1_1(), "rule__MapLiteralExp__ElementsAssignment_3_1_1");
 			builder.put(grammarAccess.getMapElementAccess().getKeyAssignment_1(), "rule__MapElement__KeyAssignment_1");
 			builder.put(grammarAccess.getMapElementAccess().getValueAssignment_3(), "rule__MapElement__ValueAssignment_3");
-			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_0(), "rule__EnumLiteralExp__NameAssignment_1_0");
-			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_1(), "rule__EnumLiteralExp__NameAssignment_1_1");
+			builder.put(grammarAccess.getEnumLiteralExpAccess().getEnum_Assignment_0(), "rule__EnumLiteralExp__Enum_Assignment_0");
+			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_2(), "rule__EnumLiteralExp__NameAssignment_2");
 			builder.put(grammarAccess.getLetExpAccess().getVariableAssignment_1(), "rule__LetExp__VariableAssignment_1");
 			builder.put(grammarAccess.getLetExpAccess().getIn_Assignment_3(), "rule__LetExp__In_Assignment_3");
 			builder.put(grammarAccess.getIfExpAccess().getConditionAssignment_1(), "rule__IfExp__ConditionAssignment_1");
@@ -243,6 +244,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLocalVariableAccess().getNameAssignment_0(), "rule__LocalVariable__NameAssignment_0");
 			builder.put(grammarAccess.getLocalVariableAccess().getTypeAssignment_1_1(), "rule__LocalVariable__TypeAssignment_1_1");
 			builder.put(grammarAccess.getLocalVariableAccess().getInitExpressionAssignment_3(), "rule__LocalVariable__InitExpressionAssignment_3");
+			builder.put(grammarAccess.getCollectionTypeAccess().getElementTypeAssignment_2(), "rule__CollectionType__ElementTypeAssignment_2");
 			builder.put(grammarAccess.getBagTypeAccess().getElementTypeAssignment_2(), "rule__BagType__ElementTypeAssignment_2");
 			builder.put(grammarAccess.getOrderedSetTypeAccess().getElementTypeAssignment_2(), "rule__OrderedSetType__ElementTypeAssignment_2");
 			builder.put(grammarAccess.getSequenceTypeAccess().getElementTypeAssignment_2(), "rule__SequenceType__ElementTypeAssignment_2");

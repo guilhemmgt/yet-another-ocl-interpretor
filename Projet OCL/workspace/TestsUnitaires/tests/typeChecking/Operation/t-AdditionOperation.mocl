@@ -1,0 +1,17 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv intstring: 1+"s" = "échec"
+  
+inv realstring: 1.0 + "s" = "échec"
+ 	
+inv avecnull: 1.0 + null + "s" = "échec"
+ 	
+inv stringsous : "a" - "b" = "échec"
+ 	
+inv whatever1: 1 + Bag{} = "échec"
+ 	
+inv whatever2: 1.0 + "s" = 2 -- + Tuple{x: String = "a"} = "échec"
+ 
+def: intreal : Integer = 1+1.0

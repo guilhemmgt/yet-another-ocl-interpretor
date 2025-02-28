@@ -3,6 +3,9 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclMap;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.MapType;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -35,10 +38,12 @@ public final class MapTypeValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  OclClassifier keyClassifier  = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getKeyType()).getType();
+	  OclClassifier valueClassifier  = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getValueType()).getType();
+	  return new OclClassifier(new OclMap(keyClassifier.getRepresentedType(), valueClassifier.getRepresentedType()));
   }
 
   /**

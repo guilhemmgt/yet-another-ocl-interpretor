@@ -2,10 +2,10 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -74,29 +74,21 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  if (this.target.getOperationNames().size() == 0) {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
 		  return arg1.getType();
+	  } 
+	  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1));
+	  OclType type1 = arg1.getType();
+	  OclType type2 = arg2.getType();
+	  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide ou vide.
+	  // C'est la spé.
+	  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
+	  
+	  if (anyInvalid){
+		  // Opération invalide
+		  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationNames().get(0) + "')";
+		  return new OclInvalid(target, message, type1, type2);
 	  }
 	  else {
-		  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1));
-		  OclType type1 = arg1.getType();
-		  OclType type2 = arg2.getType();
-		  // On peut comparer tout avec tout à condition qu'aucun argument ne soit invalide ou vide.
-		  // C'est la spé.
-		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-		  // Void = ... : Void
-		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
-		  
-
-		  if (anyVoid && !anyInvalid) {
-			  return new OclVoid();
-		  }
-		  else if (anyInvalid){
-			  // Opération invalide
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationNames().get(0) + "')";
-			  return new OclInvalid(target, message, type1, type2);
-		  }
-		  else {
-			  return new OclBoolean();
-		  }
+		  return new OclBoolean();
 	  }
   }
 

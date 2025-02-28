@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.types.OclEnum;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -38,7 +39,7 @@ public final class EnumLiteralExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  return new OclEnum(this.target.getEnum_());
   }
 
   /**
