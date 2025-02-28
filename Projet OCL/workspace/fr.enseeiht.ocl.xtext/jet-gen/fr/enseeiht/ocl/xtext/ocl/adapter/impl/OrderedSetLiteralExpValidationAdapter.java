@@ -1,8 +1,11 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
+
+import org.apache.commons.collections.list.SetUniqueList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclOrderedSet;
@@ -30,10 +33,15 @@ public final class OrderedSetLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException(this.getClass(),"getValue");
+	  EList<OclExpression> elts = this.target.getElements();
+	  SetUniqueList orderedSet = SetUniqueList.decorate(new ArrayList<Object>());
+	  for(OclExpression e : elts) {
+		  orderedSet.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
+	  }
+	  return orderedSet;
   }
 
   /**
@@ -62,11 +70,35 @@ public final class OrderedSetLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "OrderedSet{";
+		EList<OclExpression> elts = this.target.getElements();
+		for (int i = 0; i < elts.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(elts.get(i)) + (i==elts.size()-1 ? "" : ",");
+		}
+		res += "}";
+		return res;
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

@@ -2,9 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.SelfLiteralExp;
@@ -50,11 +48,29 @@ public final class SelfLiteralExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "self";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated NOT
+   */
+   @Override
+  public String getOutlineString() {
+    return "self";
   }
  }

@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -56,7 +55,11 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 			  }
 		  case "-":
 			  if (arg instanceof Number) {
-				  return -(arg instanceof Integer ? (Integer)arg : (Double)arg);
+				  if (arg instanceof Integer integ) {
+					  return (Integer) (-integ);
+				  } else {
+					  return -((Double)arg);
+				  }
 			  } else {
 				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), arg.getClass());
 			  }
@@ -91,11 +94,30 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String opName = this.target.getOperationName();
+		return opName + (opName.equals("-") ? "" : " ") + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated NOT
+   */
+   @Override
+  public String getOutlineString() {
+    return String.join(".", this.target.getOperationName());
   }
  }

@@ -13,14 +13,13 @@ import fr.enseeiht.ocl.xtext.types.OclSet;
 public class OclOclAsSet implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		return new HashSet<Object>(Arrays.asList(source));
 	}
 
 	@Override
 	public OclType getReturnType(OclType sourceType, List<OclType> argsType) {
-		// TODO : Remove cast
-		return new OclSet((OclAny)sourceType);
+		return new OclSet(sourceType);
 	}
 
 	@Override

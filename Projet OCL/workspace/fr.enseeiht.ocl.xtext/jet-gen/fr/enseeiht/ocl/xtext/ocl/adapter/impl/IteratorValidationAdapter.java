@@ -3,8 +3,10 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
+import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -35,11 +37,42 @@ public final class IteratorValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+		if (this.target.getType() != null) {
+			throw new UnimplementedException(this.getClass(), "getType");
+		}
+		// Get the PropertyCallExp in order to get the source type
+		PropertyCallExp parent = (PropertyCallExp) this.target.eContainer().eContainer();
+		
+		// On remonte la pile des accès
+		int pos = parent.getCalls().indexOf(this.target.eContainer());
+		OclType source;
+		if (pos == 0) {
+			// root call
+			source = OCLValidationAdapterFactory.INSTANCE.createAdapter(parent.getSource()).getType();
+		} else {
+			source =  OCLValidationAdapterFactory.INSTANCE.createAdapter(parent.getCalls().get(pos - 1))
+					.getType();
+		}
+//		if (source instanceof OclEClass eSource) {
+//			eSource.classtype.getInstanceClassName();
+//		}
+		throw new UnimplementedException(this.getClass(),"getType");
+		
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+	   String res = this.target.getName();
+	   if (this.target.getType() != null)
+		   res += ":" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType());
+	   return res;
+	}
 
   /**
    * Get adapted element
@@ -48,5 +81,15 @@ public final class IteratorValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

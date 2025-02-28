@@ -14,7 +14,7 @@ public class OclSize implements IOclOperation {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		return ((Collection<Object>)source).size();
 	}
 

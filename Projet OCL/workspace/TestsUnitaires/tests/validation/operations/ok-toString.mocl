@@ -1,0 +1,26 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv intToString:
+	(867).toString() = "867"
+	
+inv negIntToString:
+	(-1).toString() = "-1"
+
+inv trueToString:
+	true.toString() = "true"
+
+inv falseToString:
+	false.toString() = "false"
+	
+inv realToString:
+	(1.).toString() = "1.0"
+
+inv negRealToString:
+	(-1.).toString() = "-1.0"
+
+inv longRealToString:
+	(789.00006).toString() = "789.00006"
+
+inv negativeLongRealToString:
+	(-8264.0087006).toString() = "-8264.0087006"

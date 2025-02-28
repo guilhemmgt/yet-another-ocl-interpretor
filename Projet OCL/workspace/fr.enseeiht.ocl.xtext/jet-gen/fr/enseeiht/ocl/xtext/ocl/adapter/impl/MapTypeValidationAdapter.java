@@ -47,11 +47,29 @@ public final class MapTypeValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "Map(" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getKeyType()) + "," + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getValueType()) + ")";
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

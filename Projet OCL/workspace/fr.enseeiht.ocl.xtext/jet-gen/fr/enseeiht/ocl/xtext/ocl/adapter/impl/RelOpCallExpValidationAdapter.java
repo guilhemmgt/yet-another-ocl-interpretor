@@ -1,8 +1,8 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
@@ -11,6 +11,7 @@ import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
+import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -109,11 +110,36 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "";
+		EList<AddOpCallExp> args = this.target.getArgs();
+		EList<String> ops = this.target.getOperationNames();
+		for (int i = 0; i < ops.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(i)) + ops.get(i);
+		}
+		res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(args.size()-1));
+		return res;
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

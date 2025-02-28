@@ -1,10 +1,13 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
+import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -42,11 +45,35 @@ public final class CollectionOperationCallValidationAdapter implements OCLAdapte
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "->" + this.target.getOperationName() + "(";
+		EList<OclExpression> args = this.target.getArguments();
+		for (int i = 0; i < args.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(i)) + (i==args.size()-1 ? "" : ",");
+		}
+		res += ")";
+		return res;
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

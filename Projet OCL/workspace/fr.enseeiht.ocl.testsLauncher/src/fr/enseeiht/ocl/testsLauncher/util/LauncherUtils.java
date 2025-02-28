@@ -44,7 +44,7 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 public class LauncherUtils {
 
 	private static final boolean CHECK_TYPE = true;
-	private static final boolean VALIDATE = false;
+	private static final boolean VALIDATE = true;
 	
 	private static Module moclObject;
 	private static Injector injector;
@@ -146,7 +146,7 @@ public class LauncherUtils {
 		    	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.ERROR)) {
 		    		throw new CheckTypeException(issue.getMessage() + ". (ligne : " + issue.getLineNumber() + "; colonne : " + issue.getColumn() + ")");
 		    	}
-				if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.INFO)) {
+				if(issue.getCode().endsWith("CheckType.Exception") && (issue.getSeverity() == Severity.WARNING)) {
 					throw new RuntimeException(issue.getData()[0] + " : " + issue.getMessage());
 				}
 		    }

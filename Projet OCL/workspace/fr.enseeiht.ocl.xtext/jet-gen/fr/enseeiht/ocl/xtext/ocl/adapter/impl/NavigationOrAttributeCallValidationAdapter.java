@@ -139,6 +139,14 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "." + this.target.getName();
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
@@ -146,7 +154,17 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-                 public boolean conformsTo(OclType oclType) {
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
+  }
+  public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

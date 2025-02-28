@@ -1,0 +1,14 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv floor:
+ 	(2.3).floor() = 2
+
+inv floride:
+ 	(2.).floor() = 2
+ 
+inv floride:
+ 	(-2.5).floor() = -3
+ 
+inv florian:
+ 	(2.999).floor() = 2

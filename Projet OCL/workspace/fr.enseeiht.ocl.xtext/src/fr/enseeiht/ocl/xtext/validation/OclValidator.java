@@ -19,7 +19,8 @@ import fr.enseeiht.ocl.xtext.ocl.Module;
  */
 public class OclValidator extends AbstractOclValidator {
 	
-	private static final String CHECK_TYPE_DIAGNOSTIC = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType";
+	public static final String CHECK_TYPE_DIAGNOSTIC = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType";	
+	private static final String CHECK_TYPE_DIAGNOSTIC_TEMP_EXCEPTION = "org.eclipse.xtext.diagnostics.Diagnostic.CheckType.Exception";
 	
 	/**
 	 * Type Checking for the OCL syntax. Should not be called manually.
@@ -27,29 +28,29 @@ public class OclValidator extends AbstractOclValidator {
 	 */
 	@Check
 	public void checkType(Module module) {
-		try {
-			OclInvalid invalid = OclTypeChecker.getAllTypes(module);
+		if (module.eResource().getErrors().isEmpty()) {
+			try {
+				OclInvalid invalid = OclTypeChecker.getAllTypes(module);
 
-			System.out.println("Taille oclInvalid : " + invalid.origins.size());
-			
-			for (TypeCheckingError error : invalid.origins) {
-				EObject target = error.getCause();
-				EObject container = target.eContainer();
-				if (container.eGet(target.eContainingFeature()) instanceof List) {
-					@SuppressWarnings("unchecked")
-					List<EObject> features = (List<EObject>) container.eGet(target.eContainingFeature());
-					error(error.getMessage(), container, target.eContainingFeature(), features.indexOf(target),
-							CHECK_TYPE_DIAGNOSTIC, new String[0]);
-				} else {
-					error(error.getMessage(), container, target.eContainingFeature(), CHECK_TYPE_DIAGNOSTIC,
-							new String[0]);
+				for (TypeCheckingError error : invalid.origins) {
+					EObject target = error.getCause();
+					EObject container = target.eContainer();
+					if (container.eGet(target.eContainingFeature()) instanceof List) {
+						@SuppressWarnings("unchecked")
+						List<EObject> features = (List<EObject>) container.eGet(target.eContainingFeature());
+						error(error.getMessage(), container, target.eContainingFeature(), features.indexOf(target),
+								CHECK_TYPE_DIAGNOSTIC, new String[0]);
+					} else {
+						error(error.getMessage(), container, target.eContainingFeature(), CHECK_TYPE_DIAGNOSTIC,
+								new String[0]);
+					}
 				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			info(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"), CHECK_TYPE_DIAGNOSTIC,
-					new String[] { e.getClass().toString().split(" ")[1] });
+			} catch (Exception e) {
+				e.printStackTrace();
+				warning(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"),
+						CHECK_TYPE_DIAGNOSTIC_TEMP_EXCEPTION, new String[] { e.getClass().toString().split(" ")[1] });
 
+			}
 		}
 	}
 //	public static final String INVALID_NAME = "invalidName";

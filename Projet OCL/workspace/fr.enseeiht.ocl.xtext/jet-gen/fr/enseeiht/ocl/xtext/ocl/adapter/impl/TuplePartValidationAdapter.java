@@ -6,8 +6,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.types.OclTypePair;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -65,11 +63,33 @@ public final class TuplePartValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = this.target.getVarName();
+		if (this.target.getType() != null)
+			res += ":" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType());
+		res += "=" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getInitExpression());
+		return res;
+	}
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

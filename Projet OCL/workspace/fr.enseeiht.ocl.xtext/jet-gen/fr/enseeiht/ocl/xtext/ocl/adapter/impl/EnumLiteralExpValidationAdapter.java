@@ -3,7 +3,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
-import fr.enseeiht.ocl.xtext.types.OclEnum;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -39,8 +38,16 @@ public final class EnumLiteralExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public OclType getType() {
-	  return new OclEnum(this.target.getEnum_());
+    throw new UnimplementedException(this.getClass(),"getType");
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "#" + this.target.getName();
+	}
 
   /**
    * Get adapted element
@@ -49,5 +56,15 @@ public final class EnumLiteralExpValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

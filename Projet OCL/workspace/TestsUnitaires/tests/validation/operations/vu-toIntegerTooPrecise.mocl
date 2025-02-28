@@ -1,0 +1,5 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe		
+inv stringToIntPrecise:
+	"1.00000000".toInteger() = 1
