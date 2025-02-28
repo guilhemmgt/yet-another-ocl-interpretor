@@ -5,7 +5,6 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 
@@ -98,41 +97,45 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 		  }
 	  }
 	  // On a le type parent! On récupère son sous-type.
+	  EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
 	  
-	  if (source != null) {
-		  	EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
-			EClassifier eType = feature.getEType();
-			OclType type; 
-			// Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum
-			if(eType instanceof EClass eClass) {
-				type = new OclEClass(eClass);
-			} else if(eType instanceof EEnum eEnum) {
-				type = new OclEnum(eEnum);
-			} else if(eType instanceof EDataType eDataType) {
-				// On parcourt tout les types possibles (il y a encore beacoup a implémenté)
-				switch (eDataType.getClassifierID()) {
-				case EcorePackage.EBOOLEAN:
-					type = new OclBoolean();
-					break;
-				case EcorePackage.EINT:
-					type = new OclInteger();
-					break;
-				case EcorePackage.ESTRING:
-					type = new OclString();
-					break;
-				default:
-					throw new IllegalArgumentException("Unimplemented type: " + eDataType.getInstanceClassName());
-				}
-			} else {
-				throw new RuntimeException("unreachable");
-			}
-			
-			if(feature.getUpperBound() == 1)
-				return type;
-			
-			return new OclCollection(type);
-		}
-	  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
+	  if(feature == null)
+		  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
+	  
+	  EClassifier eType = feature.getEType();
+	  
+	  // Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum
+	  OclType type;
+	  
+	  if (eType instanceof EClass eClass) {
+		  type = new OclEClass(eClass);
+	  } else if (eType instanceof EEnum eEnum) {
+		  type = new OclEnum(eEnum);
+	  } else if (eType instanceof EDataType eDataType) {
+		  // On parcourt tout les types possibles (il y a encore beacoup a implémenté)
+		  switch (eDataType.getClassifierID()) {
+		  case EcorePackage.EBOOLEAN:
+			  type = new OclBoolean();
+			  break;
+		  case EcorePackage.EINT:
+			  type = new OclInteger();
+			  break;
+		  case EcorePackage.ESTRING:
+			  type = new OclString();
+			  break;
+		  default:
+			  throw new IllegalArgumentException("Unimplemented type: " + eDataType.getInstanceClassName());
+		  }
+	  } else {
+		  throw new RuntimeException("unreachable");
+	  }
+	  
+	  // Si la limite haute est 1 alors on renvoi l'élement seul
+	  if (feature.getUpperBound() == 1)
+		  return type;
+	  
+	  // Sinon on renvoie une collection contenant les valeurs
+	  return new OclCollection(type);
   }
 
   /**
