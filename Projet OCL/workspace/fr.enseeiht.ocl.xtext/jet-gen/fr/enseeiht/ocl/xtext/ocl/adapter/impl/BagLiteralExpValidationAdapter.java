@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.apache.commons.collections.bag.HashBag;
 
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBag;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;

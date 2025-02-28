@@ -16,7 +16,6 @@ import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSize;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSubString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToInteger;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToReal;
-import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnion;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionBagToBag;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionBagToSet;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionSetToBag;

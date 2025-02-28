@@ -6,8 +6,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.types.OclTypePair;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.OclType;

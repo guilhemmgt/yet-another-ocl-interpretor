@@ -5,14 +5,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.types.OclBag;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclMap;
 import fr.enseeiht.ocl.xtext.types.OclTypePair;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
 import fr.enseeiht.ocl.xtext.ocl.MapLiteralExp;
-import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**

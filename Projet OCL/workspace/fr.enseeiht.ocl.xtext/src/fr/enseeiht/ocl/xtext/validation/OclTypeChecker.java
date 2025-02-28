@@ -10,7 +10,6 @@ import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
-import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.*;
 
