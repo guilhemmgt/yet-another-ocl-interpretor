@@ -112,7 +112,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
 	}
 	OclType sourceType = source.getType();
-	if (sourceType.conformsTo(new OclInvalid())) {
+	if (!sourceType.conformsTo(new OclInvalid())) {
 		// Méthodes utilisateur
 		
 		// Méthodes système
@@ -121,16 +121,10 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		for (OclExpression param : this.target.getArguments()) {
 			paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
 		}
-		if (operations != null ) {
+		if (operations != null) {
 			for (IOclOperation operation : operations) {
 				// Type check the call!
-				if (OperationResolutionUtils.isCorrectImplementation(source.getType(), operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
-//					List<Object> args = new ArrayList<Object>();
-//					for (EObject arg : this.target.getArguments()) {
-//						OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
-//						args.add(argAdapter.getType());
-//					}
-					// TODO
+				if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
 					return operation.getReturnType(sourceType, paramTypes);
 				}
 			}
@@ -140,11 +134,12 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 				messageStr.add(typ.toString());
 			}
 			return new OclInvalid(target, "The operation '" + this.target.getOperationName() + "' cannot be called with arguments of types: " + String.join(", ", messageStr) + ".");
+		} else {
+			return new OclInvalid(target, "No such operation '" + this.target.getOperationName() + "' exists.");
 		}
 	} else {
-		return new OclInvalid(sourceType);
+		return sourceType;
 	}
-	return new OclAny();
   }
 
   /**
