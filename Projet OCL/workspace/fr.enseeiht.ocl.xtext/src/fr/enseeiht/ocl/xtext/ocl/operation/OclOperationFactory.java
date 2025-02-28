@@ -16,6 +16,11 @@ import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSize;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSubString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToInteger;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToReal;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnion;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionBagToBag;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionBagToSet;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionSetToBag;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionSetToSet;
 
 public class OclOperationFactory {
 	
@@ -79,7 +84,7 @@ public class OclOperationFactory {
 		case "flatten" -> null; //TODO 
 		
 		// Set + Bag
-		case "union" -> null; //TODO 
+		case "union" -> Arrays.asList(new OclUnionBagToBag(), new OclUnionSetToSet(),new OclUnionBagToSet(),new OclUnionSetToBag()); //TODO 
 		case "intersection" -> null; //TODO 
 		case "including" -> null; //TODO 
 		case "excluding" -> null; //TODO 
