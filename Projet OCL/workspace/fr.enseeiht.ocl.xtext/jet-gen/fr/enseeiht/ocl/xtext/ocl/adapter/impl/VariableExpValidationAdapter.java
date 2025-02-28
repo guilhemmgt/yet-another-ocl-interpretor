@@ -40,10 +40,10 @@ public final class VariableExpValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+    return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReferredVariable()).getType();
   }
 
   /**
@@ -51,7 +51,7 @@ public final class VariableExpValidationAdapter implements OCLAdapter {
    */
    @Override
 	public String toString() {
-		return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReferredVariable()).toString();
+		return this.target.getReferredVariable().getName();
 	}
 
   /**

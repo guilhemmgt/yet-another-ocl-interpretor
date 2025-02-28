@@ -1,5 +1,7 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -8,8 +10,11 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.scope.Scoper;
 import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.ParameterInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
+import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -34,34 +39,53 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
 	public Object getValue(EObject contextTarget) {
-		List<Object> source = null; // TODO comment obtenir la source ? même problème que pour la navigation ...
-		
+		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+		int pos = container.getCalls().indexOf(this.target);
+		EObject sourceObject = null;
+		if (pos == 0) {
+			// root call
+			sourceObject =container.getSource();
+		} else {
+			sourceObject = container.getCalls().get(pos - 1);
+		} // TODO comment obtenir la source ? même problème que pour la navigation ...
+		Object sourceValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(sourceObject).getValue(contextTarget);
+		List<Object> source = null;
+		if (sourceValue == null) {
+			return new UndefinedAccessInvalid(sourceObject);
+		} else if (sourceValue instanceof Collection sourceCollec) {
+			source = new ArrayList<Object>(sourceCollec);
+		} 
 		// Enregistrement de 'result'
-		// TODO (?) Erreur si ce même Auxiliary est déjà enregistré dans le scope, mais ça ne devrait jamais arriver. Pareil pour les iterators. L'erreur peut aussi être faite côté Scoper
-		Scoper.add(this.target.getResult(), OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getResult().getInitExpression()));
-		
+		// TODO (?) Erreur si ce même Auxiliary est déjà enregistré dans le scope, mais
+		// ça ne devrait jamais arriver. Pareil pour les iterators. L'erreur peut aussi
+		// être faite côté Scoper
+		Scoper.add(this.target.getResult(),
+				OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getResult().getInitExpression()).getValue(contextTarget));
+
 		// Génération des iterators
 		EList<Iterator> iterators = this.target.getIterators();
 		List<List<Object>> iteratorsCombinations = CartesianProduct.generateCombinations(source, iterators.size());
-		
+
 		// Pour chaque combinaison d'itérateurs...
 		for (List<Object> comb : iteratorsCombinations) {
 			// Enregistrement des variables au scope
 			for (int i = 0; i < comb.size(); i++) {
 				Scoper.add(iterators.get(i), comb.get(i));
 			}
-			
+
 			// Calcul de 'body' et actualisation de 'result'
-			Scoper.update(this.target.getResult(), OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody()));
-			
+			Scoper.update(this.target.getResult(),
+					OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody()).getValue(contextTarget));
+
 			// Désenregistrement des variables du scope
 			for (Iterator i : iterators) {
 				Scoper.remove(i);
 			}
 		}
-		
+
 		// Désenregistrer 'result' et renvoyer sa valeur
 		return Scoper.remove(this.target.getResult());
+		
 	}
 
   /**
