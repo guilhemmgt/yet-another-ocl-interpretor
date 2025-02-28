@@ -96,6 +96,8 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  
 	  if (source != null) {
 			EClassifier eType = source.classtype.getEStructuralFeature(this.target.getName()).getEType();
+			if(eType instanceof EClass eClass)
+				return new OclEClass(eClass);
 			System.out.println(eType);
 			System.out.println(eType.eClass());
 			return new OclEClass(eType.eClass());
@@ -111,7 +113,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public EObject getElement() {
     return this.target;
   }
-               public boolean conformsTo(OclType oclType) {
+                public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

@@ -458,11 +458,17 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EnumLiteralExp returns EnumLiteralExp
 	 *
 	 * Constraint:
-	 *     (name=STRING | name=ID)
+	 *     name=ID
 	 * </pre>
 	 */
 	protected void sequence_EnumLiteralExp(ISerializationContext context, EnumLiteralExp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

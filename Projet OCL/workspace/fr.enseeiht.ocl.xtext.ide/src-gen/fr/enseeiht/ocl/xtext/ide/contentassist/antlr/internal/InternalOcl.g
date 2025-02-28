@@ -2311,27 +2311,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EnumLiteralExp__Alternatives_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_0()); }
-		(rule__EnumLiteralExp__NameAssignment_1_0)
-		{ after(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_1()); }
-		(rule__EnumLiteralExp__NameAssignment_1_1)
-		{ after(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_1()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__BooleanLiteralExp__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -6504,9 +6483,9 @@ rule__EnumLiteralExp__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEnumLiteralExpAccess().getAlternatives_1()); }
-	(rule__EnumLiteralExp__Alternatives_1)
-	{ after(grammarAccess.getEnumLiteralExpAccess().getAlternatives_1()); }
+	{ before(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1()); }
+	(rule__EnumLiteralExp__NameAssignment_1)
+	{ after(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1()); }
 )
 ;
 finally {
@@ -11061,30 +11040,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EnumLiteralExp__NameAssignment_1_0
+rule__EnumLiteralExp__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEnumLiteralExpAccess().getNameSTRINGTerminalRuleCall_1_0_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getEnumLiteralExpAccess().getNameSTRINGTerminalRuleCall_1_0_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EnumLiteralExp__NameAssignment_1_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_1_1_0()); }
+		{ before(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_1_1_0()); }
+		{ after(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

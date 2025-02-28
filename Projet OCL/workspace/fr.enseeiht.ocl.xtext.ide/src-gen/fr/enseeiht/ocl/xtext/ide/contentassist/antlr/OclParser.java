@@ -45,7 +45,6 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimary_OclExpressionAccess().getAlternatives(), "rule__Primary_OclExpression__Alternatives");
 			builder.put(grammarAccess.getAuxiliaryAccess().getAlternatives(), "rule__Auxiliary__Alternatives");
 			builder.put(grammarAccess.getNumericLiteralExpAccess().getAlternatives(), "rule__NumericLiteralExp__Alternatives");
-			builder.put(grammarAccess.getEnumLiteralExpAccess().getAlternatives_1(), "rule__EnumLiteralExp__Alternatives_1");
 			builder.put(grammarAccess.getBooleanLiteralExpAccess().getAlternatives(), "rule__BooleanLiteralExp__Alternatives");
 			builder.put(grammarAccess.getPropertyCallAccess().getAlternatives(), "rule__PropertyCall__Alternatives");
 			builder.put(grammarAccess.getNavigationOrAttributeCallAccess().getAlternatives_1(), "rule__NavigationOrAttributeCall__Alternatives_1");
@@ -211,8 +210,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMapLiteralExpAccess().getElementsAssignment_3_1_1(), "rule__MapLiteralExp__ElementsAssignment_3_1_1");
 			builder.put(grammarAccess.getMapElementAccess().getKeyAssignment_1(), "rule__MapElement__KeyAssignment_1");
 			builder.put(grammarAccess.getMapElementAccess().getValueAssignment_3(), "rule__MapElement__ValueAssignment_3");
-			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_0(), "rule__EnumLiteralExp__NameAssignment_1_0");
-			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1_1(), "rule__EnumLiteralExp__NameAssignment_1_1");
+			builder.put(grammarAccess.getEnumLiteralExpAccess().getNameAssignment_1(), "rule__EnumLiteralExp__NameAssignment_1");
 			builder.put(grammarAccess.getLetExpAccess().getVariableAssignment_1(), "rule__LetExp__VariableAssignment_1");
 			builder.put(grammarAccess.getLetExpAccess().getIn_Assignment_3(), "rule__LetExp__In_Assignment_3");
 			builder.put(grammarAccess.getIfExpAccess().getConditionAssignment_1(), "rule__IfExp__ConditionAssignment_1");

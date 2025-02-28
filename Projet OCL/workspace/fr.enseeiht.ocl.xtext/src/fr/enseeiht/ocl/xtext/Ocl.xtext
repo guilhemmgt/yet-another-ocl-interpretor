@@ -164,7 +164,7 @@ MapElement :
 ;
 
 EnumLiteralExp : 
-	"#" (name=STRING|name=ID)
+	"#" name=ID
 ;
 
 LetExp : 

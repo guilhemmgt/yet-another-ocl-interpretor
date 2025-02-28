@@ -1,19 +1,17 @@
 package fr.enseeiht.ocl.xtext.types;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 
 import fr.enseeiht.ocl.xtext.OclType;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
  
 
 public class OclEClass implements OclType {
 	// An OclEClass types an EClass, and opens access to its components(?)
 
 	 
-	public EClassifier classtype;
+	public EClass classtype;
 	
-	public OclEClass(EClassifier classtype) {
+	public OclEClass(EClass classtype) {
 		this.classtype = classtype;
 	}
 
@@ -23,14 +21,7 @@ public class OclEClass implements OclType {
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean isSubEClass = false;
 		if (oclType instanceof OclEClass) {
-			OclEClass classType = (OclEClass) oclType;
-			if (classtype instanceof EClass && classType.classtype instanceof EClass) {
-				isSubEClass = ((EClass) classType.classtype).isSuperTypeOf(((EClass) classtype));
-			} else if (classtype instanceof EClass || classType.classtype instanceof EClass){
-				return false;
-			} else {
-				throw new UnimplementedException(getClass(), null);
-			}
+			isSubEClass = ((OclEClass) oclType).classtype.isSuperTypeOf(classtype);
 		}
 		return anyType || isSubEClass;
 	}
@@ -52,19 +43,14 @@ public class OclEClass implements OclType {
 	}
 	
 	private OclType findLowestSupertype(OclEClass eclass) {
-		if (classtype instanceof EClass && eclass.classtype instanceof EClass) {
-			for (EClass superType1: ((EClass) classtype).getESuperTypes()) {
-				for (EClass superType2: ((EClass) eclass.classtype).getESuperTypes()) {
-					if (superType1.equals(superType2)) {
-						return new OclEClass(superType1);
-					}
+		for (EClass superType1: classtype.getESuperTypes()) {
+			for (EClass superType2: eclass.classtype.getESuperTypes()) {
+				if (superType1.equals(superType2)) {
+					return new OclEClass(superType1);
 				}
 			}
-			return new OclAny();
 		}
-		else {
-			return null;
-		}
+		return new OclAny();
 	}
 
 }
