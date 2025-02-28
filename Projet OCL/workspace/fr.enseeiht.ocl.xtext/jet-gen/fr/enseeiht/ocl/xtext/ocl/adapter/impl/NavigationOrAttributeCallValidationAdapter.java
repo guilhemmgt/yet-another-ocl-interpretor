@@ -163,7 +163,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   }
   public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
-	return false
+	return false;
 }
 
 public OclType unifyWith(OclType oclType) {
