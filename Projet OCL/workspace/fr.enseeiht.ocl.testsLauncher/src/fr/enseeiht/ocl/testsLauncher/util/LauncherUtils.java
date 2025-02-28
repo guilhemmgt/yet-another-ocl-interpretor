@@ -132,9 +132,11 @@ public class LauncherUtils {
 
         //Check linking
         for (Diagnostic diagnostic : EcoreUtil.computeDiagnostic(moclResource, false).getChildren()) {
-        	if(diagnostic.getData().get(0) instanceof XtextLinkingDiagnostic dia && !dia.getUriToProblem().fragment().contains("@imports")) {
-        		throw new LinkingException(diagnostic.getMessage() + " (ligne : " + dia.getLine() + "; colonne : " + dia.getColumn() + ")");
-			}
+        	if(diagnostic.getData().get(0) instanceof XtextLinkingDiagnostic dia) {
+        		if(!dia.getUriToProblem().fragment().contains("@imports"))
+        			throw new LinkingException(diagnostic.getMessage() + " (ligne : " + dia.getLine() + "; colonne : " + dia.getColumn() + ")");
+        		moclResource.getErrors().remove(dia);
+        	}
 		}
         
 	    // Check type
