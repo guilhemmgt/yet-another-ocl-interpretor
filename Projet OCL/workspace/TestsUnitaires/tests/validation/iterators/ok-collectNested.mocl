@@ -1,0 +1,48 @@
+import "http://container" as container
+
+context container!container.Object
+	
+inv bag1:
+	Bag{}->collectNested(n | 12) = Bag{}
+inv bag2:
+	Bag{1, 2, 3, 4}->collectNested(n | n+1) = Bag{2, 3, 4, 5}
+inv bag3:
+	Bag{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv bag4:
+	Bag{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
+inv bag5:
+	Bag{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count) = Bag{3,4,2,1}
+
+inv orderedset1:
+	OrderedSet{}->collectNested(n | 12) = Bag{}
+inv orderedset2:
+	OrderedSet{1, 2, 3, 4}->collectNested(n | n+1) = Bag{2, 3, 4, 5}
+inv orderedset3:
+	OrderedSet{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv orderedset4:
+	OrderedSet{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
+inv orderedset5:
+	OrderedSet{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count()) = Bag{3,4,2,1}
+	
+inv sequence1:
+	Sequence{}->collectNested(n | 12) = Bag{}
+inv sequence2:
+	Sequence{1, 2, 3, 4}->collectNested(n | n+1) = Bag{2, 3, 4, 5}
+inv sequence3:
+	Sequence{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv sequence4:
+	Sequence{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
+inv sequence5:
+	Sequence{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count()) = Bag{3,4,2,1}
+	
+inv set1:
+	Set{}->collectNested(n | 12) = Bag{}
+inv set2:
+	Set{1, 2, 3, 4}->collectNested(n | n+1) = Bag{2, 3, 4, 5}
+inv set3:
+	Set{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv set4:
+	Set{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
+inv set5:
+	Set{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count()) = Bag{3,4,2,1}
+	

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -148,6 +149,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 			  if (!isUnique) {
 				  uniqueTypes.add(titr);
 			  }
+			  itr++;
 		  }
 		  
 		  if ((isString || isReal) && operatorIsAddition ){
@@ -196,5 +198,15 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated NOT
+   */
+   @Override
+  public String getOutlineString() {
+    return String.join(".", this.target.getOperationNames());
   }
  }

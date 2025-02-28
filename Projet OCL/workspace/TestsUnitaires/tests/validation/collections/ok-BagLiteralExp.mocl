@@ -1,0 +1,17 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv inv1: -- ordre
+	Bag{1,2,3} = Bag{3,2,1}
+inv inv2: -- duplicats
+	Bag{1,1,2,1,1} <> Bag{1,2}
+
+inv inv3:
+	Bag{} = Bag{}
+inv inv4:
+	Bag{"hello", "world"} = Bag{"hello", "world"}
+inv inv5:
+	Bag{null} = Bag{null}
+inv inv6:
+	Bag{0} <> Bag{1}

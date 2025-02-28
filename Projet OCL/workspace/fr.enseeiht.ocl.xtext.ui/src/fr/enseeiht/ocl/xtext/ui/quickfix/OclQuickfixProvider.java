@@ -3,15 +3,15 @@
  */
 package fr.enseeiht.ocl.xtext.ui.quickfix;
 
-import org.eclipse.emf.common.util.EList;
+//import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
-import org.eclipse.xtext.ui.editor.quickfix.Fix;
-import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
-import org.eclipse.xtext.validation.Issue;
-
-import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
-import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
-import fr.enseeiht.ocl.xtext.validation.OclValidator;
+//import org.eclipse.xtext.ui.editor.quickfix.Fix;
+//import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
+//import org.eclipse.xtext.validation.Issue;
+//
+//import fr.enseeiht.ocl.xtext.ocl.AddOpCallExp;
+//import fr.enseeiht.ocl.xtext.ocl.RelOpCallExp;
+//import fr.enseeiht.ocl.xtext.validation.OclValidator;
 
 /**
  * Custom quickfixes.
@@ -31,19 +31,19 @@ public class OclQuickfixProvider extends DefaultQuickfixProvider {
 //		});
 //	}
 	
-	@Fix(OclValidator.CHECK_TYPE_DIAGNOSTIC)
-	public void testSomething(final Issue issue, IssueResolutionAcceptor acceptor) {
-		System.out.println("test");
-		acceptor.accept(issue, "on tente", "ca doit faire quelque chose", null, (element, context) -> {
-			if(element instanceof RelOpCallExp) {
-				System.out.println("épeu???");
-				((EList<AddOpCallExp>) element.eGet(element.eClass().getEStructuralFeature("args"))).get(0).getOperationNames().set(0, "-");
-			}else {
-				System.out.println("badaboum");
-			}
-			
-			//System.out.println(element.eClass().);
-		});
-	}
+//	@Fix(OclValidator.CHECK_TYPE_DIAGNOSTIC)
+//	public void testSomething(final Issue issue, IssueResolutionAcceptor acceptor) {
+//		System.out.println("test");
+//		acceptor.accept(issue, "on tente", "ca doit faire quelque chose", null, (element, context) -> {
+//			if(element instanceof RelOpCallExp) {
+//				System.out.println("épeu???");
+//				((EList<AddOpCallExp>) element.eGet(element.eClass().getEStructuralFeature("args"))).get(0).getOperationNames().set(0, "-");
+//			}else {
+//				System.out.println("badaboum");
+//			}
+//			
+//			//System.out.println(element.eClass().);
+//		});
+//	}
 
 }
