@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+	
+inv set1:
+	Set{1,2,3,4,5}->select(i | i > 3) = Set{4,5}

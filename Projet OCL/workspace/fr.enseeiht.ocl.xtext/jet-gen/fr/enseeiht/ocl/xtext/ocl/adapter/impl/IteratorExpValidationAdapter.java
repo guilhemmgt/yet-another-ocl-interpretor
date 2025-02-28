@@ -1,13 +1,25 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
+import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
+import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
+import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -32,7 +44,29 @@ public final class IteratorExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException(this.getClass(),"getValue");
+	  PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+		int pos = container.getCalls().indexOf(this.target);
+		OCLAdapter source;
+		// Get value from the rest of the navigation
+		if (pos == 0) {
+			// root call
+			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
+		} else {
+			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
+		}
+		Object sourceValue = source.getValue(contextTarget);
+		if (sourceValue != null) {
+
+			// Récupération des itérateurs 
+			List<OclIterator> iterators = OclIteratorFactory.getOperations(this.target.getName());
+			
+			// TODO : copier OperationCall pour vérifier des trucs de nerds genre les types et tout
+			
+			OclIterator iterator = iterators.get(0);
+			
+			return iterator.getReturnValue(((Collection<Object>)sourceValue), this.target.getBody(), this.target.getIterators(), contextTarget);			
+		}
+		return null;
   }
 
   /**
