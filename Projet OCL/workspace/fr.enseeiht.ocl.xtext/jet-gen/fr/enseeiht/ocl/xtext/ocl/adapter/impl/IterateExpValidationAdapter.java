@@ -39,6 +39,7 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
 	public Object getValue(EObject contextTarget) {
+		// Récupération de la source
 		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
 		EObject sourceObject = null;
@@ -47,7 +48,7 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 			sourceObject =container.getSource();
 		} else {
 			sourceObject = container.getCalls().get(pos - 1);
-		} // TODO comment obtenir la source ? même problème que pour la navigation ...
+		}
 		Object sourceValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(sourceObject).getValue(contextTarget);
 		List<Object> source = null;
 		if (sourceValue == null) {
@@ -55,10 +56,8 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 		} else if (sourceValue instanceof Collection sourceCollec) {
 			source = new ArrayList<Object>(sourceCollec);
 		} 
+		
 		// Enregistrement de 'result'
-		// TODO (?) Erreur si ce même Auxiliary est déjà enregistré dans le scope, mais
-		// ça ne devrait jamais arriver. Pareil pour les iterators. L'erreur peut aussi
-		// être faite côté Scoper
 		Scoper.add(this.target.getResult(),
 				OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getResult().getInitExpression()).getValue(contextTarget));
 
@@ -85,7 +84,6 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 
 		// Désenregistrer 'result' et renvoyer sa valeur
 		return Scoper.remove(this.target.getResult());
-		
 	}
 
   /**

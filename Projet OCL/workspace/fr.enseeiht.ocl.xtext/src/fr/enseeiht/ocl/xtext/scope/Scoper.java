@@ -1,11 +1,12 @@
 package fr.enseeiht.ocl.xtext.scope;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
 
 public class Scoper {
-	private static Map<Auxiliary, Object> scope;
+	private static Map<Auxiliary, Object> scope = new HashMap<>();
 	
 	/**
 	 * Enregistre une variable dans le scope, uniquement si elle n'y est pas déjà enregistrée.
