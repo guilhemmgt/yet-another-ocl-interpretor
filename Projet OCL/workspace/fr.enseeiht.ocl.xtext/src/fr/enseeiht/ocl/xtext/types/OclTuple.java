@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
+
 import fr.enseeiht.ocl.xtext.OclType;
 
 public class OclTuple extends OclAny {
@@ -15,6 +17,16 @@ public class OclTuple extends OclAny {
 	public OclTuple(Map<String, OclType> map) {
 		this.subtypes = map;
 	}
+	
+	public OclType getTypeOf(EObject target, String name) {
+		OclType type = subtypes.get(name);
+		if (type == null) {
+			return new OclInvalid(target, "Tuple " + this + " has no attribute " + name);
+		}
+		else {
+			return type;
+		}
+	}
 
 	@Override
 	public boolean conformsTo(OclType oclType) {
@@ -23,7 +35,7 @@ public class OclTuple extends OclAny {
 		// Il y a conformance ssi le type des éléments se conforme à celui des éléments de l'autre tuple.
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean subtypeConformance = false;
-		if (oclType.getClass().equals(OclTuple.class)) {
+		if (oclType instanceof OclType) {
 			// Vérification de la conformance des types des éléments
 			OclTuple OclTupleType = (OclTuple) oclType; 
 			if (!subtypes.keySet().equals(OclTupleType.subtypes.keySet())) {
@@ -42,7 +54,13 @@ public class OclTuple extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre tuple en une tuple avec pour sous-type l'unification des sous-types.
-		if (oclType instanceof OclTuple) {
+		if (oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
+		}
+		else if (oclType instanceof OclTuple) {
 			OclTuple OclTupleType = (OclTuple) oclType; 
 			if (!subtypes.keySet().equals(OclTupleType.subtypes.keySet())) {
 				// Les ensembles de clé doivent être identiques.
@@ -62,17 +80,17 @@ public class OclTuple extends OclAny {
 	
 	@Override
 	public String toString() {
-		String str = "Ocltuple<";
-		if (!subtypes.keySet().isEmpty()) {
+		String str = "OclTuple(";
+		if (subtypes.keySet().isEmpty()) {
 			// Cas où il n'y a pas d'éléments.
-			return str + ">";
+			return str + ")";
 		}
 		List<String> elements = new LinkedList<String>();
 		for (String key : subtypes.keySet()) {
 			// Ajout des éléments de la forme "key:type"
 			elements.add(key + ":"+ subtypes.get(key));
 		}
-		return str + String.join(", ", elements) + ">" ;
+		return str + String.join(", ", elements) + ")" ;
 	}
 	
 }

@@ -11,7 +11,6 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.scope.Scoper;
 import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.ParameterInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;

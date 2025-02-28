@@ -90,7 +90,7 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-         public List<OclFeatureDefinition> getAllDefinition() {
+           public List<OclFeatureDefinition> getAllDefinition() {
 	  return this.localDefinitions;
   }
  }

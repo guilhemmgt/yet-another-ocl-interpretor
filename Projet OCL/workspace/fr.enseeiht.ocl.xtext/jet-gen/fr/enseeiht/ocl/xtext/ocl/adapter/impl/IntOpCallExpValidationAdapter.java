@@ -3,7 +3,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -11,7 +10,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
@@ -99,31 +97,22 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
 		  return resultType;
 	  }
-	  else {
-		  for(int i=0; i < this.target.getOperationNames().size(); i++) {
-			  OCLAdapter arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i+1));
-			  OclType argType = arg.getType();
-			  // Integer mod Integer : Integer
-			  boolean isInteger = resultType.conformsTo(new OclInteger()) && argType.conformsTo(new OclInteger());
-			  // Invalid mod ... : Invalid
-			  boolean anyInvalid = resultType.conformsTo(new OclInvalid()) || argType.conformsTo(new OclInvalid());
-			  // Void mod ... : Void
-			  boolean anyVoid = resultType.conformsTo(new OclVoid()) || argType.conformsTo(new OclVoid());
-			  
-			  if (isInteger) {
-				  resultType =  resultType.unifyWith(argType);
-			  }
-			  else if (anyVoid && !anyInvalid) {
-				  resultType =  new OclVoid();
-			  }
-			  else {
-				  // Opération invalide
-				  String message = "Invalid operation between types " + resultType + " and " + argType + " (operation : '" + target.getOperationNames() + "')";
-				  resultType =  new OclInvalid(target, message, resultType, argType);
-			  }
+	  boolean isInteger = resultType.conformsTo(new OclInteger());
+	  for(int i=0; i < this.target.getOperationNames().size(); i++) {
+		  OCLAdapter arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i+1));
+		  OclType argType = arg.getType();
+		  // Integer mod Integer : Integer
+		  isInteger = isInteger && argType.conformsTo(new OclInteger());
+		  
+		  if (isInteger) {
+			  resultType =  resultType.unifyWith(argType);
+		  } else {
+			  // Opération invalide
+			  String message = "Invalid operation between types " + resultType + " and " + argType + " (operation : '" + target.getOperationNames() + "')";
+			  resultType =  new OclInvalid(target, message, resultType, argType);
 		  }
-		  return resultType;
 	  }
+	  return resultType;
   }
 
   /**

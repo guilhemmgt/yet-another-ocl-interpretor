@@ -36,10 +36,18 @@ public final class TupleTypeAttributeValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  OclType type = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType()).getType();
+	  return type;
+  }
+  
+  /** Get the name of the element
+ * @return name of the element
+ */
+public String getName() {
+	  return target.getName();
   }
 
   /**

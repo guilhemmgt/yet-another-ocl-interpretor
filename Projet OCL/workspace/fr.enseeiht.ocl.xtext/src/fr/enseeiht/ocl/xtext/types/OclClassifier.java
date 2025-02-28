@@ -6,6 +6,7 @@ public class OclClassifier extends OclAny {
 
 	protected OclType representedType;
 	
+
 	public OclClassifier(OclType type) {
 		representedType = type;
 	}
@@ -27,7 +28,13 @@ public class OclClassifier extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		if (oclType instanceof OclClassifier) {
+		if (oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
+		}
+		else if (oclType instanceof OclClassifier) {
 			return new OclClassifier(((OclClassifier) oclType).representedType.unifyWith(representedType));
 		}
 		else {
@@ -40,5 +47,13 @@ public class OclClassifier extends OclAny {
 		return "OclClassifier<"+representedType+">";
 	}
 
+	
+	public OclType getRepresentedType() {
+		return representedType;
+	}
+
+	public void setRepresentedType(OclType representedType) {
+		this.representedType = representedType;
+	}
 	
 }

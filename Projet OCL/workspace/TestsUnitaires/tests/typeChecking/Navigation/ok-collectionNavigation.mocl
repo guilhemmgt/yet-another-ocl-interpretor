@@ -1,5 +1,5 @@
 import "http://empty" as empty
 
 context empty!empty.Liar
-inv r:
-  1+1 = 2
+inv collec:
+  self.subLiar.size() < 6 

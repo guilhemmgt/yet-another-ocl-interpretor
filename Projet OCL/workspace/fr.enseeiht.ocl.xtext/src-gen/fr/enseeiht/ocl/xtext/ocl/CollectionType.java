@@ -9,39 +9,11 @@ package fr.enseeiht.ocl.xtext.ocl;
  * A representation of the model object '<em><b>Collection Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.CollectionType#getElementType <em>Element Type</em>}</li>
- * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getCollectionType()
  * @model
  * @generated
  */
-public interface CollectionType extends OclTypeLiteral
+public interface CollectionType extends CollectionTypeLiteral
 {
-  /**
-   * Returns the value of the '<em><b>Element Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Element Type</em>' containment reference.
-   * @see #setElementType(OclTypeLiteral)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getCollectionType_ElementType()
-   * @model containment="true"
-   * @generated
-   */
-  OclTypeLiteral getElementType();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.CollectionType#getElementType <em>Element Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Element Type</em>' containment reference.
-   * @see #getElementType()
-   * @generated
-   */
-  void setElementType(OclTypeLiteral value);
-
 } // CollectionType
