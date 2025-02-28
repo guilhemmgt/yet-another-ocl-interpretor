@@ -49,7 +49,7 @@ public final class AttributeValidationAdapter implements OCLAdapter {
 		  return expressionType;
 	  }
 	  else if (expressionType.conformsTo(returnType)) {
-		  return returnType;
+		  return returnClassifier;
 	  }
 	  else {
 		  String message = "Feature definition type mismatch : expected " + returnType + ", got " + expressionType +  ".";

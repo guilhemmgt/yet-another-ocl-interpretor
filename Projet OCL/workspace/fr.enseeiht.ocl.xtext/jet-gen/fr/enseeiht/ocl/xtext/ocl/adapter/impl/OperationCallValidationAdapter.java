@@ -16,6 +16,7 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -113,14 +114,24 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 	}
 	OclType sourceType = source.getType();
 	if (!sourceType.conformsTo(new OclInvalid())) {
-		// Méthodes utilisateur
-		
-		// Méthodes système
-		List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+		// Typage des arguments
 		List<OclType> paramTypes = new ArrayList<OclType>();
 		for (OclExpression param : this.target.getArguments()) {
 			paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
 		}
+		// Méthodes utilisateur
+		List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getDefinitions(this.target.getOperationName(), true);
+		if (!defs.isEmpty()) {
+			for (OclFeatureDefinitionValidationAdapter op: defs) {
+				System.out.println(op);
+				// Type check the call!
+				if (OperationResolutionUtils.isCorrectImplementation(sourceType, op.getSourceType(), paramTypes, op.getArgsType(), this.target.getOperationName(), op.getName())) {
+					return op.getType();
+				}
+			}
+		}
+		// Méthodes système
+		List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
 		if (operations != null) {
 			for (IOclOperation operation : operations) {
 				// Type check the call!
