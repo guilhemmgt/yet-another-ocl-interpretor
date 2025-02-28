@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAbs;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclBooleanToString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclConcat;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclFloor;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclNumberToString;
@@ -17,7 +18,12 @@ import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToInteger;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToReal;
 
 public class OclOperationFactory {
-
+	
+	/**
+	 * Get all default OCL operation named this way.
+	 * @param name name of the operation
+	 * @return List of all operation, null if none exist
+	 */
 	public static List<IOclOperation> getOperations(String name) {
 		return switch (name) {
 		// OclAny,Void,Invalid
