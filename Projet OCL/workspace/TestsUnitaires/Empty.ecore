@@ -21,4 +21,9 @@
     <eLiterals name="enum3" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubLiar" eSuperTypes="#//Liar"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="AnotherEnum">
+    <eLiterals name="enum2" value="3"/>
+    <eLiterals name="enum3" value="2"/>
+    <eLiterals name="enum4" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

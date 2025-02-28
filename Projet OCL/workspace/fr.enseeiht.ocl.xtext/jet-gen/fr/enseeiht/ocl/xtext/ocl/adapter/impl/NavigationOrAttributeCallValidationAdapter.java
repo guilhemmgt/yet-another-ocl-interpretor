@@ -6,11 +6,13 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
+import fr.enseeiht.ocl.xtext.types.OclEnum;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclString;
@@ -98,25 +100,30 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  
 	  if (source != null) {
 		  	EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
-			EClassifier eType = source.classtype.getEStructuralFeature(this.target.getName()).getEType();
+			EClassifier eType = feature.getEType();
 			OclType type; 
+			// Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum
 			if(eType instanceof EClass eClass) {
 				type = new OclEClass(eClass);
-			}
-			else if(eType instanceof EDataType eDataType) {
-				type = null;
-				if(eDataType.getInstanceClassName().equals("boolean"))
+			} else if(eType instanceof EEnum eEnum) {
+				type = new OclEnum(eEnum);
+			} else if(eType instanceof EDataType eDataType) {
+				// On parcourt tout les types possibles (il y a encore beacoup a implémenté)
+				switch (eDataType.getClassifierID()) {
+				case EcorePackage.EBOOLEAN:
 					type = new OclBoolean();
-				if(eDataType.getInstanceClassName().equals("java.lang.String"))
-					type = new OclString();
-				if(eDataType.getInstanceClassName().equals("int"))
+					break;
+				case EcorePackage.EINT:
 					type = new OclInteger();
-			}
-			else if(eType instanceof EEnum eEnum) {
-				type = null;
-			}
-			else {
-				type = null;
+					break;
+				case EcorePackage.ESTRING:
+					type = new OclString();
+					break;
+				default:
+					throw new IllegalArgumentException("Unimplemented type: " + eDataType.getInstanceClassName());
+				}
+			} else {
+				throw new RuntimeException("unreachable");
 			}
 			
 			if(feature.getUpperBound() == 1)

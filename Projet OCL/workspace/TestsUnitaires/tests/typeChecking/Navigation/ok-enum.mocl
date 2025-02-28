@@ -2,4 +2,4 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 inv enum:
-  (if true then self.enum else Enum#enum1 endif) = null
+  (if true then self.enum else empty.Enum#enum1 endif) = null
