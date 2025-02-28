@@ -9,7 +9,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -95,16 +94,11 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 		  OclType type2 = arg2.getType();
 		  // Real > Real : Bool
 		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
-		  // Invalid > ... : Invalid
+		  // Invalid > .f.. : Invalid
 		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-		  // Void > ... : Void
-		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
 		  
-		  if (isReal){
+		  if (isReal && !anyInvalid){
 			  return new OclBoolean();
-		  }
-		  else if (anyVoid && !anyInvalid) {
-			  return new OclVoid();
 		  }
 		  else {
 			  // Opération invalide

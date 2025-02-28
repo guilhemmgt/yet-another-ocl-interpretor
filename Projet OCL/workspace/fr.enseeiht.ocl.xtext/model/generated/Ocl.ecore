@@ -23,10 +23,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//OclTypeLiteral"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Auxiliary">
     <eStructuralFeatures xsi:type="ecore:EReference" name="initExpression" eType="#//OclExpression"
         containment="true"/>
   </eClassifiers>
@@ -153,6 +150,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLiteralExp" eSuperTypes="#//OclExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum_" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LetExp" eSuperTypes="#//OclExpression">
@@ -216,14 +214,15 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OclTypeLiteral"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CollectionType" eSuperTypes="#//OclTypeLiteral">
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionTypeLiteral" eSuperTypes="#//OclTypeLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elementType" eType="#//OclTypeLiteral"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BagType" eSuperTypes="#//CollectionType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OrderedSetType" eSuperTypes="#//CollectionType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SequenceType" eSuperTypes="#//CollectionType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SetType" eSuperTypes="#//CollectionType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionType" eSuperTypes="#//CollectionTypeLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BagType" eSuperTypes="#//CollectionTypeLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrderedSetType" eSuperTypes="#//CollectionTypeLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceType" eSuperTypes="#//CollectionTypeLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SetType" eSuperTypes="#//CollectionTypeLiteral"/>
   <eClassifiers xsi:type="ecore:EClass" name="Primitive" eSuperTypes="#//OclTypeLiteral"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="#//Primitive"/>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="#//Primitive"/>
@@ -231,6 +230,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="IntegerType" eSuperTypes="#//NumericType"/>
   <eClassifiers xsi:type="ecore:EClass" name="RealType" eSuperTypes="#//NumericType"/>
   <eClassifiers xsi:type="ecore:EClass" name="OclAnyType" eSuperTypes="#//OclTypeLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OclVoidType" eSuperTypes="#//OclTypeLiteral"/>
   <eClassifiers xsi:type="ecore:EClass" name="TupleType" eSuperTypes="#//OclTypeLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//TupleTypeAttribute" containment="true"/>

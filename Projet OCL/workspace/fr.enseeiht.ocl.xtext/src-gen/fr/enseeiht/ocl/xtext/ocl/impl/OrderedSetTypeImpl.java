@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class OrderedSetTypeImpl extends CollectionTypeImpl implements OrderedSetType
+public class OrderedSetTypeImpl extends CollectionTypeLiteralImpl implements OrderedSetType
 {
   /**
    * <!-- begin-user-doc -->

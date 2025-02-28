@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class BagTypeImpl extends CollectionTypeImpl implements BagType
+public class BagTypeImpl extends CollectionTypeLiteralImpl implements BagType
 {
   /**
    * <!-- begin-user-doc -->

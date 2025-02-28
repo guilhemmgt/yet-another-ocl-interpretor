@@ -14,6 +14,6 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface SequenceType extends CollectionType
+public interface SequenceType extends CollectionTypeLiteral
 {
 } // SequenceType

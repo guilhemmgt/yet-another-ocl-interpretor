@@ -8,6 +8,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.types.OclSet;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.SetLiteralExp;
@@ -46,10 +48,26 @@ public final class SetLiteralExpValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  OclType subtype = null;
+	  for (OclExpression exp : target.getElements()) {
+		  OclType eltType  = OCLValidationAdapterFactory.INSTANCE.createAdapter(exp).getType();
+		  if (subtype == null) {
+			  // Initialisation
+			  subtype = eltType;
+		  }
+		  else {
+			  // Unification des sous-types
+			  subtype = subtype.unifyWith(eltType);
+		  }
+		  
+	  }
+	  if (subtype instanceof OclInvalid) {
+		  return new OclInvalid(subtype);
+	  }
+	  return new OclSet(subtype);
   }
 
   /**

@@ -15,7 +15,13 @@ public class OclString extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// OclString s'unifie en OclString avec lui-même, en OclAny avec tous les autres types.
-		if (oclType instanceof OclString) {
+		if (oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
+		}
+		else if (oclType instanceof OclString) {
 			return new OclString();
 		}
 		else {

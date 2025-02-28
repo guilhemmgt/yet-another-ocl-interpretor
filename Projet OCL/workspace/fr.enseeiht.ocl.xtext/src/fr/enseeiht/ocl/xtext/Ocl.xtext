@@ -93,6 +93,7 @@ Primary_OclExpression returns OclExpression :
 	|StringLiteralExp
 	|BooleanLiteralExp
 	|NumericLiteralExp
+	|NullLiteralExp
 	|BagLiteralExp
 	|OrderedSetLiteralExp
 	|SequenceLiteralExp
@@ -103,10 +104,9 @@ Primary_OclExpression returns OclExpression :
 	|IfExp
 	|BraceExp
 	|OclModelElementExp
-	|ContextlessCallExp
-	|NullLiteralExp;
+	|ContextlessCallExp;
 
-Auxiliary :Iterator|LocalVariable|Parameter;
+Auxiliary :Iterator|LocalVariable|Parameter|Attribute;
 VariableExp:
 	referredVariable=[Auxiliary]
 ;
@@ -152,7 +152,7 @@ TupleLiteralExp:
 	'Tuple' '{' (tuplePart+=TuplePart ("," tuplePart+=TuplePart)*)? '}'
 ;
 TuplePart:
-	varName=STRING (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
+	varName=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
 MapLiteralExp : 
 	{MapLiteralExp}
@@ -164,7 +164,7 @@ MapElement :
 ;
 
 EnumLiteralExp : 
-	"#" (name=STRING|name=ID)
+	enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 ;
 
 LetExp : 
@@ -219,20 +219,26 @@ LocalVariable :
 	name=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
 OclTypeLiteral : 
-	CollectionType
+	CollectionTypeLiteral
 	| Primitive 
 	| OclAnyType 
+	| OclVoidType
 	| TupleType 
 	| OclModelElementClass
 	| MapType 
 	;
 
-CollectionType:
-	BagType
+CollectionTypeLiteral:
+	CollectionType
+	| BagType
 	| OrderedSetType 
 	| SequenceType 
 	| SetType 
 	;
+	
+CollectionType :
+	'Collection' '(' elementType=OclTypeLiteral ')'
+;
 
 BagType :
 	'Bag' '(' elementType=OclTypeLiteral ')'
@@ -279,6 +285,10 @@ RealType:
 
 OclAnyType :
 	{OclAnyType}'OclAny'
+;
+
+OclVoidType :
+	{OclVoidType}'OclVoid'
 ;
 	
 TupleType :

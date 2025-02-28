@@ -2,6 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,8 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
+import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
@@ -96,10 +99,48 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+	int pos = container.getCalls().indexOf(this.target);
+	OCLAdapter source;
+	// Get value from the rest of the navigation
+	if (pos == 0) {
+		// root call
+		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
+	} else {
+		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
+	}
+	OclType sourceType = source.getType();
+	if (!sourceType.conformsTo(new OclInvalid())) {
+		// Méthodes utilisateur
+		
+		// Méthodes système
+		List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+		List<OclType> paramTypes = new ArrayList<OclType>();
+		for (OclExpression param : this.target.getArguments()) {
+			paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
+		}
+		if (operations != null) {
+			for (IOclOperation operation : operations) {
+				// Type check the call!
+				if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
+					return operation.getReturnType(sourceType, paramTypes);
+				}
+			}
+			// No correct operation was found
+			List<String> messageStr = new LinkedList<String>(); 
+			for (OclType typ : paramTypes) {
+				messageStr.add(typ.toString());
+			}
+			return new OclInvalid(target, "The operation '" + this.target.getOperationName() + "' cannot be called with arguments of types: " + String.join(", ", messageStr) + ".");
+		} else {
+			return new OclInvalid(target, "No such operation '" + this.target.getOperationName() + "' exists.");
+		}
+	} else {
+		return sourceType;
+	}
   }
 
   /**
