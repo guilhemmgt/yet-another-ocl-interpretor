@@ -154,13 +154,13 @@ public class TestsUnitaires {
 				String relativePath = projectFolder.toURI().relativize(path.toFile().toURI()).getPath();
 				String errorLine = null;
 				String sCurrentLine;
+				
 				BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
 				while ((sCurrentLine = br.readLine()) != null) {
-					Pattern p = Pattern.compile("\\s(?=([^\"\\\\]*(\\\\.|\"([^\"\\\\]*\\\\.)*[^\"\\\\]*\"))*[^\"]*$)", Pattern.CASE_INSENSITIVE);
-					Matcher m = p.matcher(sCurrentLine);
-					sCurrentLine = m.replaceAll("");
-					if(sCurrentLine.startsWith("--@error:\"") && sCurrentLine.endsWith("\"")) {
-						errorLine = sCurrentLine.substring(10, sCurrentLine.length() - 1);
+					System.out.println(sCurrentLine);
+					if(sCurrentLine.replace(" ", "").startsWith("--@error:\"") && sCurrentLine.replace(" ", "").endsWith("\"")) {
+						System.out.println(sCurrentLine);
+						errorLine = sCurrentLine.replace(" ", "").substring(10, sCurrentLine.length() - 1);
 						break;
 					}
 				}
