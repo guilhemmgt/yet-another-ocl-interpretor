@@ -18,7 +18,10 @@ public class OperationResolutionUtils {
 	 */
 	public static boolean isCorrectImplementation(OclType sourceTypeCall, OclType sourceTypeImpl, List<OclType> argsTypeCall, List<OclType> argsTypeImpl, String operationNameCall, String OperationNameImpl) {
 		// Vérification du nom et de la conformité du type de la source
-		if (operationNameCall.equals(OperationNameImpl) && sourceTypeCall.conformsTo(sourceTypeImpl)) {
+		if (sourceTypeCall == null || sourceTypeImpl == null) {
+			if (!(sourceTypeCall == null && sourceTypeImpl == null)) return false;
+		}
+		if (operationNameCall.equals(OperationNameImpl) && (sourceType == null && sourceTypeImpl == null || sourceTypeImplCall.conformsTo(sourceType))) {
 			boolean isArgsOK = argsTypeCall.size() == argsTypeImpl.size();
 			int i = 0;
 			while (isArgsOK && i < argsTypeCall.size()) {

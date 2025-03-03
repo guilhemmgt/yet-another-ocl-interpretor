@@ -3,13 +3,18 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.types.OclEnum;
@@ -101,7 +106,14 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  
 	  if(feature == null)
 		  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
-	  
+	  // On regarde les définitons OCL
+	  List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getDefinitions(this.target.getName(), false);
+	  if (!defs.isEmpty()) {
+		  for (OclFeatureDefinitionValidationAdapter att: defs) {
+				// Type check the attribute's source
+				if (att.getSourceType().conformsTo(source)) return ((OclClassifier) att.getType()).getRepresentedType();
+			}
+	  }
 	  EClassifier eType = feature.getEType();
 	  
 	  // Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum
