@@ -28,13 +28,16 @@ public class OclValidator extends AbstractOclValidator {
 	 */
 	@Check
 	public void checkType(Module module) {
+		// On check le type uniquement si il n'y pas d'erreur de syntaxe
 		if (module.eResource().getErrors().isEmpty()) {
 			try {
+				// Récupérer les erreurs de typages
 				OclInvalid invalid = OclTypeChecker.getAllTypes(module);
 
 				for (TypeCheckingError error : invalid.origins) {
 					EObject target = error.getCause();
 					EObject container = target.eContainer();
+					// Si l'erreur de typage est dans un attrbut qui est une liste il faut savoir lequel de ses élements a levé une erreur
 					if (container.eGet(target.eContainingFeature()) instanceof List) {
 						@SuppressWarnings("unchecked")
 						List<EObject> features = (List<EObject>) container.eGet(target.eContainingFeature());
@@ -46,7 +49,9 @@ public class OclValidator extends AbstractOclValidator {
 					}
 				}
 			} catch (Exception e) {
+				// Si le typeur a eu une erreur
 				e.printStackTrace();
+				// TODO : discuter si on garde ca pour le rendu
 				warning(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"),
 						CHECK_TYPE_DIAGNOSTIC_TEMP_EXCEPTION, new String[] { e.getClass().toString().split(" ")[1] });
 

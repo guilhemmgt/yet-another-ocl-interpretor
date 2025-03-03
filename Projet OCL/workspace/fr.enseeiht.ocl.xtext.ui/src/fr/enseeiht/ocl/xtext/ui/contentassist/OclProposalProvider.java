@@ -30,11 +30,8 @@ public class OclProposalProvider extends AbstractOclProposalProvider {
 		Import import_ = (Import) model;
 
 		String proposal = import_.getPackage().getNsPrefix();
-
-		// Create and register the completion proposal:
-		// The proposal may be null as the createCompletionProposal(..)
-		// methods check for valid prefixes and terminal token conflicts.
-		// The acceptor handles null-values gracefully.
+		
+		// Accepte le prefix pour l'auto-complétion du nom de l'import
 		acceptor.accept(createCompletionProposal(proposal, context));
 	}
 
@@ -60,14 +57,13 @@ public class OclProposalProvider extends AbstractOclProposalProvider {
 						.getType();
 			}
 		} else {
-			type =  OCLValidationAdapterFactory.INSTANCE.createAdapter(model).getType();
+			type = OCLValidationAdapterFactory.INSTANCE.createAdapter(model).getType();
 		}
+		// propose les éléments du ecore pour la navigation des éléments
 		if(type instanceof OclEClass eClassType) {
 			for (EStructuralFeature feature : eClassType.classtype.getEAllStructuralFeatures()) {
 				acceptor.accept(createCompletionProposal(feature.getName(), context));
 			}
-		} else {
-			System.out.println(model);
 		}
 	}
 	
