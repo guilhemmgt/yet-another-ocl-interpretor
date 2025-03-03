@@ -1639,38 +1639,54 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class EnumLiteralExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.EnumLiteralExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cEnum_Assignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cEnum_EEnumCrossReference_0_0 = (CrossReference)cEnum_Assignment_0.eContents().get(0);
-		private final RuleCall cEnum_EEnumQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cEnum_EEnumCrossReference_0_0.eContents().get(1);
-		private final Keyword cNumberSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cEcoreTypesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cEcoreTypesImportCrossReference_0_0 = (CrossReference)cEcoreTypesAssignment_0.eContents().get(0);
+		private final RuleCall cEcoreTypesImportIDTerminalRuleCall_0_0_1 = (RuleCall)cEcoreTypesImportCrossReference_0_0.eContents().get(1);
+		private final Keyword cExclamationMarkKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEnum_Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cEnum_EEnumCrossReference_2_0 = (CrossReference)cEnum_Assignment_2.eContents().get(0);
+		private final RuleCall cEnum_EEnumQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cEnum_EEnumCrossReference_2_0.eContents().get(1);
+		private final Keyword cNumberSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
 		
 		//EnumLiteralExp :
-		//    enum_=[ecore::EEnum|QualifiedName] "#" name=ID
+		//    ecoreTypes=[Import]'!'enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//enum_=[ecore::EEnum|QualifiedName] "#" name=ID
+		//ecoreTypes=[Import]'!'enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 		public Group getGroup() { return cGroup; }
 		
-		//enum_=[ecore::EEnum|QualifiedName]
-		public Assignment getEnum_Assignment_0() { return cEnum_Assignment_0; }
+		//ecoreTypes=[Import]
+		public Assignment getEcoreTypesAssignment_0() { return cEcoreTypesAssignment_0; }
 		
-		//[ecore::EEnum|QualifiedName]
-		public CrossReference getEnum_EEnumCrossReference_0_0() { return cEnum_EEnumCrossReference_0_0; }
-		
-		//QualifiedName
-		public RuleCall getEnum_EEnumQualifiedNameParserRuleCall_0_0_1() { return cEnum_EEnumQualifiedNameParserRuleCall_0_0_1; }
-		
-		//"#"
-		public Keyword getNumberSignKeyword_1() { return cNumberSignKeyword_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//[Import]
+		public CrossReference getEcoreTypesImportCrossReference_0_0() { return cEcoreTypesImportCrossReference_0_0; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getEcoreTypesImportIDTerminalRuleCall_0_0_1() { return cEcoreTypesImportIDTerminalRuleCall_0_0_1; }
+		
+		//'!'
+		public Keyword getExclamationMarkKeyword_1() { return cExclamationMarkKeyword_1; }
+		
+		//enum_=[ecore::EEnum|QualifiedName]
+		public Assignment getEnum_Assignment_2() { return cEnum_Assignment_2; }
+		
+		//[ecore::EEnum|QualifiedName]
+		public CrossReference getEnum_EEnumCrossReference_2_0() { return cEnum_EEnumCrossReference_2_0; }
+		
+		//QualifiedName
+		public RuleCall getEnum_EEnumQualifiedNameParserRuleCall_2_0_1() { return cEnum_EEnumQualifiedNameParserRuleCall_2_0_1; }
+		
+		//"#"
+		public Keyword getNumberSignKeyword_3() { return cNumberSignKeyword_3; }
+		
+		//name=ID
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
 	}
 	public class LetExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.LetExp");
@@ -3576,7 +3592,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//EnumLiteralExp :
-	//    enum_=[ecore::EEnum|QualifiedName] "#" name=ID
+	//    ecoreTypes=[Import]'!'enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 	//;
 	public EnumLiteralExpElements getEnumLiteralExpAccess() {
 		return pEnumLiteralExp;

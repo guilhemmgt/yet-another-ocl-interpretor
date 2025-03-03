@@ -125,7 +125,6 @@ public final class OclFeatureDefinitionValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-  
 
   /**
    * Return the string visible in the outline

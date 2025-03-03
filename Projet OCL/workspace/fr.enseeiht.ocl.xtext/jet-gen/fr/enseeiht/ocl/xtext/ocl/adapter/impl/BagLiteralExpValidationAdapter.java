@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.apache.commons.collections.bag.HashBag;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;

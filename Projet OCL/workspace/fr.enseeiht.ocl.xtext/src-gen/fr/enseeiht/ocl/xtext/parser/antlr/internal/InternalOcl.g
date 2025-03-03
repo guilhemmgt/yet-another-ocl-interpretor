@@ -2715,8 +2715,25 @@ ruleEnumLiteralExp returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getEnumLiteralExpRule());
 					}
 				}
+				otherlv_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getEnumLiteralExpAccess().getEnum_EEnumCrossReference_0_0());
+					newLeafNode(otherlv_0, grammarAccess.getEnumLiteralExpAccess().getEcoreTypesImportCrossReference_0_0());
+				}
+			)
+		)
+		otherlv_1='!'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEnumLiteralExpAccess().getExclamationMarkKeyword_1());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEnumLiteralExpRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getEnumLiteralExpAccess().getEnum_EEnumCrossReference_2_0());
 				}
 				ruleQualifiedName
 				{
@@ -2724,15 +2741,15 @@ ruleEnumLiteralExp returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='#'
+		otherlv_3='#'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getEnumLiteralExpAccess().getNumberSignKeyword_1());
+			newLeafNode(otherlv_3, grammarAccess.getEnumLiteralExpAccess().getNumberSignKeyword_3());
 		}
 		(
 			(
-				lv_name_2_0=RULE_ID
+				lv_name_4_0=RULE_ID
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_2_0());
+					newLeafNode(lv_name_4_0, grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -2741,7 +2758,7 @@ ruleEnumLiteralExp returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_2_0,
+						lv_name_4_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
