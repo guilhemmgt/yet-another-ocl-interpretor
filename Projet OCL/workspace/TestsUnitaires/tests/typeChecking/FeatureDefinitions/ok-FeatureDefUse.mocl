@@ -70,21 +70,21 @@ def: contextlessdefcolluse : Collection(String) = contextlessdefcoll("a", "b", "
 
 
 
-def: defvoiduse : OclVoid = defvoid
+def: defvoiduse : OclVoid = self.defvoid
 
-def: defintuse : Integer = defint
+def: defintuse : Integer = self.defint
 
-def: defcolluse : Collection(String) = defcoll
+def: defcolluse : Collection(String) = self.defcoll
 
 
 
-def: defvoidparamuse : OclVoid = defvoidparam()
+def: defvoidparamuse : OclVoid = self.defvoidparam()
 
 def : defrealparamuse : Real = 3.0
 
-def: defintparamuse : Integer = defintparam(2)
+def: defintparamuse : Integer = self.defintparam(2)
 
-def: defcolluse : Collection(String) = defcoll("a", "a", "c")
+def: defcolluse : Collection(String) = self.defcoll("a", "a", "c")
 
 
-def: deftupleuse : Integer = deftuple(1).x
+def: deftupleuse : Integer = self.deftuple(1).x

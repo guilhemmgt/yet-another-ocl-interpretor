@@ -1,6 +1,8 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -23,10 +25,19 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   private Module target;
   private List<OclFeatureDefinition> localDefinitions; 
   /**
-   * @generated
+   * @generated NOT
    */
   public ModuleValidationAdapter(Module object) {
     this.target = object;
+    this.localDefinitions = new ArrayList<OclFeatureDefinition>();
+    // Get all contextless defs
+    this.localDefinitions.addAll(this.target.getContextlessFeatures());
+    // Get contexted defts
+    for (OclContextBlock context : this.target.getContextBlocks()) {
+    	for (EObject elt : context.getMembers()) {
+    		if (elt instanceof OclFeatureDefinition) this.localDefinitions.add((OclFeatureDefinition) elt);
+    	}
+    }
   }
 
   /**
@@ -90,7 +101,29 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-           public List<OclFeatureDefinition> getAllDefinition() {
+  
+  /**
+   * Get all the declared feature definitions
+   * @return list of feature definitons (def)
+   * @generated NOT
+   */
+  public List<OclFeatureDefinition> getAllDefinition() {
 	  return this.localDefinitions;
+  }
+  
+  /**
+   * Get all the declared feature definitions, filtered by name, and whether they are an operation
+   * @return list of feature definitons validation adapters (def).
+   * @generated NOT
+   */
+  public List<OclFeatureDefinitionValidationAdapter> getDefinitions(String name, boolean isOperation) {
+	  List<OclFeatureDefinitionValidationAdapter> filtered = new LinkedList<OclFeatureDefinitionValidationAdapter>();
+	  for (OclFeatureDefinition def: localDefinitions) {
+		  OclFeatureDefinitionValidationAdapter vadef = (OclFeatureDefinitionValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(def);
+		  if (vadef.isOperation() == isOperation && vadef.getName().equals(name)) {
+			  filtered.add(vadef);
+		  }
+	  }
+	  return filtered;
   }
  }
