@@ -571,7 +571,6 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createModuleValidationAdapter(Module target)
   {
-	System.out.println(this.moduleAdapters);
 	if (!this.moduleAdapters.containsKey(target)) {
 		this.moduleAdapters.put(target, new ModuleValidationAdapter(target));
 	}
