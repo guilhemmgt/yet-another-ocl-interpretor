@@ -50,7 +50,7 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 			result = new UndefinedAccessInvalid(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(1));
 	  }
 	  if (result instanceof Invalid || right instanceof Invalid) {
-		  result =  result instanceof Invalid ? result : right;
+		  return   result instanceof Invalid ? result : right;
 	  }
 	  
 	  if (!(result instanceof Number && right instanceof Number)) {

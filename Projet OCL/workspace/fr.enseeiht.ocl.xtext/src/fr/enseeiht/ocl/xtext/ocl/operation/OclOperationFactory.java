@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAbs;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAllInstance;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclBooleanToString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclConcat;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclFloor;
@@ -30,6 +31,8 @@ public class OclOperationFactory {
 	 */
 	public static List<IOclOperation> getOperations(String name) {
 		return switch (name) {
+		// ClassTypes
+		case "allInstances" -> Arrays.asList(new OclAllInstance()); // TODO
 		// OclAny,Void,Invalid
 		case "oclAsSet" -> Arrays.asList(new OclOclAsSet());
 		case "oclIsUndefined" -> Arrays.asList(new OclOclIsUndefined());

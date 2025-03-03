@@ -52,15 +52,15 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	EObject source;
 	if (pos == 0) {
 		// root call
-		source = (EObject) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getValue(contextTarget);
+		source = container.getSource();
 	} else {
-		source = (EObject) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getValue(contextTarget);
+		source = container.getCalls().get(pos-1);
 	}
-	
-	if (source != null) {
-		for (EStructuralFeature feat : source.eClass().getEAllStructuralFeatures()) {
+	EObject sourceValue =  (EObject) OCLValidationAdapterFactory.INSTANCE.createAdapter(source).getValue(contextTarget);
+	if (sourceValue != null) {
+		for (EStructuralFeature feat : sourceValue.eClass().getEAllStructuralFeatures()) {
 			if (this.target.getName().equals(feat.getName())) {
-				return source.eGet(feat);
+				return sourceValue.eGet(feat);
 			}
 		}
 	} else {
@@ -160,7 +160,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public String getOutlineString() {
     return null;
   }
-  public boolean conformsTo(OclType oclType) {
+        public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

@@ -1,7 +1,6 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,14 +10,9 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorFactory;
-import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
-import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -41,9 +35,10 @@ public final class IteratorExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
-  public Object getValue(EObject contextTarget) {
+  @SuppressWarnings("unchecked")
+public Object getValue(EObject contextTarget) {
 	  PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
 		OCLAdapter source;

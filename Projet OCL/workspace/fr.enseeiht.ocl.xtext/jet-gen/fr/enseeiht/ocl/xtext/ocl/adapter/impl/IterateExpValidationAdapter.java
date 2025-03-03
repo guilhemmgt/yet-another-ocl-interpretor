@@ -1,15 +1,11 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
-import fr.enseeiht.ocl.xtext.scope.Scoper;
-import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
@@ -38,6 +34,7 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
    * @return value of the element
    * @generated NOT
    */
+	@SuppressWarnings("unchecked")
 	public Object getValue(EObject contextTarget) {
 		// Récupération de la source
 		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();

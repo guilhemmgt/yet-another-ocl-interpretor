@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.scope.Scoper;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -43,6 +44,9 @@ public final class VariableExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
+	  if (this.target.getReferredVariable() instanceof Iterator) {
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReferredVariable()).getType();
+	  }
     return ((OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReferredVariable()).getType()).getRepresentedType();
   }
 

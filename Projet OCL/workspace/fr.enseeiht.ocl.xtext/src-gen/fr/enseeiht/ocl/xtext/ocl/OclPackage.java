@@ -465,13 +465,13 @@ public interface OclPackage extends EPackage
   int OCL_MODEL_ELEMENT_EXP__MODEL = OCL_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OCL_MODEL_ELEMENT_EXP__NAME = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int OCL_MODEL_ELEMENT_EXP__CLASS = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Model Element Exp</em>' class.
@@ -2483,15 +2483,15 @@ public interface OclPackage extends EPackage
   EReference getOclModelElementExp_Model();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getClass_ <em>Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getName()
+   * @return the meta object for the reference '<em>Class</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getClass_()
    * @see #getOclModelElementExp()
    * @generated
    */
-  EAttribute getOclModelElementExp_Name();
+  EReference getOclModelElementExp_Class();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OperatorCallExp <em>Operator Call Exp</em>}'.
@@ -4016,12 +4016,12 @@ public interface OclPackage extends EPackage
     EReference OCL_MODEL_ELEMENT_EXP__MODEL = eINSTANCE.getOclModelElementExp_Model();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Class</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OCL_MODEL_ELEMENT_EXP__NAME = eINSTANCE.getOclModelElementExp_Name();
+    EReference OCL_MODEL_ELEMENT_EXP__CLASS = eINSTANCE.getOclModelElementExp_Class();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OperatorCallExpImpl <em>Operator Call Exp</em>}' class.
