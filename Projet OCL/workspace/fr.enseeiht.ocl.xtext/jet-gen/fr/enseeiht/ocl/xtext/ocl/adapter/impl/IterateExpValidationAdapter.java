@@ -1,15 +1,11 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
-import fr.enseeiht.ocl.xtext.scope.Scoper;
-import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
@@ -50,13 +46,12 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 			sourceObject = container.getCalls().get(pos - 1);
 		}
 		Object sourceValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(sourceObject).getValue(contextTarget);
-		Collection<Object> source = null;
 		if (sourceValue == null) {
 			return new UndefinedAccessInvalid(sourceObject);
-		} else if (sourceValue instanceof Collection sourceCollec) {
-			source = sourceCollec;
-		} 
+		}
 		
+		@SuppressWarnings("unchecked")
+		Collection<Object> source = (Collection<Object>) sourceValue;
 		return new OclIterate(source, this.target.getBody(), this.target.getIterators(), contextTarget, this.target.getResult()).getReturnValue();
 	}
 

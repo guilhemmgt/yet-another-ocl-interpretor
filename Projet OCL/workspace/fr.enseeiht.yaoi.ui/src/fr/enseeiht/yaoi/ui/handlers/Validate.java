@@ -1,7 +1,5 @@
 package fr.enseeiht.yaoi.ui.handlers;
 
-import java.util.Set;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
