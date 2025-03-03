@@ -1,7 +1,5 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
-
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +9,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
@@ -38,8 +37,7 @@ public final class IteratorExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   @SuppressWarnings("unchecked")
-public Object getValue(EObject contextTarget) {
-		// Récupération de la source
+public Object getValue(EObject contextTarget) {		// Récupération de la source
 		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
 		EObject sourceObject = null;
@@ -54,7 +52,6 @@ public Object getValue(EObject contextTarget) {
 			return new UndefinedAccessInvalid(sourceObject);
 		}
 
-		@SuppressWarnings("unchecked")
 		Collection<Object> source = (Collection<Object>) sourceValue;
 		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
 		return iterator.getReturnValue(source, this.target.getBody(), this.target.getIterators(), contextTarget);

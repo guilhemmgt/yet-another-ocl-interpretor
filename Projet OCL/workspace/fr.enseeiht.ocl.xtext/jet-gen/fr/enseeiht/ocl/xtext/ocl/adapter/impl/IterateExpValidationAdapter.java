@@ -51,7 +51,6 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 			return new UndefinedAccessInvalid(sourceObject);
 		}
 		
-		@SuppressWarnings("unchecked")
 		Collection<Object> source = (Collection<Object>) sourceValue;
 		return new OclIterate(source, this.target.getBody(), this.target.getIterators(), contextTarget, this.target.getResult()).getReturnValue();
 	}

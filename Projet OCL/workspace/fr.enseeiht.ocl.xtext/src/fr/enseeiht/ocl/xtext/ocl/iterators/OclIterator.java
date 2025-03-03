@@ -1,7 +1,6 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators;
 
 import java.util.Collection;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
