@@ -14,14 +14,13 @@ import fr.enseeiht.ocl.xtext.scope.Scoper;
 import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 
 public class OclIterate {
-	
 	private Collection<Object> source;
-	private OclExpression body;
+	private OclExpression body;			// Corps (généralement dépendant d'itérator.s) sur lequel on appliquera 'op' après avoir calculé sa valeur
 	private EList<Iterator> iterators;
 	private EObject contextTarget;
-	private LocalVariable result;
+	private LocalVariable result;		// = null si utilisé dans le traitement d'un IteratorExp
 	private Object resultInitValue;
-	private IOclIterateBody op;
+	private IOclIterateBody op;			// Fonction de (result, body, iterator)->body
 
 	// A utiliser lors du traitement d'un IterateExp (donc, via IterateExpValidationAdapter)
 	public OclIterate(Collection<Object> source, OclExpression body, EList<Iterator> iterators, EObject contextTarget, LocalVariable result) {
@@ -46,6 +45,7 @@ public class OclIterate {
 	}
 	
 	public Object getReturnValue() {
+		// Initialisation de 'result'
 		Object resultValue = this.resultInitValue;
 		if (this.result != null)
 			Scoper.add(result, resultValue);

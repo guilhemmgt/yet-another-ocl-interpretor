@@ -2,6 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
 import java.util.Collection;
 import java.util.HashSet;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -17,7 +18,7 @@ import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclSet;
 
-public class OclIteratorSelectSet extends OclIterator {
+public class OclIteratorSelect extends OclIterator {
 
 	public Object getReturnValue(Collection<Object> source, OclExpression body, EList<Iterator> iterators, EObject contextTarget, IOclIteratorBody op) {
 		// source->select(iterator | body) =
@@ -28,13 +29,13 @@ public class OclIteratorSelectSet extends OclIterator {
 		@SuppressWarnings("unchecked")
 		IOclIterateBody newOp = (r, b, i) -> {
 			if ((Boolean)op.apply(b, i)) {
-				((HashSet<Object>)r).add(i.get(0));
+				((Collection<Object>)r).add(i.get(0));
 				return r;
 			} else {
 				return r;
 			}
 		};
-		OclIterate iterate = new OclIterate(source, body, iterators, contextTarget, new HashSet(), newOp);
+		OclIterate iterate = new OclIterate(source, body, iterators, contextTarget, new HashSet<Object>(), newOp);
 		return iterate.getReturnValue();
 	}
 

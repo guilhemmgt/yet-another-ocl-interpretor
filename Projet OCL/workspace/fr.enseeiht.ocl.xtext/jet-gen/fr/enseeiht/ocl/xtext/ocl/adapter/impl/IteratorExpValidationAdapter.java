@@ -1,8 +1,8 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -39,29 +39,25 @@ public final class IteratorExpValidationAdapter implements OCLAdapter {
    */
   @SuppressWarnings("unchecked")
 public Object getValue(EObject contextTarget) {
-	  PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+		// Récupération de la source
+		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
-		OCLAdapter source;
-		// Get value from the rest of the navigation
+		EObject sourceObject = null;
 		if (pos == 0) {
 			// root call
-			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
+			sourceObject = container.getSource();
 		} else {
-			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
+			sourceObject = container.getCalls().get(pos - 1);
 		}
-		Object sourceValue = source.getValue(contextTarget);
-		if (sourceValue != null) {
+		Object sourceValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(sourceObject).getValue(contextTarget);
+		if (sourceValue == null) {
+			return new UndefinedAccessInvalid(sourceObject);
+		}
 
-			// Récupération des itérateurs 
-			List<OclIterator> iterators = OclIteratorFactory.getOperations(this.target.getName());
-			
-			// TODO : copier OperationCall pour vérifier des trucs de nerds genre les types et tout
-			
-			OclIterator iterator = iterators.get(0);
-			
-			return iterator.getReturnValue(((Collection<Object>)sourceValue), this.target.getBody(), this.target.getIterators(), contextTarget);			
-		}
-		return null;
+		@SuppressWarnings("unchecked")
+		Collection<Object> source = (Collection<Object>) sourceValue;
+		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
+		return iterator.getReturnValue(source, this.target.getBody(), this.target.getIterators(), contextTarget);
   }
 
   /**

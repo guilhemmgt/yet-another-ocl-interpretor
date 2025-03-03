@@ -47,13 +47,12 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 			sourceObject = container.getCalls().get(pos - 1);
 		}
 		Object sourceValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(sourceObject).getValue(contextTarget);
-		Collection<Object> source = null;
 		if (sourceValue == null) {
 			return new UndefinedAccessInvalid(sourceObject);
-		} else if (sourceValue instanceof Collection sourceCollec) {
-			source = sourceCollec;
-		} 
+		}
 		
+		@SuppressWarnings("unchecked")
+		Collection<Object> source = (Collection<Object>) sourceValue;
 		return new OclIterate(source, this.target.getBody(), this.target.getIterators(), contextTarget, this.target.getResult()).getReturnValue();
 	}
 

@@ -1,15 +1,10 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators;
 
-import java.util.Arrays;
-import java.util.List;
-
-import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorSelectSet;
-
+import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorSelect;
 
 public class OclIteratorFactory {
-	public static List<OclIterator> getOperations(String name) {
+	public static OclIterator getIterator(String name) {
 		return switch (name) {
-		// 1 implementation for all collection types
 		case "any" -> null; // TODO
 		case "closure" -> null; // TODO
 		case "exists" -> null; // TODO
@@ -18,14 +13,13 @@ public class OclIteratorFactory {
 		case "one" -> null; // TODO
 		case "collect" -> null; // TODO
 
-		// 1 implementation for each collection type
-		case "select" -> Arrays.asList(new OclIteratorSelectSet());
+		case "select" -> new OclIteratorSelect();
 		case "reject" -> null; // TODO
 		case "collectNested" -> null; // TODO
 		case "sortedBy" -> null; // TODO
-		
+
 		// Default
-		default ->	null;
+		default -> null;
 		};
 	}
 }
