@@ -80,7 +80,17 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-    public List<OclFeatureDefinition> getAllDefinition() {
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
+  }
+         public List<OclFeatureDefinition> getAllDefinition() {
 	  return this.localDefinitions;
   }
  }

@@ -71,7 +71,17 @@ public final class OperationValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
-    public OclType getSourceType() {
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
+  }
+         public OclType getSourceType() {
 	  if (this.target.eContainer() instanceof OclContextBlock) {
 		  // TODO : Adapt this with answer from Paul
 		  return /*((OclContextBlock)this.target.eContainer()).getClass_()*/ new OclAny();

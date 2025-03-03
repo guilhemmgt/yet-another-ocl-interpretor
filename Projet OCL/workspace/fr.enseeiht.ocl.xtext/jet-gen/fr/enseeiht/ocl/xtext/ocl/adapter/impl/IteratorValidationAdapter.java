@@ -61,4 +61,14 @@ public final class IteratorValidationAdapter implements OCLAdapter {
   public EObject getElement() {
     return this.target;
   }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
+  }
  }

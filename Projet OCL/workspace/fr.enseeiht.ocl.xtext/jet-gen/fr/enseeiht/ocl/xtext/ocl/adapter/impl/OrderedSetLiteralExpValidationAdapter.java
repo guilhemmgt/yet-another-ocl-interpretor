@@ -1,6 +1,10 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
+
+import org.apache.commons.collections.list.SetUniqueList;
+import org.apache.commons.collections.set.ListOrderedSet;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
@@ -29,10 +33,15 @@ public final class OrderedSetLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException(this.getClass(),"getValue");
+	  EList<OclExpression> elts = this.target.getElements();
+	  SetUniqueList orderedSet = SetUniqueList.decorate(new ArrayList<Object>());
+	  for(OclExpression e : elts) {
+		  orderedSet.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
+	  }
+	  return orderedSet;
   }
 
   /**
@@ -65,5 +74,15 @@ public final class OrderedSetLiteralExpValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

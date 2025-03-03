@@ -23,4 +23,10 @@ public interface OCLAdapter {
 	 * @return adapted element
 	 */
 	public EObject getElement();
+	
+	/**
+	 * Return the string visible in the outline
+	 * @return outline name
+	 */
+	public String getOutlineString();
 }

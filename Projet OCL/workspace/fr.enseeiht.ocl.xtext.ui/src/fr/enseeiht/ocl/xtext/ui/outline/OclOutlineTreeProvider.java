@@ -8,9 +8,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 
-import fr.enseeiht.ocl.xtext.ocl.IntegerLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.NotOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 
 /**
  * Customization of the default outline structure.
@@ -25,11 +25,13 @@ public class OclOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	@Override
 	protected void _createChildren(IOutlineNode parentNode, EObject modelElement) {
 		for (EObject child : modelElement.eContents()) {
+			// A cause des prioritées on supprime les classes intermédiares de l'outline
 			if(child.eClass().getEStructuralFeature("args") != null) {
 				while ((!(child instanceof NotOpCallExp)) && ((EList<String>)child.eGet(child.eClass().getEStructuralFeature("operationNames"))).isEmpty()) {
 					child = ((EList<EObject>) child.eGet(child.eClass().getEStructuralFeature("args"))).get(0);
 				}
 			}
+			// Si il n'y a pas de naviagation on l'enlève
 			if((child instanceof PropertyCallExp pce) && pce.getCalls().isEmpty()) {
 				child = pce.getSource();
 			}
@@ -39,12 +41,10 @@ public class OclOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
 	@Override
 	protected Object _text(Object modelElement) {
-		// TODO Auto-generated method stub
-		if(modelElement instanceof IntegerLiteralExp ile)
-			return String.valueOf(ile.getIntegerSymbol());
-//		if(super._text(modelElement) == null) {
-//			return "temppp";
-//		}
+		// utilisation de noms personnalisées
+		String outlineString = OCLValidationAdapterFactory.INSTANCE.createAdapter((EObject) modelElement).getOutlineString();
+		if(outlineString != null)
+			return outlineString;
 		return super._text(modelElement);
 	}
 
