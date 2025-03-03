@@ -8,4 +8,4 @@ inv test2: 1.0 or false
 
 inv test3: Bag{} xor null
 
-inv test4: Tuple{x:OclAny=2}.x implies false
+inv test4: Tuple{x:OclAny=true}.x implies false

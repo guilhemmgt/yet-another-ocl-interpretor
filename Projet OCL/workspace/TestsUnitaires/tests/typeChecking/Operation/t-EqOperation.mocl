@@ -2,6 +2,6 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 
-def: test1 : Boolean = 1 = 1 + "s"
+inv test1 :  1 = 1 + "s"
 
-def: test2: Boolean = 1 <> 1 + "s"
+inv test2:  1 <> 1 + "s"
