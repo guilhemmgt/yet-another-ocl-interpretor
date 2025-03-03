@@ -85,3 +85,6 @@ def : defrealparamuse : Real = 3.0
 def: defintparamuse : Integer = self.defintparam(2)
 
 def: defcolluse : Collection(String) = self.defcoll("a", "a", "c")
+
+
+def: deftupleuse : Integer = self.deftuple(1).x

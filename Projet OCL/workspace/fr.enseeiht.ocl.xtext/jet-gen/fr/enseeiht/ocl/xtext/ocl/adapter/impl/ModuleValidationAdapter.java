@@ -1,6 +1,7 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

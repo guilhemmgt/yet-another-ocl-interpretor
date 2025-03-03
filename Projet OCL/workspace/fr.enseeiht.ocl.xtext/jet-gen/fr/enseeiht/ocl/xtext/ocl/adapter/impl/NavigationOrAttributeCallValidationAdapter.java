@@ -102,10 +102,6 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 		  }
 	  }
 	  // On a le type parent! On récupère son sous-type.
-	  EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
-	  
-	  if(feature == null)
-		  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
 	  // On regarde les définitons OCL
 	  List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getDefinitions(this.target.getName(), false);
 	  if (!defs.isEmpty()) {
@@ -114,6 +110,12 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 				if (att.getSourceType().conformsTo(source)) return ((OclClassifier) att.getType()).getRepresentedType();
 			}
 	  }
+
+	  EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
+	  
+	  if(feature == null)
+		  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
+
 	  EClassifier eType = feature.getEType();
 	  
 	  // Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum
