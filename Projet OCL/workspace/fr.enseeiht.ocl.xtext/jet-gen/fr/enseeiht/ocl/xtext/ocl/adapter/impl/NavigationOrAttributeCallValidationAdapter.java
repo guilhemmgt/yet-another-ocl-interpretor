@@ -86,19 +86,27 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  int pos = container.getCalls().indexOf(this.target);
 	  OclEClass source = null;
 	  if (pos == 0) {
-		  // root call
-		  if (container.getSource() instanceof TupleLiteralExp) {
-			  OclTuple tuple = (OclTuple) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
-			  return tuple.getTypeOf(target, target.getName());
-		  } else if (container.getSource() != null) {
-			  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+		  if (container.getSource() != null) {
+			  OCLAdapter adapt = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
+			  // root call
+			  if (adapt.getType() instanceof OclTuple) {
+				  OclTuple tuple = (OclTuple) adapt.getType();
+				  return tuple.getTypeOf(target, target.getName());
+			  } else {
+				  source = (OclEClass) adapt.getType();
+			  }
 		  }
-	  } else {
-		  if (container.getSource() instanceof TupleLiteralExp) {
-			  OclTuple tuple = (OclTuple) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
-			  return tuple.getTypeOf(target, target.getName());
-		  } else if (container.getCalls().get(pos-1) != null) {
-			  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
+	  } 
+	  else {
+		  if (container.getCalls().get(pos-1) != null) {
+			  OCLAdapter adapt = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
+			  // root call
+			  if (adapt.getType() instanceof OclTuple) {
+				  OclTuple tuple = (OclTuple) adapt.getType();
+				  return tuple.getTypeOf(target, target.getName());
+			  } else {
+				  source = (OclEClass) adapt.getType();
+			  }
 		  }
 	  }
 	  // On a le type parent! On récupère son sous-type.

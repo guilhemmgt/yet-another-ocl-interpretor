@@ -1,7 +1,7 @@
 import "http://empty" as empty
 
 
-def: tobeused : OclInteger = 3
+def: tobeused : Integer = 3
 
 def: using : Integer = tobeused
 
