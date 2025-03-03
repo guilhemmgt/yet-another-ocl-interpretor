@@ -132,6 +132,10 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclModelElementClassValidationAdap
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.MapTypeValidationAdapter;
 
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.util.OclSwitch;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -146,7 +150,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 public class OCLValidationAdapterFactory
 {
   public final static OCLValidationAdapterFactory INSTANCE = new OCLValidationAdapterFactory();
-  private ModuleValidationAdapter moduleAdapter = null;
+  private Map<Module, ModuleValidationAdapter> moduleAdapters;
   /**
    * The cached model package.
    * <!-- begin-user-doc -->
@@ -163,6 +167,7 @@ public class OCLValidationAdapterFactory
    */
   private OCLValidationAdapterFactory()
   {
+    moduleAdapters = new HashMap<Module, ModuleValidationAdapter>();
     if (modelPackage == null)
     {
       modelPackage = OclPackage.eINSTANCE;
@@ -566,11 +571,11 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createModuleValidationAdapter(Module target)
   {
-	
-	if (this.moduleAdapter == null) {
-		this.moduleAdapter = new ModuleValidationAdapter(target);
+	System.out.println(this.moduleAdapters);
+	if (!this.moduleAdapters.containsKey(target)) {
+		this.moduleAdapters.put(target, new ModuleValidationAdapter(target));
 	}
-	return this.moduleAdapter;
+	return this.moduleAdapters.get(target);
   	
   }
 
