@@ -24,8 +24,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclFeatureDefinition/feature"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//Attribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//Attribute/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Attribute/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//Attribute/initExpression"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//Operation">
@@ -42,7 +40,7 @@
     <genClasses ecoreClass="Ocl.ecore#//OclExpression"/>
     <genClasses ecoreClass="Ocl.ecore#//OclModelElementExp">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElementExp/model"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclModelElementExp/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElementExp/class"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OperatorCallExp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/args"/>
@@ -122,6 +120,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapElement/value"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//EnumLiteralExp">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//EnumLiteralExp/enum_"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//EnumLiteralExp/name"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//LetExp">
@@ -170,9 +169,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//LocalVariable/initExpression"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OclTypeLiteral"/>
-    <genClasses ecoreClass="Ocl.ecore#//CollectionType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//CollectionType/elementType"/>
+    <genClasses ecoreClass="Ocl.ecore#//CollectionTypeLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//CollectionTypeLiteral/elementType"/>
     </genClasses>
+    <genClasses ecoreClass="Ocl.ecore#//CollectionType"/>
     <genClasses ecoreClass="Ocl.ecore#//BagType"/>
     <genClasses ecoreClass="Ocl.ecore#//OrderedSetType"/>
     <genClasses ecoreClass="Ocl.ecore#//SequenceType"/>
@@ -184,6 +184,7 @@
     <genClasses ecoreClass="Ocl.ecore#//IntegerType"/>
     <genClasses ecoreClass="Ocl.ecore#//RealType"/>
     <genClasses ecoreClass="Ocl.ecore#//OclAnyType"/>
+    <genClasses ecoreClass="Ocl.ecore#//OclVoidType"/>
     <genClasses ecoreClass="Ocl.ecore#//TupleType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//TupleType/attributes"/>
     </genClasses>

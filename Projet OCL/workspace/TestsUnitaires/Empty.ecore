@@ -8,6 +8,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="subLiar" upperBound="-1"
         eType="#//SubLiar" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enum" eType="#//Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="others" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Maybe">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -19,4 +21,9 @@
     <eLiterals name="enum3" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubLiar" eSuperTypes="#//Liar"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="AnotherEnum">
+    <eLiterals name="enum2" value="3"/>
+    <eLiterals name="enum3" value="2"/>
+    <eLiterals name="enum4" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

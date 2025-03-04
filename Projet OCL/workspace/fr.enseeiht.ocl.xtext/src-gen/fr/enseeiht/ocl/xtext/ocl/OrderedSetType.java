@@ -14,6 +14,6 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface OrderedSetType extends CollectionType
+public interface OrderedSetType extends CollectionTypeLiteral
 {
 } // OrderedSetType

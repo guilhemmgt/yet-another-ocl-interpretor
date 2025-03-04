@@ -2,8 +2,9 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -36,10 +37,23 @@ public final class OclInvariantValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
-  public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+  public OclType getType() {OCLAdapter exp = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getBody());
+	OclType type = exp.getType();
+	// L'expression dans l'invariant doit nécessairement avoir un type Boolean
+	boolean isCorrect = type.conformsTo(new OclBoolean());
+	boolean isInvalid = type.conformsTo(new OclInvalid());
+	if (!isCorrect && !isInvalid) {
+		String message = "Invariant type mismatch : expected Boolean, got " + type;
+		return new OclInvalid(target, message);
+	}
+	else if (isInvalid) {
+		return new OclInvalid(type);
+	}
+	else {
+		return new OclBoolean();
+	}
   }
 
   /**

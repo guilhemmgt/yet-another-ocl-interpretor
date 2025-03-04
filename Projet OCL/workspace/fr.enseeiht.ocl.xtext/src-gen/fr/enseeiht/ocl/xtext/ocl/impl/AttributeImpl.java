@@ -6,7 +6,6 @@ package fr.enseeiht.ocl.xtext.ocl.impl;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
-import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,45 +23,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.AttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.AttributeImpl#getInitExpression <em>Init Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributeImpl extends MinimalEObjectImpl.Container implements Attribute
+public class AttributeImpl extends AuxiliaryImpl implements Attribute
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected OclTypeLiteral type;
-
   /**
    * The cached value of the '{@link #getInitExpression() <em>Init Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -93,81 +59,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   protected EClass eStaticClass()
   {
     return OclPackage.Literals.ATTRIBUTE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.ATTRIBUTE__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public OclTypeLiteral getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetType(OclTypeLiteral newType, NotificationChain msgs)
-  {
-    OclTypeLiteral oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.ATTRIBUTE__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setType(OclTypeLiteral newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.ATTRIBUTE__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.ATTRIBUTE__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.ATTRIBUTE__TYPE, newType, newType));
   }
 
   /**
@@ -230,8 +121,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case OclPackage.ATTRIBUTE__TYPE:
-        return basicSetType(null, msgs);
       case OclPackage.ATTRIBUTE__INIT_EXPRESSION:
         return basicSetInitExpression(null, msgs);
     }
@@ -248,10 +137,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case OclPackage.ATTRIBUTE__NAME:
-        return getName();
-      case OclPackage.ATTRIBUTE__TYPE:
-        return getType();
       case OclPackage.ATTRIBUTE__INIT_EXPRESSION:
         return getInitExpression();
     }
@@ -268,12 +153,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case OclPackage.ATTRIBUTE__NAME:
-        setName((String)newValue);
-        return;
-      case OclPackage.ATTRIBUTE__TYPE:
-        setType((OclTypeLiteral)newValue);
-        return;
       case OclPackage.ATTRIBUTE__INIT_EXPRESSION:
         setInitExpression((OclExpression)newValue);
         return;
@@ -291,12 +170,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case OclPackage.ATTRIBUTE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case OclPackage.ATTRIBUTE__TYPE:
-        setType((OclTypeLiteral)null);
-        return;
       case OclPackage.ATTRIBUTE__INIT_EXPRESSION:
         setInitExpression((OclExpression)null);
         return;
@@ -314,31 +187,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case OclPackage.ATTRIBUTE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case OclPackage.ATTRIBUTE__TYPE:
-        return type != null;
       case OclPackage.ATTRIBUTE__INIT_EXPRESSION:
         return initExpression != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //AttributeImpl

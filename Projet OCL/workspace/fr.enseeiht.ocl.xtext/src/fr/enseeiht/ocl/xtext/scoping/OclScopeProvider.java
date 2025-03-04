@@ -3,6 +3,24 @@
  */
 package fr.enseeiht.ocl.xtext.scoping;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+
+import fr.enseeiht.ocl.xtext.ocl.Attribute;
+import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
+import fr.enseeiht.ocl.xtext.ocl.IterateExp;
+import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
+import fr.enseeiht.ocl.xtext.ocl.LetExp;
+import fr.enseeiht.ocl.xtext.ocl.Module;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
+import fr.enseeiht.ocl.xtext.ocl.OclPackage;
+import fr.enseeiht.ocl.xtext.ocl.Operation;
+import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +29,39 @@ package fr.enseeiht.ocl.xtext.scoping;
  * on how and when to use it.
  */
 public class OclScopeProvider extends AbstractOclScopeProvider {
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		if (reference == OclPackage.Literals.VARIABLE_EXP__REFERRED_VARIABLE) { 
+			VariableExp variableExp = (VariableExp) context;
+			
+			List<Auxiliary> scopeAuxiliaries = new ArrayList<>();
 
+	        EObject parent = variableExp.eContainer();
+	        while (!(parent instanceof Module)) {
+
+	        	// Add Iterators
+	        	if (parent instanceof IteratorExp iteratorExp)
+	        		scopeAuxiliaries.addAll(iteratorExp.getIterators());
+	        	if (parent instanceof IterateExp iterateExp)
+	        		scopeAuxiliaries.addAll(iterateExp.getIterators());
+	        	// Add LocalVariables
+	        	if (parent instanceof LetExp letExp)
+	        		scopeAuxiliaries.add(letExp.getVariable());
+	        	if (parent instanceof IterateExp iterateExp)
+	        		scopeAuxiliaries.add(iterateExp.getResult());
+	        	// Add Parameters
+	        	if (parent instanceof Operation operation)
+	        		scopeAuxiliaries.addAll(operation.getParameters());
+	        	if (parent instanceof OclFeatureDefinition oclFeatureDef)
+	        		if (oclFeatureDef.getFeature() instanceof Attribute feature)
+	        			scopeAuxiliaries.add(feature);
+	        	
+	        	parent = parent.eContainer();
+	        }
+	        
+	        return Scopes.scopeFor(scopeAuxiliaries);
+		}
+		
+		return super.getScope(context, reference);
+	}
 }

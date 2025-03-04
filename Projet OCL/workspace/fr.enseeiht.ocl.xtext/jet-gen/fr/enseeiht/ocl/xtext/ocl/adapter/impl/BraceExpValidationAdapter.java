@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
@@ -40,9 +39,7 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 	  // L'expression dans les parenthèses
-	  OCLAdapter exp =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp());
-	  return exp.getType();
-	  
+	  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp()).getType();	  
   }
 
   /**
