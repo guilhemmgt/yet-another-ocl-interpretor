@@ -46,11 +46,11 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1)).getValue(contextTarget);
 	  
 	  if (result == null || right == null) {
-			// Levée d'erreur et envoi de l'argument fautif
-			result = new UndefinedAccessInvalid(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(1));
+		  // Levée d'erreur et envoi de l'argument fautif
+		  return new UndefinedAccessInvalid(result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(1));
 	  }
 	  if (result instanceof Invalid || right instanceof Invalid) {
-		  return   result instanceof Invalid ? result : right;
+		  return result instanceof Invalid ? result : right;
 	  }
 	  
 	  if (!(result instanceof Number && right instanceof Number)) {
@@ -61,7 +61,7 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  // Traitement des opérations
 	  switch (this.target.getOperationNames().get(0)) {
-		  case ">":
+	  case ">":
 		  return leftDouble > rightDouble;
 	  case "<":
 		  return leftDouble < rightDouble;
@@ -71,7 +71,6 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 		  return leftDouble <= rightDouble;
 	  default:
 		  throw new UnsupportedFeatureException(this.target.getOperationNames().get(0));
-		  
 	  }
   }
   /**
