@@ -68,6 +68,20 @@ public class OclProposalProvider extends AbstractOclProposalProvider {
 	}
 	
 	@Override
+	public void completeOperationCall_OperationName(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeOperationCall_OperationName(model, assignment, context, acceptor);
+	}
+
+	@Override
+	public void completeCollectionOperationCall_OperationName(EObject model, Assignment assignment,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// TODO Auto-generated method stub
+		super.completeCollectionOperationCall_OperationName(model, assignment, context, acceptor);
+	}
+
+	@Override
 	protected boolean doCreateIntProposals() {
 	    return false;
 	}
