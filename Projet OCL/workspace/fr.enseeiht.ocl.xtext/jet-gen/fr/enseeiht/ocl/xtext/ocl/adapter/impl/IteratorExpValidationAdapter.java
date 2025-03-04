@@ -96,6 +96,8 @@ public Object getValue(EObject contextTarget) {
 				OclType iteratorType = OCLValidationAdapterFactory.INSTANCE.createAdapter(i).getType();
 				if (iteratorType instanceof OclInvalid error) {
 					errors.add(error);
+				} else if (!iteratorType.conformsTo(collectType.getSubtype())) {
+					errors.add(new OclInvalid(i,"Type mismatch error : expected iterator of type " + collectType.getSubtype() + " but got " + iteratorType + " instead."));
 				}
 			}
 
