@@ -777,11 +777,17 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     NavigationOrAttributeCall returns NavigationOrAttributeCall
 	 *
 	 * Constraint:
-	 *     (name=STRING | name=ID)
+	 *     name=ID
 	 * </pre>
 	 */
 	protected void sequence_NavigationOrAttributeCall(ISerializationContext context, NavigationOrAttributeCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.NAVIGATION_OR_ATTRIBUTE_CALL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.NAVIGATION_OR_ATTRIBUTE_CALL__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNavigationOrAttributeCallAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

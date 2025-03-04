@@ -2371,27 +2371,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NavigationOrAttributeCall__Alternatives_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_0()); }
-		(rule__NavigationOrAttributeCall__NameAssignment_1_0)
-		{ after(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_1()); }
-		(rule__NavigationOrAttributeCall__NameAssignment_1_1)
-		{ after(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_1()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__OclTypeLiteral__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -7455,9 +7434,9 @@ rule__NavigationOrAttributeCall__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getNavigationOrAttributeCallAccess().getAlternatives_1()); }
-	(rule__NavigationOrAttributeCall__Alternatives_1)
-	{ after(grammarAccess.getNavigationOrAttributeCallAccess().getAlternatives_1()); }
+	{ before(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1()); }
+	(rule__NavigationOrAttributeCall__NameAssignment_1)
+	{ after(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1()); }
 )
 ;
 finally {
@@ -11392,30 +11371,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NavigationOrAttributeCall__NameAssignment_1_0
+rule__NavigationOrAttributeCall__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getNavigationOrAttributeCallAccess().getNameSTRINGTerminalRuleCall_1_0_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getNavigationOrAttributeCallAccess().getNameSTRINGTerminalRuleCall_1_0_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__NavigationOrAttributeCall__NameAssignment_1_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getNavigationOrAttributeCallAccess().getNameIDTerminalRuleCall_1_1_0()); }
+		{ before(grammarAccess.getNavigationOrAttributeCallAccess().getNameIDTerminalRuleCall_1_0()); }
 		RULE_ID
-		{ after(grammarAccess.getNavigationOrAttributeCallAccess().getNameIDTerminalRuleCall_1_1_0()); }
+		{ after(grammarAccess.getNavigationOrAttributeCallAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

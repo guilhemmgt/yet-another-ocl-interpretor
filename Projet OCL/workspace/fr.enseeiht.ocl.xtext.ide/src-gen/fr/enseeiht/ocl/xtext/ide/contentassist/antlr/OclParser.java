@@ -47,7 +47,6 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNumericLiteralExpAccess().getAlternatives(), "rule__NumericLiteralExp__Alternatives");
 			builder.put(grammarAccess.getBooleanLiteralExpAccess().getAlternatives(), "rule__BooleanLiteralExp__Alternatives");
 			builder.put(grammarAccess.getPropertyCallAccess().getAlternatives(), "rule__PropertyCall__Alternatives");
-			builder.put(grammarAccess.getNavigationOrAttributeCallAccess().getAlternatives_1(), "rule__NavigationOrAttributeCall__Alternatives_1");
 			builder.put(grammarAccess.getOclTypeLiteralAccess().getAlternatives(), "rule__OclTypeLiteral__Alternatives");
 			builder.put(grammarAccess.getCollectionTypeLiteralAccess().getAlternatives(), "rule__CollectionTypeLiteral__Alternatives");
 			builder.put(grammarAccess.getPrimitiveAccess().getAlternatives(), "rule__Primitive__Alternatives");
@@ -227,8 +226,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOperationCallAccess().getOperationNameAssignment_1(), "rule__OperationCall__OperationNameAssignment_1");
 			builder.put(grammarAccess.getOperationCallAccess().getArgumentsAssignment_3_0(), "rule__OperationCall__ArgumentsAssignment_3_0");
 			builder.put(grammarAccess.getOperationCallAccess().getArgumentsAssignment_3_1_1(), "rule__OperationCall__ArgumentsAssignment_3_1_1");
-			builder.put(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_0(), "rule__NavigationOrAttributeCall__NameAssignment_1_0");
-			builder.put(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1_1(), "rule__NavigationOrAttributeCall__NameAssignment_1_1");
+			builder.put(grammarAccess.getNavigationOrAttributeCallAccess().getNameAssignment_1(), "rule__NavigationOrAttributeCall__NameAssignment_1");
 			builder.put(grammarAccess.getIterateExpAccess().getIteratorsAssignment_3(), "rule__IterateExp__IteratorsAssignment_3");
 			builder.put(grammarAccess.getIterateExpAccess().getIteratorsAssignment_4_1(), "rule__IterateExp__IteratorsAssignment_4_1");
 			builder.put(grammarAccess.getIterateExpAccess().getResultAssignment_6(), "rule__IterateExp__ResultAssignment_6");
