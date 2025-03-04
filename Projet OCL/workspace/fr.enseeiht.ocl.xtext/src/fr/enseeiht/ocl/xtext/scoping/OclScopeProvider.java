@@ -38,24 +38,39 @@ public class OclScopeProvider extends AbstractOclScopeProvider {
 
 	        EObject parent = variableExp.eContainer();
 	        while (!(parent instanceof Module)) {
+	        	List<Auxiliary> parentAuxiliaries = new ArrayList<>();
 
-	        	// Add Iterators
+	        	// Ajoute les Iterators
 	        	if (parent instanceof IteratorExp iteratorExp)
-	        		scopeAuxiliaries.addAll(iteratorExp.getIterators());
+	        		parentAuxiliaries.addAll(iteratorExp.getIterators());
 	        	if (parent instanceof IterateExp iterateExp)
-	        		scopeAuxiliaries.addAll(iterateExp.getIterators());
-	        	// Add LocalVariables
+	        		parentAuxiliaries.addAll(iterateExp.getIterators());
+	        	// Ajoute les LocalVariables
 	        	if (parent instanceof LetExp letExp)
-	        		scopeAuxiliaries.add(letExp.getVariable());
+	        		parentAuxiliaries.add(letExp.getVariable());
 	        	if (parent instanceof IterateExp iterateExp)
-	        		scopeAuxiliaries.add(iterateExp.getResult());
-	        	// Add Parameters
+	        		parentAuxiliaries.add(iterateExp.getResult());
+	        	// Ajoute les Parameters
 	        	if (parent instanceof Operation operation)
-	        		scopeAuxiliaries.addAll(operation.getParameters());
+	        		parentAuxiliaries.addAll(operation.getParameters());
 	        	if (parent instanceof OclFeatureDefinition oclFeatureDef)
 	        		if (oclFeatureDef.getFeature() instanceof Attribute feature)
-	        			scopeAuxiliaries.add(feature);
+	        			parentAuxiliaries.add(feature);
 	        	
+	        	// Applique le masquage (on enregistre uniquement les auxiliaires qui n'ont pas le même nom qu'un auxiliaire déjà enregistré)
+	        	for (Auxiliary parentAux : parentAuxiliaries) {
+	        		boolean masked = false;
+	        		for (Auxiliary scopeAux : scopeAuxiliaries) {
+	        			if (scopeAux.getName().equals(scopeAux.getName())) {
+	        				masked = true;
+	        				break;
+	        			}
+	        		}
+	        		if (!masked)
+	        			scopeAuxiliaries.add(parentAux);
+	        	}
+	        	
+	        	// Navigation
 	        	parent = parent.eContainer();
 	        }
 	        
