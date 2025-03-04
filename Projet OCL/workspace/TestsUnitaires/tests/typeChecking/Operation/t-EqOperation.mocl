@@ -1,0 +1,7 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv test1 :  1 = 1 + "s"
+
+inv test2:  1 <> 1 + "s"

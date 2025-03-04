@@ -35,7 +35,7 @@ public class OclTuple extends OclAny {
 		// Il y a conformance ssi le type des éléments se conforme à celui des éléments de l'autre tuple.
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean subtypeConformance = false;
-		if (oclType instanceof OclType) {
+		if (oclType instanceof OclTuple) {
 			// Vérification de la conformance des types des éléments
 			OclTuple OclTupleType = (OclTuple) oclType; 
 			if (!subtypes.keySet().equals(OclTupleType.subtypes.keySet())) {
