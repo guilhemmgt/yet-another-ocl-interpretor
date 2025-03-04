@@ -1,5 +1,6 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators;
 
+import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorCollectNested;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorSelect;
 
 public class OclIteratorFactory {
@@ -15,7 +16,7 @@ public class OclIteratorFactory {
 
 		case "select" -> new OclIteratorSelect();
 		case "reject" -> null; // TODO
-		case "collectNested" -> null; // TODO
+		case "collectNested" -> new OclIteratorCollectNested(); // TODO
 		case "sortedBy" -> null; // TODO
 
 		// Default

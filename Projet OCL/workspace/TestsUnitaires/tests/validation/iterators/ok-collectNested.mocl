@@ -1,6 +1,6 @@
-import "http://container" as container
+import "http://empty" as empty
 
-context container!Container.Object
+context empty!empty.Maybe
 	
 inv bag1:
 	Bag{}->collectNested(n | 12) = Bag{}
@@ -11,38 +11,38 @@ inv bag3:
 inv bag4:
 	Bag{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
 inv bag5:
-	Bag{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count) = Bag{3,4,2,1}
+	Bag{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n) = Bag{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}
 
 inv orderedset1:
-	OrderedSet{}->collectNested(n | 12) = Bag{}
+	OrderedSet{}->collectNested(n | 12) = OrderedSet{}
 inv orderedset2:
-	OrderedSet{1, 2, 3, 4}->collectNested(n | n+1) = Bag{2, 3, 4, 5}
+	OrderedSet{1, 2, 3, 4}->collectNested(n | n+1) = OrderedSet{2, 3, 4, 5}
 inv orderedset3:
-	OrderedSet{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+	OrderedSet{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = OrderedSet{"hello!", "world!", "how!", "are!", "you!", "today!"}
 inv orderedset4:
-	OrderedSet{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
+	OrderedSet{null, 1, "hi"}->collectNested(n | n) = OrderedSet{null, 1, "hi"}
 inv orderedset5:
-	OrderedSet{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count()) = Bag{3,4,2,1}
+	OrderedSet{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n) = OrderedSet{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}
 	
 inv sequence1:
-	Sequence{}->collectNested(n | 12) = Bag{}
+	Sequence{}->collectNested(n | 12) = Sequence{}
 inv sequence2:
-	Sequence{1, 2, 3, 4}->collectNested(n | n+1) = Bag{2, 3, 4, 5}
+	Sequence{1, 2, 3, 4}->collectNested(n | n+1) = Sequence{2, 3, 4, 5}
 inv sequence3:
-	Sequence{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+	Sequence{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Sequence{"hello!", "world!", "how!", "are!", "you!", "today!"}
 inv sequence4:
-	Sequence{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
+	Sequence{null, 1, "hi"}->collectNested(n | n) = Sequence{null, 1, "hi"}
 inv sequence5:
-	Sequence{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count()) = Bag{3,4,2,1}
+	Sequence{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n) = Sequence{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}
 	
 inv set1:
-	Set{}->collectNested(n | 12) = Bag{}
+	Set{}->collectNested(n | 12) = Set{}
 inv set2:
-	Set{1, 2, 3, 4}->collectNested(n | n+1) = Bag{2, 3, 4, 5}
+	Set{1, 2, 3, 4}->collectNested(n | n+1) = Set{2, 3, 4, 5}
 inv set3:
-	Set{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+	Set{"hello", "world", "how", "are", "you", "today"}->collectNested(n | n + "!") = Set{"hello!", "world!", "how!", "are!", "you!", "today!"}
 inv set4:
-	Set{null, 1, "hi"}->collectNested(n | n) = Bag{null, 1, "hi"}
+	Set{null, 1, "hi"}->collectNested(n | n) = Set{null, 1, "hi"}
 inv set5:
-	Set{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n.count()) = Bag{3,4,2,1}
+	Set{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collectNested(n | n) = Set{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}
 	
