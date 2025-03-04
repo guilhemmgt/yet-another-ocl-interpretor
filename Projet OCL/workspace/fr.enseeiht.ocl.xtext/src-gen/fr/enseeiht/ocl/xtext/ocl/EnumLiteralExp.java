@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EEnum;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEcoreTypes <em>Ecore Types</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEnum_ <em>Enum </em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getName <em>Name</em>}</li>
  * </ul>
@@ -25,28 +24,6 @@ import org.eclipse.emf.ecore.EEnum;
  */
 public interface EnumLiteralExp extends OclExpression
 {
-  /**
-   * Returns the value of the '<em><b>Ecore Types</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ecore Types</em>' reference.
-   * @see #setEcoreTypes(Import)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getEnumLiteralExp_EcoreTypes()
-   * @model
-   * @generated
-   */
-  Import getEcoreTypes();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEcoreTypes <em>Ecore Types</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ecore Types</em>' reference.
-   * @see #getEcoreTypes()
-   * @generated
-   */
-  void setEcoreTypes(Import value);
-
   /**
    * Returns the value of the '<em><b>Enum </b></em>' reference.
    * <!-- begin-user-doc -->

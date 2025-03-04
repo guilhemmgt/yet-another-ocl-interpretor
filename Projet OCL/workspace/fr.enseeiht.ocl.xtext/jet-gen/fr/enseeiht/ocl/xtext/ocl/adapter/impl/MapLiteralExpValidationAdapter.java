@@ -48,10 +48,8 @@ public final class MapLiteralExpValidationAdapter implements OCLAdapter {
 	  OclType value = null;
 	  for (MapElement elt : target.getElements()) {
 		  MapElementValidationAdapter eltType  = (MapElementValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(elt);
-		  // Below is a TypePair, which is only used here. Please note that this is not a real type in OCl, and is a special class needed for this instance only.
 		  OclTypePair pair = (OclTypePair) eltType.getType();
 		  if (pair.getLeft() instanceof OclInvalid || pair.getRight() instanceof OclInvalid) {
-			  // Il devrait être impossible d'avoir (key=null && value != null) ou l'inverse, mais on le garde en sécurité dans cette section.
 			  return new OclInvalid(pair.getLeft(), pair.getRight());
 		  }
 		  if (key == null || value == null) {

@@ -1,11 +1,6 @@
 import "http://empty" as empty
 
 
-def: tobeused : Integer = 3
-
-def: using : Integer = tobeused
-
-
 def: contextlessvoid : OclVoid = null
 
 def: contextlessdefint : Integer = 1
@@ -45,10 +40,6 @@ def: defcoll(a:String, b:String, c:String) : Collection(String) = Bag{a, b, c}
 def: defself(a:String) : String = self.name + a
 
 
-
-def: deftuple(x:Integer) : Tuple(x:Integer) = Tuple{x:Integer=x} -- A voir comment ça finit
-
-
 -- Now checking for use
 
 
@@ -70,21 +61,18 @@ def: contextlessdefcolluse : Collection(String) = contextlessdefcoll("a", "b", "
 
 
 
-def: defvoiduse : OclVoid = self.defvoid
+def: defvoiduse : OclVoid = defvoid
 
-def: defintuse : Integer = self.defint
+def: defintuse : Integer = defint
 
-def: defcolluse : Collection(String) = self.defcoll
+def: defcolluse : Collection(String) = defcoll
 
 
 
-def: defvoidparamuse : OclVoid = self.defvoidparam()
+def: defvoidparamuse : OclVoid = defvoidparam()
 
 def : defrealparamuse : Real = 3.0
 
-def: defintparamuse : Integer = self.defintparam(2)
+def: defintparamuse : Integer = defintparam(2)
 
-def: defcolluse : Collection(String) = self.defcoll("a", "a", "c")
-
-
-def: deftupleuse : Integer = self.deftuple(1).x
+def: defcolluse : Collection(String) = defcoll("a", "a", "c")
