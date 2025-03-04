@@ -27,6 +27,7 @@ import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.yaoi.OclInterpretor;
 import fr.enseeiht.yaoi.ValidationError;
 import fr.enseeiht.yaoi.ValidationResult;
+import fr.enseeiht.yaoi.ui.others.ScrollableDialog;
 
 public class Validate extends AbstractHandler {
 	@Override
@@ -36,11 +37,16 @@ public class Validate extends AbstractHandler {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 
+		// Récupère l'éditeur actif
 		IEditorPart editor = HandlerUtil.getActiveEditorChecked(event);
 		if (!(editor instanceof IEditingDomainProvider)) {
 			throw new RuntimeException("???");
 		}
 		EditingDomain editorDomain = ((IEditingDomainProvider) editor).getEditingDomain();
+		// Récupère la fenêtre active
+		Shell shell = HandlerUtil.getActiveShell(event);
+		
+		// Charge les resources enregistrées dans l'editor
 		ResourceSet resourceSet = editorDomain.getResourceSet();
 		Resource moclResource = null;
 		for (Resource r : resourceSet.getResources()) {
@@ -48,8 +54,13 @@ public class Validate extends AbstractHandler {
 				moclResource = r;
 			}
 		}
+		// Si aucun .mocl n'a été ajouté par Load.java
 		if (moclResource == null) {
-			// TODO : popup error (load mocl first)
+		    MessageDialog.openError(
+		            shell,
+		            "Resource MOCL manquante.",
+		            "Veuillez d'abord charger un fichier .mocl en faisant un clic droit sur un fichier .xmi puis en sélectionnant 'MOCL → Load' ou 'Load Resource'."
+		        );
 			return null;
 		}
 
@@ -73,25 +84,26 @@ public class Validate extends AbstractHandler {
 
 		//// XMI
 
+		// Récuperer la selection
 		IStructuredSelection selection = HandlerUtil.getCurrentStructuredSelection(event);
 		selection = (IStructuredSelection) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
 				.getSelection();
 		Object firstElement = selection.getFirstElement();
 		Resource xmiResource = null;
-		if (firstElement instanceof XMIResourceImpl) {
+		if (firstElement instanceof XMIResourceImpl) { // Si l'élement est le .xmi
 			xmiResource = (Resource) firstElement;
 			// xmiResource = resourceSet.createResource(((XMIResource)
-		} else if (firstElement instanceof EObject) {
+		} else if (firstElement instanceof EObject) {  // Si c'est un de ses enfants
 			xmiResource = ((EObject) firstElement).eResource();
-		} else {
+		} else { // le menu ne devrait pas pouvoir s'afficher pour autre chose
 			throw new RuntimeException("Shouldn't be able to call the menu on this : " + firstElement);
 		}
 
 		//// RESULTS
 
+		// Appelle l'interpréteur et crée la popup pour les résultats
 		ValidationResult res = OclInterpretor.validate(xmiResource, moclModule);
-		Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-		StringBuilder sb = new StringBuilder("Validation Errors:\n");
+		StringBuilder sb = new StringBuilder();
 		for (ValidationError error : res.getErrors()) {
 		    String invName = error.getFailedInvariant() != null 
 		                     ? error.getFailedInvariant().getName() 
@@ -99,11 +111,16 @@ public class Validate extends AbstractHandler {
 		    String objName = error.getTestedObject() != null 
 		                     ? error.getTestedObject().toString() 
 		                     : "Unknown Object";
-		    sb.append("  Invariant \"").append(invName)
-		      .append("\" is violated by \"").append(objName).append("\"\n");
+		    sb.append("Invariant \"").append(invName)
+		      .append("\" is violated by \"").append(objName).append("\"\n\n");
 		}
-		MessageDialog.openError(shell, "Validation Results", sb.toString());
-
+		ScrollableDialog dialog = new ScrollableDialog(
+		    shell,
+		    "Validation Results",
+		    "The following validation errors were detected:",
+		    sb.toString()
+		);
+		dialog.open();
 
 		return null;
 	}
