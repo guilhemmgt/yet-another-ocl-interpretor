@@ -36,10 +36,11 @@ public interface OclIterator {
 	
 	/**
 	 * Renvoie le type de l'itérateur
-	 * @param collectedType type contenu par la collection sur laquelle est appliquée l'itérateur
+	 * @param sourceType type contenu par la collection sur laquelle est appliquée l'itérateur
+	 * @param bodyType TODO
 	 * @return type
 	 */
-	public OclType getReturnType(OclType collectedType);
+	public OclType getReturnType(OclType sourceType, OclType bodyType);
 	
 	/**
 	 * Renvoie le type de collection surlequel peut être appliqué l'itérateur

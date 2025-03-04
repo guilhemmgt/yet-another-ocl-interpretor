@@ -16,7 +16,6 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
-import fr.enseeiht.ocl.xtext.types.OclSet;
 
 public class OclIteratorSelect implements OclIterator {
 
@@ -58,12 +57,12 @@ public class OclIteratorSelect implements OclIterator {
 		return value;
 	}
 
-	public OclType getReturnType(OclType sourceType) {
-		return new OclSet(sourceType);
+	public OclType getReturnType(OclType sourceType, OclType bodyType) {
+		return sourceType;
 	}
 
 	public OclCollection getSourceType() {
-		return new OclSet(new OclAny());
+		return new OclCollection(new OclAny());
 	}
 
 	public OclType getBodyType() {
