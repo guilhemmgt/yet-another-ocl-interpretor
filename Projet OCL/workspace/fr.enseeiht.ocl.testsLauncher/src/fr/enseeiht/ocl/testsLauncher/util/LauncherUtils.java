@@ -43,7 +43,7 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 
 public class LauncherUtils {
 
-	private static final boolean CHECK_TYPE = false;
+	private static final boolean CHECK_TYPE = true;
 	private static final boolean VALIDATE = true;
 	
 	private static Module moclObject;
