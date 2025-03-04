@@ -61,7 +61,7 @@ public class OclScopeProvider extends AbstractOclScopeProvider {
 	        	for (Auxiliary parentAux : parentAuxiliaries) {
 	        		boolean masked = false;
 	        		for (Auxiliary scopeAux : scopeAuxiliaries) {
-	        			if (scopeAux.getName().equals(scopeAux.getName())) {
+	        			if (scopeAux.getName().equals(parentAux.getName())) {
 	        				masked = true;
 	        				break;
 	        			}
