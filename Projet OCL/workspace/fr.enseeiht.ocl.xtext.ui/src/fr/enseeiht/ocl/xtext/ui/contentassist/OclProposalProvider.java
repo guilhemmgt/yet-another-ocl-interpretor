@@ -70,8 +70,10 @@ public class OclProposalProvider extends AbstractOclProposalProvider {
 	@Override
 	public void completeOperationCall_OperationName(EObject model, Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
-		// TODO Auto-generated method stub
 		super.completeOperationCall_OperationName(model, assignment, context, acceptor);
+		
+		OclType sourceType = OCLValidationAdapterFactory.INSTANCE.createAdapter(model).getType();
+		System.out.println(sourceType);
 	}
 
 	@Override
