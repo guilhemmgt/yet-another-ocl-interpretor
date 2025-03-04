@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAbs;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclBooleanToString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclConcat;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclFloor;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclNumberToString;
@@ -91,7 +92,7 @@ public enum OclOperationEnum {
 		this.opList = opList;
 	}
 	
-	private List<IOclOperation> getOperations(){
+	public List<IOclOperation> getOperations(){
 		return this.opList;
 	}
 	

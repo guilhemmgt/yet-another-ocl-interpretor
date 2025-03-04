@@ -196,7 +196,7 @@ OperationCall:
 	;
 
 NavigationOrAttributeCall : 
-	'.' (name=STRING|name=ID)
+	'.' name=ID
 	;
 
 IterateExp:
