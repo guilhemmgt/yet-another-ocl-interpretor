@@ -108,7 +108,7 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 				}
 				
 				if (!bodyType.conformsTo(resultVarType)) {
-					errors.add(new OclInvalid(this.target, "Type mismatch error : expected expression of type " + resultType + " but got " + bodyType + " instead.", bodyType, resultType));
+					errors.add(new OclInvalid(this.target, "Type mismatch error : expected expression of type " + resultType + " but got " + bodyType + " instead."));
 				}
 				// Get effective type for later use
 				resultType = resultVarType;
