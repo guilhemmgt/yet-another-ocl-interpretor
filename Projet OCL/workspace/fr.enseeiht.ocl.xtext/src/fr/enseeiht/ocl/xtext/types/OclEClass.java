@@ -21,7 +21,7 @@ public class OclEClass implements OclType {
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean isSubEClass = false;
 		if (oclType instanceof OclEClass) {
-			isSubEClass = ((OclEClass) oclType).classtype == null || ((OclEClass) oclType).classtype.isSuperTypeOf(classtype);
+			isSubEClass = ((OclEClass) oclType).classtype.isSuperTypeOf(classtype);
 		}
 		return anyType || isSubEClass;
 	}

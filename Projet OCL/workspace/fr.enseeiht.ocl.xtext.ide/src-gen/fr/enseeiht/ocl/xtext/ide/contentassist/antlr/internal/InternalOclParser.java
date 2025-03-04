@@ -11661,31 +11661,31 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementExp__Group__2__Impl"
-    // InternalOcl.g:3699:1: rule__OclModelElementExp__Group__2__Impl : ( ( rule__OclModelElementExp__ClassAssignment_2 ) ) ;
+    // InternalOcl.g:3699:1: rule__OclModelElementExp__Group__2__Impl : ( ( rule__OclModelElementExp__NameAssignment_2 ) ) ;
     public final void rule__OclModelElementExp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:3703:1: ( ( ( rule__OclModelElementExp__ClassAssignment_2 ) ) )
-            // InternalOcl.g:3704:1: ( ( rule__OclModelElementExp__ClassAssignment_2 ) )
+            // InternalOcl.g:3703:1: ( ( ( rule__OclModelElementExp__NameAssignment_2 ) ) )
+            // InternalOcl.g:3704:1: ( ( rule__OclModelElementExp__NameAssignment_2 ) )
             {
-            // InternalOcl.g:3704:1: ( ( rule__OclModelElementExp__ClassAssignment_2 ) )
-            // InternalOcl.g:3705:2: ( rule__OclModelElementExp__ClassAssignment_2 )
+            // InternalOcl.g:3704:1: ( ( rule__OclModelElementExp__NameAssignment_2 ) )
+            // InternalOcl.g:3705:2: ( rule__OclModelElementExp__NameAssignment_2 )
             {
-             before(grammarAccess.getOclModelElementExpAccess().getClassAssignment_2()); 
-            // InternalOcl.g:3706:2: ( rule__OclModelElementExp__ClassAssignment_2 )
-            // InternalOcl.g:3706:3: rule__OclModelElementExp__ClassAssignment_2
+             before(grammarAccess.getOclModelElementExpAccess().getNameAssignment_2()); 
+            // InternalOcl.g:3706:2: ( rule__OclModelElementExp__NameAssignment_2 )
+            // InternalOcl.g:3706:3: rule__OclModelElementExp__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
-            rule__OclModelElementExp__ClassAssignment_2();
+            rule__OclModelElementExp__NameAssignment_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getOclModelElementExpAccess().getClassAssignment_2()); 
+             after(grammarAccess.getOclModelElementExpAccess().getNameAssignment_2()); 
 
             }
 
@@ -30573,10 +30573,16 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             	    pushFollow(FOLLOW_67);
             	    rule__QualifiedName__Group_1__0();
 
-            state._fsp--;
+            	    state._fsp--;
 
 
-            }
+            	    }
+            	    break;
+
+            	default :
+            	    break loop59;
+                }
+            } while (true);
 
              after(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
 
@@ -31672,21 +31678,9 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:10465:2: ( RULE_ID )
             // InternalOcl.g:10466:3: RULE_ID
             {
-             before(grammarAccess.getOclModelElementExpAccess().getClassEClassCrossReference_2_0()); 
-            // InternalOcl.g:10413:3: ( ruleQualifiedName )
-            // InternalOcl.g:10414:4: ruleQualifiedName
-            {
-             before(grammarAccess.getOclModelElementExpAccess().getClassEClassQualifiedNameParserRuleCall_2_0_1()); 
-            pushFollow(FOLLOW_2);
-            ruleQualifiedName();
-
-            state._fsp--;
-
-             after(grammarAccess.getOclModelElementExpAccess().getClassEClassQualifiedNameParserRuleCall_2_0_1()); 
-
-            }
-
-             after(grammarAccess.getOclModelElementExpAccess().getClassEClassCrossReference_2_0()); 
+             before(grammarAccess.getOclModelElementExpAccess().getNameIDTerminalRuleCall_2_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getOclModelElementExpAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
 
@@ -31705,7 +31699,7 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__OclModelElementExp__ClassAssignment_2"
+    // $ANTLR end "rule__OclModelElementExp__NameAssignment_2"
 
 
     // $ANTLR start "rule__OperatorCallExp__ArgsAssignment_0"
@@ -35433,7 +35427,6 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             "",
             "",
             "",
-            "\1\23\1\22",
             "",
             "\1\22",
             "",
@@ -35585,5 +35578,6 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
     public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
     public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0100000000000002L});
 
 }

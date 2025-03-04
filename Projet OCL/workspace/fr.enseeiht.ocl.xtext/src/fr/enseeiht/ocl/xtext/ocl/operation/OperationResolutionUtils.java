@@ -13,10 +13,10 @@ public class OperationResolutionUtils {
 	 * @param argsTypeCall			Type of the arguments of the call
 	 * @param argsTypeImpl		Expected arguments type
 	 * @param operationNameCall		Name of the operation in call
-	 * @param operationNameImpl	operation's name
+	 * @param OperationNameImpl	operation's name
 	 * @return
 	 */
-	public static boolean isCorrectImplementation(OclType sourceTypeCall, OclType sourceTypeImpl, List<OclType> argsTypeCall, List<OclType> argsTypeImpl, String operationNameCall, String operationNameImpl) {
+	public static boolean isCorrectImplementation(OclType sourceTypeCall, OclType sourceTypeImpl, List<OclType> argsTypeCall, List<OclType> argsTypeImpl, String operationNameCall, String OperationNameImpl) {
 		// Vérification du nom et de la conformité du type de la source
 		if (sourceTypeCall == null || sourceTypeImpl == null) {
 			if (!(sourceTypeCall == null && sourceTypeImpl == null)) return false;
@@ -25,7 +25,7 @@ public class OperationResolutionUtils {
 			boolean isArgsOK = argsTypeCall.size() == argsTypeImpl.size();
 			int i = 0;
 			while (isArgsOK && i < argsTypeCall.size()) {
-				isArgsOK = argsTypeCall.get(i).conformsTo(argsTypeImpl.get(i));			
+				argsTypeCall.get(i).conformsTo(argsTypeImpl.get(i));			
 				i++;
 			}
 			return isArgsOK;

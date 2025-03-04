@@ -1,6 +1,6 @@
-import "http://empty" as empty
+import "http://container" as container
 
-context empty!empty.Maybe
+context container!container.Object
 	
 inv bagNested1:
 	Bag{}->collect(n | 12) = Bag{}

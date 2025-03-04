@@ -3,8 +3,6 @@ package fr.enseeiht.ocl.xtext.ocl.operation.impl;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.types.OclString;
@@ -12,7 +10,7 @@ import fr.enseeiht.ocl.xtext.types.OclString;
 public class OclConcat implements IOclOperation {
 
 	@Override
-	public Object getReturnValue(Object source, List<Object> args, EObject contextTarget) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		return ((String)source) + ((String)args.get(0));
 	}
 

@@ -1,12 +1,15 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
+
+import java.util.ArrayList;
+
+import org.apache.commons.collections.list.SetUniqueList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclOrderedSet;
-import fr.enseeiht.ocl.xtext.utils.SetUniqueArrayList;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
@@ -35,7 +38,7 @@ public final class OrderedSetLiteralExpValidationAdapter implements OCLAdapter {
    */
   public Object getValue(EObject contextTarget) {
 	  EList<OclExpression> elts = this.target.getElements();
-	  SetUniqueArrayList orderedSet = new SetUniqueArrayList();
+	  SetUniqueList orderedSet = SetUniqueList.decorate(new ArrayList<Object>());
 	  for(OclExpression e : elts) {
 		  orderedSet.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
 	  }

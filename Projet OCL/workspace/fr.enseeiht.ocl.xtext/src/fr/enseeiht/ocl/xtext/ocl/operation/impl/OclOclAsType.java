@@ -2,15 +2,13 @@ package fr.enseeiht.ocl.xtext.ocl.operation.impl;
 
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 
 public class OclOclAsType implements IOclOperation {
 
 	@Override
-	public Object getReturnValue(Object source, List<Object> args, EObject contextTarget) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		// TODO Auto-generated method stub
 		return null;
 	}

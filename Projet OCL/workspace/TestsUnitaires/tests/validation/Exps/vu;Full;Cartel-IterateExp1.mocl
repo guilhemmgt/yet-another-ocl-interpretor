@@ -1,6 +1,0 @@
-import "http://container" as container
-
-context container!Container.Container
-
-inv iterate_exists1:
-	self.contenu->iterate(sl; result:Boolean=false | result or (sl.nom.size() > 5))

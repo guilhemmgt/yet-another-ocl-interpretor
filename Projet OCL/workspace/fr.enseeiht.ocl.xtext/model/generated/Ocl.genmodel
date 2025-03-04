@@ -40,7 +40,7 @@
     <genClasses ecoreClass="Ocl.ecore#//OclExpression"/>
     <genClasses ecoreClass="Ocl.ecore#//OclModelElementExp">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElementExp/model"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElementExp/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclModelElementExp/name"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OperatorCallExp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperatorCallExp/args"/>

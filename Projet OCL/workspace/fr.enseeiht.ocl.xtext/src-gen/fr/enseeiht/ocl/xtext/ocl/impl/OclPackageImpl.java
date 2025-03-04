@@ -921,9 +921,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getOclModelElementExp_Class()
+  public EAttribute getOclModelElementExp_Name()
   {
-    return (EReference)oclModelElementExpEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)oclModelElementExpEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2324,7 +2324,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclModelElementExpEClass = createEClass(OCL_MODEL_ELEMENT_EXP);
     createEReference(oclModelElementExpEClass, OCL_MODEL_ELEMENT_EXP__MODEL);
-    createEReference(oclModelElementExpEClass, OCL_MODEL_ELEMENT_EXP__CLASS);
+    createEAttribute(oclModelElementExpEClass, OCL_MODEL_ELEMENT_EXP__NAME);
 
     operatorCallExpEClass = createEClass(OPERATOR_CALL_EXP);
     createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__ARGS);
@@ -2620,7 +2620,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclModelElementExpEClass, OclModelElementExp.class, "OclModelElementExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOclModelElementExp_Model(), this.getImport(), null, "model", null, 0, 1, OclModelElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOclModelElementExp_Class(), ecorePackage.getEClass(), null, "class", null, 0, 1, OclModelElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOclModelElementExp_Name(), ecorePackage.getEString(), "name", null, 0, 1, OclModelElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operatorCallExpEClass, OperatorCallExp.class, "OperatorCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOperatorCallExp_Args(), this.getEqOpCallExp(), null, "args", null, 0, -1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

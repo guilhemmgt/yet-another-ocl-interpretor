@@ -417,16 +417,15 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final CrossReference cModelImportCrossReference_0_0 = (CrossReference)cModelAssignment_0.eContents().get(0);
 		private final RuleCall cModelImportIDTerminalRuleCall_0_0_1 = (RuleCall)cModelImportCrossReference_0_0.eContents().get(1);
 		private final Keyword cExclamationMarkKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cClassAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cClassEClassCrossReference_2_0 = (CrossReference)cClassAssignment_2.eContents().get(0);
-		private final RuleCall cClassEClassQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cClassEClassCrossReference_2_0.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//OclModelElementExp :
-		//    model=[Import]'!'class=[ecore::EClass|QualifiedName]
+		//    model=[Import]'!'name=ID
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//model=[Import]'!'class=[ecore::EClass|QualifiedName]
+		//model=[Import]'!'name=ID
 		public Group getGroup() { return cGroup; }
 		
 		//model=[Import]
@@ -441,14 +440,11 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'!'
 		public Keyword getExclamationMarkKeyword_1() { return cExclamationMarkKeyword_1; }
 		
-		//class=[ecore::EClass|QualifiedName]
-		public Assignment getClassAssignment_2() { return cClassAssignment_2; }
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
-		//[ecore::EClass|QualifiedName]
-		public CrossReference getClassEClassCrossReference_2_0() { return cClassEClassCrossReference_2_0; }
-		
-		//QualifiedName
-		public RuleCall getClassEClassQualifiedNameParserRuleCall_2_0_1() { return cClassEClassQualifiedNameParserRuleCall_2_0_1; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 	}
 	public class OperatorCallExpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OperatorCallExp");
@@ -2904,16 +2900,16 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//QualifiedName: ID ('.' ID);
+		//QualifiedName: ID ('.' ID)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID ('.' ID)
+		//ID ('.' ID)*
 		public Group getGroup() { return cGroup; }
 		
 		//ID
 		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
 		
-		//('.' ID)
+		//('.' ID)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'.'
@@ -3217,7 +3213,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OclModelElementExp :
-	//    model=[Import]'!'class=[ecore::EClass|QualifiedName]
+	//    model=[Import]'!'name=ID
 	//;
 	public OclModelElementExpElements getOclModelElementExpAccess() {
 		return pOclModelElementExp;
@@ -3974,7 +3970,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return tDOUBLE;
 	}
 	
-	//QualifiedName: ID ('.' ID);
+	//QualifiedName: ID ('.' ID)*;
 	public QualifiedNameElements getQualifiedNameAccess() {
 		return pQualifiedName;
 	}

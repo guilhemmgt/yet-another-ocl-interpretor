@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.types.OclAny;
@@ -16,7 +14,7 @@ public class OclSize implements IOclOperation {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Object getReturnValue(Object source, List<Object> args, EObject contextTarget) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		return ((Collection<Object>)source).size();
 	}
 

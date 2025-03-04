@@ -1,4 +1,4 @@
-package fr.enseeiht.ocl.xtext.scoping;
+package fr.enseeiht.ocl.xtext.scope;
 
 import java.util.HashMap;
 import java.util.Map;
