@@ -120,6 +120,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapElement/value"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//EnumLiteralExp">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//EnumLiteralExp/ecoreTypes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//EnumLiteralExp/enum_"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//EnumLiteralExp/name"/>
     </genClasses>

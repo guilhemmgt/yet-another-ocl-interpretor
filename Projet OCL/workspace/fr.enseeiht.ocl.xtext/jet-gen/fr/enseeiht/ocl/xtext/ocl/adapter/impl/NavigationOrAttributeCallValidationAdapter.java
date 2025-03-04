@@ -3,13 +3,19 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.types.OclEnum;
@@ -87,57 +93,78 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  int pos = container.getCalls().indexOf(this.target);
 	  OclEClass source = null;
 	  if (pos == 0) {
-		  // root call
-		  if (container.getSource() instanceof TupleLiteralExp) {
-			  OclTuple tuple = (OclTuple) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
-			  return tuple.getTypeOf(target, target.getName());
-		  } else if (container.getSource() != null) {
-			  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+		  if (container.getSource() != null) {
+			  OCLAdapter adapt = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
+			  // root call
+			  if (adapt.getType() instanceof OclTuple) {
+				  OclTuple tuple = (OclTuple) adapt.getType();
+				  return tuple.getTypeOf(target, target.getName());
+			  } else {
+				  source = (OclEClass) adapt.getType();
+			  }
 		  }
-	  } else {
-		  if (container.getSource() instanceof TupleLiteralExp) {
-			  OclTuple tuple = (OclTuple) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
-			  return tuple.getTypeOf(target, target.getName());
-		  } else if (container.getCalls().get(pos-1) != null) {
-			  source = (OclEClass) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getType();
+	  } 
+	  else {
+		  if (container.getCalls().get(pos-1) != null) {
+			  OCLAdapter adapt = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
+			  // root call
+			  if (adapt.getType() instanceof OclTuple) {
+				  OclTuple tuple = (OclTuple) adapt.getType();
+				  return tuple.getTypeOf(target, target.getName());
+			  } else {
+				  source = (OclEClass) adapt.getType();
+			  }
 		  }
 	  }
 	  // On a le type parent! On récupère son sous-type.
-	  
-	  if (source != null) {
-		  	EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
-			EClassifier eType = feature.getEType();
-			OclType type; 
-			// Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum
-			if(eType instanceof EClass eClass) {
-				type = new OclEClass(eClass);
-			} else if(eType instanceof EEnum eEnum) {
-				type = new OclEnum(eEnum);
-			} else if(eType instanceof EDataType eDataType) {
-				// On parcourt tout les types possibles (il y a encore beacoup a implémenté)
-				switch (eDataType.getClassifierID()) {
-				case EcorePackage.EBOOLEAN:
-					type = new OclBoolean();
-					break;
-				case EcorePackage.EINT:
-					type = new OclInteger();
-					break;
-				case EcorePackage.ESTRING:
-					type = new OclString();
-					break;
-				default:
-					throw new IllegalArgumentException("Unimplemented type: " + eDataType.getInstanceClassName());
-				}
-			} else {
-				throw new RuntimeException("unreachable");
+	  // On regarde les définitons OCL
+	  List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getDefinitions(this.target.getName(), false);
+	  if (!defs.isEmpty()) {
+		  for (OclFeatureDefinitionValidationAdapter att: defs) {
+				// Type check the attribute's source
+				if (att.getSourceType().conformsTo(source)) return ((OclClassifier) att.getType()).getRepresentedType();
 			}
-			
-			if(feature.getUpperBound() == 1)
-				return type;
-			
-			return new OclCollection(type);
-		}
-	  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
+	  }
+
+	  EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
+	  
+	  if(feature == null)
+		  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
+
+	  EClassifier eType = feature.getEType();
+	  
+	  // Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum
+	  OclType type;
+	  
+	  if (eType instanceof EClass eClass) {
+		  type = new OclEClass(eClass);
+	  } else if (eType instanceof EEnum eEnum) {
+		  type = new OclEnum(eEnum);
+	  } else if (eType instanceof EDataType eDataType) {
+		  // On parcourt tout les types possibles (il y a encore beacoup a implémenté)
+		  switch (eDataType.getClassifierID()) {
+		  case EcorePackage.EBOOLEAN:
+			  type = new OclBoolean();
+			  break;
+		  case EcorePackage.EINT:
+			  type = new OclInteger();
+			  break;
+		  case EcorePackage.ESTRING:
+			  type = new OclString();
+			  break;
+		  default:
+			  throw new IllegalArgumentException("Unimplemented type: " + eDataType.getInstanceClassName());
+		  }
+	  } else {
+		  throw new RuntimeException("unreachable");
+	  }
+	  
+	  // Si la limite haute est 1 alors on renvoi l'élement seul
+	  if (feature.getUpperBound() == 1)
+		  return type;
+	  
+	  // Sinon on renvoie une collection contenant les valeurs
+	  return new OclCollection(type);
   }
 
   /**
@@ -166,7 +193,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public String getOutlineString() {
     return null;
   }
-        public boolean conformsTo(OclType oclType) {
+    public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

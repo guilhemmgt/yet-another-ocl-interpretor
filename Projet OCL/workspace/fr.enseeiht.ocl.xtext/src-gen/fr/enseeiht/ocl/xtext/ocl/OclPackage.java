@@ -1218,13 +1218,22 @@ public interface OclPackage extends EPackage
   int ENUM_LITERAL_EXP = 34;
 
   /**
+   * The feature id for the '<em><b>Ecore Types</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_LITERAL_EXP__ECORE_TYPES = OCL_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Enum </b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_LITERAL_EXP__ENUM_ = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int ENUM_LITERAL_EXP__ENUM_ = OCL_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1233,7 +1242,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_LITERAL_EXP__NAME = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int ENUM_LITERAL_EXP__NAME = OCL_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Enum Literal Exp</em>' class.
@@ -1242,7 +1251,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 2;
+  int ENUM_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.LetExpImpl <em>Let Exp</em>}' class.
@@ -3096,6 +3105,17 @@ public interface OclPackage extends EPackage
   EClass getEnumLiteralExp();
 
   /**
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEcoreTypes <em>Ecore Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ecore Types</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEcoreTypes()
+   * @see #getEnumLiteralExp()
+   * @generated
+   */
+  EReference getEnumLiteralExp_EcoreTypes();
+
+  /**
    * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEnum_ <em>Enum </em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4528,6 +4548,14 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EClass ENUM_LITERAL_EXP = eINSTANCE.getEnumLiteralExp();
+
+    /**
+     * The meta object literal for the '<em><b>Ecore Types</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_LITERAL_EXP__ECORE_TYPES = eINSTANCE.getEnumLiteralExp_EcoreTypes();
 
     /**
      * The meta object literal for the '<em><b>Enum </b></em>' reference feature.

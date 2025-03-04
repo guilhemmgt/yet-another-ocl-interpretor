@@ -1,0 +1,20 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+def: test1 : Boolean = 1 > 0
+
+def: test2: Boolean = 1 > 0.0
+
+def: test3: Boolean = 1.0 > 0
+
+def: test4: Boolean = 1.0 > 0.0
+
+
+def: test5: Boolean = 1 > null
+
+def: test6: Boolean = 1.0 > null
+
+def: test7: Boolean = null > 0
+
+def: test8: Boolean = null > 0.0
