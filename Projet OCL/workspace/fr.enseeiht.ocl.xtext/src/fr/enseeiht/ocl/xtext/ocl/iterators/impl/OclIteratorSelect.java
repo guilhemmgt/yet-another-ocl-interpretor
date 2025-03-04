@@ -18,7 +18,7 @@ import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclSet;
 
-public class OclIteratorSelect extends OclIterator {
+public class OclIteratorSelect implements OclIterator {
 
 	public Object getReturnValue(Collection<Object> source, OclExpression body, EList<Iterator> iterators, EObject contextTarget, IOclIteratorBody op) {
 		// source->select(iterator | body) =
