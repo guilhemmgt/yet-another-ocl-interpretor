@@ -10,7 +10,7 @@ import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.scope.Scoper;
+import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 
 public class OclIterate {
@@ -54,11 +54,12 @@ public class OclIterate {
 		// Pour chaque combinaison d'itérateurs...
 		for (List<Object> comb : iteratorsCombinations) {
 			// Enregistrement des variables au scope
-			for (int i = 0; i < comb.size(); i++) {
+			for (int i = 0; i < iterators.size(); i++) {
 				Scoper.add(iterators.get(i), comb.get(i));
 			}
 			// Calcul de 'body' et actualisation de 'result'
-			resultValue = this.op.apply(resultValue, OCLValidationAdapterFactory.INSTANCE.createAdapter(this.body).getValue(contextTarget), comb);
+			Object bodyValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.body).getValue(contextTarget);
+			resultValue = this.op.apply(resultValue, bodyValue, comb);
 			if (this.result != null)
 				Scoper.update(result, resultValue);
 			// Désenregistrement des variables du scope
