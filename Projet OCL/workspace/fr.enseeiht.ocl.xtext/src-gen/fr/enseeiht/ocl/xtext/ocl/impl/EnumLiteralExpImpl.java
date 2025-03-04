@@ -4,6 +4,7 @@
 package fr.enseeiht.ocl.xtext.ocl.impl;
 
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
+import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.EnumLiteralExpImpl#getEcoreTypes <em>Ecore Types</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.EnumLiteralExpImpl#getEnum_ <em>Enum </em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.EnumLiteralExpImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -30,6 +32,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteralExp
 {
+  /**
+   * The cached value of the '{@link #getEcoreTypes() <em>Ecore Types</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEcoreTypes()
+   * @generated
+   * @ordered
+   */
+  protected Import ecoreTypes;
+
   /**
    * The cached value of the '{@link #getEnum_() <em>Enum </em>}' reference.
    * <!-- begin-user-doc -->
@@ -79,6 +91,51 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   protected EClass eStaticClass()
   {
     return OclPackage.Literals.ENUM_LITERAL_EXP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Import getEcoreTypes()
+  {
+    if (ecoreTypes != null && ecoreTypes.eIsProxy())
+    {
+      InternalEObject oldEcoreTypes = (InternalEObject)ecoreTypes;
+      ecoreTypes = (Import)eResolveProxy(oldEcoreTypes);
+      if (ecoreTypes != oldEcoreTypes)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.ENUM_LITERAL_EXP__ECORE_TYPES, oldEcoreTypes, ecoreTypes));
+      }
+    }
+    return ecoreTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import basicGetEcoreTypes()
+  {
+    return ecoreTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setEcoreTypes(Import newEcoreTypes)
+  {
+    Import oldEcoreTypes = ecoreTypes;
+    ecoreTypes = newEcoreTypes;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.ENUM_LITERAL_EXP__ECORE_TYPES, oldEcoreTypes, ecoreTypes));
   }
 
   /**
@@ -161,6 +218,9 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ECORE_TYPES:
+        if (resolve) return getEcoreTypes();
+        return basicGetEcoreTypes();
       case OclPackage.ENUM_LITERAL_EXP__ENUM_:
         if (resolve) return getEnum_();
         return basicGetEnum_();
@@ -180,6 +240,9 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ECORE_TYPES:
+        setEcoreTypes((Import)newValue);
+        return;
       case OclPackage.ENUM_LITERAL_EXP__ENUM_:
         setEnum_((EEnum)newValue);
         return;
@@ -200,6 +263,9 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ECORE_TYPES:
+        setEcoreTypes((Import)null);
+        return;
       case OclPackage.ENUM_LITERAL_EXP__ENUM_:
         setEnum_((EEnum)null);
         return;
@@ -220,6 +286,8 @@ public class EnumLiteralExpImpl extends OclExpressionImpl implements EnumLiteral
   {
     switch (featureID)
     {
+      case OclPackage.ENUM_LITERAL_EXP__ECORE_TYPES:
+        return ecoreTypes != null;
       case OclPackage.ENUM_LITERAL_EXP__ENUM_:
         return enum_ != null;
       case OclPackage.ENUM_LITERAL_EXP__NAME:

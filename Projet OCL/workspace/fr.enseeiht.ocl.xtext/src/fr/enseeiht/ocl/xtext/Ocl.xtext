@@ -164,7 +164,7 @@ MapElement :
 ;
 
 EnumLiteralExp : 
-	enum_=[ecore::EEnum|QualifiedName] "#" name=ID
+	ecoreTypes=[Import]'!'enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 ;
 
 LetExp : 
