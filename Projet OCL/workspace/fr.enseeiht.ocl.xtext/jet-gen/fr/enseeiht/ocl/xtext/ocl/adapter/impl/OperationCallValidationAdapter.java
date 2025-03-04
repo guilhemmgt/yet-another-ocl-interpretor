@@ -11,7 +11,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
-import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -96,7 +95,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 					}
 				}
 			}
-
+			System.out.println(this.target.getOperationName());
 			return new InvalidCall(this.target.getOperationName());
 		} else {
 			return new UndefinedAccessInvalid(source.getElement());
@@ -125,7 +124,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		// Méthodes utilisateur
 		
 		// Méthodes système
-		List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+		List<IOclOperation> operations = OclOperationEnum.getOperations(this.target.getOperationName());
 		List<OclType> paramTypes = new ArrayList<OclType>();
 		for (OclExpression param : this.target.getArguments()) {
 			paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());

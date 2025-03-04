@@ -67,14 +67,18 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 			// Traitement des opérations
 			switch (this.target.getOperationNames().get(i)) {
 			case "*":
-				result = (result instanceof Integer ? (Integer) result : (Double) result)
-						* (right instanceof Integer ? (Integer) right : (Double) right);
+				if ((Number)result instanceof Integer && (Number)right instanceof Integer)
+					result = ((Number)result).intValue() * ((Number)right).intValue();
+				else
+					result = ((Number)result).doubleValue() * ((Number)right).doubleValue();
 				break;
 			case "/":
-				if ((right instanceof Integer ? (Integer) right : (Double) right) == 0) // Pas de division par zéro
+				if ((right instanceof Integer && (Integer)right == 0) || (right instanceof Double && (Double)right == 0.0)) // Pas de division par zéro
 					return new DivisionByZeroInvalid(this.target.getArgs().get(i + 1));
-				result = (result instanceof Integer ? (Integer) result : (Double) result)
-						/ (right instanceof Integer ? (Integer) right : (Double) right);
+				if ((Number)result instanceof Integer && (Number)right instanceof Integer)
+					result = ((Number)result).intValue() / ((Number)right).intValue();
+				else
+					result = ((Number)result).doubleValue() / ((Number)right).doubleValue();
 				break;
 			default:
 				throw new UnsupportedFeatureException(this.target.getOperationNames().get(i));
