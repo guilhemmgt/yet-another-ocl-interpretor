@@ -1,0 +1,30 @@
+import "http://empty" as empty
+
+
+def : att1 : OclVoid = 1
+
+def: att2 : Integer = 1.0
+
+def :att3 : OclAny = 1 + "b"
+
+def: att4: Bag(Integer) = Bag{1.0}
+
+def: att5 :Collection(String) = Bag{1, "s"}
+
+
+def : att6() : OclVoid = 1
+
+def : attx(x:Integer) : Integer= 3.0
+
+def: att7(x:Real) : Integer = x
+
+def :att8(x:Integer, y:String) : Boolean = x + y
+
+def: att9 (x:OclAny, y:OclVoid, z:Boolean):Collection(Boolean) = Bag{x, z and y}
+
+def: att10(x:Integer) : Sequence(Real) = Bag{x}
+
+
+context empty!empty.Liar
+
+inv obligatoire : true

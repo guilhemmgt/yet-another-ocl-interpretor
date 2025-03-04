@@ -12,7 +12,7 @@ import fr.enseeiht.ocl.xtext.types.OclString;
 public class OclSubString implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		String strSource = (String) source;
 		Integer lower = (Integer) args.get(0);
 		Integer upper = (Integer) args.get(1);

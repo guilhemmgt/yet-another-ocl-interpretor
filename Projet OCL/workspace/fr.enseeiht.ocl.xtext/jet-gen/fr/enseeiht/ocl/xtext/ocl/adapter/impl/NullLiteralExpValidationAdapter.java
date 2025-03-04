@@ -34,7 +34,7 @@ public final class NullLiteralExpValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated Not
+   * @generated NOT
    */
   public OclType getType() {
     return new OclVoid();

@@ -12,7 +12,7 @@ import fr.enseeiht.ocl.xtext.types.OclString;
 public class OclToInteger implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		String sourceStr = (String)source;
 		System.out.println(sourceStr);
 		if (!sourceStr.matches("-?\\d+")) {

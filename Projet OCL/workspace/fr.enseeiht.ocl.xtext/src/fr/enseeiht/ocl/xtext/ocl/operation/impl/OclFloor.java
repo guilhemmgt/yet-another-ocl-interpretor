@@ -11,7 +11,7 @@ import fr.enseeiht.ocl.xtext.types.OclReal;
 public class OclFloor implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		return Math.floor((Double)source);
 	}
 

@@ -8,7 +8,7 @@ import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 public class OclOclAsType implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		// TODO Auto-generated method stub
 		return null;
 	}

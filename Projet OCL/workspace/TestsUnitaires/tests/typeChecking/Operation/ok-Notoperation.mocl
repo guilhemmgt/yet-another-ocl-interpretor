@@ -1,0 +1,15 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+def: test1 : Boolean = not false 
+
+def: test2: Boolean = not true
+
+def: test3: Boolean = not not not not not null
+
+def: test4: Real = -1.0
+
+def: test5: Real = -1
+
+def: test6: Real = -null

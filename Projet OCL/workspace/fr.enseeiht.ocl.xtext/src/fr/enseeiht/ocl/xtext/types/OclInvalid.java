@@ -64,13 +64,8 @@ public class OclInvalid extends OclAny {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// OclInvalid s'unifie en OclInvalid avec lui-même, en OclAny avec tous les autres types.
-		if (oclType instanceof OclInvalid) {
-			return new OclInvalid();
-		}
-		else {
-			return new OclAny();
-		}
+		// OclInvalid s'unifie en OclInvalid avec tous les types
+		return new OclInvalid(this, oclType);
 	}
 	
 

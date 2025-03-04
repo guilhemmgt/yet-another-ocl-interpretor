@@ -12,7 +12,10 @@ public class OclAny implements OclType {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		// Tout type unifié avec OclAny est un OclAny (OclAny est le type le plus grand).
+		// Tout type unifié avec OclAny est un OclAny (OclAny est le type le plus grand) sauf oclVoid et OclInvalid.
+		if (oclType instanceof OclInvalid) {
+			return oclType;
+		}
 		return new OclAny();
 	}
 	

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empty:Liar
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:empty="http://empty"
+    xsi:schemaLocation="http://empty Empty.ecore"
+    name="root"
+    enum="enum2">
+  <maybe value="5"
+      subLiar="//@subLiar.0"/>
+  <subLiar name="ABC"/>
+  <subLiar name="helloworldhowareyoutoday"
+      enum="enum3"/>
+  <subLiar name="@"/>
+  <subLiar name="BAR"/>
+</empty:Liar>
