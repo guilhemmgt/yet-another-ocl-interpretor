@@ -9,6 +9,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -110,7 +111,7 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 			  } else {
 				  // Opération invalide
 				  String message = "Invalid operation between types " + resultType + " and " + argType + " (operation : '" + target.getOperationNames().get(i) + "')";
-				  resultType =  new OclInvalid(target, message, resultType, argType);
+				  resultType =  new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames(), resultType, argType));
 			  }
 		 }
 		  return resultType;

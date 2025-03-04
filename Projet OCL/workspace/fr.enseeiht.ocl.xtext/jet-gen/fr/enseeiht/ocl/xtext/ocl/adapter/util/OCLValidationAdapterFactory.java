@@ -171,7 +171,7 @@ public class OCLValidationAdapterFactory
    */
   private OCLValidationAdapterFactory()
   {
-    moduleAdapters = new HashMap<Module, ModuleValidationAdapter>();
+  	moduleAdapters = new HashMap<Module, ModuleValidationAdapter>();
     if (modelPackage == null)
     {
       modelPackage = OclPackage.eINSTANCE;
@@ -585,10 +585,11 @@ public class OCLValidationAdapterFactory
    */
   public OCLAdapter createModuleValidationAdapter(Module target)
   {
+	
 	if (!this.moduleAdapters.containsKey(target)) {
 		this.moduleAdapters.put(target, new ModuleValidationAdapter(target));
 	}
-	return this.moduleAdapters.get(target);
+	return this.moduleAdapters.get(target);	
   	
   }
 

@@ -2,15 +2,10 @@ package fr.enseeiht.ocl.xtext.validation;
 
 import org.eclipse.emf.ecore.EObject;
 
-public class TypeCheckingError {
+public abstract class TypeCheckingError {
 	
-	private EObject cause;
-	private String message;
-	
-	public TypeCheckingError(EObject cause, String message) {
-		this.cause = cause;
-		this.message = message;
-	}
+	protected EObject cause;
+	protected String message;
 	
 	public EObject getCause() {
 		return cause;

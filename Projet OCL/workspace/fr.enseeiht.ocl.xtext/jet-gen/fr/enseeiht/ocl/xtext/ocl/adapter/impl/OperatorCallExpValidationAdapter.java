@@ -8,6 +8,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -108,8 +109,7 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 				  resultType = resultType.unifyWith(type2);
 			  } else {
 				  // Opération invalide
-				  String message = "Invalid operation between types " + resultType + " and " + type2 + " (operation : '" + target.getOperationNames().get(i) + "')";
-				  resultType = new OclInvalid(target, message, resultType, type2);
+				  resultType = new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(i), resultType, type2));
 			  }
 		  }
 		  return resultType;

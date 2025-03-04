@@ -9,6 +9,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclReal;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -90,7 +91,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  } else {
 		  // Opération invalide
 		  String message = "Invalid operation for type " + type + " (operation : '" + target.getOperationName() + "')";
-		  return new OclInvalid(target, message, type);
+		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationName(), type));
 	  }
   }
 

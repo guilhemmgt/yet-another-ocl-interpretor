@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclReal;
 import fr.enseeiht.ocl.xtext.types.OclString;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -142,13 +143,7 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 				return unifyResult;
 			} else {
 				// Opération invalide
-				String message = "Invalid operation '" + (operatorIsAddition ? "+" : "-") + "' with types ";
-				List<String> messageStr = new LinkedList<String>();
-				for (OclType typ : uniqueTypes) {
-					messageStr.add(typ.toString());
-				}
-				message += String.join(", ", messageStr) + ".";
-				return new OclInvalid(target, message, unifyResult);
+				return new OclInvalid(new InvalidTypeOperation(target, (operatorIsAddition ? "+" : "-"), uniqueTypes), unifyResult);
 			}
 		}
 	}

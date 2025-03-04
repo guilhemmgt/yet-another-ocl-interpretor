@@ -23,6 +23,7 @@ import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclTuple;
+import fr.enseeiht.ocl.xtext.validation.AttributeUnaccessibleError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
@@ -123,7 +124,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
 	  
 	  if(feature == null)
-		  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
+		  return new OclInvalid(new AttributeUnaccessibleError(feature, target.getName(), source.classtype.getName()));
 
 	  EClassifier eType = feature.getEType();
 	  
@@ -187,7 +188,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public String getOutlineString() {
     return null;
   }
-    public boolean conformsTo(OclType oclType) {
+     public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

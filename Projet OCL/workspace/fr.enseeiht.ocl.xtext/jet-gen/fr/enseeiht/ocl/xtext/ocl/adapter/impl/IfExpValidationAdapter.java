@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.IfExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -51,12 +52,14 @@ public final class IfExpValidationAdapter implements OCLAdapter {
 	 OclType thenelm = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getThenExpression()).getType();
 	 OclType elseelm = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getElseExpression()).getType();
 	 
-	 if (condition.conformsTo(new OclBoolean()) && !thenelm.conformsTo(new OclInvalid()) && !elseelm.conformsTo(new OclInvalid()) && thenelm.conformsTo(elseelm)) {
+	 if (!condition.conformsTo(new OclInvalid()) && condition.conformsTo(new OclBoolean())) {
 		 return thenelm.unifyWith(elseelm);
-	 }  else if (!condition.conformsTo(new OclBoolean())) {
-		 return new OclInvalid(target, "If expression requires that a condition of type 'Boolean', but '" + condition.toString() + "' was found instead.", thenelm, elseelm);
+	 }  else if (!condition.conformsTo(new OclInvalid())) {
+		 // condition n'est pas un booléens
+		 return new OclInvalid(new TypeMismatchError(target, new OclBoolean(), condition));
 	 } else {
-		 return new OclInvalid(target, "If expression requires that 'then' and 'else' branches be conform to each other, which is not the case of '" + thenelm.toString() + "' and '" + elseelm.toString() + "'.", thenelm, elseelm);
+		 // condition est Invalid
+		 return new OclInvalid(condition);
 	 }
 
   }

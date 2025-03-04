@@ -36,7 +36,7 @@ public class OclInvalid extends OclAny {
 	 * @param cause : l'EObject qui a soulevé l'Invalidité.
 	 * @param others : les types des autres éléments impliqués dans la levée d'erreur
 	 */
-	public OclInvalid(EObject cause, String message, OclType ... others) {
+	public OclInvalid(TypeCheckingError error, OclType ... others) {
 		this.origins = new LinkedList<TypeCheckingError>();
 		
 		boolean addCause = true; // Détermine si on ajoute l'EObject courant.
@@ -51,7 +51,6 @@ public class OclInvalid extends OclAny {
 		}
 		if (addCause) {
 			// Dans ce cas la liste des origines est vide.
-			TypeCheckingError error = new TypeCheckingError(cause, message);
 			this.origins.add(error);
 		}
 	}

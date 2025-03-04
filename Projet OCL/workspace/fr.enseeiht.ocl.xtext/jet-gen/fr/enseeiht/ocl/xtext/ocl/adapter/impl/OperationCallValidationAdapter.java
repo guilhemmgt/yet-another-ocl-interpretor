@@ -13,6 +13,8 @@ import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.OperationInvalidArgumentsError;
+import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
@@ -140,13 +142,9 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 				}
 			}
 			// No correct operation was found
-			List<String> messageStr = new LinkedList<String>(); 
-			for (OclType typ : paramTypes) {
-				messageStr.add(typ.toString());
-			}
-			return new OclInvalid(target, "The operation '" + this.target.getOperationName() + "' cannot be called with arguments of types: " + String.join(", ", messageStr) + ".");
+			return new OclInvalid(new OperationInvalidArgumentsError(target, this.target.getOperationName(), paramTypes));
 		} else {
-			return new OclInvalid(target, "No such operation '" + this.target.getOperationName() + "' exists.");
+			return new OclInvalid(new OperationNotFoundError(target, target.getOperationName()));
 		}
 	} else {
 		return sourceType;
