@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -71,7 +71,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 //			}
 //		}
 		// Récupération des méthodes système
-		List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+		List<IOclOperation> operations = OclOperationEnum.getOperations(this.target.getOperationName());
 		List<OclType> paramTypes = new ArrayList<OclType>();
 		for (OclExpression param : this.target.getArguments()) {
 			paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
