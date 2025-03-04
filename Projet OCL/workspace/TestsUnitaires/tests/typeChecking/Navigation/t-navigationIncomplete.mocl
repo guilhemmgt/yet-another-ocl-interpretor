@@ -1,5 +1,0 @@
-import "http://empty" as empty
-
-context empty!empty.Liar
-inv navInc:
-  self.subLia.size() < 6 

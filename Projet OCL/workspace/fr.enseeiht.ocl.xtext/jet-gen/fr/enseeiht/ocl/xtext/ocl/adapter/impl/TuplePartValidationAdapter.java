@@ -58,10 +58,6 @@ public final class TuplePartValidationAdapter implements OCLAdapter {
     }
   }
   
-  /**
-   * The method used to gather the name of a TuplePart (ex : "name : OclType = expression")
-   * @return the name of the TuplePart.
-   */
   public String getName() {
 	  return target.getVarName();
   }

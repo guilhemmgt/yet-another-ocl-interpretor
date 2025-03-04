@@ -150,7 +150,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumLiteralExp" eSuperTypes="#//OclExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreTypes" eType="#//Import"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enum_" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

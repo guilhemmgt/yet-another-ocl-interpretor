@@ -36,7 +36,6 @@ public final class MapElementValidationAdapter implements OCLAdapter {
 
   /**
    * Get the type of the element
-   * This instance of getType() is special, as it returns an OclTypePair (which is used nowhere else for now). This is needed as a MapElement is a pair (Key,Value).   
    * @return type of the element
    * @generated NOT
    */
