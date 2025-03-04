@@ -38,7 +38,7 @@ public final class LocalVariableValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
 		OclType bodyType =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getInitExpression()).getType();
