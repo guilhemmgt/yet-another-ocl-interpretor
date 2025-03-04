@@ -37,7 +37,8 @@ public final class IteratorExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   @SuppressWarnings("unchecked")
-public Object getValue(EObject contextTarget) {		// Récupération de la source
+public Object getValue(EObject contextTarget) {		
+	  	// Récupération de la source
 		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
 		EObject sourceObject = null;

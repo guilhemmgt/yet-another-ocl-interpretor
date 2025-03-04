@@ -42,9 +42,6 @@ public final class IteratorValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-		if (this.target.getType() != null) {
-			return  ((OclTypeLiteralValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType())).getOclType();
-		}
 		// Get the PropertyCallExp in order to get the source type
 		PropertyCallExp parent = (PropertyCallExp) this.target.eContainer().eContainer();
 		
@@ -59,12 +56,16 @@ public final class IteratorValidationAdapter implements OCLAdapter {
 					.getType();
 		}
 		if (source instanceof OclCollection eSource) {
+			if (this.target.getType() != null) {
+				// cf. DOC at (Section 7.6.1)
+				OclType expectedType = ((OclTypeLiteralValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType())).getOclType();
+				if (!eSource.getSubtype().conformsTo(expectedType))
+					return new OclInvalid(this.target, "Type mismatchError : expected collection of " + expectedType + " got collection of " + eSource.getSubtype() + " instead.", eSource.getSubtype());
+			}
 			return eSource.getSubtype();
 		} else {
 			return new OclInvalid(target, "Type mismatch error cannot iterate over non Collection object");
-		}
-		
-		
+		}		
   }
 
   /**
