@@ -3,7 +3,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -114,7 +113,6 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 				  resultType = resultType.unifyWith(argType);
 			  } else {
 				  // Opération invalide
-				  String message = "Invalid operation between types " + resultType + " and " + argType + " (operation : '" + target.getOperationNames().get(i) + "')";
 				  resultType =  new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames(), resultType, argType));
 			  }
 		 }

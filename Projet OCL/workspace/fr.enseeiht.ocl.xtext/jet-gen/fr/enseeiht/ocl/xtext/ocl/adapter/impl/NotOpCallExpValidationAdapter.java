@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -90,7 +89,6 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 		  return type;
 	  } else {
 		  // Opération invalide
-		  String message = "Invalid operation for type " + type + " (operation : '" + target.getOperationName() + "')";
 		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationName(), type));
 	  }
   }

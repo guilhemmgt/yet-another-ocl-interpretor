@@ -7,7 +7,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
-import fr.enseeiht.ocl.xtext.types.OclInvalid;
 
 public class InvalidTypeOperation extends TypeCheckingError {
 

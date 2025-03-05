@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -47,7 +46,6 @@ public final class OclInvariantValidationAdapter implements OCLAdapter {
 	boolean isCorrect = type.conformsTo(new OclBoolean());
 	boolean isInvalid = type.conformsTo(new OclInvalid());
 	if (!isCorrect && !isInvalid) {
-		String message = "Invariant type mismatch : expected Boolean, got " + type;
 		return new OclInvalid(new TypeMismatchError(target, new OclBoolean(), type));
 	}
 	else if (isInvalid) {

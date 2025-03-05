@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.validation;
 
 import org.eclipse.emf.ecore.EObject;
 
-import fr.enseeiht.ocl.xtext.OclType;
 
 public class OperationNotFoundError extends TypeCheckingError {
 

@@ -3,8 +3,6 @@ package fr.enseeiht.ocl.xtext.types;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.validation.TypeCheckingError;
 
