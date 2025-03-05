@@ -38,10 +38,10 @@ public final class OclModelElementClassValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  return new OclClassifier(new OclEClass(target.getName()));
   }
 
   /**
