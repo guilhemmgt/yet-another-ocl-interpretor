@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAbs;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAllInstances;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclBooleanToString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclConcat;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclFloor;
@@ -16,8 +17,15 @@ import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSize;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSubString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToInteger;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclToReal;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionBagToBag;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionBagToSet;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionSetToBag;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclUnionSetToSet;
 
 public enum OclOperationEnum {
+	// EClass
+	allInstances(Arrays.asList(new OclAllInstances())),
+	
 	// OclAny,Void,Invalid
 	oclAsSet(Arrays.asList(new OclOclAsSet())),
 	oclIsUndefined(Arrays.asList(new OclOclIsUndefined())),
@@ -71,7 +79,7 @@ public enum OclOperationEnum {
 	flatten(null), //TODO 
 			
 	// Set + Bag
-	union(null), //TODO 
+	union(Arrays.asList(new OclUnionBagToBag(), new OclUnionBagToSet(), new OclUnionSetToSet(), new OclUnionSetToBag())), //TODO 
 	intersection(null), //TODO 
 	including(null), //TODO 
 	excluding(null), //TODO 

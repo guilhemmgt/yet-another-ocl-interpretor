@@ -9,7 +9,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Import;
 import fr.enseeiht.ocl.xtext.ocl.Module;
@@ -102,7 +101,7 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-      /**
+        /**
    * Get all the declared feature definitions
    * @return list of feature definitons (def)
    * @generated NOT

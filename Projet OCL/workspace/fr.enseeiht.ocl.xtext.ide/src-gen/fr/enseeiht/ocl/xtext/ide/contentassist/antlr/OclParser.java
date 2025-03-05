@@ -165,7 +165,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOclInvariantAccess().getNameAssignment_1(), "rule__OclInvariant__NameAssignment_1");
 			builder.put(grammarAccess.getOclInvariantAccess().getBodyAssignment_3(), "rule__OclInvariant__BodyAssignment_3");
 			builder.put(grammarAccess.getOclModelElementExpAccess().getModelAssignment_0(), "rule__OclModelElementExp__ModelAssignment_0");
-			builder.put(grammarAccess.getOclModelElementExpAccess().getNameAssignment_2(), "rule__OclModelElementExp__NameAssignment_2");
+			builder.put(grammarAccess.getOclModelElementExpAccess().getClassAssignment_2(), "rule__OclModelElementExp__ClassAssignment_2");
 			builder.put(grammarAccess.getOperatorCallExpAccess().getArgsAssignment_0(), "rule__OperatorCallExp__ArgsAssignment_0");
 			builder.put(grammarAccess.getOperatorCallExpAccess().getOperationNamesAssignment_1_0(), "rule__OperatorCallExp__OperationNamesAssignment_1_0");
 			builder.put(grammarAccess.getOperatorCallExpAccess().getArgsAssignment_1_1(), "rule__OperatorCallExp__ArgsAssignment_1_1");

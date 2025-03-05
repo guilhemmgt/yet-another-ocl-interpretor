@@ -34,7 +34,7 @@ OclExpression returns OclExpression :
 	OperatorCallExp|LetExp;
 
 OclModelElementExp :
-	model=[Import]'!'name=ID
+	model=[Import]'!'class=[ecore::EClass|QualifiedName]
 ;
 
 //priority_5
@@ -308,7 +308,7 @@ MapType :
 terminal DOUBLE returns ecore::EDouble :
 	(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
 
-QualifiedName: ID ('.' ID)*;
+QualifiedName: ID ('.' ID);
 
 
 @Override

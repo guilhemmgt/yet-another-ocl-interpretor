@@ -8,12 +8,10 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
@@ -23,11 +21,11 @@ import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclTuple;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
-import fr.enseeiht.ocl.xtext.ocl.TupleLiteralExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -53,26 +51,31 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
-	int pos = container.getCalls().indexOf(this.target);
-	EObject source;
-	if (pos == 0) {
-		// root call
-		source = (EObject) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getValue(contextTarget);
-	} else {
-		source = (EObject) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1)).getValue(contextTarget);
-	}
-	
-	if (source != null) {
-		for (EStructuralFeature feat : source.eClass().getEAllStructuralFeatures()) {
-			if (this.target.getName().equals(feat.getName())) {
-				return source.eGet(feat);
-			}
+		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+		int pos = container.getCalls().indexOf(this.target);
+		EObject source;
+		if (pos == 0) {
+			// root call
+			source = container.getSource();
+		} else {
+			source = container.getCalls().get(pos - 1);
 		}
-	} else {
-		return new UndefinedAccessInvalid(source);
-	}
-	return null;
+		Object sourceValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(source).getValue(contextTarget);
+		if (sourceValue instanceof Invalid) {
+			return sourceValue;
+		}
+		if (sourceValue instanceof EObject sourceEValue) {
+			if (sourceEValue != null) {
+				for (EStructuralFeature feat : sourceEValue.eClass().getEAllStructuralFeatures()) {
+					if (this.target.getName().equals(feat.getName())) {
+						return sourceEValue.eGet(feat);
+					}
+				}
+			}
+		} else {
+			return new UndefinedAccessInvalid(source);
+		}
+		return null;
   }
 
   /**
@@ -187,7 +190,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public String getOutlineString() {
     return null;
   }
-      public boolean conformsTo(OclType oclType) {
+        public boolean conformsTo(OclType oclType) {
 	// TODO Auto-generated method stub
 	return false;
 }

@@ -926,19 +926,19 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Primary_OclExpression returns OclModelElementExp
 	 *
 	 * Constraint:
-	 *     (model=[Import|ID] name=ID)
+	 *     (model=[Import|ID] class=[EClass|QualifiedName])
 	 * </pre>
 	 */
 	protected void sequence_OclModelElementExp(ISerializationContext context, OclModelElementExp semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__MODEL) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__MODEL));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__NAME));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__CLASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__CLASS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOclModelElementExpAccess().getModelImportIDTerminalRuleCall_0_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__MODEL, false));
-		feeder.accept(grammarAccess.getOclModelElementExpAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getOclModelElementExpAccess().getClassEClassQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT_EXP__CLASS, false));
 		feeder.finish();
 	}
 	
