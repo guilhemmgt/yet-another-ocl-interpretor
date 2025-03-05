@@ -14,6 +14,7 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 
 public class OclIteratorAny implements OclIterator {
 
@@ -32,7 +33,11 @@ public class OclIteratorAny implements OclIterator {
 	}
 
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
-		throw new UnimplementedException(this.getClass(), "getReturnType");
+		if (sourceType instanceof OclCollection collectType) {
+			return collectType.getSubtype();
+		} else {
+			return new OclInvalid();
+		}
 	}
 
 	public OclCollection getSourceType() {
