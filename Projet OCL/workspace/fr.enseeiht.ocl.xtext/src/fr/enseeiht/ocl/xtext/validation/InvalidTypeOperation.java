@@ -12,6 +12,13 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 public class InvalidTypeOperation extends TypeCheckingError {
 
 	
+	/**
+	 * The error class raised when an operation is called when an operation is called with the wrong types.
+	 * Intended to be used in OclInvalid constructor.
+	 * @param cause : the EObject that caused the error.
+	 * @param operation : the operation called with the wrong arguments
+	 * @param uniqueTypes : the types of the arguments
+	 */
 	public InvalidTypeOperation(EObject cause, String operation, List<OclType> uniqueTypes) {
 		this.cause = cause;
 		this.message = "Invalid operation '" + operation + "' with types ";
@@ -22,6 +29,13 @@ public class InvalidTypeOperation extends TypeCheckingError {
 		this.message += String.join(", ", messageStr) + ".";
 	}
 	
+	/**
+	 * The error class raised when an operation is called when an operation is called with the wrong types.
+	 * Intended to be used in OclInvalid constructor.
+	 * @param cause : the EObject that caused the error.
+	 * @param operation : the operation called with the wrong arguments
+	 * @param uniqueTypes : the types of the arguments
+	 */
 	public InvalidTypeOperation(EObject cause, EList<String> operation, List<OclType> uniqueTypes) {
 		this.cause = cause;
 		this.message = "Invalid operation '" + operation + "' with types ";
@@ -32,17 +46,30 @@ public class InvalidTypeOperation extends TypeCheckingError {
 		this.message += String.join(", ", messageStr) + ".";
 	}
 	
-	public InvalidTypeOperation(EObject cause, String operation, OclType... type) {
+	/**
+	 * The error class raised when an operation is called when an operation is called with the wrong types.
+	 * Intended to be used in OclInvalid constructor.
+	 * @param cause : the EObject that caused the error.
+	 * @param operation : the operation called with the wrong arguments
+	 * @param uniqueTypes : the types of the arguments
+	 */
+	public InvalidTypeOperation(EObject cause, String operation, OclType... uniqueTypes) {
 		this.cause = cause;
 		this.message = "Invalid operation '" + operation + "' with types ";
 		List<String> messageStr = new LinkedList<String>();
-		for (OclType typ : type) {
+		for (OclType typ : uniqueTypes) {
 			messageStr.add(typ.toString());
 		}
 		this.message += String.join(", ", messageStr) + ".";
 	}
 
-	
+	/**
+	 * The error class raised when an operation is called when an operation is called with the wrong types.
+	 * Intended to be used in OclInvalid constructor.
+	 * @param cause : the EObject that caused the error.
+	 * @param operation : the operation called with the wrong arguments
+	 * @param uniqueTypes : the types of the arguments
+	 */
 	public InvalidTypeOperation(EObject cause, EList<String> operation, OclType... uniqueTypes) {
 		this.cause = cause;
 		this.message = "Invalid operation '" + operation + "' with types ";

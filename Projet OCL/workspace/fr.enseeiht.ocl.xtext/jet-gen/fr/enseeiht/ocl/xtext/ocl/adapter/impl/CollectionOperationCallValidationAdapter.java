@@ -16,7 +16,7 @@ import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.validation.OperationInvalidArgumentsError;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
 import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
@@ -165,7 +165,7 @@ public final class CollectionOperationCallValidationAdapter implements OCLAdapte
 				for (OclType typ : paramTypes) {
 					messageStr.add(typ.toString());
 				}
-				return new OclInvalid(new OperationInvalidArgumentsError(this.target, this.target.getOperationName(), paramTypes));
+				return new OclInvalid(new InvalidTypeOperation(this.target, this.target.getOperationName(), paramTypes));
 			} else {
 				return new OclInvalid(new OperationNotFoundError(this.target, this.target.getOperationName()));
 			}

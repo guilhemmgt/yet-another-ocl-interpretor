@@ -17,7 +17,7 @@ import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
-import fr.enseeiht.ocl.xtext.validation.OperationInvalidArgumentsError;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
 import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -173,7 +173,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 				}
 			}
 			// No correct operation was found
-			return new OclInvalid(new OperationInvalidArgumentsError(target, this.target.getOperationName(), paramTypes));
+			return new OclInvalid(new InvalidTypeOperation(target, this.target.getOperationName(), paramTypes));
 		} else {
 			return new OclInvalid(new OperationNotFoundError(target, target.getOperationName()));
 		}
