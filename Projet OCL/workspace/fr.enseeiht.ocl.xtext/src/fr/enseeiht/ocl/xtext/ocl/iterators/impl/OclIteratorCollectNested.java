@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;

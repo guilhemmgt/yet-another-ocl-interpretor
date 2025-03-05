@@ -100,7 +100,7 @@ public enum OclOperationEnum {
 		this.opList = opList;
 	}
 	
-	private List<IOclOperation> getOperations(){
+	public List<IOclOperation> getOperations(){
 		return this.opList;
 	}
 	
