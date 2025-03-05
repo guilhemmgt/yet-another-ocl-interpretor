@@ -1,6 +1,6 @@
 import "http://container" as container
 
-context container!container.Object
+context container!Container.Object
 	
 inv bag1:
 	Bag{}->collectNested(n | 12) = Bag{}

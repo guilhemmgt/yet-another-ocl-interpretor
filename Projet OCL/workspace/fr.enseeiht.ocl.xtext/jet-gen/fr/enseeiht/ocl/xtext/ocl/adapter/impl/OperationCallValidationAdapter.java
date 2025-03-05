@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
@@ -43,7 +44,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
 		OCLAdapter source;
 		// Get value from the rest of the navigation
@@ -51,7 +52,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 			// root call
 			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
 		} else {
-			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
+			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos - 1));
 		}
 		Object sourceValue = source.getValue(contextTarget);
 		if (sourceValue != null) {
@@ -73,27 +74,35 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 //			}
 			// Récupération des méthodes système
 			List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+			
+			// Get args Type
 			List<OclType> paramTypes = new ArrayList<OclType>();
 			for (OclExpression param : this.target.getArguments()) {
 				paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
 			}
-			if (operations != null ) {
+			
+			// Compute args value
+			List<Object> args = new ArrayList<Object>();
+			for (EObject arg : this.target.getArguments()) {
+				OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
+				args.add(argAdapter.getValue(contextTarget));
+			}
+			
+			if (operations != null) {
 				for (IOclOperation operation : operations) {
-					if (true && OperationResolutionUtils.isCorrectImplementation(source.getType(), operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName()) ) {
-						// Compute args value 
-						List<Object> args = new ArrayList<Object>();
-						for (EObject arg : this.target.getArguments()) {
-							OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
-							args.add(argAdapter.getValue(contextTarget));
-						}
-						return operation.getReturnValue(sourceValue, args);					
+					if (true && OperationResolutionUtils.isCorrectImplementation(source.getType(),
+							operation.getSourceType(), paramTypes, operation.getArgsType(),
+							this.target.getOperationName(), operation.getName())) {
+						return operation.getReturnValue(sourceValue, args, contextTarget);
 					}
 				}
 			}
+
+			return new InvalidCall(this.target.getOperationName());
 		} else {
 			return new UndefinedAccessInvalid(source.getElement());
 		}
-		return null;
+		
   }
 
   /**

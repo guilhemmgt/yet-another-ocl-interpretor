@@ -3681,9 +3681,9 @@ rule__OclModelElementExp__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getOclModelElementExpAccess().getNameAssignment_2()); }
-	(rule__OclModelElementExp__NameAssignment_2)
-	{ after(grammarAccess.getOclModelElementExpAccess().getNameAssignment_2()); }
+	{ before(grammarAccess.getOclModelElementExpAccess().getClassAssignment_2()); }
+	(rule__OclModelElementExp__ClassAssignment_2)
+	{ after(grammarAccess.getOclModelElementExpAccess().getClassAssignment_2()); }
 )
 ;
 finally {
@@ -10027,7 +10027,7 @@ rule__QualifiedName__Group__1__Impl
 :
 (
 	{ before(grammarAccess.getQualifiedNameAccess().getGroup_1()); }
-	(rule__QualifiedName__Group_1__0)*
+	(rule__QualifiedName__Group_1__0)
 	{ after(grammarAccess.getQualifiedNameAccess().getGroup_1()); }
 )
 ;
@@ -10436,15 +10436,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OclModelElementExp__NameAssignment_2
+rule__OclModelElementExp__ClassAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getOclModelElementExpAccess().getNameIDTerminalRuleCall_2_0()); }
-		RULE_ID
-		{ after(grammarAccess.getOclModelElementExpAccess().getNameIDTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getOclModelElementExpAccess().getClassEClassCrossReference_2_0()); }
+		(
+			{ before(grammarAccess.getOclModelElementExpAccess().getClassEClassQualifiedNameParserRuleCall_2_0_1()); }
+			ruleQualifiedName
+			{ after(grammarAccess.getOclModelElementExpAccess().getClassEClassQualifiedNameParserRuleCall_2_0_1()); }
+		)
+		{ after(grammarAccess.getOclModelElementExpAccess().getClassEClassCrossReference_2_0()); }
 	)
 ;
 finally {
