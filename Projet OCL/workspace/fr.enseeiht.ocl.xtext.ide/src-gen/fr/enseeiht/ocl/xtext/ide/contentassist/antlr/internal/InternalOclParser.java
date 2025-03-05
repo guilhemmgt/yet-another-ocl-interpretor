@@ -35149,21 +35149,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__NameAssignment_2"
-    // InternalOcl.g:11783:1: rule__OclModelElementClass__NameAssignment_2 : ( ( ruleQualifiedName ) ) ;
+    // InternalOcl.g:11787:1: rule__OclModelElementClass__NameAssignment_2 : ( ( ruleQualifiedName ) ) ;
     public final void rule__OclModelElementClass__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11787:1: ( ( ( ruleQualifiedName ) ) )
-            // InternalOcl.g:11788:2: ( ( ruleQualifiedName ) )
+            // InternalOcl.g:11791:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalOcl.g:11792:2: ( ( ruleQualifiedName ) )
             {
-            // InternalOcl.g:11788:2: ( ( ruleQualifiedName ) )
-            // InternalOcl.g:11789:3: ( ruleQualifiedName )
+            // InternalOcl.g:11792:2: ( ( ruleQualifiedName ) )
+            // InternalOcl.g:11793:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0()); 
-            // InternalOcl.g:11790:3: ( ruleQualifiedName )
-            // InternalOcl.g:11791:4: ruleQualifiedName
+            // InternalOcl.g:11794:3: ( ruleQualifiedName )
+            // InternalOcl.g:11795:4: ruleQualifiedName
             {
              before(grammarAccess.getOclModelElementClassAccess().getNameEClassQualifiedNameParserRuleCall_2_0_1()); 
             pushFollow(FOLLOW_2);
@@ -35198,22 +35198,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__KeyTypeAssignment_2"
-    // InternalOcl.g:11802:1: rule__MapType__KeyTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
-    // InternalOcl.g:11802:1: rule__MapType__KeyTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11806:1: rule__MapType__KeyTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__MapType__KeyTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11806:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11807:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11806:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11807:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11810:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11811:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11807:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11808:3: ruleOclTypeLiteral
-            // InternalOcl.g:11807:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11808:3: ruleOclTypeLiteral
+            // InternalOcl.g:11811:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11812:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getMapTypeAccess().getKeyTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -35244,22 +35239,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__ValueTypeAssignment_4"
-    // InternalOcl.g:11817:1: rule__MapType__ValueTypeAssignment_4 : ( ruleOclTypeLiteral ) ;
-    // InternalOcl.g:11817:1: rule__MapType__ValueTypeAssignment_4 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11821:1: rule__MapType__ValueTypeAssignment_4 : ( ruleOclTypeLiteral ) ;
     public final void rule__MapType__ValueTypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11821:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11822:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11821:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11822:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11825:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11826:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11822:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11823:3: ruleOclTypeLiteral
-            // InternalOcl.g:11822:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11823:3: ruleOclTypeLiteral
+            // InternalOcl.g:11826:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11827:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getMapTypeAccess().getValueTypeOclTypeLiteralParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
