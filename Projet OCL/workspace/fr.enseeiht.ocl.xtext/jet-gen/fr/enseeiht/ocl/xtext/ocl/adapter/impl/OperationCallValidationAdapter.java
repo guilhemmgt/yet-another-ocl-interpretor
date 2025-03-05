@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
@@ -18,6 +19,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
 import fr.enseeiht.ocl.xtext.validation.OperationInvalidArgumentsError;
 import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
@@ -135,7 +137,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 	}
 	OclType sourceType = source.getType();
 	if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
-		return new OclInvalid(this.target,"Type mismatch error : the navigation operator \".\" does not support navigation on collection, use \"->\" instead");
+		return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), sourceType));
 	}
 	if (!sourceType.conformsTo(new OclInvalid())) {
 		// Méthodes utilisateur
@@ -161,7 +163,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		try { 
 			operations = OclOperationEnum.getOperations(this.target.getOperationName());
 		} catch (IllegalArgumentException e) {
-			return new OclInvalid(this.target, "The method " + this.target.getOperationName() + " does not exists");
+			return new OclInvalid(new OperationNotFoundError(this.target, this.target.getOperationName()));
 		}
 		if (operations != null) {
 			for (IOclOperation operation : operations) {

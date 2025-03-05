@@ -6,12 +6,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -98,8 +100,7 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 				if (iteratorType instanceof OclInvalid error) {
 					errors.add(error);
 				} else if (!iteratorType.conformsTo(collectType.getSubtype())) {
-					errors.add(new OclInvalid(i, "Type mismatch error : expected iterator of type "
-							+ collectType.getSubtype() + " but got " + iteratorType + " instead."));
+					errors.add(new OclInvalid(new TypeMismatchError(i, collectType.getSubtype(), iteratorType)));
 				}
 			}
 
@@ -114,8 +115,7 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 				}
 
 				if (!bodyType.conformsTo(resultVarType)) {
-					errors.add(new OclInvalid(this.target, "Type mismatch error : expected expression of type "
-							+ resultType + " but got " + bodyType + " instead."));
+					errors.add(new OclInvalid(new TypeMismatchError(this.target, resultType, bodyType)));
 				}
 				// Get effective type for later use
 				resultType = resultVarType;
@@ -130,8 +130,7 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 			}
 			return resultType;
 		} else {
-			return new OclInvalid(this.target,
-					"Type Mismatch error : expected collection but got " + sourceType + " instead.");
+			return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), sourceType));
 		}
 	}
 

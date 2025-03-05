@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
@@ -60,11 +61,11 @@ public final class IteratorValidationAdapter implements OCLAdapter {
 				// cf. DOC at (Section 7.6.1)
 				OclType expectedType = ((OclTypeLiteralValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType())).getOclType();
 				if (!eSource.getSubtype().conformsTo(expectedType))
-					return new OclInvalid(this.target, "Type mismatchError : expected collection of " + expectedType + " got collection of " + eSource.getSubtype() + " instead.", eSource.getSubtype());
+					return new OclInvalid(new TypeMismatchError(this.target, expectedType, eSource.getSubtype())); 
 			}
 			return eSource.getSubtype();
 		} else {
-			return new OclInvalid(target, "Type mismatch error cannot iterate over non Collection object");
+			return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), source));
 		}		
   }
 
