@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -45,8 +46,7 @@ public final class OclInvariantValidationAdapter implements OCLAdapter {
 	boolean isCorrect = type.conformsTo(new OclBoolean());
 	boolean isInvalid = type.conformsTo(new OclInvalid());
 	if (!isCorrect && !isInvalid) {
-		String message = "Invariant type mismatch : expected Boolean, got " + type;
-		return new OclInvalid(target, message);
+		return new OclInvalid(new TypeMismatchError(target, new OclBoolean(), type));
 	}
 	else if (isInvalid) {
 		return new OclInvalid(type);

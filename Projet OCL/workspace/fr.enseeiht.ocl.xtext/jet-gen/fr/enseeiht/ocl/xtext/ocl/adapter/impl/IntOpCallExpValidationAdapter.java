@@ -9,6 +9,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -108,8 +109,7 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 			  resultType =  resultType.unifyWith(argType);
 		  } else {
 			  // Opération invalide
-			  String message = "Invalid operation between types " + resultType + " and " + argType + " (operation : '" + target.getOperationNames() + "')";
-			  resultType =  new OclInvalid(target, message, resultType, argType);
+			  resultType =  new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames(), resultType, argType));
 		  }
 	  }
 	  return resultType;

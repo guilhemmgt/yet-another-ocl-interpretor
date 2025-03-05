@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -52,8 +53,7 @@ public final class AttributeValidationAdapter implements OCLAdapter {
 		  return returnClassifier;
 	  }
 	  else {
-		  String message = "Feature definition type mismatch : expected " + returnType + ", got " + expressionType +  ".";
-		  return new OclInvalid(target, message);
+		  return new OclInvalid(new TypeMismatchError(target, returnType, expressionType));
 	  }
   }
 
