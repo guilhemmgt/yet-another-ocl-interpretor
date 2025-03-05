@@ -1,0 +1,7 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+-- 'any' renvoie Invalid si aucun élément de 'source' ne satisfait 'body'
+inv any1: 
+	Bag{1,2,3}->any(n | n = 0) = 0 

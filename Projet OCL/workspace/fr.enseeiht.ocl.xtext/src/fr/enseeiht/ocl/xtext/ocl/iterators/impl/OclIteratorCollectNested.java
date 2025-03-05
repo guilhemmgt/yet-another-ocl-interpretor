@@ -3,25 +3,21 @@ package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 import java.lang.reflect.Constructor;
 import java.util.Collection;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
-import fr.enseeiht.ocl.xtext.ocl.Iterator;
-import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
-import fr.enseeiht.ocl.xtext.types.OclSet;
 
 public class OclIteratorCollectNested implements OclIterator {
 
-	public Object getReturnValue(Collection<Object> source, OclExpression body, EList<Iterator> iterators, EObject contextTarget, IOclIteratorBody op) {
+	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
 		// source->collectNested(iterator | body) =
 		// 		source->iterate(iterator; result : Sequence(body.type) = Sequence{} |
 		//			result->append(body ) )
@@ -49,7 +45,7 @@ public class OclIteratorCollectNested implements OclIterator {
 		}
 
 		// Calcule la valeur
-		Object value = new OclIterate(source, body, iterators, contextTarget, resultInitValue, newOp).getReturnValue();
+		Object value = new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, resultInitValue, newOp).getReturnValue();
 		return value;
 	}
 

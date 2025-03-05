@@ -1,0 +1,7 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+-- 'any' renvoie Invalid si 'body' est évalué à Invalid pour une valeur de 'n'
+inv any1: 
+	Bag{1,2,0,3,4}->any(n | 2/n = 2) = 4 

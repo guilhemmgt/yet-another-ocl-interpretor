@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
+import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 
@@ -19,8 +20,8 @@ public interface OclIterator {
 	 * @param contextTarget contexte
 	 * @return valeur
 	 */
-	public default Object getReturnValue(Collection<Object> source, OclExpression body, EList<Iterator> iterators, EObject contextTarget) {
-		return getReturnValue(source, body, iterators, contextTarget, (b, i) -> b);
+	public default Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget) {
+		return getReturnValue(source, iteratorExp, contextTarget, (b, i) -> b);
 	}
 	
 	/**
@@ -32,7 +33,7 @@ public interface OclIterator {
 	 * @param op opération à appliquer sur le body une fois sa valeur calculée
 	 * @return valeur
 	 */
-	public Object getReturnValue(Collection<Object> source, OclExpression body, EList<Iterator> iterators, EObject contextTarget, IOclIteratorBody op);
+	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op);
 	
 	/**
 	 * Renvoie le type de l'itérateur

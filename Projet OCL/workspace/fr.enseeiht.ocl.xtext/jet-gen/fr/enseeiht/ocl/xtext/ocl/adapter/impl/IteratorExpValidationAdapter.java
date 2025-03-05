@@ -61,7 +61,7 @@ public Object getValue(EObject contextTarget) {
 
 		Collection<Object> source = (Collection<Object>) sourceValue;
 		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
-		return iterator.getReturnValue(source, this.target.getBody(), this.target.getIterators(), contextTarget);
+		return iterator.getReturnValue(source, this.target, contextTarget);
   }
 
   /**
