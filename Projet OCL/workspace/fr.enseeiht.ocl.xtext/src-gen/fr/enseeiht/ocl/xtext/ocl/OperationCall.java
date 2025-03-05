@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperationCall#getNavOperator <em>Nav Operator</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperationCall#getOperationName <em>Operation Name</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OperationCall#getArguments <em>Arguments</em>}</li>
  * </ul>
@@ -24,6 +25,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface OperationCall extends PropertyCall
 {
+  /**
+   * Returns the value of the '<em><b>Nav Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nav Operator</em>' attribute.
+   * @see #setNavOperator(String)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOperationCall_NavOperator()
+   * @model
+   * @generated
+   */
+  String getNavOperator();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OperationCall#getNavOperator <em>Nav Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nav Operator</em>' attribute.
+   * @see #getNavOperator()
+   * @generated
+   */
+  void setNavOperator(String value);
+
   /**
    * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
    * <!-- begin-user-doc -->

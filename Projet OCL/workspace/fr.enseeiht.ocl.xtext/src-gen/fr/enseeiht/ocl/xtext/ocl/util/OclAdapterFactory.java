@@ -11,7 +11,6 @@ import fr.enseeiht.ocl.xtext.ocl.BagType;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
-import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
@@ -370,11 +369,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
       public Adapter caseIteratorExp(IteratorExp object)
       {
         return createIteratorExpAdapter();
-      }
-      @Override
-      public Adapter caseCollectionOperationCall(CollectionOperationCall object)
-      {
-        return createCollectionOperationCallAdapter();
       }
       @Override
       public Adapter caseLocalVariable(LocalVariable object)
@@ -1184,21 +1178,6 @@ public class OclAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIteratorExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall <em>Collection Operation Call</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall
-   * @generated
-   */
-  public Adapter createCollectionOperationCallAdapter()
   {
     return null;
   }

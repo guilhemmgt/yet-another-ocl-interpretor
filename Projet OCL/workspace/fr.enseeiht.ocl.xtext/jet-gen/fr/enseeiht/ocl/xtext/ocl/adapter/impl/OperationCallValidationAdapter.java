@@ -132,9 +132,13 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
 	}
 	OclType sourceType = source.getType();
-	if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
+	if (sourceType.conformsTo(new OclCollection(new OclAny())) && this.target.getNavOperator().equals(".")) {
 		return new OclInvalid(this.target,"Type mismatch error : the navigation operator \".\" does not support navigation on collection, use \"->\" instead");
 	}
+	if (!sourceType.conformsTo(new OclCollection(new OclAny())) && this.target.getNavOperator().equals("->")) {
+		return new OclInvalid(this.target,"Type mismatch error : the navigation operator \"->\" supports only navigation on collection, use \".\" instead");
+	}
+	
 	if (!sourceType.conformsTo(new OclInvalid())) {
 		// Méthodes utilisateur
 		

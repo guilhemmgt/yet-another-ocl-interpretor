@@ -11,7 +11,6 @@ import fr.enseeiht.ocl.xtext.ocl.BagType;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
-import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
@@ -178,7 +177,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
       case OclPackage.ITERATE_EXP: return createIterateExp();
       case OclPackage.ITERATOR: return createIterator();
       case OclPackage.ITERATOR_EXP: return createIteratorExp();
-      case OclPackage.COLLECTION_OPERATION_CALL: return createCollectionOperationCall();
       case OclPackage.LOCAL_VARIABLE: return createLocalVariable();
       case OclPackage.OCL_TYPE_LITERAL: return createOclTypeLiteral();
       case OclPackage.COLLECTION_TYPE_LITERAL: return createCollectionTypeLiteral();
@@ -754,18 +752,6 @@ public class OclFactoryImpl extends EFactoryImpl implements OclFactory
   {
     IteratorExpImpl iteratorExp = new IteratorExpImpl();
     return iteratorExp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CollectionOperationCall createCollectionOperationCall()
-  {
-    CollectionOperationCallImpl collectionOperationCall = new CollectionOperationCallImpl();
-    return collectionOperationCall;
   }
 
   /**

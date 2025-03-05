@@ -1459,13 +1459,22 @@ public interface OclPackage extends EPackage
   int OPERATION_CALL = 41;
 
   /**
+   * The feature id for the '<em><b>Nav Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_CALL__NAV_OPERATOR = PROPERTY_CALL_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Operation Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION_CALL__OPERATION_NAME = PROPERTY_CALL_FEATURE_COUNT + 0;
+  int OPERATION_CALL__OPERATION_NAME = PROPERTY_CALL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -1474,7 +1483,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION_CALL__ARGUMENTS = PROPERTY_CALL_FEATURE_COUNT + 1;
+  int OPERATION_CALL__ARGUMENTS = PROPERTY_CALL_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Operation Call</em>' class.
@@ -1483,7 +1492,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION_CALL_FEATURE_COUNT = PROPERTY_CALL_FEATURE_COUNT + 2;
+  int OPERATION_CALL_FEATURE_COUNT = PROPERTY_CALL_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.NavigationOrAttributeCallImpl <em>Navigation Or Attribute Call</em>}' class.
@@ -1643,43 +1652,6 @@ public interface OclPackage extends EPackage
   int ITERATOR_EXP_FEATURE_COUNT = PROPERTY_CALL_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionOperationCallImpl <em>Collection Operation Call</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.CollectionOperationCallImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionOperationCall()
-   * @generated
-   */
-  int COLLECTION_OPERATION_CALL = 46;
-
-  /**
-   * The feature id for the '<em><b>Operation Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COLLECTION_OPERATION_CALL__OPERATION_NAME = PROPERTY_CALL_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COLLECTION_OPERATION_CALL__ARGUMENTS = PROPERTY_CALL_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Collection Operation Call</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COLLECTION_OPERATION_CALL_FEATURE_COUNT = PROPERTY_CALL_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.LocalVariableImpl <em>Local Variable</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1687,7 +1659,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getLocalVariable()
    * @generated
    */
-  int LOCAL_VARIABLE = 47;
+  int LOCAL_VARIABLE = 46;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1733,7 +1705,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclTypeLiteral()
    * @generated
    */
-  int OCL_TYPE_LITERAL = 48;
+  int OCL_TYPE_LITERAL = 47;
 
   /**
    * The number of structural features of the '<em>Type Literal</em>' class.
@@ -1752,7 +1724,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionTypeLiteral()
    * @generated
    */
-  int COLLECTION_TYPE_LITERAL = 49;
+  int COLLECTION_TYPE_LITERAL = 48;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1780,7 +1752,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionType()
    * @generated
    */
-  int COLLECTION_TYPE = 50;
+  int COLLECTION_TYPE = 49;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1808,7 +1780,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBagType()
    * @generated
    */
-  int BAG_TYPE = 51;
+  int BAG_TYPE = 50;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1836,7 +1808,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOrderedSetType()
    * @generated
    */
-  int ORDERED_SET_TYPE = 52;
+  int ORDERED_SET_TYPE = 51;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1864,7 +1836,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSequenceType()
    * @generated
    */
-  int SEQUENCE_TYPE = 53;
+  int SEQUENCE_TYPE = 52;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1892,7 +1864,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSetType()
    * @generated
    */
-  int SET_TYPE = 54;
+  int SET_TYPE = 53;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1920,7 +1892,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 55;
+  int PRIMITIVE = 54;
 
   /**
    * The number of structural features of the '<em>Primitive</em>' class.
@@ -1939,7 +1911,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getStringType()
    * @generated
    */
-  int STRING_TYPE = 56;
+  int STRING_TYPE = 55;
 
   /**
    * The number of structural features of the '<em>String Type</em>' class.
@@ -1958,7 +1930,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanType()
    * @generated
    */
-  int BOOLEAN_TYPE = 57;
+  int BOOLEAN_TYPE = 56;
 
   /**
    * The number of structural features of the '<em>Boolean Type</em>' class.
@@ -1977,7 +1949,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNumericType()
    * @generated
    */
-  int NUMERIC_TYPE = 58;
+  int NUMERIC_TYPE = 57;
 
   /**
    * The number of structural features of the '<em>Numeric Type</em>' class.
@@ -1996,7 +1968,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIntegerType()
    * @generated
    */
-  int INTEGER_TYPE = 59;
+  int INTEGER_TYPE = 58;
 
   /**
    * The number of structural features of the '<em>Integer Type</em>' class.
@@ -2015,7 +1987,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getRealType()
    * @generated
    */
-  int REAL_TYPE = 60;
+  int REAL_TYPE = 59;
 
   /**
    * The number of structural features of the '<em>Real Type</em>' class.
@@ -2034,7 +2006,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclAnyType()
    * @generated
    */
-  int OCL_ANY_TYPE = 61;
+  int OCL_ANY_TYPE = 60;
 
   /**
    * The number of structural features of the '<em>Any Type</em>' class.
@@ -2053,7 +2025,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclVoidType()
    * @generated
    */
-  int OCL_VOID_TYPE = 62;
+  int OCL_VOID_TYPE = 61;
 
   /**
    * The number of structural features of the '<em>Void Type</em>' class.
@@ -2072,7 +2044,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleType()
    * @generated
    */
-  int TUPLE_TYPE = 63;
+  int TUPLE_TYPE = 62;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -2100,7 +2072,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleTypeAttribute()
    * @generated
    */
-  int TUPLE_TYPE_ATTRIBUTE = 64;
+  int TUPLE_TYPE_ATTRIBUTE = 63;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2137,7 +2109,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElementClass()
    * @generated
    */
-  int OCL_MODEL_ELEMENT_CLASS = 65;
+  int OCL_MODEL_ELEMENT_CLASS = 64;
 
   /**
    * The feature id for the '<em><b>Model</b></em>' reference.
@@ -2174,7 +2146,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapType()
    * @generated
    */
-  int MAP_TYPE = 66;
+  int MAP_TYPE = 65;
 
   /**
    * The feature id for the '<em><b>Key Type</b></em>' containment reference.
@@ -3307,6 +3279,17 @@ public interface OclPackage extends EPackage
   EClass getOperationCall();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.OperationCall#getNavOperator <em>Nav Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nav Operator</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OperationCall#getNavOperator()
+   * @see #getOperationCall()
+   * @generated
+   */
+  EAttribute getOperationCall_NavOperator();
+
+  /**
    * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.OperationCall#getOperationName <em>Operation Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3444,38 +3427,6 @@ public interface OclPackage extends EPackage
    * @generated
    */
   EReference getIteratorExp_Body();
-
-  /**
-   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall <em>Collection Operation Call</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Collection Operation Call</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall
-   * @generated
-   */
-  EClass getCollectionOperationCall();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall#getOperationName <em>Operation Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall#getOperationName()
-   * @see #getCollectionOperationCall()
-   * @generated
-   */
-  EAttribute getCollectionOperationCall_OperationName();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall#getArguments <em>Arguments</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Arguments</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall#getArguments()
-   * @see #getCollectionOperationCall()
-   * @generated
-   */
-  EReference getCollectionOperationCall_Arguments();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.LocalVariable <em>Local Variable</em>}'.
@@ -4716,6 +4667,14 @@ public interface OclPackage extends EPackage
     EClass OPERATION_CALL = eINSTANCE.getOperationCall();
 
     /**
+     * The meta object literal for the '<em><b>Nav Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION_CALL__NAV_OPERATOR = eINSTANCE.getOperationCall_NavOperator();
+
+    /**
      * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4826,32 +4785,6 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EReference ITERATOR_EXP__BODY = eINSTANCE.getIteratorExp_Body();
-
-    /**
-     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionOperationCallImpl <em>Collection Operation Call</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.CollectionOperationCallImpl
-     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionOperationCall()
-     * @generated
-     */
-    EClass COLLECTION_OPERATION_CALL = eINSTANCE.getCollectionOperationCall();
-
-    /**
-     * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COLLECTION_OPERATION_CALL__OPERATION_NAME = eINSTANCE.getCollectionOperationCall_OperationName();
-
-    /**
-     * The meta object literal for the '<em><b>Arguments</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COLLECTION_OPERATION_CALL__ARGUMENTS = eINSTANCE.getCollectionOperationCall_Arguments();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.LocalVariableImpl <em>Local Variable</em>}' class.

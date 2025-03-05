@@ -188,13 +188,17 @@ BooleanLiteralExp:
 	;
 	
 PropertyCall:
-	OperationCall|NavigationOrAttributeCall|IterateExp|IteratorExp|CollectionOperationCall
+	OperationCall|NavigationOrAttributeCall|IterateExp|IteratorExp
 	;
 	
 OperationCall:
-	'.' operationName=ID '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
+	navOperator=NavigationOp operationName=ID '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
 	;
 
+NavigationOp : 
+	'->'|'.'
+	;
+	
 NavigationOrAttributeCall : 
 	'.' name=ID
 	;
@@ -211,9 +215,6 @@ IteratorExp :
 	'->' name=ID '(' iterators+=Iterator (',' iterators+=Iterator)* '|' body=OclExpression ')'
 	;
 
-CollectionOperationCall : 
-	'->' operationName=ID '(' (arguments+=OclExpression (',' arguments+=OclExpression)*)? ')'
-	;
 
 LocalVariable : 
 	name=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
