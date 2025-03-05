@@ -14,7 +14,7 @@ import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 
-public class OclAllInstance implements IOclOperation {
+public class OclAllInstances implements IOclOperation {
 
 	@Override
 	public Object getReturnValue(Object source, List<Object> args, EObject contextTarget) {
