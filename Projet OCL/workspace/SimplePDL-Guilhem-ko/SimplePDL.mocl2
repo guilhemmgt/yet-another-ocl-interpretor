@@ -1,28 +1,28 @@
-import 'SimplePDL.ecore' as simplepdl
+import 'SimplePDL.ecore'
 
-context simplepdl!simplepdl.Process
+context simplepdl.Process
 inv nomValide:
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 inv nomUniqueWD:
 	self.processElements
-	-> select (pe | pe.oclIsTypeOf(simplepdl!simplepdl.WorkDefinition))
-	-> collect (pe | pe.oclAsType(simplepdl!simplepdl.WorkDefinition))
+	-> select (pe | pe.oclIsTypeOf(simplepdl.WorkDefinition))
+	-> collect (pe | pe.oclAsType(simplepdl.WorkDefinition))
 	-> forAll (wd1, wd2 | wd1=wd2 or wd1.name <> wd2.name)
 inv nomUniqueR:
 	self.processElements
-	-> select (pe | pe.oclIsTypeOf(simplepdl!simplepdl.Ressource))
-	-> collect (pe | pe.oclAsType(simplepdl!simplepdl.Ressource))
+	-> select (pe | pe.oclIsTypeOf(simplepdl.Ressource))
+	-> collect (pe | pe.oclAsType(simplepdl.Ressource))
 	-> forAll (r1, r2 | r1=r2 or r1.name <> r2.name)
 	
 	
-context simplepdl!simplepdl.ProcessElement
+context simplepdl.ProcessElement
 def: process():
-	simplepdl!simplepdl.Process = simplepdl!simplepdl.Process.allInstances()
+	simplepdl.Process = simplepdl.Process.allInstances()
 	->select(p | p.processElements->includes(self))
 	->asSequence()->first()
 	
 	
-context simplepdl!simplepdl.WorkSequence
+context simplepdl.WorkSequence
 inv nonReflexif:
 	self.predecessor <> self.successor
 inv successeurEtPredecesseurDansMemeProcess:
@@ -30,19 +30,19 @@ inv successeurEtPredecesseurDansMemeProcess:
 	and self.process() = self.predecessor.process()
 
 
-context simplepdl!simplepdl.WorkDefinition
+context simplepdl.WorkDefinition
 inv nomPasCourt:
 	self.name.size() > 1
 inv nomValide:
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 inv unSeulNeedParRessource:
 	self.linksToNeeds
-	-> select (rn | rn.oclIsTypeOf(simplepdl!simplepdl.RessourceNeed))
-	-> collect (rn | rn.oclAsType(simplepdl!simplepdl.RessourceNeed))
+	-> select (rn | rn.oclIsTypeOf(simplepdl.RessourceNeed))
+	-> collect (rn | rn.oclAsType(simplepdl.RessourceNeed))
 	-> forAll (rn1, rn2 | rn1=rn2 or (rn1.linkToRessource.name <> rn2.linkToRessource.name or rn1.linkToWorkDefinition.name <> rn2.linkToWorkDefinition.name))
 	
 	
-context simplepdl!simplepdl.Ressource
+context simplepdl.Ressource
 inv quantitePositive:
 	self.amount >= 0
 inv nomPasCourt:
@@ -51,6 +51,6 @@ inv nomValide:
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 	
 	
-context simplepdl!simplepdl.RessourceNeed
+context simplepdl.RessourceNeed
 inv quantiteStrictPositive:
 	self.need > 0

@@ -243,7 +243,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OclModelElementClass" eSuperTypes="#//OclTypeLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Import"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MapType" eSuperTypes="#//OclTypeLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="keyType" eType="#//OclTypeLiteral"
