@@ -21,7 +21,7 @@ public class OperationResolutionUtils {
 		if (sourceTypeCall == null || sourceTypeImpl == null) {
 			if (!(sourceTypeCall == null && sourceTypeImpl == null)) return false;
 		}
-		if (operationNameCall.equals(OperationNameImpl) && (sourceTypeCall == null && sourceTypeImpl == null || sourceTypeCall.conformsTo(sourceTypeImpl))) {
+		if (operationNameCall.equals(operationNameImpl) && (sourceTypeCall == null && sourceTypeImpl == null || sourceTypeCall.conformsTo(sourceTypeImpl))) {
 			boolean isArgsOK = argsTypeCall.size() == argsTypeImpl.size();
 			int i = 0;
 			while (isArgsOK && i < argsTypeCall.size()) {
