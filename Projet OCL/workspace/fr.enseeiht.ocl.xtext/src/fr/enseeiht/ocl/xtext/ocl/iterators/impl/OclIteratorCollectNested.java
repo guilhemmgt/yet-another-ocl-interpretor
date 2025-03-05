@@ -1,6 +1,5 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -15,6 +14,7 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
 
 public class OclIteratorCollectNested implements OclIterator {
 
@@ -31,17 +31,11 @@ public class OclIteratorCollectNested implements OclIterator {
 		};
 
 		// Récupère la valeur initiale du 'result' du 'iterate': une collection vide du type de 'source'
-		Constructor<?> parameterlessConstructor = null;
-		for (Constructor<?> c : source.getClass().getConstructors()) {
-			if (c.getParameterCount() == 0) {
-				parameterlessConstructor = c;
-				break;
-			}
-		}
 		Object resultInitValue = null;
 		try {
-			resultInitValue = parameterlessConstructor.newInstance();
-		} catch (Exception e) {
+			resultInitValue = ConstructorInstanciator.instantiateParameterlessConstructor(source.getClass());
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException e) {
 			e.printStackTrace();
 		}
 
