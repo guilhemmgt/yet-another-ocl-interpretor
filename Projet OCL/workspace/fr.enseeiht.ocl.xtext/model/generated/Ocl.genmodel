@@ -195,7 +195,7 @@
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OclModelElementClass">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElementClass/model"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclModelElementClass/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclModelElementClass/name"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//MapType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//MapType/keyType"/>

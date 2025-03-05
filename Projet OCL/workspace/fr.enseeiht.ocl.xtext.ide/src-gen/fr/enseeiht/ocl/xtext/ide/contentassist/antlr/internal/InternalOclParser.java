@@ -35155,21 +35155,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__NameAssignment_2"
-    // InternalOcl.g:11783:1: rule__OclModelElementClass__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalOcl.g:11783:1: rule__OclModelElementClass__NameAssignment_2 : ( ( RULE_ID ) ) ;
     public final void rule__OclModelElementClass__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11787:1: ( ( RULE_ID ) )
-            // InternalOcl.g:11788:2: ( RULE_ID )
+            // InternalOcl.g:11787:1: ( ( ( RULE_ID ) ) )
+            // InternalOcl.g:11788:2: ( ( RULE_ID ) )
             {
-            // InternalOcl.g:11788:2: ( RULE_ID )
-            // InternalOcl.g:11789:3: RULE_ID
+            // InternalOcl.g:11788:2: ( ( RULE_ID ) )
+            // InternalOcl.g:11789:3: ( RULE_ID )
             {
-             before(grammarAccess.getOclModelElementClassAccess().getNameIDTerminalRuleCall_2_0()); 
+             before(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0()); 
+            // InternalOcl.g:11790:3: ( RULE_ID )
+            // InternalOcl.g:11791:4: RULE_ID
+            {
+             before(grammarAccess.getOclModelElementClassAccess().getNameEClassIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getOclModelElementClassAccess().getNameIDTerminalRuleCall_2_0()); 
+             after(grammarAccess.getOclModelElementClassAccess().getNameEClassIDTerminalRuleCall_2_0_1()); 
+
+            }
+
+             after(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0()); 
 
             }
 
@@ -35192,17 +35200,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__KeyTypeAssignment_2"
-    // InternalOcl.g:11798:1: rule__MapType__KeyTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11802:1: rule__MapType__KeyTypeAssignment_2 : ( ruleOclTypeLiteral ) ;
     public final void rule__MapType__KeyTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11802:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11803:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11806:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11807:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11803:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11804:3: ruleOclTypeLiteral
+            // InternalOcl.g:11807:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11808:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getMapTypeAccess().getKeyTypeOclTypeLiteralParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -35233,17 +35241,17 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapType__ValueTypeAssignment_4"
-    // InternalOcl.g:11813:1: rule__MapType__ValueTypeAssignment_4 : ( ruleOclTypeLiteral ) ;
+    // InternalOcl.g:11817:1: rule__MapType__ValueTypeAssignment_4 : ( ruleOclTypeLiteral ) ;
     public final void rule__MapType__ValueTypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11817:1: ( ( ruleOclTypeLiteral ) )
-            // InternalOcl.g:11818:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11821:1: ( ( ruleOclTypeLiteral ) )
+            // InternalOcl.g:11822:2: ( ruleOclTypeLiteral )
             {
-            // InternalOcl.g:11818:2: ( ruleOclTypeLiteral )
-            // InternalOcl.g:11819:3: ruleOclTypeLiteral
+            // InternalOcl.g:11822:2: ( ruleOclTypeLiteral )
+            // InternalOcl.g:11823:3: ruleOclTypeLiteral
             {
              before(grammarAccess.getMapTypeAccess().getValueTypeOclTypeLiteralParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);

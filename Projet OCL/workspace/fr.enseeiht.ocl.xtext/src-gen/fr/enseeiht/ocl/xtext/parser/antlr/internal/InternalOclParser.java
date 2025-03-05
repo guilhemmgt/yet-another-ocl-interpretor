@@ -11944,23 +11944,23 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOclModelElementClass"
-    // InternalOcl.g:4600:1: ruleOclModelElementClass returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // InternalOcl.g:4600:1: ruleOclModelElementClass returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (otherlv_2= RULE_ID ) ) ) ;
     public final EObject ruleOclModelElementClass() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
-        Token lv_name_2_0=null;
+        Token otherlv_2=null;
 
 
         	enterRule();
 
         try {
-            // InternalOcl.g:4606:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // InternalOcl.g:4607:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (lv_name_2_0= RULE_ID ) ) )
+            // InternalOcl.g:4606:2: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (otherlv_2= RULE_ID ) ) ) )
+            // InternalOcl.g:4607:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (otherlv_2= RULE_ID ) ) )
             {
-            // InternalOcl.g:4607:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (lv_name_2_0= RULE_ID ) ) )
-            // InternalOcl.g:4608:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (lv_name_2_0= RULE_ID ) )
+            // InternalOcl.g:4607:2: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (otherlv_2= RULE_ID ) ) )
+            // InternalOcl.g:4608:3: ( (otherlv_0= RULE_ID ) ) otherlv_1= '!' ( (otherlv_2= RULE_ID ) )
             {
             // InternalOcl.g:4608:3: ( (otherlv_0= RULE_ID ) )
             // InternalOcl.g:4609:4: (otherlv_0= RULE_ID )
@@ -11987,25 +11987,20 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getOclModelElementClassAccess().getExclamationMarkKeyword_1());
             		
-            // InternalOcl.g:4625:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalOcl.g:4626:4: (lv_name_2_0= RULE_ID )
+            // InternalOcl.g:4625:3: ( (otherlv_2= RULE_ID ) )
+            // InternalOcl.g:4626:4: (otherlv_2= RULE_ID )
             {
-            // InternalOcl.g:4626:4: (lv_name_2_0= RULE_ID )
-            // InternalOcl.g:4627:5: lv_name_2_0= RULE_ID
+            // InternalOcl.g:4626:4: (otherlv_2= RULE_ID )
+            // InternalOcl.g:4627:5: otherlv_2= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_2); 
-
-            					newLeafNode(lv_name_2_0, grammarAccess.getOclModelElementClassAccess().getNameIDTerminalRuleCall_2_0());
-            				
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getOclModelElementClassRule());
             					}
-            					setWithLastConsumed(
-            						current,
-            						"name",
-            						lv_name_2_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+            					newLeafNode(otherlv_2, grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0());
             				
 
             }
@@ -12036,7 +12031,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMapType"
-    // InternalOcl.g:4647:1: entryRuleMapType returns [EObject current=null] : iv_ruleMapType= ruleMapType EOF ;
+    // InternalOcl.g:4642:1: entryRuleMapType returns [EObject current=null] : iv_ruleMapType= ruleMapType EOF ;
     public final EObject entryRuleMapType() throws RecognitionException {
         EObject current = null;
 
@@ -12044,8 +12039,8 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOcl.g:4647:48: (iv_ruleMapType= ruleMapType EOF )
-            // InternalOcl.g:4648:2: iv_ruleMapType= ruleMapType EOF
+            // InternalOcl.g:4642:48: (iv_ruleMapType= ruleMapType EOF )
+            // InternalOcl.g:4643:2: iv_ruleMapType= ruleMapType EOF
             {
              newCompositeNode(grammarAccess.getMapTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -12072,7 +12067,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMapType"
-    // InternalOcl.g:4654:1: ruleMapType returns [EObject current=null] : (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' ) ;
+    // InternalOcl.g:4649:1: ruleMapType returns [EObject current=null] : (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' ) ;
     public final EObject ruleMapType() throws RecognitionException {
         EObject current = null;
 
@@ -12089,11 +12084,11 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOcl.g:4660:2: ( (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' ) )
-            // InternalOcl.g:4661:2: (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' )
+            // InternalOcl.g:4655:2: ( (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' ) )
+            // InternalOcl.g:4656:2: (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' )
             {
-            // InternalOcl.g:4661:2: (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' )
-            // InternalOcl.g:4662:3: otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')'
+            // InternalOcl.g:4656:2: (otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')' )
+            // InternalOcl.g:4657:3: otherlv_0= 'Map' otherlv_1= '(' ( (lv_keyType_2_0= ruleOclTypeLiteral ) ) otherlv_3= ',' ( (lv_valueType_4_0= ruleOclTypeLiteral ) ) otherlv_5= ')'
             {
             otherlv_0=(Token)match(input,48,FOLLOW_16); 
 
@@ -12103,11 +12098,11 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getMapTypeAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalOcl.g:4670:3: ( (lv_keyType_2_0= ruleOclTypeLiteral ) )
-            // InternalOcl.g:4671:4: (lv_keyType_2_0= ruleOclTypeLiteral )
+            // InternalOcl.g:4665:3: ( (lv_keyType_2_0= ruleOclTypeLiteral ) )
+            // InternalOcl.g:4666:4: (lv_keyType_2_0= ruleOclTypeLiteral )
             {
-            // InternalOcl.g:4671:4: (lv_keyType_2_0= ruleOclTypeLiteral )
-            // InternalOcl.g:4672:5: lv_keyType_2_0= ruleOclTypeLiteral
+            // InternalOcl.g:4666:4: (lv_keyType_2_0= ruleOclTypeLiteral )
+            // InternalOcl.g:4667:5: lv_keyType_2_0= ruleOclTypeLiteral
             {
 
             					newCompositeNode(grammarAccess.getMapTypeAccess().getKeyTypeOclTypeLiteralParserRuleCall_2_0());
@@ -12138,11 +12133,11 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getMapTypeAccess().getCommaKeyword_3());
             		
-            // InternalOcl.g:4693:3: ( (lv_valueType_4_0= ruleOclTypeLiteral ) )
-            // InternalOcl.g:4694:4: (lv_valueType_4_0= ruleOclTypeLiteral )
+            // InternalOcl.g:4688:3: ( (lv_valueType_4_0= ruleOclTypeLiteral ) )
+            // InternalOcl.g:4689:4: (lv_valueType_4_0= ruleOclTypeLiteral )
             {
-            // InternalOcl.g:4694:4: (lv_valueType_4_0= ruleOclTypeLiteral )
-            // InternalOcl.g:4695:5: lv_valueType_4_0= ruleOclTypeLiteral
+            // InternalOcl.g:4689:4: (lv_valueType_4_0= ruleOclTypeLiteral )
+            // InternalOcl.g:4690:5: lv_valueType_4_0= ruleOclTypeLiteral
             {
 
             					newCompositeNode(grammarAccess.getMapTypeAccess().getValueTypeOclTypeLiteralParserRuleCall_4_0());
@@ -12196,7 +12191,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // InternalOcl.g:4720:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // InternalOcl.g:4715:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -12204,8 +12199,8 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOcl.g:4720:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalOcl.g:4721:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // InternalOcl.g:4715:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // InternalOcl.g:4716:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
             pushFollow(FOLLOW_1);
@@ -12232,7 +12227,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // InternalOcl.g:4727:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // InternalOcl.g:4722:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -12244,11 +12239,11 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOcl.g:4733:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalOcl.g:4734:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalOcl.g:4728:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // InternalOcl.g:4729:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // InternalOcl.g:4734:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalOcl.g:4735:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // InternalOcl.g:4729:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalOcl.g:4730:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
             this_ID_0=(Token)match(input,RULE_ID,FOLLOW_46); 
 
@@ -12257,7 +12252,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
             		
-            // InternalOcl.g:4742:3: (kw= '.' this_ID_2= RULE_ID )*
+            // InternalOcl.g:4737:3: (kw= '.' this_ID_2= RULE_ID )*
             loop58:
             do {
                 int alt58=2;
@@ -12270,7 +12265,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
 
                 switch (alt58) {
             	case 1 :
-            	    // InternalOcl.g:4743:4: kw= '.' this_ID_2= RULE_ID
+            	    // InternalOcl.g:4738:4: kw= '.' this_ID_2= RULE_ID
             	    {
             	    kw=(Token)match(input,58,FOLLOW_8); 
 
