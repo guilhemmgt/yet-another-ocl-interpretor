@@ -9,14 +9,13 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.validation.OperationInvalidArgumentsError;
 import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
-import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.OclType;
 /**
@@ -67,7 +66,7 @@ public final class ContextlessCallExpValidationAdapter implements OCLAdapter {
 		}
 	}
 	// Méthodes système
-	List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+	List<IOclOperation> operations = OclOperationEnum.getOperations(this.target.getOperationName());
 	if (operations != null) {
 		for (IOclOperation operation : operations) {
 			// Type check the call!

@@ -2,11 +2,12 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.scope.Scoper;
+import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.ocl.adapter.CouldNotResolveInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -33,7 +34,7 @@ public final class VariableExpValidationAdapter implements OCLAdapter {
    */
   public Object getValue(EObject contextTarget) {
 	  if (!Scoper.contains(this.target.getReferredVariable())) {
-		  // TODO return new Invalid
+		  return new CouldNotResolveInvalid(this.target);
 	  }
 	  return Scoper.get(this.target.getReferredVariable());
   }
@@ -44,6 +45,9 @@ public final class VariableExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
+	  if (this.target.getReferredVariable() instanceof Iterator) {
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReferredVariable()).getType();
+	  }
     return ((OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReferredVariable()).getType()).getRepresentedType();
   }
 

@@ -4,10 +4,10 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclSequence;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.SequenceLiteralExp;
@@ -38,7 +38,10 @@ public final class SequenceLiteralExpValidationAdapter implements OCLAdapter {
 	  EList<OclExpression> elts = this.target.getElements();
 	  ArrayList<Object> sequence = new ArrayList<>();
 	  for(OclExpression e : elts) {
-		  sequence.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
+		  Object eValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget);
+		  if (eValue instanceof Invalid)
+			  return eValue;
+		  sequence.add(eValue);
 	  }
 	  return sequence;
   }

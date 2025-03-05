@@ -3,7 +3,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -69,14 +68,18 @@ public final class MulOpCallExpValidationAdapter implements OCLAdapter {
 			// Traitement des opérations
 			switch (this.target.getOperationNames().get(i)) {
 			case "*":
-				result = (result instanceof Integer ? (Integer) result : (Double) result)
-						* (right instanceof Integer ? (Integer) right : (Double) right);
+				if ((Number)result instanceof Integer && (Number)right instanceof Integer)
+					result = ((Number)result).intValue() * ((Number)right).intValue();
+				else
+					result = ((Number)result).doubleValue() * ((Number)right).doubleValue();
 				break;
 			case "/":
-				if ((right instanceof Integer ? (Integer) right : (Double) right) == 0) // Pas de division par zéro
+				if ((right instanceof Integer && (Integer)right == 0) || (right instanceof Double && (Double)right == 0.0)) // Pas de division par zéro
 					return new DivisionByZeroInvalid(this.target.getArgs().get(i + 1));
-				result = (result instanceof Integer ? (Integer) result : (Double) result)
-						/ (right instanceof Integer ? (Integer) right : (Double) right);
+				if ((Number)result instanceof Integer && (Number)right instanceof Integer)
+					result = ((Number)result).intValue() / ((Number)right).intValue();
+				else
+					result = ((Number)result).doubleValue() / ((Number)right).doubleValue();
 				break;
 			default:
 				throw new UnsupportedFeatureException(this.target.getOperationNames().get(i));

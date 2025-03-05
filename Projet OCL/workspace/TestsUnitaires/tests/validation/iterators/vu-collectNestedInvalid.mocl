@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv collectNested1: 
+	Bag{1,2,3,4/0,5}->collectNested(n | 0) = Bag{0,0,0,0,0}

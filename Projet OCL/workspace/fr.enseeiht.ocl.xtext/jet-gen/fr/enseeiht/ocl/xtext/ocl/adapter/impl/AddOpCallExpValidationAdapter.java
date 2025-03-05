@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
@@ -66,8 +65,10 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 			switch (this.target.getOperationNames().get(i)) {
 			case "+":
 				if (result instanceof Number && right instanceof Number) {
-					result = (result instanceof Integer ? (Integer) result : (Double) result)
-							+ (right instanceof Integer ? (Integer) right : (Double) right);
+					if ((Number)result instanceof Integer && (Number)right instanceof Integer)
+						result = ((Number)result).intValue() + ((Number)right).intValue();
+					else
+						result = ((Number)result).doubleValue() + ((Number)right).doubleValue();
 					break;
 				} else if (result instanceof String && right instanceof String) {
 					result = ((String) result).concat((String) right);
@@ -78,8 +79,10 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 				}
 			case "-":
 				if (result instanceof Number && right instanceof Number) {
-					result = (result instanceof Integer ? (Integer) result : (Double) result)
-							- (right instanceof Integer ? (Integer) right : (Double) right);
+					if ((Number)result instanceof Integer && (Number)right instanceof Integer)
+						result = ((Number)result).intValue() - ((Number)right).intValue();
+					else
+						result = ((Number)result).doubleValue() - ((Number)right).doubleValue();
 					break;
 				} else {
 					throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i),
