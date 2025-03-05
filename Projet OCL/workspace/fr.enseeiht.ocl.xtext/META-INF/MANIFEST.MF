@@ -54,6 +54,7 @@ Export-Package: fr.enseeiht.ocl.xtext;uses:="com.google.inject,org.eclipse.xtext
    org.eclipse.emf.common.util,
    org.eclipse.emf.common.notify,
    fr.enseeiht.ocl.xtext.ocl",
+ fr.enseeiht.ocl.xtext.ocl.operation,
  fr.enseeiht.ocl.xtext.ocl.util;
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.common.notify,
