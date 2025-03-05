@@ -10,6 +10,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="jet-gen"/>
-	<classpathentry kind="lib" path="/home/psomson/Documents/org.apache.commons.collections_3.2.2.v201511171945.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
