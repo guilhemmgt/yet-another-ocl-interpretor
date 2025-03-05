@@ -14,6 +14,7 @@ import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
@@ -58,7 +59,10 @@ public Object getValue(EObject contextTarget) {
 		if (sourceValue == null) {
 			return new UndefinedAccessInvalid(sourceObject);
 		}
-
+		if (sourceValue instanceof Invalid) {
+			return sourceValue;
+		}
+		
 		Collection<Object> source = (Collection<Object>) sourceValue;
 		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
 		return iterator.getReturnValue(source, this.target, contextTarget);

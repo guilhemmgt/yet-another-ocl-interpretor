@@ -9,6 +9,7 @@ import org.apache.commons.collections.bag.HashBag;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBag;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.BagLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
@@ -39,7 +40,10 @@ public final class BagLiteralExpValidationAdapter implements OCLAdapter {
 	  EList<OclExpression> elts = this.target.getElements();
 	  HashBag bag = new HashBag();
 	  for(OclExpression e : elts) {
-		  bag.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
+		  Object eValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget);
+		  if (eValue instanceof Invalid)
+			  return eValue;
+		  bag.add(eValue);
 	  }
 	  return bag;
  }
