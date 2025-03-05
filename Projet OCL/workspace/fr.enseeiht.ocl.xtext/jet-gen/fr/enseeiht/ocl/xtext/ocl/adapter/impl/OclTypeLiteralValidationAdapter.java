@@ -67,7 +67,7 @@ public final class OclTypeLiteralValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-         public OclType getOclType() {
+          public OclType getOclType() {
 	return null;
   }
  }

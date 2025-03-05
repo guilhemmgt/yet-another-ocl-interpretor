@@ -2084,7 +2084,7 @@ public interface OclPackage extends EPackage
   int OCL_MODEL_ELEMENT_CLASS__MODEL = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3649,15 +3649,15 @@ public interface OclPackage extends EPackage
   EReference getOclModelElementClass_Model();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName()
    * @see #getOclModelElementClass()
    * @generated
    */
-  EAttribute getOclModelElementClass_Name();
+  EReference getOclModelElementClass_Name();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.MapType <em>Map Type</em>}'.
@@ -4987,12 +4987,12 @@ public interface OclPackage extends EPackage
     EReference OCL_MODEL_ELEMENT_CLASS__MODEL = eINSTANCE.getOclModelElementClass_Model();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OCL_MODEL_ELEMENT_CLASS__NAME = eINSTANCE.getOclModelElementClass_Name();
+    EReference OCL_MODEL_ELEMENT_CLASS__NAME = eINSTANCE.getOclModelElementClass_Name();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.MapTypeImpl <em>Map Type</em>}' class.
