@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
@@ -59,7 +60,10 @@ public class OclIterate {
 			}
 			// Calcul de 'body' et actualisation de 'result'
 			Object bodyValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.body).getValue(contextTarget);
-			resultValue = this.op.apply(resultValue, bodyValue, comb);
+			if (bodyValue instanceof Invalid || resultValue instanceof Invalid)
+				resultValue = resultValue instanceof Invalid ? resultValue : bodyValue;
+			else
+				resultValue = this.op.apply(resultValue, bodyValue, comb);
 			if (this.result != null)
 				Scoper.update(result, resultValue);
 			// Désenregistrement des variables du scope

@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv select1: 
+	Bag{1,2,3,4/0,5}->iterate(n; result:Boolean=true | true) = true

@@ -1,11 +1,18 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
+import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
@@ -50,19 +57,83 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 		if (sourceValue == null) {
 			return new UndefinedAccessInvalid(sourceObject);
 		}
+		if (sourceValue instanceof Invalid) {
+			return sourceValue;
+		}
 		
 		Collection<Object> source = (Collection<Object>) sourceValue;
 		return new OclIterate(source, this.target.getBody(), this.target.getIterators(), contextTarget, this.target.getResult()).getReturnValue();
 	}
 
-  /**
-   * Get the type of the element
-   * @return type of the element
-   * @generated
-   */
-  public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
-  }
+	/**
+	 * Get the type of the element
+	 * 
+	 * @return type of the element
+	 * @generated NOT
+	 */
+	public OclType getType() {
+		// Récupération de la source
+		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
+		int pos = container.getCalls().indexOf(this.target);
+		EObject sourceObject = null;
+		if (pos == 0) {
+			// root call
+			sourceObject = container.getSource();
+		} else {
+			sourceObject = container.getCalls().get(pos - 1);
+		}
+
+		// Vérifier le type de la cible
+		OclType sourceType = OCLValidationAdapterFactory.INSTANCE.createAdapter(sourceObject).getType();
+		if (sourceType instanceof OclInvalid) {
+			return sourceType;
+		}
+
+		if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
+			OclCollection collectType = (OclCollection) sourceType;
+			List<OclInvalid> errors = new ArrayList<OclInvalid>();
+			for (Iterator i : this.target.getIterators()) {
+				// Checks type of each iterator
+				OclType iteratorType = OCLValidationAdapterFactory.INSTANCE.createAdapter(i).getType();
+				if (iteratorType instanceof OclInvalid error) {
+					errors.add(error);
+				} else if (!iteratorType.conformsTo(collectType.getSubtype())) {
+					errors.add(new OclInvalid(i, "Type mismatch error : expected iterator of type "
+							+ collectType.getSubtype() + " but got " + iteratorType + " instead."));
+				}
+			}
+
+			OclType resultType = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getResult()).getType();
+			if (resultType instanceof OclInvalid error) {
+				errors.add(error);
+			} else if (resultType instanceof OclClassifier resultClassifier) {
+				OclType resultVarType = resultClassifier.getRepresentedType();
+				OclType bodyType = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody()).getType();
+				if (bodyType instanceof OclInvalid error) {
+					errors.add(error);
+				}
+
+				if (!bodyType.conformsTo(resultVarType)) {
+					errors.add(new OclInvalid(this.target, "Type mismatch error : expected expression of type "
+							+ resultType + " but got " + bodyType + " instead."));
+				}
+				// Get effective type for later use
+				resultType = resultVarType;
+			}
+
+			// If anything failed return combination of all
+			if (!errors.isEmpty()) {
+				OclInvalid[] errorsArray = new OclInvalid[errors.size()];
+				for (int i = 0; i < errors.size(); i++)
+					errorsArray[i] = errors.get(i);
+				return new OclInvalid(errorsArray);
+			}
+			return resultType;
+		} else {
+			return new OclInvalid(this.target,
+					"Type Mismatch error : expected collection but got " + sourceType + " instead.");
+		}
+	}
 
   /**
    * @generated NOT

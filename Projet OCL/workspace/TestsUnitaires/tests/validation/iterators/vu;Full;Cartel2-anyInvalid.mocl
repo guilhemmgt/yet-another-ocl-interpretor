@@ -1,6 +1,0 @@
-import "http://container" as container
-
-context container!Container.Objet
-
-inv any1:
-	self.objet->any(o | o.nom = "azertyuio").nom = "azertyuio"

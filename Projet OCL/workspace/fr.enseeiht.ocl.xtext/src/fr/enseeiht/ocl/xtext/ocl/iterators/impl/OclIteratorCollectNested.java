@@ -1,38 +1,34 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 
-public class OclIteratorSelect implements OclIterator {
+public class OclIteratorCollectNested implements OclIterator {
 
 	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
-		// source->select(iterator | body) =
-		// 		source->iterate(iterator; result : Set(T) = Set{} |
-		//			if body then result->including(iterator)
-		//			else result
-		//			endif)
+		// source->collectNested(iterator | body) =
+		// 		source->iterate(iterator; result : Sequence(body.type) = Sequence{} |
+		//			result->append(body ) )
 		
 		// 'body' de 'iterate'
 		@SuppressWarnings("unchecked")
 		IOclIterateBody newOp = (r, b, i) -> {
-			if ((Boolean)op.apply(b, i)) {
-				((Collection<Object>)r).add(i.get(0));
-				return r;
-			} else {
-				return r;
-			}
+			((Collection<Object>)r).add(b);
+			return r;
 		};
 
 		// Récupère la valeur initiale du 'result' du 'iterate': une collection vide du type de 'source'
@@ -56,7 +52,17 @@ public class OclIteratorSelect implements OclIterator {
 	}
 
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
-		return sourceType;
+		if (sourceType instanceof OclCollection collectType) {
+			try {
+				return collectType.getClass().getConstructor(OclType.class).newInstance(bodyType);
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+				e.printStackTrace();
+				return new OclInvalid();
+			}
+		} else {
+			return new OclInvalid();
+		}
 	}
 
 	public OclCollection getSourceType() {
@@ -64,7 +70,7 @@ public class OclIteratorSelect implements OclIterator {
 	}
 
 	public OclType getBodyType() {
-		return new OclBoolean();
+		return new OclAny();
 	}
 
 	public int getMinIteratorAmount() {
@@ -76,6 +82,6 @@ public class OclIteratorSelect implements OclIterator {
 	}
 
 	public String getName() {
-		return "select";
+		return "collectNested";
 	}
 }

@@ -7,6 +7,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclOrderedSet;
 import fr.enseeiht.ocl.xtext.utils.SetUniqueArrayList;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OrderedSetLiteralExp;
@@ -37,7 +38,10 @@ public final class OrderedSetLiteralExpValidationAdapter implements OCLAdapter {
 	  EList<OclExpression> elts = this.target.getElements();
 	  SetUniqueArrayList orderedSet = new SetUniqueArrayList();
 	  for(OclExpression e : elts) {
-		  orderedSet.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget));
+		  Object eValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(e).getValue(contextTarget);
+		  if (eValue instanceof Invalid)
+			  return eValue;
+		  orderedSet.add(eValue);
 	  }
 	  return orderedSet;
   }

@@ -10,12 +10,16 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
+import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
@@ -55,6 +59,9 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos - 1));
 		}
 		Object sourceValue = source.getValue(contextTarget);
+		if (sourceValue instanceof Invalid) {
+			return sourceValue;
+		}
 		if (sourceValue != null) {
 			// Récupération des méthodes définies par l'utilisateur
 			// TODO : FAIRE
@@ -73,7 +80,12 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 //				}
 //			}
 			// Récupération des méthodes système
-			List<IOclOperation> operations = OclOperationFactory.getOperations(this.target.getOperationName());
+			List<IOclOperation> operations = null;
+			try { 
+				operations = OclOperationEnum.getOperations(this.target.getOperationName());
+			} catch (IllegalArgumentException e) {
+				return new UnsupportedFeatureException(this.target.getOperationName());
+			}
 			
 			// Get args Type
 			List<OclType> paramTypes = new ArrayList<OclType>();
@@ -97,7 +109,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 					}
 				}
 			}
-
+			System.out.println(this.target.getOperationName());
 			return new InvalidCall(this.target.getOperationName());
 		} else {
 			return new UndefinedAccessInvalid(source.getElement());
@@ -122,8 +134,20 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
 	}
 	OclType sourceType = source.getType();
+	if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
+		return new OclInvalid(this.target,"Type mismatch error : the navigation operator \".\" does not support navigation on collection, use \"->\" instead");
+	}
 	if (!sourceType.conformsTo(new OclInvalid())) {
-		// Typage des arguments
+		// Méthodes utilisateur
+		
+		// Méthodes système
+		List<IOclOperation> operations = null;
+		try { 
+			operations = OclOperationEnum.getOperations(this.target.getOperationName());
+		} catch (IllegalArgumentException e) {
+			return new OclInvalid(this.target, "The method " + this.target.getOperationName() + " does not exists");
+		}
+		
 		List<OclType> paramTypes = new ArrayList<OclType>();
 		for (OclExpression param : this.target.getArguments()) {
 			paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
