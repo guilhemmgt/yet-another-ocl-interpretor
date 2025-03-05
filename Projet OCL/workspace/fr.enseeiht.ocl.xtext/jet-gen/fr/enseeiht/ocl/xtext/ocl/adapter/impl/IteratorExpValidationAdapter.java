@@ -6,12 +6,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorFactory;
 import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
@@ -73,7 +71,7 @@ public Object getValue(EObject contextTarget) {
    * @return type of the element
    * @generated NOT
    */
-  public OclType getType() {
+	public OclType getType() {
 		// Récupération de la source
 		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
@@ -101,7 +99,8 @@ public Object getValue(EObject contextTarget) {
 				if (iteratorType instanceof OclInvalid error) {
 					errors.add(error);
 				} else if (!iteratorType.conformsTo(collectType.getSubtype())) {
-					errors.add(new OclInvalid(i,"Type mismatch error : expected iterator of type " + collectType.getSubtype() + " but got " + iteratorType + " instead."));
+					errors.add(new OclInvalid(i, "Type mismatch error : expected iterator of type "
+							+ collectType.getSubtype() + " but got " + iteratorType + " instead."));
 				}
 			}
 
@@ -131,7 +130,7 @@ public Object getValue(EObject contextTarget) {
 			return new OclInvalid(this.target,
 					"Type Mismatch error : expected collection but got " + sourceType + " instead.");
 		}
-  }
+	}
 
   /**
    * @generated NOT

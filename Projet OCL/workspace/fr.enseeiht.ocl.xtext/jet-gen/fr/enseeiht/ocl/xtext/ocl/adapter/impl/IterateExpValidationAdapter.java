@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.types.OclAny;
@@ -83,27 +82,28 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 		} else {
 			sourceObject = container.getCalls().get(pos - 1);
 		}
-		
-		// Vérification du type de la cible
+
+		// Vérifier le type de la cible
 		OclType sourceType = OCLValidationAdapterFactory.INSTANCE.createAdapter(sourceObject).getType();
 		if (sourceType instanceof OclInvalid) {
 			return sourceType;
 		}
-		
+
 		if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
 			OclCollection collectType = (OclCollection) sourceType;
 			List<OclInvalid> errors = new ArrayList<OclInvalid>();
-			for(Iterator i : this.target.getIterators()) {
+			for (Iterator i : this.target.getIterators()) {
 				// Checks type of each iterator
 				OclType iteratorType = OCLValidationAdapterFactory.INSTANCE.createAdapter(i).getType();
 				if (iteratorType instanceof OclInvalid error) {
 					errors.add(error);
 				} else if (!iteratorType.conformsTo(collectType.getSubtype())) {
-					errors.add(new OclInvalid(i,"Type mismatch error : expected iterator of type " + collectType.getSubtype() + " but got " + iteratorType + " instead."));
+					errors.add(new OclInvalid(i, "Type mismatch error : expected iterator of type "
+							+ collectType.getSubtype() + " but got " + iteratorType + " instead."));
 				}
 			}
-			
-			OclType resultType =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getResult()).getType(); 
+
+			OclType resultType = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getResult()).getType();
 			if (resultType instanceof OclInvalid error) {
 				errors.add(error);
 			} else if (resultType instanceof OclClassifier resultClassifier) {
@@ -112,24 +112,26 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 				if (bodyType instanceof OclInvalid error) {
 					errors.add(error);
 				}
-				
+
 				if (!bodyType.conformsTo(resultVarType)) {
-					errors.add(new OclInvalid(this.target, "Type mismatch error : expected expression of type " + resultType + " but got " + bodyType + " instead."));
+					errors.add(new OclInvalid(this.target, "Type mismatch error : expected expression of type "
+							+ resultType + " but got " + bodyType + " instead."));
 				}
 				// Get effective type for later use
 				resultType = resultVarType;
 			}
-			
-			
+
 			// If anything failed return combination of all
-			if(!errors.isEmpty()) {
+			if (!errors.isEmpty()) {
 				OclInvalid[] errorsArray = new OclInvalid[errors.size()];
-				for (int i = 0; i < errors.size(); i++) errorsArray[i] = errors.get(i); 
+				for (int i = 0; i < errors.size(); i++)
+					errorsArray[i] = errors.get(i);
 				return new OclInvalid(errorsArray);
 			}
 			return resultType;
-		} else  {
-			return new OclInvalid(this.target, "Type Mismatch error : expected collection but got " + sourceType + " instead." );
+		} else {
+			return new OclInvalid(this.target,
+					"Type Mismatch error : expected collection but got " + sourceType + " instead.");
 		}
 	}
 

@@ -12,6 +12,7 @@ import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -53,6 +54,9 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 			source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos - 1));
 		}
 		Object sourceValue = source.getValue(contextTarget);
+		if (sourceValue instanceof Invalid) {
+			return sourceValue;
+		}
 		if (sourceValue != null) {
 			// Récupération des méthodes définies par l'utilisateur
 			// TODO : FAIRE
