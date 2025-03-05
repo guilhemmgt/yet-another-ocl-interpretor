@@ -11,6 +11,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
+import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -20,6 +21,8 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
+import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -63,20 +66,28 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		if (sourceValue != null) {
 			// Récupération des méthodes définies par l'utilisateur
 			// TODO : FAIRE
-//			List<OclFeatureDefinition> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getAllDefinition();
-//			for (OclFeatureDefinition def : defs) {
-//				if (def.getFeature() instanceof Operation) {
-//					Operation op = (Operation) def.getFeature();
-//					OperationValidationAdapter opAdapter = ((OperationValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(op));
-//					List<OclType> paramTypes = new ArrayList<OclType>();
-//					for (OclExpression param : this.target.getArguments()) {
-//						paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
-//					}
-//					if (OperationResolutionUtils.isCorrectImplementation(source.getType(), opAdapter.getSourceType(), paramTypes, opAdapter.getArgumentsType(), null, null)) {
-//						System.out.println("Feur");
-//					}
-//				}
-//			}
+			List<OclFeatureDefinition> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getAllDefinition();
+			for (OclFeatureDefinition def : defs) {
+				if (def.getFeature() instanceof Operation) {
+					Operation op = (Operation) def.getFeature();
+					OperationValidationAdapter opAdapter = ((OperationValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(op));
+					List<OclType> paramTypes = new ArrayList<OclType>();
+					for (OclExpression param : this.target.getArguments()) {
+						paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
+					}
+					if (OperationResolutionUtils.isCorrectImplementation(source.getType(), opAdapter.getSourceType(), paramTypes, opAdapter.getArgumentsType(), null, null)) {
+						// Get Values of each parameter
+						for (int i = 0; i<op.getParameters().size();i++) {
+							OCLAdapter paramAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArguments().get(i));
+							Scoper.add(op.getParameters().get(i), paramAdapter.getValue(contextTarget));
+		
+						}
+						
+						// Compute return value 
+						return OCLValidationAdapterFactory.INSTANCE.createAdapter(op.getBody()).getValue(contextTarget);
+					}
+				}
+			}
 			// Récupération des méthodes système
 			List<IOclOperation> operations = null;
 			try { 
@@ -151,7 +162,6 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getDefinitions(this.target.getOperationName(), true);
 		if (!defs.isEmpty()) {
 			for (OclFeatureDefinitionValidationAdapter op: defs) {
-				System.out.println(op);
 				// Type check the call!
 				if (OperationResolutionUtils.isCorrectImplementation(sourceType, op.getSourceType(), paramTypes, op.getArgsType(), this.target.getOperationName(), op.getName())) {
 					return op.getType();

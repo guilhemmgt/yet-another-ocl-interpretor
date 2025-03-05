@@ -1,0 +1,11 @@
+import "http://empty" as empty
+
+def : op1() : Integer = 3
+def : op2(a : Integer) : Integer = a+1
+
+
+context empty!empty.Maybe
+inv contextLessNoParam:
+  op1() = 3
+inv contextLess1Param:
+  op2(2) = 3
