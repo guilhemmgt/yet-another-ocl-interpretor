@@ -2,4 +2,4 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 inv collec:
-  self.subLiar.size() < 6 
+  self.subLiar->size() < 6 

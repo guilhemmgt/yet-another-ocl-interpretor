@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementExpImpl#getModel <em>Model</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementExpImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclModelElementExpImpl#getClass_ <em>Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,24 +41,14 @@ public class OclModelElementExpImpl extends OclExpressionImpl implements OclMode
   protected Import model;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getClass_() <em>Class</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getClass_()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EClass class_;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,9 +122,29 @@ public class OclModelElementExpImpl extends OclExpressionImpl implements OclMode
    * @generated
    */
   @Override
-  public String getName()
+  public EClass getClass_()
   {
-    return name;
+    if (class_ != null && class_.eIsProxy())
+    {
+      InternalEObject oldClass = (InternalEObject)class_;
+      class_ = (EClass)eResolveProxy(oldClass);
+      if (class_ != oldClass)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_MODEL_ELEMENT_EXP__CLASS, oldClass, class_));
+      }
+    }
+    return class_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass basicGetClass()
+  {
+    return class_;
   }
 
   /**
@@ -143,12 +153,12 @@ public class OclModelElementExpImpl extends OclExpressionImpl implements OclMode
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setClass(EClass newClass)
   {
-    String oldName = name;
-    name = newName;
+    EClass oldClass = class_;
+    class_ = newClass;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT_EXP__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT_EXP__CLASS, oldClass, class_));
   }
 
   /**
@@ -164,8 +174,9 @@ public class OclModelElementExpImpl extends OclExpressionImpl implements OclMode
       case OclPackage.OCL_MODEL_ELEMENT_EXP__MODEL:
         if (resolve) return getModel();
         return basicGetModel();
-      case OclPackage.OCL_MODEL_ELEMENT_EXP__NAME:
-        return getName();
+      case OclPackage.OCL_MODEL_ELEMENT_EXP__CLASS:
+        if (resolve) return getClass_();
+        return basicGetClass();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -183,8 +194,8 @@ public class OclModelElementExpImpl extends OclExpressionImpl implements OclMode
       case OclPackage.OCL_MODEL_ELEMENT_EXP__MODEL:
         setModel((Import)newValue);
         return;
-      case OclPackage.OCL_MODEL_ELEMENT_EXP__NAME:
-        setName((String)newValue);
+      case OclPackage.OCL_MODEL_ELEMENT_EXP__CLASS:
+        setClass((EClass)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -203,8 +214,8 @@ public class OclModelElementExpImpl extends OclExpressionImpl implements OclMode
       case OclPackage.OCL_MODEL_ELEMENT_EXP__MODEL:
         setModel((Import)null);
         return;
-      case OclPackage.OCL_MODEL_ELEMENT_EXP__NAME:
-        setName(NAME_EDEFAULT);
+      case OclPackage.OCL_MODEL_ELEMENT_EXP__CLASS:
+        setClass((EClass)null);
         return;
     }
     super.eUnset(featureID);
@@ -222,27 +233,10 @@ public class OclModelElementExpImpl extends OclExpressionImpl implements OclMode
     {
       case OclPackage.OCL_MODEL_ELEMENT_EXP__MODEL:
         return model != null;
-      case OclPackage.OCL_MODEL_ELEMENT_EXP__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OclPackage.OCL_MODEL_ELEMENT_EXP__CLASS:
+        return class_ != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //OclModelElementExpImpl

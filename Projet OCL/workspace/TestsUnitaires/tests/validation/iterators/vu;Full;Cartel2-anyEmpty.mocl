@@ -1,6 +1,0 @@
-import "http://container" as container
-
-context container!container.Object
-
-inv any1:
-	self.objet->any(o | 4 / o.prix = 2).name = "Clément"

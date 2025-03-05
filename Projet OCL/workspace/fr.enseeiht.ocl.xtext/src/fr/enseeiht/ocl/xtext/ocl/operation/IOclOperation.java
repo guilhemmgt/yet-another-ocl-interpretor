@@ -2,20 +2,23 @@ package fr.enseeiht.ocl.xtext.ocl.operation;
 
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
+
 import fr.enseeiht.ocl.xtext.OclType;
 
 public interface IOclOperation {
 
 	/**
-	 * Get return value of the operation
+	 * Get the return value of the operation
 	 * @param source object on which the operation is called
 	 * @param args Argument of the operator
+	 * @param contextTarget TODO
 	 * @return return value
 	 */
-	public Object getReturnValue(Object source, List<Object> args);
+	public Object getReturnValue(Object source, List<Object> args, EObject contextTarget);
 	
 	/**
-	 * Get type returned by the operation, the type may depend on the arguments.
+	 * Get the type returned by the operation, the type may depend on the arguments.
 	 * @param sourceType Type of the object on which the operation is called
 	 * @param argsType Type of arguments
 	 * @return type returned by the operation

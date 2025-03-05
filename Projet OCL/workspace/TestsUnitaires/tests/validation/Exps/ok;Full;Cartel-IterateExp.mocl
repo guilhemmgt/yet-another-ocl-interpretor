@@ -13,3 +13,6 @@ inv iterate_count:
 
 inv iterate_multicount:
 	self.contenu->iterate(sl1, sl2, sl3; result:Integer=0 | result + 1) = 216
+
+inv iterate_call:
+	self.contenu->iterate(sl; result:Boolean=false | result or (sl.nom.substring(1,1)<>"."))

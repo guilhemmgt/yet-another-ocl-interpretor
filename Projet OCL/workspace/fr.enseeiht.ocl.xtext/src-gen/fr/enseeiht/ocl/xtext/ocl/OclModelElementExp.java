@@ -3,6 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ package fr.enseeiht.ocl.xtext.ocl;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getModel <em>Model</em>}</li>
- *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getClass_ <em>Class</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementExp()
@@ -46,25 +47,25 @@ public interface OclModelElementExp extends OclExpression
   void setModel(Import value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Class</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementExp_Name()
+   * @return the value of the '<em>Class</em>' reference.
+   * @see #setClass(EClass)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementExp_Class()
    * @model
    * @generated
    */
-  String getName();
+  EClass getClass_();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementExp#getClass_ <em>Class</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Class</em>' reference.
+   * @see #getClass_()
    * @generated
    */
-  void setName(String value);
+  void setClass(EClass value);
 
 } // OclModelElementExp
