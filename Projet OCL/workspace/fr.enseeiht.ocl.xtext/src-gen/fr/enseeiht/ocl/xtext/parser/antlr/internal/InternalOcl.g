@@ -4629,9 +4629,12 @@ ruleOclModelElementClass returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getOclModelElementClassRule());
 					}
 				}
-				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0());
+					newCompositeNode(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

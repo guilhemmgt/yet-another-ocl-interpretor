@@ -88,3 +88,8 @@ def: defcolluse : Collection(String) = self.defcoll("a", "a", "c")
 
 
 def: deftupleuse : Integer = self.deftuple(1).x
+
+def: defeclassuse : empty!empty.Liar = self
+
+def: defeclassusedeux : String = self.defclassuse.name
+

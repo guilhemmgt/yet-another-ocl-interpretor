@@ -35155,25 +35155,29 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OclModelElementClass__NameAssignment_2"
-    // InternalOcl.g:11783:1: rule__OclModelElementClass__NameAssignment_2 : ( ( RULE_ID ) ) ;
+    // InternalOcl.g:11783:1: rule__OclModelElementClass__NameAssignment_2 : ( ( ruleQualifiedName ) ) ;
     public final void rule__OclModelElementClass__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalOcl.g:11787:1: ( ( ( RULE_ID ) ) )
-            // InternalOcl.g:11788:2: ( ( RULE_ID ) )
+            // InternalOcl.g:11787:1: ( ( ( ruleQualifiedName ) ) )
+            // InternalOcl.g:11788:2: ( ( ruleQualifiedName ) )
             {
-            // InternalOcl.g:11788:2: ( ( RULE_ID ) )
-            // InternalOcl.g:11789:3: ( RULE_ID )
+            // InternalOcl.g:11788:2: ( ( ruleQualifiedName ) )
+            // InternalOcl.g:11789:3: ( ruleQualifiedName )
             {
              before(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0()); 
-            // InternalOcl.g:11790:3: ( RULE_ID )
-            // InternalOcl.g:11791:4: RULE_ID
+            // InternalOcl.g:11790:3: ( ruleQualifiedName )
+            // InternalOcl.g:11791:4: ruleQualifiedName
             {
-             before(grammarAccess.getOclModelElementClassAccess().getNameEClassIDTerminalRuleCall_2_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getOclModelElementClassAccess().getNameEClassIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getOclModelElementClassAccess().getNameEClassQualifiedNameParserRuleCall_2_0_1()); 
+            pushFollow(FOLLOW_2);
+            ruleQualifiedName();
+
+            state._fsp--;
+
+             after(grammarAccess.getOclModelElementClassAccess().getNameEClassQualifiedNameParserRuleCall_2_0_1()); 
 
             }
 

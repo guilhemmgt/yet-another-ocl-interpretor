@@ -2811,12 +2811,12 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cExclamationMarkKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cNameEClassCrossReference_2_0 = (CrossReference)cNameAssignment_2.eContents().get(0);
-		private final RuleCall cNameEClassIDTerminalRuleCall_2_0_1 = (RuleCall)cNameEClassCrossReference_2_0.eContents().get(1);
+		private final RuleCall cNameEClassQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cNameEClassCrossReference_2_0.eContents().get(1);
 		
-		//OclModelElementClass: model=[Import]'!'name=[ecore::EClass];
+		//OclModelElementClass: model=[Import]'!'name=[ecore::EClass|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//model=[Import]'!'name=[ecore::EClass]
+		//model=[Import]'!'name=[ecore::EClass|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//model=[Import]
@@ -2831,14 +2831,14 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'!'
 		public Keyword getExclamationMarkKeyword_1() { return cExclamationMarkKeyword_1; }
 		
-		//name=[ecore::EClass]
+		//name=[ecore::EClass|QualifiedName]
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
-		//[ecore::EClass]
+		//[ecore::EClass|QualifiedName]
 		public CrossReference getNameEClassCrossReference_2_0() { return cNameEClassCrossReference_2_0; }
 		
-		//ID
-		public RuleCall getNameEClassIDTerminalRuleCall_2_0_1() { return cNameEClassIDTerminalRuleCall_2_0_1; }
+		//QualifiedName
+		public RuleCall getNameEClassQualifiedNameParserRuleCall_2_0_1() { return cNameEClassQualifiedNameParserRuleCall_2_0_1; }
 	}
 	public class MapTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.MapType");
@@ -3936,7 +3936,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getTupleTypeAttributeAccess().getRule();
 	}
 	
-	//OclModelElementClass: model=[Import]'!'name=[ecore::EClass];
+	//OclModelElementClass: model=[Import]'!'name=[ecore::EClass|QualifiedName];
 	public OclModelElementClassElements getOclModelElementClassAccess() {
 		return pOclModelElementClass;
 	}
