@@ -11,6 +11,8 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
+import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
@@ -130,6 +132,9 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
 	}
 	OclType sourceType = source.getType();
+	if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
+		return new OclInvalid(this.target,"Type mismatch error : the navigation operator \".\" does not support navigation on collection, use \"->\" instead");
+	}
 	if (!sourceType.conformsTo(new OclInvalid())) {
 		// Méthodes utilisateur
 		

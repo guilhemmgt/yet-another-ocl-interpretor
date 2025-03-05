@@ -106,6 +106,9 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  
 	  if (source != null) {
 		  	EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
+		  	if (feature == null) {
+		  		return new OclInvalid(this.target, "The feature " + this.target.getName() + " does not exist on object " +  source);
+		  	}
 			EClassifier eType = feature.getEType();
 			OclType type; 
 			// Le type est soit une EClass soit un EDataType (String/Int/...) soit un Enum

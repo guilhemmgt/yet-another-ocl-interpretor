@@ -3,8 +3,6 @@ package fr.enseeiht.ocl.xtext.ocl.operation;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.collections.EnumerationUtils;
-
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAbs;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAllInstances;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclBooleanToString;

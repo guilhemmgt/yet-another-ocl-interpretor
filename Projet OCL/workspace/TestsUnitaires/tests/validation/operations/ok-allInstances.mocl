@@ -6,7 +6,7 @@ inv nonNull:
 	
 
 inv hertiage:
-	empty!empty.Liar.allInstances().size() = 2
+	empty!empty.Liar.allInstances()->size() = 2
 
 inv size:
-	empty!empty.SubLiar.allInstances().size() = 1
+	empty!empty.SubLiar.allInstances()->size() = 1
