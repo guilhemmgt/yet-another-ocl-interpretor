@@ -12,6 +12,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
+import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -39,6 +40,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -109,6 +111,9 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case OclPackage.COLLECTION_OPERATION_CALL:
 				sequence_CollectionOperationCall(context, (CollectionOperationCall) semanticObject); 
+				return; 
+			case OclPackage.COLLECTION_TYPE:
+				sequence_CollectionType(context, (CollectionType) semanticObject); 
 				return; 
 			case OclPackage.CONTEXTLESS_CALL_EXP:
 				sequence_ContextlessCallExp(context, (ContextlessCallExp) semanticObject); 
@@ -190,6 +195,9 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case OclPackage.OCL_MODEL_ELEMENT_EXP:
 				sequence_OclModelElementExp(context, (OclModelElementExp) semanticObject); 
+				return; 
+			case OclPackage.OCL_VOID_TYPE:
+				sequence_OclVoidType(context, (OclVoidType) semanticObject); 
 				return; 
 			case OclPackage.OPERATION:
 				sequence_Operation(context, (Operation) semanticObject); 
@@ -280,6 +288,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Attribute returns Attribute
+	 *     Auxiliary returns Attribute
 	 *
 	 * Constraint:
 	 *     (name=ID type=OclTypeLiteral initExpression=OclExpression)
@@ -287,10 +296,10 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ATTRIBUTE__NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ATTRIBUTE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.AUXILIARY__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.AUXILIARY__NAME));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.AUXILIARY__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.AUXILIARY__TYPE));
 			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ATTRIBUTE__INIT_EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ATTRIBUTE__INIT_EXPRESSION));
 		}
@@ -321,7 +330,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     OclTypeLiteral returns BagType
-	 *     CollectionType returns BagType
+	 *     CollectionTypeLiteral returns BagType
 	 *     BagType returns BagType
 	 *
 	 * Constraint:
@@ -330,8 +339,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_BagType(ISerializationContext context, BagType semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBagTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
@@ -409,6 +418,28 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     OclTypeLiteral returns CollectionType
+	 *     CollectionTypeLiteral returns CollectionType
+	 *     CollectionType returns CollectionType
+	 *
+	 * Constraint:
+	 *     elementType=OclTypeLiteral
+	 * </pre>
+	 */
+	protected void sequence_CollectionType(ISerializationContext context, CollectionType semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCollectionTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Primary_OclExpression returns ContextlessCallExp
 	 *     ContextlessCallExp returns ContextlessCallExp
 	 *
@@ -428,11 +459,23 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EnumLiteralExp returns EnumLiteralExp
 	 *
 	 * Constraint:
-	 *     (name=STRING | name=ID)
+	 *     (ecoreTypes=[Import|ID] enum_=[EEnum|QualifiedName] name=ID)
 	 * </pre>
 	 */
 	protected void sequence_EnumLiteralExp(ISerializationContext context, EnumLiteralExp semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__ECORE_TYPES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__ECORE_TYPES));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__ENUM_) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__ENUM_));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.ENUM_LITERAL_EXP__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEnumLiteralExpAccess().getEcoreTypesImportIDTerminalRuleCall_0_0_1(), semanticObject.eGet(OclPackage.Literals.ENUM_LITERAL_EXP__ECORE_TYPES, false));
+		feeder.accept(grammarAccess.getEnumLiteralExpAccess().getEnum_EEnumQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(OclPackage.Literals.ENUM_LITERAL_EXP__ENUM_, false));
+		feeder.accept(grammarAccess.getEnumLiteralExpAccess().getNameIDTerminalRuleCall_4_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -734,11 +777,17 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     NavigationOrAttributeCall returns NavigationOrAttributeCall
 	 *
 	 * Constraint:
-	 *     (name=STRING | name=ID)
+	 *     name=ID
 	 * </pre>
 	 */
 	protected void sequence_NavigationOrAttributeCall(ISerializationContext context, NavigationOrAttributeCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.NAVIGATION_OR_ATTRIBUTE_CALL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.NAVIGATION_OR_ATTRIBUTE_CALL__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNavigationOrAttributeCallAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -897,6 +946,21 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     OclTypeLiteral returns OclVoidType
+	 *     OclVoidType returns OclVoidType
+	 *
+	 * Constraint:
+	 *     {OclVoidType}
+	 * </pre>
+	 */
+	protected void sequence_OclVoidType(ISerializationContext context, OclVoidType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     PropertyCall returns OperationCall
 	 *     OperationCall returns OperationCall
 	 *
@@ -957,7 +1021,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     OclTypeLiteral returns OrderedSetType
-	 *     CollectionType returns OrderedSetType
+	 *     CollectionTypeLiteral returns OrderedSetType
 	 *     OrderedSetType returns OrderedSetType
 	 *
 	 * Constraint:
@@ -966,8 +1030,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_OrderedSetType(ISerializationContext context, OrderedSetType semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOrderedSetTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
@@ -1101,7 +1165,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     OclTypeLiteral returns SequenceType
-	 *     CollectionType returns SequenceType
+	 *     CollectionTypeLiteral returns SequenceType
 	 *     SequenceType returns SequenceType
 	 *
 	 * Constraint:
@@ -1110,8 +1174,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SequenceType(ISerializationContext context, SequenceType semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSequenceTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
@@ -1138,7 +1202,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     OclTypeLiteral returns SetType
-	 *     CollectionType returns SetType
+	 *     CollectionTypeLiteral returns SetType
 	 *     SetType returns SetType
 	 *
 	 * Constraint:
@@ -1147,8 +1211,8 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_SetType(ISerializationContext context, SetType semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE__ELEMENT_TYPE));
+			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.COLLECTION_TYPE_LITERAL__ELEMENT_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSetTypeAccess().getElementTypeOclTypeLiteralParserRuleCall_2_0(), semanticObject.getElementType());
@@ -1214,7 +1278,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     TuplePart returns TuplePart
 	 *
 	 * Constraint:
-	 *     (varName=STRING type=OclTypeLiteral? initExpression=OclExpression)
+	 *     (varName=ID type=OclTypeLiteral? initExpression=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_TuplePart(ISerializationContext context, TuplePart semanticObject) {

@@ -11,7 +11,7 @@ import fr.enseeiht.ocl.xtext.types.OclBoolean;
 public class OclOclIsUndefined implements IOclOperation {
 
 	@Override
-	public Object getValue(Object source, List<Object> args) {
+	public Object getReturnValue(Object source, List<Object> args) {
 		// TODO : Completer avec le ocl invalid
 		return source == null /*|| source == OclInvalid.instance*/;
 	}

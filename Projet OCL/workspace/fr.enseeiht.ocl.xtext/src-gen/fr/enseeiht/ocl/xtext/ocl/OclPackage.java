@@ -215,6 +215,43 @@ public interface OclPackage extends EPackage
   int OCL_FEATURE_DEFINITION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl <em>Auxiliary</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getAuxiliary()
+   * @generated
+   */
+  int AUXILIARY = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AUXILIARY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AUXILIARY__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Auxiliary</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AUXILIARY_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AttributeImpl <em>Attribute</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -231,7 +268,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__NAME = 0;
+  int ATTRIBUTE__NAME = AUXILIARY__NAME;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -240,7 +277,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE = 1;
+  int ATTRIBUTE__TYPE = AUXILIARY__TYPE;
 
   /**
    * The feature id for the '<em><b>Init Expression</b></em>' containment reference.
@@ -249,7 +286,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__INIT_EXPRESSION = 2;
+  int ATTRIBUTE__INIT_EXPRESSION = AUXILIARY_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Attribute</em>' class.
@@ -258,7 +295,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 3;
+  int ATTRIBUTE_FEATURE_COUNT = AUXILIARY_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OperationImpl <em>Operation</em>}' class.
@@ -314,43 +351,6 @@ public interface OclPackage extends EPackage
    * @ordered
    */
   int OPERATION_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl <em>Auxiliary</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.AuxiliaryImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getAuxiliary()
-   * @generated
-   */
-  int AUXILIARY = 18;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AUXILIARY__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AUXILIARY__TYPE = 1;
-
-  /**
-   * The number of structural features of the '<em>Auxiliary</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AUXILIARY_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -1218,13 +1218,31 @@ public interface OclPackage extends EPackage
   int ENUM_LITERAL_EXP = 34;
 
   /**
+   * The feature id for the '<em><b>Ecore Types</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_LITERAL_EXP__ECORE_TYPES = OCL_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Enum </b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_LITERAL_EXP__ENUM_ = OCL_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_LITERAL_EXP__NAME = OCL_EXPRESSION_FEATURE_COUNT + 0;
+  int ENUM_LITERAL_EXP__NAME = OCL_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Enum Literal Exp</em>' class.
@@ -1233,7 +1251,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 1;
+  int ENUM_LITERAL_EXP_FEATURE_COUNT = OCL_EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.LetExpImpl <em>Let Exp</em>}' class.
@@ -1727,14 +1745,14 @@ public interface OclPackage extends EPackage
   int OCL_TYPE_LITERAL_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeLiteralImpl <em>Collection Type Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeImpl
-   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionType()
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeLiteralImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionTypeLiteral()
    * @generated
    */
-  int COLLECTION_TYPE = 49;
+  int COLLECTION_TYPE_LITERAL = 49;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1743,7 +1761,35 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLLECTION_TYPE__ELEMENT_TYPE = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
+  int COLLECTION_TYPE_LITERAL__ELEMENT_TYPE = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Collection Type Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE_LITERAL_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionType()
+   * @generated
+   */
+  int COLLECTION_TYPE = 50;
+
+  /**
+   * The feature id for the '<em><b>Element Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE__ELEMENT_TYPE = COLLECTION_TYPE_LITERAL__ELEMENT_TYPE;
 
   /**
    * The number of structural features of the '<em>Collection Type</em>' class.
@@ -1752,7 +1798,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COLLECTION_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 1;
+  int COLLECTION_TYPE_FEATURE_COUNT = COLLECTION_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagTypeImpl <em>Bag Type</em>}' class.
@@ -1762,7 +1808,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBagType()
    * @generated
    */
-  int BAG_TYPE = 50;
+  int BAG_TYPE = 51;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1771,7 +1817,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BAG_TYPE__ELEMENT_TYPE = COLLECTION_TYPE__ELEMENT_TYPE;
+  int BAG_TYPE__ELEMENT_TYPE = COLLECTION_TYPE_LITERAL__ELEMENT_TYPE;
 
   /**
    * The number of structural features of the '<em>Bag Type</em>' class.
@@ -1780,7 +1826,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BAG_TYPE_FEATURE_COUNT = COLLECTION_TYPE_FEATURE_COUNT + 0;
+  int BAG_TYPE_FEATURE_COUNT = COLLECTION_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OrderedSetTypeImpl <em>Ordered Set Type</em>}' class.
@@ -1790,7 +1836,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOrderedSetType()
    * @generated
    */
-  int ORDERED_SET_TYPE = 51;
+  int ORDERED_SET_TYPE = 52;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1799,7 +1845,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ORDERED_SET_TYPE__ELEMENT_TYPE = COLLECTION_TYPE__ELEMENT_TYPE;
+  int ORDERED_SET_TYPE__ELEMENT_TYPE = COLLECTION_TYPE_LITERAL__ELEMENT_TYPE;
 
   /**
    * The number of structural features of the '<em>Ordered Set Type</em>' class.
@@ -1808,7 +1854,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ORDERED_SET_TYPE_FEATURE_COUNT = COLLECTION_TYPE_FEATURE_COUNT + 0;
+  int ORDERED_SET_TYPE_FEATURE_COUNT = COLLECTION_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SequenceTypeImpl <em>Sequence Type</em>}' class.
@@ -1818,7 +1864,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSequenceType()
    * @generated
    */
-  int SEQUENCE_TYPE = 52;
+  int SEQUENCE_TYPE = 53;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1827,7 +1873,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE_TYPE__ELEMENT_TYPE = COLLECTION_TYPE__ELEMENT_TYPE;
+  int SEQUENCE_TYPE__ELEMENT_TYPE = COLLECTION_TYPE_LITERAL__ELEMENT_TYPE;
 
   /**
    * The number of structural features of the '<em>Sequence Type</em>' class.
@@ -1836,7 +1882,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SEQUENCE_TYPE_FEATURE_COUNT = COLLECTION_TYPE_FEATURE_COUNT + 0;
+  int SEQUENCE_TYPE_FEATURE_COUNT = COLLECTION_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.SetTypeImpl <em>Set Type</em>}' class.
@@ -1846,7 +1892,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getSetType()
    * @generated
    */
-  int SET_TYPE = 53;
+  int SET_TYPE = 54;
 
   /**
    * The feature id for the '<em><b>Element Type</b></em>' containment reference.
@@ -1855,7 +1901,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SET_TYPE__ELEMENT_TYPE = COLLECTION_TYPE__ELEMENT_TYPE;
+  int SET_TYPE__ELEMENT_TYPE = COLLECTION_TYPE_LITERAL__ELEMENT_TYPE;
 
   /**
    * The number of structural features of the '<em>Set Type</em>' class.
@@ -1864,7 +1910,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SET_TYPE_FEATURE_COUNT = COLLECTION_TYPE_FEATURE_COUNT + 0;
+  int SET_TYPE_FEATURE_COUNT = COLLECTION_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.PrimitiveImpl <em>Primitive</em>}' class.
@@ -1874,7 +1920,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getPrimitive()
    * @generated
    */
-  int PRIMITIVE = 54;
+  int PRIMITIVE = 55;
 
   /**
    * The number of structural features of the '<em>Primitive</em>' class.
@@ -1893,7 +1939,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getStringType()
    * @generated
    */
-  int STRING_TYPE = 55;
+  int STRING_TYPE = 56;
 
   /**
    * The number of structural features of the '<em>String Type</em>' class.
@@ -1912,7 +1958,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getBooleanType()
    * @generated
    */
-  int BOOLEAN_TYPE = 56;
+  int BOOLEAN_TYPE = 57;
 
   /**
    * The number of structural features of the '<em>Boolean Type</em>' class.
@@ -1931,7 +1977,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getNumericType()
    * @generated
    */
-  int NUMERIC_TYPE = 57;
+  int NUMERIC_TYPE = 58;
 
   /**
    * The number of structural features of the '<em>Numeric Type</em>' class.
@@ -1950,7 +1996,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getIntegerType()
    * @generated
    */
-  int INTEGER_TYPE = 58;
+  int INTEGER_TYPE = 59;
 
   /**
    * The number of structural features of the '<em>Integer Type</em>' class.
@@ -1969,7 +2015,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getRealType()
    * @generated
    */
-  int REAL_TYPE = 59;
+  int REAL_TYPE = 60;
 
   /**
    * The number of structural features of the '<em>Real Type</em>' class.
@@ -1988,7 +2034,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclAnyType()
    * @generated
    */
-  int OCL_ANY_TYPE = 60;
+  int OCL_ANY_TYPE = 61;
 
   /**
    * The number of structural features of the '<em>Any Type</em>' class.
@@ -2000,6 +2046,25 @@ public interface OclPackage extends EPackage
   int OCL_ANY_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl <em>Void Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl
+   * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclVoidType()
+   * @generated
+   */
+  int OCL_VOID_TYPE = 62;
+
+  /**
+   * The number of structural features of the '<em>Void Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCL_VOID_TYPE_FEATURE_COUNT = OCL_TYPE_LITERAL_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleTypeImpl <em>Tuple Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2007,7 +2072,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleType()
    * @generated
    */
-  int TUPLE_TYPE = 61;
+  int TUPLE_TYPE = 63;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -2035,7 +2100,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getTupleTypeAttribute()
    * @generated
    */
-  int TUPLE_TYPE_ATTRIBUTE = 62;
+  int TUPLE_TYPE_ATTRIBUTE = 64;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2072,7 +2137,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclModelElementClass()
    * @generated
    */
-  int OCL_MODEL_ELEMENT_CLASS = 63;
+  int OCL_MODEL_ELEMENT_CLASS = 65;
 
   /**
    * The feature id for the '<em><b>Model</b></em>' reference.
@@ -2109,7 +2174,7 @@ public interface OclPackage extends EPackage
    * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getMapType()
    * @generated
    */
-  int MAP_TYPE = 64;
+  int MAP_TYPE = 66;
 
   /**
    * The feature id for the '<em><b>Key Type</b></em>' containment reference.
@@ -2287,28 +2352,6 @@ public interface OclPackage extends EPackage
    * @generated
    */
   EClass getAttribute();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.Attribute#getName()
-   * @see #getAttribute()
-   * @generated
-   */
-  EAttribute getAttribute_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.Attribute#getType()
-   * @see #getAttribute()
-   * @generated
-   */
-  EReference getAttribute_Type();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.Attribute#getInitExpression <em>Init Expression</em>}'.
@@ -3062,6 +3105,28 @@ public interface OclPackage extends EPackage
   EClass getEnumLiteralExp();
 
   /**
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEcoreTypes <em>Ecore Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ecore Types</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEcoreTypes()
+   * @see #getEnumLiteralExp()
+   * @generated
+   */
+  EReference getEnumLiteralExp_EcoreTypes();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEnum_ <em>Enum </em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Enum </em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getEnum_()
+   * @see #getEnumLiteralExp()
+   * @generated
+   */
+  EReference getEnumLiteralExp_Enum_();
+
+  /**
    * Returns the meta object for the attribute '{@link fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3444,6 +3509,27 @@ public interface OclPackage extends EPackage
   EClass getOclTypeLiteral();
 
   /**
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral <em>Collection Type Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Collection Type Literal</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral
+   * @generated
+   */
+  EClass getCollectionTypeLiteral();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral#getElementType <em>Element Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Element Type</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral#getElementType()
+   * @see #getCollectionTypeLiteral()
+   * @generated
+   */
+  EReference getCollectionTypeLiteral_ElementType();
+
+  /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionType <em>Collection Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3452,17 +3538,6 @@ public interface OclPackage extends EPackage
    * @generated
    */
   EClass getCollectionType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.CollectionType#getElementType <em>Element Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Element Type</em>'.
-   * @see fr.enseeiht.ocl.xtext.ocl.CollectionType#getElementType()
-   * @see #getCollectionType()
-   * @generated
-   */
-  EReference getCollectionType_ElementType();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.BagType <em>Bag Type</em>}'.
@@ -3573,6 +3648,16 @@ public interface OclPackage extends EPackage
    * @generated
    */
   EClass getOclAnyType();
+
+  /**
+   * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.OclVoidType <em>Void Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Void Type</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclVoidType
+   * @generated
+   */
+  EClass getOclVoidType();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.ocl.xtext.ocl.TupleType <em>Tuple Type</em>}'.
@@ -3835,22 +3920,6 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EClass ATTRIBUTE = eINSTANCE.getAttribute();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
 
     /**
      * The meta object literal for the '<em><b>Init Expression</b></em>' containment reference feature.
@@ -4481,6 +4550,22 @@ public interface OclPackage extends EPackage
     EClass ENUM_LITERAL_EXP = eINSTANCE.getEnumLiteralExp();
 
     /**
+     * The meta object literal for the '<em><b>Ecore Types</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_LITERAL_EXP__ECORE_TYPES = eINSTANCE.getEnumLiteralExp_EcoreTypes();
+
+    /**
+     * The meta object literal for the '<em><b>Enum </b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_LITERAL_EXP__ENUM_ = eINSTANCE.getEnumLiteralExp_Enum_();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4797,6 +4882,24 @@ public interface OclPackage extends EPackage
     EClass OCL_TYPE_LITERAL = eINSTANCE.getOclTypeLiteral();
 
     /**
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeLiteralImpl <em>Collection Type Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeLiteralImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getCollectionTypeLiteral()
+     * @generated
+     */
+    EClass COLLECTION_TYPE_LITERAL = eINSTANCE.getCollectionTypeLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_TYPE_LITERAL__ELEMENT_TYPE = eINSTANCE.getCollectionTypeLiteral_ElementType();
+
+    /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4805,14 +4908,6 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EClass COLLECTION_TYPE = eINSTANCE.getCollectionType();
-
-    /**
-     * The meta object literal for the '<em><b>Element Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COLLECTION_TYPE__ELEMENT_TYPE = eINSTANCE.getCollectionType_ElementType();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.BagTypeImpl <em>Bag Type</em>}' class.
@@ -4923,6 +5018,16 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EClass OCL_ANY_TYPE = eINSTANCE.getOclAnyType();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl <em>Void Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclVoidTypeImpl
+     * @see fr.enseeiht.ocl.xtext.ocl.impl.OclPackageImpl#getOclVoidType()
+     * @generated
+     */
+    EClass OCL_VOID_TYPE = eINSTANCE.getOclVoidType();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.TupleTypeImpl <em>Tuple Type</em>}' class.

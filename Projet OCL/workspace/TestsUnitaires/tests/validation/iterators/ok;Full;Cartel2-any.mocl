@@ -1,0 +1,9 @@
+import "http://container" as container
+
+context container!container.Object
+
+inv any1:
+	self.objet->any(o | o.nom = "Gobbit").name = "Gobbit"
+	
+inv any2:
+	self.object->any(o | o.prix = 100000000).name = "Clément"

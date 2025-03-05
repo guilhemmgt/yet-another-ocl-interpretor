@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclTypePair;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.MapElement;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -35,11 +36,14 @@ public final class MapElementValidationAdapter implements OCLAdapter {
 
   /**
    * Get the type of the element
+   * This instance of getType() is special, as it returns an OclTypePair (which is used nowhere else for now). This is needed as a MapElement is a pair (Key,Value).   
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+	  OclType key = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getKey()).getType();
+	  OclType value = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getValue()).getType();
+	  return new OclTypePair(key, value);
   }
 
   /**

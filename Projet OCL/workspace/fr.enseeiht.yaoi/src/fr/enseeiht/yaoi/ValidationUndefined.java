@@ -1,6 +1,7 @@
 package fr.enseeiht.yaoi;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 
@@ -45,6 +46,12 @@ public class ValidationUndefined implements ValidationError {
 	
 	@Override
 	public String toString() {
-		return this.failedInvariant.getName() + " is undefined for object " + this.testedObject + ": " + this.message;
+		String testedObjectString = this.testedObject.toString();
+		for(EStructuralFeature feat : this.testedObject.eClass().getEAllStructuralFeatures()) {
+			if (feat.getName().toLowerCase().strip().equals("name")) {
+				testedObjectString = (String) this.testedObject.eGet(feat);
+			}
+		}
+		return this.failedInvariant.getName() + " is undefined for object " + testedObjectString + ": " + this.message;
 	}
 }

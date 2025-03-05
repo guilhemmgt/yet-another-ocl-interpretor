@@ -1,0 +1,41 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+def: pint : Integer = 1
+
+def: mint : Integer = -1
+
+def: preal : Real = 1.0
+
+def: mreal : Real = -1.0
+
+def: string : String = "a"
+
+def: void : OclVoid = null
+
+def: tbool : Boolean = true
+
+def: fbool : Boolean = false
+
+def: intreal: Real = 1
+
+def: voidint: Integer = null
+
+def: voidreal: Real = null
+
+def: voidstring: String = null
+
+def: voidbool: Boolean = null
+
+def: anyint: OclAny = 1
+
+def: anyreal: OclAny = 1.0
+
+def: anystring: OclAny = "a"
+
+def: anybool: OclAny = true
+
+def: anyvoid: OclAny = null
+
+def: anyany: Bag(OclAny) = Bag{1, "a"}

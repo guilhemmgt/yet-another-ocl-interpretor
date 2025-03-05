@@ -24,6 +24,11 @@ public class OclMap extends OclAny {
 	}
 
 	public OclMap(OclType key, OclType value) {
+		if (key == null || value == null) {
+			// Normalement impossible, ajouté au cas où.
+			this.keyType = null;
+			this.valueType = null;
+		}
 		this.keyType = key;
 		this.valueType = value;
 	}
@@ -36,6 +41,9 @@ public class OclMap extends OclAny {
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean mapType = false;
 		if (oclType.getClass().equals(OclMap.class)) {
+			if (keyType == null || valueType == null) {
+				return true;
+			}
 			// Vérification de la conformance des types des éléments
 			OclMap OclMapType = (OclMap) oclType; 
 			mapType = keyType.conformsTo(OclMapType.keyType) && valueType.conformsTo(OclMapType.valueType);
@@ -46,7 +54,17 @@ public class OclMap extends OclAny {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		// S'unifie avec une autre map en une map avec pour sous-type l'unification des sous-types.
-		if (oclType instanceof OclMap) {
+		if (oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
+		}
+		else if (oclType instanceof OclMap) {
+			if (keyType == null || valueType == null) {
+				// map vide
+				return oclType;
+			}
 			OclMap map = (OclMap) oclType;
 			return new OclMap(keyType.unifyWith(map), valueType.unifyWith(map.valueType));
 		}
@@ -57,6 +75,9 @@ public class OclMap extends OclAny {
 	
 	@Override
 	public String toString() {
-		return "OclMap<" + keyType.toString() + ", " + valueType.toString() +">";
+		if (keyType == null || valueType == null) {
+			return "OclMap()";
+		}
+		return "OclMap(" + keyType.toString() + ", " + valueType.toString() +")";
 	}
 }

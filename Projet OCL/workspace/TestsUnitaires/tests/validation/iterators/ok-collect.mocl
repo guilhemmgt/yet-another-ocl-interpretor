@@ -1,0 +1,50 @@
+import "http://container" as container
+
+context container!container.Object
+	
+inv bagNested1:
+	Bag{}->collect(n | 12) = Bag{}
+inv bagNested2:
+	Bag{1, 2, 3, 4}->collect(n | n+1) = Bag{2, 3, 4, 5}
+inv bagNested3:
+	Bag{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv bagNested4:
+	Bag{null, 1, "hi"}->collect(n | n) = Bag{null, 1, "hi"}
+inv bagNested5:
+	Bag{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n) = Bag{3,4,2,1}
+inv bagCollect1:
+	Bag{1,2,3,4,5}->collect(n | Bag{n,n*2}) = Bag{1,2,2,4,3,6,4,8,5,10}
+
+inv orderedsetNested1:
+	OrderedSet{}->collect(n | 12) = Bag{}
+inv orderedsetNested2:
+	OrderedSet{1, 2, 3, 4}->collect(n | n+1) = Bag{2, 3, 4, 5}
+inv orderedsetNested3:
+	OrderedSet{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv orderedsetNested4:
+	OrderedSet{null, 1, "hi"}->collect(n | n) = Bag{null, 1, "hi"}
+inv orderedsetNested5:
+	OrderedSet{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n.count()) = Bag{3,4,2,1}
+	
+inv sequenceNested1:
+	Sequence{}->collect(n | 12) = Bag{}
+inv sequenceNested2:
+	Sequence{1, 2, 3, 4}->collect(n | n+1) = Bag{2, 3, 4, 5}
+inv sequenceNested3:
+	Sequence{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv sequenceNested4:
+	Sequence{null, 1, "hi"}->collect(n | n) = Bag{null, 1, "hi"}
+inv sequenceNested5:
+	Sequence{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n.count()) = Bag{3,4,2,1}
+	
+inv setNested1:
+	Set{}->collect(n | 12) = Bag{}
+inv setNested2:
+	Set{1, 2, 3, 4}->collect(n | n+1) = Bag{2, 3, 4, 5}
+inv setNested3:
+	Set{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
+inv setNested4:
+	Set{null, 1, "hi"}->collect(n | n) = Bag{null, 1, "hi"}
+inv setNested5:
+	Set{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n.count()) = Bag{3,4,2,1}
+	

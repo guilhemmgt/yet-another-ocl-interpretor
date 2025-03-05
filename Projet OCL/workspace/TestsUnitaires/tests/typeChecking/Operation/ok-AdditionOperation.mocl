@@ -1,0 +1,47 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv int:
+  1+1 = 2
+  
+inv intreal:
+	1 + 1.0 = 2.0
+	
+inv real:
+	1.5 + 1.5 = 3.0
+	
+inv multipleint:
+	1 + 1 +1 +1+ 1+1+1+1 = 8
+	
+inv multiplereal:
+	1.0+0.1+0.2 +0.3 + 0.4+ 0.5 = 2.5
+
+inv sousreal:
+	1.0 - 1.0 = 0.0
+	
+inv sousintreal:
+	1.0 - 1 = 0.0
+	
+inv sousint :
+	1 - 1 = 0
+	
+inv string :
+	"a" + "b" = "ab"
+	
+inv multiplestring:
+	"a" + "b"+ "c" +"d" +"e"+"f" = "abcdef"
+	
+def : nulltest : OclVoid =
+	null + null 
+
+def : nullint : Integer =
+	null + 1
+	
+def : nullreal : Real =
+	null + 1.0
+	
+def : nullstring : String =
+	null + "a"
+	
+def : nullintreal : Real =
+	null + 1 + 1.0

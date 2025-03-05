@@ -1,0 +1,15 @@
+import "http://container" as container
+
+context container!Container.Container
+
+inv iterate_forall1:
+	self.contenu->iterate(sl; result:Boolean=true | result and (sl.nom <> "impossible"))
+
+inv iterate_forall2:
+	self.contenu->iterate(sl1, sl2; result:Boolean=true | result and (sl1=sl2 or sl1.nom <> sl2.nom))
+
+inv iterate_count:
+	self.contenu->iterate(sl; result:Integer=0 | result + 1) = 6
+
+inv iterate_multicount:
+	self.contenu->iterate(sl1, sl2, sl3; result:Integer=0 | result + 1) = 216

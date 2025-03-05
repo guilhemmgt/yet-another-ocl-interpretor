@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Container:Container
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Container="http://container"
+    xsi:schemaLocation="http://container Full.ecore"
+    name="Cartel">
+  <contenu xsi:type="Container:Livre"
+      nom="V pour vendetta"
+      auteur="Alan Moore"/>
+  <contenu xsi:type="Container:JeuDeSociété"
+      nom="Ricochet Robot"
+      joueurMax="1000000000"/>
+  <contenu xsi:type="Container:Meuble"
+      nom="Canapé"
+      lourd="true"/>
+  <contenu xsi:type="Container:JeuDeSociété"
+      nom="Gobbit"
+      joueurMax="8"/>
+  <contenu xsi:type="Container:Meuble"
+      nom="Chaise"/>
+  <contenu xsi:type="Container:Livre"
+      nom="Berserk T1"
+      auteur="Kentarō Miura"/>
+</Container:Container>

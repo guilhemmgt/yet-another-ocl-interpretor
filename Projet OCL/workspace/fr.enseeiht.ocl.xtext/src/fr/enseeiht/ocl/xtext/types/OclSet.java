@@ -16,6 +16,9 @@ public class OclSet extends OclCollection {
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean collectionType = false;
 		if (oclType.getClass().equals(OclCollection.class) || oclType.getClass().equals(OclSet.class)) {
+			if (subtype == null) {
+				return true;
+			}
 			// Vérification de la conformance des types des éléments
 			OclCollection oclCollectionType = (OclCollection) oclType; 
 			collectionType = subtype.conformsTo(oclCollectionType.subtype);
@@ -26,6 +29,10 @@ public class OclSet extends OclCollection {
 	@Override
 	public OclType unifyWith(OclType oclType) {
 		if (oclType instanceof OclSet) {
+			if (subtype == null) {
+				// Set vide
+				return oclType;
+			}
 			return new OclSet(((OclCollection) oclType).subtype.unifyWith(subtype));
 		}
 		else {
@@ -37,7 +44,10 @@ public class OclSet extends OclCollection {
 	
 	@Override
 	public String toString() {
-		return "Set<"+subtype.toString() + ">";
+		if (subtype == null) {
+			return "Set()";
+		}
+		return "Set("+subtype.toString() + ")";
 	}
 
 
