@@ -1,30 +1,28 @@
-import 'SimplePDL.ecore'
+import 'SimplePDL.ecore' as simplepdl
 
-package simplepdl
-
-context Process
+context simplepdl!simplepdl.Process
 inv nomValide:
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 inv nomUniqueWD:
 	self.processElements
-	-> select (pe | pe.oclIsTypeOf(WorkDefinition))
-	-> collect (pe | pe.oclAsType(WorkDefinition))
+	-> select (pe | pe.oclIsTypeOf(simplepdl!simplepdl.WorkDefinition))
+	-> collect (pe | pe.oclAsType(simplepdl!simplepdl.WorkDefinition))
 	-> forAll (wd1, wd2 | wd1=wd2 or wd1.name <> wd2.name)
 inv nomUniqueR:
 	self.processElements
-	-> select (pe | pe.oclIsTypeOf(Ressource))
-	-> collect (pe | pe.oclAsType(Ressource))
+	-> select (pe | pe.oclIsTypeOf(simplepdl!simplepdl.Ressource))
+	-> collect (pe | pe.oclAsType(simplepdl!simplepdl.Ressource))
 	-> forAll (r1, r2 | r1=r2 or r1.name <> r2.name)
 	
 	
-context ProcessElement
+context simplepdl!simplepdl.ProcessElement
 def: process():
-	Process = Process.allInstances()
+	simplepdl!simplepdl.Process = simplepdl!simplepdl.Process.allInstances()
 	->select(p | p.processElements->includes(self))
 	->asSequence()->first()
 	
 	
-context WorkSequence
+context simplepdl!simplepdl.WorkSequence
 inv nonReflexif:
 	self.predecessor <> self.successor
 inv successeurEtPredecesseurDansMemeProcess:
@@ -32,19 +30,19 @@ inv successeurEtPredecesseurDansMemeProcess:
 	and self.process() = self.predecessor.process()
 
 
-context WorkDefinition
+context simplepdl!simplepdl.WorkDefinition
 inv nomPasCourt:
 	self.name.size() > 1
 inv nomValide:
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 inv unSeulNeedParRessource:
 	self.linksToNeeds
-	-> select (rn | rn.oclIsTypeOf(RessourceNeed))
-	-> collect (rn | rn.oclAsType(RessourceNeed))
+	-> select (rn | rn.oclIsTypeOf(simplepdl!simplepdl.RessourceNeed))
+	-> collect (rn | rn.oclAsType(simplepdl!simplepdl.RessourceNeed))
 	-> forAll (rn1, rn2 | rn1=rn2 or (rn1.linkToRessource.name <> rn2.linkToRessource.name or rn1.linkToWorkDefinition.name <> rn2.linkToWorkDefinition.name))
 	
 	
-context Ressource
+context simplepdl!simplepdl.Ressource
 inv quantitePositive:
 	self.amount >= 0
 inv nomPasCourt:
@@ -53,8 +51,6 @@ inv nomValide:
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 	
 	
-context RessourceNeed
+context simplepdl!simplepdl.RessourceNeed
 inv quantiteStrictPositive:
 	self.need > 0
-	
-endpackage
