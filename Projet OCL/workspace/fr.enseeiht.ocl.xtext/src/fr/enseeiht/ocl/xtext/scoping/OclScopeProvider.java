@@ -3,9 +3,10 @@
  */
 package fr.enseeiht.ocl.xtext.scoping;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
@@ -34,49 +35,51 @@ public class OclScopeProvider extends AbstractOclScopeProvider {
 		if (reference == OclPackage.Literals.VARIABLE_EXP__REFERRED_VARIABLE) { 
 			VariableExp variableExp = (VariableExp) context;
 			
-			List<Auxiliary> scopeAuxiliaries = new ArrayList<>();
+			Map<String, Auxiliary> scope = new HashMap<>();
 
+			// Ajoute les Auxiliaries des parents
 	        EObject parent = variableExp.eContainer();
 	        while (!(parent instanceof Module)) {
-	        	List<Auxiliary> parentAuxiliaries = new ArrayList<>();
-
 	        	// Ajoute les Iterators
 	        	if (parent instanceof IteratorExp iteratorExp)
-	        		parentAuxiliaries.addAll(iteratorExp.getIterators());
+	        		putAllIfAbsent(scope, iteratorExp.getIterators());
 	        	if (parent instanceof IterateExp iterateExp)
-	        		parentAuxiliaries.addAll(iterateExp.getIterators());
+	        		putAllIfAbsent(scope, iterateExp.getIterators());
 	        	// Ajoute les LocalVariables
 	        	if (parent instanceof LetExp letExp)
-	        		parentAuxiliaries.add(letExp.getVariable());
+	        		putIfAbsent(scope, letExp.getVariable());
 	        	if (parent instanceof IterateExp iterateExp)
-	        		parentAuxiliaries.add(iterateExp.getResult());
+	        		putIfAbsent(scope, iterateExp.getResult());
 	        	// Ajoute les Parameters
 	        	if (parent instanceof Operation operation)
-	        		parentAuxiliaries.addAll(operation.getParameters());
+	        		putAllIfAbsent(scope, operation.getParameters());
+	        	// Ajoute les Attributes
 	        	if (parent instanceof OclFeatureDefinition oclFeatureDef)
 	        		if (oclFeatureDef.getFeature() instanceof Attribute feature)
-	        			parentAuxiliaries.add(feature);
+	        			putIfAbsent(scope, feature);
 	        	
-	        	// Applique le masquage (on enregistre uniquement les auxiliaires qui n'ont pas le même nom qu'un auxiliaire déjà enregistré)
-	        	for (Auxiliary parentAux : parentAuxiliaries) {
-	        		boolean masked = false;
-	        		for (Auxiliary scopeAux : scopeAuxiliaries) {
-	        			if (scopeAux.getName().equals(parentAux.getName())) {
-	        				masked = true;
-	        				break;
-	        			}
-	        		}
-	        		if (!masked)
-	        			scopeAuxiliaries.add(parentAux);
-	        	}
-	        	
-	        	// Navigation
 	        	parent = parent.eContainer();
 	        }
 	        
-	        return Scopes.scopeFor(scopeAuxiliaries);
+	        // Ajoute les Attributs des def sans context
+	        Module module = (Module)parent;
+	        for (OclFeatureDefinition def : module.getContextlessFeatures()) {
+	        	if (def.getFeature() instanceof Attribute defAttribute)
+	        		putIfAbsent(scope, defAttribute);
+	        }
+	        
+	        return Scopes.scopeFor(scope.values());
 		}
 		
 		return super.getScope(context, reference);
+	}
+	
+	private <A extends Auxiliary> void  putAllIfAbsent (Map<String, Auxiliary> map, EList<A> auxiliaries) {
+		for (Auxiliary aux : auxiliaries) {
+			map.putIfAbsent(aux.getName(), aux);
+		}
+	}
+	private <A extends Auxiliary> void putIfAbsent (Map<String, Auxiliary> map, A auxiliary) {
+		map.putIfAbsent(auxiliary.getName(), auxiliary);
 	}
 }
