@@ -1,70 +1,84 @@
 package fr.enseeiht.yaoi.ui.others;
 
 import org.eclipse.jface.dialogs.TitleAreaDialog;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.jface.dialogs.IMessageProvider;
-import org.eclipse.swt.*;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.*;
-import org.eclipse.swt.widgets.*;
-
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 
 public class ScrollableDialog extends TitleAreaDialog {
-    private String title;
-    private String text;
-    private String scrollableText;
+	private String title;
+	private String text;
+	private String scrollableText;
+	private Status status;
+	
+	public static enum Status {
+		SUCCESS, ERROR;
+	}
 
-    public ScrollableDialog(Shell parentShell, String title, String text, String scrollableText) {
-        super(parentShell);
-        this.title = title;
-        this.text = text;
-        this.scrollableText = scrollableText;
-    }
+	public ScrollableDialog(Shell parentShell, String title, String text, String scrollableText, Status status) {
+		super(parentShell);
+		this.title = title;
+		this.text = text;
+		this.scrollableText = scrollableText;
+		this.status = status;
+	}
 
-    @Override
-    protected Control createDialogArea(Composite parent) {
-        Composite composite = (Composite) super.createDialogArea (parent); // Let the dialog create the parent composite
+	@Override
+	protected Control createDialogArea(Composite parent) {
+		Composite composite = (Composite) super.createDialogArea(parent);
 
-        GridData gridData = new GridData();
-        gridData.grabExcessHorizontalSpace = true;
-        gridData.horizontalAlignment = GridData.FILL;
-        gridData.grabExcessVerticalSpace = true; // Layout vertically, too! 
-        gridData.verticalAlignment = GridData.FILL;
+		composite.setLayout(new GridLayout(1, false));
 
-        Text scrollable = new Text(composite, SWT.BORDER | SWT.V_SCROLL);
-        scrollable.setLayoutData(gridData);
-        scrollable.setText(scrollableText);
+		// Create text field with scroll bars
+		GridData gridData = new GridData();
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.horizontalAlignment = GridData.FILL;
+		gridData.grabExcessVerticalSpace = true;
+		gridData.verticalAlignment = GridData.FILL;
 
-        return composite;
-    }
+		Text scrollable = new Text(composite, SWT.BORDER | SWT.V_SCROLL | SWT.WRAP | SWT.MULTI);
+		scrollable.setLayoutData(gridData);
+		scrollable.setText(scrollableText);
 
-    @Override
-    public void create() {
-        super.create();
+		return composite;
+	}
 
-        // This is not necessary; the dialog will become bigger as the text grows but at the same time,
-        // the user will be able to see all (or at least more) of the error message at once
-        //getShell ().setSize (300, 300);
-        setTitle(title);
-        setMessage(text, IMessageProvider.ERROR);
+	@Override
+	public void create() {
+		super.create();
+		
+		String imageId = status == Status.SUCCESS ? YaoiUi.SUCCESS_IMAGE_ID : YaoiUi.ERROR_IMAGE_ID;
+		Image image = YaoiUi.getInstance().getImageRegistry().get(imageId);
+		
+		getShell().setSize (600, 300);
+		setTitle(title);
+		setMessage(text);
+		setTitleImage(image);
 
-    }
+	}
 
-    @Override
-    protected void createButtonsForButtonBar(Composite parent) {
-        Button okButton = createButton(parent, OK, "OK", true);
-        okButton.addSelectionListener(new SelectionAdapter() {
+	@Override
+	protected void createButtonsForButtonBar(Composite parent) {
+		Button okButton = createButton(parent, OK, "OK", true);
+		okButton.addSelectionListener(new SelectionAdapter() {
 
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                close();
-            }
-        });
-    }
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				close();
+			}
+		});
+	}
 
-    @Override
-    protected boolean isResizable() {
-        return true; // Allow the user to change the dialog size!
-    }
+	@Override
+	protected boolean isResizable() {
+		return true; // Allow the user to change the dialog size!
+	}
 }
