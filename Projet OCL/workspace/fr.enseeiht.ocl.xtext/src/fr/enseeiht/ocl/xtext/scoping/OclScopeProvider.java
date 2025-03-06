@@ -75,13 +75,13 @@ public class OclScopeProvider extends AbstractOclScopeProvider {
 	        	if (def.getFeature() instanceof Attribute defAttribute)
 	        		putIfAbsent(scope, defAttribute);
 	        }
-	        
-	        // Ajoute les Attributs des def du contexte
-	        for (EObject member : contextBlock.getMembers()) {
-	        	if (member instanceof OclFeatureDefinition def && def.getFeature() instanceof Attribute defAttribute)
-	        		putIfAbsent(scope, defAttribute);
+	        if (contextBlock != null) {
+		        // Ajoute les Attributs des def du contexte
+		        for (EObject member : contextBlock.getMembers()) {
+		        	if (member instanceof OclFeatureDefinition def && def.getFeature() instanceof Attribute defAttribute)
+		        		putIfAbsent(scope, defAttribute);
+		        }
 	        }
-	        
 	        return Scopes.scopeFor(scope.values());
 		}
 		
