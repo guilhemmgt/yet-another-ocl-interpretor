@@ -14,9 +14,9 @@ public class OclAbs implements IOclOperation {
 	@Override
 	public Object getReturnValue(Object source, List<Object> args, EObject contextTarget) {
 		if (source instanceof Integer src) {
-			return src > 0 ? src : -src;
+			return src >= 0 ? src : -src;
 		} else if (source instanceof Double src) {
-			return src > 0 ? src : -src;
+			return src >= 0 ? src : -src;
 		} else {
 			return null;
 		}

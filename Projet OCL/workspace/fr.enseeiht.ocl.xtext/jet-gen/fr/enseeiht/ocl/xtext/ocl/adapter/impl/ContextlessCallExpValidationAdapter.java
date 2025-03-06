@@ -1,7 +1,6 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +11,8 @@ import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
+import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
@@ -73,13 +74,10 @@ public final class ContextlessCallExpValidationAdapter implements OCLAdapter {
 			}
 		}
 		// No correct operation was found
-		List<String> messageStr = new LinkedList<String>(); 
-		for (OclType typ : paramTypes) {
-			messageStr.add(typ.toString());
-		}
-		return new OclInvalid(target, "The operation '" + this.target.getOperationName() + "' cannot be called with arguments of types: " + String.join(", ", messageStr) + ".");
+		
+		return new OclInvalid(new InvalidTypeOperation(target, this.target.getOperationName(), paramTypes));
 	} else {
-		return new OclInvalid(target, "No such operation '" + this.target.getOperationName() + "' exists..");
+		return new OclInvalid(new OperationNotFoundError(target, this.target.getOperationName()));
 	}
   }
 
