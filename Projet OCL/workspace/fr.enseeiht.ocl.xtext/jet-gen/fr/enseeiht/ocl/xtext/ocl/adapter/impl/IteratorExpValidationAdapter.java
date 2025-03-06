@@ -12,6 +12,7 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorFactory;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -99,8 +100,7 @@ public Object getValue(EObject contextTarget) {
 				if (iteratorType instanceof OclInvalid error) {
 					errors.add(error);
 				} else if (!iteratorType.conformsTo(collectType.getSubtype())) {
-					errors.add(new OclInvalid(i, "Type mismatch error : expected iterator of type "
-							+ collectType.getSubtype() + " but got " + iteratorType + " instead."));
+					errors.add(new OclInvalid(new TypeMismatchError(i, collectType.getSubtype(), iteratorType)));
 				}
 			}
 
@@ -114,8 +114,7 @@ public Object getValue(EObject contextTarget) {
 			}
 
 			if (!bodyType.conformsTo(resultType)) {
-				errors.add(new OclInvalid(this.target, "Type mismatch error : expected expression of type " + resultType
-						+ " but got " + bodyType + " instead."));
+				errors.add(new OclInvalid(new TypeMismatchError(this.target, resultType, bodyType)));
 			}
 
 			// If anything failed return combination of all
@@ -127,8 +126,7 @@ public Object getValue(EObject contextTarget) {
 			}
 			return iterator.getReturnType(sourceType, bodyType);
 		} else {
-			return new OclInvalid(this.target,
-					"Type Mismatch error : expected collection but got " + sourceType + " instead.");
+			return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), sourceType));
 		}
 	}
 

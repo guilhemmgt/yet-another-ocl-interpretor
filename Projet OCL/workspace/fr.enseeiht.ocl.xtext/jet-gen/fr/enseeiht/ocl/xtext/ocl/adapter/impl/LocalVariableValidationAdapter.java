@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -48,7 +49,7 @@ public final class LocalVariableValidationAdapter implements OCLAdapter {
 			// Verify that initExpression is conform as declared Type
 			OclType expectedType = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType()).getType();
 			if (!bodyType.conformsTo(expectedType))
-				return new OclInvalid(this.target, "Type mismatchError : expected expression of type " + expectedType + " got " + bodyType + " instead.", bodyType);
+				return new OclInvalid(new TypeMismatchError(this.target, expectedType, bodyType));
 			bodyType = expectedType;
 		}
 		return bodyType;

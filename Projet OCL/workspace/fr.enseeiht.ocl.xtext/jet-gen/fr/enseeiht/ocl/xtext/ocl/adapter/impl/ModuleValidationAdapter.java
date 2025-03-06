@@ -101,7 +101,7 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-         /**
+   /**
    * Get all the declared feature definitions
    * @return list of feature definitons (def)
    * @generated NOT

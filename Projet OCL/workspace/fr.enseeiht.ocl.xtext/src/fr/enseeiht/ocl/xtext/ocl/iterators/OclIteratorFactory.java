@@ -1,6 +1,7 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators;
 
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorAny;
+import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorCollect;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorCollectNested;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorSelect;
 
@@ -13,7 +14,7 @@ public class OclIteratorFactory {
 		case "forAll" -> null; // TODO
 		case "isUnique" -> null; // TODO
 		case "one" -> null; // TODO
-		case "collect" -> null; // TODO
+		case "collect" -> new OclIteratorCollect();
 
 		case "select" -> new OclIteratorSelect();
 		case "reject" -> null; // TODO

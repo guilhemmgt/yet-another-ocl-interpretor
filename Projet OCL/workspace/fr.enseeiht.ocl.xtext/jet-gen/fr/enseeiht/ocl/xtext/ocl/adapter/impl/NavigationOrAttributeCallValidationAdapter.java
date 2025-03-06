@@ -22,6 +22,8 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclTuple;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
+import fr.enseeiht.ocl.xtext.validation.AttributeUnaccessibleError;
+import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
@@ -84,11 +86,11 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
    * @generated NOT
    */
   public OclType getType() {
-	  // On récupère le type du parent, qui devrait alors etre une EClass
+	  // On récupère le type du parent
 	  PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 	  // On remonte la pile des accès
 	  int pos = container.getCalls().indexOf(this.target);
-	  OclEClass source = null;
+	  OclType source = null;
 	  if (pos == 0) {
 		  if (container.getSource() != null) {
 			  OCLAdapter adapt = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource());
@@ -97,7 +99,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 				  OclTuple tuple = (OclTuple) adapt.getType();
 				  return tuple.getTypeOf(target, target.getName());
 			  } else {
-				  source = (OclEClass) adapt.getType();
+				  source = adapt.getType();
 			  }
 		  }
 	  } 
@@ -109,7 +111,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 				  OclTuple tuple = (OclTuple) adapt.getType();
 				  return tuple.getTypeOf(target, target.getName());
 			  } else {
-				  source = (OclEClass) adapt.getType();
+				  source = adapt.getType();
 			  }
 		  }
 	  }
@@ -123,10 +125,14 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 			}
 	  }
 
-	  EStructuralFeature feature = source.classtype.getEStructuralFeature(this.target.getName());
+	  if (!(source instanceof OclEClass)) {
+		  return new OclInvalid(new OperationNotFoundError(target, target.getName()), source);
+	  }
 	  
+	  OclEClass eSource = (OclEClass) source;
+	  EStructuralFeature feature = eSource.classtype.getEStructuralFeature(this.target.getName());
 	  if(feature == null)
-		  return new OclInvalid(target, "Cannot access attribute '" + target.getName() + "' in Class '" + source.classtype.getName() + "'.");
+		  return new OclInvalid(new AttributeUnaccessibleError(target, target.getName(), eSource.classtype.getName()));
 
 	  EClassifier eType = feature.getEType();
 	  
@@ -155,11 +161,9 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  } else {
 		  throw new RuntimeException("unreachable");
 	  }
-	  
 	  // Si la limite haute est 1 alors on renvoi l'élement seul
 	  if (feature.getUpperBound() == 1)
 		  return type;
-	  
 	  // Sinon on renvoie une collection contenant les valeurs
 	  return new OclCollection(type);
   }
@@ -190,10 +194,10 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public String getOutlineString() {
     return null;
   }
-         public boolean conformsTo(OclType oclType) {
-	// TODO Auto-generated method stub
-	return false;
-}
+	public boolean conformsTo(OclType oclType) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 public OclType unifyWith(OclType oclType) {
 	// TODO Auto-generated method stub

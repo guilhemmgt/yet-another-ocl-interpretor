@@ -2189,9 +2189,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getOclModelElementClass_Name()
+  public EReference getOclModelElementClass_Name()
   {
-    return (EAttribute)oclModelElementClassEClass.getEStructuralFeatures().get(1);
+    return (EReference)oclModelElementClassEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2465,7 +2465,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclModelElementClassEClass = createEClass(OCL_MODEL_ELEMENT_CLASS);
     createEReference(oclModelElementClassEClass, OCL_MODEL_ELEMENT_CLASS__MODEL);
-    createEAttribute(oclModelElementClassEClass, OCL_MODEL_ELEMENT_CLASS__NAME);
+    createEReference(oclModelElementClassEClass, OCL_MODEL_ELEMENT_CLASS__NAME);
 
     mapTypeEClass = createEClass(MAP_TYPE);
     createEReference(mapTypeEClass, MAP_TYPE__KEY_TYPE);
@@ -2757,7 +2757,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclModelElementClassEClass, OclModelElementClass.class, "OclModelElementClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOclModelElementClass_Model(), this.getImport(), null, "model", null, 0, 1, OclModelElementClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOclModelElementClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, OclModelElementClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOclModelElementClass_Name(), ecorePackage.getEClass(), null, "name", null, 0, 1, OclModelElementClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mapTypeEClass, MapType.class, "MapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMapType_KeyType(), this.getOclTypeLiteral(), null, "keyType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

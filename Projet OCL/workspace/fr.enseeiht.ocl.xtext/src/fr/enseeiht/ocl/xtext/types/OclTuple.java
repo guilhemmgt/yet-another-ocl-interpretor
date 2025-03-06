@@ -8,6 +8,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
+import fr.enseeiht.ocl.xtext.validation.AttributeUnaccessibleError;
 
 public class OclTuple extends OclAny {
 
@@ -21,7 +22,7 @@ public class OclTuple extends OclAny {
 	public OclType getTypeOf(EObject target, String name) {
 		OclType type = subtypes.get(name);
 		if (type == null) {
-			return new OclInvalid(target, "Tuple " + this + " has no attribute " + name);
+			return new OclInvalid(new AttributeUnaccessibleError(target, "Tuple", name));
 		}
 		else {
 			return type;

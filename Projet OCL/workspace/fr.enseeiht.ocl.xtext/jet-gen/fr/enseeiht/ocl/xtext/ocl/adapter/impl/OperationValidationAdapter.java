@@ -11,6 +11,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
@@ -58,8 +59,7 @@ public final class OperationValidationAdapter implements OCLAdapter {
 			isInvalid = isInvalid || paramType.getRepresentedType() instanceof OclInvalid;
 		}
 		if (!isCorrect && !isInvalid) {
-			String message = "Feature definition type mismatch : expected "+ returntype.getRepresentedType() + ", got " + type;
-			return new OclInvalid(target, message);
+			return new OclInvalid(new TypeMismatchError(target, returntype.getRepresentedType(), type));
 		}
 		else if (isInvalid) {
 			return new OclInvalid(type);
@@ -101,7 +101,7 @@ public final class OperationValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-                  public OclType getSourceType() {
+  public OclType getSourceType() {
 	  if (this.target.eContainer() instanceof OclContextBlock) {
 		  // TODO : Adapt this with answer from Paul
 		  return /*((OclContextBlock)this.target.eContainer()).getClass_()*/ new OclAny();

@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -53,8 +54,7 @@ public final class TuplePartValidationAdapter implements OCLAdapter {
     	return expType.unifyWith(returnType.getRepresentedType());
     }
     else {
-    	String message = "type mismatch : expected " + returnType.getRepresentedType() + ", got " + expType;
-    	return new OclInvalid(target, message);
+    	return new OclInvalid(new TypeMismatchError(target, returnType.getRepresentedType(), expType));
     }
   }
   
