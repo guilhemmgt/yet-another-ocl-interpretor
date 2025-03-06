@@ -1,0 +1,5 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv SetAndBag:
+	Set{"b", "o", "n", "j", "o", "u", "r"}->union(Set{1,2,2,4,5}) = Set{true, false}
