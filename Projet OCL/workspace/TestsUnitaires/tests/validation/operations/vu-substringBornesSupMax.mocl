@@ -1,0 +1,5 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv substring:
+ 	"(-2.3)".substring(1,7) = "(-2.3"

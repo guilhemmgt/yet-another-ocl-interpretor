@@ -13,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
 import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
+import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
@@ -45,6 +46,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementExp;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
+import fr.enseeiht.ocl.xtext.ocl.OclVoidType;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
@@ -433,6 +435,13 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass collectionTypeLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass collectionTypeEClass = null;
 
   /**
@@ -511,6 +520,13 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   private EClass oclAnyTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass oclVoidTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -762,31 +778,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getAttribute_Name()
-  {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getAttribute_Type()
-  {
-    return (EReference)attributeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getAttribute_InitExpression()
   {
-    return (EReference)attributeEClass.getEStructuralFeatures().get(2);
+    return (EReference)attributeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -927,9 +921,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getOclModelElementExp_Name()
+  public EReference getOclModelElementExp_Class()
   {
-    return (EAttribute)oclModelElementExpEClass.getEStructuralFeatures().get(1);
+    return (EReference)oclModelElementExpEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -949,7 +943,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getOperatorCallExp_ArgumentGauche()
+  public EReference getOperatorCallExp_Args()
   {
     return (EReference)operatorCallExpEClass.getEStructuralFeatures().get(0);
   }
@@ -960,20 +954,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getOperatorCallExp_OperationName()
+  public EAttribute getOperatorCallExp_OperationNames()
   {
     return (EAttribute)operatorCallExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getOperatorCallExp_ArgumentDroite()
-  {
-    return (EReference)operatorCallExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -993,7 +976,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getEqOpCallExp_ArgumentGauche()
+  public EReference getEqOpCallExp_Args()
   {
     return (EReference)eqOpCallExpEClass.getEStructuralFeatures().get(0);
   }
@@ -1004,20 +987,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getEqOpCallExp_OperationName()
+  public EAttribute getEqOpCallExp_OperationNames()
   {
     return (EAttribute)eqOpCallExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEqOpCallExp_ArgumentDroite()
-  {
-    return (EReference)eqOpCallExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1037,7 +1009,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getRelOpCallExp_ArgumentGauche()
+  public EReference getRelOpCallExp_Args()
   {
     return (EReference)relOpCallExpEClass.getEStructuralFeatures().get(0);
   }
@@ -1048,20 +1020,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getRelOpCallExp_OperationName()
+  public EAttribute getRelOpCallExp_OperationNames()
   {
     return (EAttribute)relOpCallExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getRelOpCallExp_ArgumentDroite()
-  {
-    return (EReference)relOpCallExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1081,7 +1042,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getAddOpCallExp_ArgumentGauche()
+  public EReference getAddOpCallExp_Args()
   {
     return (EReference)addOpCallExpEClass.getEStructuralFeatures().get(0);
   }
@@ -1092,20 +1053,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getAddOpCallExp_OperationName()
+  public EAttribute getAddOpCallExp_OperationNames()
   {
     return (EAttribute)addOpCallExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getAddOpCallExp_ArgumentDroite()
-  {
-    return (EReference)addOpCallExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1125,7 +1075,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getIntOpCallExp_ArgumentGauche()
+  public EReference getIntOpCallExp_Args()
   {
     return (EReference)intOpCallExpEClass.getEStructuralFeatures().get(0);
   }
@@ -1136,20 +1086,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getIntOpCallExp_OperationName()
+  public EAttribute getIntOpCallExp_OperationNames()
   {
     return (EAttribute)intOpCallExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getIntOpCallExp_ArgumentDroite()
-  {
-    return (EReference)intOpCallExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1169,7 +1108,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getMulOpCallExp_ArgumentGauche()
+  public EReference getMulOpCallExp_Args()
   {
     return (EReference)mulOpCallExpEClass.getEStructuralFeatures().get(0);
   }
@@ -1180,20 +1119,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getMulOpCallExp_OperationName()
+  public EAttribute getMulOpCallExp_OperationNames()
   {
     return (EAttribute)mulOpCallExpEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getMulOpCallExp_ArgumentDroite()
-  {
-    return (EReference)mulOpCallExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1631,9 +1559,31 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
+  public EReference getEnumLiteralExp_EcoreTypes()
+  {
+    return (EReference)enumLiteralExpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEnumLiteralExp_Enum_()
+  {
+    return (EReference)enumLiteralExpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getEnumLiteralExp_Name()
   {
-    return (EAttribute)enumLiteralExpEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)enumLiteralExpEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2027,9 +1977,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EClass getCollectionType()
+  public EClass getCollectionTypeLiteral()
   {
-    return collectionTypeEClass;
+    return collectionTypeLiteralEClass;
   }
 
   /**
@@ -2038,9 +1988,20 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getCollectionType_ElementType()
+  public EReference getCollectionTypeLiteral_ElementType()
   {
-    return (EReference)collectionTypeEClass.getEStructuralFeatures().get(0);
+    return (EReference)collectionTypeLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCollectionType()
+  {
+    return collectionTypeEClass;
   }
 
   /**
@@ -2170,6 +2131,17 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
+  public EClass getOclVoidType()
+  {
+    return oclVoidTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTupleType()
   {
     return tupleTypeEClass;
@@ -2247,9 +2219,9 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EAttribute getOclModelElementClass_Name()
+  public EReference getOclModelElementClass_Name()
   {
-    return (EAttribute)oclModelElementClassEClass.getEStructuralFeatures().get(1);
+    return (EReference)oclModelElementClassEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2334,8 +2306,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     createEReference(oclFeatureDefinitionEClass, OCL_FEATURE_DEFINITION__FEATURE);
 
     attributeEClass = createEClass(ATTRIBUTE);
-    createEAttribute(attributeEClass, ATTRIBUTE__NAME);
-    createEReference(attributeEClass, ATTRIBUTE__TYPE);
     createEReference(attributeEClass, ATTRIBUTE__INIT_EXPRESSION);
 
     operationEClass = createEClass(OPERATION);
@@ -2354,37 +2324,31 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclModelElementExpEClass = createEClass(OCL_MODEL_ELEMENT_EXP);
     createEReference(oclModelElementExpEClass, OCL_MODEL_ELEMENT_EXP__MODEL);
-    createEAttribute(oclModelElementExpEClass, OCL_MODEL_ELEMENT_EXP__NAME);
+    createEReference(oclModelElementExpEClass, OCL_MODEL_ELEMENT_EXP__CLASS);
 
     operatorCallExpEClass = createEClass(OPERATOR_CALL_EXP);
-    createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__ARGUMENT_GAUCHE);
-    createEAttribute(operatorCallExpEClass, OPERATOR_CALL_EXP__OPERATION_NAME);
-    createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__ARGUMENT_DROITE);
+    createEReference(operatorCallExpEClass, OPERATOR_CALL_EXP__ARGS);
+    createEAttribute(operatorCallExpEClass, OPERATOR_CALL_EXP__OPERATION_NAMES);
 
     eqOpCallExpEClass = createEClass(EQ_OP_CALL_EXP);
-    createEReference(eqOpCallExpEClass, EQ_OP_CALL_EXP__ARGUMENT_GAUCHE);
-    createEAttribute(eqOpCallExpEClass, EQ_OP_CALL_EXP__OPERATION_NAME);
-    createEReference(eqOpCallExpEClass, EQ_OP_CALL_EXP__ARGUMENT_DROITE);
+    createEReference(eqOpCallExpEClass, EQ_OP_CALL_EXP__ARGS);
+    createEAttribute(eqOpCallExpEClass, EQ_OP_CALL_EXP__OPERATION_NAMES);
 
     relOpCallExpEClass = createEClass(REL_OP_CALL_EXP);
-    createEReference(relOpCallExpEClass, REL_OP_CALL_EXP__ARGUMENT_GAUCHE);
-    createEAttribute(relOpCallExpEClass, REL_OP_CALL_EXP__OPERATION_NAME);
-    createEReference(relOpCallExpEClass, REL_OP_CALL_EXP__ARGUMENT_DROITE);
+    createEReference(relOpCallExpEClass, REL_OP_CALL_EXP__ARGS);
+    createEAttribute(relOpCallExpEClass, REL_OP_CALL_EXP__OPERATION_NAMES);
 
     addOpCallExpEClass = createEClass(ADD_OP_CALL_EXP);
-    createEReference(addOpCallExpEClass, ADD_OP_CALL_EXP__ARGUMENT_GAUCHE);
-    createEAttribute(addOpCallExpEClass, ADD_OP_CALL_EXP__OPERATION_NAME);
-    createEReference(addOpCallExpEClass, ADD_OP_CALL_EXP__ARGUMENT_DROITE);
+    createEReference(addOpCallExpEClass, ADD_OP_CALL_EXP__ARGS);
+    createEAttribute(addOpCallExpEClass, ADD_OP_CALL_EXP__OPERATION_NAMES);
 
     intOpCallExpEClass = createEClass(INT_OP_CALL_EXP);
-    createEReference(intOpCallExpEClass, INT_OP_CALL_EXP__ARGUMENT_GAUCHE);
-    createEAttribute(intOpCallExpEClass, INT_OP_CALL_EXP__OPERATION_NAME);
-    createEReference(intOpCallExpEClass, INT_OP_CALL_EXP__ARGUMENT_DROITE);
+    createEReference(intOpCallExpEClass, INT_OP_CALL_EXP__ARGS);
+    createEAttribute(intOpCallExpEClass, INT_OP_CALL_EXP__OPERATION_NAMES);
 
     mulOpCallExpEClass = createEClass(MUL_OP_CALL_EXP);
-    createEReference(mulOpCallExpEClass, MUL_OP_CALL_EXP__ARGUMENT_GAUCHE);
-    createEAttribute(mulOpCallExpEClass, MUL_OP_CALL_EXP__OPERATION_NAME);
-    createEReference(mulOpCallExpEClass, MUL_OP_CALL_EXP__ARGUMENT_DROITE);
+    createEReference(mulOpCallExpEClass, MUL_OP_CALL_EXP__ARGS);
+    createEAttribute(mulOpCallExpEClass, MUL_OP_CALL_EXP__OPERATION_NAMES);
 
     notOpCallExpEClass = createEClass(NOT_OP_CALL_EXP);
     createEAttribute(notOpCallExpEClass, NOT_OP_CALL_EXP__OPERATION_NAME);
@@ -2443,6 +2407,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     createEReference(mapElementEClass, MAP_ELEMENT__VALUE);
 
     enumLiteralExpEClass = createEClass(ENUM_LITERAL_EXP);
+    createEReference(enumLiteralExpEClass, ENUM_LITERAL_EXP__ECORE_TYPES);
+    createEReference(enumLiteralExpEClass, ENUM_LITERAL_EXP__ENUM_);
     createEAttribute(enumLiteralExpEClass, ENUM_LITERAL_EXP__NAME);
 
     letExpEClass = createEClass(LET_EXP);
@@ -2494,8 +2460,10 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclTypeLiteralEClass = createEClass(OCL_TYPE_LITERAL);
 
+    collectionTypeLiteralEClass = createEClass(COLLECTION_TYPE_LITERAL);
+    createEReference(collectionTypeLiteralEClass, COLLECTION_TYPE_LITERAL__ELEMENT_TYPE);
+
     collectionTypeEClass = createEClass(COLLECTION_TYPE);
-    createEReference(collectionTypeEClass, COLLECTION_TYPE__ELEMENT_TYPE);
 
     bagTypeEClass = createEClass(BAG_TYPE);
 
@@ -2519,6 +2487,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclAnyTypeEClass = createEClass(OCL_ANY_TYPE);
 
+    oclVoidTypeEClass = createEClass(OCL_VOID_TYPE);
+
     tupleTypeEClass = createEClass(TUPLE_TYPE);
     createEReference(tupleTypeEClass, TUPLE_TYPE__ATTRIBUTES);
 
@@ -2528,7 +2498,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclModelElementClassEClass = createEClass(OCL_MODEL_ELEMENT_CLASS);
     createEReference(oclModelElementClassEClass, OCL_MODEL_ELEMENT_CLASS__MODEL);
-    createEAttribute(oclModelElementClassEClass, OCL_MODEL_ELEMENT_CLASS__NAME);
+    createEReference(oclModelElementClassEClass, OCL_MODEL_ELEMENT_CLASS__NAME);
 
     mapTypeEClass = createEClass(MAP_TYPE);
     createEReference(mapTypeEClass, MAP_TYPE__KEY_TYPE);
@@ -2564,6 +2534,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    attributeEClass.getESuperTypes().add(this.getAuxiliary());
     parameterEClass.getESuperTypes().add(this.getAuxiliary());
     oclModelElementExpEClass.getESuperTypes().add(this.getOclExpression());
     operatorCallExpEClass.getESuperTypes().add(this.getOclExpression());
@@ -2594,11 +2565,12 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     iteratorExpEClass.getESuperTypes().add(this.getPropertyCall());
     collectionOperationCallEClass.getESuperTypes().add(this.getPropertyCall());
     localVariableEClass.getESuperTypes().add(this.getAuxiliary());
-    collectionTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
-    bagTypeEClass.getESuperTypes().add(this.getCollectionType());
-    orderedSetTypeEClass.getESuperTypes().add(this.getCollectionType());
-    sequenceTypeEClass.getESuperTypes().add(this.getCollectionType());
-    setTypeEClass.getESuperTypes().add(this.getCollectionType());
+    collectionTypeLiteralEClass.getESuperTypes().add(this.getOclTypeLiteral());
+    collectionTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    bagTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    orderedSetTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    sequenceTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
+    setTypeEClass.getESuperTypes().add(this.getCollectionTypeLiteral());
     primitiveEClass.getESuperTypes().add(this.getOclTypeLiteral());
     stringTypeEClass.getESuperTypes().add(this.getPrimitive());
     booleanTypeEClass.getESuperTypes().add(this.getPrimitive());
@@ -2606,6 +2578,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     integerTypeEClass.getESuperTypes().add(this.getNumericType());
     realTypeEClass.getESuperTypes().add(this.getNumericType());
     oclAnyTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
+    oclVoidTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
     tupleTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
     oclModelElementClassEClass.getESuperTypes().add(this.getOclTypeLiteral());
     mapTypeEClass.getESuperTypes().add(this.getOclTypeLiteral());
@@ -2629,8 +2602,6 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEReference(getOclFeatureDefinition_Feature(), ecorePackage.getEObject(), null, "feature", null, 0, 1, OclFeatureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAttribute_Type(), this.getOclTypeLiteral(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAttribute_InitExpression(), this.getOclExpression(), null, "initExpression", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2649,37 +2620,31 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclModelElementExpEClass, OclModelElementExp.class, "OclModelElementExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOclModelElementExp_Model(), this.getImport(), null, "model", null, 0, 1, OclModelElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOclModelElementExp_Name(), ecorePackage.getEString(), "name", null, 0, 1, OclModelElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOclModelElementExp_Class(), ecorePackage.getEClass(), null, "class", null, 0, 1, OclModelElementExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operatorCallExpEClass, OperatorCallExp.class, "OperatorCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOperatorCallExp_ArgumentGauche(), this.getEqOpCallExp(), null, "argumentGauche", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperatorCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperatorCallExp_ArgumentDroite(), this.getOperatorCallExp(), null, "argumentDroite", null, 0, 1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperatorCallExp_Args(), this.getEqOpCallExp(), null, "args", null, 0, -1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperatorCallExp_OperationNames(), ecorePackage.getEString(), "operationNames", null, 0, -1, OperatorCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eqOpCallExpEClass, EqOpCallExp.class, "EqOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEqOpCallExp_ArgumentGauche(), this.getRelOpCallExp(), null, "argumentGauche", null, 0, 1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEqOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEqOpCallExp_ArgumentDroite(), this.getRelOpCallExp(), null, "argumentDroite", null, 0, 1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEqOpCallExp_Args(), this.getRelOpCallExp(), null, "args", null, 0, -1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEqOpCallExp_OperationNames(), ecorePackage.getEString(), "operationNames", null, 0, -1, EqOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relOpCallExpEClass, RelOpCallExp.class, "RelOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRelOpCallExp_ArgumentGauche(), this.getAddOpCallExp(), null, "argumentGauche", null, 0, 1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRelOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelOpCallExp_ArgumentDroite(), this.getAddOpCallExp(), null, "argumentDroite", null, 0, 1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelOpCallExp_Args(), this.getAddOpCallExp(), null, "args", null, 0, -1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelOpCallExp_OperationNames(), ecorePackage.getEString(), "operationNames", null, 0, -1, RelOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addOpCallExpEClass, AddOpCallExp.class, "AddOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAddOpCallExp_ArgumentGauche(), this.getIntOpCallExp(), null, "argumentGauche", null, 0, 1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAddOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAddOpCallExp_ArgumentDroite(), this.getAddOpCallExp(), null, "argumentDroite", null, 0, 1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddOpCallExp_Args(), this.getIntOpCallExp(), null, "args", null, 0, -1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddOpCallExp_OperationNames(), ecorePackage.getEString(), "operationNames", null, 0, -1, AddOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intOpCallExpEClass, IntOpCallExp.class, "IntOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIntOpCallExp_ArgumentGauche(), this.getMulOpCallExp(), null, "argumentGauche", null, 0, 1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getIntOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIntOpCallExp_ArgumentDroite(), this.getIntOpCallExp(), null, "argumentDroite", null, 0, 1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntOpCallExp_Args(), this.getMulOpCallExp(), null, "args", null, 0, -1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIntOpCallExp_OperationNames(), ecorePackage.getEString(), "operationNames", null, 0, -1, IntOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mulOpCallExpEClass, MulOpCallExp.class, "MulOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMulOpCallExp_ArgumentGauche(), this.getNotOpCallExp(), null, "argumentGauche", null, 0, 1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMulOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMulOpCallExp_ArgumentDroite(), this.getMulOpCallExp(), null, "argumentDroite", null, 0, 1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMulOpCallExp_Args(), this.getNotOpCallExp(), null, "args", null, 0, -1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMulOpCallExp_OperationNames(), ecorePackage.getEString(), "operationNames", null, 0, -1, MulOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(notOpCallExpEClass, NotOpCallExp.class, "NotOpCallExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNotOpCallExp_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, NotOpCallExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2738,6 +2703,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
     initEReference(getMapElement_Value(), this.getOclExpression(), null, "value", null, 0, 1, MapElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumLiteralExpEClass, EnumLiteralExp.class, "EnumLiteralExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnumLiteralExp_EcoreTypes(), this.getImport(), null, "ecoreTypes", null, 0, 1, EnumLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnumLiteralExp_Enum_(), ecorePackage.getEEnum(), null, "enum_", null, 0, 1, EnumLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEnumLiteralExp_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumLiteralExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(letExpEClass, LetExp.class, "LetExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2789,8 +2756,10 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclTypeLiteralEClass, OclTypeLiteral.class, "OclTypeLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(collectionTypeLiteralEClass, CollectionTypeLiteral.class, "CollectionTypeLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCollectionTypeLiteral_ElementType(), this.getOclTypeLiteral(), null, "elementType", null, 0, 1, CollectionTypeLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(collectionTypeEClass, CollectionType.class, "CollectionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCollectionType_ElementType(), this.getOclTypeLiteral(), null, "elementType", null, 0, 1, CollectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bagTypeEClass, BagType.class, "BagType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2814,6 +2783,8 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclAnyTypeEClass, OclAnyType.class, "OclAnyType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(oclVoidTypeEClass, OclVoidType.class, "OclVoidType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(tupleTypeEClass, TupleType.class, "TupleType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTupleType_Attributes(), this.getTupleTypeAttribute(), null, "attributes", null, 0, -1, TupleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2823,7 +2794,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclModelElementClassEClass, OclModelElementClass.class, "OclModelElementClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOclModelElementClass_Model(), this.getImport(), null, "model", null, 0, 1, OclModelElementClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOclModelElementClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, OclModelElementClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOclModelElementClass_Name(), ecorePackage.getEClass(), null, "name", null, 0, 1, OclModelElementClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mapTypeEClass, MapType.class, "MapType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMapType_KeyType(), this.getOclTypeLiteral(), null, "keyType", null, 0, 1, MapType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

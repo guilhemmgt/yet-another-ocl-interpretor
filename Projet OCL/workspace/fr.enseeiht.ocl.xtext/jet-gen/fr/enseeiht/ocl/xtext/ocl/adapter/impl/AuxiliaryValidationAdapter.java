@@ -35,10 +35,19 @@ public final class AuxiliaryValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
+	  // Xtext passe au travers, pas d'implémentation nécessaire
     throw new UnimplementedException(this.getClass(),"getType");
+  }
+
+  /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    return super.toString();
   }
 
   /**
@@ -48,5 +57,15 @@ public final class AuxiliaryValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

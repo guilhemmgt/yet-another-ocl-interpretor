@@ -42,6 +42,14 @@ public final class OclTypeLiteralValidationAdapter implements OCLAdapter {
   }
 
   /**
+   * @generated
+   */
+   @Override
+  public String toString() {
+    return super.toString();
+  }
+
+  /**
    * Get adapted element
    * @return adapted element
    * @generated
@@ -50,7 +58,16 @@ public final class OclTypeLiteralValidationAdapter implements OCLAdapter {
     return this.target;
   }
 
-  public OclType getOclType() {
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
+  }
+           public OclType getOclType() {
 	return null;
   }
  }

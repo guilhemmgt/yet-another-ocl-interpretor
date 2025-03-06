@@ -3,6 +3,10 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.TuplePart;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -35,11 +39,44 @@ public final class TuplePartValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the element
    * @return type of the element
-   * @generated
+   * @generated NOT
    */
   public OclType getType() {
-    throw new UnimplementedException(this.getClass(),"getType");
+    OclType expType = OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getInitExpression()).getType();
+    if (target.getType() == null) {
+    	return expType;
+    }
+    OclClassifier returnType = (OclClassifier) OCLValidationAdapterFactory.INSTANCE.createAdapter(target.getType()).getType();
+    if (expType instanceof OclInvalid) {
+    	return new OclInvalid(expType);
+    }
+    else if (expType.conformsTo(returnType.getRepresentedType())) {
+    	return expType.unifyWith(returnType.getRepresentedType());
+    }
+    else {
+    	return new OclInvalid(new TypeMismatchError(target, returnType.getRepresentedType(), expType));
+    }
   }
+  
+  /**
+   * The method used to gather the name of a TuplePart (ex : "name : OclType = expression")
+   * @return the name of the TuplePart.
+   */
+  public String getName() {
+	  return target.getVarName();
+  }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = this.target.getVarName();
+		if (this.target.getType() != null)
+			res += ":" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType());
+		res += "=" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getInitExpression());
+		return res;
+	}
 
   /**
    * Get adapted element
@@ -48,5 +85,15 @@ public final class TuplePartValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

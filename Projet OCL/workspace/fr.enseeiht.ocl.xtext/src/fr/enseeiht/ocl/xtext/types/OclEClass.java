@@ -21,14 +21,20 @@ public class OclEClass implements OclType {
 		boolean anyType = oclType.getClass().equals(OclAny.class);
 		boolean isSubEClass = false;
 		if (oclType instanceof OclEClass) {
-			isSubEClass = ((OclEClass) oclType).classtype.isSuperTypeOf(classtype);
+			isSubEClass = ((OclEClass) oclType).classtype == null || ((OclEClass) oclType).classtype.isSuperTypeOf(classtype);
 		}
 		return anyType || isSubEClass;
 	}
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
-		if (oclType instanceof OclEClass) {
+		if (oclType instanceof OclInvalid) {
+			return oclType;
+		}
+		else if (oclType instanceof OclVoid) {
+			return this;
+		}
+		else if (oclType instanceof OclEClass) {
 			return findLowestSupertype((OclEClass) oclType);
  		}
 		else {

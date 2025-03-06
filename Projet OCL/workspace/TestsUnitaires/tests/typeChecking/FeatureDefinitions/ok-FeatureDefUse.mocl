@@ -1,0 +1,95 @@
+import "http://empty" as empty
+
+
+def: tobeused : Integer = 3
+
+def: using : Integer = tobeused
+
+
+def: contextlessvoid : OclVoid = null
+
+def: contextlessdefint : Integer = 1
+
+def: contextlessdefcoll : Collection(String) = Bag{"a"}
+
+def: contextlessdefvoidparam() : OclVoid = null
+
+def : contextlessdefrealparam(x:Integer) : Real = 3.0
+
+def: contextlessdefintparam(x:Integer) : Integer = x
+
+def: contextlessdefcoll(a:String, b:String, c:String) : Collection(String) = Bag{a, b, c}
+
+
+
+context empty!empty.Liar
+
+def: defvoid : OclVoid = null
+
+def: defint : Integer = 1
+
+def: defcoll : Collection(String) = Bag{"a"}
+
+def: defself : String = self.name
+
+
+
+def: defvoidparam() : OclVoid = null
+
+def : defrealparam(x:Integer) : Real = 3.0
+
+def: defintparam(x:Integer) : Integer = x
+
+def: defcoll(a:String, b:String, c:String) : Collection(String) = Bag{a, b, c}
+
+def: defself(a:String) : String = self.name + a
+
+
+
+def: deftuple(x:Integer) : Tuple(x:Integer) = Tuple{x:Integer=x} -- A voir comment ça finit
+
+
+-- Now checking for use
+
+
+def: contextlessvoiduse : OclVoid = contextlessvoid
+
+def: contextlessdefintuse : Integer = contextlessdefint
+
+def: contextlessdefcolluse : Collection(String) = contextlessdefcoll
+
+
+
+def: contextlessdefvoidparamuse : OclVoid = contextlessdefvoidparam()
+
+def : contextlessdefrealparamuse : Real = 3.0
+
+def: contextlessdefintparamuse : Integer = contextlessdefintparam(1)
+
+def: contextlessdefcolluse : Collection(String) = contextlessdefcoll("a", "b", "c")
+
+
+
+def: defvoiduse : OclVoid = self.defvoid
+
+def: defintuse : Integer = self.defint
+
+def: defcolluse : Collection(String) = self.defcoll
+
+
+
+def: defvoidparamuse : OclVoid = self.defvoidparam()
+
+def : defrealparamuse : Real = 3.0
+
+def: defintparamuse : Integer = self.defintparam(2)
+
+def: defcolluse : Collection(String) = self.defcoll("a", "a", "c")
+
+
+def: deftupleuse : Integer = self.deftuple(1).x
+
+def: defeclassuse : empty!empty.Liar = self
+
+def: defeclassusedeux : String = self.defclassuse.name
+

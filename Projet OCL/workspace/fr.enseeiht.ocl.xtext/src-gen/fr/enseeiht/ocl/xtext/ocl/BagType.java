@@ -14,6 +14,6 @@ package fr.enseeiht.ocl.xtext.ocl;
  * @model
  * @generated
  */
-public interface BagType extends CollectionType
+public interface BagType extends CollectionTypeLiteral
 {
 } // BagType

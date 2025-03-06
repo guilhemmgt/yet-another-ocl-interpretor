@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv any1: 
+	Bag{1,2,0,3,4}->any(n | 2/n = 2) = 4 

@@ -41,24 +41,14 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
   protected Import model;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EClass name;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,7 +122,27 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
    * @generated
    */
   @Override
-  public String getName()
+  public EClass getName()
+  {
+    if (name != null && name.eIsProxy())
+    {
+      InternalEObject oldName = (InternalEObject)name;
+      name = (EClass)eResolveProxy(oldName);
+      if (name != oldName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME, oldName, name));
+      }
+    }
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass basicGetName()
   {
     return name;
   }
@@ -143,9 +153,9 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setName(EClass newName)
   {
-    String oldName = name;
+    EClass oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME, oldName, name));
@@ -165,7 +175,8 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
         if (resolve) return getModel();
         return basicGetModel();
       case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
-        return getName();
+        if (resolve) return getName();
+        return basicGetName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,7 +195,7 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
         setModel((Import)newValue);
         return;
       case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
-        setName((String)newValue);
+        setName((EClass)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -204,7 +215,7 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
         setModel((Import)null);
         return;
       case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
-        setName(NAME_EDEFAULT);
+        setName((EClass)null);
         return;
     }
     super.eUnset(featureID);
@@ -223,26 +234,9 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
       case OclPackage.OCL_MODEL_ELEMENT_CLASS__MODEL:
         return model != null;
       case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //OclModelElementClassImpl

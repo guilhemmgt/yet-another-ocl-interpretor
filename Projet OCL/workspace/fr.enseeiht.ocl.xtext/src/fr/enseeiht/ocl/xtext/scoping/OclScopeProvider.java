@@ -3,6 +3,26 @@
  */
 package fr.enseeiht.ocl.xtext.scoping;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+
+import fr.enseeiht.ocl.xtext.ocl.Attribute;
+import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
+import fr.enseeiht.ocl.xtext.ocl.IterateExp;
+import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
+import fr.enseeiht.ocl.xtext.ocl.LetExp;
+import fr.enseeiht.ocl.xtext.ocl.Module;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
+import fr.enseeiht.ocl.xtext.ocl.OclPackage;
+import fr.enseeiht.ocl.xtext.ocl.Operation;
+import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +31,69 @@ package fr.enseeiht.ocl.xtext.scoping;
  * on how and when to use it.
  */
 public class OclScopeProvider extends AbstractOclScopeProvider {
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		if (reference == OclPackage.Literals.VARIABLE_EXP__REFERRED_VARIABLE) { 
+			VariableExp variableExp = (VariableExp) context;
+			
+			Map<String, Auxiliary> scope = new HashMap<>();
+			
+			Module module = null;
+			OclContextBlock contextBlock = null;
 
+			// Ajoute les Auxiliaries des parents
+	        EObject parent = variableExp.eContainer();
+	        while (!(parent instanceof Module)) {
+	        	// Ajoute les Iterators
+	        	if (parent instanceof IteratorExp iteratorExp)
+	        		putAllIfAbsent(scope, iteratorExp.getIterators());
+	        	if (parent instanceof IterateExp iterateExp)
+	        		putAllIfAbsent(scope, iterateExp.getIterators());
+	        	// Ajoute les LocalVariables
+	        	if (parent instanceof LetExp letExp)
+	        		putIfAbsent(scope, letExp.getVariable());
+	        	if (parent instanceof IterateExp iterateExp)
+	        		putIfAbsent(scope, iterateExp.getResult());
+	        	// Ajoute les Parameters
+	        	if (parent instanceof Operation operation)
+	        		putAllIfAbsent(scope, operation.getParameters());
+	        	// Ajoute les Attributes
+	        	if (parent instanceof OclFeatureDefinition oclFeatureDef)
+	        		if (oclFeatureDef.getFeature() instanceof Attribute feature)
+	        			putIfAbsent(scope, feature);
+	        	
+	        	parent = parent.eContainer();
+	        	
+	        	if (parent instanceof Module pModule)
+	        		module = pModule;
+	        	if (parent instanceof OclContextBlock pContextBlock)
+	        		contextBlock = pContextBlock;
+	        }
+	        
+	        // Ajoute les Attributs des def sans context
+	        for (OclFeatureDefinition def : module.getContextlessFeatures()) {
+	        	if (def.getFeature() instanceof Attribute defAttribute)
+	        		putIfAbsent(scope, defAttribute);
+	        }
+	        
+	        // Ajoute les Attributs des def du contexte
+	        for (EObject member : contextBlock.getMembers()) {
+	        	if (member instanceof OclFeatureDefinition def && def.getFeature() instanceof Attribute defAttribute)
+	        		putIfAbsent(scope, defAttribute);
+	        }
+	        
+	        return Scopes.scopeFor(scope.values());
+		}
+		
+		return super.getScope(context, reference);
+	}
+	
+	private <A extends Auxiliary> void  putAllIfAbsent (Map<String, Auxiliary> map, EList<A> auxiliaries) {
+		for (Auxiliary aux : auxiliaries) {
+			map.putIfAbsent(aux.getName(), aux);
+		}
+	}
+	private <A extends Auxiliary> void putIfAbsent (Map<String, Auxiliary> map, A auxiliary) {
+		map.putIfAbsent(auxiliary.getName(), auxiliary);
+	}
 }

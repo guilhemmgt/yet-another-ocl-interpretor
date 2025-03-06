@@ -3,10 +3,135 @@
  */
 package fr.enseeiht.ocl.xtext.ui.contentassist;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.nodemodel.impl.LeafNodeWithSyntaxError;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+
+import fr.enseeiht.ocl.xtext.OclType;
+import fr.enseeiht.ocl.xtext.ocl.Import;
+import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
+import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
+import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
+import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
+import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
+import fr.enseeiht.ocl.xtext.types.OclEClass;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
  * on how to customize the content assistant.
  */
 public class OclProposalProvider extends AbstractOclProposalProvider {
+	
+	@Override
+	public void completeImport_Name(EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		super.completeImport_Name(model, assignment, context, acceptor);
+
+		Import import_ = (Import) model;
+
+		String proposal = import_.getPackage().getNsPrefix();
+		
+		// Accepte le prefix pour l'auto-complétion du nom de l'import
+		acceptor.accept(createCompletionProposal(proposal, context));
+	}
+
+	@Override
+	public void completeNavigationOrAttributeCall_Name(EObject model, Assignment assignment,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeNavigationOrAttributeCall_Name(model, assignment, context, acceptor);
+		
+		OclType type;
+		// moyen de vérifier de savoir quel composant ai sélectionné : si condition du
+		// if vrai alors on est dans ce cas : `<truc>.` et donc il faut récupérer
+		// l'élement précédent
+		if(!(context.getLastCompleteNode() instanceof LeafNodeWithSyntaxError)) {
+			// On récupère le type du parent, qui devrait alors etre une EClass
+			PropertyCallExp container = (PropertyCallExp) model.eContainer();
+			// On remonte la pile des accès
+			int pos = container.getCalls().indexOf(model);
+			if (pos == 0) {
+				// root call
+				type = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+			} else {
+				type = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos - 1))
+						.getType();
+			}
+		} else {
+			type = OCLValidationAdapterFactory.INSTANCE.createAdapter(model).getType();
+		}
+		// propose les éléments du ecore pour la navigation des éléments
+		if(type instanceof OclEClass eClassType) {
+			for (EStructuralFeature feature : eClassType.classtype.getEAllStructuralFeatures()) {
+				acceptor.accept(createCompletionProposal(feature.getName(), context));
+			}
+		}
+		// propose les éléments du ecore pour l'appel de méthode
+		for (OclOperationEnum operationEnum : OclOperationEnum.values()) {
+			if (operationEnum.getOperations() != null) {
+				for (IOclOperation operation : operationEnum.getOperations()) {
+					if (operation.getSourceType() != null && type.conformsTo(operation.getSourceType())) {
+						acceptor.accept(createCompletionProposal(operation.getName(), context));
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public void completeCollectionOperationCall_OperationName(EObject model, Assignment assignment,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeCollectionOperationCall_OperationName(model, assignment, context, acceptor);
+		
+		OclType type;
+		// moyen de vérifier de savoir quel composant ai sélectionné : si condition du
+		// if vrai alors on est dans ce cas : `<truc>.` et donc il faut récupérer
+		// l'élement précédent
+		if(!(context.getLastCompleteNode() instanceof LeafNodeWithSyntaxError)) {
+			// On récupère le type du parent, qui devrait alors etre une EClass
+			PropertyCallExp container = (PropertyCallExp) model.eContainer();
+			// On remonte la pile des accès
+			int pos = container.getCalls().indexOf(model);
+			if (pos == 0) {
+				// root call
+				type = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+			} else {
+				type = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos - 1))
+						.getType();
+			}
+		} else {
+			type = OCLValidationAdapterFactory.INSTANCE.createAdapter(model).getType();
+		}
+		// propose les éléments du ecore pour l'appel de méthode de collections
+		if(type.conformsTo(new OclCollection(new OclAny()))) {
+			for (OclOperationEnum operationEnum : OclOperationEnum.values()) {
+				if (operationEnum.getOperations() != null) {
+					for (IOclOperation operation : operationEnum.getOperations()) {
+						if (operation.getSourceType() != null && type.conformsTo(operation.getSourceType())) {
+							acceptor.accept(createCompletionProposal(operation.getName(), context));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	protected boolean doCreateIntProposals() {
+	    return false;
+	}
+
+	@Override
+	protected boolean doCreateStringProposals() {
+	    return false;
+	}
+
+	@Override   
+	protected boolean doCreateIdProposals() {
+	    return false;
+	}
+	
 }

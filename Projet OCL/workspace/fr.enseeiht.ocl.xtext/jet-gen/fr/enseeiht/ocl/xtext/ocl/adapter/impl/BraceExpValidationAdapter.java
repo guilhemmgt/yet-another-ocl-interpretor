@@ -39,10 +39,16 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 	  // L'expression dans les parenthèses
-	  OCLAdapter exp =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp());
-	  return exp.getType();
-	  
+	  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp()).getType();	  
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "(" + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getExp()) + ")";
+	}
 
   /**
    * Get adapted element
@@ -51,5 +57,15 @@ public final class BraceExpValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated NOT
+   */
+   @Override
+  public String getOutlineString() {
+    return "()";
   }
  }

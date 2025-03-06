@@ -1,0 +1,33 @@
+import 'PetriNet.ecore'
+
+context petrinet.Network
+inv nomPasCourt:
+	self.name.size() > 1
+inv nomValide:
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+inv nomUniqueCE:
+	self.networkElements
+	-> select (pe | pe.oclIsKindOf(petrinet.CaseElement))
+	-> collect (pe | pe.oclAsType(petrinet.CaseElement))
+	-> forAll (ce1, ce2 | ce1=ce2 or ce1.name <> ce2.name)
+	
+	
+context petrinet.CaseElement
+inv nomPasCourt:
+	self.name.size() > 1
+inv nomValide:
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+
+context petrinet.Place
+inv quantitePositive:
+	self.tokens >= 0
+
+
+context petrinet.Arc
+inv poidsPositif :
+	self.weight >= 0
+inv casesDifferentes :
+	self.linkToPrevCase.oclType() <> self.linkToNextCase.oclType()
+inv readArcValide :
+	not self.readOnly or self.linkToPrevCase.oclIsKindOf(petrinet.Place)

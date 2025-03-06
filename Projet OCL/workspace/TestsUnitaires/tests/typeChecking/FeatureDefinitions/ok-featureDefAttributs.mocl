@@ -1,0 +1,15 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+def : att1 : OclVoid = null
+
+def: att2 : Integer = 1
+
+def :att3 : Real = 1
+
+def: att4: Bag(Integer) = Bag{1, 2, 3}
+
+def: att5 :Collection(OclAny) = Bag{1, "s"}
+
+def: att6 : Collection(OclAny) = Bag{1}

@@ -8,7 +8,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclReal;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
@@ -56,7 +56,11 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 			  }
 		  case "-":
 			  if (arg instanceof Number) {
-				  return -(arg instanceof Integer ? (Integer)arg : (Double)arg);
+				  if (arg instanceof Integer integ) {
+					  return (Integer) (-integ);
+				  } else {
+					  return -((Double)arg);
+				  }
 			  } else {
 				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), arg.getClass());
 			  }
@@ -79,26 +83,24 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  boolean isReal = type.conformsTo(new OclReal());
 	  // operator = 'not' | '-'
 	  boolean operationIsNot = this.target.getOperationName().equals("not");
-	  // Invalid + ... : Invalid
-	  boolean isInvalid = type.conformsTo(new OclInvalid());
-	  // Void + ... : Void
-	  boolean isVoid = type.conformsTo(new OclVoid());
+
 	  
-	  if (isBoolean && operationIsNot) {
-		  return new OclBoolean();
-	  }
-	  else if (isReal && !operationIsNot) {
-		  return new OclReal();
-	  }
-	  else if (isVoid && !isInvalid) {
-		  return new OclVoid();
-	  }
-	  else {
+	  if (isBoolean && operationIsNot || isReal && !operationIsNot) {
+		  return type;
+	  } else {
 		  // Opération invalide
-		  String message = "Invalid operation for type " + type + " (operation : '" + target.getOperationName() + "')";
-		  return new OclInvalid(target, message, type);
+		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationName(), type));
 	  }
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String opName = this.target.getOperationName();
+		return opName + (opName.equals("-") ? "" : " ") + OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
+	}
 
   /**
    * Get adapted element
@@ -107,5 +109,15 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated NOT
+   */
+   @Override
+  public String getOutlineString() {
+    return String.join(".", this.target.getOperationName());
   }
  }

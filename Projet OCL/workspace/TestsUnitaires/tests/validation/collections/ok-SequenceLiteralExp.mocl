@@ -1,0 +1,17 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv inv1: -- ordre
+	Sequence{1,2,3} <> Sequence{3,2,1}
+inv inv2: -- duplicats
+	Sequence{1,1,2,1,1} <> Sequence{1,2}
+	
+inv inv3:
+	Sequence{} = Sequence{}
+inv inv4:
+	Sequence{"hello", "world"} = Sequence{"hello", "world"}
+inv inv5:
+	Sequence{null} = Sequence{null}
+inv inv6:
+	Sequence{0} <> Sequence{1}

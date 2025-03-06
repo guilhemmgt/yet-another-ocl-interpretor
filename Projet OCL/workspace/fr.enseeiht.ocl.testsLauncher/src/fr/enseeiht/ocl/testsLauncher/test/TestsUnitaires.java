@@ -31,6 +31,7 @@ import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileExtensionException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.BadFileStructureException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.SyntaxException;
 import fr.enseeiht.ocl.testsLauncher.exceptions.CheckTypeException;
+import fr.enseeiht.ocl.testsLauncher.exceptions.LinkingException;
 import fr.enseeiht.ocl.testsLauncher.util.LauncherUtils;
 import fr.enseeiht.ocl.xtext.ocl.OclInvariant;
 import fr.enseeiht.yaoi.ValidationError;
@@ -153,13 +154,13 @@ public class TestsUnitaires {
 				String relativePath = projectFolder.toURI().relativize(path.toFile().toURI()).getPath();
 				String errorLine = null;
 				String sCurrentLine;
-				
 				BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
 				while ((sCurrentLine = br.readLine()) != null) {
-					System.out.println(sCurrentLine);
-					if(sCurrentLine.replace(" ", "").startsWith("--@error:\"") && sCurrentLine.replace(" ", "").endsWith("\"")) {
-						System.out.println(sCurrentLine);
-						errorLine = sCurrentLine.replace(" ", "").substring(10, sCurrentLine.length() - 1);
+					Pattern p = Pattern.compile("\\s(?=([^\"\\\\]*(\\\\.|\"([^\"\\\\]*\\\\.)*[^\"\\\\]*\"))*[^\"]*$)", Pattern.CASE_INSENSITIVE);
+					Matcher m = p.matcher(sCurrentLine);
+					sCurrentLine = m.replaceAll("");
+					if(sCurrentLine.startsWith("--@error:\"") && sCurrentLine.endsWith("\"")) {
+						errorLine = sCurrentLine.substring(10, sCurrentLine.length() - 1);
 						break;
 					}
 				}
@@ -175,7 +176,7 @@ public class TestsUnitaires {
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideValidationUndefinedArguments")
 	@DisplayName("Tests KO sur la validation (retourne null)")
-	void testValidationUndefined(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
+	void testValidationUndefined(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
 		
@@ -228,7 +229,7 @@ public class TestsUnitaires {
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideValidationArguments")
 	@DisplayName("Tests KO sur la validation")
-	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
+	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
 		
@@ -252,7 +253,7 @@ public class TestsUnitaires {
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideOkArguments")
 	@DisplayName("Tests OK")
-	void testOk(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException {
+	void testOk(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
 		

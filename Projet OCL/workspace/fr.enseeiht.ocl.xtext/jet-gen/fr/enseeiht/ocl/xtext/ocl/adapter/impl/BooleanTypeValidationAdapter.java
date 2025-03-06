@@ -4,6 +4,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
+import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -39,8 +40,16 @@ public final class BooleanTypeValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  return new OclBoolean();
+	  return new OclClassifier(new OclBoolean());
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		return "Boolean";
+	}
 
   /**
    * Get adapted element
@@ -49,5 +58,15 @@ public final class BooleanTypeValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated
+   */
+   @Override
+  public String getOutlineString() {
+    return null;
   }
  }

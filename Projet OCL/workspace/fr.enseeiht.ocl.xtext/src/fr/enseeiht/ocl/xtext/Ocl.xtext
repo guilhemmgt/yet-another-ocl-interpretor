@@ -34,14 +34,14 @@ OclExpression returns OclExpression :
 	OperatorCallExp|LetExp;
 
 OclModelElementExp :
-	model=[Import]'!'name=ID
+	model=[Import]'!'class=[ecore::EClass|QualifiedName]
 ;
 
 //priority_5
 
 OperatorCallExp:
 	// args+=EqOpCallExp (({OperatorCallExp.source=current} operationNames+=BOOLOP) 	args+=EqOpCallExp )*
-	args+=EqOpCallExp (operationNames+=BOOLOP args+=OperatorCallExp)*
+	args+=EqOpCallExp (operationNames+=BOOLOP args+=EqOpCallExp)*
 ;
 BOOLOP  		: 'and'|'or'|'xor'|'implies';
 
@@ -59,19 +59,19 @@ RELOP  		: '>'|'<'|'>='|'<=' ;
 
 AddOpCallExp:
 	//args+=IntOpCallExp (({AddOpCallExp.source=current} operationNames+=ADDOP) 	args+=IntOpCallExp )*
-	args+=IntOpCallExp (operationNames+=ADDOP args+=AddOpCallExp)*
+	args+=IntOpCallExp (operationNames+=ADDOP args+=IntOpCallExp)*
 ;
 ADDOP : '-'|'+';
 
 IntOpCallExp :
 	//args+=MulOpCallExp (({IntOpCallExp.source=current} operationNames+=INTOP) 	args+=MulOpCallExp )*
-	args+=MulOpCallExp (operationNames+=INTOP args+=IntOpCallExp)*
+	args+=MulOpCallExp (operationNames+=INTOP args+=MulOpCallExp)*
 ;
 INTOP : 'div'|'mod';
 
 MulOpCallExp:
 	//args+=NotOpCallExp (({MulOpCallExp.source=current} operationNames+=MULOP) 	args+=NotOpCallExp )*
-	args+=NotOpCallExp (operationNames+=MULOP args+=MulOpCallExp)*
+	args+=NotOpCallExp (operationNames+=MULOP args+=NotOpCallExp)*
 ;
 MULOP: '*'|'/';
 
@@ -93,6 +93,7 @@ Primary_OclExpression returns OclExpression :
 	|StringLiteralExp
 	|BooleanLiteralExp
 	|NumericLiteralExp
+	|NullLiteralExp
 	|BagLiteralExp
 	|OrderedSetLiteralExp
 	|SequenceLiteralExp
@@ -103,10 +104,9 @@ Primary_OclExpression returns OclExpression :
 	|IfExp
 	|BraceExp
 	|OclModelElementExp
-	|ContextlessCallExp
-	|NullLiteralExp;
+	|ContextlessCallExp;
 
-Auxiliary :Iterator|LocalVariable|Parameter;
+Auxiliary :Iterator|LocalVariable|Parameter|Attribute;
 VariableExp:
 	referredVariable=[Auxiliary]
 ;
@@ -152,7 +152,7 @@ TupleLiteralExp:
 	'Tuple' '{' (tuplePart+=TuplePart ("," tuplePart+=TuplePart)*)? '}'
 ;
 TuplePart:
-	varName=STRING (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
+	varName=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
 MapLiteralExp : 
 	{MapLiteralExp}
@@ -164,7 +164,7 @@ MapElement :
 ;
 
 EnumLiteralExp : 
-	"#" (name=STRING|name=ID)
+	ecoreTypes=[Import]'!'enum_=[ecore::EEnum|QualifiedName] "#" name=ID
 ;
 
 LetExp : 
@@ -196,7 +196,7 @@ OperationCall:
 	;
 
 NavigationOrAttributeCall : 
-	'.' (name=STRING|name=ID)
+	'.' name=ID
 	;
 
 IterateExp:
@@ -219,20 +219,26 @@ LocalVariable :
 	name=ID (':' type=OclTypeLiteral)? '=' initExpression=OclExpression
 ;
 OclTypeLiteral : 
-	CollectionType
+	CollectionTypeLiteral
 	| Primitive 
 	| OclAnyType 
+	| OclVoidType
 	| TupleType 
 	| OclModelElementClass
 	| MapType 
 	;
 
-CollectionType:
-	BagType
+CollectionTypeLiteral:
+	CollectionType
+	| BagType
 	| OrderedSetType 
 	| SequenceType 
 	| SetType 
 	;
+	
+CollectionType :
+	'Collection' '(' elementType=OclTypeLiteral ')'
+;
 
 BagType :
 	'Bag' '(' elementType=OclTypeLiteral ')'
@@ -280,6 +286,10 @@ RealType:
 OclAnyType :
 	{OclAnyType}'OclAny'
 ;
+
+OclVoidType :
+	{OclVoidType}'OclVoid'
+;
 	
 TupleType :
 	{TupleType}
@@ -288,7 +298,7 @@ TupleType :
 	 
 TupleTypeAttribute : name=ID ':' type=OclTypeLiteral;
 
-OclModelElementClass: model=[Import]'!'name=ID;
+OclModelElementClass: model=[Import]'!'name=[ecore::EClass|QualifiedName];
 	
 MapType : 
 	'Map' '(' keyType=OclTypeLiteral ',' valueType=OclTypeLiteral ')'
@@ -298,7 +308,7 @@ MapType :
 terminal DOUBLE returns ecore::EDouble :
 	(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?;
 
-QualifiedName: ID ('.' ID)*;
+QualifiedName: ID ('.' ID);
 
 
 @Override

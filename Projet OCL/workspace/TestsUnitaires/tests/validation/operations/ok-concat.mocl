@@ -1,0 +1,11 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv concat:
+ 	"(-2.3)".concat(".abs()") = "(-2.3).abs()"
+ 	
+inv conchat:
+ 	"".concat(".abs()") = ".abs()"
+ 	
+inv concat:
+ 	"(-2.3)".concat("") = "(-2.3)"

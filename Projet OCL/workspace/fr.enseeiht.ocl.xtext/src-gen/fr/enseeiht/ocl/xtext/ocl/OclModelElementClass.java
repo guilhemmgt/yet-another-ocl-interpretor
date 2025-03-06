@@ -3,6 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,25 +47,25 @@ public interface OclModelElementClass extends OclTypeLiteral
   void setModel(Import value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
+   * @return the value of the '<em>Name</em>' reference.
+   * @see #setName(EClass)
    * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementClass_Name()
    * @model
    * @generated
    */
-  String getName();
+  EClass getName();
 
   /**
-   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
+   * @param value the new value of the '<em>Name</em>' reference.
    * @see #getName()
    * @generated
    */
-  void setName(String value);
+  void setName(EClass value);
 
 } // OclModelElementClass

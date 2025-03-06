@@ -1,0 +1,12 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv nonNull:
+	empty!empty.SubLiar.allInstances() <> Set{}
+	
+
+inv hertiage:
+	empty!empty.Liar.allInstances()->size() = 2
+
+inv size:
+	empty!empty.SubLiar.allInstances()->size() = 1

@@ -1,6 +1,7 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureTypeException;
@@ -8,11 +9,12 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.adapter.DivisionByZeroInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
-import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.IntOpCallExp;
+import fr.enseeiht.ocl.xtext.ocl.MulOpCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
 /**
@@ -37,41 +39,50 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
-	  if (this.target.getOperationName() == null) {
-		  // Passage au rang suivant
-		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
-	  }
-	  
-	  // Cohérence de types
-	  Object left = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche()).getValue(contextTarget);
-	  Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite()).getValue(contextTarget);
+		Object result = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0))
+				.getValue(contextTarget);
 
-	  if (left == null || right == null) {
-		  // Levée d'erreur et envoi de l'argument fautif
-		  return new UndefinedAccessInvalid(left == null ? this.target.getArgumentGauche() : this.target.getArgumentDroite());
-	  }
-	  if (left instanceof Invalid || right instanceof Invalid) {
-		  return left instanceof Invalid ? left : right;
-	  }
-	  if (!(left instanceof Integer && right instanceof Integer)) {
-		  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), new Class<?>[] { left.getClass(), right.getClass() });
-	  }
-	  Integer leftNum = ((Integer)left);
-	  Integer rightNum = ((Integer)right);
-	  
-	  // Traitement des opérations
-	  switch (this.target.getOperationName()) {
-		  case "div":
-			  if (rightNum == 0)
-				  return new DivisionByZeroInvalid(this.target.getArgumentDroite());
-			  return leftNum / rightNum;
-		  case "mod":
-			  if (rightNum == 0)
-				  return new DivisionByZeroInvalid(this.target.getArgumentDroite());
-			  return leftNum % rightNum;
-		  default:
-			  throw new UnsupportedFeatureException(this.target.getOperationName());
-	  }
+		if (this.target.getOperationNames().size() == 0) {
+			// Passage au rang suivant
+			return result;
+		}
+		for (int i = 0; i < this.target.getOperationNames().size(); i++) {
+			// Cohérence de types
+			Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i + 1))
+					.getValue(contextTarget);
+
+			if (result == null || right == null) {
+				// Levée d'erreur et envoi de l'argument fautif
+				result = new UndefinedAccessInvalid(
+						result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i + 1));
+			}
+			if (result instanceof Invalid || right instanceof Invalid) {
+				return result instanceof Invalid ? result : right;
+			}
+			if (!(result instanceof Integer && right instanceof Integer)) {
+				throw new UnsupportedFeatureTypeException(this.target.getOperationNames().get(i),
+						new Class<?>[] { result.getClass(), right.getClass() });
+			}
+			Integer leftNum = ((Integer) result);
+			Integer rightNum = ((Integer) right);
+
+			// Traitement des opérations
+			switch (this.target.getOperationNames().get(i)) {
+			case "div":
+				if (rightNum == 0)
+					return new DivisionByZeroInvalid(this.target.getArgs().get(i + 1));
+				result = leftNum / rightNum;
+				break;
+			case "mod":
+				if (rightNum == 0)
+					return new DivisionByZeroInvalid(this.target.getArgs().get(i + 1));
+				result = leftNum % rightNum;
+				break;
+			default:
+				throw new UnsupportedFeatureException(this.target.getOperationNames().get(i));
+			}
+		}
+		return result;
   }
 
   /**
@@ -81,35 +92,43 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
    */
   public OclType getType() {
 	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OCLAdapter arg1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentGauche());
-	  if (this.target.getArgumentDroite() == null) {
+	  OCLAdapter arg1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0));
+	  OclType resultType = arg1.getType();
+	  if (this.target.getOperationNames().size() == 0) {
 		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
-		  return arg1.getType();
+		  return resultType;
 	  }
-	  else {
-		  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgumentDroite());
-		  OclType type1 = arg1.getType();
-		  OclType type2 = arg2.getType();
+	  boolean isInteger = resultType.conformsTo(new OclInteger());
+	  for(int i=0; i < this.target.getOperationNames().size(); i++) {
+		  OCLAdapter arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i+1));
+		  OclType argType = arg.getType();
 		  // Integer mod Integer : Integer
-		  boolean isInteger = type1.conformsTo(new OclInteger()) && type2.conformsTo(new OclInteger());
-		  // Invalid mod ... : Invalid
-		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-		  // Void mod ... : Void
-		  boolean anyVoid = type1.conformsTo(new OclVoid()) || type2.conformsTo(new OclVoid());
+		  isInteger = isInteger && argType.conformsTo(new OclInteger());
 		  
 		  if (isInteger) {
-			  return type1.unifyWith(type2);
-		  }
-		  else if (anyVoid && !anyInvalid) {
-			  return new OclVoid();
-		  }
-		  else {
+			  resultType =  resultType.unifyWith(argType);
+		  } else {
 			  // Opération invalide
-			  String message = "Invalid operation between types " + type1 + " and " + type2 + " (operation : '" + target.getOperationName() + "')";
-			  return new OclInvalid(target, message, type1, type2);
+			  resultType =  new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames(), resultType, argType));
 		  }
 	  }
+	  return resultType;
   }
+
+  /**
+   * @generated NOT
+   */
+   @Override
+	public String toString() {
+		String res = "";
+		EList<MulOpCallExp> args = this.target.getArgs();
+		EList<String> ops = this.target.getOperationNames();
+		for (int i = 0; i < ops.size(); i++) {
+			res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(i)) + " " + ops.get(i) + " ";
+		}
+		res += OCLValidationAdapterFactory.INSTANCE.createAdapter(args.get(args.size()-1));
+		return res;
+	}
 
   /**
    * Get adapted element
@@ -118,5 +137,15 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
    */
   public EObject getElement() {
     return this.target;
+  }
+
+  /**
+   * Return the string visible in the outline
+   * @return outline name
+   * @generated NOT
+   */
+   @Override
+  public String getOutlineString() {
+	   return String.join(".", this.target.getOperationNames());
   }
  }

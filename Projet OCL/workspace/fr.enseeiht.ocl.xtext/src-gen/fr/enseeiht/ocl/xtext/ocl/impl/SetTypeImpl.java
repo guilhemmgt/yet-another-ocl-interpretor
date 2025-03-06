@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SetTypeImpl extends CollectionTypeImpl implements SetType
+public class SetTypeImpl extends CollectionTypeLiteralImpl implements SetType
 {
   /**
    * <!-- begin-user-doc -->
