@@ -3589,9 +3589,9 @@ rule__OclInvariant__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getOclInvariantAccess().getColonKeyword_2()); }
-	':'
-	{ after(grammarAccess.getOclInvariantAccess().getColonKeyword_2()); }
+	{ before(grammarAccess.getOclInvariantAccess().getGroup_2()); }
+	(rule__OclInvariant__Group_2__0)?
+	{ after(grammarAccess.getOclInvariantAccess().getGroup_2()); }
 )
 ;
 finally {
@@ -3604,6 +3604,7 @@ rule__OclInvariant__Group__3
 	}
 :
 	rule__OclInvariant__Group__3__Impl
+	rule__OclInvariant__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3615,9 +3616,116 @@ rule__OclInvariant__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getOclInvariantAccess().getBodyAssignment_3()); }
-	(rule__OclInvariant__BodyAssignment_3)
-	{ after(grammarAccess.getOclInvariantAccess().getBodyAssignment_3()); }
+	{ before(grammarAccess.getOclInvariantAccess().getColonKeyword_3()); }
+	':'
+	{ after(grammarAccess.getOclInvariantAccess().getColonKeyword_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__OclInvariant__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getOclInvariantAccess().getBodyAssignment_4()); }
+	(rule__OclInvariant__BodyAssignment_4)
+	{ after(grammarAccess.getOclInvariantAccess().getBodyAssignment_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__OclInvariant__Group_2__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__OclInvariant__Group_2__0__Impl
+	rule__OclInvariant__Group_2__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__Group_2__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getOclInvariantAccess().getLeftParenthesisKeyword_2_0()); }
+	'('
+	{ after(grammarAccess.getOclInvariantAccess().getLeftParenthesisKeyword_2_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__Group_2__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__OclInvariant__Group_2__1__Impl
+	rule__OclInvariant__Group_2__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__Group_2__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getOclInvariantAccess().getErrorMessageAssignment_2_1()); }
+	(rule__OclInvariant__ErrorMessageAssignment_2_1)
+	{ after(grammarAccess.getOclInvariantAccess().getErrorMessageAssignment_2_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__Group_2__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__OclInvariant__Group_2__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__Group_2__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getOclInvariantAccess().getRightParenthesisKeyword_2_2()); }
+	')'
+	{ after(grammarAccess.getOclInvariantAccess().getRightParenthesisKeyword_2_2()); }
 )
 ;
 finally {
@@ -10174,15 +10282,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__OclInvariant__BodyAssignment_3
+rule__OclInvariant__ErrorMessageAssignment_2_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_3_0()); }
+		{ before(grammarAccess.getOclInvariantAccess().getErrorMessageOclExpressionParserRuleCall_2_1_0()); }
 		ruleOclExpression
-		{ after(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_3_0()); }
+		{ after(grammarAccess.getOclInvariantAccess().getErrorMessageOclExpressionParserRuleCall_2_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__OclInvariant__BodyAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_4_0()); }
+		ruleOclExpression
+		{ after(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_4_0()); }
 	)
 ;
 finally {

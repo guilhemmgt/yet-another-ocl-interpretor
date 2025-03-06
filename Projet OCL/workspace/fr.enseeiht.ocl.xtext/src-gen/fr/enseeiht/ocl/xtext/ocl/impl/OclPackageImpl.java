@@ -869,9 +869,20 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
    * @generated
    */
   @Override
-  public EReference getOclInvariant_Body()
+  public EReference getOclInvariant_ErrorMessage()
   {
     return (EReference)oclInvariantEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOclInvariant_Body()
+  {
+    return (EReference)oclInvariantEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2288,6 +2299,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     oclInvariantEClass = createEClass(OCL_INVARIANT);
     createEAttribute(oclInvariantEClass, OCL_INVARIANT__NAME);
+    createEReference(oclInvariantEClass, OCL_INVARIANT__ERROR_MESSAGE);
     createEReference(oclInvariantEClass, OCL_INVARIANT__BODY);
 
     oclExpressionEClass = createEClass(OCL_EXPRESSION);
@@ -2580,6 +2592,7 @@ public class OclPackageImpl extends EPackageImpl implements OclPackage
 
     initEClass(oclInvariantEClass, OclInvariant.class, "OclInvariant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOclInvariant_Name(), ecorePackage.getEString(), "name", null, 0, 1, OclInvariant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOclInvariant_ErrorMessage(), this.getOclExpression(), null, "errorMessage", null, 0, 1, OclInvariant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOclInvariant_Body(), this.getOclExpression(), null, "body", null, 0, 1, OclInvariant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(oclExpressionEClass, OclExpression.class, "OclExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

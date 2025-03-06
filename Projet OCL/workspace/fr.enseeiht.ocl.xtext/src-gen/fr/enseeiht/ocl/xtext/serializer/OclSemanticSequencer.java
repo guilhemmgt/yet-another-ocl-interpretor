@@ -859,20 +859,11 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OclInvariant returns OclInvariant
 	 *
 	 * Constraint:
-	 *     (name=ID body=OclExpression)
+	 *     (name=ID errorMessage=OclExpression? body=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_OclInvariant(ISerializationContext context, OclInvariant semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_INVARIANT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_INVARIANT__NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_INVARIANT__BODY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_INVARIANT__BODY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOclInvariantAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_3_0(), semanticObject.getBody());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

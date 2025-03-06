@@ -361,16 +361,21 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cInvKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cBodyAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cBodyOclExpressionParserRuleCall_3_0 = (RuleCall)cBodyAssignment_3.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cErrorMessageAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cErrorMessageOclExpressionParserRuleCall_2_1_0 = (RuleCall)cErrorMessageAssignment_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cBodyAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cBodyOclExpressionParserRuleCall_4_0 = (RuleCall)cBodyAssignment_4.eContents().get(0);
 		
 		//OclInvariant:
-		//    'inv' name=ID ':' body=OclExpression
+		//    'inv' name=ID ('('errorMessage=OclExpression')')?':' body=OclExpression
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'inv' name=ID ':' body=OclExpression
+		//'inv' name=ID ('('errorMessage=OclExpression')')?':' body=OclExpression
 		public Group getGroup() { return cGroup; }
 		
 		//'inv'
@@ -382,14 +387,29 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		//('('errorMessage=OclExpression')')?
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//body=OclExpression
-		public Assignment getBodyAssignment_3() { return cBodyAssignment_3; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//errorMessage=OclExpression
+		public Assignment getErrorMessageAssignment_2_1() { return cErrorMessageAssignment_2_1; }
 		
 		//OclExpression
-		public RuleCall getBodyOclExpressionParserRuleCall_3_0() { return cBodyOclExpressionParserRuleCall_3_0; }
+		public RuleCall getErrorMessageOclExpressionParserRuleCall_2_1_0() { return cErrorMessageOclExpressionParserRuleCall_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		
+		//body=OclExpression
+		public Assignment getBodyAssignment_4() { return cBodyAssignment_4; }
+		
+		//OclExpression
+		public RuleCall getBodyOclExpressionParserRuleCall_4_0() { return cBodyOclExpressionParserRuleCall_4_0; }
 	}
 	public class OclExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.ocl.xtext.Ocl.OclExpression");
@@ -3148,7 +3168,7 @@ public class OclGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OclInvariant:
-	//    'inv' name=ID ':' body=OclExpression
+	//    'inv' name=ID ('('errorMessage=OclExpression')')?':' body=OclExpression
 	//;
 	public OclInvariantElements getOclInvariantAccess() {
 		return pOclInvariant;

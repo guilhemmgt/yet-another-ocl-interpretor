@@ -671,16 +671,45 @@ ruleOclInvariant returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2=':'
+		(
+			otherlv_2='('
+			{
+				newLeafNode(otherlv_2, grammarAccess.getOclInvariantAccess().getLeftParenthesisKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getOclInvariantAccess().getErrorMessageOclExpressionParserRuleCall_2_1_0());
+					}
+					lv_errorMessage_3_0=ruleOclExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOclInvariantRule());
+						}
+						set(
+							$current,
+							"errorMessage",
+							lv_errorMessage_3_0,
+							"fr.enseeiht.ocl.xtext.Ocl.OclExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_4=')'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getOclInvariantAccess().getRightParenthesisKeyword_2_2());
+			}
+		)?
+		otherlv_5=':'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getOclInvariantAccess().getColonKeyword_2());
+			newLeafNode(otherlv_5, grammarAccess.getOclInvariantAccess().getColonKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_4_0());
 				}
-				lv_body_3_0=ruleOclExpression
+				lv_body_6_0=ruleOclExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getOclInvariantRule());
@@ -688,7 +717,7 @@ ruleOclInvariant returns [EObject current=null]
 					set(
 						$current,
 						"body",
-						lv_body_3_0,
+						lv_body_6_0,
 						"fr.enseeiht.ocl.xtext.Ocl.OclExpression");
 					afterParserOrEnumRuleCall();
 				}

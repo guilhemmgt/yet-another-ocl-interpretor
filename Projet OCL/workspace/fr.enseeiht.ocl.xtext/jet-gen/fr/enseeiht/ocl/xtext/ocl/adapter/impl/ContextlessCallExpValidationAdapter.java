@@ -41,7 +41,7 @@ public final class ContextlessCallExpValidationAdapter implements OCLAdapter {
 	 * 
 	 * @param Target
 	 * @return value of the element
-	 * @generated
+	 * @generated NOT
 	 */
 	public Object getValue(EObject contextTarget) {
 		// Récupérer les types des arguments pour la résolution

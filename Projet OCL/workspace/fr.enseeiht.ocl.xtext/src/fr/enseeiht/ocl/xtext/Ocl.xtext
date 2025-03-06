@@ -28,7 +28,7 @@ Parameter:
 	name=ID ':' type=OclTypeLiteral
 ;
 OclInvariant:
-	'inv' name=ID ':' body=OclExpression
+	'inv' name=ID ('('errorMessage=OclExpression')')?':' body=OclExpression
 ;
 OclExpression returns OclExpression :
 	OperatorCallExp|LetExp;

@@ -1298,15 +1298,15 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_DOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4696:13: ( ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? )
-            // InternalOcl.g:4696:15: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )?
+            // InternalOcl.g:4725:13: ( ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? )
+            // InternalOcl.g:4725:15: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )?
             {
-            // InternalOcl.g:4696:15: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )
+            // InternalOcl.g:4725:15: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )
             int alt1=3;
             alt1 = dfa1.predict(input);
             switch (alt1) {
                 case 1 :
-                    // InternalOcl.g:4696:16: RULE_INT '.' RULE_INT
+                    // InternalOcl.g:4725:16: RULE_INT '.' RULE_INT
                     {
                     mRULE_INT(); 
                     match('.'); 
@@ -1315,7 +1315,7 @@ public class InternalOclLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:4696:38: '.' RULE_INT
+                    // InternalOcl.g:4725:38: '.' RULE_INT
                     {
                     match('.'); 
                     mRULE_INT(); 
@@ -1323,7 +1323,7 @@ public class InternalOclLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalOcl.g:4696:51: RULE_INT '.'
+                    // InternalOcl.g:4725:51: RULE_INT '.'
                     {
                     mRULE_INT(); 
                     match('.'); 
@@ -1333,7 +1333,7 @@ public class InternalOclLexer extends Lexer {
 
             }
 
-            // InternalOcl.g:4696:65: ( 'e' ( '-' | '+' ) RULE_INT )?
+            // InternalOcl.g:4725:65: ( 'e' ( '-' | '+' ) RULE_INT )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1342,7 +1342,7 @@ public class InternalOclLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalOcl.g:4696:66: 'e' ( '-' | '+' ) RULE_INT
+                    // InternalOcl.g:4725:66: 'e' ( '-' | '+' ) RULE_INT
                     {
                     match('e'); 
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
@@ -1377,12 +1377,12 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4698:17: ( '--' ( . )* '\\n' )
-            // InternalOcl.g:4698:19: '--' ( . )* '\\n'
+            // InternalOcl.g:4727:17: ( '--' ( . )* '\\n' )
+            // InternalOcl.g:4727:19: '--' ( . )* '\\n'
             {
             match("--"); 
 
-            // InternalOcl.g:4698:24: ( . )*
+            // InternalOcl.g:4727:24: ( . )*
             loop3:
             do {
                 int alt3=2;
@@ -1398,7 +1398,7 @@ public class InternalOclLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalOcl.g:4698:24: .
+            	    // InternalOcl.g:4727:24: .
             	    {
             	    matchAny(); 
 
@@ -1427,10 +1427,10 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4700:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalOcl.g:4700:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalOcl.g:4729:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalOcl.g:4729:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalOcl.g:4700:11: ( '^' )?
+            // InternalOcl.g:4729:11: ( '^' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1439,7 +1439,7 @@ public class InternalOclLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalOcl.g:4700:11: '^'
+                    // InternalOcl.g:4729:11: '^'
                     {
                     match('^'); 
 
@@ -1457,7 +1457,7 @@ public class InternalOclLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalOcl.g:4700:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalOcl.g:4729:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -1506,10 +1506,10 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4702:10: ( ( '0' .. '9' )+ )
-            // InternalOcl.g:4702:12: ( '0' .. '9' )+
+            // InternalOcl.g:4731:10: ( ( '0' .. '9' )+ )
+            // InternalOcl.g:4731:12: ( '0' .. '9' )+
             {
-            // InternalOcl.g:4702:12: ( '0' .. '9' )+
+            // InternalOcl.g:4731:12: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -1523,7 +1523,7 @@ public class InternalOclLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalOcl.g:4702:13: '0' .. '9'
+            	    // InternalOcl.g:4731:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1555,10 +1555,10 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4704:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalOcl.g:4704:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalOcl.g:4733:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalOcl.g:4733:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalOcl.g:4704:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalOcl.g:4733:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1576,10 +1576,10 @@ public class InternalOclLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalOcl.g:4704:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalOcl.g:4733:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalOcl.g:4704:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalOcl.g:4733:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -1595,7 +1595,7 @@ public class InternalOclLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalOcl.g:4704:21: '\\\\' .
+                    	    // InternalOcl.g:4733:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1603,7 +1603,7 @@ public class InternalOclLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalOcl.g:4704:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalOcl.g:4733:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1628,10 +1628,10 @@ public class InternalOclLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalOcl.g:4704:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalOcl.g:4733:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalOcl.g:4704:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalOcl.g:4733:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -1647,7 +1647,7 @@ public class InternalOclLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalOcl.g:4704:54: '\\\\' .
+                    	    // InternalOcl.g:4733:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1655,7 +1655,7 @@ public class InternalOclLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalOcl.g:4704:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalOcl.g:4733:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1698,12 +1698,12 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4706:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalOcl.g:4706:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalOcl.g:4735:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalOcl.g:4735:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalOcl.g:4706:24: ( options {greedy=false; } : . )*
+            // InternalOcl.g:4735:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -1728,7 +1728,7 @@ public class InternalOclLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalOcl.g:4706:52: .
+            	    // InternalOcl.g:4735:52: .
             	    {
             	    matchAny(); 
 
@@ -1758,10 +1758,10 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4708:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalOcl.g:4708:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalOcl.g:4737:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalOcl.g:4737:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalOcl.g:4708:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalOcl.g:4737:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1815,8 +1815,8 @@ public class InternalOclLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOcl.g:4710:16: ( . )
-            // InternalOcl.g:4710:18: .
+            // InternalOcl.g:4739:16: ( . )
+            // InternalOcl.g:4739:18: .
             {
             matchAny(); 
 
@@ -2356,7 +2356,7 @@ public class InternalOclLexer extends Lexer {
             this.transition = DFA1_transition;
         }
         public String getDescription() {
-            return "4696:15: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )";
+            return "4725:15: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )";
         }
     }
     static final String DFA12_eotS =

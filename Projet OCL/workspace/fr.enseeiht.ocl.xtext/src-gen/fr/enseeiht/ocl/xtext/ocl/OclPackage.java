@@ -409,13 +409,22 @@ public interface OclPackage extends EPackage
   int OCL_INVARIANT__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Error Message</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCL_INVARIANT__ERROR_MESSAGE = 1;
+
+  /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OCL_INVARIANT__BODY = 1;
+  int OCL_INVARIANT__BODY = 2;
 
   /**
    * The number of structural features of the '<em>Invariant</em>' class.
@@ -424,7 +433,7 @@ public interface OclPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OCL_INVARIANT_FEATURE_COUNT = 2;
+  int OCL_INVARIANT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.ocl.xtext.ocl.impl.OclExpressionImpl <em>Expression</em>}' class.
@@ -2422,6 +2431,17 @@ public interface OclPackage extends EPackage
   EAttribute getOclInvariant_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.OclInvariant#getErrorMessage <em>Error Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Error Message</em>'.
+   * @see fr.enseeiht.ocl.xtext.ocl.OclInvariant#getErrorMessage()
+   * @see #getOclInvariant()
+   * @generated
+   */
+  EReference getOclInvariant_ErrorMessage();
+
+  /**
    * Returns the meta object for the containment reference '{@link fr.enseeiht.ocl.xtext.ocl.OclInvariant#getBody <em>Body</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3949,6 +3969,14 @@ public interface OclPackage extends EPackage
      * @generated
      */
     EAttribute OCL_INVARIANT__NAME = eINSTANCE.getOclInvariant_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Error Message</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OCL_INVARIANT__ERROR_MESSAGE = eINSTANCE.getOclInvariant_ErrorMessage();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.

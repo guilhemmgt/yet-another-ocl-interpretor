@@ -194,7 +194,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public String getOutlineString() {
     return null;
   }
-	public boolean conformsTo(OclType oclType) {
+ 	public boolean conformsTo(OclType oclType) {
 		// TODO Auto-generated method stub
 		return false;
 	}

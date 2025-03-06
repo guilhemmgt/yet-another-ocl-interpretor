@@ -39,6 +39,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Auxiliary"/>
   <eClassifiers xsi:type="ecore:EClass" name="OclInvariant">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorMessage" eType="#//OclExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//OclExpression"
         containment="true"/>
   </eClassifiers>

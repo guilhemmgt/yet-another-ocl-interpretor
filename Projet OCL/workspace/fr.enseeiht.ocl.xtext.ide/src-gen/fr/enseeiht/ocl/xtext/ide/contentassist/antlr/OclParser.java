@@ -63,6 +63,7 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOperationAccess().getGroup_2_1(), "rule__Operation__Group_2_1__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 			builder.put(grammarAccess.getOclInvariantAccess().getGroup(), "rule__OclInvariant__Group__0");
+			builder.put(grammarAccess.getOclInvariantAccess().getGroup_2(), "rule__OclInvariant__Group_2__0");
 			builder.put(grammarAccess.getOclModelElementExpAccess().getGroup(), "rule__OclModelElementExp__Group__0");
 			builder.put(grammarAccess.getOperatorCallExpAccess().getGroup(), "rule__OperatorCallExp__Group__0");
 			builder.put(grammarAccess.getOperatorCallExpAccess().getGroup_1(), "rule__OperatorCallExp__Group_1__0");
@@ -161,7 +162,8 @@ public class OclParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getParameterAccess().getNameAssignment_0(), "rule__Parameter__NameAssignment_0");
 			builder.put(grammarAccess.getParameterAccess().getTypeAssignment_2(), "rule__Parameter__TypeAssignment_2");
 			builder.put(grammarAccess.getOclInvariantAccess().getNameAssignment_1(), "rule__OclInvariant__NameAssignment_1");
-			builder.put(grammarAccess.getOclInvariantAccess().getBodyAssignment_3(), "rule__OclInvariant__BodyAssignment_3");
+			builder.put(grammarAccess.getOclInvariantAccess().getErrorMessageAssignment_2_1(), "rule__OclInvariant__ErrorMessageAssignment_2_1");
+			builder.put(grammarAccess.getOclInvariantAccess().getBodyAssignment_4(), "rule__OclInvariant__BodyAssignment_4");
 			builder.put(grammarAccess.getOclModelElementExpAccess().getModelAssignment_0(), "rule__OclModelElementExp__ModelAssignment_0");
 			builder.put(grammarAccess.getOclModelElementExpAccess().getClassAssignment_2(), "rule__OclModelElementExp__ClassAssignment_2");
 			builder.put(grammarAccess.getOperatorCallExpAccess().getArgsAssignment_0(), "rule__OperatorCallExp__ArgsAssignment_0");
