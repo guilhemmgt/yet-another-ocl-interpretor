@@ -18,6 +18,7 @@ import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.Module;
+import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
@@ -36,6 +37,9 @@ public class OclScopeProvider extends AbstractOclScopeProvider {
 			VariableExp variableExp = (VariableExp) context;
 			
 			Map<String, Auxiliary> scope = new HashMap<>();
+			
+			Module module = null;
+			OclContextBlock contextBlock = null;
 
 			// Ajoute les Auxiliaries des parents
 	        EObject parent = variableExp.eContainer();
@@ -59,12 +63,22 @@ public class OclScopeProvider extends AbstractOclScopeProvider {
 	        			putIfAbsent(scope, feature);
 	        	
 	        	parent = parent.eContainer();
+	        	
+	        	if (parent instanceof Module pModule)
+	        		module = pModule;
+	        	if (parent instanceof OclContextBlock pContextBlock)
+	        		contextBlock = pContextBlock;
 	        }
 	        
 	        // Ajoute les Attributs des def sans context
-	        Module module = (Module)parent;
 	        for (OclFeatureDefinition def : module.getContextlessFeatures()) {
 	        	if (def.getFeature() instanceof Attribute defAttribute)
+	        		putIfAbsent(scope, defAttribute);
+	        }
+	        
+	        // Ajoute les Attributs des def du contexte
+	        for (EObject member : contextBlock.getMembers()) {
+	        	if (member instanceof OclFeatureDefinition def && def.getFeature() instanceof Attribute defAttribute)
 	        		putIfAbsent(scope, defAttribute);
 	        }
 	        
