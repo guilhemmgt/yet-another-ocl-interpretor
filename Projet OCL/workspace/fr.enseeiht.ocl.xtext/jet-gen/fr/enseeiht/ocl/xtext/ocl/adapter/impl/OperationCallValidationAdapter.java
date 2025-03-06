@@ -109,7 +109,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 					}
 				}
 			}
-			System.out.println(this.target.getOperationName());
+
 			return new InvalidCall(this.target.getOperationName());
 		} else {
 			return new UndefinedAccessInvalid(source.getElement());

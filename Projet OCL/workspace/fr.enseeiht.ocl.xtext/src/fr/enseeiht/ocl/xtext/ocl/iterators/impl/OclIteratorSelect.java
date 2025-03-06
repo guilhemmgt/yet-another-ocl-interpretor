@@ -1,6 +1,5 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
-import java.lang.reflect.Constructor;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
@@ -14,6 +13,7 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
+import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
 
 public class OclIteratorSelect implements OclIterator {
 
@@ -36,16 +36,9 @@ public class OclIteratorSelect implements OclIterator {
 		};
 
 		// Récupère la valeur initiale du 'result' du 'iterate': une collection vide du type de 'source'
-		Constructor<?> parameterlessConstructor = null;
-		for (Constructor<?> c : source.getClass().getConstructors()) {
-			if (c.getParameterCount() == 0) {
-				parameterlessConstructor = c;
-				break;
-			}
-		}
 		Object resultInitValue = null;
 		try {
-			resultInitValue = parameterlessConstructor.newInstance();
+			resultInitValue = ConstructorInstanciator.instantiateParameterlessConstructor(source.getClass());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
