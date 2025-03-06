@@ -2,6 +2,6 @@ import "http://empty" as empty
 
 context empty!empty.SubLiar
 inv collec:
-  self.others->union(Set{false})->size() = 2
+  self.others->union(Set{true})->size() = 1
 --  (if false then Bag{true, false} else self.others endif) = null
   
