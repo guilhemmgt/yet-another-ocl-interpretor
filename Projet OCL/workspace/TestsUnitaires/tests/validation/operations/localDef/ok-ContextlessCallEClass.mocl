@@ -1,7 +1,7 @@
 import "http://empty" as empty
 
-def : op(a : empty.Maybe) : Integer = 1
+def : op(a : empty!empty.Maybe) : Integer = 1
 
 context empty!empty.Maybe
 inv contextLessNoParam:
-  op(self) = 1
+  op(self) + 2 = 3

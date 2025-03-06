@@ -107,7 +107,12 @@ public final class ContextlessCallExpValidationAdapter implements OCLAdapter {
 		}
 	}
 	// Méthodes système
-	List<IOclOperation> operations = OclOperationEnum.getOperations(this.target.getOperationName());
+	List<IOclOperation> operations = null;
+	try {
+		operations = OclOperationEnum.getOperations(this.target.getOperationName());
+	} catch (IllegalArgumentException e) {
+		operations = null;
+	}
 	if (operations != null) {
 		for (IOclOperation operation : operations) {
 			// Type check the call!
