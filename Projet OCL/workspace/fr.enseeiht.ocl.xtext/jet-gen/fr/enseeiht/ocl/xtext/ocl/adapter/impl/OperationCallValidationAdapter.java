@@ -26,6 +26,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclExpression;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
+import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -67,7 +68,6 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		}
 		if (sourceValue != null) {
 			// Récupération des méthodes définies par l'utilisateur
-			// TODO : FAIRE
 			List<OclFeatureDefinition> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getAllDefinition();
 			for (OclFeatureDefinition def : defs) {
 				if (def.getFeature() instanceof Operation) {
@@ -86,7 +86,13 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 						}
 						
 						// Compute return value 
-						return OCLValidationAdapterFactory.INSTANCE.createAdapter(op.getBody()).getValue(contextTarget);
+						Object returnValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(op.getBody()).getValue(contextTarget);
+						
+						// Remove parameter from scope		
+						for (Parameter param : op.getParameters()) {
+							Scoper.remove(param);
+						}
+						return returnValue;
 					}
 				}
 			}
