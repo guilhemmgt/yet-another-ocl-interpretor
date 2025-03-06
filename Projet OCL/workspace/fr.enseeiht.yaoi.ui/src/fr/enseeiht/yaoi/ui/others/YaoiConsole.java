@@ -70,8 +70,12 @@ public class YaoiConsole {
     }
     
     public static void printStackTrace(Throwable t) {
-    	PrintWriter pw = new PrintWriter(new StringWriter());
+    	StringWriter sw = new StringWriter();
+    	PrintWriter pw = new PrintWriter(sw);
     	t.printStackTrace(pw);
-    	YaoiConsole.err.println(pw.toString());
+    	pw.flush(); // just to be safe
+    	String trace = sw.toString();
+    	YaoiConsole.err.println(trace);
+
     }
 }

@@ -1,5 +1,9 @@
 package fr.enseeiht.yaoi.ui.handlers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -49,37 +53,42 @@ public class Validate extends AbstractHandler {
 
 			// Charge les resources enregistrées dans l'editor
 			ResourceSet resourceSet = editorDomain.getResourceSet();
-			Resource moclResource = null;
+			List<Resource> moclResources = new ArrayList<Resource>();
 			for (Resource r : resourceSet.getResources()) {
-				if (r.getURI().fileExtension().equals("mocl")) {
-					moclResource = r;
+				String uri = r.getURI().fileExtension();
+				if (uri != null && uri.equals("mocl")) {
+					moclResources.add(r);
 				}
 			}
 			// Si aucun .mocl n'a été ajouté par Load.java
-			if (moclResource == null) {
-				MessageDialog.openError(shell, "Resource MOCL manquante.",
+			if (moclResources.isEmpty()) {
+				MessageDialog.openError(shell, "Missing Mocl Resource",
 						"Veuillez d'abord charger un fichier .mocl en faisant un clic droit sur un fichier .xmi puis en sélectionnant 'MOCL → Load' ou 'Load Resource'.");
 				return null;
 			}
 
 			//// MOCL
 
-			EcoreUtil.resolveAll(moclResource);
-			// Récupérer le Module MOCL
-			Module moclModule = (Module) moclResource.getContents().get(0);
+			HashMap<Module, URI> moclModules = new HashMap<Module, URI>();
+			for (Resource mocl : moclResources) {
+				EcoreUtil.resolveAll(mocl);
+				// Récupérer le Module MOCL
+				Module module = (Module) mocl.getContents().get(0);
 
-			// Enregistrement des EPackages de tous les imports du .mocl
-			for (Import eImport : moclModule.getImports()) {
-				if (eImport.getPackage().eResource() != null) {
-					URI importUri = eImport.getPackage().eResource().getURI();
-					Resource importResource = resourceSet.getResource(importUri, true);
-					EPackage importEPackage = (EPackage) importResource.getContents().get(0);
-					EPackage.Registry.INSTANCE.put(importEPackage.getNsURI(), importEPackage);
-				} else {
-					throw new RuntimeException("Impossible de charger la ressource !");
+				// Enregistrement des EPackages de tous les imports du .mocl
+				for (Import eImport : module.getImports()) {
+					if (eImport.getPackage().eResource() != null) {
+						URI importUri = eImport.getPackage().eResource().getURI();
+						Resource importResource = resourceSet.getResource(importUri, true);
+						EPackage importEPackage = (EPackage) importResource.getContents().get(0);
+						EPackage.Registry.INSTANCE.put(importEPackage.getNsURI(), importEPackage);
+					} else {
+						throw new RuntimeException("Impossible de charger la ressource !");
+					}
 				}
-			}
 
+				moclModules.put(module, mocl.getURI());
+			}
 			//// XMI
 
 			// Récuperer la selection
@@ -100,28 +109,33 @@ public class Validate extends AbstractHandler {
 			//// RESULTS
 
 			// Appelle l'interpréteur et crée la popup pour les résultats
-			ValidationResult res = OclInterpretor.validate(xmiResource, moclModule);
-			boolean hasErrors = !res.getErrors().isEmpty();
+			StringBuilder sb = new StringBuilder();
+			for (Module module : moclModules.keySet()) {
+				ValidationResult res = OclInterpretor.validate(xmiResource, module);
+
+				sb.append(moclModules.get(module).toString() + ":\n");
+
+				boolean hasErrors = !res.getErrors().isEmpty();
+				if (hasErrors) {
+					for (ValidationError error : res.getErrors()) {
+						sb.append(error.toString()+"\n");
+					}
+				} else {
+					sb.append("The model conforms to all OCL constraints defined in the MOCL file.\n");
+					sb.append("No violations were detected during validation.\n");
+				}
+				sb.append("\n");
+			}
+			boolean hasErrors = !sb.isEmpty();
+			if (!hasErrors) {
+				sb.append("The model conforms to all OCL constraints defined in the MOCL file.\n");
+				sb.append("No violations were detected during validation.");
+			}
 
 			String dialogTitle = hasErrors ? "Validation Results" : "Validation Success";
 			String dialogMessage = hasErrors ? "The following validation errors were detected:"
 					: "All validations passed successfully!";
 			Status status = hasErrors ? Status.ERROR : Status.SUCCESS;
-
-			StringBuilder sb = new StringBuilder();
-			if (hasErrors) {
-				for (ValidationError error : res.getErrors()) {
-					String invName = error.getFailedInvariant() != null ? error.getFailedInvariant().getName()
-							: "Unknown Invariant";
-					String objName = error.getTestedObject() != null ? error.getTestedObject().toString()
-							: "Unknown Object";
-					sb.append("Invariant \"").append(invName).append("\" is violated by \"").append(objName)
-							.append("\"\n\n");
-				}
-			} else {
-				sb.append("The model conforms to all OCL constraints defined in the MOCL file.\n");
-				sb.append("No violations were detected during validation.");
-			}
 
 			// Display the scrollable dialog with appropriate icon
 			ScrollableDialog dialog = new ScrollableDialog(shell, dialogTitle, dialogMessage, sb.toString(), status);
