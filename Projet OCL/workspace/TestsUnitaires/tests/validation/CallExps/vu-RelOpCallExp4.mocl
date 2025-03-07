@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv lt_invalid:
+	(1.1/0) < 2

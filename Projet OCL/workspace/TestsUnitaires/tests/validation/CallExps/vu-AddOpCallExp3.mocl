@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv plus_invalid:
+	2+(4/0) = 2
