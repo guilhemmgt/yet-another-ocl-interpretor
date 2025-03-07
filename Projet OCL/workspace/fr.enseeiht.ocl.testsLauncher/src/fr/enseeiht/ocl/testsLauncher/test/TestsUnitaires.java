@@ -175,7 +175,7 @@ public class TestsUnitaires {
 	
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideValidationUndefinedArguments")
-	@DisplayName("Tests KO sur la validation (retourne null)")
+	@DisplayName("Tests KO sur la validation (Invalid)")
 	void testValidationUndefined(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
@@ -228,7 +228,7 @@ public class TestsUnitaires {
 	
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideValidationArguments")
-	@DisplayName("Tests KO sur la validation")
+	@DisplayName("Tests KO sur la validation (False)")
 	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
@@ -252,7 +252,7 @@ public class TestsUnitaires {
 	
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideOkArguments")
-	@DisplayName("Tests OK")
+	@DisplayName("Tests OK (True)")
 	void testOk(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
