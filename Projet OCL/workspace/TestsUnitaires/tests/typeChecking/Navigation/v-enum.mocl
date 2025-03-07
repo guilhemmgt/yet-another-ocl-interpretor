@@ -1,5 +1,6 @@
 import "http://empty" as empty
 
 context empty!empty.SubLiar
-inv nameString:
-  self.name + "Bonjour" = "HimBonjour"
+
+inv enuuu:
+  self.enum = empty!empty.Enum#enum1
