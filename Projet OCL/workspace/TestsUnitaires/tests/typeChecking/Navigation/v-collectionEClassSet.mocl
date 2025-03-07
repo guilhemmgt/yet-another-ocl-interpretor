@@ -1,5 +1,6 @@
 import "http://empty" as empty
 
 context empty!empty.SubLiar
-inv nameString:
-  self.name + "Bonjour" = "HimBonjour"
+inv collec:
+  self.others->union(Set{true})->size() = 2
+  

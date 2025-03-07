@@ -27,8 +27,10 @@ public interface IOclOperation {
 	
 	/**
 	 * Get the expected Type of each parameter
+	 * @param sourceType TODO
+	 * @param argsType TODO
 	 */
-	public List<OclType> getArgsType();
+	public List<OclType> getArgsType(OclType sourceType, List<OclType> argsType);
 	
 	/**
 	 * Get the number of argument expected by the operator
