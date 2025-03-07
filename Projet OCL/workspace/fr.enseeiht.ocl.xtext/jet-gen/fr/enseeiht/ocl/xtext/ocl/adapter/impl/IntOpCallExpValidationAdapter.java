@@ -109,7 +109,7 @@ public final class IntOpCallExpValidationAdapter implements OCLAdapter {
 			  resultType =  resultType.unifyWith(argType);
 		  } else {
 			  // Opération invalide
-			  resultType =  new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames(), resultType, argType));
+			  resultType =  new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames(), resultType, argType), resultType, argType);
 		  }
 	  }
 	  return resultType;

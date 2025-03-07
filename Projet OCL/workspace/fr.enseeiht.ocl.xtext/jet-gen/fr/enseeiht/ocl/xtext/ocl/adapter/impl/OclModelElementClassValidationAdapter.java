@@ -1,11 +1,16 @@
 package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
+import fr.enseeiht.ocl.xtext.types.OclEnum;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.OclModelElementClass;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -41,7 +46,17 @@ public final class OclModelElementClassValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  return new OclClassifier(new OclEClass(target.getName()));
+	  if (target.getName() instanceof EClass eClass) {
+		  return new OclClassifier(new OclEClass(eClass));
+	  }
+	  else if (target.getName() instanceof EEnum eEnum) {
+		  return new OclClassifier(new OclEnum(eEnum));
+	  }
+	  else {
+		  OclType[] expected =  {new OclEClass(null), new OclEnum(null)};
+		  OclType got =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getName()).getType();
+		  return new OclInvalid(new TypeMismatchError(target.getName(), expected , got));
+	  }
   }
 
   /**
