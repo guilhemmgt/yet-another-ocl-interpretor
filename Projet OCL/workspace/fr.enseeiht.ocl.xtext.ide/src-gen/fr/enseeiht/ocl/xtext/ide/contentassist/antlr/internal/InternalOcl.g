@@ -11655,13 +11655,13 @@ rule__OclModelElementClass__NameAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0()); }
+		{ before(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getOclModelElementClassAccess().getNameEClassQualifiedNameParserRuleCall_2_0_1()); }
+			{ before(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeQualifiedNameParserRuleCall_2_0_1()); }
 			ruleQualifiedName
-			{ after(grammarAccess.getOclModelElementClassAccess().getNameEClassQualifiedNameParserRuleCall_2_0_1()); }
+			{ after(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeQualifiedNameParserRuleCall_2_0_1()); }
 		)
-		{ after(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0()); }
+		{ after(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeCrossReference_2_0()); }
 	)
 ;
 finally {
