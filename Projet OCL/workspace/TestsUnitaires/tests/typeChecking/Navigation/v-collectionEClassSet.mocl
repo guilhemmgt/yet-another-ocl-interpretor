@@ -3,5 +3,4 @@ import "http://empty" as empty
 context empty!empty.SubLiar
 inv collec:
   self.others->union(Set{true})->size() = 2
---  (if false then Bag{true, false} else self.others endif) = null
   

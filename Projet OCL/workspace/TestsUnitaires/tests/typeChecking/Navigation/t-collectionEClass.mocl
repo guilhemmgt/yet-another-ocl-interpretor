@@ -1,7 +1,6 @@
 import "http://empty" as empty
 
 context empty!empty.Liar
-inv collec:
-  self.others->union(Set{"lol", "bjr"})->size() = -1
---(if false then Bag{"lol", "bjr"} else self.others endif) = null
+
+def: definition1 : Collection(String) = self.others
   
