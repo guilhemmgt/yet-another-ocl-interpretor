@@ -33,9 +33,7 @@ import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 public class OclScopeProvider extends AbstractOclScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
-		if (reference == OclPackage.Literals.VARIABLE_EXP__REFERRED_VARIABLE) { 
-			VariableExp variableExp = (VariableExp) context;
-			
+		if (context instanceof VariableExp variableExp) {
 			Map<String, Auxiliary> scope = new HashMap<>();
 			
 			Module module = null;
