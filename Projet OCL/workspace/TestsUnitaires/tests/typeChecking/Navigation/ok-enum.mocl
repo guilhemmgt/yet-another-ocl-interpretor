@@ -1,5 +1,8 @@
 import "http://empty" as empty
 
-context empty!empty.Liar
+context empty!empty.SubLiar
 
 def: definition1 : empty!empty.Enum = self.enum
+
+inv enuuu:
+  self.enum = empty!empty.Enum#enum3
