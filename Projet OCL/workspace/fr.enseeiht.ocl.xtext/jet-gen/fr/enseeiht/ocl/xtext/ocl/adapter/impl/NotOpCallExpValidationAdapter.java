@@ -39,9 +39,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
   public Object getValue(EObject contextTarget) {
 	  Object arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getValue(contextTarget);
 	  
-	  if (arg == null) {
-		  return new UndefinedAccessInvalid(this.target.getSource());
-	  }
+
 	  if (arg instanceof Invalid) {
 		  return arg;
 	  }
@@ -49,12 +47,18 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 	  // Traitement des opérations
 	  switch (this.target.getOperationName()) {
 		  case "not":
+			  if (arg == null)
+				  return null;
+			  
 			  if (arg instanceof Boolean) {
 				  return !(Boolean)arg;
 			  } else {
 				  throw new UnsupportedFeatureTypeException(this.target.getOperationName(), arg.getClass());
 			  }
 		  case "-":
+			  if (arg == null)
+				  return new UndefinedAccessInvalid(this.target.getSource());
+
 			  if (arg instanceof Number) {
 				  if (arg instanceof Integer integ) {
 					  return (Integer) (-integ);

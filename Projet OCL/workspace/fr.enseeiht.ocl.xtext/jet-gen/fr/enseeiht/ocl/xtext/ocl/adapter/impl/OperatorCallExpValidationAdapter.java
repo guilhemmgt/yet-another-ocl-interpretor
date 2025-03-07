@@ -10,7 +10,6 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.EqOpCallExp;
 import fr.enseeiht.ocl.xtext.ocl.OperatorCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -48,9 +47,7 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 					.getValue(contextTarget);
 
 			if (result == null || right == null) {
-				// Levée d'erreur et envoi de l'argument fautif
-				result = new UndefinedAccessInvalid(
-						result == null ? this.target.getArgs().get(0) : this.target.getArgs().get(i + 1));
+				return null;
 			}
 			if (result instanceof Invalid || right instanceof Invalid) {
 				return result instanceof Invalid ? result : right;
@@ -58,6 +55,7 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 			if (!(result instanceof Boolean && right instanceof Boolean)) {
 				return false;
 			}
+			
 			Boolean leftBool = ((Boolean) result);
 			Boolean rightBool = ((Boolean) right);
 

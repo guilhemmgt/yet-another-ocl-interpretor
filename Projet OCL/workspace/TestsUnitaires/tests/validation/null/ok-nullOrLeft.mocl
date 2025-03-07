@@ -2,5 +2,5 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 
-inv minus1:
-	not null  = true
+inv or1:
+	(null or true) = null
