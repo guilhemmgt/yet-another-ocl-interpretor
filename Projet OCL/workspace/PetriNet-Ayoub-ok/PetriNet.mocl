@@ -7,35 +7,35 @@ def: petrinet(): petrinet!petrinet.PetriNet =
 		->asSequence()->first()
 		
 context petrinet!petrinet.PetriNet
-inv nameIsValid:
+inv nameIsValid('Invalid name format for PetriNet: ' + self.name):
 	self.name.matches('^[a-zA-Z_][0-9a-zA-Z_]*$')
 
 context petrinet!petrinet.Place
-inv positiveTokenNumber:
+inv positiveTokenNumber('The number of token in a place must be positive: ' + self.name):
 	self.nbJetons >= 0
-inv nonEmptyName:
+inv nonEmptyName('Place name cannot be empty: ' + self.name):
 	self.name <> ''
-inv uniquePlaceName:
+inv uniquePlaceName('Place names must be unique within a net'):
 	petrinet!petrinet.Place.allInstances()->forAll(p1, p2 | p1 <> p2 implies p1.name <> p2.name)
-inv nameIsValid:
+inv nameIsValid('Invalid name format for Place: ' + self.name):
 	self.name.matches('^[a-zA-Z_][0-9a-zA-Z_]*$')
 
 context petrinet!petrinet.Arc
-inv positiveWeight:
+inv positiveWeight('The weight must be positive: ' + self.name):
 	self.weight >= 0
-inv readArcValidType:
+inv readArcValidType('A "read" arc should be from a place to a transition.'):
 	self.type <> petrinet!petrinet.ArcKind#READ or self.direction = petrinet!petrinet.ArcDirection#P2T
-inv sameNet:
+inv sameNet('Arc, Place, and Transition must be in the same PetriNet'):
 	self.petrinet() = self.place.petrinet() and self.petrinet() = self.transition.petrinet()
-inv nameIsValid:
+inv nameIsValid('Invalid name format for Arc: ' + self.name):
 	self.name.matches('(^[a-zA-Z_][0-9a-zA-Z_]*)?$')
 
 
 
 context petrinet!petrinet.Transition
-inv nonEmptyName:
+inv nonEmptyName('Transition name cannot be empty: ' + self.name):
 	self.name <> ''
-inv uniqueTransitionName:
+inv uniqueTransitionName('Transition names must be unique within a net'):
 	petrinet!petrinet.Transition.allInstances()->forAll(t1, t2 | t1 <> t2 implies t1.name <> t2.name)
-inv nameIsValid:
+inv nameIsValid('Invalid name format for Transition: ' + self.name):
 	self.name.matches('^[a-zA-Z_][0-9a-zA-Z_]*$')
