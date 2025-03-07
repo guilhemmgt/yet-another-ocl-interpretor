@@ -30,7 +30,7 @@ public final class EnumLiteralExpValidationAdapter implements OCLAdapter {
    * @generated
    */
   public Object getValue(EObject contextTarget) {
-	  return this.target.getEnum_();
+	  return this.target.getEnum_().getEEnumLiteral(this.target.getName());
   }
 
   /**

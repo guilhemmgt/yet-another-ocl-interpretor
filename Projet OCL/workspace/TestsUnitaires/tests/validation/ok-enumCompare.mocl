@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.SubLiar
+
+inv enuuu:
+  self.enum = empty!empty.Enum#enum3
