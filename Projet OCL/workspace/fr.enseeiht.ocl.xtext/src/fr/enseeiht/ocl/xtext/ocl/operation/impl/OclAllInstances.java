@@ -53,7 +53,7 @@ public class OclAllInstances implements IOclOperation {
 	}
 
 	@Override
-	public List<OclType> getArgsType() {
+	public List<OclType> getArgsType(OclType sourceType, List<OclType> argsType) {
 		return new ArrayList<OclType>();
 	}
 
