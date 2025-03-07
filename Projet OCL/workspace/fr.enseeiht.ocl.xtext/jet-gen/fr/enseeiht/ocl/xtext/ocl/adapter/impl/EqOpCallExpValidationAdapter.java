@@ -2,6 +2,9 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.impl.EEnumImpl;
+import org.eclipse.emf.ecore.impl.EEnumLiteralImpl;
+
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -43,9 +46,16 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 
 		Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1))
 				.getValue(contextTarget);
-
+		Boolean enumEquals = false;
+		if (result instanceof EEnumLiteralImpl resultEnum) {
+			if ( right instanceof EEnumLiteralImpl rightEnum) {
+				enumEquals = ((EEnumImpl)resultEnum.eContainer()).getName().equals(((EEnumImpl)rightEnum.eContainer()).getName())
+						&& resultEnum.getName().equals(rightEnum.getName());			
+			}
+		}
 		Boolean equal = (result instanceof Number && right instanceof Number
 				&& ((Number) result).doubleValue() == ((Number) right).doubleValue())
+				|| enumEquals
 				|| (result != null && result.equals(right)) || (result == right);
 
 		if (result instanceof Invalid || right instanceof Invalid) {
