@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclInvariant#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclInvariant#getErrorMessage <em>Error Message</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.OclInvariant#getBody <em>Body</em>}</li>
  * </ul>
  *
@@ -45,6 +46,28 @@ public interface OclInvariant extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Error Message</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Error Message</em>' containment reference.
+   * @see #setErrorMessage(OclExpression)
+   * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclInvariant_ErrorMessage()
+   * @model containment="true"
+   * @generated
+   */
+  OclExpression getErrorMessage();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclInvariant#getErrorMessage <em>Error Message</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Error Message</em>' containment reference.
+   * @see #getErrorMessage()
+   * @generated
+   */
+  void setErrorMessage(OclExpression value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

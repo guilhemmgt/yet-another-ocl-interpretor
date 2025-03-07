@@ -11,7 +11,6 @@ import fr.enseeiht.ocl.xtext.ocl.BagType;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
-import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
@@ -108,9 +107,6 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case OclPackage.BRACE_EXP:
 				sequence_BraceExp(context, (BraceExp) semanticObject); 
-				return; 
-			case OclPackage.COLLECTION_OPERATION_CALL:
-				sequence_CollectionOperationCall(context, (CollectionOperationCall) semanticObject); 
 				return; 
 			case OclPackage.COLLECTION_TYPE:
 				sequence_CollectionType(context, (CollectionType) semanticObject); 
@@ -397,21 +393,6 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBraceExpAccess().getExpOclExpressionParserRuleCall_1_0(), semanticObject.getExp());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     PropertyCall returns CollectionOperationCall
-	 *     CollectionOperationCall returns CollectionOperationCall
-	 *
-	 * Constraint:
-	 *     (operationName=ID (arguments+=OclExpression arguments+=OclExpression*)?)
-	 * </pre>
-	 */
-	protected void sequence_CollectionOperationCall(ISerializationContext context, CollectionOperationCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -878,20 +859,11 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OclInvariant returns OclInvariant
 	 *
 	 * Constraint:
-	 *     (name=ID body=OclExpression)
+	 *     (name=ID errorMessage=OclExpression? body=OclExpression)
 	 * </pre>
 	 */
 	protected void sequence_OclInvariant(ISerializationContext context, OclInvariant semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_INVARIANT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_INVARIANT__NAME));
-			if (transientValues.isValueTransient(semanticObject, OclPackage.Literals.OCL_INVARIANT__BODY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OclPackage.Literals.OCL_INVARIANT__BODY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOclInvariantAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getOclInvariantAccess().getBodyOclExpressionParserRuleCall_3_0(), semanticObject.getBody());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -965,7 +937,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OperationCall returns OperationCall
 	 *
 	 * Constraint:
-	 *     (operationName=ID (arguments+=OclExpression arguments+=OclExpression*)?)
+	 *     (navOperator=NavigationOp operationName=ID (arguments+=OclExpression arguments+=OclExpression*)?)
 	 * </pre>
 	 */
 	protected void sequence_OperationCall(ISerializationContext context, OperationCall semanticObject) {

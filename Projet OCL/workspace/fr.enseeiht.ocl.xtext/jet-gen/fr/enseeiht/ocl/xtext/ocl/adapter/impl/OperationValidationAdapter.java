@@ -8,8 +8,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
+import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -101,15 +101,11 @@ public final class OperationValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-           public OclType getSourceType() {
-	  if (this.target.eContainer() instanceof OclContextBlock) {
-		  // TODO : Adapt this with answer from Paul
-		  return /*((OclContextBlock)this.target.eContainer()).getClass_()*/ new OclAny();
+   public OclType getSourceType() {
+	  if (this.target.eContainer().eContainer() instanceof OclContextBlock context) {
+		  return new OclEClass(context.getClass_());
 	  }
 	  return null;
-		  
-
-		// Récupération de l'expression dans la def
   }
   
   public List<OclType> getArgumentsType() {

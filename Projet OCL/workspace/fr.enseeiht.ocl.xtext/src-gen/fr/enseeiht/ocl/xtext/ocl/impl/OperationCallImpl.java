@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperationCallImpl#getNavOperator <em>Nav Operator</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperationCallImpl#getOperationName <em>Operation Name</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OperationCallImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
@@ -38,6 +39,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class OperationCallImpl extends PropertyCallImpl implements OperationCall
 {
+  /**
+   * The default value of the '{@link #getNavOperator() <em>Nav Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNavOperator()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAV_OPERATOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNavOperator() <em>Nav Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNavOperator()
+   * @generated
+   * @ordered
+   */
+  protected String navOperator = NAV_OPERATOR_EDEFAULT;
+
   /**
    * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -87,6 +108,31 @@ public class OperationCallImpl extends PropertyCallImpl implements OperationCall
   protected EClass eStaticClass()
   {
     return OclPackage.Literals.OPERATION_CALL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getNavOperator()
+  {
+    return navOperator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNavOperator(String newNavOperator)
+  {
+    String oldNavOperator = navOperator;
+    navOperator = newNavOperator;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OPERATION_CALL__NAV_OPERATOR, oldNavOperator, navOperator));
   }
 
   /**
@@ -155,6 +201,8 @@ public class OperationCallImpl extends PropertyCallImpl implements OperationCall
   {
     switch (featureID)
     {
+      case OclPackage.OPERATION_CALL__NAV_OPERATOR:
+        return getNavOperator();
       case OclPackage.OPERATION_CALL__OPERATION_NAME:
         return getOperationName();
       case OclPackage.OPERATION_CALL__ARGUMENTS:
@@ -174,6 +222,9 @@ public class OperationCallImpl extends PropertyCallImpl implements OperationCall
   {
     switch (featureID)
     {
+      case OclPackage.OPERATION_CALL__NAV_OPERATOR:
+        setNavOperator((String)newValue);
+        return;
       case OclPackage.OPERATION_CALL__OPERATION_NAME:
         setOperationName((String)newValue);
         return;
@@ -195,6 +246,9 @@ public class OperationCallImpl extends PropertyCallImpl implements OperationCall
   {
     switch (featureID)
     {
+      case OclPackage.OPERATION_CALL__NAV_OPERATOR:
+        setNavOperator(NAV_OPERATOR_EDEFAULT);
+        return;
       case OclPackage.OPERATION_CALL__OPERATION_NAME:
         setOperationName(OPERATION_NAME_EDEFAULT);
         return;
@@ -215,6 +269,8 @@ public class OperationCallImpl extends PropertyCallImpl implements OperationCall
   {
     switch (featureID)
     {
+      case OclPackage.OPERATION_CALL__NAV_OPERATOR:
+        return NAV_OPERATOR_EDEFAULT == null ? navOperator != null : !NAV_OPERATOR_EDEFAULT.equals(navOperator);
       case OclPackage.OPERATION_CALL__OPERATION_NAME:
         return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
       case OclPackage.OPERATION_CALL__ARGUMENTS:
@@ -234,7 +290,9 @@ public class OperationCallImpl extends PropertyCallImpl implements OperationCall
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operationName: ");
+    result.append(" (navOperator: ");
+    result.append(navOperator);
+    result.append(", operationName: ");
     result.append(operationName);
     result.append(')');
     return result.toString();

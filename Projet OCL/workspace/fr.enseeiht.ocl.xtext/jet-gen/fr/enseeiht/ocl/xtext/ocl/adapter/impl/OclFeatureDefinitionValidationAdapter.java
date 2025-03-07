@@ -44,7 +44,6 @@ public final class OclFeatureDefinitionValidationAdapter implements OCLAdapter {
   /**
    * Returns the name of the feature
    * @return String
-   * @generated NOT
    */
   public String getName() {
 	  if (target.getFeature() instanceof Attribute) {
@@ -59,7 +58,6 @@ public final class OclFeatureDefinitionValidationAdapter implements OCLAdapter {
   /**
    * Returns whether the feature is an operation
    * @return String
-   * @generated NOT
    */
   public boolean isOperation() {
 	  return target.getFeature() instanceof Operation;
@@ -77,7 +75,6 @@ public final class OclFeatureDefinitionValidationAdapter implements OCLAdapter {
   /**
    * Get the type of the arguments, drops the classifiers
    * @return type of the arguments
-   * @generated NOT
    */
   public List<OclType> getArgsType() {
 	  if (target.getFeature() instanceof Attribute) {

@@ -46,7 +46,6 @@ import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
 import fr.enseeiht.ocl.xtext.ocl.IterateExp;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
 import fr.enseeiht.ocl.xtext.ocl.OclTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
@@ -113,7 +112,6 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.impl.NavigationOrAttributeCallValidatio
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IterateExpValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IteratorValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.IteratorExpValidationAdapter;
-import fr.enseeiht.ocl.xtext.ocl.adapter.impl.CollectionOperationCallValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.LocalVariableValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.OclTypeLiteralValidationAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.impl.CollectionTypeLiteralValidationAdapter;
@@ -437,11 +435,6 @@ public class OCLValidationAdapterFactory
       public OCLAdapter caseIteratorExp(IteratorExp object)
       {
         return createIteratorExpValidationAdapter(object);
-      }
-      @Override
-      public OCLAdapter caseCollectionOperationCall(CollectionOperationCall object)
-      {
-        return createCollectionOperationCallValidationAdapter(object);
       }
       @Override
       public OCLAdapter caseLocalVariable(LocalVariable object)
@@ -1221,20 +1214,6 @@ public class OCLValidationAdapterFactory
   {
 	
     return new IteratorExpValidationAdapter(target);
-  }
-
-  /**
-   * Creates a new validation adapter for an object of class '{@link fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall <em>CollectionOperationCall</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall
-   * @generated
-   */
-  public OCLAdapter createCollectionOperationCallValidationAdapter(CollectionOperationCall target)
-  {
-	
-    return new CollectionOperationCallValidationAdapter(target);
   }
 
   /**
