@@ -2,6 +2,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -85,7 +86,7 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  if (anyInvalid){
 		  // Opération invalide
-		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2));
+		  return new OclInvalid(type1, type2);
 	  }
 	  else {
 		  return new OclBoolean();

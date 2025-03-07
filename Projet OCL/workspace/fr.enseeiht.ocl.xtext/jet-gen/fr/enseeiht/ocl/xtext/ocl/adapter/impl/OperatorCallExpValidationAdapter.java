@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
@@ -108,7 +109,7 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 				  resultType = resultType.unifyWith(type2);
 			  } else {
 				  // Opération invalide
-				  resultType = new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(i), resultType, type2));
+				  resultType = new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(i), resultType, type2), resultType);
 			  }
 		  }
 		  return resultType;

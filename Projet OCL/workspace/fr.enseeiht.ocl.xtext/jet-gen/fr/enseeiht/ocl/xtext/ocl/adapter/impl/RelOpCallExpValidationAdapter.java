@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
@@ -101,7 +102,7 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 		  else {
 			  // Opération invalide
-			  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2));
+			  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2), type1, type2);
 		  }
 	  }
 	  
