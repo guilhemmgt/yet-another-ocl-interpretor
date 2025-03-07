@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv implies_invalid:
+	true implies (1/0=0)
