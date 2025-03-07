@@ -3,4 +3,4 @@ import "http://empty" as empty
 context empty!empty.Maybe
 
 inv forAll_invalid:
-	Bag{1,2/0,3,4,5,6}->forAll(i | i>0)
+	Bag{1,2,3,0,4,5,6}->forAll(i | 2/i <> 0)
