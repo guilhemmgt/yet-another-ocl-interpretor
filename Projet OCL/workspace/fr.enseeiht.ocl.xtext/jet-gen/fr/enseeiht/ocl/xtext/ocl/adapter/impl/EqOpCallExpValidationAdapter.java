@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.impl.EEnumLiteralImpl;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -95,7 +94,7 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  if (anyInvalid){
 		  // Opération invalide
-		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2));
+		  return new OclInvalid(type1, type2);
 	  }
 	  else {
 		  return new OclBoolean();

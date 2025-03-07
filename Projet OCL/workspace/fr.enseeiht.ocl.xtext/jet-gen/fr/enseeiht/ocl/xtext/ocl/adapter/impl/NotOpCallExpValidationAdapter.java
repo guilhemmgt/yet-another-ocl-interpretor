@@ -89,7 +89,7 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
 		  return type;
 	  } else {
 		  // Opération invalide
-		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationName(), type));
+		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationName(), type), type);
 	  }
   }
 

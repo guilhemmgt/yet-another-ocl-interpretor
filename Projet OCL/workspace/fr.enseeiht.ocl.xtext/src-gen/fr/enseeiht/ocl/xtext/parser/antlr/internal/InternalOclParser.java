@@ -11950,7 +11950,7 @@ public class InternalOclParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0());
+            					newCompositeNode(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeCrossReference_2_0());
             				
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
