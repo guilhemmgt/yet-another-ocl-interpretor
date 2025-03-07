@@ -11,6 +11,7 @@ import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.adapter.ParameterInvalid;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBag;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
 
 public class OclUnionBagToBag extends OclUnion {
 
@@ -29,7 +30,10 @@ public class OclUnionBagToBag extends OclUnion {
 	}
 	
 	@Override
-	public List<OclType> getArgsType() {
+	public List<OclType> getArgsType(OclType sourceType, List<OclType> argsType) {
+		if (sourceType instanceof OclCollection collecType) {
+			return Arrays.asList(new OclBag(collecType.getSubtype()));
+		}
 		return Arrays.asList(new OclBag(new OclAny()));
 	}
 

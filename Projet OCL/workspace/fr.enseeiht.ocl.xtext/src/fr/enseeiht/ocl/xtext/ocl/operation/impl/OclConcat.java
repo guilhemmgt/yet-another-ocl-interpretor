@@ -22,7 +22,7 @@ public class OclConcat implements IOclOperation {
 	}
 
 	@Override
-	public List<OclType> getArgsType() {
+	public List<OclType> getArgsType(OclType sourceType, List<OclType> argsType) {
 		return Arrays.asList(new OclString());
 	}
 
