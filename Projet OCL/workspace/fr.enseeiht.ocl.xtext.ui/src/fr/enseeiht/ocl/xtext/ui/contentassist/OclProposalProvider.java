@@ -12,13 +12,8 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.Import;
-import fr.enseeiht.ocl.xtext.ocl.OperationCall;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
-import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
-import fr.enseeiht.ocl.xtext.types.OclAny;
-import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 
 /**
@@ -70,21 +65,51 @@ public class OclProposalProvider extends AbstractOclProposalProvider {
 				acceptor.accept(createCompletionProposal(feature.getName(), context));
 			}
 		}
-		// propose les éléments pour l'appel de méthode
-		if(model instanceof OperationCall operationCall && (operationCall.getNavOperator().equals(".") && !type.conformsTo(new OclCollection(new OclAny()))
-				|| (operationCall.getNavOperator().equals("->") && type.conformsTo(new OclCollection(new OclAny()))))) {
-			for (OclOperationEnum operationEnum : OclOperationEnum.values()) {
-				if (operationEnum.getOperations() != null) {
-					for (IOclOperation operation : operationEnum.getOperations()) {
-						if (operation.getSourceType() != null && type.conformsTo(operation.getSourceType())) {
-							acceptor.accept(createCompletionProposal(operation.getName(), context));
-						}
-					}
-				}
-			}
-		}
-		
 	}
+
+//	@Override
+//	public void completeOperationCall_OperationName(EObject model, Assignment assignment, ContentAssistContext context,
+//			ICompletionProposalAcceptor acceptor) {
+//		super.completeOperationCall_OperationName(model, assignment, context, acceptor);
+//		
+//		OclType type;
+//		// moyen de vérifier de savoir quel composant ai sélectionné : si condition du
+//		// if vrai alors on est dans ce cas : `<truc>.` et donc il faut récupérer
+//		// l'élement précédent
+//		if(!(context.getLastCompleteNode() instanceof LeafNodeWithSyntaxError)) {
+//			// On récupère le type du parent
+//			if(model.eContainer() instanceof PropertyCallExp pce) {
+//				// On récupère le type du parent, qui devrait alors etre une EClass
+//				PropertyCallExp container = (PropertyCallExp) model.eContainer();
+//				// On remonte la pile des accès
+//				int pos = container.getCalls().indexOf(model);
+//				if (pos == 0) {
+//					// root call
+//					type = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getSource()).getType();
+//				} else {
+//					type = OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos - 1))
+//							.getType();
+//				}
+//			} else {
+//				type = null;
+//			}
+//		} else {
+//			type = OCLValidationAdapterFactory.INSTANCE.createAdapter(model).getType();
+//		}
+//		
+//		if(model instanceof OperationCall operationCall && (operationCall.getNavOperator().equals(".") && !type.conformsTo(new OclCollection(new OclAny()))
+//				|| (operationCall.getNavOperator().equals("->") && type.conformsTo(new OclCollection(new OclAny()))))) {
+//			for (OclOperationEnum operationEnum : OclOperationEnum.values()) {
+//				if (operationEnum.getOperations() != null) {
+//					for (IOclOperation operation : operationEnum.getOperations()) {
+//						if (operation.getSourceType() != null && type.conformsTo(operation.getSourceType())) {
+//							acceptor.accept(createCompletionProposal(operation.getName(), context));
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
 
 	@Override
 	protected boolean doCreateIntProposals() {
