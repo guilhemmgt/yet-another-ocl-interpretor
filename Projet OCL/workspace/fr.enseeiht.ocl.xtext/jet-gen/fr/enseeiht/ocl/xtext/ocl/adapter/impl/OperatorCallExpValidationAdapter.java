@@ -108,7 +108,7 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
 				  resultType = resultType.unifyWith(type2);
 			  } else {
 				  // Opération invalide
-				  resultType = new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(i), resultType, type2), resultType);
+				  resultType = new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(i), resultType, type2), resultType, type2);
 			  }
 		  }
 		  return resultType;
