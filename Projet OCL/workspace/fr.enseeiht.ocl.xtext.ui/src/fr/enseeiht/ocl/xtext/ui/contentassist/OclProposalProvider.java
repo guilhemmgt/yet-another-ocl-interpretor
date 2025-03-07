@@ -67,6 +67,8 @@ public class OclProposalProvider extends AbstractOclProposalProvider {
 		}
 	}
 
+	// Impossiblité (pas réussi) de rajouter l'auto-complétion des opérations, voici une draft que j'ai faites
+	
 //	@Override
 //	public void completeOperationCall_OperationName(EObject model, Assignment assignment, ContentAssistContext context,
 //			ICompletionProposalAcceptor acceptor) {
