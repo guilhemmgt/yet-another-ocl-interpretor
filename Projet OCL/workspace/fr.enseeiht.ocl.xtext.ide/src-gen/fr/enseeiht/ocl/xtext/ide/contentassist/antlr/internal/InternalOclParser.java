@@ -34773,21 +34773,21 @@ public class InternalOclParser extends AbstractInternalContentAssistParser {
             // InternalOcl.g:11657:2: ( ( ruleQualifiedName ) )
             // InternalOcl.g:11658:3: ( ruleQualifiedName )
             {
-             before(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeCrossReference_2_0()); 
+             before(grammarAccess.getOclModelElementClassAccess().getNameEClassifierCrossReference_2_0()); 
             // InternalOcl.g:11659:3: ( ruleQualifiedName )
             // InternalOcl.g:11660:4: ruleQualifiedName
             {
-             before(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeQualifiedNameParserRuleCall_2_0_1()); 
+             before(grammarAccess.getOclModelElementClassAccess().getNameEClassifierQualifiedNameParserRuleCall_2_0_1()); 
             pushFollow(FOLLOW_2);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeQualifiedNameParserRuleCall_2_0_1()); 
+             after(grammarAccess.getOclModelElementClassAccess().getNameEClassifierQualifiedNameParserRuleCall_2_0_1()); 
 
             }
 
-             after(grammarAccess.getOclModelElementClassAccess().getNameEDataTypeCrossReference_2_0()); 
+             after(grammarAccess.getOclModelElementClassAccess().getNameEClassifierCrossReference_2_0()); 
 
             }
 

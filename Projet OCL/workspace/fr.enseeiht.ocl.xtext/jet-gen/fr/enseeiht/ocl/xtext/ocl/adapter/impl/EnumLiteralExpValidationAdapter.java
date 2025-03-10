@@ -2,7 +2,6 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 
 import org.eclipse.emf.ecore.EObject;
-import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.types.OclEnum;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.EnumLiteralExp;
@@ -27,7 +26,7 @@ public final class EnumLiteralExpValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
 	  return this.target.getEnum_().getEEnumLiteral(this.target.getName());

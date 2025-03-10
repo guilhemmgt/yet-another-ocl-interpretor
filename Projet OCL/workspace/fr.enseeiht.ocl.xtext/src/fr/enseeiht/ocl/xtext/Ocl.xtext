@@ -299,7 +299,7 @@ TupleType :
 	 
 TupleTypeAttribute : name=ID ':' type=OclTypeLiteral;
 
-OclModelElementClass: model=[Import]'!'name=[ecore::EDataType|QualifiedName];
+OclModelElementClass: model=[Import]'!'name=[ecore::EClassifier|QualifiedName];
 
 MapType : 
 	'Map' '(' keyType=OclTypeLiteral ',' valueType=OclTypeLiteral ')'
