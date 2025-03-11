@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
-import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorFactory;
+import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorEnum;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -63,7 +63,7 @@ public Object getValue(EObject contextTarget) {
 		}
 		
 		Collection<Object> source = (Collection<Object>) sourceValue;
-		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
+		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
 		return iterator.getReturnValue(source, this.target, contextTarget);
   }
 
@@ -89,7 +89,7 @@ public Object getValue(EObject contextTarget) {
 		if (sourceType instanceof OclInvalid) {
 			return sourceType;
 		}
-		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
+		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
 
 		if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
 			List<OclInvalid> errors = new ArrayList<OclInvalid>();
