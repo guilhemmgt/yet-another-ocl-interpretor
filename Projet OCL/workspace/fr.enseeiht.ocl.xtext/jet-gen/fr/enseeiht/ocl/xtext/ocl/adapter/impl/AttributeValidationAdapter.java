@@ -29,7 +29,7 @@ public final class AttributeValidationAdapter implements OCLAdapter {
    * Returns the value of the element given its context
    * @param Target
    * @return value of the element
-   * @generated
+   * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
 	  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getInitExpression()).getValue(contextTarget);
