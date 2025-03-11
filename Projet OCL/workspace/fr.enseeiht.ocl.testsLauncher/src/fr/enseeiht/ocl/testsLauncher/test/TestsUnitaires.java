@@ -238,14 +238,14 @@ public class TestsUnitaires {
 		
 		List<ValidationError> errors = result.getInvariantErrors(invs.get(0));
 		
-		List<ValidationUndefined> undefinedErors = new ArrayList<ValidationUndefined>();
+		List<String> undefinedErors = new ArrayList<String>();
 		for (ValidationError error : errors) {
 			if(error instanceof ValidationUndefined) {
-				undefinedErors.add((ValidationUndefined) error);
+				undefinedErors.add(((ValidationUndefined) error).getMessage());
 			}
 		}
 		
-		assertTrue("Valeur \"null\" retournée.", undefinedErors.isEmpty());
+		assertTrue("Valeur \"invalid\" retournée.\n" + String.join("\n", undefinedErors), undefinedErors.isEmpty());
 		
 		assertFalse("Aucune erreur de validation trouvée.", errors.isEmpty());
 	}
