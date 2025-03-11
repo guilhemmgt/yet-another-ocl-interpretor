@@ -104,7 +104,6 @@ public final class ModuleValidationAdapter implements OCLAdapter {
       /**
    * Get all the declared feature definitions
    * @return list of feature definitons (def)
-   * @generated NOT
    */
   public List<OclFeatureDefinition> getAllDefinition() {
 	  return this.localDefinitions;
@@ -113,7 +112,6 @@ public final class ModuleValidationAdapter implements OCLAdapter {
   /**
    * Get all the declared feature definitions, filtered by name, and whether they are an operation
    * @return list of feature definitons validation adapters (def).
-   * @generated NOT
    */
   public List<OclFeatureDefinitionValidationAdapter> getDefinitions(String name, boolean isOperation) {
 	  List<OclFeatureDefinitionValidationAdapter> filtered = new LinkedList<OclFeatureDefinitionValidationAdapter>();

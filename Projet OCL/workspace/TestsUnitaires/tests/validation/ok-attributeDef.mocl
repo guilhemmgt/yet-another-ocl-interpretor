@@ -1,0 +1,14 @@
+import "http://empty" as empty
+
+
+def: contextLess : Integer = 3
+
+def: hein : Integer = contextLess
+
+context empty!empty.Maybe
+def: notContextLess : Integer = 2
+
+inv inContext :
+	self.notContextLess = 2
+inv contextLessUse : 
+	contextLess = 3

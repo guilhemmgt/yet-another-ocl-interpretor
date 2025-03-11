@@ -1,0 +1,5 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv badAtMath:
+  let x = 1 in x+4=4

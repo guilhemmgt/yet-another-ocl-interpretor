@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
+import fr.enseeiht.ocl.xtext.ocl.adapter.WrongAttributeAccesInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -31,15 +32,20 @@ public final class OclFeatureDefinitionValidationAdapter implements OCLAdapter {
     this.target = object;
   }
 
-  /**
-   * Returns the value of the element given its context
-   * @param Target
-   * @return value of the element
-   * @generated
-   */
-  public Object getValue(EObject contextTarget) {
-    throw new UnimplementedException(this.getClass(),"getValue");
-  }
+	/**
+	 * Returns the value of the element given its context
+	 * 
+	 * @param Target
+	 * @return value of the element
+	 * @generated NOT
+	 */
+	public Object getValue(EObject contextTarget) {
+		if (this.target.getFeature() instanceof Attribute feat) {
+			return OCLValidationAdapterFactory.INSTANCE.createAdapter(feat.getInitExpression()).getValue(contextTarget);
+		} else {
+			return new WrongAttributeAccesInvalid(this.target.getFeature().toString());
+		}
+	}
 
   /**
    * Returns the name of the feature

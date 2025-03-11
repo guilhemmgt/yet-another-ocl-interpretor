@@ -7,6 +7,7 @@ import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.ocl.adapter.CouldNotResolveInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.Attribute;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 import fr.enseeiht.ocl.xtext.OclType;
@@ -33,6 +34,9 @@ public final class VariableExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public Object getValue(EObject contextTarget) {
+	  if (this.target.getReferredVariable() instanceof Attribute) {
+		  return OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getReferredVariable()).getValue(contextTarget);
+	  }
 	  if (!Scoper.contains(this.target.getReferredVariable())) {
 		  return new CouldNotResolveInvalid(this.target);
 	  }
