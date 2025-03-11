@@ -66,6 +66,18 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 		if (sourceValue instanceof Invalid) {
 			return sourceValue;
 		}
+		
+		// Récupération des attributs définit par l'utilisateur
+		List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE
+				.createAdapter(this.target.eResource().getContents().get(0)))
+				.getDefinitions(this.target.getName(), false);
+		if (!defs.isEmpty()) {
+			for (OclFeatureDefinitionValidationAdapter localAttribute : defs) {
+				return localAttribute.getValue(contextTarget);
+			}
+		}
+		
+		// Récupération des attribut du modèle
 		if (sourceValue instanceof EObject sourceEValue) {
 			if (sourceEValue != null) {
 				for (EStructuralFeature feat : sourceEValue.eClass().getEAllStructuralFeatures()) {
