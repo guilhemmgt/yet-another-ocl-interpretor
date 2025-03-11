@@ -45,12 +45,15 @@ public class OclCollection extends OclAny {
 		else if (oclType instanceof OclVoid) {
 			return this;
 		}
-		else if (oclType instanceof OclCollection) {
+		else if (oclType instanceof OclCollection collectType) {
 			if (subtype == null) {
 				// Collection vide
 				return oclType;
 			}
-			return new OclCollection(((OclCollection) oclType).subtype.unifyWith(subtype));
+			if (collectType.subtype == null) {
+				return subtype;
+			}
+			return new OclCollection(collectType.subtype.unifyWith(subtype));
 		}
 		else {
 			return new OclAny();
