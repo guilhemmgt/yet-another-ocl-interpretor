@@ -55,7 +55,7 @@ public final class OclInvariantValidationAdapter implements OCLAdapter {
 	OclType type = exp.getType();
 	// L'expression dans l'invariant doit nécessairement avoir un type Boolean
 	boolean isCorrect = type.conformsTo(new OclBoolean());
-	boolean isInvalid = type.conformsTo(new OclInvalid());
+	boolean isInvalid = type.conformsTo(new OclInvalid()) || (messageType!=null && messageType.conformsTo(new OclInvalid()));
 	OclInvalid errorCheckType = null; 
 	if (!isCorrect && !isInvalid) {
 		errorCheckType = new OclInvalid(new TypeMismatchError(target, new OclBoolean(), type));
@@ -65,7 +65,7 @@ public final class OclInvariantValidationAdapter implements OCLAdapter {
 		errorCheckType = errorCheckType == null ? error : new OclInvalid(errorCheckType, error);
 	} 
 	if (isInvalid) {
-		errorCheckType = new OclInvalid(type,errorCheckType);
+		errorCheckType = new OclInvalid(type,errorCheckType,messageType);
 	}
 	return errorCheckType != null ? errorCheckType : new OclBoolean();
 	
