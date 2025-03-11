@@ -1,0 +1,21 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv emptyBag :
+	not Bag{}->includes(1)
+inv fullBag:
+	Bag{1,2,3,4}->includes(1)
+inv missingBag:
+	not Bag{1,2,3,4}->includes(5)
+inv emptySet :
+	not Set{}->includes(1)
+inv fullSet:
+	Set{1,2,3,4}->includes(1)
+inv missingBag:
+	not Set{1,2,3,4}->includes(5)
+inv emptySequence :
+	not Sequence{}->includes(1)
+inv fullSequence:
+	Sequence{1,2,3,4}->includes(1)
+inv missingSequence:
+	not Sequence{1,2,3,4}->includes(5)

@@ -1,0 +1,8 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv regexProof:
+ 	"(-2.3)".matches("\\(-\\d\\.\\d\\)")
+inv regexProof2:
+ 	not "(-2.3)".matches("")
+ 	

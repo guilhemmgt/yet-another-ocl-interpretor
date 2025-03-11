@@ -48,12 +48,15 @@ public class OclInterpretor {
 						// est violé
 						Object invResult = OCLValidationAdapterFactory.INSTANCE.createAdapter(invariant)
 								.getValue(xmiObject);
+						if (invResult == null){
+							result.addError(new ValidationUndefined(invariant, xmiObject, "The value of " + invariant + " on " + xmiObject + " is null"));
+						}
 						if (invResult instanceof Invalid) {
 							result.addError(
 									new ValidationUndefined(invariant, xmiObject, ((Invalid) invResult).getMessage()));
 						} else if (invResult instanceof Boolean && !((Boolean) invResult)) {
 							result.addError(new ValidationFailed(invariant, xmiObject));
-						}
+						} 
 					}
 				}
 			}
