@@ -2,5 +2,5 @@ import "http://empty" as empty
 
 context empty!empty.Liar
 
-inv and1:
-	true and null
+inv neq_inalid:
+	1/0<>1/0

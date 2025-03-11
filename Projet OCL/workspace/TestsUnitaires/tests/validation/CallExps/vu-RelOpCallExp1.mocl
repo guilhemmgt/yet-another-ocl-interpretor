@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv gt_invalid:
+	2 > (1.1/0)

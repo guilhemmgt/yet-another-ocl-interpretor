@@ -4598,7 +4598,7 @@ ruleOclModelElementClass returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getOclModelElementClassAccess().getNameEClassCrossReference_2_0());
+					newCompositeNode(grammarAccess.getOclModelElementClassAccess().getNameEClassifierCrossReference_2_0());
 				}
 				ruleQualifiedName
 				{

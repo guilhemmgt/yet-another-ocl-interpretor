@@ -22,7 +22,7 @@ public class OclOclAsType implements IOclOperation {
 	}
 
 	@Override
-	public List<OclType> getArgsType() {
+	public List<OclType> getArgsType(OclType sourceType, List<OclType> argsType) {
 		// TODO Auto-generated method stub
 		return null;
 	}

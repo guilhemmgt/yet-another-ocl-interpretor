@@ -101,7 +101,7 @@ public final class OperationValidationAdapter implements OCLAdapter {
   public String getOutlineString() {
     return null;
   }
-   public OclType getSourceType() {
+     public OclType getSourceType() {
 	  if (this.target.eContainer().eContainer() instanceof OclContextBlock context) {
 		  return new OclEClass(context.getClass_());
 	  }

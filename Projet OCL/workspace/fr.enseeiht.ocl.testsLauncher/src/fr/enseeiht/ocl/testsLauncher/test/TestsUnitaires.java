@@ -175,7 +175,7 @@ public class TestsUnitaires {
 	
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideValidationUndefinedArguments")
-	@DisplayName("Tests KO sur la validation (retourne null)")
+	@DisplayName("Tests KO sur la validation (Invalid)")
 	void testValidationUndefined(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
@@ -228,7 +228,7 @@ public class TestsUnitaires {
 	
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideValidationArguments")
-	@DisplayName("Tests KO sur la validation")
+	@DisplayName("Tests KO sur la validation (False)")
 	void testValidation(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);
@@ -238,21 +238,21 @@ public class TestsUnitaires {
 		
 		List<ValidationError> errors = result.getInvariantErrors(invs.get(0));
 		
-		List<ValidationUndefined> undefinedErors = new ArrayList<ValidationUndefined>();
+		List<String> undefinedErors = new ArrayList<String>();
 		for (ValidationError error : errors) {
 			if(error instanceof ValidationUndefined) {
-				undefinedErors.add((ValidationUndefined) error);
+				undefinedErors.add(((ValidationUndefined) error).getMessage());
 			}
 		}
 		
-		assertTrue("Valeur \"null\" retournée.", undefinedErors.isEmpty());
+		assertTrue("Valeur \"invalid\" retournée.\n" + String.join("\n", undefinedErors), undefinedErors.isEmpty());
 		
 		assertFalse("Aucune erreur de validation trouvée.", errors.isEmpty());
 	}
 	
 	@ParameterizedTest(name = "{0}")
 	@MethodSource("provideOkArguments")
-	@DisplayName("Tests OK")
+	@DisplayName("Tests OK (True)")
 	void testOk(String moclName, String ecoreName, String xmi) throws FileNotFoundException, BadFileExtensionException, BadFileStructureException, SyntaxException, CheckTypeException, LinkingException {
 		Map<String, ValidationResult> resultMap = LauncherUtils.run(workspacePath, projectName, moclName, ecoreName, xmi);
 		ValidationResult result = resultMap.get(xmi);

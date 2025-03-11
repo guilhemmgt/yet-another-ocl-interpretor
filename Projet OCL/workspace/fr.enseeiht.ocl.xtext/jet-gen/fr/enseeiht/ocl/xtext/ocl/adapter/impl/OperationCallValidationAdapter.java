@@ -129,7 +129,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 			if (operations != null) {
 				for (IOclOperation operation : operations) {
 					if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(),
-							paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
+							paramTypes, operation.getArgsType(sourceType, paramTypes), this.target.getOperationName(), operation.getName())) {
 						return operation.getReturnValue(sourceValue, args, contextTarget);
 					}
 				}
@@ -192,7 +192,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		if (operations != null) {
 			for (IOclOperation operation : operations) {
 				// Type check the call!
-				if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
+				if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(), paramTypes, operation.getArgsType(sourceType, paramTypes), this.target.getOperationName(), operation.getName())) {
 					return operation.getReturnType(sourceType, paramTypes);
 				}
 			}

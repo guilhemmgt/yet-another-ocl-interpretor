@@ -116,7 +116,7 @@ public final class ContextlessCallExpValidationAdapter implements OCLAdapter {
 	if (operations != null) {
 		for (IOclOperation operation : operations) {
 			// Type check the call!
-			if (OperationResolutionUtils.isCorrectImplementation(null, operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
+			if (OperationResolutionUtils.isCorrectImplementation(null, operation.getSourceType(), paramTypes, operation.getArgsType(null, paramTypes), this.target.getOperationName(), operation.getName())) {
 				return operation.getReturnType(null, paramTypes);
 			}
 		}

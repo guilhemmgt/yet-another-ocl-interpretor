@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+
+inv concat_invalid:
+	"hello" + "world".substring(-12, 6) = "hello"

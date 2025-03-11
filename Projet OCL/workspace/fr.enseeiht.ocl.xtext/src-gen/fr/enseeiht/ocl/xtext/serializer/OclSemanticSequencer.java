@@ -874,7 +874,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OclModelElementClass returns OclModelElementClass
 	 *
 	 * Constraint:
-	 *     (model=[Import|ID] name=[EClass|QualifiedName])
+	 *     (model=[Import|ID] name=[EClassifier|QualifiedName])
 	 * </pre>
 	 */
 	protected void sequence_OclModelElementClass(ISerializationContext context, OclModelElementClass semanticObject) {
@@ -886,7 +886,7 @@ public class OclSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOclModelElementClassAccess().getModelImportIDTerminalRuleCall_0_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__MODEL, false));
-		feeder.accept(grammarAccess.getOclModelElementClassAccess().getNameEClassQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__NAME, false));
+		feeder.accept(grammarAccess.getOclModelElementClassAccess().getNameEClassifierQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(OclPackage.Literals.OCL_MODEL_ELEMENT_CLASS__NAME, false));
 		feeder.finish();
 	}
 	

@@ -1,0 +1,9 @@
+import "http://empty" as empty
+
+context empty!empty.SubLiar
+
+def: definition1 : Collection(Boolean) = self.others
+
+inv collec:
+  self.others->union(Set{true})->size() = 1
+  

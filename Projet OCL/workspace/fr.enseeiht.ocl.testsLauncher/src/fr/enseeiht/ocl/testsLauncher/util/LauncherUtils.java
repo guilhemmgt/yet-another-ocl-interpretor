@@ -144,14 +144,17 @@ public class LauncherUtils {
 		    IResourceValidator validator = injector.getInstance(IResourceValidator.class);
 		    List<Issue> issues = validator.validate(moclResource,
 		            CheckMode.ALL, CancelIndicator.NullImpl);
+		    List<String> errorMessages = new ArrayList<String>();
 		    for (Issue issue: issues) {
 		    	if(issue.getCode().endsWith("CheckType") && (issue.getSeverity() == Severity.ERROR)) {
-		    		throw new CheckTypeException(issue.getMessage() + ". (ligne : " + issue.getLineNumber() + "; colonne : " + issue.getColumn() + ")");
+		    		errorMessages.add(issue.getMessage() + ". (ligne : " + issue.getLineNumber() + "; colonne : " + issue.getColumn() + ")");
 		    	}
 				if(issue.getCode().endsWith("CheckType.Exception") && (issue.getSeverity() == Severity.WARNING)) {
 					throw new RuntimeException(issue.getData()[0] + " : " + issue.getMessage());
 				}
 		    }
+		    if(!errorMessages.isEmpty())
+		    	throw new CheckTypeException(errorMessages);
         }
 		
         // Validation

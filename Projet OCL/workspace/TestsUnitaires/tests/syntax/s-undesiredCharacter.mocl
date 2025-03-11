@@ -1,3 +1,3 @@
--- @error : "required (...)+ loop did not match anything at input 'a'"
+-- @error : "required (...)+ loop did not match anything at input 'a'. (ligne : 3; colonne : 1)"
 
 a

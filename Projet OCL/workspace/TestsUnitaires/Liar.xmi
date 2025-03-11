@@ -2,6 +2,7 @@
 <empty:Liar
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:empty="http://empty"
     xsi:schemaLocation="http://empty Empty.ecore"
     name="Me"
@@ -9,5 +10,9 @@
   <maybe value="6"
       subLiar="//@subLiar.0"/>
   <subLiar name="Him"
-      enum="enum3"/>
+      enum="enum3">
+    <others>true</others>
+  </subLiar>
+  <others>true</others>
+  <others>false</others>
 </empty:Liar>

@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.EcorePackage;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
-import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclEClass;
 import fr.enseeiht.ocl.xtext.types.OclEnum;
 import fr.enseeiht.ocl.xtext.types.OclInteger;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.types.OclSet;
 import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclTuple;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
@@ -66,6 +66,18 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 		if (sourceValue instanceof Invalid) {
 			return sourceValue;
 		}
+		
+		// Récupération des attributs définit par l'utilisateur
+		List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE
+				.createAdapter(this.target.eResource().getContents().get(0)))
+				.getDefinitions(this.target.getName(), false);
+		if (!defs.isEmpty()) {
+			for (OclFeatureDefinitionValidationAdapter localAttribute : defs) {
+				return localAttribute.getValue(contextTarget);
+			}
+		}
+		
+		// Récupération des attribut du modèle
 		if (sourceValue instanceof EObject sourceEValue) {
 			if (sourceEValue != null) {
 				for (EStructuralFeature feat : sourceEValue.eClass().getEAllStructuralFeatures()) {
@@ -165,7 +177,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  if (feature.getUpperBound() == 1)
 		  return type;
 	  // Sinon on renvoie une collection contenant les valeurs
-	  return new OclCollection(type);
+	  return new OclSet(type);
   }
 
   /**
@@ -194,7 +206,7 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
   public String getOutlineString() {
     return null;
   }
- 	public boolean conformsTo(OclType oclType) {
+   	public boolean conformsTo(OclType oclType) {
 		// TODO Auto-generated method stub
 		return false;
 	}

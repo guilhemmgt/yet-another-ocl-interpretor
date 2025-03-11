@@ -3,7 +3,7 @@
  */
 package fr.enseeiht.ocl.xtext.ocl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,12 +51,12 @@ public interface OclModelElementClass extends OclTypeLiteral
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(EClass)
+   * @see #setName(EClassifier)
    * @see fr.enseeiht.ocl.xtext.ocl.OclPackage#getOclModelElementClass_Name()
    * @model
    * @generated
    */
-  EClass getName();
+  EClassifier getName();
 
   /**
    * Sets the value of the '{@link fr.enseeiht.ocl.xtext.ocl.OclModelElementClass#getName <em>Name</em>}' reference.
@@ -66,6 +66,6 @@ public interface OclModelElementClass extends OclTypeLiteral
    * @see #getName()
    * @generated
    */
-  void setName(EClass value);
+  void setName(EClassifier value);
 
 } // OclModelElementClass

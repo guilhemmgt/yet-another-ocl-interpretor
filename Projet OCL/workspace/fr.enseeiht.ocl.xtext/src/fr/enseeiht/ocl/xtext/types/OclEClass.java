@@ -28,6 +28,8 @@ public class OclEClass implements OclType {
 
 	@Override
 	public OclType unifyWith(OclType oclType) {
+		// The unification of two OclEClasses is an OclEClass with the unification of both classtypes.
+		// The rest is OclAny.
 		if (oclType instanceof OclInvalid) {
 			return oclType;
 		}
@@ -42,6 +44,17 @@ public class OclEClass implements OclType {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		String result = "EClass(";
+		if (this.classtype == null) {
+			return result + ")";
+		}
+		else {
+			return result + this.classtype.toString() + ")";
+		}
+	}
+	
 	private OclType findLowestSupertype(OclEClass eclass) {
 		for (EClass superType1: classtype.getESuperTypes()) {
 			for (EClass superType2: eclass.classtype.getESuperTypes()) {
@@ -52,5 +65,6 @@ public class OclEClass implements OclType {
 		}
 		return new OclAny();
 	}
+
 
 }
