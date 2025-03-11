@@ -51,7 +51,10 @@ public class OclValidator extends AbstractOclValidator {
 			} catch (Exception e) {
 				// Si le typeur a eu une erreur
 				e.printStackTrace();
-				// TODO : discuter si on garde ca pour le rendu
+				// Afficher un warning si notre code a planté pour mettre au courant l'utilisateur final
+				// Normalement le comportement normal est de laisser remonter l'erreur, XText va ainsi afficher qu'il y a un problème 
+				// Mais, si on fait ca, alors l'achitecture de tests ne fonctionnent plus parce que toutes les exceptions sont catch par Xtext
+				// Donc c'est le moins pire qu'on puisse faire pour accorder les 2 bouts
 				warning(e.getMessage(), module.eClass().getEStructuralFeature("contextBlocks"),
 						CHECK_TYPE_DIAGNOSTIC_TEMP_EXCEPTION, new String[] { e.getClass().toString().split(" ")[1] });
 
