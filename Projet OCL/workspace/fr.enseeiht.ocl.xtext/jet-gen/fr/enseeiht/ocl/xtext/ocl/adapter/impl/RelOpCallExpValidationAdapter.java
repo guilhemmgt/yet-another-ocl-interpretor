@@ -139,6 +139,8 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+	if (this.target.getOperationNames().size() == 0)
+		return null;
+	return this.target.getOperationNames().get(0);
   }
  }

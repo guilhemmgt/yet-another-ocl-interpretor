@@ -102,6 +102,6 @@ public final class SetLiteralExpValidationAdapter implements OCLAdapter {
    */
    @Override
   public String getOutlineString() {
-    return null;
+    return "Set";
   }
  }
