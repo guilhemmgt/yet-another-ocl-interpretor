@@ -20,27 +20,31 @@ public class OclIteratorCollectNested implements OclIterator {
 
 	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
 		// source->collectNested(iterator | body) =
-		// 		source->iterate(iterator; result : Sequence(body.type) = Sequence{} |
-		//			result->append(body ) )
+		// 		source->iterate(iterator; result : <src_type>(T) = <src_type>{} |
+		//			result->append(body) )
+		// où <src_type> = Sequence | Bag | Set | OrderedSet selon le type de 'source'
 		
-		// 'body' de 'iterate'
+		// body de 'iterate':
+		// 		result->append(body)
 		@SuppressWarnings("unchecked")
 		IOclIterateBody newOp = (r, b, i) -> {
-			((Collection<Object>)r).add(b);
+			((Collection<Object>)r).add(op.apply(b, i));
 			return r;
 		};
 
-		// Récupère la valeur initiale du 'result' du 'iterate': une collection vide du type de 'source'
+		// init du result de 'iterate':
+		//		result : <src_type>(T) = <src_type>{}
+		// On construit une nouvelle collection (vide) du même type que la source
 		Object resultInitValue = null;
 		try {
 			resultInitValue = ConstructorInstanciator.instantiateParameterlessConstructor(source.getClass());
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
 		}
-
-		// Calcule la valeur
+		
+		// ->iterate
 		Object value = new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, resultInitValue, newOp).getReturnValue();
+		
 		return value;
 	}
 

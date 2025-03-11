@@ -21,14 +21,22 @@ public class OclIteratorAny implements OclIterator {
 		// source->any(iterator | body) =
 		// 		source->select(iterator | body)->asSequence()->first()
 		
+		// ->select(iterator | body)
 		Object selectValue = new OclIteratorSelect().getReturnValue(source, iteratorExp, contextTarget, op);
 		if (selectValue instanceof Invalid)
 			return selectValue;
 		@SuppressWarnings("unchecked")
-		Collection<Object> selectCollectionValue = (Collection<Object>) selectValue;
-		if (selectCollectionValue.isEmpty())
+		Collection<Object> selectCollection = (Collection<Object>) selectValue;
+		
+		// ->asSequence()
+		// opération OCL superflue en Java
+		
+		// ->first()
+		if (selectCollection.isEmpty())
 			return new AnyInvalid(iteratorExp);
-		return selectCollectionValue.iterator().next();
+		Object value = selectCollection.iterator().next();
+		
+		return value;
 	}
 
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {

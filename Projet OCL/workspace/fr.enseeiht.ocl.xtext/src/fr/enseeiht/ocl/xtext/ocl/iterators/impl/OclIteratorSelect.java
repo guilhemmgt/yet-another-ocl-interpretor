@@ -1,5 +1,6 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
@@ -19,12 +20,14 @@ public class OclIteratorSelect implements OclIterator {
 
 	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
 		// source->select(iterator | body) =
-		// 		source->iterate(iterator; result : Set(T) = Set{} |
+		// 		source->iterate(iterator; result : <src_type>(T) = <src_type>{} |
 		//			if body then result->including(iterator)
 		//			else result
 		//			endif)
+		// où <src_type> = Sequence | Bag | Set | OrderedSet selon le type de 'source'
 		
-		// 'body' de 'iterate'
+		// body de 'iterate':
+		//		if body then result->including(iterator) else result endif
 		@SuppressWarnings("unchecked")
 		IOclIterateBody newOp = (r, b, i) -> {
 			if ((Boolean)op.apply(b, i)) {
@@ -35,16 +38,19 @@ public class OclIteratorSelect implements OclIterator {
 			}
 		};
 
-		// Récupère la valeur initiale du 'result' du 'iterate': une collection vide du type de 'source'
+		// init du result de 'iterate':
+		//		result : <src_type>(T) = <src_type>{}
+		// On construit une nouvelle collection (vide) du même type que la source
 		Object resultInitValue = null;
 		try {
 			resultInitValue = ConstructorInstanciator.instantiateParameterlessConstructor(source.getClass());
-		} catch (Exception e) {
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			e.printStackTrace();
 		}
 
-		// Calcule la valeur
+		// ->iterate
 		Object value = new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, resultInitValue, newOp).getReturnValue();
+		
 		return value;
 	}
 

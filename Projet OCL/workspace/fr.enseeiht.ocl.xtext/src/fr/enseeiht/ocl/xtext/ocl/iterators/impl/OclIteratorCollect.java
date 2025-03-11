@@ -23,20 +23,21 @@ public class OclIteratorCollect implements OclIterator {
 		// source->collect (iterator | body) =
 		// 		source->collectNested (iterator | body)->flatten()
 		
+		// ->collectNested (iterator | body)
 		Object collectNestedValue = new OclIteratorCollectNested().getReturnValue(source, iteratorExp, contextTarget, op);
 		if (collectNestedValue instanceof Invalid)
 			return collectNestedValue;
 		@SuppressWarnings("unchecked")
-		Collection<Object> collectNestedCollectionValue = (Collection<Object>) collectNestedValue;
+		Collection<Object> collectNestedCollection = (Collection<Object>) collectNestedValue;
 		
-		// flatten
+		// ->flatten()
 		Object value = null;
 		try {
-			value = CollectionFlattener.flatten(collectNestedCollectionValue);
+			value = CollectionFlattener.flatten(collectNestedCollection);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return value;
 	}
 

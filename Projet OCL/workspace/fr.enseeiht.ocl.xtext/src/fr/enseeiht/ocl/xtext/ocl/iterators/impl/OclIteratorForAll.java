@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
@@ -21,12 +20,12 @@ public class OclIteratorForAll implements OclIterator {
 	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget,
 			IOclIteratorBody op) {
 		// source->forAll(iterators | body ) =
-		// 		source->iterate(iterators; result : Boolean = true | result and body
+		// 		source->iterate(iterators; result : Boolean = true | result and body)
 		
+		// body de 'iterate':
+		// 		result and body
 		IOclIterateBody newOp = (r, b, i) -> {
 			Object newB = op.apply(b, i);
-			if (newB instanceof Invalid) // Propagation Invalid
-				return newB;
 			if (newB == null || r == null) // En OCL: null and <bool> = null
 				return null;
 			return (Boolean)r && (Boolean)newB;
