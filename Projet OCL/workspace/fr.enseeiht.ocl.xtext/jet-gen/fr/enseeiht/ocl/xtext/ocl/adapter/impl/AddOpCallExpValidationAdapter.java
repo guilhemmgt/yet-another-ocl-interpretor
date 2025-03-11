@@ -133,11 +133,12 @@ public final class AddOpCallExpValidationAdapter implements OCLAdapter {
 					unifyResult = unifyResult.unifyWith(titr);
 				}
 
+				// Pour le report des erreurs: n'ajoute que les types uniques
 				boolean isUnique = true;
 				for (OclType typ : uniqueTypes) {
 					isUnique = isUnique && typ.getClass().equals(titr.getClass());
 				}
-				if (!isUnique)
+				if (isUnique)
 					uniqueTypes.add(titr);
 			}
 
