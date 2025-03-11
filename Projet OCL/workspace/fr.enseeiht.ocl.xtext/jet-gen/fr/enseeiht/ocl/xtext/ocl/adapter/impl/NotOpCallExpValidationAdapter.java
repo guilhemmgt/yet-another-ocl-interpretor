@@ -78,23 +78,20 @@ public final class NotOpCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  OCLAdapter arg = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource());
-	  
-	  OclType type = arg.getType();
-	  // not Boolean : boolean
-	  boolean isBoolean = type.conformsTo(new OclBoolean());
-	  // - Real : Real
-	  boolean isReal = type.conformsTo(new OclReal());
-	  // operator = 'not' | '-'
-	  boolean operationIsNot = this.target.getOperationName().equals("not");
-
-	  
-	  if (isBoolean && operationIsNot || isReal && !operationIsNot) {
-		  return type;
-	  } else {
-		  // Opération invalide
-		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationName(), type), type);
-	  }
+	  	// Calcul du type de l'argument
+		OclType type = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getSource()).getType();
+		
+		String opName = this.target.getOperationName(); // opération
+		
+		// & Real : Real (seulement pour "-")
+		boolean ruleReal = type.conformsTo(new OclReal()) && opName.equals("-");
+		// & Boolean : Boolean (seulement pour "not")
+		boolean ruleBoolean = type.conformsTo(new OclBoolean()) && opName.equals("not");;
+		
+		if (ruleReal || ruleBoolean) // Si les types correspondent à une règle...
+			return type;
+		else
+			return new OclInvalid(new InvalidTypeOperation(this.target, opName, type), type);
   }
 
   /**

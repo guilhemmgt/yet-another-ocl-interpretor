@@ -89,29 +89,27 @@ public final class OperatorCallExpValidationAdapter implements OCLAdapter {
    * @generated NOT
    */
   public OclType getType() {
-	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OCLAdapter arg1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0));
-	  OclType resultType = arg1.getType();
-	  if (this.target.getOperationNames().size() == 0) {
-		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
-		  return resultType;
-	  }
-	  else {
-		  for(int i=0; i < this.target.getOperationNames().size(); i++) {
-			  OCLAdapter arg2 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(i+1));
-			  OclType type2 = arg2.getType();
-			  // Boolean + Boolean : Boolean
-			  boolean isBoolean = resultType.conformsTo(new OclBoolean()) && type2.conformsTo(new OclBoolean());
-			  if (isBoolean) {
-				  resultType = resultType.unifyWith(type2);
-			  } else {
-				  // Opération invalide
-				  resultType = new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(i), resultType, type2), resultType, type2);
-			  }
-		  }
-		  return resultType;
-	  }
-		  
+		// Calcul du type du premier argument
+		OclType resultType = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getType();
+		
+		// Calcul du type des arguments suivants
+		for (int i = 1; i < this.target.getArgs().size(); i++) {
+			EqOpCallExp arg = this.target.getArgs().get(i); // ième argument
+			String opName = this.target.getOperationNames().get(i - 1); // (i-1)ème opération (il y a 1 opération de - qu'il y a d'arguments)
+		
+			// Calcul du type du ième argument
+			OclType argType = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg).getType();
+		
+			// Boolean & Boolean : Boolean
+			boolean ruleInteger = resultType.conformsTo(new OclBoolean()) && argType.conformsTo(new OclBoolean());
+			
+			if (ruleInteger) // Si les types correspondent à une règle...
+				resultType = resultType.unifyWith(argType);
+			else
+				resultType = new OclInvalid(new InvalidTypeOperation(this.target, opName, resultType, argType), resultType, argType);
+		}
+		
+		return resultType;
   }
 
   /**
