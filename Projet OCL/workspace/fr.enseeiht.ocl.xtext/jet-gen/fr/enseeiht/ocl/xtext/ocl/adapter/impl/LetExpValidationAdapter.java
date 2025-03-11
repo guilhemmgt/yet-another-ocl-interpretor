@@ -31,7 +31,7 @@ public final class LetExpValidationAdapter implements OCLAdapter {
 	 * 
 	 * @param Target
 	 * @return value of the element
-	 * @generated
+	 * @generated NOT
 	 */
 	public Object getValue(EObject contextTarget) {
 		// Get value from the declared variable
