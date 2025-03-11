@@ -92,15 +92,12 @@ public Object getValue(EObject contextTarget) {
 		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
 
 		if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
-			OclCollection collectType = (OclCollection) sourceType;
 			List<OclInvalid> errors = new ArrayList<OclInvalid>();
 			for (Iterator i : this.target.getIterators()) {
 				// Checks type of each iterator
 				OclType iteratorType = OCLValidationAdapterFactory.INSTANCE.createAdapter(i).getType();
 				if (iteratorType instanceof OclInvalid error) {
 					errors.add(error);
-				} else if (!iteratorType.conformsTo(collectType.getSubtype())) {
-					errors.add(new OclInvalid(new TypeMismatchError(i, collectType.getSubtype(), iteratorType)));
 				}
 			}
 

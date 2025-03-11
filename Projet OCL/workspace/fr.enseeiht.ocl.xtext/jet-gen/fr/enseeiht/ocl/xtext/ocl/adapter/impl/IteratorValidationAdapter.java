@@ -6,6 +6,7 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.UnimplementedException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.types.OclVoid;
 import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
@@ -57,13 +58,17 @@ public final class IteratorValidationAdapter implements OCLAdapter {
 					.getType();
 		}
 		if (source instanceof OclCollection eSource) {
+			OclType sourceSubType = eSource.getSubtype();
+			if (sourceSubType == null) {
+				sourceSubType = new OclVoid();
+			}
 			if (this.target.getType() != null) {
 				// cf. DOC at (Section 7.6.1)
 				OclType expectedType = ((OclTypeLiteralValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getType())).getOclType();
-				if (!eSource.getSubtype().conformsTo(expectedType))
-					return new OclInvalid(new TypeMismatchError(this.target, expectedType, eSource.getSubtype())); 
+				if (!sourceSubType.conformsTo(expectedType))
+					return new OclInvalid(new TypeMismatchError(this.target, expectedType, sourceSubType)); 
 			}
-			return eSource.getSubtype();
+			return sourceSubType;
 		} else {
 			return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), source));
 		}		
