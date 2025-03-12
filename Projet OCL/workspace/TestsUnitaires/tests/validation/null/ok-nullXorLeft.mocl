@@ -3,4 +3,4 @@ import "http://empty" as empty
 context empty!empty.Liar
 
 inv xor1:
-	true xor null
+	(null xor true) = null

@@ -1,6 +1,5 @@
 import "http://empty" as empty
 
 context empty!empty.Liar
-def : size(a :Integer) : Integer = a
 inv r:
-  self.size(1) = 1
+  Set{1,2}.union(Set{3}) <> "Me"

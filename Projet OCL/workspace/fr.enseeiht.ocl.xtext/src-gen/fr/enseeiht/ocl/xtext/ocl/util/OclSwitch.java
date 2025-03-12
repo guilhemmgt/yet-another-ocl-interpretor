@@ -11,7 +11,6 @@ import fr.enseeiht.ocl.xtext.ocl.BagType;
 import fr.enseeiht.ocl.xtext.ocl.BooleanLiteralExp;
 import fr.enseeiht.ocl.xtext.ocl.BooleanType;
 import fr.enseeiht.ocl.xtext.ocl.BraceExp;
-import fr.enseeiht.ocl.xtext.ocl.CollectionOperationCall;
 import fr.enseeiht.ocl.xtext.ocl.CollectionType;
 import fr.enseeiht.ocl.xtext.ocl.CollectionTypeLiteral;
 import fr.enseeiht.ocl.xtext.ocl.ContextlessCallExp;
@@ -489,14 +488,6 @@ public class OclSwitch<T> extends Switch<T>
         IteratorExp iteratorExp = (IteratorExp)theEObject;
         T result = caseIteratorExp(iteratorExp);
         if (result == null) result = casePropertyCall(iteratorExp);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OclPackage.COLLECTION_OPERATION_CALL:
-      {
-        CollectionOperationCall collectionOperationCall = (CollectionOperationCall)theEObject;
-        T result = caseCollectionOperationCall(collectionOperationCall);
-        if (result == null) result = casePropertyCall(collectionOperationCall);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1406,22 +1397,6 @@ public class OclSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIteratorExp(IteratorExp object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Collection Operation Call</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Collection Operation Call</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCollectionOperationCall(CollectionOperationCall object)
   {
     return null;
   }

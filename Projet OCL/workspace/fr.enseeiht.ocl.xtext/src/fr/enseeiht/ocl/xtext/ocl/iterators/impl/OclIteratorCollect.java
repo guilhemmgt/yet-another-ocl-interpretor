@@ -1,5 +1,6 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
@@ -11,7 +12,9 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
+import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.utils.CollectionFlattener;
+import fr.enseeiht.ocl.xtext.utils.OclTypeUtils;
 
 public class OclIteratorCollect implements OclIterator {
 
@@ -39,8 +42,17 @@ public class OclIteratorCollect implements OclIterator {
 
 	@Override
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
-		// TODO Auto-generated method stub
-		return null;
+		if (sourceType instanceof OclCollection collectType) {
+			try {			
+				return collectType.getClass().getConstructor(OclType.class).newInstance(OclTypeUtils.getFlattenedType(bodyType));
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+				e.printStackTrace();
+				return new OclInvalid();
+			}
+		} else {
+			return new OclInvalid();
+		}
 	}
 
 	@Override

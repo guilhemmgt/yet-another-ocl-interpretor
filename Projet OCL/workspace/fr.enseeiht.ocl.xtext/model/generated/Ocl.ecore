@@ -39,6 +39,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Auxiliary"/>
   <eClassifiers xsi:type="ecore:EClass" name="OclInvariant">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorMessage" eType="#//OclExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//OclExpression"
         containment="true"/>
   </eClassifiers>
@@ -182,6 +184,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyCall"/>
   <eClassifiers xsi:type="ecore:EClass" name="OperationCall" eSuperTypes="#//PropertyCall">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="navOperator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
         eType="#//OclExpression" containment="true"/>
@@ -204,11 +207,6 @@
         eType="#//Iterator" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//OclExpression"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CollectionOperationCall" eSuperTypes="#//PropertyCall">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
-        eType="#//OclExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocalVariable" eSuperTypes="#//Auxiliary">
     <eStructuralFeatures xsi:type="ecore:EReference" name="initExpression" eType="#//OclExpression"
@@ -243,7 +241,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OclModelElementClass" eSuperTypes="#//OclTypeLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Import"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClassifier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MapType" eSuperTypes="#//OclTypeLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="keyType" eType="#//OclTypeLiteral"

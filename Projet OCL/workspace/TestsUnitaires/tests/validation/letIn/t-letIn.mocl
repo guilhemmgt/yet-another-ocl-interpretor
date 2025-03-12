@@ -1,0 +1,5 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv mauvaisType:
+  let x = "3" in x+1=4

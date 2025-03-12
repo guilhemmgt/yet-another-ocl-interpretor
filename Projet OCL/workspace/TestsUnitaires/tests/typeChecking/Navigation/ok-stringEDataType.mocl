@@ -1,5 +1,5 @@
 import "http://empty" as empty
 
-context empty!empty.Liar
+context empty!empty.SubLiar
 inv nameString:
-  self.name + "Bonjour" = true
+  self.name + "Bonjour" = "HimBonjour"

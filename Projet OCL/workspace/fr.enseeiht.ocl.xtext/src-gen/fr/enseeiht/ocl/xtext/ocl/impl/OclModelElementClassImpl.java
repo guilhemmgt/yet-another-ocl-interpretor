@@ -10,6 +10,7 @@ import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -48,7 +49,7 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
    * @generated
    * @ordered
    */
-  protected EClass name;
+  protected EClassifier name;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,12 +123,12 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
    * @generated
    */
   @Override
-  public EClass getName()
+  public EClassifier getName()
   {
     if (name != null && name.eIsProxy())
     {
       InternalEObject oldName = (InternalEObject)name;
-      name = (EClass)eResolveProxy(oldName);
+      name = (EClassifier)eResolveProxy(oldName);
       if (name != oldName)
       {
         if (eNotificationRequired())
@@ -142,7 +143,7 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass basicGetName()
+  public EClassifier basicGetName()
   {
     return name;
   }
@@ -153,9 +154,9 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
    * @generated
    */
   @Override
-  public void setName(EClass newName)
+  public void setName(EClassifier newName)
   {
-    EClass oldName = name;
+    EClassifier oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME, oldName, name));
@@ -195,7 +196,7 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
         setModel((Import)newValue);
         return;
       case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
-        setName((EClass)newValue);
+        setName((EClassifier)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -215,7 +216,7 @@ public class OclModelElementClassImpl extends OclTypeLiteralImpl implements OclM
         setModel((Import)null);
         return;
       case OclPackage.OCL_MODEL_ELEMENT_CLASS__NAME:
-        setName((EClass)null);
+        setName((EClassifier)null);
         return;
     }
     super.eUnset(featureID);

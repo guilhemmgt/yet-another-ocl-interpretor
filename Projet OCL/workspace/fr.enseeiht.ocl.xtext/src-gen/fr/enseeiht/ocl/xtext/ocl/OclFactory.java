@@ -438,15 +438,6 @@ public interface OclFactory extends EFactory
   IteratorExp createIteratorExp();
 
   /**
-   * Returns a new object of class '<em>Collection Operation Call</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Collection Operation Call</em>'.
-   * @generated
-   */
-  CollectionOperationCall createCollectionOperationCall();
-
-  /**
    * Returns a new object of class '<em>Local Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -10,19 +10,23 @@ import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.operation.IOclOperation;
 import fr.enseeiht.ocl.xtext.ocl.operation.OclOperationEnum;
 import fr.enseeiht.ocl.xtext.ocl.operation.OperationResolutionUtils;
+import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
-import fr.enseeiht.ocl.xtext.ocl.adapter.InvalidCall;
 import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
-import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
+import fr.enseeiht.ocl.xtext.validation.WrongNavigationOperatorError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UndeclaredOperationInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.OclExpression;
+import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
+import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.OperationCall;
+import fr.enseeiht.ocl.xtext.ocl.Parameter;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
 import fr.enseeiht.ocl.xtext.OclType;
 
@@ -41,13 +45,14 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
     this.target = object;
   }
 
-  /**
-   * Returns the value of the element given its context
-   * @param Target
-   * @return value of the element
-   * @generated NOT
-   */
-  public Object getValue(EObject contextTarget) {
+	/**
+	 * Returns the value of the element given its context
+	 * 
+	 * @param Target
+	 * @return value of the element
+	 * @generated NOT
+	 */
+	public Object getValue(EObject contextTarget) {
 		PropertyCallExp container = (PropertyCallExp) this.target.eContainer();
 		int pos = container.getCalls().indexOf(this.target);
 		OCLAdapter source;
@@ -63,59 +68,79 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 			return sourceValue;
 		}
 		if (sourceValue != null) {
-			// Récupération des méthodes définies par l'utilisateur
-			// TODO : FAIRE
-//			List<OclFeatureDefinition> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getAllDefinition();
-//			for (OclFeatureDefinition def : defs) {
-//				if (def.getFeature() instanceof Operation) {
-//					Operation op = (Operation) def.getFeature();
-//					OperationValidationAdapter opAdapter = ((OperationValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(op));
-//					List<OclType> paramTypes = new ArrayList<OclType>();
-//					for (OclExpression param : this.target.getArguments()) {
-//						paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
-//					}
-//					if (OperationResolutionUtils.isCorrectImplementation(source.getType(), opAdapter.getSourceType(), paramTypes, opAdapter.getArgumentsType(), null, null)) {
-//						System.out.println("Feur");
-//					}
-//				}
-//			}
-			// Récupération des méthodes système
-			List<IOclOperation> operations = null;
-			try { 
-				operations = OclOperationEnum.getOperations(this.target.getOperationName());
-			} catch (IllegalArgumentException e) {
-				return new UnsupportedFeatureException(this.target.getOperationName());
-			}
-			
 			// Get args Type
 			List<OclType> paramTypes = new ArrayList<OclType>();
 			for (OclExpression param : this.target.getArguments()) {
 				paramTypes.add(OCLValidationAdapterFactory.INSTANCE.createAdapter(param).getType());
 			}
 			
+			OclType sourceType = source.getType(); 
+			
+			// Récupération des méthodes définies par l'utilisateur
+			List<OclFeatureDefinition> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE
+					.createAdapter(this.target.eResource().getContents().get(0))).getAllDefinition();
+			
+			for (OclFeatureDefinition def : defs) {
+				if (def.getFeature() instanceof Operation) {
+					Operation op = (Operation) def.getFeature();
+					OclFeatureDefinitionValidationAdapter opAdapter = ((OclFeatureDefinitionValidationAdapter) OCLValidationAdapterFactory.INSTANCE
+							.createAdapter(def));
+					
+					if (OperationResolutionUtils.isCorrectImplementation(sourceType, opAdapter.getSourceType(), paramTypes, opAdapter.getArgsType(), this.target.getOperationName(), op.getName())) {
+						
+						// Get Values of each parameter
+						for (int i = 0; i < op.getParameters().size(); i++) {
+							OCLAdapter paramAdapter = OCLValidationAdapterFactory.INSTANCE
+									.createAdapter(this.target.getArguments().get(i));
+							
+							Scoper.add(op.getParameters().get(i), paramAdapter.getValue(contextTarget));
+
+						}
+
+						// Compute return value
+						Object returnValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(op.getBody())
+								.getValue(contextTarget);
+
+						// Remove parameter from scope
+						for (Parameter param : op.getParameters()) {
+							Scoper.remove(param);
+						}
+						return returnValue;
+					}
+				}
+			}
+			
+			// Récupération des méthodes système
+			List<IOclOperation> operations = null;
+			try {
+				operations = OclOperationEnum.getOperations(this.target.getOperationName());
+			} catch (IllegalArgumentException e) {
+				return new UnsupportedFeatureException(this.target.getOperationName());
+			}
+
+
 			// Compute args value
 			List<Object> args = new ArrayList<Object>();
 			for (EObject arg : this.target.getArguments()) {
 				OCLAdapter argAdapter = OCLValidationAdapterFactory.INSTANCE.createAdapter(arg);
 				args.add(argAdapter.getValue(contextTarget));
 			}
-			
+
 			if (operations != null) {
 				for (IOclOperation operation : operations) {
-					if (true && OperationResolutionUtils.isCorrectImplementation(source.getType(),
-							operation.getSourceType(), paramTypes, operation.getArgsType(),
-							this.target.getOperationName(), operation.getName())) {
+					if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(),
+							paramTypes, operation.getArgsType(sourceType, paramTypes), this.target.getOperationName(), operation.getName())) {
 						return operation.getReturnValue(sourceValue, args, contextTarget);
 					}
 				}
 			}
 
-			return new InvalidCall(this.target.getOperationName());
+			return new UndeclaredOperationInvalid(this.target.getOperationName(), paramTypes);
 		} else {
 			return new UndefinedAccessInvalid(source.getElement());
 		}
-		
-  }
+
+	}
 
   /**
    * Get the type of the element
@@ -134,12 +159,14 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		source = (OCLAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(container.getCalls().get(pos-1));
 	}
 	OclType sourceType = source.getType();
-	if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
-		return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), sourceType));
+	if (sourceType.conformsTo(new OclCollection(new OclAny())) && this.target.getNavOperator().equals(".")) {
+		return new OclInvalid(new WrongNavigationOperatorError(this.target,this.target.getNavOperator()));
 	}
+	if (!sourceType.conformsTo(new OclCollection(new OclAny())) && this.target.getNavOperator().equals("->")) {
+		return new OclInvalid(new WrongNavigationOperatorError(this.target, this.target.getNavOperator()));
+	}
+	
 	if (!sourceType.conformsTo(new OclInvalid())) {
-		// Méthodes utilisateur
-		
 		
 		List<OclType> paramTypes = new ArrayList<OclType>();
 		for (OclExpression param : this.target.getArguments()) {
@@ -149,7 +176,6 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		List<OclFeatureDefinitionValidationAdapter> defs = ((ModuleValidationAdapter) OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.eResource().getContents().get(0))).getDefinitions(this.target.getOperationName(), true);
 		if (!defs.isEmpty()) {
 			for (OclFeatureDefinitionValidationAdapter op: defs) {
-				System.out.println(op);
 				// Type check the call!
 				if (OperationResolutionUtils.isCorrectImplementation(sourceType, op.getSourceType(), paramTypes, op.getArgsType(), this.target.getOperationName(), op.getName())) {
 					return op.getType();
@@ -166,7 +192,7 @@ public final class OperationCallValidationAdapter implements OCLAdapter {
 		if (operations != null) {
 			for (IOclOperation operation : operations) {
 				// Type check the call!
-				if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(), paramTypes, operation.getArgsType(), this.target.getOperationName(), operation.getName())) {
+				if (OperationResolutionUtils.isCorrectImplementation(sourceType, operation.getSourceType(), paramTypes, operation.getArgsType(sourceType, paramTypes), this.target.getOperationName(), operation.getName())) {
 					return operation.getReturnType(sourceType, paramTypes);
 				}
 			}

@@ -35,6 +35,7 @@
     <genClasses ecoreClass="Ocl.ecore#//Parameter"/>
     <genClasses ecoreClass="Ocl.ecore#//OclInvariant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OclInvariant/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclInvariant/errorMessage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OclInvariant/body"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//OclExpression"/>
@@ -145,6 +146,7 @@
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//PropertyCall"/>
     <genClasses ecoreClass="Ocl.ecore#//OperationCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OperationCall/navOperator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//OperationCall/operationName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//OperationCall/arguments"/>
     </genClasses>
@@ -161,10 +163,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//IteratorExp/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//IteratorExp/iterators"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//IteratorExp/body"/>
-    </genClasses>
-    <genClasses ecoreClass="Ocl.ecore#//CollectionOperationCall">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Ocl.ecore#//CollectionOperationCall/operationName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//CollectionOperationCall/arguments"/>
     </genClasses>
     <genClasses ecoreClass="Ocl.ecore#//LocalVariable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Ocl.ecore#//LocalVariable/initExpression"/>

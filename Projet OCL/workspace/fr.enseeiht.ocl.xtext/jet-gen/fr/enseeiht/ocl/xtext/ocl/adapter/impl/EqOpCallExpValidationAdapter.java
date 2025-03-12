@@ -2,10 +2,12 @@ package fr.enseeiht.ocl.xtext.ocl.adapter.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.impl.EEnumImpl;
+import org.eclipse.emf.ecore.impl.EEnumLiteralImpl;
+
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.validation.InvalidTypeOperation;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -44,9 +46,16 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 
 		Object right = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1))
 				.getValue(contextTarget);
-
+		Boolean enumEquals = false;
+		if (result instanceof EEnumLiteralImpl resultEnum) {
+			if ( right instanceof EEnumLiteralImpl rightEnum) {
+				enumEquals = ((EEnumImpl)resultEnum.eContainer()).getName().equals(((EEnumImpl)rightEnum.eContainer()).getName())
+						&& resultEnum.getName().equals(rightEnum.getName());			
+			}
+		}
 		Boolean equal = (result instanceof Number && right instanceof Number
 				&& ((Number) result).doubleValue() == ((Number) right).doubleValue())
+				|| enumEquals
 				|| (result != null && result.equals(right)) || (result == right);
 
 		if (result instanceof Invalid || right instanceof Invalid) {
@@ -85,7 +94,7 @@ public final class EqOpCallExpValidationAdapter implements OCLAdapter {
 	  
 	  if (anyInvalid){
 		  // Opération invalide
-		  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2));
+		  return new OclInvalid(type1, type2);
 	  }
 	  else {
 		  return new OclBoolean();

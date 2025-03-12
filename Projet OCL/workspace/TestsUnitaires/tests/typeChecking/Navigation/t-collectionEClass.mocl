@@ -1,6 +1,6 @@
 import "http://empty" as empty
 
 context empty!empty.Liar
-inv collec:
-  (if false then Bag{"lol", "bjr"} else self.others endif) = null
+
+def: definition1 : Collection(String) = self.others
   

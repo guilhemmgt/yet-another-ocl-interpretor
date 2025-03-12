@@ -20,7 +20,7 @@ Les fichiers de tests doit suivre une structure particulière :
 - son nom doit être sous ce format : `<préfixe>-<nom du test>.mocl`. Les préfixes sont au nombre de 4, spécifiant à quel moment le test doit échouer (s'il doit échouer) :
 	- `s` : syntaxe incorrecte
 	- `t` : syntaxe correcte mais typage invalide
-	- `vu` : compilation réussi mais l'invariant renvoie "null"
+	- `vu` : compilation réussi mais l'invariant renvoie "Invalid"
 	- `v` : compilation réussie mais l'invariant renvoie "false"
 	- `ok` : tout passe
 - le nom du test ne doit donc pas avoir de `-`, et la convention est d'utiliser le *Camel case*

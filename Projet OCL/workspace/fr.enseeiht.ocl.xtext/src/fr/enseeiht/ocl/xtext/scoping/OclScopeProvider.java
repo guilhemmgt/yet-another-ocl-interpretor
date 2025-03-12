@@ -20,7 +20,6 @@ import fr.enseeiht.ocl.xtext.ocl.LetExp;
 import fr.enseeiht.ocl.xtext.ocl.Module;
 import fr.enseeiht.ocl.xtext.ocl.OclContextBlock;
 import fr.enseeiht.ocl.xtext.ocl.OclFeatureDefinition;
-import fr.enseeiht.ocl.xtext.ocl.OclPackage;
 import fr.enseeiht.ocl.xtext.ocl.Operation;
 import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 
@@ -33,9 +32,7 @@ import fr.enseeiht.ocl.xtext.ocl.VariableExp;
 public class OclScopeProvider extends AbstractOclScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
-		if (reference == OclPackage.Literals.VARIABLE_EXP__REFERRED_VARIABLE) { 
-			VariableExp variableExp = (VariableExp) context;
-			
+		if (context instanceof VariableExp variableExp) {
 			Map<String, Auxiliary> scope = new HashMap<>();
 			
 			Module module = null;
@@ -75,13 +72,13 @@ public class OclScopeProvider extends AbstractOclScopeProvider {
 	        	if (def.getFeature() instanceof Attribute defAttribute)
 	        		putIfAbsent(scope, defAttribute);
 	        }
-	        
-	        // Ajoute les Attributs des def du contexte
-	        for (EObject member : contextBlock.getMembers()) {
-	        	if (member instanceof OclFeatureDefinition def && def.getFeature() instanceof Attribute defAttribute)
-	        		putIfAbsent(scope, defAttribute);
+	        if (contextBlock != null) {
+		        // Ajoute les Attributs des def du contexte
+		        for (EObject member : contextBlock.getMembers()) {
+		        	if (member instanceof OclFeatureDefinition def && def.getFeature() instanceof Attribute defAttribute)
+		        		putIfAbsent(scope, defAttribute);
+		        }
 	        }
-	        
 	        return Scopes.scopeFor(scope.values());
 		}
 		

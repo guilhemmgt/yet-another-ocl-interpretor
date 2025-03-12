@@ -1,17 +1,5 @@
 import "http://empty" as empty
 
 context empty!empty.Maybe
---inv SetUnion:
---	Set{1,2,3}.union(Set{4,5}) = Set{1,2,3,4,5}
-
---inv SetEmpty:
---	Set{1,2,3}.union(Set{}) = Set{1,2,3}
-
 inv SetAndBag:
 	Set{1,2,3}.union(Bag{1,2,2,4,5}) = Bag{1,1,2,2,2,3,4,5}
-
---inv BagAndSet:
-	-- Bag{1,2,3}.union(Set{1,2,3}) = Bag{1,2,3,1,2,3}
-	
---inv BagAndBag:
-	-- Bag{1,2,3}.union(Bag{1,2,3}) = Bag{1,2,3,1,2,3}

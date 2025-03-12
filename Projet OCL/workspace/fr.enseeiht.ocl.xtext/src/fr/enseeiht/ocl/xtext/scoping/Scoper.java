@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fr.enseeiht.ocl.xtext.ocl.Auxiliary;
+import fr.enseeiht.ocl.xtext.ocl.Iterator;
+import fr.enseeiht.ocl.xtext.ocl.LocalVariable;
+import fr.enseeiht.ocl.xtext.ocl.Parameter;
 
 public class Scoper {
 	private static Map<Auxiliary, Object> scope = new HashMap<>();
@@ -14,12 +17,24 @@ public class Scoper {
 	 * @param value Valeur
 	 * @return la valeur passée en argument, ou {@code null} si cette variable est déjà enregistrée.
 	 */
-	public static Object add(Auxiliary key, Object value) {
+	private static Object add(Auxiliary key, Object value) {
 		if (!scope.containsKey(key)) {
 			scope.put(key, value);
 			return value;
 		}
 		return null;
+	}
+	/** @see Scoper#add(Auxiliary, Object) */
+	public static Object add(LocalVariable key, Object value) {
+		return add((Auxiliary)key, value);
+	}
+	/** @see Scoper#add(Auxiliary, Object) */
+	public static Object add(Parameter key, Object value) {
+		return add((Auxiliary)key, value);
+	}
+	/** @see Scoper#add(Auxiliary, Object) */
+	public static Object add(Iterator key, Object value) {
+		return add((Auxiliary)key, value);
 	}
 	
 	/**
@@ -28,12 +43,24 @@ public class Scoper {
 	 * @param value Nouvelle valeur
 	 * @return la valeur passée en argument, ou {@code null} si cette variable n'est pas enregistrée.
 	 */
-	public static Object update(Auxiliary key, Object value) {
+	private static Object update(Auxiliary key, Object value) {
 		if (scope.containsKey(key)) {
 			scope.put(key, value);
 			return value;
 		}
 		return null;
+	}
+	/** @see Scoper#update(Auxiliary, Object) */
+	public static Object update(LocalVariable key, Object value) {
+		return update((Auxiliary)key, value);
+	}
+	/** @see Scoper#update(Auxiliary, Object) */
+	public static Object update(Parameter key, Object value) {
+		return update((Auxiliary)key, value);
+	}
+	/** @see Scoper#update(Auxiliary, Object) */
+	public static Object update(Iterator key, Object value) {
+		return update((Auxiliary)key, value);
 	}
 	
 	/**

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.adapter.ParameterInvalid;
 import fr.enseeiht.ocl.xtext.types.OclAny;
+import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclSet;
 
 public class OclUnionSetToSet extends OclUnion {
@@ -30,7 +31,10 @@ public class OclUnionSetToSet extends OclUnion {
 	}
 
 	@Override
-	public List<OclType> getArgsType() {
+	public List<OclType> getArgsType(OclType sourceType, List<OclType> argsType) {
+		if (sourceType instanceof OclCollection collecType) {
+			return Arrays.asList(new OclSet(collecType.getSubtype()));
+		}
 		return Arrays.asList(new OclSet(new OclAny()));
 	}
 

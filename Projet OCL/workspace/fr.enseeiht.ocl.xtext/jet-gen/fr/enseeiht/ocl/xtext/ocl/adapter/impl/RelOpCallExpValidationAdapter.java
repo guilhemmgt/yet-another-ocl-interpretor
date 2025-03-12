@@ -101,7 +101,7 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
 		  }
 		  else {
 			  // Opération invalide
-			  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2));
+			  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2), type1, type2);
 		  }
 	  }
 	  

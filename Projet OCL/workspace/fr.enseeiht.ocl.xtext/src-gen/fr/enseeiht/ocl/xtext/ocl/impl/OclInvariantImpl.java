@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclInvariantImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclInvariantImpl#getErrorMessage <em>Error Message</em>}</li>
  *   <li>{@link fr.enseeiht.ocl.xtext.ocl.impl.OclInvariantImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
@@ -51,6 +52,16 @@ public class OclInvariantImpl extends MinimalEObjectImpl.Container implements Oc
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getErrorMessage() <em>Error Message</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getErrorMessage()
+   * @generated
+   * @ordered
+   */
+  protected OclExpression errorMessage;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -114,6 +125,56 @@ public class OclInvariantImpl extends MinimalEObjectImpl.Container implements Oc
    * @generated
    */
   @Override
+  public OclExpression getErrorMessage()
+  {
+    return errorMessage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetErrorMessage(OclExpression newErrorMessage, NotificationChain msgs)
+  {
+    OclExpression oldErrorMessage = errorMessage;
+    errorMessage = newErrorMessage;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OclPackage.OCL_INVARIANT__ERROR_MESSAGE, oldErrorMessage, newErrorMessage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setErrorMessage(OclExpression newErrorMessage)
+  {
+    if (newErrorMessage != errorMessage)
+    {
+      NotificationChain msgs = null;
+      if (errorMessage != null)
+        msgs = ((InternalEObject)errorMessage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OclPackage.OCL_INVARIANT__ERROR_MESSAGE, null, msgs);
+      if (newErrorMessage != null)
+        msgs = ((InternalEObject)newErrorMessage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OclPackage.OCL_INVARIANT__ERROR_MESSAGE, null, msgs);
+      msgs = basicSetErrorMessage(newErrorMessage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OclPackage.OCL_INVARIANT__ERROR_MESSAGE, newErrorMessage, newErrorMessage));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public OclExpression getBody()
   {
     return body;
@@ -168,6 +229,8 @@ public class OclInvariantImpl extends MinimalEObjectImpl.Container implements Oc
   {
     switch (featureID)
     {
+      case OclPackage.OCL_INVARIANT__ERROR_MESSAGE:
+        return basicSetErrorMessage(null, msgs);
       case OclPackage.OCL_INVARIANT__BODY:
         return basicSetBody(null, msgs);
     }
@@ -186,6 +249,8 @@ public class OclInvariantImpl extends MinimalEObjectImpl.Container implements Oc
     {
       case OclPackage.OCL_INVARIANT__NAME:
         return getName();
+      case OclPackage.OCL_INVARIANT__ERROR_MESSAGE:
+        return getErrorMessage();
       case OclPackage.OCL_INVARIANT__BODY:
         return getBody();
     }
@@ -204,6 +269,9 @@ public class OclInvariantImpl extends MinimalEObjectImpl.Container implements Oc
     {
       case OclPackage.OCL_INVARIANT__NAME:
         setName((String)newValue);
+        return;
+      case OclPackage.OCL_INVARIANT__ERROR_MESSAGE:
+        setErrorMessage((OclExpression)newValue);
         return;
       case OclPackage.OCL_INVARIANT__BODY:
         setBody((OclExpression)newValue);
@@ -225,6 +293,9 @@ public class OclInvariantImpl extends MinimalEObjectImpl.Container implements Oc
       case OclPackage.OCL_INVARIANT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case OclPackage.OCL_INVARIANT__ERROR_MESSAGE:
+        setErrorMessage((OclExpression)null);
+        return;
       case OclPackage.OCL_INVARIANT__BODY:
         setBody((OclExpression)null);
         return;
@@ -244,6 +315,8 @@ public class OclInvariantImpl extends MinimalEObjectImpl.Container implements Oc
     {
       case OclPackage.OCL_INVARIANT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OclPackage.OCL_INVARIANT__ERROR_MESSAGE:
+        return errorMessage != null;
       case OclPackage.OCL_INVARIANT__BODY:
         return body != null;
     }

@@ -1,4 +1,4 @@
 
--- @error : "required (...)+ loop did not match anything at input '<EOF>'"
+-- @error : "required (...)+ loop did not match anything at input '<EOF>'. (ligne : 4; colonne : 26)"
 
 import "http://empty" as empty
