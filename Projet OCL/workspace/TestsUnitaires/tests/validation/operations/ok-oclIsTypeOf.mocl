@@ -1,0 +1,7 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv selfKind:
+	self.oclIsTypeOf(empty!empty.Maybe)
+inv falseKind:
+	not self.oclIsTypeOf(empty!empty.Liar)

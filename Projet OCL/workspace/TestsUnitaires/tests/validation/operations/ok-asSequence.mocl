@@ -1,0 +1,24 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv emptyBag:
+  Bag{}->asSequence() = Sequence{} 
+inv emptySet:
+ Set{}->asSequence() = Sequence{} 
+inv emptySequence:
+  Sequence{}->asSequence() = Sequence{} 
+  
+def: bag2Seq: Sequence(Integer) =  Bag{2,1,5}->asSequence()
+
+inv randomBag:
+	bag2Seq->includes(2) and bag2Seq->includes(1) and bag2Seq->includes(5) and bag2Seq->size() = 3
+
+def: set2Seq: Sequence(Integer) =  Set{2,1,5}->asSequence()
+
+inv randomSet:
+	set2Seq->includes(2) and set2Seq->includes(1) and set2Seq->includes(5) and set2Seq->size() = 3
+	
+def: seq2Seq: Sequence(Integer) =  Sequence{2,1,5}->asSequence()
+
+inv randomSet:
+	seq2Seq->includes(2) and seq2Seq->includes(1) and seq2Seq->includes(5) and seq2Seq->size() = 3

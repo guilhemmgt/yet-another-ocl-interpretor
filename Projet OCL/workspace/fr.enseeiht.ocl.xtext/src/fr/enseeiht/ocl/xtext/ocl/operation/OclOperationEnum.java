@@ -5,12 +5,18 @@ import java.util.List;
 
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAbs;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAllInstances;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclAsSequence;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclBooleanToString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclConcat;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclFirstSequence;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclFloor;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclIncludes;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclMatches;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclNumberToString;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclOclAsSet;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclOclAsType;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclOclIsKindOf;
+import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclOclIsTypeOf;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclOclIsUndefined;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclRound;
 import fr.enseeiht.ocl.xtext.ocl.operation.impl.OclSize;
@@ -30,8 +36,8 @@ public enum OclOperationEnum {
 	oclAsSet(Arrays.asList(new OclOclAsSet())),
 	oclIsUndefined(Arrays.asList(new OclOclIsUndefined())),
 	oclAsType(Arrays.asList(new OclOclAsType())),
-	oclIsTypeOf(null),
-	oclIsKindOf(null),
+	oclIsTypeOf(Arrays.asList(new OclOclIsTypeOf())),
+	oclIsKindOf(Arrays.asList(new OclOclIsKindOf())),
 	oclType(null),
 	
 	// ToString
@@ -58,10 +64,11 @@ public enum OclOperationEnum {
 	at(null), //TODO + OrderedSet
 	equalsIsIgnoreCase(null), //TODO
 	characters(null), //TODO 
-			
+	matches(Arrays.asList(new OclMatches())),
+	
 	// Collection
-	size(Arrays.asList(new OclSize())), //TODO 
-	includes(null), //TODO 
+	size(Arrays.asList(new OclSize())),
+	includes(Arrays.asList(new OclIncludes())),
 	exludes(null), //TODO 
 	includesAll(null), //TODO 
 	exludesAll(null), //TODO 
@@ -74,7 +81,7 @@ public enum OclOperationEnum {
 	selectByType(null), //TODO 
 	asSet(null), //TODO 
 	asOrderedSet(null), //TODO 
-	asSequence(null), //TODO 
+	asSequence(Arrays.asList(new OclAsSequence())),
 	asBag(null), //TODO 
 	flatten(null), //TODO 
 			
@@ -85,12 +92,12 @@ public enum OclOperationEnum {
 	excluding(null), //TODO 
 	symmetricDifference(null), //TODO 
 			 
-	// OrderedSet
+	// OrderedSet & Sequence
 	append(null), //TODO 
 	prepend(null), //TODO 
 	insertAt(null), //TODO 
 	subOrderedSet(null), //TODO 
-	first(null), //TODO 
+	first(Arrays.asList(new OclFirstSequence())), //TODO OrderedSet
 	last(null), //TODO 
 	reverse(null); //TODO 
 

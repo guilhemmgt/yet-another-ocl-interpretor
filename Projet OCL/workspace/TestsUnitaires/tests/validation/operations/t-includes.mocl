@@ -1,0 +1,5 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv fullBag:
+	not Bag{1,2,3,4}->includes("feur")

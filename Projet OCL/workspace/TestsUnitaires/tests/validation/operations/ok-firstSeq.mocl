@@ -1,0 +1,10 @@
+import "http://empty" as empty
+
+context empty!empty.Liar
+inv integerSequence:
+	Sequence{1,2,3} -> first() = 1
+	
+inv StringSequence:
+	Sequence{"un","deux","trois"} -> first() = "un"
+
+  

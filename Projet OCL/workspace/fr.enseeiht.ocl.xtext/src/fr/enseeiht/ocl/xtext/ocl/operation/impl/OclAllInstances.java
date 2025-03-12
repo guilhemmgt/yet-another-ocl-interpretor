@@ -46,7 +46,7 @@ public class OclAllInstances implements IOclOperation {
 	public OclType getReturnType(OclType sourceType, List<OclType> argsType) {
 		if (sourceType instanceof OclClassifier classifierType) {
 			if (classifierType.getRepresentedType() instanceof OclEClass eClassType) {
-				new OclCollection(eClassType);
+				return new OclCollection(eClassType);
 			}
 		}
 		return new OclCollection(null);

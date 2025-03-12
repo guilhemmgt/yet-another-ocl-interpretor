@@ -1,0 +1,14 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+inv selfKind:
+	self.oclIsKindOf(empty!empty.Maybe)
+inv falseKind:
+	not self.oclIsKindOf(empty!empty.Liar)
+context empty!empty.SubLiar
+inv wrongKind:
+	not self.oclIsKindOf(empty!empty.Maybe)
+inv superKind:
+	self.oclIsKindOf(empty!empty.Liar)
+inv isKind:
+	self.oclIsKindOf(empty!empty.SubLiar)

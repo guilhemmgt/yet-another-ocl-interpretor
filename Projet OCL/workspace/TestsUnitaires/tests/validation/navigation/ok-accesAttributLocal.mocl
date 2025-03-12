@@ -1,0 +1,8 @@
+import "http://empty" as empty
+
+context empty!empty.SubLiar
+inv nomInterdit:
+  self.douze = 12
+  
+context empty!empty.Liar
+def : douze : Integer = 12

@@ -23,7 +23,6 @@ import fr.enseeiht.ocl.xtext.types.OclString;
 import fr.enseeiht.ocl.xtext.types.OclTuple;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.validation.AttributeUnaccessibleError;
-import fr.enseeiht.ocl.xtext.validation.OperationNotFoundError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
 import fr.enseeiht.ocl.xtext.ocl.NavigationOrAttributeCall;
@@ -133,12 +132,12 @@ public final class NavigationOrAttributeCallValidationAdapter implements OCLAdap
 	  if (!defs.isEmpty()) {
 		  for (OclFeatureDefinitionValidationAdapter att: defs) {
 				// Type check the attribute's source
-				if (att.getSourceType().conformsTo(source)) return ((OclClassifier) att.getType()).getRepresentedType();
+				if (source.conformsTo(att.getSourceType())) return ((OclClassifier) att.getType()).getRepresentedType();
 			}
 	  }
 
 	  if (!(source instanceof OclEClass)) {
-		  return new OclInvalid(new OperationNotFoundError(target, target.getName()), source);
+		  return new OclInvalid(new AttributeUnaccessibleError(target, target.getName(), source.toString()));
 	  }
 	  
 	  OclEClass eSource = (OclEClass) source;
