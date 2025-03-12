@@ -83,7 +83,7 @@ public class Validate extends AbstractHandler {
 						EPackage importEPackage = (EPackage) importResource.getContents().get(0);
 						EPackage.Registry.INSTANCE.put(importEPackage.getNsURI(), importEPackage);
 					} else {
-						throw new RuntimeException("Impossible de charger la ressource !");
+						throw new RuntimeException("Impossible to load the resource !");
 					}
 				}
 
@@ -110,13 +110,15 @@ public class Validate extends AbstractHandler {
 
 			// Appelle l'interpréteur et crée la popup pour les résultats
 			StringBuilder sb = new StringBuilder();
+			boolean hasErrors = false;
 			for (Module module : moclModules.keySet()) {
 				ValidationResult res = OclInterpretor.validate(xmiResource, module);
 
 				sb.append(moclModules.get(module).toString() + ":\n");
 
-				boolean hasErrors = !res.getErrors().isEmpty();
-				if (hasErrors) {
+				boolean hasErrorsLocal = !res.getErrors().isEmpty();
+				if (hasErrorsLocal) {
+					hasErrors = true;
 					for (ValidationError error : res.getErrors()) {
 						sb.append(error.toString()+"\n");
 					}
@@ -126,8 +128,7 @@ public class Validate extends AbstractHandler {
 				}
 				sb.append("\n");
 			}
-			boolean hasErrors = !sb.isEmpty();
-			if (!hasErrors) {
+			if (sb.isEmpty()) {
 				sb.append("The model conforms to all OCL constraints defined in the MOCL file.\n");
 				sb.append("No violations were detected during validation.");
 			}
