@@ -26,8 +26,7 @@ public class OclIteratorAny implements OclIterator {
 		Object selectValue = new OclIteratorSelect().getReturnValue(source, iteratorExp, contextTarget, op);
 		if (selectValue instanceof Invalid)
 			return selectValue;
-		@SuppressWarnings("unchecked")
-		Collection<Object> selectCollection = (Collection<Object>) selectValue;
+		Collection<?> selectCollection = (Collection<?>) selectValue;
 		
 		// ->asSequence()
 		// opération OCL superflue en Java

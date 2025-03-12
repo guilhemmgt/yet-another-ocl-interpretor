@@ -27,8 +27,7 @@ public class OclIteratorCollect implements OclIterator {
 		Object collectNestedValue = new OclIteratorCollectNested().getReturnValue(source, iteratorExp, contextTarget, op);
 		if (collectNestedValue instanceof Invalid)
 			return collectNestedValue;
-		@SuppressWarnings("unchecked")
-		Collection<Object> collectNestedCollection = (Collection<Object>) collectNestedValue;
+		Collection<?> collectNestedCollection = (Collection<?>) collectNestedValue;
 		
 		// ->flatten()
 		Object value = null;
