@@ -79,33 +79,29 @@ public final class RelOpCallExpValidationAdapter implements OCLAdapter {
    * @return type of the element
    * @generated NOT
    */
-  public OclType getType() {
-	  
-	  // Attention : arg2 peut être vide si l'opération n'est pas une vraie opération (ce sera toujours le cas dans le membre de droite)
-	  OCLAdapter arg1 =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0));
-	  if (this.target.getOperationNames().size() == 0) {
-		  // Il n'y a pas de membre à droite, on renvoie le type de arg1
-		  return arg1.getType();
-	  } 
-	  else {
-		  OCLAdapter arg2 =  OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1));
-		  OclType type1 = arg1.getType();
-		  OclType type2 = arg2.getType();
-		  // Real > Real : Bool
-		  boolean isReal = type1.conformsTo(new OclReal()) && type2.conformsTo(new OclReal());
-		  // Invalid > .f.. : Invalid
-		  boolean anyInvalid = type1.conformsTo(new OclInvalid()) || type2.conformsTo(new OclInvalid());
-		  
-		  if (isReal && !anyInvalid){
-			  return new OclBoolean();
-		  }
-		  else {
-			  // Opération invalide
-			  return new OclInvalid(new InvalidTypeOperation(target, target.getOperationNames().get(0), type1, type2), type1, type2);
-		  }
-	  }
-	  
-	  
+  public OclType getType() {		
+		// Calcul du type du premier argument
+		OclType type0 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(0)).getType();
+		
+		// Si il n'y a pas de second argument, on renvoie le type du premier
+		if (this.target.getOperationNames().size() == 0)
+			return type0;
+		
+		// Calcul du type du second argument
+		OclType type1 = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getArgs().get(1)).getType();
+		
+		String opName = this.target.getOperationNames().get(0); // unique opération
+		
+		// Real & Real : Bool
+		boolean ruleReal = type0.conformsTo(new OclReal()) && type1.conformsTo(new OclReal());
+		// Invalid & Any : Invalid
+		// Any & Invalid : Invalid
+		boolean ruleNoInvalid = !type0.conformsTo(new OclInvalid()) && !type1.conformsTo(new OclInvalid());
+		
+		if (ruleReal && ruleNoInvalid) // Si les types correspondent à une règle...
+			return new OclBoolean();
+		else
+			return new OclInvalid(new InvalidTypeOperation(this.target, opName, type0, type1), type0, type1);
   }
 
   /**

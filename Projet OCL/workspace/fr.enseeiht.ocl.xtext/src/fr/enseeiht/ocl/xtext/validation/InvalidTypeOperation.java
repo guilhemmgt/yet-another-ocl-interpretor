@@ -20,7 +20,7 @@ public class InvalidTypeOperation extends TypeCheckingError {
 	 */
 	public InvalidTypeOperation(EObject cause, String operation, List<OclType> uniqueTypes) {
 		this.cause = cause;
-		this.message = "Invalid operation '" + operation + "' with types ";
+		this.message = "Invalid operation '" + operation + "' for type(s) ";
 		List<String> messageStr = new LinkedList<String>();
 		for (OclType typ : uniqueTypes) {
 			messageStr.add(typ.toString());
@@ -37,7 +37,7 @@ public class InvalidTypeOperation extends TypeCheckingError {
 	 */
 	public InvalidTypeOperation(EObject cause, EList<String> operation, List<OclType> uniqueTypes) {
 		this.cause = cause;
-		this.message = "Invalid operation '" + operation + "' with types ";
+		this.message = "Invalid operation '" + operation + "' for type(s) ";
 		List<String> messageStr = new LinkedList<String>();
 		for (OclType typ : uniqueTypes) {
 			messageStr.add(typ.toString());
@@ -54,7 +54,7 @@ public class InvalidTypeOperation extends TypeCheckingError {
 	 */
 	public InvalidTypeOperation(EObject cause, String operation, OclType... uniqueTypes) {
 		this.cause = cause;
-		this.message = "Invalid operation '" + operation + "' with types ";
+		this.message = "Invalid operation '" + operation + "' for type(s) ";
 		List<String> messageStr = new LinkedList<String>();
 		for (OclType typ : uniqueTypes) {
 			messageStr.add(typ.toString());
@@ -71,7 +71,7 @@ public class InvalidTypeOperation extends TypeCheckingError {
 	 */
 	public InvalidTypeOperation(EObject cause, EList<String> operation, OclType... uniqueTypes) {
 		this.cause = cause;
-		this.message = "Invalid operation '" + operation + "' with types ";
+		this.message = "Invalid operation '" + operation + "' for type(s) ";
 		List<String> messageStr = new LinkedList<String>();
 		for (OclType typ : uniqueTypes) {
 			messageStr.add(typ.toString());
