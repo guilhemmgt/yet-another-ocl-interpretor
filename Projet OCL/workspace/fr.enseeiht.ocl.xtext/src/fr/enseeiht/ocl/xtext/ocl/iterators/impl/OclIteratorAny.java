@@ -17,6 +17,7 @@ import fr.enseeiht.ocl.xtext.types.OclInvalid;
 
 public class OclIteratorAny implements OclIterator {
 
+	@Override
 	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
 		// source->any(iterator | body) =
 		// 		source->select(iterator | body)->asSequence()->first()
@@ -39,6 +40,7 @@ public class OclIteratorAny implements OclIterator {
 		return value;
 	}
 
+	@Override
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
 		if (sourceType instanceof OclCollection collectType) {
 			return collectType.getSubtype();
@@ -47,22 +49,27 @@ public class OclIteratorAny implements OclIterator {
 		}
 	}
 
+	@Override
 	public OclCollection getSourceType() {
 		return new OclCollection(new OclAny());
 	}
 
+	@Override
 	public OclType getBodyType() {
 		return new OclBoolean();
 	}
 
+	@Override
 	public int getMinIteratorAmount() {
 		return 0;
 	}
 
+	@Override
 	public int getMaxIteratorAmount() {
 		return 1;
 	}
 
+	@Override
 	public String getName() {
 		return "any";
 	}

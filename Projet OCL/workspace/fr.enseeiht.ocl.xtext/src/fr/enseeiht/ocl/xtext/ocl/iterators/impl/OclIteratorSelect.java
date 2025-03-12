@@ -18,6 +18,7 @@ import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
 
 public class OclIteratorSelect implements OclIterator {
 
+	@Override
 	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
 		// source->select(iterator | body) =
 		// 		source->iterate(iterator; result : <src_type>(T) = <src_type>{} |
@@ -54,26 +55,32 @@ public class OclIteratorSelect implements OclIterator {
 		return value;
 	}
 
+	@Override
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
 		return sourceType;
 	}
 
+	@Override
 	public OclCollection getSourceType() {
 		return new OclCollection(new OclAny());
 	}
 
+	@Override
 	public OclType getBodyType() {
 		return new OclBoolean();
 	}
 
+	@Override
 	public int getMinIteratorAmount() {
 		return 0;
 	}
 
+	@Override
 	public int getMaxIteratorAmount() {
 		return 1;
 	}
 
+	@Override
 	public String getName() {
 		return "select";
 	}

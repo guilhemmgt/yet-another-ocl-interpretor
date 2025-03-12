@@ -18,6 +18,7 @@ import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
 
 public class OclIteratorCollectNested implements OclIterator {
 
+	@Override
 	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
 		// source->collectNested(iterator | body) =
 		// 		source->iterate(iterator; result : <src_type>(T) = <src_type>{} |
@@ -44,10 +45,11 @@ public class OclIteratorCollectNested implements OclIterator {
 		
 		// ->iterate
 		Object value = new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, resultInitValue, newOp).getReturnValue();
-		
+
 		return value;
 	}
 
+	@Override
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
 		if (sourceType instanceof OclCollection collectType) {
 			try {
@@ -62,22 +64,27 @@ public class OclIteratorCollectNested implements OclIterator {
 		}
 	}
 
+	@Override
 	public OclCollection getSourceType() {
 		return new OclCollection(new OclAny());
 	}
 
+	@Override
 	public OclType getBodyType() {
 		return new OclAny();
 	}
 
+	@Override
 	public int getMinIteratorAmount() {
 		return 0;
 	}
 
+	@Override
 	public int getMaxIteratorAmount() {
 		return 1;
 	}
 
+	@Override
 	public String getName() {
 		return "collectNested";
 	}
