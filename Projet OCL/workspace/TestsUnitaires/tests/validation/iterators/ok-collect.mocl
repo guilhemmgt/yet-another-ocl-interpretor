@@ -18,47 +18,47 @@ inv bag7:
 	Bag{Bag{Bag{1,2}, OrderedSet{}, Sequence{3}}, OrderedSet{Sequence{4}, OrderedSet{5}, Set{Bag{6}, OrderedSet{7}, Sequence{}}}, Sequence{8}, Set{9, 10}}->collect(n | n) = Bag{1,2,3,4,5,6,7,8,9,10}
 
 inv orderedset1:
-	OrderedSet{}->collect(n | 12) = OrderedSet{}
+	OrderedSet{}->collect(n | 12) = Bag{}
 inv orderedset2:
-	OrderedSet{1, 2, 3, 4}->collect(n | n+1) = OrderedSet{2, 3, 4, 5}
+	OrderedSet{1, 2, 3, 4}->collect(n | n+1) = Bag{2, 3, 4, 5}
 inv orderedset3:
-	OrderedSet{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = OrderedSet{"hello!", "world!", "how!", "are!", "you!", "today!"}
+	OrderedSet{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
 inv orderedset4:
-	OrderedSet{null, 1, "hi"}->collect(n | n) = OrderedSet{null, 1, "hi"}
+	OrderedSet{null, 1, "hi"}->collect(n | n) = Bag{null, 1, "hi"}
 inv orderedset5:
-	OrderedSet{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n) = OrderedSet{1,2,3,4,5,6,7,8,9,10}
+	OrderedSet{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n) = Bag{1,2,3,4,5,6,7,8,9,10}
 inv orderedset6:
-	OrderedSet{Bag{}, OrderedSet{}, Sequence{}, Set{}}->collect(n | n) = OrderedSet{}
+	OrderedSet{Bag{}, OrderedSet{}, Sequence{}, Set{}}->collect(n | n) = Bag{}
 inv orderedset7:
-	OrderedSet{Bag{Bag{1,2}, OrderedSet{}, Sequence{3}}, OrderedSet{Sequence{4}, OrderedSet{5}, Set{Bag{6}, OrderedSet{7}, Sequence{}}}, Sequence{8}, Set{9, 10}}->collect(n | n) = OrderedSet{1,2,3,4,5,6,7,8,9,10}
+	OrderedSet{Bag{Bag{1,2}, OrderedSet{}, Sequence{3}}, OrderedSet{Sequence{4}, OrderedSet{5}, Set{Bag{6}, OrderedSet{7}, Sequence{}}}, Sequence{8}, Set{9, 10}}->collect(n | n) = Bag{1,2,3,4,5,6,7,8,9,10}
 
 inv sequence1:
-	Sequence{}->collect(n | 12) = Sequence{}
+	Sequence{}->collect(n | 12) = Bag{}
 inv sequence2:
-	Sequence{1, 2, 3, 4}->collect(n | n+1) = Sequence{2, 3, 4, 5}
+	Sequence{1, 2, 3, 4}->collect(n | n+1) = Bag{2, 3, 4, 5}
 inv sequence3:
-	Sequence{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Sequence{"hello!", "world!", "how!", "are!", "you!", "today!"}
+	Sequence{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
 inv sequence4:
-	Sequence{null, 1, "hi"}->collect(n | n) = Sequence{null, 1, "hi"}
+	Sequence{null, 1, "hi"}->collect(n | n) = Bag{null, 1, "hi"}
 inv sequence5:
-	Sequence{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n) = Sequence{1,2,3,4,5,6,7,8,9,10}
+	Sequence{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n) = Bag{1,2,3,4,5,6,7,8,9,10}
 inv sequence6:
-	Sequence{Bag{}, OrderedSet{}, Sequence{}, Set{}}->collect(n | n) = Sequence{}
+	Sequence{Bag{}, OrderedSet{}, Sequence{}, Set{}}->collect(n | n) = Bag{}
 inv sequence7:
-	Sequence{Bag{Bag{1,2}, OrderedSet{}, Sequence{3}}, OrderedSet{Sequence{4}, OrderedSet{5}, Set{Bag{6}, OrderedSet{7}, Sequence{}}}, Sequence{8}, Set{9, 10}}->collect(n | n) = Sequence{1,2,3,4,5,6,7,8,9,10}
+	Sequence{Bag{Bag{1,2}, OrderedSet{}, Sequence{3}}, OrderedSet{Sequence{4}, OrderedSet{5}, Set{Bag{6}, OrderedSet{7}, Sequence{}}}, Sequence{8}, Set{9, 10}}->collect(n | n) = Bag{1,2,3,4,5,6,7,8,9,10}
 	
 inv set1:
-	Set{}->collect(n | 12) = Set{}
+	Set{}->collect(n | 12) = Bag{}
 inv set2:
-	Set{1, 2, 3, 4}->collect(n | n+1) = Set{2, 3, 4, 5}
+	Set{1, 2, 3, 4}->collect(n | n+1) = Bag{2, 3, 4, 5}
 inv set3:
-	Set{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Set{"hello!", "world!", "how!", "are!", "you!", "today!"}
+	Set{"hello", "world", "how", "are", "you", "today"}->collect(n | n + "!") = Bag{"hello!", "world!", "how!", "are!", "you!", "today!"}
 inv set4:
-	Set{null, 1, "hi"}->collect(n | n) = Set{null, 1, "hi"}
+	Set{null, 1, "hi"}->collect(n | n) = Bag{null, 1, "hi"}
 inv set5:
-	Set{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n) = Set{1,2,3,4,5,6,7,8,9,10}
+	Set{Bag{1,2,3}, OrderedSet{4,5,6,7}, Sequence{8,9}, Set{10}}->collect(n | n) = Bag{1,2,3,4,5,6,7,8,9,10}
 inv set6:
-	Set{Bag{}, OrderedSet{}, Sequence{}, Set{}}->collect(n | n) = Set{}
+	Set{Bag{}, OrderedSet{}, Sequence{}, Set{}}->collect(n | n) = Bag{}
 inv set7:
-	Set{Bag{Bag{1,2}, OrderedSet{}, Sequence{3}}, OrderedSet{Sequence{4}, OrderedSet{5}, Set{Bag{6}, OrderedSet{7}, Sequence{}}}, Sequence{8}, Set{9, 10}}->collect(n | n) = Set{1,2,3,4,5,6,7,8,9,10}
+	Set{Bag{Bag{1,2}, OrderedSet{}, Sequence{3}}, OrderedSet{Sequence{4}, OrderedSet{5}, Set{Bag{6}, OrderedSet{7}, Sequence{}}}, Sequence{8}, Set{9, 10}}->collect(n | n) = Bag{1,2,3,4,5,6,7,8,9,10}
 	

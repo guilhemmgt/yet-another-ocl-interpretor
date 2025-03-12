@@ -1,49 +1,45 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
-import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
 import fr.enseeiht.ocl.xtext.utils.Pair;
 
-public class OclIteratorSelect implements OclIterator {
+public class OclIteratorIsUnique implements OclIterator {
 
-	
 	@Override
 	public Object getReturnValue(List<Pair<List<Object>, Object>> iteratorBodyValues, IteratorExp iteratorExp, Class<?> sourceCollectionClass) {
-		// "The subcollection of the source collection for which body is true."
+		// "Results in invalid if if body evaluates to invalid for any element in the source collection,
+		// otherwise true if body evaluates to a different, possibly null, value for each element in the source collection;
+		// otherwise result is false."
 		// from https://www.omg.org/spec/OCL/2.4/PDF
 		
-		// Instancie une collection vide du même type (Bag, Set, ...) que la source
-		Object selectObj = null;
-		try {
-			selectObj = ConstructorInstanciator.instantiateParameterlessConstructor(sourceCollectionClass);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
-		}
-		@SuppressWarnings("unchecked")
-		Collection<Object> select = (Collection<Object>) selectObj;
+		List<Object> bodiesValues = new ArrayList<>();
+		boolean isUnique = true;
 		
 		for (Pair<List<Object>, Object> pair : iteratorBodyValues) {
 			Object body = pair.getValue();
-			if (body instanceof Boolean bodyBool && bodyBool) {
-				select.add(pair.getKey().get(0));
+			if (body instanceof Invalid) {
+				return body;
+			} else if (bodiesValues.contains(body)) {
+				isUnique = false;
 			}
+			bodiesValues.add(body);
 		}
 
-		return select;
+		return isUnique;
 	}
 
 	@Override
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
-		return sourceType;
+		return new OclBoolean();
 	}
 
 	@Override
@@ -53,7 +49,7 @@ public class OclIteratorSelect implements OclIterator {
 
 	@Override
 	public OclType getBodyType() {
-		return new OclBoolean();
+		return new OclAny();
 	}
 
 	@Override
@@ -68,6 +64,7 @@ public class OclIteratorSelect implements OclIterator {
 
 	@Override
 	public String getName() {
-		return "select";
+		return "isUnique";
 	}
+
 }

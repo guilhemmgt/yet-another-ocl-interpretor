@@ -13,16 +13,12 @@ public class ConstructorInstanciator {
 	 * @throws IllegalAccessException
 	 * @throws IllegalArgumentException
 	 * @throws InvocationTargetException
+	 * @throws SecurityException 
+	 * @throws NoSuchMethodException 
 	 */
-	public static Object instantiateParameterlessConstructor (Class<?> source) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static Object instantiateParameterlessConstructor(Class<?> source) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		// Récupère un constructeur sans paramètres
-		Constructor<?> parameterlessConstructor = null;
-		for (Constructor<?> c : source.getConstructors()) {
-			if (c.getParameterCount() == 0) {
-				parameterlessConstructor = c;
-				break;
-			}
-		}
+		Constructor<?> parameterlessConstructor = source.getConstructor();
 		// Instancie
 		Object instance = null;
 		if (parameterlessConstructor != null)

@@ -1,0 +1,23 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv multi1:
+	Bag{Bag{10,12,3}, Bag{4,15}, Bag{16}}->collectNested(
+		i|
+		if i->forAll(i|i>10)
+		then i->collectNested(i|i+10)
+		else i endif
+	) = Bag{Bag{10,12,3}, Bag{4,15}, Bag{26}}
+	
+
+inv multi2:
+	Bag{Bag{Bag{Bag{1}}}}->collect(i|
+		i->collect(i|
+			i->collect(i|
+				i->collect(i|
+					i+1
+				)->any(i|true)+1
+			)->any(i|true)+1
+		)->any(i|true)+1
+	)->any(i|true) = 5

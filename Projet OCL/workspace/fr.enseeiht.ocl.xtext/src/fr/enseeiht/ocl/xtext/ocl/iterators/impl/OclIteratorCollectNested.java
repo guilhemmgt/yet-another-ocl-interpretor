@@ -1,49 +1,36 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
+import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
+import org.apache.commons.collections.bag.HashBag;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
+import fr.enseeiht.ocl.xtext.utils.Pair;
 
 public class OclIteratorCollectNested implements OclIterator {
 
-	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
-		// source->collectNested(iterator | body) =
-		// 		source->iterate(iterator; result : Sequence(body.type) = Sequence{} |
-		//			result->append(body ) )
+	@Override
+	public Object getReturnValue(List<Pair<List<Object>, Object>> iteratorBodyValues, IteratorExp iteratorExp, Class<?> sourceCollectionClass) {
+		// "The Bag of elements which results from applying body to every member of the source collection. The collection specific
+		// details are described as part of the corresponding collection type"
+		// from https://www.omg.org/spec/OCL/2.4/PDF
 		
-		// 'body' de 'iterate'
-		@SuppressWarnings("unchecked")
-		IOclIterateBody newOp = (r, b, i) -> {
-			((Collection<Object>)r).add(b);
-			return r;
-		};
-
-		// Récupère la valeur initiale du 'result' du 'iterate': une collection vide du type de 'source'
-		Object resultInitValue = null;
-		try {
-			resultInitValue = ConstructorInstanciator.instantiateParameterlessConstructor(source.getClass());
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
-			e.printStackTrace();
+		HashBag bodies = new HashBag();
+		
+		for (Pair<List<Object>, Object> pair : iteratorBodyValues) {
+			bodies.add(pair.getValue());
 		}
-
-		// Calcule la valeur
-		Object value = new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, resultInitValue, newOp).getReturnValue();
-		return value;
+		
+		return bodies;
 	}
 
+	@Override
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
 		if (sourceType instanceof OclCollection collectType) {
 			try {
@@ -58,22 +45,27 @@ public class OclIteratorCollectNested implements OclIterator {
 		}
 	}
 
+	@Override
 	public OclCollection getSourceType() {
 		return new OclCollection(new OclAny());
 	}
 
+	@Override
 	public OclType getBodyType() {
 		return new OclAny();
 	}
 
+	@Override
 	public int getMinIteratorAmount() {
 		return 0;
 	}
 
+	@Override
 	public int getMaxIteratorAmount() {
 		return 1;
 	}
 
+	@Override
 	public String getName() {
 		return "collectNested";
 	}

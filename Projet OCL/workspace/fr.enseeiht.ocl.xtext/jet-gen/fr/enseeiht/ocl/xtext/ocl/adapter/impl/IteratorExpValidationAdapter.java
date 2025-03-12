@@ -8,14 +8,18 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
-import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorFactory;
+import fr.enseeiht.ocl.xtext.ocl.iterators.OclIteratorEnum;
+import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
+import fr.enseeiht.ocl.xtext.utils.Pair;
 import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
 import fr.enseeiht.ocl.xtext.ocl.adapter.UndefinedAccessInvalid;
+import fr.enseeiht.ocl.xtext.ocl.adapter.UnsupportedFeatureException;
 import fr.enseeiht.ocl.xtext.ocl.Iterator;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.PropertyCallExp;
@@ -61,10 +65,37 @@ public Object getValue(EObject contextTarget) {
 		if (sourceValue instanceof Invalid) {
 			return sourceValue;
 		}
+		Collection<Object> sourceCollection = (Collection<Object>) sourceValue;
 		
-		Collection<Object> source = (Collection<Object>) sourceValue;
-		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
-		return iterator.getReturnValue(source, this.target, contextTarget);
+		// Récupération de l'itérateur
+		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
+		if (iterator == null)
+			return new UnsupportedFeatureException(this.target.getName());
+
+		// Génération des combinaisons d'itérateurs
+		List<List<Object>> iteratorsCombinations = CartesianProduct.generateCombinations(sourceCollection, this.target.getIterators().size());
+		
+		// On construira une liste reliant chaque N-combinaison de valeurs d'itérateurs à leur valeur de 'body'
+		List<Pair<List<Object>, Object>> iteratorBodyValues = new ArrayList<>();
+		
+		// Pour chaque combinaison d'itérateurs...
+		for (List<Object> comb : iteratorsCombinations) {
+			// Enregistrement des variables au scope
+			for (int i = 0; i < this.target.getIterators().size(); i++) {
+				Scoper.add(this.target.getIterators().get(i), comb.get(i));
+			}
+			
+			// Calcul de 'body'
+			Object bodyValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody()).getValue(contextTarget);
+			iteratorBodyValues.add(new Pair<>(comb, bodyValue));
+			
+			// Désenregistrement des variables du scope
+			for (int i = 0; i < this.target.getIterators().size(); i++) {
+				Scoper.remove(this.target.getIterators().get(i));
+			}
+		}
+		
+		return iterator.getReturnValue(iteratorBodyValues, this.target, sourceValue.getClass());
   }
 
   /**
@@ -89,7 +120,7 @@ public Object getValue(EObject contextTarget) {
 		if (sourceType instanceof OclInvalid) {
 			return sourceType;
 		}
-		OclIterator iterator = OclIteratorFactory.getIterator(this.target.getName());
+		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
 
 		if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
 			List<OclInvalid> errors = new ArrayList<OclInvalid>();

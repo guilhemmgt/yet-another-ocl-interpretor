@@ -1,0 +1,28 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+	
+inv uniqueEmptyBag:
+	Bag{}->isUnique(x|x+1)
+inv uniqueBag:
+	Bag{1,2,3}->isUnique(x|x*9)
+inv constuniqueBag:
+	not Bag{1,2,3}->isUnique(x|9)
+inv notuniqueBag:
+	not Bag{1,2,2}->isUnique(x|x)
+	
+inv uniqueEmptySet:
+	Set{}->isUnique(x|3)
+inv uniqueSet:
+	Set{1,2,3}->isUnique(x|x*2)
+inv notuniqueSet:
+	not Set{Set{1},Set{2},Set{3,4}}->isUnique(x|x->size())
+	
+inv uniqueEmptySequence:
+	Sequence{}->isUnique(x|1)
+inv uniqueSequence:
+	Sequence{1,2,3}->isUnique(x|x+2)
+inv notuniqueSequence:
+	not Sequence{1,2,2}->isUnique(x|x)
+	
+	
