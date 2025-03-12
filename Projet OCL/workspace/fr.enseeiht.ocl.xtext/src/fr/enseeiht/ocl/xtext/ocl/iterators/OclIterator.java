@@ -10,15 +10,10 @@ import fr.enseeiht.ocl.xtext.utils.Pair;
 public interface OclIterator {
 
 	/**
-	 * TODO
-	 * 
-	 * iteratorExp principalement pour la remontée d'errreurs ?
-	 * 
 	 * Renvoie la valeur de l'itérateur
-	 * @param source objet sur lequel est appelé l'itérateur
-	 * @param body corps de l'itérateur
-	 * @param iterators itérateurs
-	 * @param contextTarget contexte
+	 * @param iteratorBodyValues liste reliant chaque combinaison de valeurs d'itérateurs à leur valeur de 'body'
+	 * @param iteratorExp itérateur. utilisé pour le renvoi d'Invalids
+	 * @param sourceCollectionClass type Java de la collection sur laquelle est effectué l'itération
 	 * @return valeur
 	 */
 	public Object getReturnValue(List<Pair<List<Object>, Object>> iteratorBodyValues, IteratorExp iteratorExp, Class<?> sourceCollectionClass);
