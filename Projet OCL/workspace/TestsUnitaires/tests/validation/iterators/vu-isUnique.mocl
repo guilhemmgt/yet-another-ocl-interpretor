@@ -1,0 +1,7 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+	
+inv invalidBag:
+	Bag{0}->isUnique(x|1/x)
+	
