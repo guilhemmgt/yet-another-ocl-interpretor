@@ -6,7 +6,7 @@ import java.util.Collection;
 public class CollectionFlattener {
 	
 	@SuppressWarnings("unchecked")
-	public static <T, C extends Collection<T>> C flatten(Collection<?> collection) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static <T, C extends Collection<T>> C flatten(Collection<?> collection) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		C output = null;
 		output = (C) ConstructorInstanciator.instantiateParameterlessConstructor(collection.getClass());
 		for (Object o : collection) {
