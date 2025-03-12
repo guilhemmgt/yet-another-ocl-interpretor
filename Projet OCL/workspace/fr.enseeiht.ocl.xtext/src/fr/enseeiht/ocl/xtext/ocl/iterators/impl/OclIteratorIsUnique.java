@@ -37,37 +37,14 @@ public class OclIteratorIsUnique implements OclIterator {
 		Collection<Pair<Object, Object>> collectCollection = (Collection<Pair<Object, Object>>) collectValue;
 		boolean isUnique = true;
 
-//		System.out.println("\n\nCollect : OK");
+		// body de 'forAll':
+		// 		(x.iter <> y.iter) implies (x.value <> y.value)
 		for(Pair<Object, Object> x : collectCollection) {
 			for(Pair<Object, Object> y : collectCollection) {
-//				System.out.print("x : {" + x.getKey()+":"+x.getValue()+"}, y : {" + y.getKey()+":"+y.getValue()+"}");
 				isUnique = isUnique && (x.getKey() == y.getKey() || !x.getValue().equals(y.getValue()));
-//				if(!isUnique) {					
-//					System.out.println("-> X");
-//				} else {
-//					System.out.println();
-//				}
 			}
 		}
 		return isUnique;
-		// body de 'forAll':
-		// 		(x.iter <> y.iter) implies (x.value <> y.value)
-//		IOclIteratorBody forAllOp = (b, i) -> {
-//			@SuppressWarnings("unchecked")
-//			Pair<Object, Object> x = (Pair<Object, Object>) i.get(0);
-//			@SuppressWarnings("unchecked")
-//			Pair<Object, Object> y = (Pair<Object, Object>) i.get(1);
-//			
-//			return x.getKey().equals(y.getKey()) || !x.getValue().equals(y.getValue());
-//			// TODO i am cooked
-//		};
-//		//iteratorExp.getIterators().get(0).
-//		Object forAllValue = new OclIteratorForAll().getReturnValue(collectCollection, iteratorExp, contextTarget, forAllOp);
-//		if (forAllValue instanceof Invalid)
-//			return forAllValue;
-//		boolean forAllBoolean = (boolean) forAllValue;
-//
-//		return forAllBoolean;
 	}
 
 	@Override
