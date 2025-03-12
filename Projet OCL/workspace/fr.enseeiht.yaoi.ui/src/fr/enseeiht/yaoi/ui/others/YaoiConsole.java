@@ -15,7 +15,10 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.IConsoleConstants;
 
-
+/**
+ * My solution to print things in the runtime environement.
+ * Just call YaoiConsole.out.println("...");
+ */
 public class YaoiConsole {
     
     private static final String CONSOLE_NAME = "Yaoi Console";

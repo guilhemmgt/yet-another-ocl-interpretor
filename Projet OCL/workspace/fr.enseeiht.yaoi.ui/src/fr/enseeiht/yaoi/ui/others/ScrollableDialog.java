@@ -13,6 +13,10 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+/**
+ * Custom scrollable text dialog with icons (freely inspired from StackOverflow)
+ * Create it with the constructor and call .open() to open it.
+ */
 public class ScrollableDialog extends TitleAreaDialog {
 	private String title;
 	private String text;

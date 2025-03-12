@@ -11,6 +11,10 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
+/**
+ * Entry point to the plugin. For now it is only used to register the icons.
+ * But this could be where the EValidators are registered.
+ */
 public class YaoiUi extends AbstractUIPlugin {
     private static YaoiUi instance;
     public final static String PLUGIN_ID = "fr.enseeiht.yaoi.ui";
