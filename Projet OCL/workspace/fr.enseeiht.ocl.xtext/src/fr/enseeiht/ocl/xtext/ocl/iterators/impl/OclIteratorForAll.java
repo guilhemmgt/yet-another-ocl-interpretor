@@ -1,37 +1,48 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.ecore.EObject;
+import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
+import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
+import fr.enseeiht.ocl.xtext.utils.Pair;
 
 public class OclIteratorForAll implements OclIterator {
 
 	@Override
-	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget,
-			IOclIteratorBody op) {
-		// source->forAll(iterators | body ) =
-		// 		source->iterate(iterators; result : Boolean = true | result and body)
+	public Object getReturnValue(List<Pair<List<Object>, Object>> iteratorBodyValues, IteratorExp iteratorExp, Class<?> sourceCollectionClass) {
+		// "Results in false if body evaluates to false for any element in the source collection;
+		// otherwise invalid if body evaluates to invalid for any element in the source collection;
+		// otherwise null if body evaluates to null for any element in the source collection;
+		// otherwise result is true."
+		// from https://www.omg.org/spec/OCL/2.4/PDF
 		
-		// body de 'iterate':
-		// 		result and body
-		IOclIterateBody newOp = (r, b, i) -> {
-			Object newB = op.apply(b, i);
-			if (newB == null || r == null) // En OCL: null and <bool> = null
-				return null;
-			return (Boolean)r && (Boolean)newB;
-		};
+		Invalid invalid = null;
+		boolean isNull = false;
 		
-		return new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, true, newOp).getReturnValue();
+		for (Pair<List<Object>, Object> pair : iteratorBodyValues) {
+			Object body = pair.getValue();
+			if (body instanceof Invalid bodyInvalid) {
+				if (invalid == null) {
+					invalid = bodyInvalid;
+				}
+			} else if (body == null) {
+				isNull = true;
+			} else if (!(boolean)body) {
+				return false;
+			}
+		}
+		
+		if (invalid != null)
+			return invalid;
+		if (isNull)
+			return null;
+		
+		return true;
 	}
 
 	@Override

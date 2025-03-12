@@ -2,57 +2,43 @@ package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
-import org.eclipse.emf.ecore.EObject;
+import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
+import fr.enseeiht.ocl.xtext.utils.Pair;
 
 public class OclIteratorSelect implements OclIterator {
 
+	
 	@Override
-	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
-		// source->select(iterator | body) =
-		// 		source->iterate(iterator; result : <src_type>(T) = <src_type>{} |
-		//			if body then result->including(iterator)
-		//			else result
-		//			endif)
-		// où <src_type> = Sequence | Bag | Set | OrderedSet selon le type de 'source'
+	public Object getReturnValue(List<Pair<List<Object>, Object>> iteratorBodyValues, IteratorExp iteratorExp, Class<?> sourceCollectionClass) {
+		// "The subcollection of the source collection for which body is true."
+		// from https://www.omg.org/spec/OCL/2.4/PDF
 		
-		// body de 'iterate':
-		//		if body then result->including(iterator) else result endif
-		@SuppressWarnings("unchecked")
-		IOclIterateBody newOp = (r, b, i) -> {
-			if ((Boolean)op.apply(b, i)) {
-				((Collection<Object>)r).add(i.get(0));
-				return r;
-			} else {
-				return r;
-			}
-		};
-
-		// init du result de 'iterate':
-		//		result : <src_type>(T) = <src_type>{}
-		// On construit une nouvelle collection (vide) du même type que la source
-		Object resultInitValue = null;
+		// Instancie une collection vide du même type (Bag, Set, ...) que la source
+		Object selectObj = null;
 		try {
-			resultInitValue = ConstructorInstanciator.instantiateParameterlessConstructor(source.getClass());
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			selectObj = ConstructorInstanciator.instantiateParameterlessConstructor(sourceCollectionClass);
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
-
-		// ->iterate
-		Object value = new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, resultInitValue, newOp).getReturnValue();
+		@SuppressWarnings("unchecked")
+		Collection<Object> select = (Collection<Object>) selectObj;
 		
-		return value;
+		for (Pair<List<Object>, Object> pair : iteratorBodyValues) {
+			Object body = pair.getValue();
+			if (body instanceof Boolean bodyBool && bodyBool) {
+				select.add(pair.getKey().get(0));
+			}
+		}
+
+		return select;
 	}
 
 	@Override

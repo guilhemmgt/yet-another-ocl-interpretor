@@ -32,7 +32,18 @@ public enum OclIteratorEnum {
 		return this.iterator;
 	}
 	
+	/**
+	 * Renvoie l'itérateur de nom correspondant. Renvoie null si aucun itérateur ne correspond.
+	 * @param name nom de l'itérateur
+	 * @return l'itérateur
+	 */
 	public static OclIterator getIterator(String name) {
-		return OclIteratorEnum.valueOf(name).getIterator();
+		OclIterator res = null;
+		try {
+			res = OclIteratorEnum.valueOf(name).getIterator();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 }

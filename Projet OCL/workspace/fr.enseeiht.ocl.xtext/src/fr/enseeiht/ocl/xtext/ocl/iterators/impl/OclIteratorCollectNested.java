@@ -1,52 +1,33 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
+import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
+import org.apache.commons.collections.bag.HashBag;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIterateBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
-import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
-import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
+import fr.enseeiht.ocl.xtext.utils.Pair;
 
 public class OclIteratorCollectNested implements OclIterator {
 
 	@Override
-	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
-		// source->collectNested(iterator | body) =
-		// 		source->iterate(iterator; result : <src_type>(T) = <src_type>{} |
-		//			result->append(body) )
-		// où <src_type> = Sequence | Bag | Set | OrderedSet selon le type de 'source'
+	public Object getReturnValue(List<Pair<List<Object>, Object>> iteratorBodyValues, IteratorExp iteratorExp, Class<?> sourceCollectionClass) {
+		// "The Bag of elements which results from applying body to every member of the source collection. The collection specific
+		// details are described as part of the corresponding collection type"
+		// from https://www.omg.org/spec/OCL/2.4/PDF
 		
-		// body de 'iterate':
-		// 		result->append(body)
-		@SuppressWarnings("unchecked")
-		IOclIterateBody newOp = (r, b, i) -> {
-			((Collection<Object>)r).add(op.apply(b, i));
-			return r;
-		};
-
-		// init du result de 'iterate':
-		//		result : <src_type>(T) = <src_type>{}
-		// On construit une nouvelle collection (vide) du même type que la source
-		Object resultInitValue = null;
-		try {
-			resultInitValue = ConstructorInstanciator.instantiateParameterlessConstructor(source.getClass());
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-			e.printStackTrace();
+		HashBag bodies = new HashBag();
+		
+		for (Pair<List<Object>, Object> pair : iteratorBodyValues) {
+			bodies.add(pair.getValue());
 		}
 		
-		// ->iterate
-		Object value = new OclIterate(source, iteratorExp.getBody(), iteratorExp.getIterators(), contextTarget, resultInitValue, newOp).getReturnValue();
-
-		return value;
+		return bodies;
 	}
 
 	@Override

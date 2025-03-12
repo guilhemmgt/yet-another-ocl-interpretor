@@ -1,43 +1,40 @@
 package fr.enseeiht.ocl.xtext.ocl.iterators.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
+import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
+import org.apache.commons.collections.bag.HashBag;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
-import fr.enseeiht.ocl.xtext.ocl.iterators.IOclIteratorBody;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.utils.CollectionFlattener;
 import fr.enseeiht.ocl.xtext.utils.OclTypeUtils;
+import fr.enseeiht.ocl.xtext.utils.Pair;
 
 public class OclIteratorCollect implements OclIterator {
 
 	@Override
-	public Object getReturnValue(Collection<Object> source, IteratorExp iteratorExp, EObject contextTarget, IOclIteratorBody op) {
-		// source->collect (iterator | body) =
-		// 		source->collectNested (iterator | body)->flatten()
+	public Object getReturnValue(List<Pair<List<Object>, Object>> iteratorBodyValues, IteratorExp iteratorExp, Class<?> sourceCollectionClass) {
+		// "The Collection of elements that results from applying body to every member of the source set. The result is flattened."
+		// from https://www.omg.org/spec/OCL/2.4/PDF
+
+		HashBag bodies = new HashBag();
 		
-		// ->collectNested (iterator | body)
-		Object collectNestedValue = new OclIteratorCollectNested().getReturnValue(source, iteratorExp, contextTarget, op);
-		if (collectNestedValue instanceof Invalid)
-			return collectNestedValue;
-		Collection<?> collectNestedCollection = (Collection<?>) collectNestedValue;
-		
-		// ->flatten()
-		Object value = null;
+		for (Pair<List<Object>, Object> pair : iteratorBodyValues) {
+			bodies.add(pair.getValue());
+		}
+			
 		try {
-			value = CollectionFlattener.flatten(collectNestedCollection);
-		} catch (Exception e) {
+			return CollectionFlattener.flatten(bodies);
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
 
-		return value;
+		return null;
 	}
 
 	@Override

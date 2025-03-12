@@ -7,50 +7,66 @@ inv bag1:
 inv bag2:
 	Bag{1,2,3,4,5,6}->forAll(i | i>1) = false
 inv bag3:
-	Bag{true, false, null}->forAll(i | i) = null
+	Bag{true, true, null}->forAll(i | i) = null
 inv bag4:
 	Bag{Set{1},OrderedSet{2,3},Sequence{4,5,6}}->forAll(i,j | i=j or i->size()<>j->size())
 inv bag5:
 	Bag{1, 2, 4, 8}->forAll(i,j,k,l | i=1 or i=2 or i=4 or i=8)
 inv bag6:
 	Bag{}->forAll(i | false)
+inv bag7:
+	not Bag{0,1}->forAll(i | 2/i = 0)
+inv bag8:
+	not Bag{true, false, null}->forAll(i | i)
 	
 inv set1:
 	Set{1,2,3,4,5,6}->forAll(i | i>0)
 inv set2:
 	Set{1,2,3,4,5,6}->forAll(i | i>1) = false
 inv set3:
-	Set{true, false, null}->forAll(i | i) = null
+	Set{true, true, null}->forAll(i | i) = null
 inv set4:
 	Set{Bag{1},OrderedSet{2,3},Sequence{4,5,6}}->forAll(i,j | i=j or i->size()<>j->size())
 inv set5:
 	Set{1, 2, 4, 8}->forAll(i,j,k,l | i=1 or i=2 or i=4 or i=8)
 inv set6:
 	Set{}->forAll(i | false)
+inv set7:
+	not Set{0,1}->forAll(i | 2/i = 0)
+inv set8:
+	not Set{true, false, null}->forAll(i | i)
 	
 inv orderedset1:
 	OrderedSet{1,2,3,4,5,6}->forAll(i | i>0)
 inv orderedset2:
 	OrderedSet{1,2,3,4,5,6}->forAll(i | i>1) = false
 inv orderedset3:
-	OrderedSet{true, false, null}->forAll(i | i) = null
+	OrderedSet{true, true, null}->forAll(i | i) = null
 inv orderedset4:
 	OrderedSet{Bag{1},Set{2,3},Sequence{4,5,6}}->forAll(i,j | i=j or i->size()<>j->size())
 inv orderedset5:
 	OrderedSet{1, 2, 4, 8}->forAll(i,j,k,l | i=1 or i=2 or i=4 or i=8)
 inv orderedset6:
 	OrderedSet{}->forAll(i | false)
+inv orderedset7:
+	not OrderedSet{0,1}->forAll(i | 2/i = 0)
+inv orderedset8:
+	not OrderedSet{true, false, null}->forAll(i | i)
 	
 inv seq1:
 	Sequence{1,2,3,4,5,6}->forAll(i | i>0)
 inv seq2:
 	Sequence{1,2,3,4,5,6}->forAll(i | i>1) = false
 inv seq3:
-	Sequence{true, false, null}->forAll(i | i) = null
+	Sequence{true, true, null}->forAll(i | i) = null
 inv seq4:
 	Sequence{Bag{1},Set{2,3},OrderedSet{4,5,6}}->forAll(i,j | i=j or i->size()<>j->size())
 inv seq5:
 	Sequence{1, 2, 4, 8}->forAll(i,j,k,l | i=1 or i=2 or i=4 or i=8)
 inv seq6:
 	Sequence{}->forAll(i | false)
+inv seq7:
+	not Sequence{0,1}->forAll(i | 2/i = 0)
+inv seq8:
+	not Sequence{true, false, null}->forAll(i | i)
 	
