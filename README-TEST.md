@@ -23,7 +23,7 @@ Les fichiers de tests doit suivre une structure particulière :
 	- `vu` : compilation réussi mais l'invariant renvoie "Invalid"
 	- `v` : compilation réussie mais l'invariant renvoie "false"
 	- `ok` : tout passe
-- le nom du test ne doit donc pas avoir de `-`, et la convention est d'utiliser le *Camel case*
+- le nom du test ne doit donc pas avoir de `-`, et la convention est d'utiliser le *lower camel case*
 - il est possible de rajouter des informations supplémentaires : 
 	- si le fichier est préfixé de `s` ou `t`, alors il est possible de rajouter le message d'erreur attendu, pour cela il vous faut rajouter un commentaire dans votre fichier mocl avec la balise `@error`. ex :
  
