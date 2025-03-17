@@ -4,7 +4,6 @@ import java.util.List;
 
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
-import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.utils.Pair;
 
 public interface OclIterator {
@@ -25,12 +24,6 @@ public interface OclIterator {
 	 * @return type
 	 */
 	public OclType getReturnType(OclType sourceType, OclType bodyType);
-	
-	/**
-	 * Renvoie le type de collection surlequel peut être appliqué l'itérateur
-	 * @return type
-	 */
-	public OclCollection getSourceType();
 	
 	/**
 	 * Renvoie le type de corps que peut contenir l'itérateur

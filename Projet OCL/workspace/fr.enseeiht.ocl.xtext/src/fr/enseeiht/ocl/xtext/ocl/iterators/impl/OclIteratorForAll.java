@@ -6,9 +6,7 @@ import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
-import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
-import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.utils.Pair;
 
 public class OclIteratorForAll implements OclIterator {
@@ -48,11 +46,6 @@ public class OclIteratorForAll implements OclIterator {
 	@Override
 	public OclType getReturnType(OclType sourceType, OclType bodyType) {
 		return new OclBoolean();
-	}
-
-	@Override
-	public OclCollection getSourceType() {
-		return new OclCollection(new OclAny());
 	}
 
 	@Override
