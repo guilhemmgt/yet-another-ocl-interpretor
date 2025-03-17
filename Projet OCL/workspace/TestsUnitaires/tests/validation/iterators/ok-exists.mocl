@@ -1,0 +1,63 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv bag1:
+	Bag{1,2,3}->exists(i|true)
+inv bag2:
+	Bag{1,2,3}->exists(i|i=2)
+inv bag3:
+	not Bag{"hello", "world", "!"}->exists(i|i="good bye")
+inv bag4:
+	Bag{Bag{"i"}, Sequence{"lo", "ve"}, Set{"ocl"}, OrderedSet{"n", "g", "l"}}->exists(i,j|i<>j and i->size()=j->size())
+inv bag5:
+	not Bag{}->exists(i|true)
+inv bag6:
+	Bag{false,null,false}->exists(i|i) = null
+inv bag7:
+	Bag{1,0,2}->exists(i|2/i=1)
+	
+inv set1:
+	Set{1,2,3}->exists(i|true)
+inv set2:
+	Set{1,2,3}->exists(i|i=2)
+inv set3:
+	not Set{"hello", "world", "!"}->exists(i|i="good bye")
+inv set4:
+	Set{Bag{"i"}, Sequence{"lo", "ve"}, Set{"ocl"}, OrderedSet{"n", "g", "l"}}->exists(i,j|i<>j and i->size()=j->size())
+inv set5:
+	not Set{}->exists(i|true)
+inv set6:
+	Set{false,null,false}->exists(i|i) = null
+inv set7:
+	Set{1,0,2}->exists(i|2/i=1)
+	
+inv orderedset1:
+	OrderedSet{1,2,3}->exists(i|true)
+inv orderedset2:
+	OrderedSet{1,2,3}->exists(i|i=2)
+inv orderedset3:
+	not OrderedSet{"hello", "world", "!"}->exists(i|i="good bye")
+inv orderedset4:
+	OrderedSet{Bag{"i"}, Sequence{"lo", "ve"}, Set{"ocl"}, OrderedSet{"n", "g", "l"}}->exists(i,j|i<>j and i->size()=j->size())
+inv orderedset5:
+	not OrderedSet{}->exists(i|true)
+inv orderedset6:
+	OrderedSet{false,null,false}->exists(i|i) = null
+inv orderedset7:
+	OrderedSet{1,0,2}->exists(i|2/i=1)
+	
+inv seq1:
+	Sequence{1,2,3}->exists(i|true)
+inv seq2:
+	Sequence{1,2,3}->exists(i|i=2)
+inv seq3:
+	not Sequence{"hello", "world", "!"}->exists(i|i="good bye")
+inv seq4:
+	Sequence{Bag{"i"}, Sequence{"lo", "ve"}, Set{"ocl"}, OrderedSet{"n", "g", "l"}}->exists(i,j|i<>j and i->size()=j->size())
+inv seq5:
+	not Sequence{}->exists(i|true)
+inv seq6:
+	Sequence{false,null,false}->exists(i|i) = null
+inv seq7:
+	Sequence{1,0,2}->exists(i|2/i=1)

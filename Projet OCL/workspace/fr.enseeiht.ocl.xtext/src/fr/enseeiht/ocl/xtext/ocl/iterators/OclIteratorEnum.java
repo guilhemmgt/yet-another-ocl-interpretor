@@ -3,6 +3,7 @@ package fr.enseeiht.ocl.xtext.ocl.iterators;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorAny;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorCollect;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorCollectNested;
+import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorExists;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorForAll;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorIsUnique;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorSelect;
@@ -10,7 +11,7 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorSelect;
 public enum OclIteratorEnum {
 	any(new OclIteratorAny()),
 	// closure(new OclIteratorClosure()), // TODO
-	// exists(new OclIteratorExists()), // TODO
+	exists(new OclIteratorExists()),
 	forAll(new OclIteratorForAll()),
 	// isUnique(new OclIteratorIsUnique()), // TODO
 	// one(new OclIteratorOne()), // TODO
