@@ -5,6 +5,10 @@ import org.eclipse.emf.ecore.impl.DynamicEObjectImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.jface.viewers.StructuredSelection;
 
+/**
+ * Contrary to what the name suggests, it tests if the selection is an XMI or
+ * one of its child.
+ */
 public class IsEcore extends PropertyTester {
 	private static final String PROPERTY_ISECORE = "isecore"; //$NON-NLS-1$
 

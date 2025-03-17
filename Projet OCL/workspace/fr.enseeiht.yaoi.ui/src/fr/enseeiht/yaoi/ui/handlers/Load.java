@@ -43,22 +43,6 @@ import fr.enseeiht.yaoi.ui.others.YaoiConsole;
  * 
  */
 public class Load extends AbstractHandler {
-    /**
-     * Executes the command to load MOCL resources.
-     * <p>
-     * This method performs the following steps:
-     * <ol>
-     *   <li>Gets the active editor and verifies it provides an editing domain</li>
-     *   <li>Opens a file selection dialog filtered to show only MOCL files</li>
-     *   <li>Loads the selected files into the editor's resource set</li>
-     *   <li>Resolves all cross-references in the loaded resources</li>
-     * </ol>
-     * </p>
-     * 
-     * @param event The execution event containing information about the command execution context
-     * @return null (as per {@link AbstractHandler} contract)
-     * @throws ExecutionException If an error occurs during command execution
-     */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		try {
@@ -99,8 +83,6 @@ public class Load extends AbstractHandler {
             if (xmiEcoreNsUri == null) {
                 throw new RuntimeException("Could not determine the Ecore model of the active XMI file.");
             }
-            // TODO : Transform this into platform uri or smth
-            YaoiConsole.out.println(xmiEcoreNsUri);
 			
 			// Récupère l'environnement de la fenêtre active
 			Shell shell = HandlerUtil.getActiveShell(event);
@@ -124,18 +106,17 @@ public class Load extends AbstractHandler {
 				for (IFile file : files) {
 					URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 					
+					// Charge temporairement le MOCL pour vérifications
 					ResourceSet tempSet = new ResourceSetImpl();
-                    // Load the MOCL file in the temporary set
                     Resource tempResource = tempSet.getResource(uri, true);
                     EcoreUtil.resolveAll(tempResource);
                     
                     Module tempMocl = (Module) tempResource.getContents().get(0);
                     
+                    // if (uri du premier import (pour l'instant on en a qu'un anyway) == uri de l'ecore du xmi)
                     if (tempMocl.getImports().get(0).getPackage().getNsURI().equals(xmiEcoreNsUri)) {
-                        // If the MOCL file doesn't import incompatible Ecore models, load it into the editor
                         Resource resource = domain.getResourceSet().getResource(uri, true);
                         EcoreUtil.resolveAll(resource);
-                        YaoiConsole.out.println("Successfully loaded: " + file.getName());
                     } else {
         				MessageDialog.openError(shell, "Invalid Mocl",
         						"The Ecore this MOCL imports is not the same as this XMI's");

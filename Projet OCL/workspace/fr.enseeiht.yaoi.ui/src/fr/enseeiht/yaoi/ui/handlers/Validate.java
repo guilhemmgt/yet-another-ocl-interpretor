@@ -33,12 +33,18 @@ import fr.enseeiht.yaoi.ui.others.ScrollableDialog;
 import fr.enseeiht.yaoi.ui.others.ScrollableDialog.Status;
 import fr.enseeiht.yaoi.ui.others.YaoiConsole;
 
+/**
+ * Handler for Validating MOCL resources against the selected XMI.
+ * <p>
+ * This handler implements the functionality to validate all loaded MOCL files
+ * It then opens a result popup scrollable text dialog.
+ * </p>
+ * 
+ */
 public class Validate extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		try {
-			YaoiConsole.out.println("executing yaoi...");
-
 			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 			reg.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 
@@ -63,16 +69,17 @@ public class Validate extends AbstractHandler {
 			// Si aucun .mocl n'a été ajouté par Load.java
 			if (moclResources.isEmpty()) {
 				MessageDialog.openError(shell, "Missing Mocl Resource",
-						"Veuillez d'abord charger un fichier .mocl en faisant un clic droit sur un fichier .xmi puis en sélectionnant 'MOCL → Load' ou 'Load Resource'.");
+						"Please load an .mocl file first by right-clicking on an .xmi file and selecting 'MOCL → Load' or 'Load Resource'.");
 				return null;
 			}
 
 			//// MOCL
 
+			// Charger tous les mocl
 			HashMap<Module, URI> moclModules = new HashMap<Module, URI>();
 			for (Resource mocl : moclResources) {
 				EcoreUtil.resolveAll(mocl);
-				// Récupérer le Module MOCL
+				// Récupérer le Module
 				Module module = (Module) mocl.getContents().get(0);
 
 				// Enregistrement des EPackages de tous les imports du .mocl
