@@ -53,7 +53,7 @@ public class OclIteratorCollect implements OclIterator {
 	}
 
 	@Override
-	public OclType getBodyType() {
+	public OclType getExpectedBodyType() {
 		return new OclAny();
 	}
 

@@ -132,7 +132,7 @@ public Object getValue(EObject contextTarget) {
 				}
 			}
 
-			OclType resultType = iterator.getBodyType();
+			OclType resultType = iterator.getExpectedBodyType();
 			if (resultType instanceof OclInvalid error) {
 				errors.add(error);
 			}

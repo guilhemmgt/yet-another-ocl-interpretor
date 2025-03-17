@@ -49,7 +49,7 @@ public class OclIteratorForAll implements OclIterator {
 	}
 
 	@Override
-	public OclType getBodyType() {
+	public OclType getExpectedBodyType() {
 		return new OclBoolean();
 	}
 

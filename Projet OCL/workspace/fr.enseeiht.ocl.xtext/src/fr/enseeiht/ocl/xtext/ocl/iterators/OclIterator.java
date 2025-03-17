@@ -29,7 +29,7 @@ public interface OclIterator {
 	 * Renvoie le type de corps que peut contenir l'itérateur
 	 * @return type
 	 */
-	public OclType getBodyType();
+	public OclType getExpectedBodyType();
 	
 	/**
 	 * Renvoie le nombre minimum d'itérateurs

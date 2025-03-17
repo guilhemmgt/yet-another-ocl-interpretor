@@ -42,7 +42,7 @@ public class OclIteratorIsUnique implements OclIterator {
 	}
 
 	@Override
-	public OclType getBodyType() {
+	public OclType getExpectedBodyType() {
 		return new OclAny();
 	}
 
