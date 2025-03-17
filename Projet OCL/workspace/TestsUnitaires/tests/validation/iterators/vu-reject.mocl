@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv reject1: 
+	Bag{1,2,3,4/0,5}->reject(n | n=1) = Bag{1}

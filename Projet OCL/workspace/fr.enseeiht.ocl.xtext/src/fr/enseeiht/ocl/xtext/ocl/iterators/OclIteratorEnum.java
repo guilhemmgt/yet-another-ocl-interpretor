@@ -7,6 +7,7 @@ import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorExists;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorForAll;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorIsUnique;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorOne;
+import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorReject;
 import fr.enseeiht.ocl.xtext.ocl.iterators.impl.OclIteratorSelect;
 
 public enum OclIteratorEnum {
@@ -14,11 +15,10 @@ public enum OclIteratorEnum {
 	// closure(new OclIteratorClosure()), // TODO
 	exists(new OclIteratorExists()),
 	forAll(new OclIteratorForAll()),
-	// isUnique(new OclIteratorIsUnique()), // TODO
 	one(new OclIteratorOne()),
 	collect(new OclIteratorCollect()),
 	select(new OclIteratorSelect()),
-	// reject(new OclIteratorReject()), // TODO
+	reject(new OclIteratorReject()),
 	collectNested(new OclIteratorCollectNested()),
 	isUnique(new OclIteratorIsUnique()),
 	// sortedBy(new OclIteratorSortedBy()) // TODO
