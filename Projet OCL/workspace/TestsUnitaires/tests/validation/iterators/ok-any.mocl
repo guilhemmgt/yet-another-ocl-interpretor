@@ -8,6 +8,8 @@ inv bag2:
 	Bag{"hello"}->any(n|n=n)="hello"
 inv bag3:
 	Bag{1,2,3}->any(n|n mod 2 = 0) = Set{3,7,2}->any(n|n mod 2 = 0)
+inv bag4:
+	Bag{false, true, null}->any(n|n)
 	
 inv set1:
 	Set{1,2,3}->any(n|n=2) = 2
@@ -15,6 +17,8 @@ inv set2:
 	Set{"hello"}->any(n|n=n)="hello"
 inv set3:
 	Set{1,2,3}->any(n|n mod 2 = 0) = OrderedSet{3,7,2}->any(n|n mod 2 = 0)
+inv set4:
+	Set{false, true, null}->any(n|n)
 	
 inv orderedset1:
 	OrderedSet{1,2,3}->any(n|n=2) = 2
@@ -22,6 +26,8 @@ inv orderedset2:
 	OrderedSet{"hello"}->any(n|n=n)="hello"
 inv orderedset3:
 	OrderedSet{1,2,3}->any(n|n mod 2 = 0) = OrderedSet{3,7,2}->any(n|n mod 2 = 0)
+inv orderedset4:
+	OrderedSet{false, true, null}->any(n|n)
 	
 inv seq1:
 	Sequence{1,2,3}->any(n|n=2) = 2
@@ -29,3 +35,5 @@ inv seq2:
 	Sequence{"hello"}->any(n|n=n)="hello"
 inv seq3:
 	Sequence{1,2,3}->any(n|n mod 2 = 0) = Bag{3,7,2}->any(n|n mod 2 = 0)
+inv seq4:
+	Sequence{false, true, null}->any(n|n)

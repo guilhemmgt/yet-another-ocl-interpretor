@@ -28,7 +28,7 @@ public class OclIteratorAny implements OclIterator {
 			Object body = pair.getValue();
 			if (body instanceof Invalid) {
 				return body;
-			} else if ((boolean)pair.getValue()) {
+			} else if (body instanceof Boolean bodyBool && bodyBool) {
 				any = pair.getKey().get(0);
 				haveAny = true;
 			}
