@@ -1,0 +1,39 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv bag1:
+	Bag{1,2,3}->one(i|i=2)
+inv bag2:
+	Bag{null,true,false}->one(i|i)
+inv bag3:
+	not Bag{null,false,false}->one(i|i)
+inv bag4:
+	not Bag{1,2,3}->one(i|i=4)
+	
+inv set1:
+	Set{1,2,3}->one(i|i=2)
+inv set2:
+	Set{null,true,false}->one(i|i)
+inv set3:
+	not Set{null,false,false}->one(i|i)
+inv set4:
+	not Set{1,2,3}->one(i|i=4)
+	
+inv orderedset1:
+	OrderedSet{1,2,3}->one(i|i=2)
+inv orderedset2:
+	OrderedSet{null,true,false}->one(i|i)
+inv orderedset3:
+	not OrderedSet{null,false,false}->one(i|i)
+inv orderedset4:
+	not OrderedSet{1,2,3}->one(i|i=4)
+	
+inv seq1:
+	Sequence{1,2,3}->one(i|i=2)
+inv seq2:
+	Sequence{null,true,false}->one(i|i)
+inv seq3:
+	not Sequence{null,false,false}->one(i|i)
+inv seq4:
+	not Sequence{1,2,3}->one(i|i=4)

@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv bag1:
+	Bag{1,0,3}->one(i|1/i=1)
