@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+	
+inv set1:
+	Set{1,2,3,4,5}->any(i,j | i = 3) = 3

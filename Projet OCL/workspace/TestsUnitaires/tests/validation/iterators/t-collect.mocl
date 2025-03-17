@@ -1,0 +1,6 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+	
+inv set1:
+	Set{1,2,3,4,5}->collect(i,j | i+1) = Set{2,3,4,5,6}
