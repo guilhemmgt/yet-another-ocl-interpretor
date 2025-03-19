@@ -15,6 +15,8 @@ import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
 import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 import fr.enseeiht.ocl.xtext.utils.Pair;
+import fr.enseeiht.ocl.xtext.validation.IncorrectNumberOfIteratorsError;
+import fr.enseeiht.ocl.xtext.validation.IteratorNotFoundError;
 import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -120,42 +122,54 @@ public Object getValue(EObject contextTarget) {
 		if (sourceType instanceof OclInvalid) {
 			return sourceType;
 		}
-		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
-
-		if (sourceType.conformsTo(new OclCollection(new OclAny()))) {
-			List<OclInvalid> errors = new ArrayList<OclInvalid>();
-			for (Iterator i : this.target.getIterators()) {
-				// Checks type of each iterator
-				OclType iteratorType = OCLValidationAdapterFactory.INSTANCE.createAdapter(i).getType();
-				if (iteratorType instanceof OclInvalid error) {
-					errors.add(error);
-				}
-			}
-
-			OclType resultType = iterator.getBodyType();
-			if (resultType instanceof OclInvalid error) {
-				errors.add(error);
-			}
-			OclType bodyType = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody()).getType();
-			if (bodyType instanceof OclInvalid error) {
-				errors.add(error);
-			}
-
-			if (!bodyType.conformsTo(resultType)) {
-				errors.add(new OclInvalid(new TypeMismatchError(this.target, resultType, bodyType)));
-			}
-
-			// If anything failed return combination of all
-			if (!errors.isEmpty()) {
-				OclInvalid[] errorsArray = new OclInvalid[errors.size()];
-				for (int i = 0; i < errors.size(); i++)
-					errorsArray[i] = errors.get(i);
-				return new OclInvalid(errorsArray);
-			}
-			return iterator.getReturnType(sourceType, bodyType);
-		} else {
+		if (!sourceType.conformsTo(new OclCollection(new OclAny()))) {
 			return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), sourceType));
 		}
+		
+		// Vérification du type de l'itérateur
+		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
+		if (iterator == null) {
+			return new OclInvalid(new IteratorNotFoundError(sourceObject, this.target.getName()));
+		}
+		
+		List<OclInvalid> errors = new ArrayList<OclInvalid>();
+		
+		// nb d'iterators
+		if (!(this.target.getIterators().size() >= iterator.getMinIteratorAmount() && this.target.getIterators().size() <= iterator.getMaxIteratorAmount())) {
+			errors.add(new OclInvalid(new IncorrectNumberOfIteratorsError(this.target, iterator, this.target.getIterators().size())));
+		}
+		
+		// type des iterators
+		for (Iterator i : this.target.getIterators()) {
+			// Checks type of each iterator
+			OclType iteratorType = OCLValidationAdapterFactory.INSTANCE.createAdapter(i).getType();
+			if (iteratorType instanceof OclInvalid error) {
+				errors.add(error);
+			}
+		}
+		// type du résultat
+		OclType resultType = iterator.getBodyType();
+		if (resultType instanceof OclInvalid error) {
+			errors.add(error);
+		}
+		// type du body
+		OclType bodyType = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody()).getType();
+		if (bodyType instanceof OclInvalid error) {
+			errors.add(error);
+		}
+		if (!bodyType.conformsTo(resultType)) {
+			errors.add(new OclInvalid(new TypeMismatchError(this.target, resultType, bodyType)));
+		}
+		
+		// If anything failed return combination of all
+		if (!errors.isEmpty()) {
+			OclInvalid[] errorsArray = new OclInvalid[errors.size()];
+			for (int i = 0; i < errors.size(); i++)
+				errorsArray[i] = errors.get(i);
+			return new OclInvalid(errorsArray);
+		}
+		
+		return iterator.getReturnType(sourceType, bodyType);
 	}
 
   /**
