@@ -7,11 +7,12 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import fr.enseeiht.ocl.xtext.ocl.adapter.util.OCLValidationAdapterFactory;
-import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterate;
+import fr.enseeiht.ocl.xtext.scoping.Scoper;
 import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclClassifier;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
+import fr.enseeiht.ocl.xtext.utils.CartesianProduct;
 import fr.enseeiht.ocl.xtext.validation.TypeMismatchError;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.OCLAdapter;
@@ -63,7 +64,29 @@ public final class IterateExpValidationAdapter implements OCLAdapter {
 		}
 		
 		Collection<Object> source = (Collection<Object>) sourceValue;
-		return new OclIterate(source, this.target.getBody(), this.target.getIterators(), contextTarget, this.target.getResult()).getReturnValue();
+		
+		// Initialisation de 'result'
+		Object resultValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getResult().getInitExpression()).getValue(contextTarget);
+		Scoper.add(this.target.getResult(), resultValue);
+		// Génération des iterators
+		List<List<Object>> iteratorsCombinations = CartesianProduct.generateCombinations(source, this.target.getIterators().size());
+		// Pour chaque combinaison d'itérateurs...
+		for (List<Object> comb : iteratorsCombinations) {
+			// Enregistrement des variables au scope
+			for (int i = 0; i < this.target.getIterators().size(); i++) {
+				Scoper.add(this.target.getIterators().get(i), comb.get(i));
+			}
+			// Actualisation de 'result'
+			resultValue = OCLValidationAdapterFactory.INSTANCE.createAdapter(this.target.getBody()).getValue(contextTarget);;
+			Scoper.update(this.target.getResult(), resultValue);
+			// Désenregistrement des variables du scope
+			for (Iterator i : this.target.getIterators()) {
+				Scoper.remove(i);
+			}
+		}
+		// Désenregistrer 'result' et renvoyer sa valeur
+		Scoper.remove(this.target.getResult());
+		return resultValue;
 	}
 
 	/**
