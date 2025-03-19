@@ -1,0 +1,51 @@
+import "http://empty" as empty
+
+context empty!empty.Maybe
+
+inv bag1:
+	Bag{3,1,2}->sortedBy(i|i) = Sequence{1,2,3}
+inv bag2:
+	Bag{3,1,2}->sortedBy(i|i+1) = Sequence{1,2,3}
+inv bag3:
+	Bag{3,1,2}->sortedBy(i|-i) = Sequence{3,2,1}
+inv bag4:
+	Bag{3,1,2}->sortedBy(i|0)->size() = 3
+inv bag5:
+	Bag{}->sortedBy(i|i) = Sequence{}
+inv bag6:
+	Bag{4,5,4,1}->sortedBy(i|i) = Sequence{1,4,4,5}
+	
+inv set1:
+	Set{3,1,2}->sortedBy(i|i) = OrderedSet{1,2,3}
+inv set2:
+	Set{3,1,2}->sortedBy(i|i+1) = OrderedSet{1,2,3}
+inv set3:
+	Set{3,1,2}->sortedBy(i|-i) = OrderedSet{3,2,1}
+inv set4:
+	Set{3,1,2}->sortedBy(i|0)->size() = 3
+inv set5:
+	Set{}->sortedBy(i|i) = OrderedSet{}
+	
+inv orderedset1:
+	OrderedSet{3,1,2}->sortedBy(i|i) = OrderedSet{1,2,3}
+inv orderedset2:
+	OrderedSet{3,1,2}->sortedBy(i|i+1) = OrderedSet{1,2,3}
+inv orderedset3:
+	OrderedSet{3,1,2}->sortedBy(i|-i) = OrderedSet{3,2,1}
+inv orderedset4:
+	OrderedSet{3,1,2}->sortedBy(i|0) = OrderedSet{3,1,2}
+inv orderedset5:
+	OrderedSet{}->sortedBy(i|i) = OrderedSet{}
+
+inv seq1:
+	Sequence{3,1,2}->sortedBy(i|i) = Sequence{1,2,3}
+inv seq2:
+	Sequence{3,1,2}->sortedBy(i|i+1) = Sequence{1,2,3}
+inv seq3:
+	Sequence{3,1,2}->sortedBy(i|-i) = Sequence{3,2,1}
+inv seq4:
+	Sequence{3,1,2}->sortedBy(i|0) = Sequence{3,1,2}
+inv seq5:
+	Sequence{}->sortedBy(i|i) = Sequence{}
+inv seq6:
+	Sequence{4,5,4,1}->sortedBy(i|i) = Sequence{1,4,4,5}
