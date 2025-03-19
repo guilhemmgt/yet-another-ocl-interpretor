@@ -122,11 +122,7 @@ public Object getValue(EObject contextTarget) {
 		if (sourceType instanceof OclInvalid) {
 			return sourceType;
 		}
-		if (!sourceType.conformsTo(new OclCollection(new OclAny()))) {
-			return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), sourceType));
-		}
-		
-		// Vérification du type de l'itérateur
+
 		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
 		if (iterator == null) {
 			return new OclInvalid(new IteratorNotFoundError(sourceObject, this.target.getName()));
@@ -148,7 +144,7 @@ public Object getValue(EObject contextTarget) {
 			}
 		}
 		// type du résultat
-		OclType resultType = iterator.getBodyType();
+		OclType resultType = iterator.getExpectedBodyType();
 		if (resultType instanceof OclInvalid error) {
 			errors.add(error);
 		}

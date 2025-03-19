@@ -53,12 +53,7 @@ public class OclIteratorCollect implements OclIterator {
 	}
 
 	@Override
-	public OclCollection getSourceType() {
-		return new OclCollection(new OclAny());
-	}
-
-	@Override
-	public OclType getBodyType() {
+	public OclType getExpectedBodyType() {
 		return new OclAny();
 	}
 

@@ -7,9 +7,7 @@ import java.util.List;
 import fr.enseeiht.ocl.xtext.OclType;
 import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
-import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
-import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.utils.ConstructorInstanciator;
 import fr.enseeiht.ocl.xtext.utils.Pair;
 
@@ -47,12 +45,7 @@ public class OclIteratorSelect implements OclIterator {
 	}
 
 	@Override
-	public OclCollection getSourceType() {
-		return new OclCollection(new OclAny());
-	}
-
-	@Override
-	public OclType getBodyType() {
+	public OclType getExpectedBodyType() {
 		return new OclBoolean();
 	}
 

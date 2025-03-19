@@ -7,7 +7,6 @@ import fr.enseeiht.ocl.xtext.ocl.IteratorExp;
 import fr.enseeiht.ocl.xtext.ocl.adapter.AnyInvalid;
 import fr.enseeiht.ocl.xtext.ocl.adapter.Invalid;
 import fr.enseeiht.ocl.xtext.ocl.iterators.OclIterator;
-import fr.enseeiht.ocl.xtext.types.OclAny;
 import fr.enseeiht.ocl.xtext.types.OclBoolean;
 import fr.enseeiht.ocl.xtext.types.OclCollection;
 import fr.enseeiht.ocl.xtext.types.OclInvalid;
@@ -51,12 +50,7 @@ public class OclIteratorAny implements OclIterator {
 	}
 
 	@Override
-	public OclCollection getSourceType() {
-		return new OclCollection(new OclAny());
-	}
-
-	@Override
-	public OclType getBodyType() {
+	public OclType getExpectedBodyType() {
 		return new OclBoolean();
 	}
 
