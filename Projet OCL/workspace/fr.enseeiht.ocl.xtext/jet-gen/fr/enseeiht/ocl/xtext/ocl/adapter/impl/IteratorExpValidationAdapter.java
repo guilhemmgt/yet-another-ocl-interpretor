@@ -122,6 +122,9 @@ public Object getValue(EObject contextTarget) {
 		if (sourceType instanceof OclInvalid) {
 			return sourceType;
 		}
+		if (!sourceType.conformsTo(new OclCollection(new OclAny()))) {
+			return new OclInvalid(new TypeMismatchError(this.target, new OclCollection(null), sourceType));
+		}
 
 		OclIterator iterator = OclIteratorEnum.getIterator(this.target.getName());
 		if (iterator == null) {
